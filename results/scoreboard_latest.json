@@ -1,0 +1,63 @@
+{
+ "sha": "93f3a06c766345317f766c796a6382b70f2889eb",
+ "version": "0.4.4",
+ "time": "2026-09-14_2317",
+ "scoreboard": [
+  {
+   "match_id": "08fd33_0",
+   "ball": "19/20",
+   "ball_pct": 95,
+   "players_per_frame": {
+    "A": 10.0,
+    "B": 10.0
+   },
+   "loose_pct": 31,
+   "passes": 54
+  },
+  {
+   "match_id": "0bfacc_0",
+   "players_per_frame": {
+    "A": 10.0,
+    "B": 10.0
+   },
+   "loose_pct": 5,
+   "passes": 31
+  },
+  {
+   "match_id": "bundesliga1",
+   "ball": "11/18",
+   "ball_pct": 61,
+   "turnovers": "3/9 found, 7 extra (pipeline 10, truth 9)",
+   "turnover_recall": 33,
+   "turnover_precision": 30,
+   "shots": "0/0 found, 0 extra",
+   "goals": "0/0",
+   "direction": "from labels",
+   "turnover_team_agreement": "0/3",
+   "players_per_frame": {
+    "A": 10.0,
+    "B": 11.0
+   },
+   "loose_pct": 18,
+   "passes": 565
+  },
+  {
+   "match_id": "bundesliga2",
+   "ball": "14/17",
+   "ball_pct": 82,
+   "turnovers": "0/1 found, 9 extra (pipeline 9, truth 1)",
+   "turnover_recall": 0,
+   "turnover_precision": 0,
+   "shots": "0/0 found, 0 extra",
+   "goals": "0/0",
+   "direction": "from labels",
+   "turnover_team_agreement": null,
+   "players_per_frame": {
+    "A": 10.0,
+    "B": 10.0
+   },
+   "loose_pct": 14,
+   "passes": 415
+  }
+ ]
+}
