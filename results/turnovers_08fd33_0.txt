@@ -1,0 +1,2 @@
+truth turnovers: []
+ #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
