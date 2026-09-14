@@ -52,6 +52,16 @@ def check_clip(root, match_id, tol_s=2.0, log=print):
 def check_all(root, log=print):
     ids = sorted(os.path.basename(p) for p in glob.glob(os.path.join(root, "runs", "matches", "*")) if os.path.isdir(p))
     res = [check_clip(root, m, log=log) for m in ids]
+    # diagnostics: per-turnover tables, logged and written next to the results if the repo checkout is present
+    out_dir = next((d for d in ("/content/ipanema-analysis/results",) if os.path.isdir(os.path.dirname(d))), None)
+    if out_dir: os.makedirs(out_dir, exist_ok=True)
+    for m in ids:
+        try:
+            tbl = turnover_table(root, m)
+            if tbl:
+                log(f"\n--- turnovers {m} ---"); [log(l) for l in tbl.splitlines()]
+                if out_dir: open(os.path.join(out_dir, f"turnovers_{m}.txt"), "w").write(tbl)
+        except Exception as e: log(f"turnover table failed for {m}: {e!r}")
     return [r for r in res if r]
 
 
