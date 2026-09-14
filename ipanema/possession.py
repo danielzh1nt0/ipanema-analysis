@@ -43,7 +43,7 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0):
         E[k, 1] = 0.6 * max(0.0, d["B"] - 2.5) + 3.5 * flight
         E[k, 2] = 2.2 - 1.6 * flight + (1.2 if min(d.values()) < 2.5 else 0.0)
         E[k, 3] = 0.5 if not onpitch else (1.0 if (s < 0.5 and min(d.values()) > 3.0) else 4.0)
-    SW = np.array([[0, 8.0, 4.0, 3.0], [8.0, 0, 4.0, 3.0], [4.0, 4.0, 0, 3.0], [3.0, 3.0, 3.0, 0]])
+    SW = np.array([[0, 14.0, 4.0, 3.0], [14.0, 0, 4.0, 3.0], [4.0, 4.0, 0, 3.0], [3.0, 3.0, 3.0, 0]])   # a direct team switch is expensive; real turnovers usually pass through loose
     D = np.full((n, 4), np.inf); B = np.zeros((n, 4), int); D[0] = E[0]
     for k in range(1, n):
         for s in range(4):
@@ -157,8 +157,14 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
             for j in range(k0 - 1, max(-1, k0 - int(6.0 * fps)), -1):
                 if poss[j] == loser: prev_ctrl += 1
                 elif poss[j] == winner: break
-            # 3) two real possessions: loser had it >= 2 s, winner keeps it >= 2 s
-            if hold < int(2.0 * fps) or prev_ctrl < int(2.0 * fps): last = cur; continue
+            # 3) two real possessions: loser had it >= 3 s, winner keeps it >= 3 s
+            if hold < int(3.0 * fps) or prev_ctrl < int(3.0 * fps): last = cur; continue
+            # 4) time the turnover at the first frame the winner controls a slow ball (not while it is still travelling)
+            for j in range(k0, min(n, k0 + int(3.0 * fps))):
+                f0 = frames_[j]
+                if f0["team"] == winner and f0["carrier"] is not None:
+                    a, b = ballm.get(j), ballm.get(j - 1)
+                    if a is not None and b is not None and np.linalg.norm(a - b) * fps < 10.0: k0 = j; break
             tv = {"frame": k0, "t": round(k0 / fps, 2), "lost_by": loser, "won_by": winner, "time_to_press": None, "near_at_2s": None, "regained_within_5s": False, "time_to_forward_pass": None, "ball_m_before_press": None, "gain_5s_m": None, "lost_back_5s": False}
             for j in range(k0, min(n, k0 + int(8 * fps))):
                 f = frames_[j]
