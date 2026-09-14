@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ipanema — event labeller</title>
+<style>
+:root{--bg:#0b0d10;--s:#14171c;--w:#2a3038;--t:#e7eaee;--d:#8b94a3;--c:#ede6d6;--r:#e0453a;--g:#5cc46a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px/1.4 Inter,system-ui,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:14px;display:grid;gap:12px}.card{background:var(--s);border:1px solid var(--w);border-radius:14px;padding:12px}
+video{width:100%;border-radius:10px;background:#000}button{background:#1a1e24;color:var(--t);border:1px solid var(--w);border-radius:10px;padding:8px 12px;cursor:pointer}
+button.p{background:var(--c);color:#111;font-weight:700}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+kbd{background:#20242c;border:1px solid var(--w);border-radius:6px;padding:1px 6px;font:12px monospace}
+table{width:100%;border-collapse:collapse}td,th{padding:6px;border-bottom:1px solid #1e232a;text-align:left;font-variant-numeric:tabular-nums}
+.A{color:var(--r)}.B{color:var(--g)}.m{color:var(--d);font-size:12px}select,input{background:#1a1e24;color:var(--t);border:1px solid var(--w);border-radius:8px;padding:6px}
+</style></head><body><div class="wrap">
+<div class="card row"><label>clip <input id="fv" type="file" accept="video/*"></label><span id="st" class="m">load the clip, then use the keys</span></div>
+<div class="card"><video id="v" playsinline controls></video>
+ <div class="row" style="margin-top:8px">
+  <span class="m">Keys while watching:</span>
+  <kbd>1</kbd> A lost the ball &nbsp; <kbd>2</kbd> B lost the ball &nbsp; <kbd>Q</kbd> A shot &nbsp; <kbd>W</kbd> B shot &nbsp; <kbd>G</kbd> goal (last shot) &nbsp; <kbd>Z</kbd> undo &nbsp; <kbd>←</kbd>/<kbd>→</kbd> 2 s &nbsp; <kbd>space</kbd> play/pause
+ </div>
+ <div class="row" style="margin-top:8px">
+  <label>Which way does A attack in this clip? <select id="dir"><option value="">(choose)</option><option value="right">→ right</option><option value="left">← left</option></select></label>
+  <label>A kit <input id="kitA" placeholder="e.g. red"></label><label>B kit <input id="kitB" placeholder="e.g. yellow"></label>
+  <label>A is dark kit? <select id="darkA"><option value="true">yes (A = darker)</option><option value="false">no</option></select></label>
+ </div>
+ <div class="m" style="margin-top:6px">Which team is A and which is B in the pipeline: A = the darker kit. Label with that in mind.</div>
+</div>
+<div class="card"><div class="row" style="justify-content:space-between"><b>Events <span id="n" class="m"></span></b><div class="row"><button id="clear">Clear</button><button class="p" id="dl">Download events_gt.json</button></div></div>
+<table><thead><tr><th>t</th><th>type</th><th>team</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+</div>
+<script>
+const $=s=>document.querySelector(s); const v=$('#v'); let ev=[]; let name="clip";
+$('#fv').onchange=e=>{const f=e.target.files[0]; name=f.name.replace(/\.[^.]+$/,''); v.src=URL.createObjectURL(f); $('#st').textContent=f.name; load();};
+const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}.${Math.floor((s%1)*10)}`;
+function add(type,team){ev.push({t:+v.currentTime.toFixed(2),type,team}); ev.sort((a,b)=>a.t-b.t); render(); save();}
+function render(){$('#tb').innerHTML=ev.map((e,i)=>`<tr><td>${fmt(e.t)}</td><td>${e.type}</td><td class="${e.team||''}">${e.team||'—'}</td><td><button onclick="ev.splice(${i},1);render();save()">✕</button> <button onclick="v.currentTime=Math.max(0,${e.t}-2)">watch</button></td></tr>`).join(''); $('#n').textContent=`(${ev.length})`;}
+function save(){localStorage.setItem('gt_'+name,JSON.stringify(ev));}
+function load(){ev=JSON.parse(localStorage.getItem('gt_'+name)||'[]'); render();}
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
+ const k=e.key.toLowerCase();
+ if(k==='1')add('turnover','A'); else if(k==='2')add('turnover','B'); else if(k==='q')add('shot','A'); else if(k==='w')add('shot','B');
+ else if(k==='g'){const s=[...ev].reverse().find(x=>x.type==='shot'); if(s){s.type='goal';render();save();}}
+ else if(k==='z'){ev.pop();render();save();} else if(k==='arrowleft'){v.currentTime=Math.max(0,v.currentTime-2);} else if(k==='arrowright'){v.currentTime+=2;}
+ else if(k===' '){e.preventDefault(); v.paused?v.play():v.pause();} });
+$('#clear').onclick=()=>{ev=[];render();save();};
+$('#dl').onclick=()=>{const out={clip:name,attack_right_A:$('#dir').value==='right'?true:($('#dir').value==='left'?false:null),kits:{A:$('#kitA').value,B:$('#kitB').value,A_is_dark:$('#darkA').value==='true'},events:ev};
+ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'})); a.download=`events_gt_${name}.json`; a.click();};
+</script></body></html>

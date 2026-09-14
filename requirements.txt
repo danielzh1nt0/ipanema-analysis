@@ -1,0 +1,7 @@
+supervision<0.28
+ultralytics
+umap-learn
+transformers
+sentencepiece
+supabase
+boto3

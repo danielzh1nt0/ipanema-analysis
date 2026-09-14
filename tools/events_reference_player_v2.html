@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ipanema — events reference player</title>
+<style>
+  :root{--bg:#0b0d10;--surface:#14171c;--wire:#2a3038;--text:#e7eaee;--dim:#8b94a3;--faint:#5b6472;--accent:#7c5cff;--red:#f87171;--green:#34d399;--yellow:#fbbf24}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:14px/1.4 Inter,system-ui,sans-serif}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px;display:grid;gap:12px}
+  .card{background:var(--surface);border:1px solid var(--wire);border-radius:14px;padding:12px}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  input[type=file]{color:var(--dim)} button{background:#1a1e24;color:var(--text);border:1px solid var(--wire);border-radius:10px;padding:8px 12px;cursor:pointer}
+  .player{position:relative;background:#000;border-radius:12px;overflow:hidden} video{width:100%;display:block} canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .bar{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:10px}
+  .track{position:relative;height:6px;background:var(--wire);border-radius:3px;cursor:pointer}
+  .fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent);border-radius:3px}
+  .tick{position:absolute;top:-4px;width:2px;height:14px;background:var(--dim)}
+  .time{font-variant-numeric:tabular-nums;font-weight:600;color:var(--dim)}
+  .feed{max-height:320px;overflow:auto} .ev{display:grid;grid-template-columns:52px 1fr 60px;gap:8px;padding:8px 6px;border-bottom:1px solid #1e232a;cursor:pointer;animation:in .25s ease-out}
+  .ev.new{background:rgba(124,92,255,.18)} .ev .t{font-variant-numeric:tabular-nums;font-weight:700;color:var(--dim)} .ev .lag{color:var(--faint);font-size:12px;text-align:right}
+  .lag.bad{color:var(--red)} .tag{font-size:11px;padding:1px 6px;border-radius:6px;border:1px solid var(--wire);color:var(--dim);margin-right:6px}
+  @keyframes in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .muted{color:var(--faint);font-size:12px} .stat{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card row">
+    <label>video <input id="fv" type="file" accept="video/*"></label>
+    <label>match_data.json <input id="fm" type="file" accept=".json"></label>
+    <label>stats.json (optional) <input id="fs" type="file" accept=".json"></label>
+    <span id="status" class="muted">pick the files</span>
+  </div>
+  <div class="card">
+    <div class="player"><video id="v" playsinline></video><canvas id="c"></canvas></div>
+    <div class="bar">
+      <button id="play" type="button" disabled>Play</button>
+      <div class="track" id="track"><div class="fill" id="fill"></div></div>
+      <span class="time" id="time">0:00.0 / 0:00.0</span>
+    </div>
+    <div class="muted" id="check"></div>
+  </div>
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><b>Match events</b><span class="muted stat" id="lagstat">lag: —</span></div>
+    <div class="feed" id="feed"></div>
+  </div>
+</div>
+<script>
+const $=s=>document.querySelector(s); const v=$('#v'), c=$('#c'), ctx=c.getContext('2d');
+let md=null, st=null, events=[], visibleCount=0, lags=[], fps=25;
+const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}.${Math.floor((s%1)*10)}`;
+
+$('#fv').onchange=e=>{ const f=e.target.files[0]; $('#status').textContent=`loading ${f.name} (${(f.size/1e6).toFixed(1)} MB, type "${f.type||'unknown'}")`;
+  v.muted=true; v.src=URL.createObjectURL(f); v.load(); };
+v.addEventListener('loadedmetadata',()=>{ $('#status').textContent=`video ready: ${v.videoWidth}x${v.videoHeight}, ${v.duration.toFixed(1)} s`; });
+v.addEventListener('error',()=>{ const e=v.error; $('#status').textContent=`VIDEO ERROR code ${e&&e.code}: ${e&&e.message||''} — this browser cannot decode the file (try Chrome, or re-encode with ffmpeg -c:v libx264 -pix_fmt yuv420p)`; });
+v.addEventListener('canplay',()=>{ $('#play').disabled=false; });
+$('#fm').onchange=async e=>{ md=JSON.parse(await e.target.files[0].text()); fps=md.fps||25; build(); };
+$('#fs').onchange=async e=>{ st=JSON.parse(await e.target.files[0].text()); build(); };
+
+function build(){
+  if(!md) return; events=[];
+  const name=t=>t; // team names as stored
+  for(const t of (md.turnovers||[])) events.push({id:`to_${t.frame}`, t:t.t, type:'turnover', team:t.lost_by,
+      text:`${name(t.lost_by)} lost the ball · press ${t.time_to_press??'—'} s · ${t.regained_within_5s?'regained':'not regained'}`});
+  for(const r of (md.restarts||[])) events.push({id:`rs_${r.t}`, t:r.t, type:'set piece', team:r.team, text:`${r.kind} · ${r.team??'—'}`});
+  for(const s of (md.sequences||[])) if(['pass intercepted','dispossessed'].includes(s.end_reason))
+      events.push({id:`sq_${s.start}`, t:s.t_end, type:'sequence', team:s.team, text:`${s.team} sequence ended · ${s.end_reason} · ${s.duration_s} s`});
+  for(const p of ((st&&st.passes)||[])) if(p.quality==='bad_lost'||p.quality==='risky_completed'||p.better_option)
+      events.push({id:`ps_${p.t}_${p.from}`, t:p.t, type:'pass', team:p.team, text:`pass ${p.from} → ${p.to} · ${p.kind} · ${p.quality}${p.better_option?' · better option → '+p.best_to:''}`});
+  // dedupe by id, sort by t (the ONLY ordering key), validate
+  const seen=new Set(); events=events.filter(e=>!seen.has(e.id)&&seen.add(e.id)).sort((a,b)=>a.t-b.t);
+  const dur=md.frames.length/fps; const bad=events.filter(e=>!(e.t>=0&&e.t<=dur+1));
+  $('#check').textContent=`data check: ${events.length} events, fps ${fps}, frames ${md.frames.length} (=${dur.toFixed(1)} s)`+(bad.length?` — ${bad.length} events outside the clip!`:' — all event times inside the clip');
+  $('#status').textContent='ready';
+  const tr=$('#track'); tr.querySelectorAll('.tick').forEach(x=>x.remove());
+  for(const e of events){ const k=document.createElement('div'); k.className='tick'; k.style.left=(100*e.t/dur)+'%'; k.style.background=e.type==='turnover'?'var(--red)':e.type==='pass'?'var(--yellow)':'var(--dim)'; tr.appendChild(k); }
+  visibleCount=0; $('#feed').innerHTML=''; lags=[];
+}
+
+// ---- the one clock: video.currentTime, read every animation frame ----
+function frame(){
+  const t=v.currentTime||0, dur=v.duration||0;
+  $('#time').textContent=`${fmt(t)} / ${fmt(dur)}`; $('#fill').style.width=dur?(100*t/dur)+'%':'0';
+  // events: count how many have t <= clock (sorted array -> binary search)
+  let lo=0, hi=events.length; while(lo<hi){const m=(lo+hi)>>1; if(events[m].t<=t) lo=m+1; else hi=m;}
+  if(lo!==visibleCount){ render(lo, t); visibleCount=lo; }
+  drawOverlay(t);
+  requestAnimationFrame(frame);
+}
+function render(n, clock){
+  const feed=$('#feed');
+  if(n<visibleCount){ feed.innerHTML=''; for(let i=n-1;i>=0;i--) feed.appendChild(row(events[i], null)); return; } // backward seek: rebuild
+  for(let i=visibleCount;i<n;i++){ const lag=clock-events[i].t; lags.push(lag); feed.prepend(row(events[i], lag)); }
+  const worst=Math.max(...lags), mean=lags.reduce((a,b)=>a+b,0)/lags.length;
+  $('#lagstat').innerHTML=`lag: mean <span class="${mean>0.1?'bad':''}">${(mean*1000).toFixed(0)} ms</span> · worst <span class="${worst>0.1?'bad':''}">${(worst*1000).toFixed(0)} ms</span> (should be under 100 ms)`;
+}
+function row(e, lag){
+  const d=document.createElement('div'); d.className='ev'+(lag!==null?' new':''); d.onclick=()=>{ v.currentTime=Math.max(0,e.t-2); };
+  d.innerHTML=`<span class="t">${fmt(e.t)}</span><span><span class="tag">${e.type}</span>${e.text}</span><span class="lag ${lag>0.1?'bad':''}">${lag===null?'':'+'+(lag*1000).toFixed(0)+' ms'}</span>`;
+  if(lag!==null) setTimeout(()=>d.classList.remove('new'),400); return d;
+}
+// ---- overlay: player dots + ball from the frame at the clock (interpolated), to prove the same clock drives both ----
+function drawOverlay(t){
+  if(!md||!v.videoWidth) return; if(c.width!==v.videoWidth){c.width=v.videoWidth;c.height=v.videoHeight;}
+  ctx.clearRect(0,0,c.width,c.height); const i=t*fps, i0=Math.min(md.frames.length-1,Math.floor(i)), i1=Math.min(md.frames.length-1,i0+1), a=i-i0;
+  const f0=md.frames[i0], f1=md.frames[i1]; const by=new Map((f1.players||[]).map(p=>[p.id,p]));
+  for(const p of (f0.players||[])){ const q=by.get(p.id); const x=q?p.px[0]+a*(q.px[0]-p.px[0]):p.px[0], y=q?p.px[1]+a*(q.px[1]-p.px[1]):p.px[1];
+    ctx.beginPath(); ctx.ellipse(x,y,16,6,0,0,Math.PI*2); ctx.strokeStyle=p.team===md.teams.light?'#e0453a':'#5cc46a'; ctx.lineWidth=2; ctx.stroke(); }
+  if(f0.ball){ ctx.beginPath(); ctx.arc(f0.ball[0],f0.ball[1],8,0,Math.PI*2); ctx.strokeStyle='#fff'; ctx.lineWidth=2; ctx.stroke(); }
+  if(f0.possession){ ctx.font='bold 22px sans-serif'; ctx.fillStyle='#fff'; ctx.fillText(`${f0.possession} in possession`, 16, 32); }
+}
+$('#play').onclick=async()=>{ if(v.paused){ try{ await v.play(); $('#play').textContent='Pause'; }catch(err){ $('#status').textContent='play() failed: '+err.message; } } else { v.pause(); $('#play').textContent='Play'; } };
+$('#track').onclick=e=>{ const r=e.currentTarget.getBoundingClientRect(); v.currentTime=(e.clientX-r.left)/r.width*(v.duration||0); };
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
