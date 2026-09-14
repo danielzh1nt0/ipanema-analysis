@@ -53,5 +53,8 @@ def run(video_src, match_id=None, settings=None, log=print):
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
     root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log)
+    try:
+        from .upload import upload_match; upload_match(S.root, match_id, log=log)
+    except Exception as e: log(f"upload failed: {e!r}")
     log("\n--- SUMMARY ---"); [log(f"  {k:26s} {v}") for k, v in summary.items()]
     return summary, root, zpath
