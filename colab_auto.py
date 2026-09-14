@@ -29,6 +29,10 @@ def publish(sha, version, board, logs):
     json.dump({"sha": sha, "version": version, "time": ts, "scoreboard": board}, open(f"{CODE}/results/scoreboard_latest.json", "w"), indent=1, default=str)
     json.dump({"sha": sha, "version": version, "time": ts, "scoreboard": board}, open(f"{CODE}/results/scoreboard_{ts}_{sha[:7]}.json", "w"), indent=1, default=str)
     open(f"{CODE}/results/log_latest.txt", "w").write("\n".join(logs[-400:]))
+    from ipanema import check as _chk
+    for clip in sorted(os.listdir(f"{ROOT}/runs/matches")):
+        try: open(f"{CODE}/results/turnovers_{clip}.txt", "w").write(_chk.turnover_table(ROOT, clip))
+        except Exception as e: print("table failed", clip, repr(e))
     r = sh(f"cd {CODE} && git add results && git commit -qm 'results for {sha[:7]} (v{version})' && git push -q origin HEAD:main")
     print("published" if r.returncode == 0 else f"publish failed: {r.stderr[-300:]}")
 seen = None
