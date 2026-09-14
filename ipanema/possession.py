@@ -19,14 +19,18 @@ def carriers(per, ball, H, carrier_r=2.5, near_r=5.0):
         frames_.append(rec)
     return frames_, ballm
 
-def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=8.0):
+def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0):
     n = len(per)
     # 1) impossible jumps are ball-pick errors: drop those frames from the observations
     bad = set()
     for k in sorted(ballm):
         if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > max_speed: bad.add(k)
     for k in bad: ballm.pop(k, None)
-    bspeed = {k: float(np.linalg.norm(ballm[k] - ballm[k - 1]) * fps) for k in ballm if k - 1 in ballm}
+    raw = {k: float(np.linalg.norm(ballm[k] - ballm[k - 1]) * fps) for k in ballm if k - 1 in ballm}
+    # smoothed speed (median over ~0.2 s) so pick jitter does not look like flight
+    w = max(1, int(0.1 * fps)); bspeed = {}
+    for k in raw:
+        win = [raw[j] for j in range(k - w, k + w + 1) if j in raw]; bspeed[k] = float(np.median(win))
     E = np.zeros((n, 4))
     for k in range(n):
         if k not in ballm: continue
@@ -35,9 +39,9 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=8.0):
             ds = [np.linalg.norm(r[2] - bm) for r in per[k] if r[1] == tm]; d[tm] = min(ds) if ds else 30.0
         s = bspeed.get(k, 0.0); flight = 1.0 if s > flight_speed else 0.0
         # 2) a ball in flight belongs to nobody: control is (almost) forbidden while it travels
-        E[k, 0] = 0.6 * max(0.0, d["A"] - 2.5) + 6.0 * flight
-        E[k, 1] = 0.6 * max(0.0, d["B"] - 2.5) + 6.0 * flight
-        E[k, 2] = 2.2 - 2.0 * flight + (1.2 if min(d.values()) < 2.5 else 0.0)
+        E[k, 0] = 0.6 * max(0.0, d["A"] - 2.5) + 3.5 * flight
+        E[k, 1] = 0.6 * max(0.0, d["B"] - 2.5) + 3.5 * flight
+        E[k, 2] = 2.2 - 1.6 * flight + (1.2 if min(d.values()) < 2.5 else 0.0)
         E[k, 3] = 0.5 if not onpitch else (1.0 if (s < 0.5 and min(d.values()) > 3.0) else 4.0)
     SW = np.array([[0, 8.0, 4.0, 3.0], [8.0, 0, 4.0, 3.0], [4.0, 4.0, 0, 3.0], [3.0, 3.0, 3.0, 0]])
     D = np.full((n, 4), np.inf); B = np.zeros((n, 4), int); D[0] = E[0]
@@ -54,7 +58,7 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=8.0):
         if state[i] in (0, 1) and (j - i + 1) < min_run:
             prev_s = state[i - 1] if i > 0 else None; next_s = state[j + 1] if j + 1 < n else None
             if prev_s == next_s and prev_s is not None: state[i:j + 1] = prev_s
-        if state[i] == 2 and (j - i + 1) < int(0.8 * fps):
+        if state[i] == 2 and (j - i + 1) < int(3.0 * fps):          # a pass between teammates is still possession
             prev_s = state[i - 1] if i > 0 else None; next_s = state[j + 1] if j + 1 < n else None
             if prev_s == next_s and prev_s in (0, 1): state[i:j + 1] = prev_s
         i = j + 1
