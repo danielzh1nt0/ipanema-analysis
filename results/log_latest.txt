@@ -1,7 +1,7 @@
-=== 08fd33_0 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
+=== 08fd33_0 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (84% keypoint frames)
-teams: 607 crops, clusters [301, 306], dark share A 0.1 / B 0.01 (A = darker kit)
+teams: 607 crops, clusters [306, 301], dark share A 0.1 / B 0.01 (A = darker kit)
 tracking: cached
 clean: dropped 92 off-pitch, merged 51 duplicates, stitched 10 ids, keepers [] -> A defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 12
@@ -43,10 +43,10 @@ upload: 08fd33_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 0, 'B': 0}
   runtime_min                0.3
-=== 0bfacc_0 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
+=== 0bfacc_0 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (80% keypoint frames)
-teams: 605 crops, clusters [297, 308], dark share A 0.05 / B 0.04 (A = darker kit)
+teams: 605 crops, clusters [308, 297], dark share A 0.05 / B 0.04 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 0 off-pitch, merged 32 duplicates, stitched 12 ids, keepers [] -> A defends left
@@ -89,10 +89,10 @@ upload: 0bfacc_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': None, 'B': 0}
   runtime_min                0.3
-=== bundesliga1 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
+=== bundesliga1 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
 calibration: cached (98% keypoint frames)
-teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker kit)
+teams: 611 crops, clusters [305, 306], dark share A 0.04 / B 0.02 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 587 off-pitch, merged 678 duplicates, stitched 244 ids, keepers [] -> A defends left
@@ -136,10 +136,10 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   high_turnovers             {'A': 1, 'B': 1}
   field_tilt                 {'A': 59, 'B': 72}
   runtime_min                0.5
-=== bundesliga2 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
+=== bundesliga2 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: cached (96% keypoint frames)
-teams: 606 crops, clusters [331, 275], dark share A 0.42 / B 0.03 (A = darker kit)
+teams: 606 crops, clusters [275, 331], dark share A 0.42 / B 0.03 (A = darker kit)
 tracking: cached
 clean: dropped 732 off-pitch, merged 127 duplicates, stitched 224 ids, keepers [153] -> B defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 14
@@ -248,3 +248,34 @@ truth turnovers: [(155.42, 'A')]
  2   110.3    B>A      0.0  10.0    7.3  4.09    1 [1437.3, 472.4]  
  3   150.7    A>B      0.0   8.8    4.7  3.92    1 [1104.1, 441.1]  
 MISSED truth turnover at 155.42 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+== SFKBP1109 ==
+  p15u-2026-vs-bp-1133-2026-09-12.mp4  3589.5 MB  6163.7s
+  Highlights/01 000028_-_Goal.mp4  15.3 MB  25.0s
+  Highlights/02 000028_-_Shot_on_goal.mp4  15.3 MB  25.0s
+  Highlights/03 001010_-_Shot_on_goal.mp4  15.0 MB  25.0s
+  Highlights/04 001423_-_Shot_on_goal.mp4  14.9 MB  25.0s
+  Highlights/05 003623_-_Shot_on_goal.mp4  13.8 MB  25.0s
+  Highlights/06 004025_-_Shot_on_goal.mp4  15.7 MB  25.0s
+  Highlights/07 004338_-_Shot_on_goal.mp4  14.3 MB  25.0s
+  Highlights/08 004339_-_Goal.mp4  14.8 MB  25.0s
+  Highlights/09 004626_-_Shot_on_goal.mp4  13.8 MB  25.0s
+  Highlights/10 004745_-_Shot_on_goal.mp4  17.5 MB  25.0s
+  Highlights/11 005944_-_Shot_on_goal.mp4  14.1 MB  25.0s
+  Highlights/12 010124_-_Shot_on_goal.mp4  14.7 MB  25.0s
+  Highlights/13 010233_-_Shot_on_goal.mp4  14.2 MB  25.0s
+  Highlights/14 010404_-_Shot_on_goal.mp4  14.3 MB  25.0s
+  Highlights/15 010658_-_Shot_on_goal.mp4  13.3 MB  25.0s
+  Highlights/16 010718_-_Shot_on_goal.mp4  12.8 MB  25.0s
+  Highlights/17 011341_-_Shot_on_goal.mp4  14.3 MB  25.0s
+  Highlights/18 011342_-_Goal.mp4  14.0 MB  25.0s
+  Highlights/19 012001_-_Shot_on_goal.mp4  14.6 MB  25.0s
+  Highlights/20 012312_-_Shot_on_goal.mp4  15.4 MB  25.0s
+  Highlights/21 012455_-_Shot_on_goal.mp4  17.0 MB  25.0s
+  Highlights/22 012532_-_Shot_on_goal.mp4  16.0 MB  25.0s
+  Highlights/23 013014_-_Shot_on_goal.mp4  15.1 MB  25.0s
+  Highlights/24 013050_-_Shot_on_goal.mp4  14.3 MB  25.0s
+  Highlights/25 013343_-_Shot_on_goal.mp4  18.3 MB  25.0s
+  Highlights/26 013344_-_Goal.mp4  17.3 MB  25.0s
+  Highlights/27 013456_-_Shot_on_goal.mp4  16.4 MB  25.0s
+  Highlights/28 013614_-_Shot_on_goal.mp4  15.1 MB  25.0s
+  Highlights/29 013749_-_Shot_on_goal.mp4  14.3 MB  25.0s
