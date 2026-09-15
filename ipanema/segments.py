@@ -6,8 +6,9 @@ DEFAULT_SEGMENTS = {"SFKBP1109": [(0, 300)]}     # (start_s, duration_s); more s
 def prepare_segments(root, log=print):
     vids = os.path.join(root, "videos"); made = []
     for match in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
-        full = next((os.path.join(vids, match, f) for f in os.listdir(os.path.join(vids, match)) if f.lower().startswith("full") and f.lower().endswith((".mp4", ".mov", ".mkv"))), None)
-        if not full: continue
+        cands = [os.path.join(vids, match, f) for f in os.listdir(os.path.join(vids, match)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
+        if not cands: continue
+        full = max(cands, key=os.path.getsize)          # the full game is the big one, whatever Veo named it
         cfg = os.path.join(vids, match, "segments.json")
         segs = json.load(open(cfg)) if os.path.exists(cfg) else DEFAULT_SEGMENTS.get(match, [(0, 300)])
         for i, (start, dur) in enumerate(segs, 1):
