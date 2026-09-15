@@ -9,8 +9,11 @@ def build_dataset(root, videos_dir, sports_dir="/content/sports", log=print, min
     for sp in ("train", "val"):
         os.makedirs(f"{ds}/images/{sp}", exist_ok=True); os.makedirs(f"{ds}/labels/{sp}", exist_ok=True)
     n = 0
-    for gt_path in glob.glob(os.path.join(root, "reference", "*", "pitch_kp.json")):
-        clip = os.path.basename(os.path.dirname(gt_path)); gt = json.load(open(gt_path))
+    sources = []
+    for gt_path in glob.glob(os.path.join(root, "reference", "*", "pitch_kp.json")): sources.append((gt_path, json.load(open(gt_path))))
+    for gt_path in glob.glob(os.path.join(root, "reference", "*", "pitch_confirm.json")): sources.append((gt_path, json.load(open(gt_path)).get("keypoints", {})))
+    for gt_path, gt in sources:
+        clip = os.path.basename(os.path.dirname(gt_path))
         vid = next((p for p in glob.glob(f"{videos_dir}/{clip}.*") + glob.glob(f"{videos_dir}/{clip}/*.mp4")), None)
         if vid is None: log(f"  no video for {clip}"); continue
         if os.path.isdir(f"{videos_dir}/{clip}"): vid = max(glob.glob(f"{videos_dir}/{clip}/*.mp4"), key=os.path.getsize)
