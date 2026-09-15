@@ -1,7 +1,7 @@
 === 08fd33_0 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (84% keypoint frames)
-teams: 607 crops, clusters [307, 300], dark share A 0.1 / B 0.01 (A = darker kit)
+teams: 607 crops, clusters [301, 306], dark share A 0.1 / B 0.01 (A = darker kit)
 tracking: cached
 clean: dropped 92 off-pitch, merged 51 duplicates, stitched 10 ids, keepers [] -> A defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 12
