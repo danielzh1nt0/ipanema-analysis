@@ -165,6 +165,6 @@ def publish_mosaic(root, log=print):
         src = max(cands, key=os.path.getsize)          # the full match: the camera pans over the whole pitch
         dst = os.path.join(out_root, f"mosaic_{sub}.jpg")
         if os.path.exists(dst): continue
-        cache = os.path.join(root, "cache", f"{sub}_mosaic.pkl"); os.makedirs(os.path.dirname(cache), exist_ok=True)
+        cache = os.path.join(root, "cache", f"{sub}_mosaic_full.pkl"); os.makedirs(os.path.dirname(cache), exist_ok=True)
         m = build(src, cache, log=log)
         cv2.imwrite(dst, m["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88]); log(f"published mosaic for {sub} -> {dst}")
