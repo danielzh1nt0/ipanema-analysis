@@ -12,7 +12,7 @@ def run(video_src, match_id=None, settings=None, log=print):
     work = os.path.join(S.work, match_id); os.makedirs(work, exist_ok=True)
     cache = os.path.join(S.root, "cache", match_id); os.makedirs(cache, exist_ok=True)
     from . import __version__
-    log(f"=== {match_id} === (ipanema {__version__}; ball weights: {os.path.basename(S.weights['ball'])})")
+    log(f"=== {match_id} === (ipanema {__version__}; ball: {os.path.basename(S.weights['ball'])}; pitch: {os.path.basename(S.weights['pitch'])})")
     video = V.normalise(video_src, os.path.join(work, "video.mp4")); vi = V.info(video)
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
     cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log); H, L, W = cal["H"], cal["L"], cal["W"]

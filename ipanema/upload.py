@@ -3,6 +3,7 @@ import os, json, mimetypes
 
 def _creds():
     keys = ("SUPABASE_URL", "SUPABASE_SERVICE_KEY", "R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")
+    if all(os.environ.get(k) for k in keys): return {k: os.environ[k] for k in keys}      # cached from an earlier successful fetch
     c = {}
     try:
         from google.colab import userdata
@@ -11,7 +12,10 @@ def _creds():
             except Exception: c[k] = os.environ.get(k)
     except Exception:
         c = {k: os.environ.get(k) for k in keys}
-    return c if all(c.get(k) for k in keys) else None
+    if all(c.get(k) for k in keys):
+        for k in keys: os.environ[k] = c[k]
+        return c
+    return None
 
 def upload_match(root, match_id, log=print):
     c = _creds()

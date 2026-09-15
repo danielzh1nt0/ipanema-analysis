@@ -21,5 +21,5 @@ class Settings:
     @property
     def weights(self):
         d = os.path.join(self.sports_dir, "examples/soccer/data")
-        ft = os.path.join(self.root, "models", "ball_finetuned.pt")
-        return {"player": f"{d}/football-player-detection.pt", "ball": ft if os.path.exists(ft) else f"{d}/football-ball-detection.pt", "pitch": f"{d}/football-pitch-detection.pt"}
+        ft = os.path.join(self.root, "models", "ball_finetuned.pt"); pt = os.path.join(self.root, "models", "pitch_finetuned.pt")
+        return {"player": f"{d}/football-player-detection.pt", "ball": ft if os.path.exists(ft) else f"{d}/football-ball-detection.pt", "pitch": pt if os.path.exists(pt) else f"{d}/football-pitch-detection.pt"}
