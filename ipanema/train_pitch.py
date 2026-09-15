@@ -1,7 +1,7 @@
 """Fine-tune the pitch keypoint model on reference/<clip>/pitch_kp.json labels (YOLO pose format, 32 keypoints). Writes models/pitch_finetuned.pt."""
 import os, sys, json, glob, cv2, shutil, random
 
-def build_dataset(root, videos_dir, sports_dir="/content/sports", log=print, min_pts=5):
+def build_dataset(root, videos_dir, sports_dir="/content/sports", log=print, min_pts=4):
     sys.path.append(sports_dir)
     from sports.configs.soccer import SoccerPitchConfiguration
     K = len(SoccerPitchConfiguration().vertices)
@@ -13,7 +13,7 @@ def build_dataset(root, videos_dir, sports_dir="/content/sports", log=print, min
     for gt_path in glob.glob(os.path.join(root, "reference", "*", "pitch_kp.json")): sources.append((gt_path, json.load(open(gt_path))))
     for gt_path in glob.glob(os.path.join(root, "reference", "*", "pitch_confirm.json")): sources.append((gt_path, json.load(open(gt_path)).get("keypoints", {})))
     for gt_path, gt in sources:
-        clip = os.path.basename(os.path.dirname(gt_path))
+        clip = os.path.basename(os.path.dirname(gt_path)); log(f"  {os.path.basename(gt_path)} for {clip}: {len(gt)} labelled frames, {sum(1 for v in gt.values() if v and len([k for k, p in v.items() if p]) >= min_pts)} with >= {min_pts} points")
         vid = next((p for p in glob.glob(f"{videos_dir}/{clip}.*") + glob.glob(f"{videos_dir}/{clip}/*.mp4")), None)
         if vid is None: log(f"  no video for {clip}"); continue
         if os.path.isdir(f"{videos_dir}/{clip}"): vid = max(glob.glob(f"{videos_dir}/{clip}/*.mp4"), key=os.path.getsize)
