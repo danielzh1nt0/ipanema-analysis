@@ -7,8 +7,11 @@ def step(state, ROOT, CODE, REPO):
     sha = sh(f"git ls-remote https://github.com/{REPO}.git refs/heads/main").stdout.split()[0]
     if sha == state.get("seen"): return
     sh(f"cd {CODE} && git fetch -q origin && git reset -q --hard origin/main")
-    msg = sh(f"cd {CODE} && git log -1 --format=%s").stdout.strip()
-    if msg.startswith("results for"): state["seen"] = sha; return                       # our own results commit: nothing to run
+    # run when the newest *code* commit differs from the one the latest results were produced for
+    code_sha = sh(f"cd {CODE} && git log --format=%H --invert-grep --grep='^results for' -1").stdout.strip()
+    last_run = sh(f"cd {CODE} && git log --format=%s --grep='^results for' -1").stdout.strip()
+    if last_run and code_sha[:7] in last_run and state.get("first_done"): state["seen"] = sha; return
+    msg = sh(f"cd {CODE} && git log -1 --format=%s {code_sha}").stdout.strip(); state["first_done"] = True; sha = code_sha
     print(f"\n=== new commit {sha[:7]} at {datetime.datetime.now():%H:%M} — {msg} ===")
     for m in [m for m in sys.modules if m == "ipanema" or m.startswith("ipanema.")]: del sys.modules[m]
     import ipanema
