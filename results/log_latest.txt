@@ -1,7 +1,7 @@
 === 08fd33_0 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (84% keypoint frames)
-teams: 607 crops, clusters [307, 300], dark share A 0.1 / B 0.01 (A = darker kit)
+teams: 607 crops, clusters [301, 306], dark share A 0.1 / B 0.01 (A = darker kit)
 tracking: cached
 clean: dropped 92 off-pitch, merged 51 duplicates, stitched 10 ids, keepers [] -> A defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 12
@@ -92,7 +92,7 @@ upload: 0bfacc_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
 === bundesliga1 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
 calibration: cached (98% keypoint frames)
-teams: 611 crops, clusters [305, 306], dark share A 0.04 / B 0.02 (A = darker kit)
+teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 587 off-pitch, merged 678 duplicates, stitched 244 ids, keepers [] -> A defends left
@@ -139,7 +139,7 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
 === bundesliga2 === (ipanema 0.5.4; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: cached (96% keypoint frames)
-teams: 606 crops, clusters [331, 275], dark share A 0.42 / B 0.03 (A = darker kit)
+teams: 606 crops, clusters [275, 331], dark share A 0.42 / B 0.03 (A = darker kit)
 tracking: cached
 clean: dropped 732 off-pitch, merged 127 duplicates, stitched 224 ids, keepers [153] -> B defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 14
