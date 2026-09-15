@@ -165,7 +165,11 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
                 if f0["team"] == winner and f0["carrier"] is not None:
                     a, b = ballm.get(j), ballm.get(j - 1)
                     if a is not None and b is not None and np.linalg.norm(a - b) * fps < 10.0: k0 = j; break
-            tv = {"frame": k0, "t": round(k0 / fps, 2), "lost_by": loser, "won_by": winner, "time_to_press": None, "near_at_2s": None, "regained_within_5s": False, "time_to_forward_pass": None, "ball_m_before_press": None, "gain_5s_m": None, "lost_back_5s": False}
+            # the loss happened when the loser's control ended (what a coach marks); the win when the winner's began
+            k_lost = k0
+            for j in range(k0 - 1, max(-1, k0 - int(8.0 * fps)), -1):
+                if poss[j] == loser: k_lost = j; break
+            tv = {"frame": k0, "t": round(k_lost / fps, 2), "t_won": round(k0 / fps, 2), "frame_lost": k_lost, "lost_by": loser, "won_by": winner, "time_to_press": None, "near_at_2s": None, "regained_within_5s": False, "time_to_forward_pass": None, "ball_m_before_press": None, "gain_5s_m": None, "lost_back_5s": False}
             for j in range(k0, min(n, k0 + int(8 * fps))):
                 f = frames_[j]
                 if f["team"] == winner and f["pressure_m"] is not None and f["pressure_m"] <= press_r: tv["time_to_press"] = round((j - k0) / fps, 2); break

@@ -30,6 +30,16 @@ def check_clip(root, match_id, tol_s=2.0, log=print):
     ev_files = glob.glob(f"{ref}/events_gt*.json") + glob.glob(f"{root}/reference/events_gt_{match_id}.json")
     if ev_files:
         gt = json.load(open(ev_files[0])); gte = gt["events"]
+        # labels with A/B the wrong way round: if every matched turnover disagrees on the loser, flip the label teams
+        agree = dis = 0
+        for e in [e for e in gte if e["type"] == "turnover" and e.get("team")]:
+            near = [t for t in md["turnovers"] if abs(t["t"] - e["t"]) <= tol_s]
+            if near: agree += near[0]["lost_by"] == e["team"]; dis += near[0]["lost_by"] != e["team"]
+        if dis >= 2 and agree == 0:
+            out["label_teams"] = "SWAPPED in reference file (A<->B) — scored with teams flipped"
+            for e in gte:
+                if e.get("team") in ("A", "B"): e["team"] = "B" if e["team"] == "A" else "A"
+            if gt.get("attack_right_A") is not None: gt["attack_right_A"] = not gt["attack_right_A"]
         pred_to = [t["t"] for t in md["turnovers"]]; gt_to = [e["t"] for e in gte if e["type"] == "turnover"]
         h, m, f = _match(pred_to, gt_to, tol_s); out["turnovers"] = f"{h}/{len(gt_to)} found, {f} extra (pipeline {len(pred_to)}, truth {len(gt_to)})"
         out["turnover_recall"] = round(100 * h / len(gt_to)) if gt_to else None; out["turnover_precision"] = round(100 * h / len(pred_to)) if pred_to else None
