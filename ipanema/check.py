@@ -98,3 +98,23 @@ def turnover_table(root, match_id, tol_s=2.0):
             k = int(round(e["t"] * fps)); seq = "".join((fr[j]["possession"] or "-")[0] for j in range(max(0, k - int(4 * fps)), min(len(fr), k + int(4 * fps)), max(1, int(fps / 5))))
             lines.append(f"MISSED truth turnover at {e['t']} ({e.get('team')} lost): possession -4s..+4s = {seq}")
     return "\n".join(lines)
+
+
+def inventory(root, log=print):
+    """publish what sits in videos/<subfolder>/ (SFK matches): names, sizes, durations — so labels can be built from the Veo filenames"""
+    import subprocess
+    vids = os.path.join(root, "videos"); out = []
+    for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
+        out.append(f"== {sub} ==")
+        for dp, dn, fn in os.walk(os.path.join(vids, sub)):
+            for f in sorted(fn):
+                p = os.path.join(dp, f); rel = os.path.relpath(p, os.path.join(vids, sub)); size = os.path.getsize(p) / 1e6; dur = ""
+                if f.lower().endswith((".mp4", ".mov", ".mkv")):
+                    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p], capture_output=True, text=True)
+                    try: dur = f"{float(r.stdout.strip()):.1f}s"
+                    except Exception: dur = "?"
+                out.append(f"  {rel}  {size:.1f} MB  {dur}")
+    txt = "\n".join(out); log(txt)
+    d = "/content/ipanema-analysis/results"
+    if os.path.isdir(os.path.dirname(d)): os.makedirs(d, exist_ok=True); open(os.path.join(d, "inventory.txt"), "w").write(txt)
+    return txt
