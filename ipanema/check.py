@@ -72,6 +72,8 @@ def check_all(root, log=print):
                 log(f"\n--- turnovers {m} ---"); [log(l) for l in tbl.splitlines()]
                 if out_dir: open(os.path.join(out_dir, f"turnovers_{m}.txt"), "w").write(tbl)
         except Exception as e: log(f"turnover table failed for {m}: {e!r}")
+    try: inventory(root, log=log)
+    except Exception as e: log(f"inventory failed: {e!r}")
     return [r for r in res if r]
 
 

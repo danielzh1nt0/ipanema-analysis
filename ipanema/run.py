@@ -5,6 +5,9 @@ from . import video as V, calibration as C, teams as T, tracking as TR, ball as 
 
 def run(video_src, match_id=None, settings=None, log=print):
     S = settings or Settings(); t0 = time.time()
+    try:
+        from .segments import prepare_segments; prepare_segments(S.root, log=log)     # cut full games into segments before the first clip runs
+    except Exception as e: log(f"segments: {e!r}")
     match_id = match_id or os.path.splitext(os.path.basename(video_src))[0]
     work = os.path.join(S.work, match_id); os.makedirs(work, exist_ok=True)
     cache = os.path.join(S.root, "cache", match_id); os.makedirs(cache, exist_ok=True)
