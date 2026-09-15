@@ -153,18 +153,25 @@ def publish_frames(root, n_frames=40, log=print):
         cap.release(); log(f"published {n_frames} frames of {sub} for labelling")
 
 
-def publish_mosaic(root, log=print):
-    """build and publish the stitched static-camera view of each full game, for one-time calibration"""
-    import cv2
+def publish_mosaic(root, chunk_s=300, n_chunks=6, log=print):
+    """publish sharp per-chunk panoramas of each full game (chaining over a whole match drifts)"""
+    import cv2, subprocess
     from .mosaic import build
     vids = os.path.join(root, "videos"); out_root = "/content/ipanema-analysis/results"
     if not os.path.isdir(os.path.dirname(out_root)): return
     for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
         cands = [os.path.join(vids, sub, f) for f in os.listdir(os.path.join(vids, sub)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
         if not cands: continue
-        src = max(cands, key=os.path.getsize)          # the full match: the camera pans over the whole pitch
-        dst = os.path.join(out_root, f"mosaic_{sub}.jpg")
-        if os.path.exists(dst): continue
-        cache = os.path.join(root, "cache", f"{sub}_mosaic_full.pkl"); os.makedirs(os.path.dirname(cache), exist_ok=True)
-        m = build(src, cache, log=log)
-        cv2.imwrite(dst, m["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88]); log(f"published mosaic for {sub} -> {dst}")
+        full = max(cands, key=os.path.getsize)
+        r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", full], capture_output=True, text=True)
+        dur = float(r.stdout.strip() or 0)
+        for i in range(n_chunks):
+            start = int(i * dur / n_chunks)
+            dst = os.path.join(out_root, f"mosaic_{sub}_c{i+1}.jpg")
+            if os.path.exists(dst): continue
+            piece = os.path.join(root, "cache", f"{sub}_chunk{i+1}.mp4"); os.makedirs(os.path.dirname(piece), exist_ok=True)
+            if not os.path.exists(piece):
+                subprocess.run(["ffmpeg", "-y", "-ss", str(start), "-i", full, "-t", str(chunk_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-an", piece], capture_output=True)
+            cache = os.path.join(root, "cache", f"{sub}_mosaic_c{i+1}.pkl")
+            m = build(piece, cache, stride=25, canvas=(4200, 1500), log=log)
+            cv2.imwrite(dst, m["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88]); log(f"published mosaic chunk {i+1} for {sub} (from {start}s)")
