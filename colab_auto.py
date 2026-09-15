@@ -33,8 +33,12 @@ def publish(sha, version, board, logs):
     for clip in sorted(os.listdir(f"{ROOT}/runs/matches")):
         try: open(f"{CODE}/results/turnovers_{clip}.txt", "w").write(_chk.turnover_table(ROOT, clip))
         except Exception as e: print("table failed", clip, repr(e))
-    r = sh(f"cd {CODE} && git add results && git commit -qm 'results for {sha[:7]} (v{version})' && git push -q origin HEAD:main")
-    print("published" if r.returncode == 0 else f"publish failed: {r.stderr[-300:]}")
+    sh(f"cd {CODE} && git add results && git commit -qm 'results for {sha[:7]} (v{version})'")
+    for attempt in range(3):
+        r = sh(f"cd {CODE} && git push -q origin HEAD:main")
+        if r.returncode == 0: print("published"); return
+        sh(f"cd {CODE} && git pull -q --rebase -X theirs origin main")      # the branch moved (a new commit landed mid-run): rebase our results on top and retry
+    print(f"publish failed: {r.stderr[-300:]}")
 seen = None
 print("AUTO: watching", REPO, "— leave this cell running")
 while True:
@@ -43,7 +47,7 @@ while True:
         if sha != seen:
             print(f"\n=== new commit {sha[:7]} at {datetime.datetime.now():%H:%M} — pulling and running ===")
             sh(f"cd {CODE} && git fetch -q origin && git reset -q --hard origin/main")
-            version, board, logs = run_all(); publish(sha, version, board, logs); seen = remote_sha()
+            version, board, logs = run_all(); publish(sha, version, board, logs); seen = sha      # only the commit we actually ran
             print("=== done; waiting for the next commit ===")
         time.sleep(60)
     except KeyboardInterrupt: break
