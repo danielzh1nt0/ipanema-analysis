@@ -74,6 +74,8 @@ def check_all(root, log=print):
         except Exception as e: log(f"turnover table failed for {m}: {e!r}")
     try: inventory(root, log=log)
     except Exception as e: log(f"inventory failed: {e!r}")
+    try: publish_frames(root, log=log)
+    except Exception as e: log(f"publish_frames failed: {e!r}")
     return [r for r in res if r]
 
 
@@ -130,3 +132,20 @@ def inventory(root, log=print):
     d = "/content/ipanema-analysis/results"
     if os.path.isdir(os.path.dirname(d)): os.makedirs(d, exist_ok=True); open(os.path.join(d, "inventory.txt"), "w").write(txt)
     return txt
+
+
+def publish_frames(root, n_frames=40, log=print):
+    """write sampled frames of each full game to the results folder so they can be labelled off-Colab"""
+    import cv2
+    vids = os.path.join(root, "videos"); out_root = "/content/ipanema-analysis/results"
+    if not os.path.isdir(os.path.dirname(out_root)): return
+    for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
+        cands = [os.path.join(vids, sub, f) for f in os.listdir(os.path.join(vids, sub)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
+        if not cands: continue
+        full = max(cands, key=os.path.getsize); od = os.path.join(out_root, f"frames_{sub}"); os.makedirs(od, exist_ok=True)
+        if len(glob.glob(f"{od}/*.jpg")) >= n_frames: continue
+        cap = cv2.VideoCapture(full); n = int(cap.get(7))
+        for k in range(n_frames):
+            i = int(round(k * (n - 1) / (n_frames - 1))); cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, f = cap.read()
+            if ok: cv2.imwrite(f"{od}/f{i:07d}.jpg", cv2.resize(f, (1280, 720)), [cv2.IMWRITE_JPEG_QUALITY, 78])
+        cap.release(); log(f"published {n_frames} frames of {sub} for labelling")
