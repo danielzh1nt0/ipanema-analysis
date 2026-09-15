@@ -40,7 +40,7 @@ def label_pitch(video, clip_id, root, sports_dir="/content/sports", n_frames=80,
 <div style="font:13px monospace;color:#ddd;display:flex;gap:12px;align-items:flex-start">
  <div><div id="p" style="color:#ffd54f;font-size:15px;margin-bottom:4px"></div>
   <canvas id="cv" width="1280" height="{int(1280*H_full/W_full)}" style="max-width:100%;border:1px solid #444;cursor:crosshair"></canvas>
-  <div style="margin-top:4px">Click the highlighted landmark in the frame · <b>S</b> not visible · <b>U</b> undo · <b>N</b> next frame · <b>B</b> previous frame · <b>D</b> done with this frame</div></div>
+  <div style="margin-top:4px"><b>1.</b> Click a landmark you can see on the small pitch (right) · <b>2.</b> click it in the frame · repeat for 5–8 visible landmarks · <b>N</b> next frame · <b>B</b> previous · <b>U</b> undo · <b>S</b> skip landmark</div></div>
  <div><canvas id="mini" width="420" height="{int(420*W/L)}" style="border:1px solid #444;background:#163"></canvas><div id="stat"></div></div>
 </div>
 <script>
@@ -56,6 +56,7 @@ function show(){{im.onload=()=>{{drawFrame();drawMini();status();}};im.src='data
 function save(){{google.colab.kernel.invokeFunction('ipanema_save_kp',[JSON.stringify(gt)],{{}});}}
 function nextK(){{ki=Math.min(V.length-1,ki+1);drawMini();status();}}
 c.onclick=e=>{{const r=c.getBoundingClientRect();const X=(e.clientX-r.left)*c.width/r.width*SX,Y=(e.clientY-r.top)*c.height/r.height*SY;(gt[IDX[fi]]=gt[IDX[fi]]||{{}})[ki]=[Math.round(X),Math.round(Y)];save();drawFrame();nextK();}};
+m.onclick=e=>{{const r=m.getBoundingClientRect();const X=(e.clientX-r.left)*m.width/r.width,Y=(e.clientY-r.top)*m.height/r.height;let best=0,bd=1e9;V.forEach((v,i)=>{{const p=px(v);const d=Math.hypot(p[0]-X,p[1]-Y);if(d<bd){{bd=d;best=i;}}}});ki=best;drawMini();status();}};
 document.addEventListener('keydown',e=>{{const q=e.key.toLowerCase();
  if(q==='s'){{(gt[IDX[fi]]=gt[IDX[fi]]||{{}})[ki]=null;save();nextK();}}
  else if(q==='u'){{ki=Math.max(0,ki-1);if(gt[IDX[fi]])delete gt[IDX[fi]][ki];save();drawFrame();drawMini();status();}}
