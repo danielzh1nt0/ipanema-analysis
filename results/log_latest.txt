@@ -1,4 +1,4 @@
-=== 08fd33_0 === (ipanema 0.7.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== 08fd33_0 === (ipanema 0.7.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (84% keypoint frames)
 teams: 607 crops, clusters [301, 306], dark share A 0.1 / B 0.01 (A = darker kit)
@@ -42,11 +42,11 @@ upload: 08fd33_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 0, 'B': 0}
-  runtime_min                1.5
-=== 0bfacc_0 === (ipanema 0.7.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                0.3
+=== 0bfacc_0 === (ipanema 0.7.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (80% keypoint frames)
-teams: 605 crops, clusters [297, 308], dark share A 0.05 / B 0.04 (A = darker kit)
+teams: 605 crops, clusters [308, 297], dark share A 0.05 / B 0.04 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 0 off-pitch, merged 32 duplicates, stitched 12 ids, keepers [] -> A defends left
@@ -88,11 +88,11 @@ upload: 0bfacc_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': None, 'B': 0}
-  runtime_min                0.6
-=== SFKBP1109_seg1 === (ipanema 0.7.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                0.3
+=== SFKBP1109_seg1 === (ipanema 0.7.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: cached (74% keypoint frames)
-teams: 601 crops, clusters [213, 388], dark share A 0.44 / B 0.27 (A = darker kit)
+teams: 601 crops, clusters [385, 216], dark share A 0.44 / B 0.27 (A = darker kit)
 tracking: cached
 clean: dropped 16789 off-pitch, merged 1059 duplicates, stitched 420 ids, keepers [1184, 1255, 1376, 1557, 1758, 1799] -> A defends left
 clean: players per frame median A 2 / B 1, max A 12 / B 11
@@ -133,11 +133,11 @@ upload: SFKBP1109_seg1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B,
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 0, 'B': 0}
-  runtime_min                4.0
-=== bundesliga1 === (ipanema 0.7.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                1.2
+=== bundesliga1 === (ipanema 0.7.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
 calibration: cached (98% keypoint frames)
-teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker kit)
+teams: 611 crops, clusters [305, 306], dark share A 0.04 / B 0.02 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 587 off-pitch, merged 678 duplicates, stitched 244 ids, keepers [] -> A defends left
@@ -180,11 +180,11 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 1, 'B': 1}
   field_tilt                 {'A': 59, 'B': 72}
-  runtime_min                2.5
-=== bundesliga2 === (ipanema 0.7.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                0.5
+=== bundesliga2 === (ipanema 0.7.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: cached (96% keypoint frames)
-teams: 606 crops, clusters [331, 275], dark share A 0.42 / B 0.03 (A = darker kit)
+teams: 606 crops, clusters [275, 331], dark share A 0.42 / B 0.03 (A = darker kit)
 tracking: cached
 clean: dropped 732 off-pitch, merged 127 duplicates, stitched 224 ids, keepers [153] -> B defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 14
@@ -226,7 +226,7 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 6, 'B': 5}
-  runtime_min                2.2
+  runtime_min                0.5
 --- 08fd33_0 ---
   ball                       19/20
   ball_pct                   95
@@ -332,3 +332,110 @@ MISSED truth turnover at 155.42 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBB
   Highlights/27 013456_-_Shot_on_goal.mp4  16.4 MB  25.0s
   Highlights/28 013614_-_Shot_on_goal.mp4  15.1 MB  25.0s
   Highlights/29 013749_-_Shot_on_goal.mp4  14.3 MB  25.0s
+  mosaic frame 0 (1 stitched)
+  mosaic: drift at frame 1650, skipping
+  mosaic frame 6000 (40 stitched)
+  mosaic: drift at frame 9300, skipping
+  mosaic frame 12000 (79 stitched)
+  mosaic: drift at frame 12150, skipping
+  mosaic frame 18000 (118 stitched)
+  mosaic: lost registration at frame 20400
+  mosaic: drift at frame 22950, skipping
+  mosaic frame 24000 (156 stitched)
+  mosaic: drift at frame 26400, skipping
+  mosaic: drift at frame 26850, skipping
+  mosaic: drift at frame 27150, skipping
+  mosaic: drift at frame 27300, skipping
+  mosaic: lost registration at frame 27450
+  mosaic: drift at frame 28650, skipping
+  mosaic: drift at frame 29700, skipping
+  mosaic: drift at frame 30000, skipping
+  mosaic: drift at frame 30150, skipping
+  mosaic: drift at frame 31650, skipping
+  mosaic: drift at frame 32550, skipping
+  mosaic: drift at frame 33150, skipping
+  mosaic: drift at frame 33300, skipping
+  mosaic: drift at frame 34200, skipping
+  mosaic: lost registration at frame 35100
+  mosaic frame 36000 (221 stitched)
+  mosaic: drift at frame 36750, skipping
+  mosaic: drift at frame 36900, skipping
+  mosaic: drift at frame 38250, skipping
+  mosaic: drift at frame 40350, skipping
+  mosaic frame 42000 (257 stitched)
+  mosaic: drift at frame 43500, skipping
+  mosaic: drift at frame 45750, skipping
+  mosaic: drift at frame 46950, skipping
+  mosaic: drift at frame 47700, skipping
+  mosaic: drift at frame 47850, skipping
+  mosaic frame 48000 (292 stitched)
+  mosaic: drift at frame 51750, skipping
+  mosaic: lost registration at frame 52500
+  mosaic: drift at frame 54000, skipping
+  mosaic: drift at frame 54750, skipping
+  mosaic: drift at frame 55350, skipping
+  mosaic frame 60000 (367 stitched)
+  mosaic: drift at frame 61950, skipping
+  mosaic: drift at frame 65250, skipping
+  mosaic: drift at frame 65400, skipping
+  mosaic frame 66000 (404 stitched)
+  mosaic: drift at frame 67350, skipping
+  mosaic: drift at frame 67500, skipping
+  mosaic: drift at frame 67650, skipping
+  mosaic: drift at frame 70800, skipping
+  mosaic: drift at frame 70950, skipping
+  mosaic: drift at frame 71250, skipping
+  mosaic frame 72000 (438 stitched)
+  mosaic: drift at frame 72300, skipping
+  mosaic: drift at frame 76200, skipping
+  mosaic frame 78000 (476 stitched)
+  mosaic: drift at frame 78750, skipping
+  mosaic: drift at frame 82350, skipping
+  mosaic frame 84000 (514 stitched)
+  mosaic: drift at frame 86400, skipping
+  mosaic frame 90000 (553 stitched)
+  mosaic frame 96000 (593 stitched)
+  mosaic frame 102000 (633 stitched)
+  mosaic: drift at frame 105450, skipping
+  mosaic frame 108000 (672 stitched)
+  mosaic: drift at frame 108300, skipping
+  mosaic: drift at frame 112050, skipping
+  mosaic: drift at frame 112350, skipping
+  mosaic frame 114000 (709 stitched)
+  mosaic: drift at frame 114600, skipping
+  mosaic: lost registration at frame 115500
+  mosaic: drift at frame 116550, skipping
+  mosaic: drift at frame 116850, skipping
+  mosaic frame 120000 (745 stitched)
+  mosaic: lost registration at frame 121950
+  mosaic frame 126000 (784 stitched)
+  mosaic: lost registration at frame 130800
+  mosaic frame 132000 (823 stitched)
+  mosaic: lost registration at frame 134850
+  mosaic: lost registration at frame 135150
+  mosaic: lost registration at frame 135450
+  mosaic frame 138000 (860 stitched)
+  mosaic: drift at frame 139050, skipping
+  mosaic: drift at frame 141750, skipping
+  mosaic: lost registration at frame 142200
+  mosaic: drift at frame 142800, skipping
+  mosaic frame 144000 (896 stitched)
+  mosaic frame 150000 (936 stitched)
+  mosaic: lost registration at frame 155400
+  mosaic: lost registration at frame 155700
+  mosaic frame 156000 (974 stitched)
+  mosaic frame 162000 (1014 stitched)
+  mosaic frame 168000 (1054 stitched)
+  mosaic: lost registration at frame 168300
+  mosaic: drift at frame 170250, skipping
+  mosaic: drift at frame 170850, skipping
+  mosaic: lost registration at frame 171750
+  mosaic: lost registration at frame 173250
+  mosaic frame 174000 (1089 stitched)
+  mosaic: drift at frame 174900, skipping
+  mosaic: drift at frame 178200, skipping
+  mosaic frame 180000 (1127 stitched)
+  mosaic: lost registration at frame 184500
+  mosaic: lost registration at frame 184650
+mosaic: 1156 frames stitched over 184725 (6164 s)
+published mosaic for SFKBP1109 -> /content/ipanema-analysis/results/mosaic_SFKBP1109.jpg
