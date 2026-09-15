@@ -16,41 +16,34 @@ def _homog(bf, k1, d1, k2, d2, scale=0.5, min_inl=25):
     if H is None or inl.sum() < min_inl: return None
     S = np.diag([scale, scale, 1.0]); return np.linalg.inv(S) @ H @ S, int(inl.sum())
 
-def build(video, cache, stride=25, canvas=(4200, 1500), log=print):
-    """stitch a mosaic; returns {mosaic, H_to_mosaic: {frame_index: 3x3}, ref_index}"""
+def build(video, cache, stride=150, canvas=(7000, 2200), log=print):
+    """stitch a mosaic by streaming the video (constant memory); returns {mosaic, H_to_mosaic, ...}"""
     if os.path.exists(cache):
         m = pickle.load(open(cache, "rb")); log(f"mosaic: cached ({len(m['H_to_mosaic'])} registered frames)"); return m
-    vi = info(video); n = vi["n"]; sift = cv2.SIFT_create(nfeatures=4000); bf = cv2.BFMatcher(cv2.NORM_L2)
-    keys = list(range(0, n, stride)); F = {}
-    cap = cv2.VideoCapture(video); k = 0; imgs = {}
-    while True:
-        ok, f = cap.read()
-        if not ok: break
-        if k in keys: imgs[k] = f
-        k += 1
-    cap.release(); log(f"mosaic: {len(imgs)} sampled frames")
-    for i in keys:
-        if i in imgs: F[i] = _feats(sift, imgs[i])
-    ref = keys[len(keys) // 2]
+    vi = info(video); sift = cv2.SIFT_create(nfeatures=4000); bf = cv2.BFMatcher(cv2.NORM_L2)
     W, Hc = canvas; off = np.array([[1, 0, (W - vi["width"]) / 2], [0, 1, (Hc - vi["height"]) / 2], [0, 0, 1]], np.float64)
-    Hs = {ref: off.copy()}
-    for direction in (1, -1):
-        idx = keys[keys.index(ref)::direction]
-        for a, b in zip(idx, idx[1:]):
-            if a not in Hs or b not in F or a not in F: continue
-            r = _homog(bf, F[b][0], F[b][1], F[a][0], F[a][1])
-            if r is None: continue
-            Hab, _ = r; Hs[b] = Hs[a] @ Hab
-    log(f"mosaic: registered {len(Hs)}/{len(keys)} sampled frames")
     acc = np.zeros((Hc, W, 3), np.float32); cnt = np.zeros((Hc, W, 1), np.float32)
-    for i, H in sorted(Hs.items()):
-        if i not in imgs: continue
-        warp = cv2.warpPerspective(imgs[i].astype(np.float32), H, (W, Hc))
-        mask = cv2.warpPerspective(np.ones(imgs[i].shape[:2], np.float32), H, (W, Hc))[..., None]
+    Hs = {}; prev = None; prevH = None; n_used = 0
+    for k, f in frames(video):
+        if k % stride: continue
+        cur = _feats(sift, f)
+        if prev is None: H = off.copy()
+        else:
+            r = _homog(bf, cur[0], cur[1], prev[0], prev[1])
+            if r is None: log(f"  mosaic: lost registration at frame {k}"); prev = cur; continue
+            H = prevH @ r[0]
+        # guard against drift: reject wild transforms
+        corners = cv2.perspectiveTransform(np.float32([[[0, 0]], [[vi["width"], 0]], [[vi["width"], vi["height"]]], [[0, vi["height"]]]]), H).reshape(-1, 2)
+        if corners.min() < -W or corners.max() > 2 * W: log(f"  mosaic: drift at frame {k}, skipping"); prev = cur; continue
+        Hs[k] = H; prev, prevH = cur, H; n_used += 1
+        warp = cv2.warpPerspective(f.astype(np.float32), H, (W, Hc))
+        mask = cv2.warpPerspective(np.ones(f.shape[:2], np.float32), H, (W, Hc))[..., None]
         acc += warp * mask; cnt += mask
+        if k % (stride * 40) == 0: log(f"  mosaic frame {k} ({n_used} stitched)")
     mosaic = (acc / np.maximum(cnt, 1e-3)).astype(np.uint8)
-    out = {"mosaic": mosaic, "H_to_mosaic": Hs, "ref_index": ref, "stride": stride, "size": (W, Hc), "video_size": (vi["width"], vi["height"])}
-    pickle.dump(out, open(cache, "wb")); return out
+    out = {"mosaic": mosaic, "H_to_mosaic": Hs, "stride": stride, "size": (W, Hc), "video_size": (vi["width"], vi["height"])}
+    log(f"mosaic: {n_used} frames stitched over {vi['n']} ({vi['n']/vi['fps']:.0f} s)")
+    pickle.dump({k: v for k, v in out.items() if k != "mosaic"} | {"mosaic": mosaic}, open(cache, "wb")); return out
 
 def register_all(video, mos, log=print):
     """homography from every frame to the mosaic (interpolating between sampled frames by direct matching)"""

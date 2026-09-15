@@ -162,8 +162,7 @@ def publish_mosaic(root, log=print):
     for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
         cands = [os.path.join(vids, sub, f) for f in os.listdir(os.path.join(vids, sub)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
         if not cands: continue
-        seg = os.path.join(vids, f"{sub}_seg1.mp4")
-        src = seg if os.path.exists(seg) else max(cands, key=os.path.getsize)
+        src = max(cands, key=os.path.getsize)          # the full match: the camera pans over the whole pitch
         dst = os.path.join(out_root, f"mosaic_{sub}.jpg")
         if os.path.exists(dst): continue
         cache = os.path.join(root, "cache", f"{sub}_mosaic.pkl"); os.makedirs(os.path.dirname(cache), exist_ok=True)
