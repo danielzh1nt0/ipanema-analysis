@@ -1,7 +1,7 @@
-=== 08fd33_0 === (ipanema 0.5.1; ball weights: ball_finetuned.pt)
+=== 08fd33_0 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (84% keypoint frames)
-teams: 607 crops, clusters [306, 301], dark share A 0.1 / B 0.01 (A = darker kit)
+teams: 607 crops, clusters [301, 306], dark share A 0.1 / B 0.01 (A = darker kit)
 tracking: cached
 clean: dropped 92 off-pitch, merged 51 duplicates, stitched 10 ids, keepers [] -> A defends left
 clean: players per frame median A 10 / B 10, max A 12 / B 12
@@ -43,7 +43,7 @@ upload: 08fd33_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 0, 'B': 0}
   runtime_min                0.3
-=== 0bfacc_0 === (ipanema 0.5.1; ball weights: ball_finetuned.pt)
+=== 0bfacc_0 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 25.0 fps, 750 frames (30 s)
 calibration: cached (80% keypoint frames)
 teams: 605 crops, clusters [297, 308], dark share A 0.05 / B 0.04 (A = darker kit)
@@ -89,10 +89,10 @@ upload: 0bfacc_0 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': None, 'B': 0}
   runtime_min                0.3
-=== bundesliga1 === (ipanema 0.5.1; ball weights: ball_finetuned.pt)
+=== bundesliga1 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
 calibration: cached (98% keypoint frames)
-teams: 611 crops, clusters [305, 306], dark share A 0.04 / B 0.02 (A = darker kit)
+teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker kit)
   WARNING: kits are not clearly one dark and one light — check kit strips
 tracking: cached
 clean: dropped 587 off-pitch, merged 678 duplicates, stitched 244 ids, keepers [] -> A defends left
@@ -136,7 +136,7 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   high_turnovers             {'A': 1, 'B': 1}
   field_tilt                 {'A': 59, 'B': 72}
   runtime_min                0.5
-=== bundesliga2 === (ipanema 0.5.1; ball weights: ball_finetuned.pt)
+=== bundesliga2 === (ipanema 0.5.3; ball weights: ball_finetuned.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: cached (96% keypoint frames)
 teams: 606 crops, clusters [331, 275], dark share A 0.42 / B 0.03 (A = darker kit)
@@ -195,13 +195,13 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
 --- bundesliga1 ---
   ball                       11/18
   ball_pct                   61
-  turnovers                  2/9 found, 0 extra (pipeline 2, truth 9)
-  turnover_recall            22
-  turnover_precision         100
+  turnovers                  1/9 found, 1 extra (pipeline 2, truth 9)
+  turnover_recall            11
+  turnover_precision         50
   shots                      0/0 found, 0 extra
   goals                      0/0
   direction                  from labels
-  turnover_team_agreement    0/2
+  turnover_team_agreement    0/1
   players_per_frame          {'A': 10.0, 'B': 11.0}
   loose_pct                  18
   passes                     565
@@ -230,11 +230,12 @@ truth turnovers: []
 --- turnovers bundesliga1 ---
 truth turnovers: [(52.71, 'A'), (53.92, 'B'), (86.86, 'B'), (91.66, 'A'), (106.36, 'B'), (123.11, 'A'), (139.95, 'B'), (165.61, 'A'), (199.61, 'A')]
  #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
- 1    90.8    B>A      5.8   0.0    4.2  3.64    2 [939.1, 450.6]  TRUTH A lost
- 2   105.2    A>B      6.0   0.0    7.0  8.07    0 [1303.5, 400.5]  TRUTH B lost
+ 1    90.7    B>A      0.0   3.3    1.5  3.35    1 [1018.8, 464.0]  TRUTH A lost
+ 2   104.1    A>B      0.0   4.4   12.9  6.53    0 [1289.6, 400.2]  
 MISSED truth turnover at 52.71 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBBB--ABBBBBBBBBBBBBBBBBBBB
 MISSED truth turnover at 53.92 (B lost): possession -4s..+4s = BBBBBBBBBB---ABBBBBBBBBBBBBBBBBBBBBBBBBB
 MISSED truth turnover at 86.86 (B lost): possession -4s..+4s = AAAAAAAAAAAAAAAAAAAA--BBBB-BBBBBBBBBBBBB
+MISSED truth turnover at 106.36 (B lost): possession -4s..+4s = AAAAAAAAA-----BBBBBBBBBBBBBBBBBBBBBBBBBB
 MISSED truth turnover at 123.11 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 MISSED truth turnover at 139.95 (B lost): possession -4s..+4s = ---AAAAAAAAAA----------------------BBBBB
 MISSED truth turnover at 165.61 (A lost): possession -4s..+4s = BB-------------------BBBBBBBBBBBBBBBBBBB
@@ -243,7 +244,7 @@ MISSED truth turnover at 199.61 (A lost): possession -4s..+4s = ----------------
 --- turnovers bundesliga2 ---
 truth turnovers: [(155.42, 'A')]
  #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
- 1    91.3    A>B      6.0   0.0    9.1  1.12    1 [969.9, 447.5]  
- 2   110.8    B>A      6.0   0.0    6.9 16.14    0 [1469.6, 478.5]  
- 3   151.5    A>B      6.0   0.0   21.2  5.41    0 [392.1, 590.6]  
+ 1    90.9    A>B      0.0  10.0   15.1  4.11    1 [997.1, 442.4]  
+ 2   110.3    B>A      0.0  10.0    7.3  4.09    1 [1437.3, 472.4]  
+ 3   150.7    A>B      0.0   8.8    4.7  3.92    1 [1104.1, 441.1]  
 MISSED truth turnover at 155.42 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
