@@ -15,7 +15,20 @@ def run(video_src, match_id=None, settings=None, log=print):
     log(f"=== {match_id} === (ipanema {__version__}; ball: {os.path.basename(S.weights['ball'])}; pitch: {os.path.basename(S.weights['pitch'])})")
     video = V.normalise(video_src, os.path.join(work, "video.mp4")); vi = V.info(video)
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
-    cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log); H, L, W = cal["H"], cal["L"], cal["W"]
+    from .mosaic import calibrate_via_mosaic
+    Hm = None
+    try: Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
+    except Exception as e: log(f"mosaic calibration failed: {e!r}")
+    if Hm:
+        from .calibration import _pitch_config
+        _, L, W = _pitch_config(S.sports_dir)
+        valid = sorted(Hm)
+        H = {k: (Hm[k] if k in Hm else Hm[min(valid, key=lambda v: abs(v - k))]) for k in range(vi["n"])}
+        cal = {"coverage": len(Hm) / max(1, vi["n"]), "frozen": vi["n"] - len(Hm), "H": H, "L": L, "W": W}
+        log(f"calibration: from panorama, {len(Hm)}/{vi['n']} frames registered")
+    else:
+        cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log)
+    H, L, W = cal["H"], cal["L"], cal["W"]
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     trk = f"{cache}/tracks.pkl"
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")

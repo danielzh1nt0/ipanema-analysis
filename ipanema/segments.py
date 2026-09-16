@@ -1,7 +1,7 @@
 """Full-game handling: cut segments of videos/<match>/full.mp4 into videos/<match>_segN.mp4 so the normal loop processes them."""
 import os, subprocess, json
 
-DEFAULT_SEGMENTS = {"SFKBP1109": [(0, 300)]}     # (start_s, duration_s); more segments are added once the first one is checked
+DEFAULT_SEGMENTS = {"SFKBP1109": [(3082, 300)]}   # the 5 min covered by the calibrated panorama (chunk 4)     # (start_s, duration_s); more segments are added once the first one is checked
 
 def prepare_segments(root, log=print):
     vids = os.path.join(root, "videos"); made = []

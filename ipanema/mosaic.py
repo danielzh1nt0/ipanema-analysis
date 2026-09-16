@@ -67,3 +67,35 @@ def register_all(video, mos, log=print):
         Hs[k] = base @ r[0]
         if k % 500 == 0: log(f"  mosaic register frame {k}")
     return Hs
+
+
+def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", log=print):
+    """per-frame pitch homography from a hand-calibrated panorama: H_pitch->frame = inv(H_frame->mosaic) @ H_pitch->mosaic"""
+    import json, glob
+    cal = os.path.join(code_dir, "calibration", f"{clip_id.split('_seg')[0]}.json")
+    if not os.path.exists(cal): return None
+    spec = json.load(open(cal)); Hpm = np.array(spec["H_pitch_to_mosaic"], np.float64)
+    cache = os.path.join(root, "cache", f"{clip_id}_mosaic_seg.pkl")
+    mos = build(video, cache, stride=25, canvas=(4200, 1500), log=log)
+    Hs = {}
+    sift = cv2.SIFT_create(nfeatures=3000); bf = cv2.BFMatcher(cv2.NORM_L2)
+    keys = sorted(mos["H_to_mosaic"]); ref_feats = {}
+    cap = cv2.VideoCapture(video)
+    for k in keys:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: ref_feats[k] = _feats(sift, f)
+    cap.release()
+    ok_n = 0
+    for k, f in frames(video):
+        near = min(keys, key=lambda q: abs(q - k))
+        base = mos["H_to_mosaic"][near]
+        if k == near: Hfm = base
+        else:
+            r = _homog(bf, *_feats(sift, f), *ref_feats[near])
+            if r is None: continue
+            Hfm = base @ r[0]
+        try: Hs[k] = np.linalg.inv(Hfm) @ Hpm; ok_n += 1
+        except np.linalg.LinAlgError: pass
+        if k % 500 == 0: log(f"  mosaic calibration frame {k}")
+    log(f"calibration via mosaic: {ok_n} frames from the panorama of {clip_id}")
+    return Hs
