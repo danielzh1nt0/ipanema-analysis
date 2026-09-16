@@ -30,7 +30,7 @@ def run(video_src, match_id=None, settings=None, log=print):
         cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log)
     H, L, W = cal["H"], cal["L"], cal["W"]
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
-    trk = f"{cache}/tracks.pkl"
+    trk = f"{cache}/tracks_{'pano' if Hm else 'kp'}.pkl"        # positions in metres depend on the calibration: cache per calibration source
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     per, cl = TR.clean(per, L, W, fps, log=log)
