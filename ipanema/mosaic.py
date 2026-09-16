@@ -93,8 +93,9 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
         cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
         if ok: ref_feats[k] = _feats(sift, f)
     cap.release()
-    ok_n = 0
+    ok_n = 0; step = 10; anchors = {}
     for k, f in frames(video):
+        if k % step and k not in mos["H_to_mosaic"]: continue          # register every 10th frame; the camera pans smoothly
         near = min(keys, key=lambda q: abs(q - k))
         base = mos["H_to_mosaic"][near]
         if k == near: Hfm = base
@@ -102,8 +103,20 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
             r = _homog(bf, *_feats(sift, f), *ref_feats[near])
             if r is None: continue
             Hfm = base @ r[0]
-        try: Hs[k] = np.linalg.inv(Hfm) @ Hpm; ok_n += 1
+        anchors[k] = Hfm; ok_n += 1
+        if k % 1000 == 0: log(f"  mosaic calibration frame {k}")
+    # interpolate the frames in between
+    ak = sorted(anchors); n_total = 0
+    import bisect
+    for k in range(max(ak) + 1 if ak else 0):
+        i = bisect.bisect_left(ak, k)
+        if i < len(ak) and ak[i] == k: Hfm = anchors[k]
+        elif i == 0 or i >= len(ak): Hfm = anchors[ak[min(i, len(ak) - 1)]]
+        else:
+            a, b = ak[i - 1], ak[i]; t = (k - a) / (b - a)
+            Ha, Hb = anchors[a] / anchors[a][2, 2], anchors[b] / anchors[b][2, 2]
+            Hfm = (1 - t) * Ha + t * Hb
+        try: Hs[k] = np.linalg.inv(Hfm) @ Hpm; n_total += 1
         except np.linalg.LinAlgError: pass
-        if k % 500 == 0: log(f"  mosaic calibration frame {k}")
-    log(f"calibration via mosaic: {ok_n} frames from the panorama of {clip_id}")
+    log(f"calibration via mosaic: {ok_n} anchors, {n_total} frames of {clip_id}")
     return Hs
