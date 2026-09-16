@@ -72,8 +72,10 @@ def register_all(video, mos, log=print):
 def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", log=print):
     """per-frame pitch homography from a hand-calibrated panorama: H_pitch->frame = inv(H_frame->mosaic) @ H_pitch->mosaic"""
     import json, glob
-    cal = os.path.join(code_dir, "calibration", f"{clip_id.split('_seg')[0]}.json")
-    if not os.path.exists(cal): return None
+    import re as _re
+    base = _re.sub(r"_(seg|s)\d+$", "", clip_id)
+    cal = os.path.join(code_dir, "calibration", f"{base}.json")
+    if not os.path.exists(cal): log(f"calibration: no panorama calibration for {base}"); return None
     spec = json.load(open(cal)); Href = np.array(spec["H_pitch_to_mosaic"], np.float64)
     cache = os.path.join(root, "cache", f"{clip_id}_mosaic_seg.pkl")
     mos = build(video, cache, stride=25, canvas=(4200, 1500), log=log)
