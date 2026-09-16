@@ -74,9 +74,17 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
     import json, glob
     cal = os.path.join(code_dir, "calibration", f"{clip_id.split('_seg')[0]}.json")
     if not os.path.exists(cal): return None
-    spec = json.load(open(cal)); Hpm = np.array(spec["H_pitch_to_mosaic"], np.float64)
+    spec = json.load(open(cal)); Href = np.array(spec["H_pitch_to_mosaic"], np.float64)
     cache = os.path.join(root, "cache", f"{clip_id}_mosaic_seg.pkl")
     mos = build(video, cache, stride=25, canvas=(4200, 1500), log=log)
+    # this segment's panorama is not the calibrated one: register the two panoramas so the calibration transfers
+    ref_img = cv2.imread(os.path.join(code_dir, spec["mosaic"]))
+    if ref_img is None: log("calibration: reference panorama image missing"); return None
+    sift0 = cv2.SIFT_create(nfeatures=8000); bf0 = cv2.BFMatcher(cv2.NORM_L2)
+    r = _homog(bf0, *_feats(sift0, mos["mosaic"], 1.0), *_feats(sift0, ref_img, 1.0), scale=1.0, min_inl=40)
+    if r is None: log("calibration: could not register this segment's panorama to the calibrated one"); return None
+    H_seg_to_ref, n_inl = r; log(f"calibration: panoramas registered ({n_inl} inliers)")
+    Hpm = np.linalg.inv(H_seg_to_ref) @ Href
     Hs = {}
     sift = cv2.SIFT_create(nfeatures=3000); bf = cv2.BFMatcher(cv2.NORM_L2)
     keys = sorted(mos["H_to_mosaic"]); ref_feats = {}
