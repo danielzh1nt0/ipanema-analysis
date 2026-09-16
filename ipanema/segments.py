@@ -12,9 +12,9 @@ def prepare_segments(root, log=print):
         cfg = os.path.join(vids, match, "segments.json")
         segs = json.load(open(cfg)) if os.path.exists(cfg) else DEFAULT_SEGMENTS.get(match, [(0, 300)])
         for i, (start, dur) in enumerate(segs, 1):
-            out = os.path.join(vids, f"{match}_seg{i}.mp4")
+            out = os.path.join(vids, f"{match}_s{start}.mp4")
             if os.path.exists(out): continue
-            log(f"segment: {match} seg{i} {start}s +{dur}s -> {os.path.basename(out)}")
+            log(f"segment: {match} {start}s +{dur}s -> {os.path.basename(out)}")
             r = subprocess.run(["ffmpeg", "-y", "-ss", str(start), "-i", full, "-t", str(dur), "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out + ".tmp.mp4"], capture_output=True)
             if r.returncode == 0: os.replace(out + ".tmp.mp4", out); made.append(out)
             else: log(f"  ffmpeg failed: {r.stderr[-200:]}")
