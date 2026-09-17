@@ -29,6 +29,16 @@ def run(video_src, match_id=None, settings=None, log=print):
     else:
         cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log)
     H, L, W = cal["H"], cal["L"], cal["W"]
+    # debug overlays: the pitch model drawn on a few frames, published for inspection
+    try:
+        dbg = "/content/ipanema-analysis/results/debug"; os.makedirs(dbg, exist_ok=True)
+        from .video import frame_at
+        import cv2 as _cv
+        for k in [int(vi["n"] * f) for f in (0.1, 0.3, 0.5, 0.7, 0.9)]:
+            fr = frame_at(video, k)
+            if fr is not None: C.draw_model(fr, H[k], L, W); _cv.imwrite(f"{dbg}/{match_id}_f{k:06d}.jpg", _cv.resize(fr, (1280, 720)), [_cv.IMWRITE_JPEG_QUALITY, 80])
+        log(f"  debug overlays -> {dbg}")
+    except Exception as e: log(f"  debug overlays failed: {e!r}")
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     trk = f"{cache}/tracks_{'pano' if Hm else 'kp'}.pkl"        # positions in metres depend on the calibration: cache per calibration source
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
