@@ -136,15 +136,16 @@ def inventory(root, log=print):
     return txt
 
 
-def publish_frames(root, n_frames=40, log=print):
+def publish_frames(root, n_frames=40, log=print, extra=("SFKBP1109_s1200.mp4",)):
     """write sampled frames of each full game to the results folder so they can be labelled off-Colab"""
     import cv2
     vids = os.path.join(root, "videos"); out_root = "/content/ipanema-analysis/results"
     if not os.path.isdir(os.path.dirname(out_root)): return
-    for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
-        cands = [os.path.join(vids, sub, f) for f in os.listdir(os.path.join(vids, sub)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
-        if not cands: continue
-        full = max(cands, key=os.path.getsize); od = os.path.join(out_root, f"frames_{sub}"); os.makedirs(od, exist_ok=True)
+    targets = [(sub, max([os.path.join(vids, sub, f) for f in os.listdir(os.path.join(vids, sub)) if f.lower().endswith((".mp4", ".mov", ".mkv"))] or [None], key=lambda p: os.path.getsize(p) if p else 0)) for sub in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d)))]
+    targets += [(os.path.splitext(e)[0], os.path.join(vids, e)) for e in extra if os.path.exists(os.path.join(vids, e))]
+    for sub, full in targets:
+        if not full: continue
+        od = os.path.join(out_root, f"frames_{sub}"); os.makedirs(od, exist_ok=True)
         if len(glob.glob(f"{od}/*.jpg")) >= n_frames: continue
         cap = cv2.VideoCapture(full); n = int(cap.get(7))
         for k in range(n_frames):

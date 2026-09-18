@@ -30,8 +30,16 @@ class TeamModel:
                 c = shirt(f, det.xyxy[j])
                 if c.size and c.shape[0] >= 12 and c.shape[1] >= 8: crops.append(c)
             if len(crops) >= max_crops: break
-        self.clf.fit(crops); labels = self.clf.predict(crops)
-        d0 = np.mean([_dark_frac(c) for c, l in zip(crops, labels) if l == 0]); d1 = np.mean([_dark_frac(c) for c, l in zip(crops, labels) if l == 1])
+        import random, torch; random.seed(0); np.random.seed(0); torch.manual_seed(0)
+        self.clf.fit(crops); labels = np.array(self.clf.predict(crops))
+        dark = np.array([_dark_frac(c) for c in crops])
+        sizes = np.bincount(labels, minlength=2)
+        # embedding clusters can collapse; when they do (or kits are plainly light vs dark) split on shirt brightness instead
+        if sizes.min() < 0.2 * len(crops) or (abs(np.median(dark[labels == 0]) - np.median(dark[labels == 1])) < 0.08 and dark.std() > 0.2):
+            thr = float(np.median(dark)); labels = (dark < thr).astype(int)     # 1 = lighter kit, 0 = darker
+            self._brightness_split = thr; log(f"teams: embedding split {sizes.tolist()} unreliable -> brightness split at {thr:.2f}")
+        else: self._brightness_split = None
+        d0 = np.mean(dark[labels == 0]) if (labels == 0).any() else 0.0; d1 = np.mean(dark[labels == 1]) if (labels == 1).any() else 0.0
         dark = 0 if d0 > d1 else 1
         self.cluster_to_team = {dark: "A", 1 - dark: "B"}; self.dark_share = {"A": round(max(d0, d1), 2), "B": round(min(d0, d1), 2)}
         sizes = np.bincount(labels).tolist()
@@ -51,7 +59,10 @@ class TeamModel:
             c = shirt(frame, b)
             if c.size and c.shape[0] >= 12 and c.shape[1] >= 8: idx.append(j); cs.append(c)
         if cs:
-            for j, cl in zip(idx, self.clf.predict(cs)): labs[j] = self.cluster_to_team[int(cl)]
+            if getattr(self, "_brightness_split", None) is not None:
+                for j, c in zip(idx, cs): labs[j] = self.cluster_to_team[int(_dark_frac(c) < self._brightness_split)]
+            else:
+                for j, cl in zip(idx, self.clf.predict(cs)): labs[j] = self.cluster_to_team[int(cl)]
         return labs
 
 def silence_progress():
