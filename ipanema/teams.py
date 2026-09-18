@@ -5,6 +5,15 @@ def shirt(frame, xyxy):
     x1, y1, x2, y2 = [int(v) for v in xyxy]; h = y2 - y1
     return frame[max(0, y1): max(0, y1) + max(8, int(0.55 * h)), max(0, x1): max(0, x1) + max(4, x2 - x1)]
 
+def _is_referee_bib(c):
+    """saturated orange/yellow shirt = referee (or a bibbed non-player)"""
+    hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV); grass = (hsv[..., 0] > 30) & (hsv[..., 0] < 95) & (hsv[..., 1] > 80)
+    m = ~grass
+    if m.sum() < 30: return False
+    h, s, v = hsv[..., 0][m], hsv[..., 1][m], hsv[..., 2][m]
+    orange = ((h >= 5) & (h <= 28) & (s > 140) & (v > 120)).mean()
+    return orange > 0.35
+
 def _dark_frac(c):
     hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV); grass = (hsv[..., 0] > 30) & (hsv[..., 0] < 95) & (hsv[..., 1] > 80)
     v = hsv[..., 2][~grass]; return float((v < 110).mean()) if v.size else 0.0
@@ -28,7 +37,7 @@ class TeamModel:
                 cls = res.names[int(det.class_id[j])].lower() if det.class_id is not None else "player"
                 if "referee" in cls or "goalkeeper" in cls: continue
                 c = shirt(f, det.xyxy[j])
-                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8: crops.append(c)
+                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8 and not _is_referee_bib(c): crops.append(c)
             if len(crops) >= max_crops: break
         import random, torch; random.seed(0); np.random.seed(0); torch.manual_seed(0)
         self.clf.fit(crops); labels = np.array(self.clf.predict(crops))
@@ -57,7 +66,9 @@ class TeamModel:
         labs = ["B"] * len(xyxys); idx, cs = [], []
         for j, b in enumerate(xyxys):
             c = shirt(frame, b)
-            if c.size and c.shape[0] >= 12 and c.shape[1] >= 8: idx.append(j); cs.append(c)
+            if c.size and c.shape[0] >= 12 and c.shape[1] >= 8:
+                if _is_referee_bib(c): labs[j] = "R"; continue
+                idx.append(j); cs.append(c)
         if cs:
             if getattr(self, "_brightness_split", None) is not None:
                 for j, c in zip(idx, cs): labs[j] = self.cluster_to_team[int(_dark_frac(c) < self._brightness_split)]

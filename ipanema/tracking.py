@@ -21,6 +21,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print):
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
             labs = team_model.predict_batch(f, det.xyxy)
             for j in range(len(det)):
+                if labs[j] == "R": continue                                   # referee / bib: not a player
                 tid = int(det.tracker_id[j]) if det.tracker_id is not None else -1
                 v = votes.setdefault(tid, []); v.append(labs[j]); del v[:-25]
                 rows.append([tid, max(set(v), key=v.count), m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
