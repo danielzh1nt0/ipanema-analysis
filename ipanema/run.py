@@ -36,7 +36,7 @@ def run(video_src, match_id=None, settings=None, log=print):
         import cv2 as _cv
         for k in [int(vi["n"] * f) for f in (0.1, 0.3, 0.5, 0.7, 0.9)]:
             fr = frame_at(video, k)
-            if fr is not None: C.draw_model(fr, H[k], L, W); _cv.imwrite(f"{dbg}/{match_id}_f{k:06d}.jpg", _cv.resize(fr, (1280, 720)), [_cv.IMWRITE_JPEG_QUALITY, 80])
+            if fr is not None: C.draw_model(fr, H[k], L, W); _cv.imwrite(f"{dbg}/{match_id}_v{__version__}_f{k:06d}.jpg", _cv.resize(fr, (1280, 720)), [_cv.IMWRITE_JPEG_QUALITY, 80])
         log(f"  debug overlays -> {dbg}")
     except Exception as e: log(f"  debug overlays failed: {e!r}")
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
