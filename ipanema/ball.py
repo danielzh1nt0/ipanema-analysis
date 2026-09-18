@@ -29,7 +29,7 @@ def candidates(video, weights_ball, cache, conf=0.05, imgsz=1280, tiles=(3, 2), 
     if os.path.exists(partial): os.remove(partial)
     return out
 
-def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=1.2, min_score=10.0, log=print):
+def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_score=4.0, log=print):
     n = len(cands); S = {}
     for i in range(n):
         S[i] = []
@@ -55,15 +55,17 @@ def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=1.2, min_sc
     def speed(tr):
         P = np.array([[t[1], t[2]] for t in tr]); F = np.array([t[0] for t in tr]); return np.median(np.linalg.norm(np.diff(P, axis=0), axis=1) / np.diff(F))
     def score(tr):
-        if len(tr) < 3 or speed(tr) < min_speed: return 0.0
+        if len(tr) < 5 or speed(tr) < min_speed: return 0.0
         P = np.array([[t[1], t[2]] for t in tr]); F = np.array([t[0] for t in tr]); C = np.array([t[3] for t in tr])
         v = np.diff(P, axis=0) / np.diff(F)[:, None]; acc = np.linalg.norm(np.diff(v, axis=0), axis=1).mean() if len(v) > 1 else 0
-        return (C ** 2).sum() / (1 + acc / 5)
+        # long, smooth, consistently detected tracks win; absolute confidence matters less (a small ball is always low-confidence)
+        return len(tr) * (0.3 + C.mean()) / (1 + acc / 5)
     scored = sorted(((score(t), t) for t in tracks), key=lambda z: -z[0]); ball = {}
     for s, tr in scored:
         if s < min_score: break
         for t in tr: ball.setdefault(t[0], [float(t[4]), float(t[5])])
-    log(f"ball: {sum(len(v) for v in cands.values())/max(1,n):.1f} candidates/frame, {len(tracks)} trajectories, top scores {[round(s,1) for s,_ in scored[:3]]}, picks {len(ball)}/{n}")
+    top = [(round(s, 1), len(t), round(float(np.mean([q[3] for q in t])), 2), round(float(speed(t)), 2)) for s, t in scored[:5]]
+    log(f"ball: {sum(len(v) for v in cands.values())/max(1,n):.1f} candidates/frame, {len(tracks)} trajectories, top (score,len,conf,speed) {top}, picks {len(ball)}/{n}")
     return ball
 
 def bridge(ball, fps, max_gap_s=1.0):
