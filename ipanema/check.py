@@ -78,6 +78,9 @@ def check_all(root, log=print):
     except Exception as e: log(f"publish_frames failed: {e!r}")
     try: publish_mosaic(root, log=log)
     except Exception as e: log(f"publish_mosaic failed: {e!r}")
+    try:
+        if not os.path.isdir("/content/ipanema-analysis/results/ballcands_SFKBP1109_s1200"): publish_ball_candidates(root, log=log)
+    except Exception as e: log(f"publish_ball_candidates failed: {e!r}")
     return [r for r in res if r]
 
 
