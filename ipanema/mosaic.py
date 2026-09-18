@@ -69,56 +69,52 @@ def register_all(video, mos, log=print):
     return Hs
 
 
-def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", log=print):
-    """per-frame pitch homography from a hand-calibrated panorama: H_pitch->frame = inv(H_frame->mosaic) @ H_pitch->mosaic"""
-    import json, glob
-    import re as _re
+CAL_VERSION = "direct-v1"
+
+def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", step=10, log=print):
+    """per-frame pitch homography by registering anchor frames DIRECTLY to the hand-calibrated panorama (no chaining drift);
+    frames that don't overlap the panorama chain from the nearest direct anchor."""
+    import json, re as _re, bisect
     base = _re.sub(r"_(seg|s)\d+$", "", clip_id)
     cal = os.path.join(code_dir, "calibration", f"{base}.json")
     if not os.path.exists(cal): log(f"calibration: no panorama calibration for {base}"); return None
-    spec = json.load(open(cal)); Href = np.array(spec["H_pitch_to_mosaic"], np.float64)
-    cache = os.path.join(root, "cache", f"{clip_id}_mosaic_seg.pkl")
-    mos = build(video, cache, stride=25, canvas=(4200, 1500), log=log)
-    # this segment's panorama is not the calibrated one: register the two panoramas so the calibration transfers
+    spec = json.load(open(cal)); Hpm = np.array(spec["H_pitch_to_mosaic"], np.float64)
     ref_img = cv2.imread(os.path.join(code_dir, spec["mosaic"]))
-    if ref_img is None: log("calibration: reference panorama image missing"); return None
-    sift0 = cv2.SIFT_create(nfeatures=8000); bf0 = cv2.BFMatcher(cv2.NORM_L2)
-    r = _homog(bf0, *_feats(sift0, mos["mosaic"], 1.0), *_feats(sift0, ref_img, 1.0), scale=1.0, min_inl=40)
-    if r is None: log("calibration: could not register this segment's panorama to the calibrated one"); return None
-    H_seg_to_ref, n_inl = r; log(f"calibration: panoramas registered ({n_inl} inliers)")
-    Hpm = np.linalg.inv(H_seg_to_ref) @ Href
-    Hs = {}
-    sift = cv2.SIFT_create(nfeatures=3000); bf = cv2.BFMatcher(cv2.NORM_L2)
-    keys = sorted(mos["H_to_mosaic"]); ref_feats = {}
-    cap = cv2.VideoCapture(video)
-    for k in keys:
-        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
-        if ok: ref_feats[k] = _feats(sift, f)
-    cap.release()
-    ok_n = 0; step = 10; anchors = {}
+    if ref_img is None: log("calibration: reference panorama missing"); return None
+    sift = cv2.SIFT_create(nfeatures=6000); bf = cv2.BFMatcher(cv2.NORM_L2)
+    ref = _feats(sift, ref_img, 1.0)
+    anchors = {}; direct = 0; chained = 0; prev = None; prevH = None
     for k, f in frames(video):
-        if k % step and k not in mos["H_to_mosaic"]: continue          # register every 10th frame; the camera pans smoothly
-        near = min(keys, key=lambda q: abs(q - k))
-        base = mos["H_to_mosaic"][near]
-        if k == near: Hfm = base
-        else:
-            r = _homog(bf, *_feats(sift, f), *ref_feats[near])
-            if r is None: continue
-            Hfm = base @ r[0]
-        anchors[k] = Hfm; ok_n += 1
-        if k % 1000 == 0: log(f"  mosaic calibration frame {k}")
-    # interpolate the frames in between
-    ak = sorted(anchors); n_total = 0
-    import bisect
-    for k in range(max(ak) + 1 if ak else 0):
+        if k % step: continue
+        cur = _feats(sift, f, 0.5)
+        # direct: frame (0.5 scale feats) -> panorama (1.0 scale feats)
+        r = None
+        if cur[1] is not None and ref[1] is not None and len(cur[0]) >= 20:
+            good = [a for a, b in bf.knnMatch(cur[1], ref[1], k=2) if a.distance < 0.72 * b.distance]
+            if len(good) >= 40:
+                p1 = np.float32([cur[0][g.queryIdx].pt for g in good]) * 2.0; p2 = np.float32([ref[0][g.trainIdx].pt for g in good])
+                Hd, inl = cv2.findHomography(p1, p2, cv2.RANSAC, 4.0)
+                if Hd is not None and inl.sum() >= 40: r = (Hd, int(inl.sum()))
+        if r is not None: Hfm = r[0]; direct += 1
+        elif prev is not None:
+            rc = _homog(bf, cur[0], cur[1], prev[0], prev[1])
+            if rc is None: prev = cur; continue
+            Hfm = prevH @ rc[0]; chained += 1
+        else: prev = cur; continue
+        anchors[k] = Hfm; prev, prevH = cur, Hfm
+        if k % 1000 == 0: log(f"  calibration anchor {k} (direct {direct}, chained {chained})")
+    if len(anchors) < 10: log("calibration: too few anchors"); return None
+    ak = sorted(anchors); Hs = {}; nfr = 0
+    vi = info(video)
+    for k in range(vi["n"]):
         i = bisect.bisect_left(ak, k)
         if i < len(ak) and ak[i] == k: Hfm = anchors[k]
-        elif i == 0 or i >= len(ak): Hfm = anchors[ak[min(i, len(ak) - 1)]]
+        elif i == 0: Hfm = anchors[ak[0]]
+        elif i >= len(ak): Hfm = anchors[ak[-1]]
         else:
             a, b = ak[i - 1], ak[i]; t = (k - a) / (b - a)
-            Ha, Hb = anchors[a] / anchors[a][2, 2], anchors[b] / anchors[b][2, 2]
-            Hfm = (1 - t) * Ha + t * Hb
-        try: Hs[k] = np.linalg.inv(Hfm) @ Hpm; n_total += 1
+            Ha, Hb = anchors[a] / anchors[a][2, 2], anchors[b] / anchors[b][2, 2]; Hfm = (1 - t) * Ha + t * Hb
+        try: Hs[k] = np.linalg.inv(Hfm) @ Hpm; nfr += 1
         except np.linalg.LinAlgError: pass
-    log(f"calibration via mosaic: {ok_n} anchors, {n_total} frames of {clip_id}")
+    log(f"calibration via panorama: {direct} direct + {chained} chained anchors -> {nfr}/{vi['n']} frames")
     return Hs
