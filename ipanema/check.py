@@ -176,3 +176,25 @@ def publish_mosaic(root, chunk_s=300, n_chunks=6, log=print):
             cache = os.path.join(root, "cache", f"{sub}_mosaic_c{i+1}.pkl")
             m = build(piece, cache, stride=25, canvas=(4200, 1500), log=log)
             cv2.imwrite(dst, m["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88]); log(f"published mosaic chunk {i+1} for {sub} (from {start}s)")
+
+
+def publish_ball_candidates(root, clip="SFKBP1109_s1200", n_frames=40, tile=96, zoom=2, log=print):
+    """for labelling: zoomed tiles around each ball candidate in sampled frames (pick the tile index that is the ball)"""
+    import cv2, pickle, json
+    cands_path = os.path.join(root, "cache", clip, "ball_cands.pkl"); video = os.path.join(root, "videos", f"{clip}.mp4")
+    if not os.path.exists(cands_path): log("no ball candidates cache"); return
+    cands = pickle.load(open(cands_path, "rb")); out_root = "/content/ipanema-analysis/results"; od = os.path.join(out_root, f"ballcands_{clip}"); os.makedirs(od, exist_ok=True)
+    cap = cv2.VideoCapture(video); n = int(cap.get(7)); idx = {}
+    for j in range(n_frames):
+        i = int(round(j * (n - 1) / (n_frames - 1))); cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, f = cap.read()
+        if not ok or not cands.get(i): continue
+        cs = sorted(cands[i], key=lambda z: -z[2])[:10]; tiles = []; meta = []
+        for t, (x, y, cf) in enumerate(cs):
+            x0, y0 = int(max(0, x - tile // 2)), int(max(0, y - tile // 2)); crop = f[y0:y0 + tile, x0:x0 + tile]
+            if crop.size == 0: continue
+            crop = cv2.resize(crop, (tile * zoom, tile * zoom)); cv2.putText(crop, str(t), (4, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 255), 2)
+            cv2.circle(crop, (tile * zoom // 2, tile * zoom // 2), 14, (0, 0, 255), 1); tiles.append(crop); meta.append([t, float(x), float(y), float(cf)])
+        while len(tiles) % 5: tiles.append(np.zeros((tile * zoom, tile * zoom, 3), np.uint8))
+        rows = [np.hstack(tiles[k:k + 5]) for k in range(0, len(tiles), 5)]
+        cv2.imwrite(os.path.join(od, f"f{i:06d}.jpg"), np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 85]); idx[i] = meta
+    cap.release(); json.dump(idx, open(os.path.join(od, "candidates.json"), "w")); log(f"published ball candidate tiles for {len(idx)} frames")
