@@ -69,7 +69,7 @@ def register_all(video, mos, log=print):
     return Hs
 
 
-CAL_VERSION = "direct-v1"
+CAL_VERSION = "direct-v2"
 
 def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", step=10, log=print):
     """per-frame pitch homography by registering anchor frames DIRECTLY to the hand-calibrated panorama (no chaining drift);
