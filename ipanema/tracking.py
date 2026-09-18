@@ -70,7 +70,8 @@ def clean(per, L, W, fps, log=print):
             z = zone[r[0]]; z[0] += 1
             if r[2][0] < 8 and abs(r[2][1] - W / 2) < 20: z[1] += 1
             if r[2][0] > L - 8 and abs(r[2][1] - W / 2) < 20: z[2] += 1
-    keepers = {tid: ("left" if z[1] / z[0] > 0.7 else "right") for tid, z in zone.items() if z[0] >= 10 and max(z[1], z[2]) / z[0] > 0.7}
+    # a keeper is whoever is in a goalmouth for most of the frames in which that goalmouth is on screen (follow-cam hides the goals often)
+    keepers = {tid: ("left" if z[1] >= z[2] else "right") for tid, z in zone.items() if z[0] >= 10 and max(z[1], z[2]) >= 0.4 * z[0] and max(z[1], z[2]) >= 30}
     # which team defends which goal: the team with the lower median x over the clip defends left (works for clips showing both ends; else falls back to majority near goal)
     med = {}
     for tm in ("A", "B"):
