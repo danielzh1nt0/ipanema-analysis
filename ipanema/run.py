@@ -17,7 +17,13 @@ def run(video_src, match_id=None, settings=None, log=print):
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
     from .mosaic import calibrate_via_mosaic
     Hm = None
-    try: Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
+    from .mosaic import CAL_VERSION as _CV
+    pano_cache = f"{cache}/calibration_pano_{_CV}.pkl"
+    try:
+        if os.path.exists(pano_cache): Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
+        else:
+            Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
+            if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
     if Hm:
         from .calibration import _pitch_config
