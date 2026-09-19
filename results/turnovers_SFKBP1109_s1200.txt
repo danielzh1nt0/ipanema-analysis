@@ -1,5 +1,2 @@
 truth turnovers: []
  #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
- 1    95.4    A>B      0.0   3.6    0.8  None None [295.8, 581.6]  
- 2   130.0    A>B      0.0   3.3    0.7  None None [718.0, 791.5]  
- 3   253.5    B>A      0.0   4.8   None  None None [1356.7, 508.5]  
