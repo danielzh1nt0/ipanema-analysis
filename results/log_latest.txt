@@ -1,18 +1,9 @@
-=== SFKBP1109_s1200 === (ipanema 0.11.4; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.11.5; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-  calibration anchor 0 (direct 1, chained 0)
-  calibration anchor 1000 (direct 87, chained 14)
-  calibration anchor 2000 (direct 134, chained 67)
-  calibration anchor 3000 (direct 172, chained 129)
-  calibration anchor 4000 (direct 188, chained 213)
-  calibration anchor 5000 (direct 201, chained 300)
-  calibration anchor 6000 (direct 221, chained 380)
-  calibration anchor 7000 (direct 264, chained 437)
-  calibration anchor 8000 (direct 266, chained 535)
-calibration via panorama: 322 direct + 578 chained anchors -> 8992/8992 frames
+calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 606 crops, clusters [353, 253], dark share A 0.54 / B 0.32 (A = darker kit)
+teams: 606 crops, clusters [334, 272], dark share A 0.53 / B 0.31 (A = darker kit)
 tracking: cached
 clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
 clean: players per frame median A 5 / B 8, max A 12 / B 14
@@ -38,7 +29,7 @@ upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': np.float64(0.54), 'B': np.float64(0.32)}
+  team_dark_share            {'A': np.float64(0.53), 'B': np.float64(0.31)}
   players_per_frame_median   {'A': 5.0, 'B': 8.0}
   ball_frames_pct            100
   ball_check                 {'correct': 11, 'total': 34, 'wrong': 22, 'ceiling': 26}
@@ -55,8 +46,8 @@ upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 14, 'B': 41}
-  runtime_min                16.4
-=== bundesliga1 === (ipanema 0.11.4; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                3.8
+=== bundesliga1 === (ipanema 0.11.5; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
 calibration: no panorama calibration for bundesliga1
 calibration: cached (98% keypoint frames)
@@ -106,8 +97,8 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 67, 'B': 74}
-  runtime_min                0.6
-=== bundesliga2 === (ipanema 0.11.4; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                0.7
+=== bundesliga2 === (ipanema 0.11.5; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: no panorama calibration for bundesliga2
 calibration: cached (96% keypoint frames)
@@ -156,7 +147,7 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 10, 'B': 5}
-  runtime_min                0.5
+  runtime_min                0.6
 --- 08fd33_0 ---
   ball                       19/20
   ball_pct                   95
