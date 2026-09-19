@@ -72,6 +72,12 @@ def check_all(root, log=print):
                 log(f"\n--- turnovers {m} ---"); [log(l) for l in tbl.splitlines()]
                 if out_dir: open(os.path.join(out_dir, f"turnovers_{m}.txt"), "w").write(tbl)
         except Exception as e: log(f"turnover table failed for {m}: {e!r}")
+    try:
+        import re as _re
+        for m in ids:
+            mm = _re.match(r"SFKBP1109_s(\d+)$", m)
+            if mm: check_veo(root, m, int(mm.group(1)), log=log)
+    except Exception as e: log(f"veo check failed: {e!r}")
     try: inventory(root, log=log)
     except Exception as e: log(f"inventory failed: {e!r}")
     try: publish_frames(root, log=log)
@@ -201,3 +207,41 @@ def publish_ball_candidates(root, clip="SFKBP1109_s1200", n_frames=40, tile=96, 
         rows = [np.hstack(tiles[k:k + 5]) for k in range(0, len(tiles), 5)]
         cv2.imwrite(os.path.join(od, f"f{i:06d}.jpg"), np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 85]); idx[i] = meta
     cap.release(); json.dump(idx, open(os.path.join(od, "candidates.json"), "w")); log(f"published ball candidate tiles for {len(idx)} frames")
+
+
+def veo_reference(root, code_dir="/content/ipanema-analysis", match="SFKBP1109"):
+    """Veo tags as labels: highlight filenames (to the second) for shots/goals; pasted minute list for restarts."""
+    import re
+    out = {"shots": [], "goals": [], "minute_events": []}
+    hl = os.path.join(root, "videos", match, "Highlights")
+    if os.path.isdir(hl):
+        for f in os.listdir(hl):
+            m = re.search(r"(\d{2})(\d{2})(\d{2})_-_(Goal|Shot_on_goal)", f)
+            if m:
+                t = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + int(m.group(3)); kind = "goal" if m.group(4) == "Goal" else "shot"
+                out["shots"].append(t); out["goals" if kind == "goal" else "shots"].append(t) if kind == "goal" else None
+    txt = os.path.join(code_dir, "reference", f"veo_events_{match}.txt")
+    if os.path.exists(txt):
+        for line in open(txt):
+            line = line.strip()
+            if not line or line.startswith("#"): continue
+            p = line.split(); out["minute_events"].append({"minute": int(p[0]), "team": p[1], "event": " ".join(p[2:]).lower()})
+    out["shots"] = sorted(set(out["shots"])); out["goals"] = sorted(set(out["goals"])); return out
+
+def check_veo(root, clip, start_s, log=print):
+    """score a segment of the SFK match against Veo's tags"""
+    ref = veo_reference(root); run = os.path.join(root, "runs", "matches", clip)
+    if not os.path.exists(f"{run}/stats.json"): return None
+    st = json.load(open(f"{run}/stats.json")); dur = 300.0
+    shots_v = [t - start_s for t in ref["shots"] if start_s <= t < start_s + dur]; goals_v = [t - start_s for t in ref["goals"] if start_s <= t < start_s + dur]
+    shots_p = [s["t"] for s in st.get("metrics", {}).get("shots", [])]
+    h, m, f = _match(shots_p, shots_v, 5.0); out = {"veo_shots": f"{h}/{len(shots_v)} matched, {f} extra (pipeline {len(shots_p)})", "veo_goals_in_window": len(goals_v)}
+    mins = [e for e in ref["minute_events"] if start_s // 60 <= e["minute"] < (start_s + dur) // 60 + 1]
+    if mins:
+        rs = st.get("restarts", []); by_min = {}
+        for r in rs: by_min[int((start_s + r["t"]) // 60)] = by_min.get(int((start_s + r["t"]) // 60), 0) + 1
+        veo_by_min = {}
+        for e in mins:
+            if e["event"] in ("throw-in", "corner", "goal kick", "free kick", "kickoff"): veo_by_min[e["minute"]] = veo_by_min.get(e["minute"], 0) + 1
+        out["veo_restarts_per_minute"] = {m: (veo_by_min.get(m, 0), by_min.get(m, 0)) for m in sorted(set(veo_by_min) | set(by_min))}
+    log(f"--- veo check {clip} --- " + json.dumps(out)); return out
