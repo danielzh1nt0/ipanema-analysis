@@ -1,5 +1,6 @@
 truth turnovers: [(155.42, 'A')]
  #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
- 1    12.5    B>A      0.0  10.0   29.1  None None           None  
- 2   150.7    A>B      0.0   7.3    2.4  4.09    1 [1097.8, 442.0]  
-MISSED truth turnover at 155.42 (A lost): possession -4s..+4s = BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ 1     5.2    B>A      0.0   4.8    3.7 12.92    0 [675.4, 590.2]  
+ 2   110.3    B>A      0.0   6.9    6.3  4.09    1 [1437.2, 472.7]  
+ 3   152.0    A>B      0.0   9.7    1.2  2.19    2 [1257.3, 454.1]  
+MISSED truth turnover at 155.42 (A lost): possession -4s..+4s = AAA-BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
