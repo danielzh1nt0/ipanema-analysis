@@ -73,7 +73,12 @@ def run(video_src, match_id=None, settings=None, log=print):
     log("  step: metrics"); t_ = time.time()
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
     ctrl = int((state < 2).sum()); n = len(per)
-    summary = {"match_id": match_id, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
+    # ball reliability: a real ball is near a player most of the time and does not teleport
+    near = [k for k in ballm if per[k] and min(np.linalg.norm(r[2] - ballm[k]) for r in per[k]) < 4.0]
+    jumps = sum(1 for k in ballm if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > 35)
+    ball_reliable = bool(len(ballm) > 0.4 * n and len(near) > 0.6 * max(1, len(ballm)) and jumps < 0.02 * max(1, len(ballm)))
+    log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
+    summary = {"match_id": match_id, "ball_reliable": ball_reliable, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in range(n)])) for t in ("A", "B")},
                "ball_frames_pct": round(100 * len(ball) / n), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,

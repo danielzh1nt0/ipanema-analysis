@@ -23,6 +23,19 @@ def step(state, ROOT, CODE, REPO):
     try:
         from ipanema.segments import prepare_segments; prepare_segments(ROOT, log=log)
     except Exception as e: log(f"segments: {e!r}")
+    # retrain the ball detector when new ball labels exist, then re-detect the ball on every clip
+    try:
+        import glob as _g
+        labels = _g.glob(f"{ROOT}/reference/*/ball_gt.json"); weights = f"{ROOT}/models/ball_finetuned.pt"
+        newest = max((os.path.getmtime(p) for p in labels), default=0)
+        if labels and (not os.path.exists(weights) or newest > os.path.getmtime(weights) + 60):
+            log(f"ball: {len(labels)} label files, newer than the weights -> retraining")
+            from ipanema import train_ball
+            out = train_ball.train(ROOT, f"{ROOT}/videos", "/content/sports/examples/soccer/data/football-ball-detection.pt", epochs=40, log=log)
+            if out:
+                for c in _g.glob(f"{ROOT}/cache/*/ball_cands.pkl*"): os.remove(c)
+                log("ball: caches cleared, all clips will be re-detected")
+    except Exception as e: log(f"ball retrain: {e!r}")
     SKIP = {"SFKBP1109_seg1.mp4", "SFKBP1109_s3082.mp4", "08fd33_0.mp4", "0bfacc_0.mp4"}        # superseded segments (half-time / wrong calibration)
     for clip in sorted(f for f in os.listdir(f"{ROOT}/videos") if f.lower().endswith((".mp4", ".mov", ".mkv")) and f not in SKIP):
         try: run(f"{ROOT}/videos/{clip}", settings=S, log=log)
