@@ -1,4 +1,4 @@
-=== SFKBP1109_s1200 === (ipanema 0.9.6; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.10.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
   calibration anchor 1000 (direct 87, chained 14)
@@ -12,55 +12,7 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration via panorama: 322 direct + 578 chained anchors -> 8992/8992 frames
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 606 crops, clusters [347, 259], dark share A 0.53 / B 0.32 (A = darker kit)
-tracking: cached
-clean: dropped 219 off-pitch, merged 635 duplicates, stitched 838 ids, keepers [4563] -> A defends left
-clean: players per frame median A 5 / B 8, max A 12 / B 14
-ball: 8.0 candidates/frame, 2979 trajectories, top (score,len,conf,speed) [(np.float64(54.7), 371, 0.2, 0.55), (np.float64(43.8), 271, 0.22, 1.0), (np.float64(40.8), 360, 0.15, 0.57), (np.float64(29.3), 247, 0.16, 0.66), (np.float64(27.0), 169, 0.21, 0.54)], picks 4505/8992
-direction: A →  B ←  confidence A 0.03 / B 0.13  WARNING low confidence
-direction (fallback from player positions): A →  B ←  median x A 46 / B 49
-  step: sequences
-  step: turnovers
-  step: lanes
-  step: passes
-  step: shapes
-  step: stats
-  step: metrics
-  step: export
-  wrote match_data.json (20.4 MB)
-export: /content/drive/MyDrive/match_analysis/match_analysis/runs/matches/SFKBP1109_s1200 (276 events) · library.json updated · zip /content/drive/MyDrive/match_analysis/match_analysis/runs/SFKBP1109_s1200_lovable.zip
-upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
-
---- SUMMARY ---
-  match_id                   SFKBP1109_s1200
-  duration_s                 300.0
-  calibration_coverage       1.0
-  calibration_frozen         0
-  team_dark_share            {'A': np.float64(0.53), 'B': np.float64(0.32)}
-  players_per_frame_median   {'A': 5.0, 'B': 8.0}
-  ball_frames_pct            70
-  ball_check                 None
-  possession_pct             {'A': 20, 'B': 80}
-  loose_pct                  19
-  dead_pct                   27
-  attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.03, 'B': 0.13}
-  turnovers                  3
-  passes                     683
-  restarts                   33
-  sequences                  44
-  shots                      {'A': 0, 'B': 0}
-  goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 0, 'B': 0}
-  field_tilt                 {'A': 26, 'B': 38}
-  runtime_min                16.4
-=== bundesliga1 === (ipanema 0.9.6; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
-calibration: no panorama calibration for bundesliga1
-calibration: cached (98% keypoint frames)
-  debug overlays -> /content/ipanema-analysis/results/debug
-teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker kit)
-  WARNING: kits are not clearly one dark and one light — check kit strips
+teams: 606 crops, clusters [350, 256], dark share A 0.53 / B 0.32 (A = darker kit)
   tracking frame 0
   tracking frame 500
   tracking frame 1000
@@ -74,7 +26,63 @@ teams: 611 crops, clusters [306, 305], dark share A 0.04 / B 0.02 (A = darker ki
   tracking frame 5000
   tracking frame 5500
   tracking frame 6000
-clean: dropped 587 off-pitch, merged 676 duplicates, stitched 244 ids, keepers [] -> A defends left
+  tracking frame 6500
+  tracking frame 7000
+  tracking frame 7500
+  tracking frame 8000
+  tracking frame 8500
+clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
+clean: players per frame median A 5 / B 8, max A 12 / B 14
+ball: 8.0 candidates/frame, 2979 trajectories, top (score,len,conf,speed) [(np.float64(54.7), 371, 0.2, 0.55), (np.float64(43.8), 271, 0.22, 1.0), (np.float64(40.8), 360, 0.15, 0.57), (np.float64(29.3), 247, 0.16, 0.66), (np.float64(27.0), 169, 0.21, 0.54)], picks 4505/8992
+ball check: 3/34 correct, 20 wrong, 11 no pick (ceiling 9/34)
+direction: A →  B ←  confidence A 0.03 / B 0.14  WARNING low confidence
+direction (fallback from player positions): A →  B ←  median x A 46 / B 49
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball reliability: 38% frames, 48% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+  step: export
+  wrote match_data.json (20.3 MB)
+export: /content/drive/MyDrive/match_analysis/match_analysis/runs/matches/SFKBP1109_s1200 (272 events) · library.json updated · zip /content/drive/MyDrive/match_analysis/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109_s1200
+  ball_reliable              False
+  duration_s                 300.0
+  calibration_coverage       1.0
+  calibration_frozen         0
+  team_dark_share            {'A': np.float64(0.53), 'B': np.float64(0.32)}
+  players_per_frame_median   {'A': 5.0, 'B': 8.0}
+  ball_frames_pct            70
+  ball_check                 {'correct': 3, 'total': 34, 'wrong': 20, 'ceiling': 9}
+  possession_pct             {'A': 20, 'B': 80}
+  loose_pct                  19
+  dead_pct                   27
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.03, 'B': 0.14}
+  turnovers                  3
+  passes                     682
+  restarts                   33
+  sequences                  44
+  shots                      {'A': 0, 'B': 0}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 26, 'B': 39}
+  runtime_min                30.9
+=== bundesliga1 === (ipanema 0.10.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 6187 frames (206 s)
+calibration: no panorama calibration for bundesliga1
+calibration: cached (98% keypoint frames)
+  debug overlays -> /content/ipanema-analysis/results/debug
+teams: 611 crops, clusters [366, 245], dark share A 0.04 / B 0.02 (A = darker kit)
+  WARNING: kits are not clearly one dark and one light — check kit strips
+tracking: cached
+clean: dropped 587 off-pitch, merged 676 duplicates, stitched 244 ids, keepers [591] -> A defends left
 clean: players per frame median A 10 / B 11, max A 13 / B 14
 ball: 2.7 candidates/frame, 1759 trajectories, top (score,len,conf,speed) [(np.float64(303.9), 944, 0.41, 1.96), (np.float64(288.3), 960, 0.39, 1.86), (np.float64(257.8), 960, 0.42, 2.74), (np.float64(179.0), 608, 0.43, 2.31), (np.float64(118.3), 381, 0.25, 0.67)], picks 5739/6187
 ball check: 12/18 correct, 5 wrong, 1 no pick (ceiling 18/18)
@@ -87,6 +95,7 @@ direction: from reference labels -> A ←
   step: shapes
   step: stats
   step: metrics
+ball reliability: 79% frames, 72% near a player, 0 jumps -> OK
   step: export
   wrote match_data.json (21.5 MB)
 export: /content/drive/MyDrive/match_analysis/match_analysis/runs/matches/bundesliga1 (244 events) · library.json updated · zip /content/drive/MyDrive/match_analysis/match_analysis/runs/bundesliga1_lovable.zip
@@ -94,6 +103,7 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
 
 --- SUMMARY ---
   match_id                   bundesliga1
+  ball_reliable              True
   duration_s                 206.2
   calibration_coverage       0.98
   calibration_frozen         0
@@ -114,29 +124,19 @@ upload: bundesliga1 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 1, 'B': 0}
   field_tilt                 {'A': 58, 'B': 68}
-  runtime_min                23.4
-=== bundesliga2 === (ipanema 0.9.6; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+  runtime_min                2.5
+=== bundesliga2 === (ipanema 0.10.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 5403 frames (180 s)
 calibration: no panorama calibration for bundesliga2
 calibration: cached (96% keypoint frames)
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 606 crops, clusters [275, 331], dark share A 0.42 / B 0.03 (A = darker kit)
-  tracking frame 0
-  tracking frame 500
-  tracking frame 1000
-  tracking frame 1500
-  tracking frame 2000
-  tracking frame 2500
-  tracking frame 3000
-  tracking frame 3500
-  tracking frame 4000
-  tracking frame 4500
-  tracking frame 5000
-clean: dropped 732 off-pitch, merged 129 duplicates, stitched 224 ids, keepers [153] -> B defends left
-clean: players per frame median A 10 / B 10, max A 12 / B 14
+teams: 609 crops, clusters [269, 340], dark share A 0.41 / B 0.04 (A = darker kit)
+tracking: cached
+clean: dropped 732 off-pitch, merged 129 duplicates, stitched 224 ids, keepers [153, 1095, 1170] -> B defends left
+clean: players per frame median A 10 / B 11, max A 12 / B 14
 ball: 1.9 candidates/frame, 1094 trajectories, top (score,len,conf,speed) [(np.float64(374.6), 946, 0.54, 2.74), (np.float64(292.5), 810, 0.5, 2.8), (np.float64(261.0), 733, 0.4, 1.32), (np.float64(139.6), 481, 0.42, 2.78), (np.float64(133.3), 337, 0.51, 2.36)], picks 4752/5403
 ball check: 14/17 correct, 2 wrong, 1 no pick (ceiling 14/17)
-direction: A ←  B →  confidence A 0.14 / B 0.28  WARNING low confidence
+direction: A ←  B →  confidence A 0.14 / B 0.29  WARNING low confidence
 direction: from reference labels -> A ←
   step: sequences
   step: turnovers
@@ -145,25 +145,27 @@ direction: from reference labels -> A ←
   step: shapes
   step: stats
   step: metrics
+ball reliability: 82% frames, 83% near a player, 0 jumps -> OK
   step: export
   wrote match_data.json (18.0 MB)
-export: /content/drive/MyDrive/match_analysis/match_analysis/runs/matches/bundesliga2 (101 events) · library.json updated · zip /content/drive/MyDrive/match_analysis/match_analysis/runs/bundesliga2_lovable.zip
+export: /content/drive/MyDrive/match_analysis/match_analysis/runs/matches/bundesliga2 (100 events) · library.json updated · zip /content/drive/MyDrive/match_analysis/match_analysis/runs/bundesliga2_lovable.zip
 upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   bundesliga2
+  ball_reliable              True
   duration_s                 180.1
   calibration_coverage       0.96
   calibration_frozen         0
-  team_dark_share            {'A': np.float64(0.42), 'B': np.float64(0.03)}
-  players_per_frame_median   {'A': 10.0, 'B': 10.0}
+  team_dark_share            {'A': np.float64(0.41), 'B': np.float64(0.04)}
+  players_per_frame_median   {'A': 10.0, 'B': 11.0}
   ball_frames_pct            97
   ball_check                 {'correct': 14, 'total': 17, 'wrong': 2, 'ceiling': 14}
   possession_pct             {'A': 65, 'B': 35}
   loose_pct                  14
   dead_pct                   3
   attack_right               {'A': False, 'B': True}
-  direction_confidence       {'A': 0.14, 'B': 0.28}
+  direction_confidence       {'A': 0.14, 'B': 0.29}
   turnovers                  6
   passes                     512
   restarts                   3
@@ -172,7 +174,7 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 6, 'B': 8}
-  runtime_min                19.6
+  runtime_min                2.2
 --- 08fd33_0 ---
   ball                       19/20
   ball_pct                   95
@@ -184,9 +186,11 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   loose_pct                  5
   passes                     31
 --- SFKBP1109_s1200 ---
+  ball                       3/34
+  ball_pct                   9
   players_per_frame          {'A': 5.0, 'B': 8.0}
   loose_pct                  19
-  passes                     683
+  passes                     682
 --- SFKBP1109_s3082 ---
   players_per_frame          {'A': 0.0, 'B': 0.0}
   loose_pct                  90
@@ -218,7 +222,7 @@ upload: bundesliga2 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, th
   goals                      0/0
   direction                  from labels
   turnover_team_agreement    1/1
-  players_per_frame          {'A': 10.0, 'B': 10.0}
+  players_per_frame          {'A': 10.0, 'B': 11.0}
   loose_pct                  14
   passes                     512
 
@@ -268,7 +272,7 @@ truth turnovers: [(155.42, 'A')]
  3    12.5    B>A      0.0   3.8   30.0  None None           None  
  4    63.3    B>A      0.0   5.3    1.7 12.56    0 [449.0, 677.1]  
  5   110.3    B>A      0.0   4.5    7.3  4.09    1 [1437.3, 472.4]  
- 6   154.0    A>B      0.0   9.3    7.2 19.44    0 [364.1, 465.8]  TRUTH A lost
+ 6   153.5    A>B      0.0   9.0    0.4  9.54    0 [1793.3, 540.9]  TRUTH A lost
 == SFKBP1109 ==
   p15u-2026-vs-bp-1133-2026-09-12.mp4  3589.5 MB  6163.7s
   Highlights/01 000028_-_Goal.mp4  15.3 MB  25.0s
