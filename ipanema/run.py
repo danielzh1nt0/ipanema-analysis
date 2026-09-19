@@ -52,6 +52,10 @@ def run(video_src, match_id=None, settings=None, log=print):
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     per, cl = TR.clean(per, L, W, fps, log=log)
     cands = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)
+    try:
+        from . import ballcls
+        if os.path.exists(ballcls.weights_path(S.root)): cands = ballcls.rescore(video, cands, S.root, cache=f"{cache}/ball_cands_cls.pkl", log=log)
+    except Exception as e: log(f"ball classifier: {e!r}")
     ball_g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
     if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
     ball = BL.bridge(ball_g, fps)
@@ -85,6 +89,7 @@ def run(video_src, match_id=None, settings=None, log=print):
     near = [k for k in ballm if per[k] and min(np.linalg.norm(r[2] - ballm[k]) for r in per[k]) < 4.0]
     jumps = sum(1 for k in ballm if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > 35)
     ball_reliable = bool(len(ballm) > 0.4 * n and len(near) > 0.6 * max(1, len(ballm)) and jumps < 0.02 * max(1, len(ballm)))
+    if ball_check and ball_check.get("total", 0) >= 10: ball_reliable = bool(ball_check["correct"] >= 0.6 * ball_check["total"])   # a measured check beats a heuristic
     log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
     summary = {"match_id": match_id, "ball_reliable": ball_reliable, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in range(n)])) for t in ("A", "B")},

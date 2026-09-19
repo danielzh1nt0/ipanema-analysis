@@ -36,6 +36,13 @@ def step(state, ROOT, CODE, REPO):
             out = train_ball.train(ROOT, f"{ROOT}/videos", "/content/sports/examples/soccer/data/football-ball-detection.pt", epochs=40, log=log)
             if out:
                 _j.dump({"n": n_labels, "recipe": recipe}, open(manifest, "w"))
+        # crop classifier: retrain whenever the label count changes or it does not exist yet
+        from ipanema import ballcls
+        cls_manifest = f"{ROOT}/models/ballcls_manifest.json"; last_cls = _j.load(open(cls_manifest)).get("n") if os.path.exists(cls_manifest) else -1
+        if labels and (not os.path.exists(ballcls.weights_path(ROOT)) or n_labels != last_cls):
+            if ballcls.train(ROOT, f"{ROOT}/videos", log=log):
+                _j.dump({"n": n_labels}, open(cls_manifest, "w"))
+                for c in _g.glob(f"{ROOT}/cache/*/ball_cands_cls.pkl"): os.remove(c)
                 for c in _g.glob(f"{ROOT}/cache/*/ball_cands.pkl*"): os.remove(c)
                 log("ball: caches cleared, all clips will be re-detected")
     except Exception as e: log(f"ball retrain: {e!r}")
