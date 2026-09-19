@@ -94,3 +94,46 @@ def check(ball, cands, gt_path, hit_px=30, log=print):
             if np.hypot(ball[i][0] - g[0], ball[i][1] - g[1]) <= hit_px: ok += 1
             else: wrong += 1
     log(f"ball check: {ok}/{tot} correct, {wrong} wrong, {tot-ok-wrong} no pick (ceiling {ceil}/{tot})"); return {"correct": ok, "total": tot, "wrong": wrong, "ceiling": ceil}
+
+
+def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, miss_cost=1.0, conf_w=3.0, near_w=1.5, min_conf=0.08, log=print):
+    """ONE ball path through the whole clip: dynamic programming over per-frame candidates plus a 'no ball' state.
+    Staying with a consistent, confident, player-adjacent path is cheap; jumping is expensive. Returns {frame: [x_px, y_px]}."""
+    n = len(cands); C = []      # per frame: list of (mx, my, conf, x, y, near)
+    ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
+    for i in range(n):
+        rows = []
+        if cands.get(i):
+            top = sorted(cands[i], key=lambda z: -z[2])[:12]
+            m = to_m(H[i], [[x, y] for x, y, _ in top])
+            for (x, y, cf), (mx, my) in zip(top, m):
+                if cf < min_conf or not (-margin < mx < L + margin and -margin < my < W + margin): continue
+                near = float(np.linalg.norm(ppos[i] - np.array([mx, my]), axis=1).min() < 4.0) if i in ppos else 0.5
+                rows.append((float(mx), float(my), float(cf), float(x), float(y), near))
+        C.append(rows)
+    INF = 1e18; cost = []; back = []; last_pos = {}      # state index len(rows) = "no ball"
+    prev_cost = None
+    for i in range(n):
+        rows = C[i]; k = len(rows); cur = np.full(k + 1, INF); bk = np.full(k + 1, -1, int)
+        emit = np.array([conf_w * (1 - r[2]) + near_w * (1 - r[5]) for r in rows] + [miss_cost])
+        if prev_cost is None:
+            cur = emit; bk[:] = -1
+        else:
+            prows = C[i - 1]; pk = len(prows)
+            for s in range(k + 1):
+                best, arg = INF, -1
+                for ps in range(pk + 1):
+                    if s < k and ps < pk: d = np.hypot(rows[s][0] - prows[ps][0], rows[s][1] - prows[ps][1]); tr = 0.4 * d + (6.0 if d > max_step_m * 3 else 0.0)
+                    elif s < k or ps < pk: tr = 1.2       # entering / leaving "no ball"
+                    else: tr = 0.0
+                    c = prev_cost[ps] + tr
+                    if c < best: best, arg = c, ps
+                cur[s] = best + emit[s]; bk[s] = arg
+        cost.append(cur); back.append(bk); prev_cost = cur
+    ball = {}; s = int(np.argmin(cost[-1]))
+    for i in range(n - 1, -1, -1):
+        if s < len(C[i]): r = C[i][s]; ball[i] = [r[3], r[4]]
+        s = back[i][s]
+        if s < 0: break
+    log(f"ball (global path): {len(ball)}/{n} frames on the chosen path")
+    return ball
