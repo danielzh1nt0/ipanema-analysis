@@ -96,7 +96,7 @@ def check(ball, cands, gt_path, hit_px=30, log=print):
     log(f"ball check: {ok}/{tot} correct, {wrong} wrong, {tot-ok-wrong} no pick (ceiling {ceil}/{tot})"); return {"correct": ok, "total": tot, "wrong": wrong, "ceiling": ceil}
 
 
-def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, miss_cost=1.0, conf_w=3.0, near_w=1.5, min_conf=0.08, log=print):
+def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, miss_cost=3.0, conf_w=1.5, near_w=0.8, min_conf=0.08, log=print):
     """ONE ball path through the whole clip: dynamic programming over per-frame candidates plus a 'no ball' state.
     Staying with a consistent, confident, player-adjacent path is cheap; jumping is expensive. Returns {frame: [x_px, y_px]}."""
     n = len(cands); C = []      # per frame: list of (mx, my, conf, x, y, near)
@@ -124,7 +124,7 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
                 best, arg = INF, -1
                 for ps in range(pk + 1):
                     if s < k and ps < pk: d = np.hypot(rows[s][0] - prows[ps][0], rows[s][1] - prows[ps][1]); tr = 0.4 * d + (6.0 if d > max_step_m * 3 else 0.0)
-                    elif s < k or ps < pk: tr = 1.2       # entering / leaving "no ball"
+                    elif s < k or ps < pk: tr = 0.8       # entering / leaving "no ball"
                     else: tr = 0.0
                     c = prev_cost[ps] + tr
                     if c < best: best, arg = c, ps
