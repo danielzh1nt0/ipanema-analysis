@@ -5,7 +5,7 @@ import modal, os
 APP = "ipanema"; REPO = "https://github.com/danielzh1nt0/ipanema-analysis.git"; ROOT = "/data/match_analysis"
 vol = modal.Volume.from_name("ipanema-data", create_if_missing=True)
 image = (modal.Image.debian_slim(python_version="3.11")
-         .apt_install("ffmpeg", "git", "libgl1", "libglib2.0-0")
+         .apt_install("ffmpeg", "git", "wget", "libgl1", "libglib2.0-0")
          .pip_install("torch==2.4.1", "torchvision==0.19.1", index_url="https://download.pytorch.org/whl/cu121")
          .pip_install("ultralytics==8.3.40", "supervision==0.25.1", "opencv-python-headless", "numpy<2", "pandas", "scipy", "scikit-learn", "umap-learn", "transformers", "timm", "pillow", "tqdm", "boto3", "supabase", "requests")
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
