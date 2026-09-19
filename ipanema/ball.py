@@ -82,9 +82,29 @@ def bridge(ball, fps, max_gap_s=1.0):
                 t = (k - a) / (b - a); ball[k] = [ball[a][0] + t * (ball[b][0] - ball[a][0]), ball[a][1] + t * (ball[b][1] - ball[a][1])]
     return ball
 
-def check(ball, cands, gt_path, hit_px=30, log=print):
+def check(ball, cands, gt_path, hit_px=30, log=print, video=None, debug_dir=None):
     if not gt_path or not os.path.exists(gt_path): return None
     gt = {int(k): v for k, v in json.load(open(gt_path)).items()}
+    if video and debug_dir:
+        # diagnostic tiles: your click (green), our pick (red), candidates (yellow, size ~ confidence), 240 px around the truth
+        try:
+            import cv2; os.makedirs(debug_dir, exist_ok=True); cap = cv2.VideoCapture(video); tiles = []
+            for i, g in sorted(gt.items()):
+                if g is None: continue
+                cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, f = cap.read()
+                if not ok: continue
+                for x, y, cf in cands.get(i, []): cv2.circle(f, (int(x), int(y)), int(6 + 20 * cf), (0, 255, 255), 1)
+                if i in ball: cv2.drawMarker(f, (int(ball[i][0]), int(ball[i][1])), (0, 0, 255), cv2.MARKER_TILTED_CROSS, 22, 2)
+                cv2.circle(f, (int(g[0]), int(g[1])), 14, (0, 255, 0), 2)
+                x0, y0 = int(max(0, g[0] - 160)), int(max(0, g[1] - 90)); t = f[y0:y0 + 180, x0:x0 + 320]
+                if t.shape[:2] != (180, 320): t = cv2.copyMakeBorder(t, 0, 180 - t.shape[0], 0, 320 - t.shape[1], cv2.BORDER_CONSTANT)
+                d = np.hypot(ball[i][0] - g[0], ball[i][1] - g[1]) if i in ball else None
+                cv2.putText(t, f"f{i} " + ("miss" if d is None else f"{d:.0f}px"), (4, 16), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1); tiles.append(t)
+            cap.release()
+            while len(tiles) % 4: tiles.append(np.zeros((180, 320, 3), np.uint8))
+            sheet = np.vstack([np.hstack(tiles[k:k + 4]) for k in range(0, len(tiles), 4)])
+            cv2.imwrite(os.path.join(debug_dir, "ballcheck.jpg"), sheet, [cv2.IMWRITE_JPEG_QUALITY, 88])
+        except Exception as e: log(f"  ball check tiles failed: {e!r}")
     tot = ok = wrong = ceil = 0
     for i, g in gt.items():
         if g is None: continue

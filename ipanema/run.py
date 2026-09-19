@@ -55,7 +55,7 @@ def run(video_src, match_id=None, settings=None, log=print):
     ball_g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
     if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
     ball = BL.bridge(ball_g, fps)
-    ball_check = BL.check(ball, cands, os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log)
+    ball_check = BL.check(ball, cands, os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
     state, bspeed = P.viterbi(per, ballm, fps, L, W)
     attack_right, conf = P.direction(state, ballm, log=log)
