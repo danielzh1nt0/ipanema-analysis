@@ -116,7 +116,7 @@ def check(ball, cands, gt_path, hit_px=30, log=print, video=None, debug_dir=None
     log(f"ball check: {ok}/{tot} correct, {wrong} wrong, {tot-ok-wrong} no pick (ceiling {ceil}/{tot})"); return {"correct": ok, "total": tot, "wrong": wrong, "ceiling": ceil}
 
 
-def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, miss_cost=3.0, conf_w=1.5, near_w=0.8, min_conf=0.08, log=print):
+def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, miss_cost=3.0, conf_w=1.5, near_w=2.5, min_conf=0.08, log=print):
     """ONE ball path through the whole clip: dynamic programming over per-frame candidates plus a 'no ball' state.
     Staying with a consistent, confident, player-adjacent path is cheap; jumping is expensive. Returns {frame: [x_px, y_px]}."""
     n = len(cands); C = []      # per frame: list of (mx, my, conf, x, y, near)
@@ -131,6 +131,19 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
                 near = float(np.linalg.norm(ppos[i] - np.array([mx, my]), axis=1).min() < 4.0) if i in ppos else 0.5
                 rows.append((float(mx), float(my), float(cf), float(x), float(y), near))
         C.append(rows)
+    # static clutter: a candidate that sits at the same pitch position for seconds with nobody near it is a cone / spare ball / mark, not the ball
+    win = int(3 * fps); grid = {}
+    for i in range(n):
+        for r in C[i]: grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), []).append(i)
+    dropped = 0
+    for i in range(n):
+        keep = []
+        for r in C[i]:
+            key = (i // win, round(r[0] * 2), round(r[1] * 2)); frames_here = len(set(grid.get(key, [])))
+            if r[5] == 0.0 and frames_here > 0.6 * win: dropped += 1; continue
+            keep.append(r)
+        C[i] = keep
+    if dropped: log(f"ball: dropped {dropped} static-clutter candidates")
     INF = 1e18; cost = []; back = []; last_pos = {}      # state index len(rows) = "no ball"
     prev_cost = None
     for i in range(n):
