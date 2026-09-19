@@ -46,7 +46,7 @@ def run(video_src, match_id=None, settings=None, log=print):
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     per, cl = TR.clean(per, L, W, fps, log=log)
     cands = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)
-    ball = BL.bridge(BL.pick(cands, H, L, W, log=log), fps)
+    ball = BL.bridge(BL.pick(cands, H, L, W, per=per, log=log), fps)
     ball_check = BL.check(ball, cands, os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log)
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
     state, bspeed = P.viterbi(per, ballm, fps, L, W)

@@ -29,7 +29,7 @@ def candidates(video, weights_ball, cache, conf=0.05, imgsz=1920, tiles=(3, 2), 
     if os.path.exists(partial): os.remove(partial)
     return out
 
-def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_score=4.0, log=print):
+def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_score=4.0, seed_conf=0.15, per=None, log=print):
     n = len(cands); S = {}
     for i in range(n):
         S[i] = []
@@ -37,6 +37,8 @@ def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_sc
         m = to_m(H[i], [[x, y] for x, y, _ in cands[i]])
         for (x, y, cf), (mx, my) in zip(cands[i], m):
             if -margin < mx < L + margin and -margin < my < W + margin: S[i].append((mx * 10, my * 10, cf, x, y))
+    # a real ball is near a player most of the time: precompute player positions (metres) per frame for scoring
+    ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
     tracks, active = [], []
     for i in range(n):
         used = set()
@@ -50,7 +52,7 @@ def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_sc
                 if d <= link_r and (bd is None or d < bd): best, bd = k, d
             if best is not None: sx, sy, cf, x, y = S[i][best]; tr.append((i, sx, sy, cf, x, y)); used.add(best)
         for k, (sx, sy, cf, x, y) in enumerate(S[i]):
-            if k not in used: t = [(i, sx, sy, cf, x, y)]; tracks.append(t); active.append(t)
+            if k not in used and cf >= seed_conf: t = [(i, sx, sy, cf, x, y)]; tracks.append(t); active.append(t)   # only confident candidates start a track
         active = [t for t in active if i - t[-1][0] <= max_gap]
     def speed(tr):
         P = np.array([[t[1], t[2]] for t in tr]); F = np.array([t[0] for t in tr]); return np.median(np.linalg.norm(np.diff(P, axis=0), axis=1) / np.diff(F))
@@ -59,7 +61,11 @@ def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_sc
         P = np.array([[t[1], t[2]] for t in tr]); F = np.array([t[0] for t in tr]); C = np.array([t[3] for t in tr])
         v = np.diff(P, axis=0) / np.diff(F)[:, None]; acc = np.linalg.norm(np.diff(v, axis=0), axis=1).mean() if len(v) > 1 else 0
         # long, smooth, consistently detected tracks win; absolute confidence matters less (a small ball is always low-confidence)
-        return len(tr) * (0.3 + C.mean()) / (1 + acc / 5)
+        near = 1.0
+        if ppos:
+            hits = [np.linalg.norm(ppos[t[0]] - np.array([t[1], t[2]]) / 10.0, axis=1).min() < 4.0 for t in tr[::3] if t[0] in ppos]
+            near = 0.5 + float(np.mean(hits)) if hits else 1.0
+        return len(tr) * (0.3 + C.mean()) * near / (1 + acc / 5)
     scored = sorted(((score(t), t) for t in tracks), key=lambda z: -z[0]); ball = {}
     for s, tr in scored:
         if s < min_score: break
