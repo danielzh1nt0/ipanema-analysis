@@ -7,7 +7,11 @@ def build_dataset(root, videos_dir, box=16, log=print):
         os.makedirs(f"{ds}/images/{sp}", exist_ok=True); os.makedirs(f"{ds}/labels/{sp}", exist_ok=True)
     n = 0
     for gt_path in glob.glob(os.path.join(root, "reference", "*", "ball_gt.json")):
-        clip = os.path.basename(os.path.dirname(gt_path)); vid = next((p for p in glob.glob(f"{videos_dir}/{clip}.*")), None)
+        clip = os.path.basename(os.path.dirname(gt_path))
+        vid = next((p for p in glob.glob(f"{videos_dir}/{clip}.*")), None)
+        if vid is None and os.path.isdir(f"{videos_dir}/{clip}"):
+            vids = [p for p in glob.glob(f"{videos_dir}/{clip}/*") if p.lower().endswith((".mp4", ".mov", ".mkv"))]
+            vid = max(vids, key=os.path.getsize) if vids else None          # the full match in its folder
         if vid is None: log(f"  no video for {clip}"); continue
         gt = {int(k): v for k, v in json.load(open(gt_path)).items()}; cap = cv2.VideoCapture(vid)
         for i, g in gt.items():

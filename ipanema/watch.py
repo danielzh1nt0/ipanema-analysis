@@ -27,12 +27,15 @@ def step(state, ROOT, CODE, REPO):
     try:
         import glob as _g
         labels = _g.glob(f"{ROOT}/reference/*/ball_gt.json"); weights = f"{ROOT}/models/ball_finetuned.pt"
-        newest = max((os.path.getmtime(p) for p in labels), default=0)
-        if labels and (not os.path.exists(weights) or newest > os.path.getmtime(weights) + 60):
+        import json as _j
+        n_labels = sum(len([v for v in _j.load(open(p)).values() if v]) for p in labels)
+        manifest = f"{ROOT}/models/ball_train_manifest.json"; last_n = _j.load(open(manifest)).get("n") if os.path.exists(manifest) else -1
+        if labels and (not os.path.exists(weights) or n_labels != last_n):
             log(f"ball: {len(labels)} label files, newer than the weights -> retraining")
             from ipanema import train_ball
             out = train_ball.train(ROOT, f"{ROOT}/videos", "/content/sports/examples/soccer/data/football-ball-detection.pt", epochs=40, log=log)
             if out:
+                _j.dump({"n": n_labels}, open(manifest, "w"))
                 for c in _g.glob(f"{ROOT}/cache/*/ball_cands.pkl*"): os.remove(c)
                 log("ball: caches cleared, all clips will be re-detected")
     except Exception as e: log(f"ball retrain: {e!r}")
