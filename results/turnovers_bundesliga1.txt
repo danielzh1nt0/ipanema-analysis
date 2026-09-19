@@ -1,12 +1,15 @@
 truth turnovers: [(52.71, 'A'), (53.92, 'B'), (86.86, 'B'), (91.66, 'A'), (106.36, 'B'), (123.11, 'A'), (139.95, 'B'), (165.61, 'A'), (199.61, 'A')]
  #       t lost>won   hold  prev  speed  dist nopp         ballpx  note
- 1    16.2    B>A      0.0   4.3    1.5 15.11    0 [923.6, 435.2]  
-MISSED truth turnover at 52.71 (A lost): possession -4s..+4s = ---BBBBBBBBB-----------------BBBBBBBBBBB
-MISSED truth turnover at 53.92 (B lost): possession -4s..+4s = BBBBBB-----------------BBBBBBBBBBBBBBBBB
-MISSED truth turnover at 86.86 (B lost): possession -4s..+4s = -------------AAAAAAAAAAAAAAAAAAAAAA-----
-MISSED truth turnover at 91.66 (A lost): possession -4s..+4s = AAAAAAAAAAA-----------------------------
+ 1     4.5    A>B      0.0   4.5    3.1 22.03    0 [229.9, 321.1]  
+ 2    73.1    B>A      0.0   3.7    6.1  None None [1203.1, 383.5]  
+ 3    78.5    A>B      0.0   5.3   None  5.74    0 [1040.9, 624.5]  
+ 4    82.5    B>A      0.0   4.0    8.7  None None [395.4, 466.0]  
+ 5   138.0    A>B      0.0  10.0   12.7  3.48    1 [726.9, 438.1]  TRUTH B lost
+ 6   198.6    B>A      0.0  10.0   11.0  8.12    0 [438.2, 602.9]  TRUTH A lost
+MISSED truth turnover at 52.71 (A lost): possession -4s..+4s = ---BBBBBBBBBB------------------BBBBBBBBB
+MISSED truth turnover at 53.92 (B lost): possession -4s..+4s = BBBBBBB-----------------BBBBBBBBBBBBBBBB
+MISSED truth turnover at 86.86 (B lost): possession -4s..+4s = -AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+MISSED truth turnover at 91.66 (A lost): possession -4s..+4s = AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 MISSED truth turnover at 106.36 (B lost): possession -4s..+4s = AAAAA---------BBBBBB--BBBBBBBBBBBBBBBBBB
-MISSED truth turnover at 123.11 (A lost): possession -4s..+4s = BB--------------------------------------
-MISSED truth turnover at 139.95 (B lost): possession -4s..+4s = AAAAAAAAAAA-BB----------------BBBBBBBBBB
-MISSED truth turnover at 165.61 (A lost): possession -4s..+4s = BBBBB-----------------------------------
-MISSED truth turnover at 199.61 (A lost): possession -4s..+4s = B-------------------AAAAAAAAAAAAAAAAAAAA
+MISSED truth turnover at 123.11 (A lost): possession -4s..+4s = B-AAAAAAAA--------AAAAAAAAAAAAAAAAAAAAAA
+MISSED truth turnover at 165.61 (A lost): possession -4s..+4s = BBBBBBBBB-------------------------------
