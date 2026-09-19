@@ -25,11 +25,12 @@ def build_dataset(root, videos_dir, box=16, log=print):
     open(f"{ds}/data.yaml", "w").write(f"path: {ds}\ntrain: images/train\nval: images/val\nnames: ['ball']\n")
     log(f"dataset: {n} labelled frames"); return ds, n
 
-def train(root, videos_dir, base_weights, epochs=40, imgsz=1280, log=print):
+def train(root, videos_dir, base_weights, epochs=60, imgsz=1920, log=print):
     from ultralytics import YOLO
     ds, n = build_dataset(root, videos_dir, log=log)
     if n < 40: log("fewer than 40 labelled frames — label more clips before training"); return None
     model = YOLO(base_weights)
-    model.train(data=f"{ds}/data.yaml", epochs=epochs, imgsz=imgsz, batch=8, lr0=0.002, freeze=10, project=f"{root}/models", name="ball_ft", exist_ok=True, verbose=False)
+    # small ball: full resolution, more of the network trainable, longer schedule, gentler augmentation
+    model.train(data=f"{ds}/data.yaml", epochs=epochs, imgsz=imgsz, batch=4, lr0=0.001, freeze=4, mosaic=0.5, scale=0.3, project=f"{root}/models", name="ball_ft", exist_ok=True, verbose=False, patience=25)
     best = f"{root}/models/ball_ft/weights/best.pt"; out = f"{root}/models/ball_finetuned.pt"; shutil.copy(best, out)
     log(f"fine-tuned ball weights -> {out}"); return out

@@ -3,7 +3,7 @@ import os, pickle, numpy as np, json
 from .video import frames
 from .calibration import to_m
 
-def candidates(video, weights_ball, cache, conf=0.05, imgsz=1280, tiles=(3, 2), overlap=0.2, log=print):
+def candidates(video, weights_ball, cache, conf=0.05, imgsz=1920, tiles=(3, 2), overlap=0.2, log=print):
     from ultralytics import YOLO
     out = {}; partial = cache + ".partial"
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
