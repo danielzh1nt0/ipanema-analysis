@@ -32,8 +32,21 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     S = Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
     lines = []
     def log(*a): s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
-    summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
+    try: summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
+    except Exception as e:
+        import traceback; log("RUN FAILED: " + traceback.format_exc()); summary = {"error": str(e)}
     vol.commit()
+    # publish log + summary to the repo (results/modal/<match>.txt) so results can be read without the dashboard
+    tok = os.environ.get("GITHUB_TOKEN")
+    if tok:
+        try:
+            import json, datetime
+            d = "/content/ipanema-analysis/results/modal"; os.makedirs(d, exist_ok=True)
+            open(f"{d}/{match_id}.txt", "w").write("\n".join(lines[-2000:]) + "\n\nSUMMARY " + json.dumps(summary, default=str))
+            url = f"https://x-access-token:{tok}@github.com/danielzh1nt0/ipanema-analysis.git"
+            subprocess.run(f"cd /content/ipanema-analysis && git config user.email modal@ipanema && git config user.name modal && git add results/modal && git commit -qm 'modal results for {match_id}' && git pull -q --rebase -X theirs {url} main && git push -q {url} HEAD:main", shell=True, capture_output=True)
+            log("published to results/modal")
+        except Exception as e: log(f"publish failed: {e!r}")
     return {"summary": {k: (v if isinstance(v, (int, float, str, bool, dict, list, type(None))) else str(v)) for k, v in summary.items()}, "log_tail": lines[-log_tail:]}
 
 @app.local_entrypoint()
