@@ -51,11 +51,19 @@ def run(video_src, match_id=None, settings=None, log=print):
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     per, cl = TR.clean(per, L, W, fps, log=log)
-    cands = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)
-    try:
-        from . import ballcls
-        if os.path.exists(ballcls.weights_path(S.root)): cands = ballcls.rescore(video, cands, S.root, cache=f"{cache}/ball_cands_cls.pkl", log=log)
-    except Exception as e: log(f"ball classifier: {e!r}")
+    ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
+    cands = None
+    if ball_backend == "wasb":
+        try:
+            from . import wasb
+            cands = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log)
+        except Exception as e: log(f"wasb failed ({e!r}); falling back to YOLO ball"); cands = None
+    if cands is None:
+        cands = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)
+        try:
+            from . import ballcls
+            if os.path.exists(ballcls.weights_path(S.root)): cands = ballcls.rescore(video, cands, S.root, cache=f"{cache}/ball_cands_cls.pkl", log=log)
+        except Exception as e: log(f"ball classifier: {e!r}")
     ball_g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
     if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
     ball = BL.bridge(ball_g, fps)
