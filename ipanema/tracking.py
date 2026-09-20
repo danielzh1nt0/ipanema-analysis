@@ -1,6 +1,6 @@
 """Players: detect, track, assign team, project to metres, then clean (mask, keepers, duplicates, id stitching).
 Output per[k] = list of rows (id, team 'A'/'B', pos_m (x,y), foot_px (x,y), box xyxy, gk bool)."""
-import numpy as np
+import os, numpy as np
 from collections import defaultdict
 from .video import frames
 from .calibration import to_m
@@ -10,13 +10,32 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print):
     from ultralytics import YOLO
     from .video import info
     fps = info(video)["fps"]; model = YOLO(weights_player)
-    tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+    use_bot = os.environ.get("IPANEMA_TRACKER", "botsort") == "botsort"
+    tracker = None
+    if use_bot:
+        try:
+            from boxmot import BotSort            # camera-motion compensation for panning footage
+            import torch, pathlib
+            tracker = BotSort(reid_weights=pathlib.Path("osnet_x0_25_msmt17.pt"), device=0 if torch.cuda.is_available() else "cpu", half=False, with_reid=False)
+            log("tracking: BoT-SORT with camera-motion compensation")
+        except Exception as e: log(f"tracking: BoT-SORT unavailable ({e!r}); using ByteTrack"); tracker = None
+    if tracker is None:
+        tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
     votes = {}; per = {}
     for k, f in frames(video):
         res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True)
         ref_id = next((i for i, nm in res.names.items() if "referee" in nm.lower()), None)
         if ref_id is not None: det = det[det.class_id != ref_id]
-        det = tracker.update_with_detections(det); rows = []
+        if hasattr(tracker, "update_with_detections"): det = tracker.update_with_detections(det)
+        else:
+            import numpy as _np
+            arr = _np.c_[det.xyxy, det.confidence if det.confidence is not None else _np.ones(len(det)), _np.zeros(len(det))]
+            out = tracker.update(arr, f)          # BoT-SORT: (N, 7) x1 y1 x2 y2 id conf cls
+            if len(out):
+                det = sv.Detections(xyxy=out[:, :4].astype(float), confidence=out[:, 5].astype(float),
+                                    class_id=out[:, 6].astype(int), tracker_id=out[:, 4].astype(int))
+            else: det = sv.Detections.empty()
+        rows = []
         if len(det):
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
             labs = team_model.predict_batch(f, det.xyxy)
