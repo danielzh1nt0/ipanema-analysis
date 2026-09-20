@@ -20,7 +20,8 @@ def _model(root, device):
     import torch, yaml
     sys.path.insert(0, f"{WASB_DIR}/src")
     from models import build_model
-    cfg = {"model": yaml.safe_load(open(f"{WASB_DIR}/src/configs/model/wasb.yaml"))}
+    from omegaconf import OmegaConf
+    cfg = OmegaConf.create({"model": yaml.safe_load(open(f"{WASB_DIR}/src/configs/model/wasb.yaml"))})
     m = build_model(cfg); ck = torch.load(weights_path(root), map_location=device)
     m.load_state_dict(ck["model_state_dict"] if "model_state_dict" in ck else ck); return m.to(device).eval()
 
