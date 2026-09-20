@@ -5,10 +5,18 @@ import os, glob, json, numpy as np, cv2
 def weights_path(root): return os.path.join(root, "models", "wasb_finetuned.pth")
 def manifest_path(root): return os.path.join(root, "models", "wasb_train_manifest.json")
 
-def _video_for(clip, videos_dir):
+def _video_for(clip, videos_dir, log=print):
     v = next((p for p in glob.glob(f"{videos_dir}/{clip}.*")), None)
     if v is None and os.path.isdir(f"{videos_dir}/{clip}"):
         vs = [p for p in glob.glob(f"{videos_dir}/{clip}/*") if p.lower().endswith((".mp4", ".mov", ".mkv"))]; v = max(vs, key=os.path.getsize) if vs else None
+    if v is None and os.environ.get("R2_PUBLIC_URL"):     # labelled clip not on this machine: fetch from R2 if it was ever exported
+        try:
+            import requests
+            url = f"{os.environ['R2_PUBLIC_URL']}/{clip}/video.mp4"; r = requests.get(url, stream=True, timeout=600)
+            if r.status_code == 200:
+                os.makedirs(videos_dir, exist_ok=True); v = f"{videos_dir}/{clip}.mp4"; open(v, "wb").write(b"".join(r.iter_content(1 << 20))); log(f"wasb train: fetched {clip} from R2")
+            else: log(f"wasb train: {clip} not on R2 ({r.status_code}); its labels are skipped")
+        except Exception as e: log(f"wasb train: fetch {clip} failed: {e!r}")
     return v
 
 def load_samples(root, videos_dir, log=print):
@@ -16,7 +24,7 @@ def load_samples(root, videos_dir, log=print):
     from .wasb import MEAN, STD
     S = []
     for gt_path in glob.glob(f"{root}/reference/*/ball_gt.json"):
-        clip = os.path.basename(os.path.dirname(gt_path)); vid = _video_for(clip, videos_dir)
+        clip = os.path.basename(os.path.dirname(gt_path)); vid = _video_for(clip, videos_dir, log=log)
         if vid is None: continue
         gt = {int(k): v for k, v in json.load(open(gt_path)).items()}
         cap = cv2.VideoCapture(vid); W, H = int(cap.get(3)), int(cap.get(4))
@@ -41,7 +49,7 @@ def train(root, videos_dir, epochs=40, lr=1e-4, log=print):
     from .wasb import ensure, _model
     ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev)
     S = load_samples(root, videos_dir, log=log)
-    if len(S) < 40: log("wasb train: too few samples"); return None
+    if len(S) < 30: log("wasb train: too few samples"); return None
     rng = np.random.RandomState(0); idx = rng.permutation(len(S)); nval = max(10, len(S) // 5); va, tr = idx[:nval], idx[nval:]
     opt = torch.optim.Adam(net.parameters(), lr=lr)
     def wbce(logits, t):   # TrackNetV2 weighted BCE on the middle channel
