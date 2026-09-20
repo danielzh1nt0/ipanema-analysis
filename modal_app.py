@@ -39,14 +39,15 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     vol.commit()
     # publish log + summary to the repo (results/modal/<match>.txt) so results can be read without the dashboard
     tok = os.environ.get("GITHUB_TOKEN")
-    if tok:
+    if not tok: log("publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)")
+    else:
         try:
             import json, datetime
             d = "/content/ipanema-analysis/results/modal"; os.makedirs(d, exist_ok=True)
             open(f"{d}/{match_id}.txt", "w").write("\n".join(lines[-2000:]) + "\n\nSUMMARY " + json.dumps(summary, default=str))
             url = f"https://x-access-token:{tok}@github.com/danielzh1nt0/ipanema-analysis.git"
-            subprocess.run(f"cd /content/ipanema-analysis && git config user.email modal@ipanema && git config user.name modal && git add results/modal && git commit -qm 'modal results for {match_id}' && git pull -q --rebase -X theirs {url} main && git push -q {url} HEAD:main", shell=True, capture_output=True)
-            log("published to results/modal")
+            r = subprocess.run(f"cd /content/ipanema-analysis && git config user.email modal@ipanema && git config user.name modal && git add results/modal && git commit -qm 'modal results for {match_id}' && git pull -q --rebase -X theirs {url} main && git push -q {url} HEAD:main", shell=True, capture_output=True, text=True)
+            log("published to results/modal" if r.returncode == 0 else "publish failed: " + (r.stderr or r.stdout)[-300:])
         except Exception as e: log(f"publish failed: {e!r}")
     return {"summary": {k: (v if isinstance(v, (int, float, str, bool, dict, list, type(None))) else str(v)) for k, v in summary.items()}, "log_tail": lines[-log_tail:]}
 
