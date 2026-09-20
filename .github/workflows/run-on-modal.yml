@@ -32,6 +32,8 @@ jobs:
           out = f.remote(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4")
           os.makedirs("results/modal", exist_ok=True)
           open(f"results/modal/{m}.txt", "w").write("\n".join(out["log_tail"]) + "\n\nSUMMARY " + json.dumps(out["summary"], default=str))
+          import base64
+          for name, b64 in out.get("files", {}).items(): open(f"results/modal/{m}_{name}", "wb").write(base64.b64decode(b64))
           print("\n".join(out["log_tail"][-25:]))
           PY
       - name: commit results

@@ -39,7 +39,7 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25):
     import torch
     device = "cuda" if torch.cuda.is_available() else "cpu"; ensure(root, log=log); net = _model(root, device)
     cap = cv2.VideoCapture(video); W, H = int(cap.get(3)), int(cap.get(4)); sx, sy = W / 512.0, H / 288.0
-    out = {}; buf = []; idx = []; k = 0; chunks = []; chunk_idx = []
+    out = {}; buf = []; idx = []; k = 0; chunks = []; chunk_idx = []; stats = []
     def flush():
         nonlocal chunks, chunk_idx
         if not chunks: return
@@ -48,6 +48,7 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25):
             pred = net(x); pred = pred[0] if isinstance(pred, (list, tuple, dict)) else pred
             if isinstance(pred, dict): pred = list(pred.values())[0]
             hms = torch.sigmoid(pred).cpu().numpy()          # (B, 3, 288, 512)
+        stats.extend(float(hms[b, j].max()) for b in range(hms.shape[0]) for j in range(3))
         for b, fr in enumerate(chunk_idx):
             for j in range(3):
                 out[fr[j]] = [(px * sx, py * sy, s) for px, py, s in _peaks(hms[b, j], thr)]
@@ -65,5 +66,6 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25):
         while len(buf) < 3: buf.append(buf[-1]); idx.append(idx[-1])
         chunks.append(np.concatenate(buf, 0)); chunk_idx.append(idx)
     flush(); cap.release()
-    n_det = sum(1 for v in out.values() if v); log(f"wasb: {n_det}/{k} frames with a ball peak, {sum(len(v) for v in out.values())/max(1,k):.1f} peaks/frame")
+    n_det = sum(1 for v in out.values() if v); q = np.percentile(stats, [50, 90, 99]) if stats else [0, 0, 0]
+    log(f"wasb: {n_det}/{k} frames with a ball peak, {sum(len(v) for v in out.values())/max(1,k):.1f} peaks/frame; heatmap max p50/p90/p99 = {q[0]:.2f}/{q[1]:.2f}/{q[2]:.2f}")
     pickle.dump(out, open(cache, "wb")); return out

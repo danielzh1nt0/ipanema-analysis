@@ -49,7 +49,12 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
             r = subprocess.run(f"cd /content/ipanema-analysis && git config user.email modal@ipanema && git config user.name modal && git add results/modal && git commit -qm 'modal results for {match_id}' && git pull -q --rebase -X theirs {url} main && git push -q {url} HEAD:main", shell=True, capture_output=True, text=True)
             log("published to results/modal" if r.returncode == 0 else "publish failed: " + (r.stderr or r.stdout)[-300:])
         except Exception as e: log(f"publish failed: {e!r}")
-    return {"summary": {k: (v if isinstance(v, (int, float, str, bool, dict, list, type(None))) else str(v)) for k, v in summary.items()}, "log_tail": lines[-log_tail:]}
+    files = {}
+    import glob as _g, base64
+    for p in _g.glob("/content/ipanema-analysis/results/debug/ballcheck_*/ballcheck.jpg") + _g.glob("/content/ipanema-analysis/results/debug/*_f*.jpg")[:3]:
+        try: files[os.path.basename(os.path.dirname(p)) + "_" + os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
+        except Exception: pass
+    return {"summary": {k: (v if isinstance(v, (int, float, str, bool, dict, list, type(None))) else str(v)) for k, v in summary.items()}, "log_tail": lines[-log_tail:], "files": files}
 
 @app.local_entrypoint()
 def main(match_id: str, video_url: str = "", start_s: int = 0, dur_s: int = 0):
