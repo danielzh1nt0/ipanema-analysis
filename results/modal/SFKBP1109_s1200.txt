@@ -1,39 +1,39 @@
-=== SFKBP1109_s1200 === (ipanema 0.14.5; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.15.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [313, 296], dark share A 0.5 / B 0.29 (A = darker kit)
+teams: 609 crops, clusters [474, 135], dark share A 0.44 / B 0.23 (A = darker kit)
 tracking: cached
 clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
 clean: players per frame median A 5 / B 8, max A 12 / B 14
 wasb train: 195 samples (144 with a visible ball)
-wasb train: before fine-tune, held-out hit rate 17/34
-  wasb epoch 10: loss 0.0001, held-out hit rate 20/34
-  wasb epoch 20: loss 0.0000, held-out hit rate 17/34
+wasb train: before fine-tune, held-out hit rate 19/34
+  wasb epoch 10: loss 0.0000, held-out hit rate 17/34
+  wasb epoch 20: loss 0.0000, held-out hit rate 18/34
   wasb epoch 30: loss 0.0000, held-out hit rate 17/34
-  wasb epoch 40: loss 0.0000, held-out hit rate 17/34
-  wasb epoch 50: loss 0.0000, held-out hit rate 16/34
-  wasb epoch 60: loss 0.0000, held-out hit rate 19/34
-  wasb epoch 70: loss 0.0000, held-out hit rate 18/34
-  wasb epoch 80: loss 0.0000, held-out hit rate 19/34
-  wasb epoch 90: loss 0.0000, held-out hit rate 18/34
-  wasb epoch 100: loss 0.0000, held-out hit rate 16/34
+  wasb epoch 40: loss 0.0000, held-out hit rate 18/34
+  wasb epoch 50: loss 0.0000, held-out hit rate 17/34
+  wasb epoch 60: loss 0.0000, held-out hit rate 17/34
+  wasb epoch 70: loss 0.0000, held-out hit rate 17/34
+  wasb epoch 80: loss 0.0000, held-out hit rate 16/34
+  wasb epoch 90: loss 0.0000, held-out hit rate 17/34
+  wasb epoch 100: loss 0.0000, held-out hit rate 17/34
   wasb epoch 110: loss 0.0000, held-out hit rate 17/34
-  wasb epoch 120: loss 0.0000, held-out hit rate 15/34
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 20/34)
+  wasb epoch 120: loss 0.0000, held-out hit rate 17/34
+wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 19/34)
 wasb: using fine-tuned weights
   wasb frame 1500
   wasb frame 3000
   wasb frame 4500
   wasb frame 6000
   wasb frame 7500
-wasb: 4647/8992 frames with a ball peak, 1.3 peaks/frame; heatmap max p50/p90/p99 = 0.26/0.51/0.78
+wasb: 4760/8992 frames with a ball peak, 1.3 peaks/frame; heatmap max p50/p90/p99 = 0.26/0.52/0.79
 ball: WASB + YOLO candidates merged, 23.7/frame
-ball: dropped 6285 static-clutter candidates
-ball (global path): 5580/8992 frames on the chosen path
-ball check: 16/34 correct, 17 wrong, 1 no pick (ceiling 31/34)
-direction: A ←  B →  confidence A 0.10 / B 0.02  WARNING low confidence
+ball: dropped 5940 static-clutter candidates
+ball (global path): 5356/8992 frames on the chosen path
+ball check: 20/34 correct, 13 wrong, 1 no pick (ceiling 31/34)
+direction: A ←  B →  confidence A 0.13 / B 0.03  WARNING low confidence
 direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: sequences
   step: turnovers
@@ -42,10 +42,10 @@ direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: shapes
   step: stats
   step: metrics
-ball reliability: 57% frames, 95% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball reliability: 55% frames, 94% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (21.3 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (419 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+  wrote match_data.json (21.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (387 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
 upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
@@ -54,24 +54,24 @@ upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.5, 'B': 0.29}
+  team_dark_share            {'A': 0.44, 'B': 0.23}
   players_per_frame_median   {'A': 5.0, 'B': 8.0}
-  ball_frames_pct            100
-  ball_check                 {'correct': 16, 'total': 34, 'wrong': 17, 'ceiling': 31}
-  possession_pct             {'A': 12, 'B': 88}
-  loose_pct                  15
-  dead_pct                   4
+  ball_frames_pct            99
+  ball_check                 {'correct': 20, 'total': 34, 'wrong': 13, 'ceiling': 31}
+  possession_pct             {'A': 10, 'B': 90}
+  loose_pct                  21
+  dead_pct                   1
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.1, 'B': 0.02}
-  turnovers                  0
-  passes                     1497
-  restarts                   5
-  sequences                  49
+  direction_confidence       {'A': 0.13, 'B': 0.03}
+  turnovers                  3
+  passes                     1453
+  restarts                   1
+  sequences                  45
   shots                      {'A': 0, 'B': 0}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 0, 'B': 0}
-  field_tilt                 {'A': 17, 'B': 42}
-  runtime_min                32.2
+  high_turnovers             {'A': 1, 'B': 1}
+  field_tilt                 {'A': 11, 'B': 45}
+  runtime_min                32.1
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.5, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 16, "total": 34, "wrong": 17, "ceiling": 31}, "possession_pct": {"A": 12, "B": 88}, "loose_pct": 15, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.02}, "turnovers": 0, "passes": 1497, "restarts": 5, "sequences": 49, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 17, "B": 42}, "runtime_min": 32.2}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.44, "B": 0.23}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 99, "ball_check": {"correct": 20, "total": 34, "wrong": 13, "ceiling": 31}, "possession_pct": {"A": 10, "B": 90}, "loose_pct": 21, "dead_pct": 1, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.13, "B": 0.03}, "turnovers": 3, "passes": 1453, "restarts": 1, "sequences": 45, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 1}, "field_tilt": {"A": 11, "B": 45}, "runtime_min": 32.1}
