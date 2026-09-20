@@ -54,7 +54,9 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     for p in _g.glob("/content/ipanema-analysis/results/debug/ballcheck_*/ballcheck.jpg") + _g.glob("/content/ipanema-analysis/results/debug/*_f*.jpg")[:3]:
         try: files[os.path.basename(os.path.dirname(p)) + "_" + os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
-    return {"summary": {k: (v if isinstance(v, (int, float, str, bool, dict, list, type(None))) else str(v)) for k, v in summary.items()}, "log_tail": lines[-log_tail:], "files": files}
+    import json as _json
+    safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
+    return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
 
 @app.local_entrypoint()
 def main(match_id: str, video_url: str = "", start_s: int = 0, dur_s: int = 0):
