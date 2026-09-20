@@ -16,14 +16,18 @@ def ensure(root, log=print):
         os.makedirs(os.path.dirname(w), exist_ok=True); import gdown; gdown.download(id=WEIGHT_ID, output=w, quiet=True); log(f"wasb: downloaded weights -> {w}")
     return w
 
-def _model(root, device):
+def _model(root, device, finetuned=True):
     import torch, yaml
     sys.path.insert(0, f"{WASB_DIR}/src")
     from models import build_model
     from omegaconf import OmegaConf
     cfg = OmegaConf.create({"model": yaml.safe_load(open(f"{WASB_DIR}/src/configs/model/wasb.yaml"))})
-    m = build_model(cfg); ck = torch.load(weights_path(root), map_location=device)
-    m.load_state_dict(ck["model_state_dict"] if "model_state_dict" in ck else ck); return m.to(device).eval()
+    m = build_model(cfg)
+    ft = os.path.join(root, "models", "wasb_finetuned.pth")
+    if finetuned and os.path.exists(ft): m.load_state_dict(torch.load(ft, map_location=device))
+    else:
+        ck = torch.load(weights_path(root), map_location=device); m.load_state_dict(ck["model_state_dict"] if "model_state_dict" in ck else ck)
+    return m.to(device).eval()
 
 def _peaks(hm, thr=0.25, max_n=6):
     """weighted centroids of connected blobs above thr, strongest first"""
@@ -34,10 +38,18 @@ def _peaks(hm, thr=0.25, max_n=6):
         ys, xs = np.where(lab == m); w = hm[ys, xs]; out.append((float((xs * w).sum() / w.sum()), float((ys * w).sum() / w.sum()), float(w.max())))
     return sorted(out, key=lambda z: -z[2])[:max_n]
 
-def candidates(video, root, cache, log=print, batch=8, thr=0.25):
-    if os.path.exists(cache): return pickle.load(open(cache, "rb"))
+def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None):
     import torch
-    device = "cuda" if torch.cuda.is_available() else "cpu"; ensure(root, log=log); net = _model(root, device)
+    ensure(root, log=log)
+    try:
+        from .wasb_train import ensure_finetuned
+        if ensure_finetuned(root, videos_dir or os.path.join(root, "videos"), log=log):
+            for c in [cache] + [p for p in os.listdir(os.path.dirname(cache)) if False]: pass
+    except Exception as e: log(f"wasb fine-tune skipped: {e!r}")
+    ft = os.path.join(root, "models", "wasb_finetuned.pth"); tag = str(int(os.path.getmtime(ft))) if os.path.exists(ft) else "pre"
+    cache = cache.replace(".pkl", f"_{tag}.pkl")
+    if os.path.exists(cache): return pickle.load(open(cache, "rb"))
+    device = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, device); log(f"wasb: using {'fine-tuned' if tag != 'pre' else 'pretrained'} weights")
     cap = cv2.VideoCapture(video); W, H = int(cap.get(3)), int(cap.get(4)); sx, sy = W / 512.0, H / 288.0
     out = {}; buf = []; idx = []; k = 0; chunks = []; chunk_idx = []; stats = []
     def flush():
