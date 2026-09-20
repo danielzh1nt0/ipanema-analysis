@@ -1,0 +1,55 @@
+=== SFKBP1109_s1200 === (ipanema 0.13.6; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: panorama registration cached (8992 frames)
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+teams: 609 crops, clusters [332, 277], dark share A 0.52 / B 0.3 (A = darker kit)
+tracking: cached
+clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
+clean: players per frame median A 5 / B 8, max A 12 / B 14
+ball (global path): 50/8992 frames on the chosen path
+ball: global path too sparse, falling back to trajectory picker
+ball: 0.8 candidates/frame, 115 trajectories, top (score,len,conf,speed) [(13.5, 16, 0.7, 1.1), (7.2, 26, 0.45, 1.57), (5.9, 9, 0.53, 2.83), (4.5, 9, 0.44, 1.68), (3.5, 10, 0.57, 0.96)], picks 60/8992
+ball check: 0/34 correct, 0 wrong, 34 no pick (ceiling 0/34)
+direction: A ←  B →  confidence A 0.55 / B 0.00  WARNING low confidence
+direction (fallback from player positions): A →  B ←  median x A 46 / B 49
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball reliability: 1% frames, 20% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+  step: export
+  wrote match_data.json (19.3 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (0 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109_s1200
+  ball_reliable              False
+  duration_s                 300.0
+  calibration_coverage       1.0
+  calibration_frozen         0
+  team_dark_share            {'A': 0.52, 'B': 0.3}
+  players_per_frame_median   {'A': 5.0, 'B': 8.0}
+  ball_frames_pct            1
+  ball_check                 {'correct': 0, 'total': 34, 'wrong': 0, 'ceiling': 0}
+  possession_pct             {'A': 100, 'B': 0}
+  loose_pct                  100
+  dead_pct                   0
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.55, 'B': 0.0}
+  turnovers                  0
+  passes                     3
+  restarts                   0
+  sequences                  1
+  shots                      {'A': 0, 'B': 0}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 0, 'B': None}
+  runtime_min                4.0
+publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
+
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.52, "B": 0.3}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 1, "ball_check": {"correct": 0, "total": 34, "wrong": 0, "ceiling": 0}, "possession_pct": {"A": 100, "B": 0}, "loose_pct": 100, "dead_pct": 0, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.55, "B": 0.0}, "turnovers": 0, "passes": 3, "restarts": 0, "sequences": 1, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 0, "B": null}, "runtime_min": 4.0}
