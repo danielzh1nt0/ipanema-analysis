@@ -45,13 +45,14 @@ def load_samples(root, videos_dir, log=print):
     return S
 
 def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
+    # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
     ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev)
     S = load_samples(root, videos_dir, log=log)
     if len(S) < 30: log("wasb train: too few samples"); return None
     rng = np.random.RandomState(0); idx = rng.permutation(len(S)); nval = max(10, len(S) // 5); va, tr = idx[:nval], idx[nval:]
-    opt = torch.optim.Adam(net.parameters(), lr=lr)
+    opt = torch.optim.Adam(net.parameters(), lr=lr); sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=epochs, eta_min=lr / 30)
     def wbce(logits, t):   # TrackNetV2 weighted BCE on the middle channel
         p = torch.sigmoid(logits).clamp(1e-6, 1 - 1e-6)
         return -((1 - p) ** 2 * t * torch.log(p) + p ** 2 * (1 - t) * torch.log(1 - p)).mean()
@@ -79,6 +80,7 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
             xb = torch.from_numpy(np.stack(xs)).float().to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
             out = net(xb); pred = out[0] if isinstance(out, dict) else out
             loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss)
+        sched.step()
         if ep % 10 == 9 or ep == epochs - 1:
             h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.4f}, held-out hit rate {h}/{t}")
             if h >= best: best, best_state = h, {k: v.clone() for k, v in net.state_dict().items()}
@@ -87,7 +89,7 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
 
 def ensure_finetuned(root, videos_dir, log=print):
     """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e120-lr3e-4-allclips"
+    RECIPE = "e120-lr3e-4-cos-allclips"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
