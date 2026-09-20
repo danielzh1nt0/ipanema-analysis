@@ -8,11 +8,9 @@ image = (modal.Image.debian_slim(python_version="3.11")
          .apt_install("ffmpeg", "git", "wget", "libgl1", "libglib2.0-0")
          .pip_install("torch==2.4.1", "torchvision==0.19.1", index_url="https://download.pytorch.org/whl/cu121")
          .pip_install("ultralytics==8.3.40", "supervision==0.25.1", "opencv-python-headless", "numpy<2", "pandas", "scipy", "scikit-learn", "umap-learn", "transformers", "timm", "pillow", "tqdm", "boto3", "supabase", "requests")
+         .pip_install("gdown")
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
-                       "cd /content/sports/examples/soccer && mkdir -p data && cd data && "
-                       "wget -q https://github.com/roboflow/sports/releases/download/v0.1.0/football-player-detection.pt && "
-                       "wget -q https://github.com/roboflow/sports/releases/download/v0.1.0/football-ball-detection.pt && "
-                       "wget -q https://github.com/roboflow/sports/releases/download/v0.1.0/football-pitch-detection.pt"))
+                       "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)
 
 @app.function(gpu="L4", timeout=6 * 3600, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
