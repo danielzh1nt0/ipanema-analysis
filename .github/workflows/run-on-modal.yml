@@ -10,6 +10,7 @@ jobs:
   run:
     if: "!startsWith(github.event.head_commit.message, 'modal results') && !startsWith(github.event.head_commit.message, 'results for')"
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
