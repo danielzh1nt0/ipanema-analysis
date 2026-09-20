@@ -6,17 +6,19 @@ on:
   workflow_dispatch:
     inputs:
       match_id: { description: "match id", default: "SFKBP1109_s1200" }
+permissions:
+  contents: write
 jobs:
   run:
-    if: "!startsWith(github.event.head_commit.message, 'modal results') && !startsWith(github.event.head_commit.message, 'results for')"
     runs-on: ubuntu-latest
     environment: MODAL_TOKEN_ID
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install -q modal
-      - name: deploy + submit
+      - name: deploy, run, collect
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
@@ -25,7 +27,15 @@ jobs:
         run: |
           modal deploy modal_app.py
           python - <<'PY'
-          import modal, os
+          import modal, os, json
           m = os.environ["MATCH"]; f = modal.Function.from_name("ipanema", "run_match")
-          c = f.spawn(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4"); print("submitted", m, c.object_id)
+          out = f.remote(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4")
+          os.makedirs("results/modal", exist_ok=True)
+          open(f"results/modal/{m}.txt", "w").write("\n".join(out["log_tail"]) + "\n\nSUMMARY " + json.dumps(out["summary"], default=str))
+          print("\n".join(out["log_tail"][-25:]))
           PY
+      - name: commit results
+        run: |
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/modal && git commit -m "modal results: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}" || echo "nothing to commit"
+          git pull --rebase -X theirs origin main && git push origin HEAD:main
