@@ -44,7 +44,23 @@ def load_samples(root, videos_dir, log=print):
     log(f"wasb train: {len(S)} samples ({sum(1 for s in S if s[2])} with a visible ball)")
     return S
 
-def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
+def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print):
+    """small training sets swing run to run: train a few seeds, keep the best held-out model"""
+    import torch, shutil
+    best_h, best_path = -1, None
+    for s in seeds:
+        torch.manual_seed(s); np.random.seed(s)
+        p = train(root, videos_dir, log=log, seed=s)
+        if p is None: continue
+        h = _LAST_BEST.get("hits", -1)
+        log(f"wasb seed {s}: held-out {h}")
+        if h > best_h: best_h = h; shutil.copy(p, p + f".seed{s}"); best_path = p + f".seed{s}"
+    if best_path: shutil.copy(best_path, weights_path(root)); log(f"wasb: kept best seed, held-out {best_h}")
+    return weights_path(root) if best_path else None
+
+_LAST_BEST = {}
+
+def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
     # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
@@ -52,7 +68,7 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
     S = load_samples(root, videos_dir, log=log)
     if len(S) < 30: log("wasb train: too few samples"); return None
     rng = np.random.RandomState(0); idx = rng.permutation(len(S)); nval = max(10, len(S) // 5); va, tr = idx[:nval], idx[nval:]
-    opt = torch.optim.Adam(net.parameters(), lr=lr); sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=epochs, eta_min=lr / 30)
+    opt = torch.optim.Adam(net.parameters(), lr=lr)
     def wbce(logits, t):   # TrackNetV2 weighted BCE on the middle channel
         p = torch.sigmoid(logits).clamp(1e-6, 1 - 1e-6)
         return -((1 - p) ** 2 * t * torch.log(p) + p ** 2 * (1 - t) * torch.log(1 - p)).mean()
@@ -80,18 +96,18 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
             xb = torch.from_numpy(np.stack(xs)).float().to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
             out = net(xb); pred = out[0] if isinstance(out, dict) else out
             loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss)
-        sched.step()
         if ep % 10 == 9 or ep == epochs - 1:
             h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.4f}, held-out hit rate {h}/{t}")
             if h >= best: best, best_state = h, {k: v.clone() for k, v in net.state_dict().items()}
+    _LAST_BEST["hits"] = best
     torch.save(best_state, weights_path(root)); log(f"wasb train: saved {weights_path(root)} (best held-out {best}/{t0})")
     return weights_path(root)
 
 def ensure_finetuned(root, videos_dir, log=print):
     """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e120-lr3e-4-cos-allclips"
+    RECIPE = "e120-lr3e-4-allclips-v2"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
-        if train(root, videos_dir, log=log): json.dump({"n": n, "recipe": RECIPE}, open(manifest_path(root), "w")); return True
+        if train_best_of(root, videos_dir, log=log): json.dump({"n": n, "recipe": RECIPE}, open(manifest_path(root), "w")); return True
     return False
