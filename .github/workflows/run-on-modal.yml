@@ -1,0 +1,30 @@
+name: run on modal
+on:
+  push:
+    branches: [main]
+    paths: ["ipanema/**", "modal_app.py", "calibration/**"]
+  workflow_dispatch:
+    inputs:
+      match_id: { description: "match id", default: "SFKBP1109_s1200" }
+jobs:
+  run:
+    if: "!startsWith(github.event.head_commit.message, 'modal results') && !startsWith(github.event.head_commit.message, 'results for')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q modal
+      - name: deploy + submit
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MATCH: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}
+        run: |
+          modal deploy modal_app.py
+          python - <<'PY'
+          import modal, os
+          m = os.environ["MATCH"]; f = modal.Function.from_name("ipanema", "run_match")
+          c = f.spawn(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4"); print("submitted", m, c.object_id)
+          PY
