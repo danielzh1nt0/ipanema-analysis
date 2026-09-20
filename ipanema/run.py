@@ -107,9 +107,22 @@ def run(video_src, match_id=None, settings=None, log=print):
     near = [k for k in ballm if per[k] and min(np.linalg.norm(r[2] - ballm[k]) for r in per[k]) < 4.0]
     jumps = sum(1 for k in ballm if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > 35)
     ball_reliable = bool(len(ballm) > 0.4 * n and len(near) > 0.6 * max(1, len(ballm)) and jumps < 0.02 * max(1, len(ballm)))
-    if ball_check and ball_check.get("total", 0) >= 10: ball_reliable = bool(ball_check["correct"] >= 0.6 * ball_check["total"])   # a measured check beats a heuristic
+    # graded reliability: different stats need different ball accuracy
+    acc = (ball_check["correct"] / ball_check["total"]) if (ball_check and ball_check.get("total", 0) >= 10) else None
+    if acc is not None: ball_reliable = acc >= 0.6
+    near_frac = len(near) / max(1, len(ballm))
+    ball_grade = {
+        "accuracy": round(acc, 2) if acc is not None else None,
+        "near_player_pct": round(near_frac, 2),
+        "frames_pct": round(len(ballm) / n, 2),
+        # possession and territory tolerate a loose ball: the nearest player is usually still right
+        "possession_ok": bool((acc is None or acc >= 0.45) and near_frac >= 0.85 and len(ballm) > 0.4 * n),
+        # events need the ball in the right place at the right moment
+        "events_ok": bool(acc is not None and acc >= 0.6 and near_frac >= 0.85),
+    }
+    log(f"ball grade: accuracy {ball_grade['accuracy']}, near-player {ball_grade['near_player_pct']}, possession {'OK' if ball_grade['possession_ok'] else 'withheld'}, events {'OK' if ball_grade['events_ok'] else 'withheld'}")
     log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
-    summary = {"match_id": match_id, "ball_reliable": ball_reliable, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
+    summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in range(n)])) for t in ("A", "B")},
                "ball_frames_pct": round(100 * len(ball) / n), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
