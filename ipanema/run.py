@@ -57,6 +57,16 @@ def run(video_src, match_id=None, settings=None, log=print):
         try:
             from . import wasb
             cands = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log)
+            # union with the single-frame detector: WASB brings motion-aware precision, YOLO brings recall; the path picker arbitrates
+            try:
+                yolo = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)
+                merged = {}
+                for k in set(cands) | set(yolo):
+                    ws = [(x, y, min(0.99, 0.5 + 0.5 * c)) for x, y, c in cands.get(k, [])]        # WASB peaks: conf 0.5-1.0
+                    ys = [(x, y, c * 0.6) for x, y, c in yolo.get(k, []) if all(np.hypot(x - wx, y - wy) > 12 for wx, wy, _ in ws)]
+                    merged[k] = ws + ys
+                cands = merged; log(f"ball: WASB + YOLO candidates merged, {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f}/frame")
+            except Exception as e: log(f"ball: YOLO merge skipped ({e!r})")
         except Exception as e: log(f"wasb failed ({e!r}); falling back to YOLO ball"); cands = None
     if cands is None:
         cands = BL.candidates(video, S.weights["ball"], f"{cache}/ball_cands.pkl", S.conf_ball, tiles=S.ball_tiles, log=log)

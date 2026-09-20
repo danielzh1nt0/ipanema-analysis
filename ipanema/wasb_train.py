@@ -44,7 +44,7 @@ def load_samples(root, videos_dir, log=print):
     log(f"wasb train: {len(S)} samples ({sum(1 for s in S if s[2])} with a visible ball)")
     return S
 
-def train(root, videos_dir, epochs=40, lr=1e-4, log=print):
+def train(root, videos_dir, epochs=120, lr=3e-4, log=print):
     import torch
     from .wasb import ensure, _model
     ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev)
@@ -79,7 +79,7 @@ def train(root, videos_dir, epochs=40, lr=1e-4, log=print):
             xb = torch.from_numpy(np.stack(xs)).float().to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
             out = net(xb); pred = out[0] if isinstance(out, dict) else out
             loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss)
-        if ep % 5 == 4 or ep == epochs - 1:
+        if ep % 10 == 9 or ep == epochs - 1:
             h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.4f}, held-out hit rate {h}/{t}")
             if h >= best: best, best_state = h, {k: v.clone() for k, v in net.state_dict().items()}
     torch.save(best_state, weights_path(root)); log(f"wasb train: saved {weights_path(root)} (best held-out {best}/{t0})")
