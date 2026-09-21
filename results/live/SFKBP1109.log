@@ -1,8 +1,7 @@
-# live log · SFKBP1109 · running · 23:49:05 UTC
+# live log · SFKBP1109 · running · 23:50:39 UTC
 
 
-## run_full.log (50 lines, last 60)
-=== SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
+## run_full.log (61 lines, last 60)
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
 pieces: 21/21 done in 0.1 min
   piece 00: cached
@@ -52,6 +51,17 @@ calibration: 91.1% of match frames placed confidently; the rest are marked unkno
 ball check: 40 held-out test frames mapped into the full match
 clean: dropped 35179 off-pitch, merged 17675 duplicates, stitched 14237 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
 clean: players per frame median A 4 / B 5, max A 20 / B 16
+ball v2: 127321/184725 frames on the path, 4902 static-clutter candidates dropped
+ball check: 21/34 correct, 12 wrong, 1 no pick (ceiling 24/34)
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+ball check (other picker, v1): 18/34 correct, ceiling 24/34
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 36/59, other 26/59, ceiling 46
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 70/134, other 38/134, ceiling 93
 
 ## train_ball.log (1 lines, last 60)
 
