@@ -129,6 +129,27 @@ def run_piece_cpu(match_id: str, piece: dict, full_path: str):
     """pieces whose players and ball are already detected only need calibration + positions + team split: no GPU"""
     return _piece_body(match_id, piece, full_path)
 
+@app.function(timeout=40 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384)
+def check_piece(match_id: str):
+    """ONE piece of a full match on CPU only, as a check before the whole match. Uses a piece whose players and ball are
+    already detected; if there is none it stops instead of using a GPU."""
+    import glob
+    _setup()
+    from ipanema import fullmatch as FM
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume; not downloading for a check"}
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
+    pick = None
+    for i in (4, 10, 16, 0):
+        if i >= len(plan_): continue
+        c = f"{ROOT}/cache/{FM.piece_id(match_id, i)}"
+        if (os.path.exists(f"{c}/tracks_kp.pkl") or glob.glob(f"{c}/tracks_pano_*.pkl")) and glob.glob(f"{c}/ball_cands_wasb_*_t2x2.pkl"):
+            pick = plan_[i]; break
+    if pick is None: return {"error": "no piece with saved detections among 4/10/16/0; stopped rather than use a GPU"}
+    out = _piece_body(match_id, pick, full)
+    out["piece"] = pick; out["frames_total"] = n; out["fps"] = fps
+    return out
+
 @app.function(timeout=150 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=32768)
 def run_full(match_id: str, video_url: str, log_tail: int = 500):
     import pickle, glob, types, json, time, requests

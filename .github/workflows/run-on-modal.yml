@@ -94,6 +94,21 @@ jobs:
           if "npz" in out: open(f"results/picker/{mid}.npz", "wb").write(base64.b64decode(out.pop("npz")))
           open(f"results/picker/{mid}.json", "w").write(json.dumps(out)); print(out)
           PY
+      - name: check one piece of a full match on CPU (commit tagged check:<match_id>)
+        if: contains(github.event.head_commit.message, '[check:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, base64, json
+          mid = re.search(r"\[check:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "check_piece").remote(mid)
+          d = f"results/check/{mid}"; os.makedirs(d, exist_ok=True)
+          for name, b64 in (out.pop("images", None) or {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/check.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:3000])
+          PY
       - name: scoreboard
         if: always()
         run: |
