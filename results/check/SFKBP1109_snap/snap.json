@@ -1,0 +1,285 @@
+[
+ {
+  "i": 1,
+  "k": 300,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 81.9
+  }
+ },
+ {
+  "i": 1,
+  "k": 1650,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 84.7
+  }
+ },
+ {
+  "i": 1,
+  "k": 1800,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 96 px too large",
+   "p80": 90.3
+  }
+ },
+ {
+  "i": 1,
+  "k": 4050,
+  "kind": "typical",
+  "info": {
+   "snapped": true,
+   "p80_before": 9.4,
+   "p80_after": 4.2,
+   "shift_px": 36.1
+  }
+ },
+ {
+  "i": 5,
+  "k": 1050,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 824 px too large",
+   "p80": 92.4
+  }
+ },
+ {
+  "i": 5,
+  "k": 1500,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 624 px too large",
+   "p80": 93.2
+  }
+ },
+ {
+  "i": 5,
+  "k": 900,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 196 px too large",
+   "p80": 122.7
+  }
+ },
+ {
+  "i": 5,
+  "k": 5400,
+  "kind": "typical",
+  "info": {
+   "snapped": true,
+   "p80_before": 10.5,
+   "p80_after": 3.4,
+   "shift_px": 31.9
+  }
+ },
+ {
+  "i": 14,
+  "k": 1200,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "optimiser failed"
+  }
+ },
+ {
+  "i": 14,
+  "k": 1050,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 109.2
+  }
+ },
+ {
+  "i": 14,
+  "k": 750,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 115.2
+  }
+ },
+ {
+  "i": 14,
+  "k": 6900,
+  "kind": "typical",
+  "info": {
+   "snapped": true,
+   "p80_before": 12.6,
+   "p80_after": 5.9,
+   "shift_px": 33.9
+  }
+ },
+ {
+  "i": 15,
+  "k": 900,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 512 px too large",
+   "p80": 59.6
+  }
+ },
+ {
+  "i": 15,
+  "k": 0,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 577 px too large",
+   "p80": 73.4
+  }
+ },
+ {
+  "i": 15,
+  "k": 600,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 483 px too large",
+   "p80": 89.9
+  }
+ },
+ {
+  "i": 15,
+  "k": 1200,
+  "kind": "typical",
+  "info": {
+   "snapped": true,
+   "p80_before": 10.2,
+   "p80_after": 5.5,
+   "shift_px": 58.0
+  }
+ },
+ {
+  "i": 17,
+  "k": 450,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 83.1
+  }
+ },
+ {
+  "i": 17,
+  "k": 300,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 470 px too large",
+   "p80": 87.2
+  }
+ },
+ {
+  "i": 17,
+  "k": 2400,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 93.7
+  }
+ },
+ {
+  "i": 17,
+  "k": 5100,
+  "kind": "typical",
+  "info": {
+   "snapped": false,
+   "why": "shift 99 px too large",
+   "p80": 14.2
+  }
+ },
+ {
+  "i": 18,
+  "k": 2550,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 193 px too large",
+   "p80": 91.2
+  }
+ },
+ {
+  "i": 18,
+  "k": 2100,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 445 px too large",
+   "p80": 92.5
+  }
+ },
+ {
+  "i": 18,
+  "k": 600,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "shift 843 px too large",
+   "p80": 140.4
+  }
+ },
+ {
+  "i": 18,
+  "k": 4800,
+  "kind": "typical",
+  "info": {
+   "snapped": true,
+   "p80_before": 11.1,
+   "p80_after": 5.7,
+   "shift_px": 26.6
+  }
+ },
+ {
+  "i": 4,
+  "k": 4200,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 14.1
+  }
+ },
+ {
+  "i": 4,
+  "k": 2400,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 14.5
+  }
+ },
+ {
+  "i": 4,
+  "k": 8100,
+  "kind": "worst",
+  "info": {
+   "snapped": false,
+   "why": "no clear improvement",
+   "p80": 17.5
+  }
+ },
+ {
+  "i": 4,
+  "k": 5250,
+  "kind": "typical",
+  "info": {
+   "snapped": false,
+   "why": "optimiser failed"
+  }
+ }
+]
