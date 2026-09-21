@@ -21,7 +21,11 @@ def calibrate(image, root, log=print, kp_threshold=0.3434, line_threshold=0.7867
     """returns H mapping centre-origin pitch metres (X in [-52.5,52.5], Y in [-34,34], Z=0) to image pixels, or None"""
     import torch, yaml, torchvision.transforms as T
     wkp, wl = _ensure(root, log=log)
-    sys.path.insert(0, PNL_DIR); cwd = os.getcwd(); os.chdir(PNL_DIR)
+    # WASB is also a flat repo with top-level 'utils'/'models' packages; if it was imported first, PnLCalib's imports resolve to it.
+    clash = {k: v for k, v in list(sys.modules.items()) if k.split(".")[0] in ("utils", "model", "models", "inference")}
+    for k in clash: del sys.modules[k]
+    saved_path = list(sys.path); sys.path = [PNL_DIR] + [q for q in sys.path if "WASB" not in q]
+    cwd = os.getcwd(); os.chdir(PNL_DIR)
     try:
         import inference as PI
         from model.cls_hrnet import get_cls_net
@@ -39,7 +43,10 @@ def calibrate(image, root, log=print, kp_threshold=0.3434, line_threshold=0.7867
         P = PI.projection_from_cam_params(params)
         Hc = P[:, [0, 1, 3]]                                          # ground plane Z=0
         return np.array([[1, 0, 0], [0, 1, -top], [0, 0, 1]], float) @ Hc   # undo the letterbox offset
-    finally: os.chdir(cwd)
+    finally:
+        os.chdir(cwd); sys.path = saved_path
+        for k in [k for k in sys.modules if k.split(".")[0] in ("utils", "model", "inference")]: del sys.modules[k]
+        sys.modules.update(clash)
 
 def _lines_px(Hc):
     """pitch-model line segments (105x68, centre origin) projected with Hc"""
