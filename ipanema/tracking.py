@@ -67,19 +67,10 @@ def clean(per, L, W, fps, log=print):
     for k in range(n):
         for r in per[k]:
             sg = segs.setdefault(r[0], {"team": r[1], "start": k, "end": k, "p0": r[2], "p1": r[2]}); sg["end"] = k; sg["p1"] = r[2]
-    remap = {}
+    remap = _stitch(segs, fps)
     def root(t):
         while t in remap: t = remap[t]
         return t
-    for tid in sorted(segs, key=lambda t: segs[t]["start"]):
-        B = segs[tid]; best = None
-        for aid, A in segs.items():
-            if aid == tid or A["team"] != B["team"]: continue
-            ra = root(aid); Aend = max(segs[q]["end"] for q in segs if root(q) == ra); gap = (B["start"] - Aend) / fps
-            if not (0 < gap <= 2.5): continue
-            dist = np.linalg.norm(A["p1"] - B["p0"]) if A["end"] == Aend else 99
-            if dist <= 2.0 + 6.0 * gap and (best is None or dist < best[1]): best = (ra, dist)
-        if best: remap[tid] = best[0]
     for k in range(n): 
         for r in per[k]: r[0] = root(r[0])
     # 4) keepers: mostly inside a goal zone; team = the team whose outfield players are, on average, nearer that goal... use zone + majority of nearby team
@@ -103,3 +94,34 @@ def clean(per, L, W, fps, log=print):
     counts = [sum(1 for r in per[k] if r[1] == "A") for k in range(n)], [sum(1 for r in per[k] if r[1] == "B") for k in range(n)]
     log(f"clean: players per frame median A {np.median(counts[0]):.0f} / B {np.median(counts[1]):.0f}, max A {max(counts[0])} / B {max(counts[1])}")
     return per, {"left_team": left_team, "keepers": list(keepers)}
+
+
+def _stitch(segs, fps, max_gap_s=2.5):
+    """Join broken tracks: in order of start, a track joins the player whose latest track ended 0 < gap <= 2.5 s before it,
+    same team, within 2 + 6*gap metres (nearest wins; ties go to the earlier-seen track). Only players that ended in that
+    window are examined, so this is linear in the number of tracks (the old all-pairs loop was cubic)."""
+    order = {t: i for i, t in enumerate(segs)}
+    remap = {}; g_end = {}; g_latest = {}; by_end = {}
+    win = max_gap_s * fps
+    def put(r, end, latest):
+        old = g_end.get(r)
+        if old is not None: by_end[old].discard(r)
+        g_end[r] = end; g_latest[r] = latest; by_end.setdefault(end, set()).add(r)
+    for tid in sorted(segs, key=lambda t: segs[t]["start"]):
+        B = segs[tid]; st = B["start"]; cands = []
+        for e in range(max(0, int(np.floor(st - win))), st):
+            if (st - e) / fps > max_gap_s: continue
+            for r in by_end.get(e, ()):
+                cands.extend((order[a], a, r, (st - e) / fps) for a in g_latest[r])
+        best = None
+        for _, a, r, gap in sorted(cands):
+            A = segs[a]
+            if A["team"] != B["team"]: continue
+            dist = np.linalg.norm(A["p1"] - B["p0"])
+            if dist <= 2.0 + 6.0 * gap and (best is None or dist < best[1]): best = (r, dist)
+        if best:
+            r = best[0]; remap[tid] = r
+            if B["end"] > g_end[r]: put(r, B["end"], [tid])
+            elif B["end"] == g_end[r]: g_latest[r].append(tid)
+        else: put(tid, B["end"], [tid])
+    return remap

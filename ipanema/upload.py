@@ -35,6 +35,7 @@ def upload_match(root, match_id, log=print):
     folder = f"{root}/runs/matches/{match_id}"; files = {}
     for key, rel in m["files"].items():
         local = f"{root}/runs/{rel}"
+        if key == "video" and m.get("video_url") and not os.path.exists(local): files["video"] = m["video_url"]; continue
         if not os.path.exists(local): continue
         dest = f"{match_id}/{os.path.basename(local)}"
         if key == "video":

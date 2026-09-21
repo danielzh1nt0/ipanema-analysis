@@ -3,12 +3,9 @@ import os, json, pickle, time, numpy as np
 from .config import Settings
 from . import video as V, calibration as C, teams as T, tracking as TR, ball as BL, possession as P, analytics as AN, export as EX, metrics as M
 
-def run(video_src, match_id=None, settings=None, log=print):
-    S = settings or Settings(); t0 = time.time()
-    try:
-        from .segments import prepare_segments; prepare_segments(S.root, log=log)     # cut full games into segments before the first clip runs
-    except Exception as e: log(f"segments: {e!r}")
-    match_id = match_id or os.path.splitext(os.path.basename(video_src))[0]
+def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
+    """per clip: calibration, teams, tracking and ball candidates (everything that needs the video / a GPU)"""
+    t0 = time.time()
     work = os.path.join(S.work, match_id); os.makedirs(work, exist_ok=True)
     cache = os.path.join(S.root, "cache", match_id); os.makedirs(cache, exist_ok=True)
     from . import __version__
@@ -37,6 +34,7 @@ def run(video_src, match_id=None, settings=None, log=print):
     H, L, W = cal["H"], cal["L"], cal["W"]
     # debug overlays: the pitch model drawn on a few frames, published for inspection
     try:
+        if not debug: raise StopIteration
         dbg = "/content/ipanema-analysis/results/debug"; os.makedirs(dbg, exist_ok=True)
         from .video import frame_at
         import cv2 as _cv
@@ -44,6 +42,7 @@ def run(video_src, match_id=None, settings=None, log=print):
             fr = frame_at(video, k)
             if fr is not None: C.draw_model(fr, H[k], L, W); _cv.imwrite(f"{dbg}/{match_id}_v{__version__}_f{k:06d}.jpg", _cv.resize(fr, (1280, 720)), [_cv.IMWRITE_JPEG_QUALITY, 80])
         log(f"  debug overlays -> {dbg}")
+    except StopIteration: pass
     except Exception as e: log(f"  debug overlays failed: {e!r}")
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
@@ -51,13 +50,12 @@ def run(video_src, match_id=None, settings=None, log=print):
     trk = f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
-    per, cl = TR.clean(per, L, W, fps, log=log)
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     cands = None
     if ball_backend == "wasb":
         try:
             from . import wasb
-            cands = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log)
+            cands = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log, train=train_ball)
             # union with the single-frame detector (off by default: measured ceiling gain is small, junk candidates cost picks)
             if os.environ.get("IPANEMA_BALL_MERGE", "0") != "1": raise StopIteration("wasb-only")
             try:
@@ -78,10 +76,17 @@ def run(video_src, match_id=None, settings=None, log=print):
             from . import ballcls
             if os.path.exists(ballcls.weights_path(S.root)): cands = ballcls.rescore(video, cands, S.root, cache=f"{cache}/ball_cands_cls.pkl", log=log)
         except Exception as e: log(f"ball classifier: {e!r}")
+    return {"match_id": match_id, "video": video, "vi": vi, "H": H, "L": L, "W": W, "cal": cal, "tm": tm, "per": per, "fps": fps, "cands": cands, "t0": t0}
+
+
+def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
+    """from raw tracks + ball candidates to stats, events and the exported match (CPU)"""
+    match_id, video, vi, H, L, W, cal, tm, per, fps, cands, t0 = (ctx[k] for k in ("match_id", "video", "vi", "H", "L", "W", "cal", "tm", "per", "fps", "cands", "t0"))
+    per, cl = TR.clean(per, L, W, fps, log=log)
     ball_g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
     if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
     ball = BL.bridge(ball_g, fps)
-    ball_check = BL.check(ball, cands, os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
+    ball_check = BL.check(ball, cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
     state, bspeed = P.viterbi(per, ballm, fps, L, W)
     attack_right, conf = P.direction(state, ballm, log=log)
@@ -132,9 +137,18 @@ def run(video_src, match_id=None, settings=None, log=print):
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
-    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log)
+    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, **(export_kw or {}))
     try:
         from .upload import upload_match; upload_match(S.root, match_id, log=log)
     except Exception as e: log(f"upload failed: {e!r}")
     log("\n--- SUMMARY ---"); [log(f"  {k:26s} {v}") for k, v in summary.items()]
     return summary, root, zpath
+
+
+def run(video_src, match_id=None, settings=None, log=print):
+    S = settings or Settings()
+    try:
+        from .segments import prepare_segments; prepare_segments(S.root, log=log)     # cut full games into segments before the first clip runs
+    except Exception as e: log(f"segments: {e!r}")
+    match_id = match_id or os.path.splitext(os.path.basename(video_src))[0]
+    return analyse(prepare(video_src, match_id, S, log=log), S, log=log)

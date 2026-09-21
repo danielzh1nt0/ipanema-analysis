@@ -84,7 +84,7 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
     """per-frame pitch homography by registering anchor frames DIRECTLY to the hand-calibrated panorama (no chaining drift);
     frames that don't overlap the panorama chain from the nearest direct anchor."""
     import json, re as _re, bisect
-    base = _re.sub(r"_(seg|s)\d+$", "", clip_id)
+    base = _re.sub(r"_(seg|s|c)\d+$", "", clip_id)
     cal = os.path.join(code_dir, "calibration", f"{base}.json")
     if not os.path.exists(cal): log(f"calibration: no panorama calibration for {base}"); return None
     spec = json.load(open(cal)); Hpm = np.array(spec["H_pitch_to_mosaic"], np.float64)

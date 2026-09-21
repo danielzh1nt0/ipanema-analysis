@@ -79,12 +79,107 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
         except Exception as e: log(f"publish failed: {e!r}")
     files = {}
     import glob as _g, base64
-    for p in _g.glob(f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}/ballcheck.jpg") + sorted(_g.glob("/content/ipanema-analysis/results/debug/pnlcalib_*.jpg"))[:5] + sorted(_g.glob(f"/content/ipanema-analysis/results/debug/{match_id}_f*.jpg"))[:4]:
+    for p in _g.glob(f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}/ballcheck.jpg") + sorted(_g.glob("/content/ipanema-analysis/results/debug/pnlcalib_*.jpg"))[:5] + sorted(_g.glob(f"/content/ipanema-analysis/results/debug/{match_id}_v*_f*.jpg"))[:4]:
         try: files[os.path.basename(os.path.dirname(p)) + "_" + os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
     import json as _json
     safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
     return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
+
+# ---------------- Full match: pieces in parallel on GPUs, then one analysis on CPU ----------------
+def _setup():
+    import subprocess, sys
+    subprocess.run(f"rm -rf /content/ipanema-analysis && git clone -q {REPO} /content/ipanema-analysis", shell=True, check=True)
+    if "/content/ipanema-analysis" not in sys.path: sys.path.insert(0, "/content/ipanema-analysis")
+    from ipanema.config import Settings
+    return Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
+
+@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def train_ball():
+    """make sure the fine-tuned ball model exists (trains once, before the pieces start)"""
+    S = _setup()
+    from ipanema import wasb
+    from ipanema.wasb_train import ensure_finetuned
+    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    wasb.ensure(S.root, log=log); ensure_finetuned(S.root, f"{S.root}/videos", log=log); vol.commit()
+    return lines[-40:]
+
+@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def run_piece(match_id: str, piece: dict, full_path: str):
+    S = _setup()
+    from ipanema.fullmatch import process_piece
+    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    vol.reload()
+    try: path = process_piece(full_path, match_id, piece, S, log=log); ok = True
+    except Exception:
+        import traceback; lines.append(traceback.format_exc()[-1500:]); path = None; ok = False
+    vol.commit()
+    import glob as _g, base64
+    imgs = {}
+    for p in sorted(_g.glob(f"/content/ipanema-analysis/results/debug/{match_id}_c{piece['i']:03d}_v*_f*.jpg"))[:2]:
+        try: imgs[os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
+        except Exception: pass
+    return {"i": piece["i"], "ok": ok, "path": path, "log": lines[-12:], "images": imgs}
+
+@app.function(timeout=150 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=32768)
+def run_full(match_id: str, video_url: str, log_tail: int = 500):
+    import pickle, glob, types, json, time, requests
+    S = _setup()
+    from ipanema import fullmatch as FM
+    from ipanema.run import analyse
+    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    t0 = time.time()
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None:
+        full = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(full), exist_ok=True)
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(full, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+        vol.commit()
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
+    log(f"=== {match_id} full match === {n} frames @ {fps:.3f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces")
+    for line in train_ball.remote(): log("  " + line)
+    res = list(run_piece.map([match_id] * len(plan_), plan_, [full] * len(plan_), return_exceptions=True))
+    ok = [r for r in res if isinstance(r, dict) and r.get("ok")]; bad = [r for r in res if not (isinstance(r, dict) and r.get("ok"))]
+    log(f"pieces: {len(ok)}/{len(plan_)} done in {(time.time() - t0) / 60:.1f} min")
+    for r in bad: log(f"  piece failed: {str(r)[-600:]}")
+    for r in sorted(ok, key=lambda r: r["i"]): log(f"  piece {r['i']:02d}: " + (r["log"][-1] if r["log"] else ""))
+    if len(ok) < len(plan_) * 0.8: log("too many pieces failed; not analysing"); return {"summary": {"error": "pieces failed"}, "log_tail": lines[-log_tail:], "files": {}}
+    vol.reload()
+    done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
+    per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
+    ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
+           "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"]}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
+           "per": per, "fps": fps, "cands": cands, "t0": t0}
+    # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)
+    gt = {}
+    for d in glob.glob(f"{ROOT}/reference/{match_id}_s*/ball_gt.json"):
+        start = int(d.split("_s")[-1].split("/")[0]); tmp = f"/tmp/gt_{start}.json"; FM.remap_gt(d, start, fps, tmp); gt.update(json.load(open(tmp)))
+    gt_path = None
+    if gt: gt_path = "/tmp/gt_full.json"; json.dump(gt, open(gt_path, "w")); log(f"ball check: {len(gt)} held-out test frames mapped into the full match")
+    summary, folder, _ = analyse(ctx, S, log=log, export_kw={"frame_stride": 3, "split_s": 300, "copy_video": False, "make_zip": False, "video_url": video_url}, gt_path=gt_path or "/nonexistent")
+    # the full match inherits team names from one of its labelled segments
+    try:
+        from supabase import create_client
+        db = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_KEY"])
+        if not (db.table("match_labels").select("match_id").eq("match_id", match_id).execute().data or []):
+            src = db.table("match_labels").select("*").like("match_id", f"{match_id}_%").limit(1).execute().data or []
+            if src:
+                row = {k: v for k, v in src[0].items() if k not in ("match_id", "id", "created_at", "updated_at")}; row["competition"] = "Full match"
+                db.table("match_labels").upsert({"match_id": match_id, **row}).execute(); log("labels copied from " + src[0]["match_id"])
+    except Exception as e: log(f"label copy skipped: {e!r}")
+    vol.commit()
+    import json as _json
+    safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
+    files = {}
+    import glob as _g, base64
+    for r in ok: files.update(r.get("images") or {})
+    for p in _g.glob(f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}/ballcheck.jpg"):
+        try: files[os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
+        except Exception: pass
+    return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
+
 
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in

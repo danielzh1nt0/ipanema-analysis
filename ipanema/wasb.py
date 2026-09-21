@@ -74,12 +74,12 @@ def _peaks(hm, thr=0.25, max_n=6):
         ys, xs = np.where(lab == m); w = hm[ys, xs]; out.append((float((xs * w).sum() / w.sum()), float((ys * w).sum() / w.sum()), float(w.max())))
     return sorted(out, key=lambda z: -z[2])[:max_n]
 
-def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None):
+def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None, train=True):
     import torch
     ensure(root, log=log)
     try:
         from .wasb_train import ensure_finetuned
-        if ensure_finetuned(root, videos_dir or os.path.join(root, "videos"), log=log):
+        if train and ensure_finetuned(root, videos_dir or os.path.join(root, "videos"), log=log):
             for c in [cache] + [p for p in os.listdir(os.path.dirname(cache)) if False]: pass
     except Exception as e: log(f"wasb fine-tune skipped: {e!r}")
     ft = os.path.join(root, "models", "wasb_finetuned.pth"); tag = str(int(os.path.getmtime(ft))) if os.path.exists(ft) else "pre"
