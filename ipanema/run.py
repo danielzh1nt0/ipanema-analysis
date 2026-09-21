@@ -48,7 +48,12 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     from .mosaic import CAL_VERSION
     _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
     trk = f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
+    alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if Hm else None
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
+    elif alt_trk and alt_trk != trk and os.path.exists(alt_trk):
+        # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
+        per, fps = pickle.load(open(alt_trk, "rb")); per = TR.reposition(per, H); pickle.dump((per, fps), open(trk, "wb"))
+        log("tracking: reused detections, re-positioned with the panorama calibration")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     cands = None

@@ -104,8 +104,7 @@ def train_ball():
     wasb.ensure(S.root, log=log); ensure_finetuned(S.root, f"{S.root}/videos", log=log); vol.commit()
     return lines[-40:]
 
-@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], max_containers=10)   # plan limit: 10 GPUs at once
-def run_piece(match_id: str, piece: dict, full_path: str):
+def _piece_body(match_id, piece, full_path):
     S = _setup()
     from ipanema.fullmatch import process_piece
     lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
@@ -120,6 +119,15 @@ def run_piece(match_id: str, piece: dict, full_path: str):
         try: imgs[os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
     return {"i": piece["i"], "ok": ok, "path": path, "log": lines[-12:], "images": imgs}
+
+@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], max_containers=10)   # plan limit: 10 GPUs at once
+def run_piece(match_id: str, piece: dict, full_path: str):
+    return _piece_body(match_id, piece, full_path)
+
+@app.function(timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384, max_containers=21)
+def run_piece_cpu(match_id: str, piece: dict, full_path: str):
+    """pieces whose players and ball are already detected only need calibration + positions + team split: no GPU"""
+    return _piece_body(match_id, piece, full_path)
 
 @app.function(timeout=150 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=32768)
 def run_full(match_id: str, video_url: str, log_tail: int = 500):
@@ -140,12 +148,18 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
     log(f"=== {match_id} full match === {n} frames @ {fps:.3f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces")
     for line in train_ball.remote(): log("  " + line)
-    from ipanema.fullmatch import piece_id
-    cached = [p for p in plan_ if os.path.exists(f"{ROOT}/cache/{piece_id(match_id, p['i'])}/piece.pkl")]
+    from ipanema.fullmatch import piece_id, PIECE_FILE
+    cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
+    cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}")]
     todo = [p for p in plan_ if p not in cached]
-    log(f"pieces: {len(cached)} already processed, {len(todo)} to run")
-    res = [{"i": p["i"], "ok": True, "path": f"{ROOT}/cache/{piece_id(match_id, p['i'])}/piece.pkl", "log": ["cached"], "images": {}} for p in cached]
-    if todo: res += list(run_piece.map([match_id] * len(todo), todo, [full] * len(todo), return_exceptions=True))
+    detected = lambda p: (os.path.exists(f"{cdir(p)}/tracks_kp.pkl") or bool(glob.glob(f"{cdir(p)}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{cdir(p)}/ball_cands_wasb_*_t2x2.pkl"))
+    cpu_todo = [p for p in todo if detected(p)]; gpu_todo = [p for p in todo if not detected(p)]
+    log(f"pieces: {len(cached)} already processed, {len(cpu_todo)} to finish on CPU (detections saved), {len(gpu_todo)} need a GPU")
+    res = [{"i": p["i"], "ok": True, "path": f"{cdir(p)}/{PIECE_FILE}", "log": ["cached"], "images": {}} for p in cached]
+    calls = []
+    if cpu_todo: calls.append(run_piece_cpu.map([match_id] * len(cpu_todo), cpu_todo, [full] * len(cpu_todo), return_exceptions=True))
+    if gpu_todo: calls.append(run_piece.map([match_id] * len(gpu_todo), gpu_todo, [full] * len(gpu_todo), return_exceptions=True))
+    for c in calls: res += list(c)
     ok = [r for r in res if isinstance(r, dict) and r.get("ok")]; bad = [r for r in res if not (isinstance(r, dict) and r.get("ok"))]
     log(f"pieces: {len(ok)}/{len(plan_)} done in {(time.time() - t0) / 60:.1f} min")
     for r in bad: log(f"  piece failed: {str(r)[-600:]}")

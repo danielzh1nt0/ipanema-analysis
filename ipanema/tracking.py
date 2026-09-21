@@ -125,3 +125,14 @@ def _stitch(segs, fps, max_gap_s=2.5):
             elif B["end"] == g_end[r]: g_latest[r].append(tid)
         else: put(tid, B["end"], [tid])
     return remap
+
+
+def reposition(per, H):
+    """recompute each detection's pitch position (metres) from its foot point in the picture with a new calibration"""
+    from .calibration import to_m
+    out = {}
+    for k, rows in per.items():
+        if not rows: out[k] = []; continue
+        m = to_m(H[k], np.array([r[3] for r in rows], np.float32))
+        out[k] = [[r[0], r[1], m[j].astype(float), r[3], r[4], r[5]] for j, r in enumerate(rows)]
+    return out

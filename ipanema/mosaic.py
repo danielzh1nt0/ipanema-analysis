@@ -105,11 +105,12 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
                 Hd, inl = cv2.findHomography(p1, p2, cv2.RANSAC, 4.0)
                 if Hd is not None and inl.sum() >= 40: r = (Hd, int(inl.sum()))
         if r is not None: Hfm = r[0]; direct += 1
-        elif prev is not None:
+        elif prevH is not None:
+            # chain from the last frame that WAS placed; an unplaced frame is never used as a reference (its position is unknown)
             rc = _homog(bf, cur[0], cur[1], prev[0], prev[1])
-            if rc is None: prev = cur; continue
+            if rc is None: continue
             Hfm = prevH @ rc[0]; chained += 1
-        else: prev = cur; continue
+        else: continue
         anchors[k] = Hfm; prev, prevH = cur, Hfm
         if k % 1000 == 0: log(f"  calibration anchor {k} (direct {direct}, chained {chained})")
     if len(anchors) < 10: log("calibration: too few anchors"); return None
