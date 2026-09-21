@@ -91,11 +91,11 @@ def _logger(relpath):
     """log to stdout, keep the lines, and stream them to logs/<relpath> on the volume (committed every 30 s)"""
     import time as _t
     path = f"{ROOT}/logs/{relpath}"; os.makedirs(os.path.dirname(path), exist_ok=True)
-    fh = open(path, "w"); state = {"t": 0.0}; lines = []
+    open(path, "w").close(); state = {"t": 0.0}; lines = []
     def log(*a):
         s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
         try:
-            fh.write(s + "\n"); fh.flush()
+            with open(path, "a") as fh: fh.write(s + "\n")         # never left open: Modal refuses to reload/commit a volume with open files
             if _t.time() - state["t"] > 30: state["t"] = _t.time(); vol.commit()
         except Exception: pass
     return log, lines
