@@ -63,12 +63,15 @@ def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print):
 
 _LAST_BEST = {}
 
+_SAMPLES = {}
+
 def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
     # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
     ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev)
-    S = load_samples(root, videos_dir, log=log)
+    if "S" not in _SAMPLES: _SAMPLES["S"] = load_samples(root, videos_dir, log=log)   # read the labelled frames once for all seeds
+    S = _SAMPLES["S"]
     if len(S) < 30: log("wasb train: too few samples"); return None
     rng = np.random.RandomState(0); idx = rng.permutation(len(S)); nval = max(10, len(S) // 5); va, tr = idx[:nval], idx[nval:]
     opt = torch.optim.Adam(net.parameters(), lr=lr)
