@@ -1,5 +1,7 @@
-"""Fine-tune the WASB soccer checkpoint on the coach's ball clicks. Same target as WASB (binary disc r=2.5 at 512x288) and
-the same weighted BCE; loss only on the labelled middle frame of each 3-frame stack. Holds out 20% and reports hit rate."""
+"""Fine-tune the WASB soccer checkpoint on the coach's ball clicks, at the same tile scale the detector runs at.
+Frames are stored at base resolution (960x540, uint8); every epoch cuts a fresh random tile around each ball (plus
+ball-free negatives), so the model sees the ball at ~6 px exactly as in inference. Target: WASB's binary disc r=2.5
+on the middle frame; loss: TrackNetV2 weighted BCE. 20% of labels are held out and scored with full tiled inference."""
 import os, glob, json, numpy as np, cv2
 
 EVAL_SETS = {"SFKBP1109_s1200", "bundesliga1", "bundesliga2"}   # the ball-check clips: never train on them
@@ -25,101 +27,134 @@ def _video_for(clip, videos_dir, log=print):
     return v
 
 def load_samples(root, videos_dir, log=print):
-    """returns list of (stack 9x288x512 float32, target 288x512 float32 or None-for-invisible, visible flag)"""
-    from .wasb import MEAN, STD
+    """-> list of dicts {frames: 3 x (540, 960, 3) uint8 base frames, ball: (x, y) in base px or None}"""
+    from .wasb import to_base, BASE
     S = []
-    for gt_path in glob.glob(f"{root}/reference/*/ball_gt.json"):
+    for gt_path in sorted(glob.glob(f"{root}/reference/*/ball_gt.json")):
         clip = os.path.basename(os.path.dirname(gt_path))
         if clip in EVAL_SETS: log(f"wasb train: {clip} held out as a test set"); continue
         vid = _video_for(clip, videos_dir, log=log)
-        if vid is None: continue
+        if vid is None: log(f"wasb train: no video for {clip}; skipped"); continue
         gt = {int(k): v for k, v in json.load(open(gt_path)).items()}
-        cap = cv2.VideoCapture(vid); W, H = int(cap.get(3)), int(cap.get(4))
+        cap = cv2.VideoCapture(vid); W, H = int(cap.get(3)), int(cap.get(4)); n_ok = 0
         for i, g in sorted(gt.items()):
             frames = []
             for j in (i - 1, i, i + 1):
                 cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, j)); ok, f = cap.read()
-                if not ok: break
-                im = cv2.resize(f, (512, 288)); frames.append(((im[..., ::-1].astype(np.float32) / 255.0 - MEAN) / STD).transpose(2, 0, 1))
+                if not ok or f is None: break
+                frames.append(to_base(f))
             if len(frames) != 3: continue
-            if g is None: tgt = np.zeros((288, 512), np.float32); vis = False
-            else:
-                cx, cy = g[0] * 512.0 / W, g[1] * 288.0 / H; x, y = np.meshgrid(np.arange(512), np.arange(288))
-                tgt = (((x - cx) ** 2 + (y - cy) ** 2) <= 2.5 ** 2).astype(np.float32); vis = True
-            S.append((np.concatenate(frames, 0), tgt, vis, (g[0] * 512.0 / W, g[1] * 288.0 / H) if g else None))
-        cap.release()
-    log(f"wasb train: {len(S)} samples ({sum(1 for s in S if s[2])} with a visible ball)")
+            ball = None if g is None else (g[0] * BASE[0] / W, g[1] * BASE[1] / H)
+            S.append({"frames": frames, "ball": ball, "clip": clip}); n_ok += 1
+        cap.release(); log(f"wasb train: {clip}: {n_ok} of {len(gt)} labels loaded ({vid.split('/')[-1]})")
+    log(f"wasb train: {len(S)} samples ({sum(1 for x in S if x['ball'])} with a visible ball)")
     return S
 
-def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print):
-    """small training sets swing run to run: train a few seeds, keep the best held-out model"""
-    import torch, shutil
-    best_h, best_path = -1, None
-    for s in seeds:
-        torch.manual_seed(s); np.random.seed(s)
-        p = train(root, videos_dir, log=log, seed=s)
-        if p is None: continue
-        h = _LAST_BEST.get("hits", -1)
-        log(f"wasb seed {s}: held-out {h}")
-        if h > best_h: best_h = h; shutil.copy(p, p + f".seed{s}"); best_path = p + f".seed{s}"
-    if best_path: shutil.copy(best_path, weights_path(root)); log(f"wasb: kept best seed, held-out {best_h}")
-    return weights_path(root) if best_path else None
+def _disc(cx, cy):
+    from .wasb import NET
+    x, y = np.meshgrid(np.arange(NET[0]), np.arange(NET[1]))
+    return (((x - cx) ** 2 + (y - cy) ** 2) <= 2.5 ** 2).astype(np.float32)
+
+def random_crop(sample, rng, p_negative=0.3, margin=12):
+    """one training example at tile scale: (9, 288, 512) float32 input, (288, 512) target"""
+    from .wasb import tile_boxes, crop_stack, NET, BASE
+    _, _, tw, th = tile_boxes()[0]
+    W, H = BASE
+    b = sample["ball"]
+    if b is not None and rng.rand() >= p_negative:        # window that contains the ball, anywhere inside it
+        bx, by = b
+        x0 = rng.randint(int(max(0, bx - tw + margin)), int(max(0, min(W - tw, bx - margin))) + 1)
+        y0 = rng.randint(int(max(0, by - th + margin)), int(max(0, min(H - th, by - margin))) + 1)
+        x0 = int(min(max(0, x0), W - tw)); y0 = int(min(max(0, y0), H - th))
+        tgt = _disc((bx - x0) * NET[0] / tw, (by - y0) * NET[1] / th)
+    else:                                                  # window without the ball (or ball not visible)
+        for _ in range(20):
+            x0 = rng.randint(0, W - tw + 1); y0 = rng.randint(0, H - th + 1)
+            if b is None or not (x0 - margin <= b[0] < x0 + tw + margin and y0 - margin <= b[1] < y0 + th + margin): break
+        else:
+            return random_crop(sample, rng, p_negative=0.0, margin=margin)
+        tgt = np.zeros((NET[1], NET[0]), np.float32)
+    x = crop_stack(sample["frames"], (x0, y0, tw, th))
+    if rng.rand() < 0.5: x = x[:, :, ::-1].copy(); tgt = tgt[:, ::-1].copy()
+    if rng.rand() < 0.5: x = x * rng.uniform(0.85, 1.15) + rng.uniform(-0.15, 0.15)
+    return x.astype(np.float32), tgt
+
+def tiled_predict(net, dev, frames_base):
+    """full tiled inference on one triple -> merged peaks (base coords) for the middle frame"""
+    import torch
+    from .wasb import tile_boxes, crop_stack, tiled_heatmaps_to_peaks
+    boxes = tile_boxes()
+    x = torch.from_numpy(np.stack([crop_stack(frames_base, bx) for bx in boxes])).to(dev)
+    with torch.no_grad():
+        pred = net(x)
+        if isinstance(pred, dict): pred = list(pred.values())[0]
+        elif isinstance(pred, (list, tuple)): pred = pred[0]
+        hm = torch.sigmoid(pred).float().cpu().numpy()[:, 1]
+    return tiled_heatmaps_to_peaks(list(hm), boxes)
+
+def hit_rate(net, dev, S, ids, tol_base=7.5):
+    """a hit = the strongest detection lies within tol_base px (base scale; = 15 px on 1080p) of the click"""
+    net.eval(); hits = tot = 0
+    for k in ids:
+        s = S[k]
+        if s["ball"] is None: continue
+        tot += 1; peaks = tiled_predict(net, dev, s["frames"])
+        if peaks and np.hypot(peaks[0][0] - s["ball"][0], peaks[0][1] - s["ball"][1]) <= tol_base: hits += 1
+    return hits, tot
 
 _LAST_BEST = {}
-
 _SAMPLES = {}
 
 def train(root, videos_dir, epochs=40, lr=3e-4, log=print, seed=0, eval_every=2, patience=5):
-    # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
-    ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev, finetuned=False)   # always from the pretrained soccer weights
-    if "S" not in _SAMPLES: _SAMPLES["S"] = load_samples(root, videos_dir, log=log)   # read the labelled frames once for all seeds
+    ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev, finetuned=False)
+    if "S" not in _SAMPLES: _SAMPLES["S"] = load_samples(root, videos_dir, log=log)
     S = _SAMPLES["S"]
     if len(S) < 30: log("wasb train: too few samples"); return None
-    rng = np.random.RandomState(0); idx = rng.permutation(len(S)); nval = max(10, len(S) // 5); va, tr = idx[:nval], idx[nval:]
+    split = np.random.RandomState(0).permutation(len(S)); nval = max(10, len(S) // 5); va, tr = split[:nval], split[nval:]   # same split for every seed
+    rng = np.random.RandomState(seed); torch.manual_seed(seed)
     opt = torch.optim.Adam(net.parameters(), lr=lr)
-    def wbce(logits, t):   # TrackNetV2 weighted BCE on the middle channel
+    def wbce(logits, t):
         p = torch.sigmoid(logits).clamp(1e-6, 1 - 1e-6)
         return -((1 - p) ** 2 * t * torch.log(p) + p ** 2 * (1 - t) * torch.log(1 - p)).mean()
-    def hit_rate(ids):
-        net.eval(); hits = tot = 0
-        with torch.no_grad():
-            for k in ids:
-                x, t, vis, c = S[k]
-                if not vis: continue
-                out = net(torch.from_numpy(x[None]).to(dev)); pred = out[0] if isinstance(out, dict) else out
-                hm = torch.sigmoid(pred)[0, 1].cpu().numpy(); py, px = np.unravel_index(hm.argmax(), hm.shape)
-                tot += 1; hits += (hm.max() > 0.25 and np.hypot(px - c[0], py - c[1]) <= 4.0)
-        return hits, tot
-    h0, t0 = hit_rate(va); log(f"wasb train: before fine-tune, held-out hit rate {h0}/{t0}")
-    best = h0; best_state = {k: v.clone() for k, v in net.state_dict().items()}; stale = 0
+    h0, t0 = hit_rate(net, dev, S, va); log(f"wasb train: pretrained, held-out hit rate {h0}/{t0}")
+    best, best_state, stale = h0, {k: v.clone() for k, v in net.state_dict().items()}, 0
     for ep in range(epochs):
-        net.train(); rng.shuffle(tr); tot_loss = 0.0
-        for b in range(0, len(tr), 8):
-            xs, ts = [], []
-            for k in tr[b:b + 8]:
-                x, t, vis, c = S[k]
-                if rng.rand() < 0.5: x = x[:, :, ::-1].copy(); t = t[:, ::-1].copy()   # horizontal flip
-                if rng.rand() < 0.5: x = x * rng.uniform(0.8, 1.2) + rng.uniform(-0.2, 0.2)   # brightness/contrast jitter (normalised space)
-                xs.append(x); ts.append(t)
-            xb = torch.from_numpy(np.stack(xs)).float().to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
-            out = net(xb); pred = out[0] if isinstance(out, dict) else out
-            loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss)
+        net.train(); order = rng.permutation(tr); tot_loss = 0.0; nb = 0
+        for b in range(0, len(order), 8):
+            xs, ts = zip(*[random_crop(S[k], rng) for k in order[b:b + 8]])
+            xb = torch.from_numpy(np.stack(xs)).to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
+            pred = net(xb)
+            if isinstance(pred, dict): pred = list(pred.values())[0]
+            elif isinstance(pred, (list, tuple)): pred = pred[0]
+            loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss); nb += 1
         if ep % eval_every == eval_every - 1 or ep == epochs - 1:
-            h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.6f}, held-out hit rate {h}/{t}")
+            h, t = hit_rate(net, dev, S, va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, nb):.6f}, held-out hit rate {h}/{t}")
             if h > best: best, best_state, stale = h, {k: v.clone() for k, v in net.state_dict().items()}, 0
             else:
                 stale += 1
                 if stale >= patience: log(f"  wasb early stop at epoch {ep + 1} (best {best}/{t})"); break
     _LAST_BEST["hits"] = best
-    torch.save(best_state, weights_path(root)); log(f"wasb train: saved {weights_path(root)} (best held-out {best}/{t0})")
+    torch.save(best_state, weights_path(root)); log(f"wasb train: saved (best held-out {best}/{t0})")
     return weights_path(root)
 
+def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print):
+    """small training sets swing run to run: train a few seeds from the pretrained weights, keep the best held-out model"""
+    import shutil
+    best_h, best_path = -1, None
+    for s in seeds:
+        p = train(root, videos_dir, log=log, seed=s)
+        if p is None: continue
+        h = _LAST_BEST.get("hits", -1); log(f"wasb seed {s}: held-out {h}")
+        if h > best_h: best_h = h; shutil.copy(p, p + f".seed{s}"); best_path = p + f".seed{s}"
+    if best_path: shutil.copy(best_path, weights_path(root)); log(f"wasb: kept best seed, held-out {best_h}")
+    return weights_path(root) if best_path else None
+
 def ensure_finetuned(root, videos_dir, log=print):
-    """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e40-lr3e-4-earlystop-pretrained-heldout-v1"
-    labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
+    """train when there is no fine-tuned weight yet, or when the labels or the recipe changed"""
+    RECIPE = "tiles2x2-base960-e40-lr3e-4-earlystop-v1"
+    labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len(json.load(open(p))) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
         if train_best_of(root, videos_dir, log=log): json.dump({"n": n, "recipe": RECIPE}, open(manifest_path(root), "w")); return True
