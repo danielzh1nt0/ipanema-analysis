@@ -108,7 +108,7 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
 
 def ensure_finetuned(root, videos_dir, log=print):
     """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e120-lr3e-4-allclips-v2"
+    RECIPE = "e120-lr3e-4-allclips-v3"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
