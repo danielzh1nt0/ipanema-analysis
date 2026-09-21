@@ -1,0 +1,91 @@
+{
+ "pieces": [
+  {
+   "i": 0,
+   "status": "cpu"
+  },
+  {
+   "i": 1,
+   "status": "cpu"
+  },
+  {
+   "i": 2,
+   "status": "cpu"
+  },
+  {
+   "i": 3,
+   "status": "cpu"
+  },
+  {
+   "i": 4,
+   "status": "done"
+  },
+  {
+   "i": 5,
+   "status": "cpu"
+  },
+  {
+   "i": 6,
+   "status": "cpu"
+  },
+  {
+   "i": 7,
+   "status": "cpu"
+  },
+  {
+   "i": 8,
+   "status": "cpu"
+  },
+  {
+   "i": 9,
+   "status": "cpu"
+  },
+  {
+   "i": 10,
+   "status": "cpu"
+  },
+  {
+   "i": 11,
+   "status": "cpu"
+  },
+  {
+   "i": 12,
+   "status": "cpu"
+  },
+  {
+   "i": 13,
+   "status": "cpu"
+  },
+  {
+   "i": 14,
+   "status": "cpu"
+  },
+  {
+   "i": 15,
+   "status": "cpu"
+  },
+  {
+   "i": 16,
+   "status": "gpu"
+  },
+  {
+   "i": 17,
+   "status": "cpu"
+  },
+  {
+   "i": 18,
+   "status": "cpu"
+  },
+  {
+   "i": 19,
+   "status": "cpu"
+  },
+  {
+   "i": 20,
+   "status": "cpu"
+  }
+ ],
+ "done": 1,
+ "cpu": 19,
+ "gpu": 1
+}
