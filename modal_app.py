@@ -16,7 +16,7 @@ image = (modal.Image.debian_slim(python_version="3.11")
                        "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)
 
-@app.function(gpu="L4", timeout=6 * 3600, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
 def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, log_tail: int = 400):
     import subprocess, sys, requests, importlib
     subprocess.run(f"rm -rf /content/ipanema-analysis && git clone -q {REPO} /content/ipanema-analysis", shell=True, check=True)
