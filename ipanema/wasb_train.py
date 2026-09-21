@@ -2,6 +2,8 @@
 the same weighted BCE; loss only on the labelled middle frame of each 3-frame stack. Holds out 20% and reports hit rate."""
 import os, glob, json, numpy as np, cv2
 
+EVAL_SETS = {"SFKBP1109_s1200", "bundesliga1", "bundesliga2"}   # the ball-check clips: never train on them
+
 def weights_path(root): return os.path.join(root, "models", "wasb_finetuned.pth")
 def manifest_path(root): return os.path.join(root, "models", "wasb_train_manifest.json")
 
@@ -27,7 +29,9 @@ def load_samples(root, videos_dir, log=print):
     from .wasb import MEAN, STD
     S = []
     for gt_path in glob.glob(f"{root}/reference/*/ball_gt.json"):
-        clip = os.path.basename(os.path.dirname(gt_path)); vid = _video_for(clip, videos_dir, log=log)
+        clip = os.path.basename(os.path.dirname(gt_path))
+        if clip in EVAL_SETS: log(f"wasb train: {clip} held out as a test set"); continue
+        vid = _video_for(clip, videos_dir, log=log)
         if vid is None: continue
         gt = {int(k): v for k, v in json.load(open(gt_path)).items()}
         cap = cv2.VideoCapture(vid); W, H = int(cap.get(3)), int(cap.get(4))
@@ -65,11 +69,11 @@ _LAST_BEST = {}
 
 _SAMPLES = {}
 
-def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
+def train(root, videos_dir, epochs=30, lr=1e-4, log=print, seed=0, eval_every=2, patience=5):
     # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
-    ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev)
+    ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev, finetuned=False)   # always from the pretrained soccer weights
     if "S" not in _SAMPLES: _SAMPLES["S"] = load_samples(root, videos_dir, log=log)   # read the labelled frames once for all seeds
     S = _SAMPLES["S"]
     if len(S) < 30: log("wasb train: too few samples"); return None
@@ -89,7 +93,7 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
                 tot += 1; hits += (hm.max() > 0.25 and np.hypot(px - c[0], py - c[1]) <= 4.0)
         return hits, tot
     h0, t0 = hit_rate(va); log(f"wasb train: before fine-tune, held-out hit rate {h0}/{t0}")
-    best = h0; best_state = {k: v.clone() for k, v in net.state_dict().items()}
+    best = h0; best_state = {k: v.clone() for k, v in net.state_dict().items()}; stale = 0
     for ep in range(epochs):
         net.train(); rng.shuffle(tr); tot_loss = 0.0
         for b in range(0, len(tr), 8):
@@ -102,16 +106,19 @@ def train(root, videos_dir, epochs=120, lr=3e-4, log=print, seed=0):
             xb = torch.from_numpy(np.stack(xs)).float().to(dev); tb = torch.from_numpy(np.stack(ts)).to(dev)
             out = net(xb); pred = out[0] if isinstance(out, dict) else out
             loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss)
-        if ep % 10 == 9 or ep == epochs - 1:
-            h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.4f}, held-out hit rate {h}/{t}")
-            if h >= best: best, best_state = h, {k: v.clone() for k, v in net.state_dict().items()}
+        if ep % eval_every == eval_every - 1 or ep == epochs - 1:
+            h, t = hit_rate(va); log(f"  wasb epoch {ep + 1}: loss {tot_loss / max(1, len(tr) // 8):.6f}, held-out hit rate {h}/{t}")
+            if h > best: best, best_state, stale = h, {k: v.clone() for k, v in net.state_dict().items()}, 0
+            else:
+                stale += 1
+                if stale >= patience: log(f"  wasb early stop at epoch {ep + 1} (best {best}/{t})"); break
     _LAST_BEST["hits"] = best
     torch.save(best_state, weights_path(root)); log(f"wasb train: saved {weights_path(root)} (best held-out {best}/{t0})")
     return weights_path(root)
 
 def ensure_finetuned(root, videos_dir, log=print):
     """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e120-lr3e-4-allclips-v3"
+    RECIPE = "e30-lr1e-4-earlystop-pretrained-heldout-v1"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
