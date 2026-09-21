@@ -29,13 +29,17 @@ def _convex(q):
     s = [np.cross(q[(i + 1) % 4] - q[i], q[(i + 2) % 4] - q[(i + 1) % 4]) for i in range(4)]
     return all(v > 0 for v in s) or all(v < 0 for v in s)
 
-def register(ff, cf, frame_shape, min_inliers=50, min_ratio=0.25, min_spread=0.15, area_range=(0.15, 10.0)):
+def canvas_matcher(cf):
+    """search index over the map's features, built once per pass (building it per frame made the real run ~10x slower)"""
+    m = cv2.FlannBasedMatcher(dict(algorithm=1, trees=4), dict(checks=64)); m.add([cf[1].astype(np.float32)]); m.train(); return m
+
+def register(ff, cf, frame_shape, min_inliers=50, min_ratio=0.25, min_spread=0.15, area_range=(0.15, 10.0), matcher=None):
     """frame -> canvas homography, or (None, reason). Guards: inlier count and ratio, spread of inliers across the
     frame, convex footprint of plausible size."""
     if ff is None or cf is None: return None, "no features"
     fpts, fd = ff; cpts, cd = cf
-    flann = cv2.FlannBasedMatcher(dict(algorithm=1, trees=4), dict(checks=64))
-    try: pairs = flann.knnMatch(fd.astype(np.float32), cd.astype(np.float32), k=2)
+    matcher = matcher or canvas_matcher(cf)
+    try: pairs = matcher.knnMatch(fd.astype(np.float32), k=2)
     except cv2.error: return None, "matcher failed"
     good = [p[0] for p in pairs if len(p) == 2 and p[0].distance < 0.75 * p[1].distance]
     if len(good) < min_inliers: return None, f"{len(good)} matches"
@@ -69,9 +73,9 @@ def extend(seed, keys, get_frame, pad=(2500, 200, 2500, 1400), max_passes=4, min
     placed, todo = [], [k for k in keys if k in feats]
     csift = cv2.SIFT_create(nfeatures=40000)
     for p in range(max_passes):
-        cf = canvas_features(csift, canvas, covered); added = 0; still = []
+        cf = canvas_features(csift, canvas, covered); added = 0; still = []; matcher = canvas_matcher(cf) if cf is not None else None
         for k in todo:
-            (ff, shape) = feats[k]; H, why = register(ff, cf, shape)
+            (ff, shape) = feats[k]; H, why = register(ff, cf, shape, matcher=matcher)
             if H is None: still.append(k); continue
             f = get_frame(k); h, w = shape[:2]
             fm = np.full((h, w), 255, np.uint8); fm[int(h * 0.84):, int(w * 0.78):] = 0          # never paint the watermark
