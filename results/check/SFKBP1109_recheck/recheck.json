@@ -1,0 +1,156 @@
+[
+ {
+  "i": 1,
+  "k": 300,
+  "old_p80": 86.9,
+  "placed": false,
+  "why": "footprint not convex"
+ },
+ {
+  "i": 1,
+  "k": 1650,
+  "old_p80": 95.1,
+  "placed": false,
+  "why": "matches bunched (0.11 of the frame)"
+ },
+ {
+  "i": 1,
+  "k": 1800,
+  "old_p80": 98.5,
+  "placed": false,
+  "why": "footprint not convex"
+ },
+ {
+  "i": 4,
+  "k": 2400,
+  "old_p80": 13.4,
+  "placed": true,
+  "why": "304 inliers",
+  "new_p80": 12.7
+ },
+ {
+  "i": 4,
+  "k": 4200,
+  "old_p80": 14.0,
+  "placed": true,
+  "why": "287 inliers",
+  "new_p80": 14.0
+ },
+ {
+  "i": 4,
+  "k": 8100,
+  "old_p80": 18.0,
+  "placed": true,
+  "why": "382 inliers",
+  "new_p80": 17.0
+ },
+ {
+  "i": 5,
+  "k": 900,
+  "old_p80": 138.3,
+  "placed": false,
+  "why": "matches bunched (0.11 of the frame)"
+ },
+ {
+  "i": 5,
+  "k": 1050,
+  "old_p80": 102.5,
+  "placed": false,
+  "why": "matches bunched (0.08 of the frame)"
+ },
+ {
+  "i": 5,
+  "k": 1500,
+  "old_p80": 94.2,
+  "placed": false,
+  "why": "matches bunched (0.13 of the frame)"
+ },
+ {
+  "i": 14,
+  "k": 750,
+  "old_p80": 92.6,
+  "placed": true,
+  "why": "284 inliers",
+  "new_p80": 11.0
+ },
+ {
+  "i": 14,
+  "k": 1050,
+  "old_p80": 115.0,
+  "placed": false,
+  "why": "matches bunched (0.14 of the frame)"
+ },
+ {
+  "i": 14,
+  "k": 1200,
+  "old_p80": 100.3,
+  "placed": false,
+  "why": "matches bunched (0.14 of the frame)"
+ },
+ {
+  "i": 15,
+  "k": 0,
+  "old_p80": 66.2,
+  "placed": false,
+  "why": "matches bunched (0.13 of the frame)"
+ },
+ {
+  "i": 15,
+  "k": 600,
+  "old_p80": 89.0,
+  "placed": false,
+  "why": "footprint 11.99x a frame"
+ },
+ {
+  "i": 15,
+  "k": 900,
+  "old_p80": 58.2,
+  "placed": true,
+  "why": "253 inliers",
+  "new_p80": 11.0
+ },
+ {
+  "i": 17,
+  "k": 300,
+  "old_p80": 93.8,
+  "placed": true,
+  "why": "236 inliers",
+  "new_p80": 18.2
+ },
+ {
+  "i": 17,
+  "k": 450,
+  "old_p80": 84.0,
+  "placed": false,
+  "why": "footprint 14.70x a frame"
+ },
+ {
+  "i": 17,
+  "k": 2400,
+  "old_p80": 100.2,
+  "placed": true,
+  "why": "192 inliers",
+  "new_p80": 15.0
+ },
+ {
+  "i": 18,
+  "k": 600,
+  "old_p80": 147.0,
+  "placed": false,
+  "why": "footprint 564.26x a frame"
+ },
+ {
+  "i": 18,
+  "k": 2100,
+  "old_p80": 106.4,
+  "placed": false,
+  "why": "matches bunched (0.10 of the frame)"
+ },
+ {
+  "i": 18,
+  "k": 2550,
+  "old_p80": 105.0,
+  "placed": false,
+  "why": "48 inliers of 69"
+ }
+]
