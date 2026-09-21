@@ -1,4 +1,4 @@
-# live log · SFKBP1109 · collected from the volume · 21:52:05 UTC
+# live log · SFKBP1109 · collected from the volume · 23:15:19 UTC
 
 
 ## run_full.log (83 lines, last 60)
@@ -62,6 +62,10 @@ upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, fram
   high_turnovers             {'A': 1, 'B': 2}
   field_tilt                 {'A': 14, 'B': 27}
   runtime_min                4.5
+
+## panorama.log (2 lines, last 60)
+panorama: 1253 candidate frames from 21 pieces (every 5 s)
+panorama: 1253 candidate frames
 
 ## train_ball.log (1 lines, last 60)
 
