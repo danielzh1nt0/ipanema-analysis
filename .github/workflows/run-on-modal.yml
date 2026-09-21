@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install -q modal numpy
+      - name: check the code compiles on the runner's Python (stops here before any spend)
+        run: python -m py_compile modal_app.py scripts_scoreboard.py ipanema/*.py && python --version
       - name: deploy (always; costs nothing until something calls it)
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
