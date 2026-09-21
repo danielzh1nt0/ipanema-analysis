@@ -53,28 +53,52 @@ def _lines_px(Hc):
         if np.isfinite(p).all() and np.abs(p).max() < 1e5: out.append(p)
     return out
 
-def validate(root, code_dir="/content/ipanema-analysis", match="SFKBP1109", log=print):
-    """run PnLCalib on the hand-calibrated panorama and report agreement in metres (within 20 m of the centre spot)"""
-    spec = json.load(open(os.path.join(code_dir, "calibration", f"{match}.json")))
-    img = cv2.imread(os.path.join(code_dir, spec["mosaic"])); Hhand = np.array(spec["H_pitch_to_mosaic"], float)   # our metres (120x70 model) -> px
-    Hc = calibrate(img, root, log=log)
-    if Hc is None: return {"ok": False, "reason": "no calibration"}
+def _agreement(Hc, Hours, centre=(60.0, 35.0)):
+    """median/p90 disagreement in metres between PnLCalib (centre-origin 105x68) and our calibration (0..120 x 0..70), best of 4 mirror flips"""
     g = np.array([(x, y) for x in np.linspace(-20, 20, 9) for y in np.linspace(-18, 18, 7)], np.float32)
     px = cv2.perspectiveTransform(g.reshape(-1, 1, 2), Hc).reshape(-1, 2)
-    ours = cv2.perspectiveTransform(px.reshape(-1, 1, 2).astype(np.float32), np.linalg.inv(Hhand)).reshape(-1, 2)   # back to our metres
+    ours = cv2.perspectiveTransform(px.reshape(-1, 1, 2).astype(np.float32), np.linalg.inv(Hours)).reshape(-1, 2)
     best = None
     for sx in (1, -1):
         for sy in (1, -1):
-            exp = np.c_[60 + sx * g[:, 0], 35 + sy * g[:, 1]]           # our centre spot is (60, 35)
-            e = np.linalg.norm(ours - exp, axis=1); cand = (float(np.median(e)), float(np.percentile(e, 90)), sx, sy)
-            if best is None or cand[0] < best[0]: best = cand
-    res = {"ok": True, "median_err_m": round(best[0], 2), "p90_err_m": round(best[1], 2), "flip": [best[2], best[3]]}
+            e = np.linalg.norm(ours - np.c_[centre[0] + sx * g[:, 0], centre[1] + sy * g[:, 1]], axis=1)
+            c = (round(float(np.median(e)), 2), round(float(np.percentile(e, 90)), 2), [sx, sy])
+            if best is None or c[0] < best[0]: best = c
+    return {"median_err_m": best[0], "p90_err_m": best[1], "flip": best[2]}
+
+def _overlay(img, Hc, Hours, path):
     vis = img.copy()
     for seg in _lines_px(Hc): cv2.line(vis, tuple(seg[0].astype(int)), tuple(seg[1].astype(int)), (0, 0, 255), 3)
-    th = np.linspace(0, 2 * np.pi, 120); hc = cv2.perspectiveTransform(np.float32([[[60 + 9.15 * np.cos(a), 35 + 9.15 * np.sin(a)]] for a in th]), Hhand).reshape(-1, 2)
+    th = np.linspace(0, 2 * np.pi, 120)
+    hc = cv2.perspectiveTransform(np.float32([[[60 + 9.15 * np.cos(a), 35 + 9.15 * np.sin(a)]] for a in th]), Hours).reshape(-1, 2)
     cv2.polylines(vis, [hc.astype(np.int32)], True, (0, 255, 0), 3)
-    hw = cv2.perspectiveTransform(np.float32([[[60, 0]], [[60, 70]]]), Hhand).reshape(-1, 2); cv2.line(vis, tuple(hw[0].astype(int)), tuple(hw[1].astype(int)), (0, 255, 0), 3)
-    d = os.path.join(code_dir, "results", "debug"); os.makedirs(d, exist_ok=True)
-    cv2.imwrite(os.path.join(d, f"pnlcalib_{match}.jpg"), cv2.resize(vis, (1800, int(1800 * vis.shape[0] / vis.shape[1]))), [cv2.IMWRITE_JPEG_QUALITY, 85])
-    log(f"pnlcalib validation on {match} panorama: median {res['median_err_m']} m, p90 {res['p90_err_m']} m (flip {res['flip']}); red = PnLCalib, green = hand calibration")
-    return res
+    w = 1400; cv2.imwrite(path, cv2.resize(vis, (w, int(w * vis.shape[0] / vis.shape[1]))), [cv2.IMWRITE_JPEG_QUALITY, 85])
+
+def validate(root, code_dir="/content/ipanema-analysis", match="SFKBP1109", clip="SFKBP1109_s1200", log=print):
+    """three inputs, each measured against a calibration we have verified by eye:
+       (1) the panorama letterboxed, (2) a 16:9 crop of the panorama around the centre circle, (3) three follow-cam frames"""
+    import pickle, glob
+    spec = json.load(open(os.path.join(code_dir, "calibration", f"{match}.json")))
+    pano = cv2.imread(os.path.join(code_dir, spec["mosaic"])); Hp = np.array(spec["H_pitch_to_mosaic"], float)
+    d = os.path.join(code_dir, "results", "debug"); os.makedirs(d, exist_ok=True); out = {}
+    def run(name, img, Hours):
+        try:
+            Hc = calibrate(img, root, log=log)
+            if Hc is None: out[name] = "no calibration"; return
+            out[name] = _agreement(Hc, Hours); _overlay(img, Hc, Hours, os.path.join(d, f"pnlcalib_{name}.jpg"))
+        except Exception as e: out[name] = f"error {e!r}"[:200]
+    run("panorama", pano, Hp)
+    c = cv2.perspectiveTransform(np.float32([[[60, 35]]]), Hp).reshape(2); cw = 1920; ch = 1080
+    x0 = int(np.clip(c[0] - cw / 2, 0, pano.shape[1] - cw)); y0 = int(np.clip(c[1] - ch * 0.35, 0, pano.shape[0] - ch))
+    crop = pano[y0:y0 + ch, x0:x0 + cw]; Hcrop = np.array([[1, 0, -x0], [0, 1, -y0], [0, 0, 1]], float) @ Hp
+    run("pano_crop", crop, Hcrop)
+    hm = sorted(glob.glob(os.path.join(root, "cache", clip, "calibration_pano_*.pkl")))
+    vid = os.path.join(root, "videos", f"{clip}.mp4")
+    if hm and os.path.exists(vid):
+        Hm = pickle.load(open(hm[-1], "rb")); cap = cv2.VideoCapture(vid); n = int(cap.get(7))
+        for q in (0.25, 0.5, 0.75):
+            k = int(n * q); cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+            if ok and k in Hm: run(f"frame{k}", f, np.array(Hm[k], float))
+        cap.release()
+    log("pnlcalib validation: " + json.dumps(out))
+    return out
