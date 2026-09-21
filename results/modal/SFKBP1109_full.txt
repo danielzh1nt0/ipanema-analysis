@@ -1,42 +1,65 @@
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
-pieces: 1 already processed, 19 to finish on CPU (detections saved), 1 need a GPU
-pieces: 21/21 done in 46.8 min
-  piece 00: SFKBP1109_c000: 8992 frames, 6.2 players/frame
-  piece 01: SFKBP1109_c001: 8992 frames, 9.9 players/frame
-  piece 02: SFKBP1109_c002: 8992 frames, 11.0 players/frame
-  piece 03: SFKBP1109_c003: 8992 frames, 10.8 players/frame
+pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 21/21 done in 0.1 min
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
   piece 04: cached
-  piece 05: SFKBP1109_c005: 8992 frames, 12.2 players/frame
-  piece 06: SFKBP1109_c006: 8992 frames, 12.5 players/frame
-  piece 07: SFKBP1109_c007: 8992 frames, 13.1 players/frame
-  piece 08: SFKBP1109_c008: 8992 frames, 11.8 players/frame
-  piece 09: SFKBP1109_c009: 8992 frames, 12.0 players/frame
-  piece 10: SFKBP1109_c010: 8992 frames, 3.6 players/frame
-  piece 11: SFKBP1109_c011: 8992 frames, 6.9 players/frame
-  piece 12: SFKBP1109_c012: 8992 frames, 11.3 players/frame
-  piece 13: SFKBP1109_c013: 8992 frames, 11.4 players/frame
-  piece 14: SFKBP1109_c014: 8992 frames, 10.7 players/frame
-  piece 15: SFKBP1109_c015: 8992 frames, 12.3 players/frame
-  piece 16: SFKBP1109_c016: 8992 frames, 11.0 players/frame
-  piece 17: SFKBP1109_c017: 8992 frames, 11.9 players/frame
-  piece 18: SFKBP1109_c018: 8992 frames, 12.4 players/frame
-  piece 19: SFKBP1109_c019: 8992 frames, 10.7 players/frame
-  piece 20: SFKBP1109_c020: 4905 frames, 4.3 players/frame
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: cached
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
+  calibration check piece 0: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 0}
+  calibration check piece 1: {'checks': 900, 'good': 687, 'bad': 213, 'unjudged': 0, 'trusted_pct': 75.8, 'i': 1}
+  calibration check piece 2: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 2}
+  calibration check piece 3: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 3}
+  calibration check piece 4: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 4}
+  calibration check piece 5: {'checks': 900, 'good': 752, 'bad': 148, 'unjudged': 0, 'trusted_pct': 83.0, 'i': 5}
+  calibration check piece 6: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 6}
+  calibration check piece 7: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 97.1, 'i': 7}
+  calibration check piece 8: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 8}
+  calibration check piece 9: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 9}
+  calibration check piece 10: {'checks': 900, 'good': 743, 'bad': 157, 'unjudged': 0, 'trusted_pct': 82.5, 'i': 10}
+  calibration check piece 11: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 11}
+  calibration check piece 12: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 96.3, 'i': 12}
+  calibration check piece 13: {'checks': 900, 'good': 827, 'bad': 73, 'unjudged': 0, 'trusted_pct': 91.3, 'i': 13}
+  calibration check piece 14: {'checks': 900, 'good': 772, 'bad': 128, 'unjudged': 0, 'trusted_pct': 85.8, 'i': 14}
+  calibration check piece 15: {'checks': 900, 'good': 814, 'bad': 86, 'unjudged': 0, 'trusted_pct': 89.9, 'i': 15}
+  calibration check piece 16: {'checks': 900, 'good': 826, 'bad': 74, 'unjudged': 0, 'trusted_pct': 91.8, 'i': 16}
+  calibration check piece 17: {'checks': 900, 'good': 663, 'bad': 237, 'unjudged': 0, 'trusted_pct': 73.4, 'i': 17}
+  calibration check piece 18: {'checks': 900, 'good': 633, 'bad': 267, 'unjudged': 0, 'trusted_pct': 70.2, 'i': 18}
+  calibration check piece 19: {'checks': 900, 'good': 891, 'bad': 9, 'unjudged': 0, 'trusted_pct': 99.0, 'i': 19}
+  calibration check piece 20: {'checks': 491, 'good': 404, 'bad': 87, 'unjudged': 0, 'trusted_pct': 82.2, 'i': 20}
+periods: [(0.0, 3059.99), (3509.01, 5940.0)] s; 91 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 91.1% of match frames placed confidently; the rest are marked unknown and excluded
 ball check: 40 held-out test frames mapped into the full match
-clean: dropped 52750 off-pitch, merged 25136 duplicates, stitched 16582 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
-clean: players per frame median A 5 / B 5, max A 20 / B 16
-ball v2: 154552/184725 frames on the path, 7684 static-clutter candidates dropped
-ball check: 22/34 correct, 12 wrong, 0 no pick (ceiling 25/34)
-ball: dropped 4028 static-clutter candidates
-ball (global path): 114823/184725 frames on the chosen path
-ball check (other picker, v1): 19/34 correct, ceiling 25/34
-ball: dropped 4028 static-clutter candidates
-ball (global path): 114823/184725 frames on the chosen path
-picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 41/59, other 31/59, ceiling 52
-ball: dropped 4028 static-clutter candidates
-ball (global path): 114823/184725 frames on the chosen path
-picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 91/134, other 56/134, ceiling 117
-direction: A ←  B →  confidence A 0.05 / B 0.04  WARNING low confidence
+clean: dropped 35179 off-pitch, merged 17675 duplicates, stitched 14237 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
+clean: players per frame median A 4 / B 5, max A 20 / B 16
+ball v2: 127321/184725 frames on the path, 4902 static-clutter candidates dropped
+ball check: 21/34 correct, 12 wrong, 1 no pick (ceiling 24/34)
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+ball check (other picker, v1): 18/34 correct, ceiling 24/34
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 36/59, other 26/59, ceiling 46
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 70/134, other 38/134, ceiling 93
+direction: A →  B ←  confidence A 0.11 / B 0.05  WARNING low confidence
 direction (from keepers): A →  B ←
   step: sequences
   step: turnovers
@@ -45,39 +68,41 @@ direction (from keepers): A →  B ←
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy 0.65, near-player 0.58, possession withheld, events withheld
-ball reliability: 71% frames, 58% near a player, 0 jumps -> OK
+ball grade: accuracy 0.62, near-player 0.61, possession withheld, events withheld
+ball reliability: 57% frames, 61% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote 21 frame files (every 3 frames, 300 s each, largest 6.3 MB)
-  wrote match_data.json (2.5 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109 (3868 events) · library.json updated · zip None
+  wrote 21 frame files (every 3 frames, 300 s each, largest 6.2 MB)
+  wrote match_data.json (2.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109 (3274 events) · library.json updated · zip None
 upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, thumb)
 
 --- SUMMARY ---
   match_id                   SFKBP1109
-  ball_reliable              True
-  ball_grade                 {'accuracy': 0.65, 'near_player_pct': 0.58, 'frames_pct': 0.71, 'possession_ok': False, 'events_ok': False}
+  ball_reliable              False
+  ball_grade                 {'accuracy': 0.62, 'near_player_pct': 0.61, 'frames_pct': 0.7, 'possession_ok': False, 'events_ok': False}
   duration_s                 6163.7
   calibration_coverage       1.0
   calibration_frozen         0
   team_dark_share            {'A': 0.43, 'B': 0.24}
-  players_per_frame_median   {'A': 5.0, 'B': 5.0}
+  players_per_frame_median   {'A': 5.0, 'B': 6.0}
   ball_frames_pct            100
-  ball_check                 {'correct': 22, 'total': 34, 'wrong': 12, 'ceiling': 25}
-  possession_pct             {'A': 47, 'B': 53}
-  loose_pct                  42
-  dead_pct                   18
+  match_seconds              4999.6
+  periods                    [{'index': 1, 't_start': 0.0, 't_end': 3059.99, 'mirrored': False}, {'index': 2, 't_start': 3509.01, 't_end': 5940.0, 'mirrored': True}]
+  ball_check                 {'correct': 21, 'total': 34, 'wrong': 12, 'ceiling': 24}
+  possession_pct             {'A': 49, 'B': 51}
+  loose_pct                  41
+  dead_pct                   20
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.05, 'B': 0.04}
-  turnovers                  18
-  passes                     14966
-  restarts                   409
-  sequences                  1071
-  shots                      {'A': 5, 'B': 6}
+  direction_confidence       {'A': 0.11, 'B': 0.05}
+  turnovers                  16
+  passes                     12800
+  restarts                   337
+  sequences                  934
+  shots                      {'A': 4, 'B': 6}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 1, 'B': 2}
-  field_tilt                 {'A': 16, 'B': 22}
-  runtime_min                50.8
-labels copied from SFKBP1109_s1200
+  high_turnovers             {'A': 1, 'B': 1}
+  field_tilt                 {'A': 16, 'B': 26}
+  runtime_min                5.8
+SUMMARY {"match_id": "SFKBP1109", "ball_reliable": false, "ball_grade": {"accuracy": 0.62, "near_player_pct": 0.61, "frames_pct": 0.7, "possession_ok": false, "events_ok": false}, "duration_s": 6163.7, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.43, "B": 0.24}, "players_per_frame_median": {"A": 5.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 4999.6, "periods": [{"index": 1, "t_start": 0.0, "t_end": 3059.99, "mirrored": false}, {"index": 2, "t_start": 3509.01, "t_end": 5940.0, "mirrored": true}], "ball_check": {"correct": 21, "total": 34, "wrong": 12, "ceiling": 24}, "possession_pct": {"A": 49, "B": 51}, "loose_pct": 41, "dead_pct": 20, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.11, "B": 0.05}, "turnovers": 16, "passes": 12800, "restarts": 337, "sequences": 934, "shots": {"A": 4, "B": 6}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 1}, "field_tilt": {"A": 16, "B": 26}, "runtime_min": 5.8}
 
-SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.65, "near_player_pct": 0.58, "frames_pct": 0.71, "possession_ok": false, "events_ok": false}, "duration_s": 6163.7, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.43, "B": 0.24}, "players_per_frame_median": {"A": 5.0, "B": 5.0}, "ball_frames_pct": 100, "ball_check": {"correct": 22, "total": 34, "wrong": 12, "ceiling": 25}, "possession_pct": {"A": 47, "B": 53}, "loose_pct": 42, "dead_pct": 18, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.04}, "turnovers": 18, "passes": 14966, "restarts": 409, "sequences": 1071, "shots": {"A": 5, "B": 6}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 2}, "field_tilt": {"A": 16, "B": 22}, "runtime_min": 50.8}
+SUMMARY {"match_id": "SFKBP1109", "ball_reliable": false, "ball_grade": {"accuracy": 0.62, "near_player_pct": 0.61, "frames_pct": 0.7, "possession_ok": false, "events_ok": false}, "duration_s": 6163.7, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.43, "B": 0.24}, "players_per_frame_median": {"A": 5.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 4999.6, "periods": [{"index": 1, "t_start": 0.0, "t_end": 3059.99, "mirrored": false}, {"index": 2, "t_start": 3509.01, "t_end": 5940.0, "mirrored": true}], "ball_check": {"correct": 21, "total": 34, "wrong": 12, "ceiling": 24}, "possession_pct": {"A": 49, "B": 51}, "loose_pct": 41, "dead_pct": 20, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.11, "B": 0.05}, "turnovers": 16, "passes": 12800, "restarts": 337, "sequences": 934, "shots": {"A": 4, "B": 6}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 1}, "field_tilt": {"A": 16, "B": 26}, "runtime_min": 5.8}
