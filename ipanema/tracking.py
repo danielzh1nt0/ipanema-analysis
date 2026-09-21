@@ -10,7 +10,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print):
     from ultralytics import YOLO
     from .video import info
     fps = info(video)["fps"]; model = YOLO(weights_player)
-    use_bot = os.environ.get("IPANEMA_TRACKER", "botsort") == "botsort"
+    use_bot = os.environ.get("IPANEMA_TRACKER", "bytetrack") == "botsort"
     tracker = None
     if use_bot:
         try:
