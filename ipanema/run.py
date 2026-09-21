@@ -165,6 +165,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         "events_ok": bool(acc is not None and acc >= 0.6 and near_frac >= 0.85),
     }
     log(f"ball grade: accuracy {ball_grade['accuracy']}, near-player {ball_grade['near_player_pct']}, possession {'OK' if ball_grade['possession_ok'] else 'withheld'}, events {'OK' if ball_grade['events_ok'] else 'withheld'}")
+    ball_reliable = bool(ball_grade["possession_ok"])      # one verdict everywhere: the old flag follows the stricter grade
     log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
     summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in range(n)])) for t in ("A", "B")},

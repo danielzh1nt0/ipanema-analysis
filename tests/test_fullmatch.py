@@ -71,3 +71,4 @@ def test_full_match_join_and_export(capsys):
     assert [c["key"] for c in md["frame_chunks"]] == ["frames_000", "frames_001", "frames_002"]
     assert summary["ball_check"]["total"] == 3
     assert sorted(gt, key=int) == ["909", "1099", "1399"]
+    assert summary["ball_reliable"] == summary["ball_grade"]["possession_ok"]
