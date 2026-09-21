@@ -342,6 +342,38 @@ def snap_preview_match(match_id: str, pieces: list, L: float, W: float):
         else: out.append({"error": str(r)[:300]})
     return out
 
+@app.function(timeout=45 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def build_full_panorama(match_id: str, every_s: float = 5.0):
+    """Grow the verified panorama with frames from the whole match (CPU). Returns the extended map at full resolution,
+    a copy with the current calibration drawn on it, and the transform from the old map to the new one."""
+    import json, base64, numpy as np, cv2
+    _setup()
+    from ipanema import fullmatch as FM, panorama as PX, calcheck as CC
+    log, lines = _logger(f"{match_id}/panorama.log")
+    spec = json.load(open(f"/content/ipanema-analysis/calibration/{match_id}.json"))
+    seed = cv2.imread(f"/content/ipanema-analysis/{spec['mosaic']}")
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); keys = []
+    for p in plan_:
+        pv = f"{ROOT}/videos/{FM.piece_id(match_id, p['i'])}.mp4"
+        m = int(p["dur_s"] * fps); keys += [(pv, k) for k in range(0, m, int(every_s * fps))]
+    caps = {}
+    def get_frame(key):
+        pv, k = key
+        cap = caps.get(pv) or caps.setdefault(pv, cv2.VideoCapture(pv))
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); return f if ok else None
+    log(f"panorama: {len(keys)} candidate frames from {len(plan_)} pieces (every {every_s:.0f} s)")
+    canvas, covered, T, placed = PX.extend(seed, keys, get_frame, pad=(3000, 300, 3000, 1800), log=log)
+    ys, xs = np.where(covered); y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1        # crop to what's covered
+    canvas = canvas[y0:y1, x0:x1]; T = np.array([[1, 0, -x0], [0, 1, -y0], [0, 0, 1.0]]) @ T
+    Hpm = T @ np.array(spec["H_pitch_to_mosaic"], float)                                                   # current calibration on the new map
+    drawn = CC.draw_model(canvas.copy(), Hpm, 120.0, 70.0, (0, 0, 255), 3)
+    enc = lambda im, q: base64.b64encode(cv2.imencode(".jpg", im, [cv2.IMWRITE_JPEG_QUALITY, q])[1].tobytes()).decode()
+    log(f"panorama: {len(placed)} frames placed; map {canvas.shape[1]}x{canvas.shape[0]} (old {seed.shape[1]}x{seed.shape[0]})")
+    return {"log": lines[-40:], "T_old_to_new": T.tolist(), "H_pitch_to_mosaic_new": Hpm.tolist(), "size": [int(canvas.shape[1]), int(canvas.shape[0])],
+            "placed": [[str(k[0]).split("/")[-1], int(k[1]), g] for k, H, g in placed],
+            "panorama_jpg": enc(canvas, 88), "drawn_jpg": enc(cv2.resize(drawn, (2400, int(2400 * drawn.shape[0] / drawn.shape[1]))), 85)}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
