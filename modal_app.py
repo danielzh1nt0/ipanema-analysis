@@ -34,11 +34,19 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     from ipanema.run import run
     S = Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
     lines = []
-    def log(*a): s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
+    from ipanema.progress import Progress
+    prog = Progress(match_id)
+    def log(*a):
+        s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
+        try: prog.feed(s)
+        except Exception: pass
+    prog.push()
     try: summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
     except Exception as e:
         import traceback; log("RUN FAILED: " + traceback.format_exc()); summary = {"error": str(e)}
-    if os.environ.get("IPANEMA_PNL_VALIDATE", "1") == "1":
+    try: prog.finished(ok="error" not in summary)
+    except Exception: pass
+    if os.environ.get("IPANEMA_PNL_VALIDATE", "0") == "1":
         try:
             from ipanema import pnlcalib
             pnlcalib.validate(ROOT, log=log)
