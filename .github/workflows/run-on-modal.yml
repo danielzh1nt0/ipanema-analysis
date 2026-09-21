@@ -197,6 +197,23 @@ jobs:
               if "jpg" in r: open(f"{d}/piece{r['i']:02d}_{r['k']:05d}.jpg", "wb").write(base64.b64decode(r.pop("jpg")))
           open(f"{d}/recheck.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
           PY
+      - name: export clean frames for offline work (commit tagged frames:<match_id>)
+        if: contains(github.event.head_commit.message, '[frames:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid = re.search(r"\[frames:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          items = sorted({(r["i"], r["k"]) for r in json.load(open(f"results/check/{mid}_snap/snap.json")) if "k" in r})
+          out = modal.Function.from_name("ipanema", "export_frames").remote(mid, [list(x) for x in items])
+          d = f"results/frames/{mid}"; os.makedirs(d, exist_ok=True); meta = []
+          for r in out:
+              open(f"{d}/piece{r['i']:02d}_{r['k']:05d}.jpg", "wb").write(base64.b64decode(r.pop("jpg"))); meta.append(r)
+          open(f"{d}/frames.json", "w").write(json.dumps(meta)); print(len(meta), "frames exported")
+          PY
       - name: scoreboard
         if: always()
         run: |

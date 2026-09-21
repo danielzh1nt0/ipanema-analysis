@@ -428,6 +428,22 @@ def recheck_frames(match_id: str, items: list):
         row["jpg"] = base64.b64encode(cv2.imencode(".jpg", cv2.resize(img, (960, 540)), [cv2.IMWRITE_JPEG_QUALITY, 80])[1].tobytes()).decode(); out.append(row)
     return out
 
+@app.function(timeout=15 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def export_frames(match_id: str, items: list):
+    """clean full-resolution frames + their current calibration, for offline calibration work (CPU)"""
+    import pickle, base64, numpy as np, cv2
+    _setup()
+    from ipanema import fullmatch as FM
+    out, cache = [], {}
+    for i, k in items:
+        pid = FM.piece_id(match_id, i)
+        if pid not in cache: cache[pid] = pickle.load(open(f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}", "rb"))["H"]
+        cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); cap.release()
+        if not ok: continue
+        out.append({"i": i, "k": k, "H_old": np.asarray(cache[pid][k], float).tolist(),
+                    "jpg": base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 95])[1].tobytes()).decode()})
+    return out
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
