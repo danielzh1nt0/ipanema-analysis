@@ -11,7 +11,7 @@ image = (modal.Image.debian_slim(python_version="3.11")
          .pip_install("gdown", "pyyaml", "omegaconf")
          .run_commands("git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /content/WASB-SBDT",
                        "git clone -q --depth 1 https://github.com/mguti97/PnLCalib.git /content/PnLCalib")
-         .pip_install("lsq-ellipse==2.2.1")
+         .pip_install("lsq-ellipse==2.2.1", "shapely")
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
                        "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)

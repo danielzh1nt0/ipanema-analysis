@@ -24,6 +24,12 @@ class TeamModel:
         import torch
         from sports.common.team import TeamClassifier
         self.clf = TeamClassifier(device=device if torch.cuda.is_available() else "cpu")
+        # deterministic clustering: UMAP and KMeans are otherwise seeded randomly per run, which shifts team labels,
+        # tracks and everything downstream (measured: ball check 20 -> 15 between two runs with identical code)
+        import umap
+        from sklearn.cluster import KMeans
+        self.clf.reducer = umap.UMAP(n_components=3, random_state=0)
+        self.clf.cluster_model = KMeans(n_clusters=2, random_state=0, n_init=10)
         self.cluster_to_team = None; self.dark_share = None
     def fit(self, video, weights_player, conf=0.3, sample_every=15, max_crops=600, log=print):
         import supervision as sv

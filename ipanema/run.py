@@ -47,7 +47,8 @@ def run(video_src, match_id=None, settings=None, log=print):
     except Exception as e: log(f"  debug overlays failed: {e!r}")
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
-    trk = f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}_{os.environ.get('IPANEMA_TRACKER', 'bytetrack')}.pkl"        # positions in metres depend on the calibration: cache per calibration version
+    _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
+    trk = f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
     per, cl = TR.clean(per, L, W, fps, log=log)
