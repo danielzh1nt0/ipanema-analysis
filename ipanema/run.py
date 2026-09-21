@@ -76,7 +76,17 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
             from . import ballcls
             if os.path.exists(ballcls.weights_path(S.root)): cands = ballcls.rescore(video, cands, S.root, cache=f"{cache}/ball_cands_cls.pkl", log=log)
         except Exception as e: log(f"ball classifier: {e!r}")
-    return {"match_id": match_id, "video": video, "vi": vi, "H": H, "L": L, "W": W, "cal": cal, "tm": tm, "per": per, "fps": fps, "cands": cands, "t0": t0}
+    cands_alt = None      # WASB + cached YOLO, scored side by side in analyse() when available (costs no GPU)
+    try:
+        yc = f"{cache}/ball_cands.pkl"
+        if os.environ.get("IPANEMA_BALL_MERGE", "0") != "1" and os.path.exists(yc) and cands:
+            yolo = pickle.load(open(yc, "rb")); cands_alt = {}
+            for k in set(cands) | set(yolo):
+                ws = [(x, y, min(0.99, 0.5 + 0.5 * c)) for x, y, c in cands.get(k, [])]
+                ys = [(x, y, c * 0.6) for x, y, c in yolo.get(k, []) if all(np.hypot(x - wx, y - wy) > 12 for wx, wy, _ in ws)]
+                cands_alt[k] = ws + ys
+    except Exception as e: log(f"alt candidates skipped: {e!r}")
+    return {"match_id": match_id, "video": video, "vi": vi, "H": H, "L": L, "W": W, "cal": cal, "tm": tm, "per": per, "fps": fps, "cands": cands, "t0": t0, "cands_alt": cands_alt}
 
 
 def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
@@ -87,6 +97,12 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
     ball = BL.bridge(ball_g, fps)
     ball_check = BL.check(ball, cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
+    if ctx.get("cands_alt"):
+        try:
+            alt = BL.pick_global(ctx["cands_alt"], H, L, W, per=per, fps=fps, log=lambda *a: None)
+            alt_check = BL.check(BL.bridge(alt, fps), ctx["cands_alt"], gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=lambda *a: None)
+            if alt_check: log(f"ball check (alternative: WASB + YOLO candidates): {alt_check['correct']}/{alt_check['total']} correct, ceiling {alt_check['ceiling']}/{alt_check['total']}")
+        except Exception as e: log(f"alternative ball check failed: {e!r}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
     state, bspeed = P.viterbi(per, ballm, fps, L, W)
     attack_right, conf = P.direction(state, ballm, log=log)

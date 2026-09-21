@@ -27,7 +27,22 @@ def _video_for(clip, videos_dir, log=print):
     return v
 
 def load_samples(root, videos_dir, log=print):
-    """-> list of dicts {frames: 3 x (540, 960, 3) uint8 base frames, ball: (x, y) in base px or None}"""
+    """-> list of dicts {frames: 3 x (540, 960, 3) uint8 base frames, ball: (x, y) in base px or None}.
+    Reading ~400 frame triples out of hour-long videos takes ~20 min, so the result is cached on the volume."""
+    import hashlib, pickle
+    from .wasb import BASE
+    files = sorted(p for p in glob.glob(f"{root}/reference/*/ball_gt.json") if os.path.basename(os.path.dirname(p)) not in EVAL_SETS)
+    key = hashlib.sha1(json.dumps([[p, open(p).read()] for p in files] + [list(BASE), sorted(EVAL_SETS)]).encode()).hexdigest()[:12]
+    cache = f"{root}/cache/wasb_train_samples_{key}.pkl"
+    if os.path.exists(cache):
+        S = pickle.load(open(cache, "rb")); log(f"wasb train: {len(S)} samples from cache ({sum(1 for x in S if x['ball'])} with a visible ball)"); return S
+    S = _load_samples_uncached(root, videos_dir, log)
+    try:
+        os.makedirs(os.path.dirname(cache), exist_ok=True); pickle.dump(S, open(cache, "wb"), protocol=5); log(f"wasb train: samples cached ({os.path.getsize(cache) / 1e9:.1f} GB)")
+    except Exception as e: log(f"wasb train: sample cache not written ({e!r})")
+    return S
+
+def _load_samples_uncached(root, videos_dir, log=print):
     from .wasb import to_base, BASE
     S = []
     for gt_path in sorted(glob.glob(f"{root}/reference/*/ball_gt.json")):
