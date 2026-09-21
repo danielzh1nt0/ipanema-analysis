@@ -1,8 +1,39 @@
-# live log · SFKBP1109 · running · 23:45:55 UTC
+# live log · SFKBP1109 · running · 23:47:30 UTC
 
 
-## run_full.log (1 lines, last 60)
+## run_full.log (32 lines, last 60)
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
+pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 21/21 done in 0.1 min
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: cached
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
+  calibration check piece 0: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 0}
+  calibration check piece 1: {'checks': 900, 'good': 687, 'bad': 213, 'unjudged': 0, 'trusted_pct': 75.8, 'i': 1}
+  calibration check piece 2: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 2}
+  calibration check piece 3: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 3}
+  calibration check piece 4: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 4}
+  calibration check piece 5: {'checks': 900, 'good': 752, 'bad': 148, 'unjudged': 0, 'trusted_pct': 83.0, 'i': 5}
+  calibration check piece 6: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 6}
+  calibration check piece 7: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 97.1, 'i': 7}
 
 ## train_ball.log (1 lines, last 60)
 
