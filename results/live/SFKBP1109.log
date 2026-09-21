@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 23:47:30 UTC
+# live log · SFKBP1109 · running · 23:49:05 UTC
 
 
-## run_full.log (32 lines, last 60)
+## run_full.log (50 lines, last 60)
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
 pieces: 21/21 done in 0.1 min
@@ -34,6 +34,24 @@ pieces: 21/21 done in 0.1 min
   calibration check piece 5: {'checks': 900, 'good': 752, 'bad': 148, 'unjudged': 0, 'trusted_pct': 83.0, 'i': 5}
   calibration check piece 6: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 6}
   calibration check piece 7: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 97.1, 'i': 7}
+  calibration check piece 8: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 8}
+  calibration check piece 9: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 9}
+  calibration check piece 10: {'checks': 900, 'good': 743, 'bad': 157, 'unjudged': 0, 'trusted_pct': 82.5, 'i': 10}
+  calibration check piece 11: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 11}
+  calibration check piece 12: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 96.3, 'i': 12}
+  calibration check piece 13: {'checks': 900, 'good': 827, 'bad': 73, 'unjudged': 0, 'trusted_pct': 91.3, 'i': 13}
+  calibration check piece 14: {'checks': 900, 'good': 772, 'bad': 128, 'unjudged': 0, 'trusted_pct': 85.8, 'i': 14}
+  calibration check piece 15: {'checks': 900, 'good': 814, 'bad': 86, 'unjudged': 0, 'trusted_pct': 89.9, 'i': 15}
+  calibration check piece 16: {'checks': 900, 'good': 826, 'bad': 74, 'unjudged': 0, 'trusted_pct': 91.8, 'i': 16}
+  calibration check piece 17: {'checks': 900, 'good': 663, 'bad': 237, 'unjudged': 0, 'trusted_pct': 73.4, 'i': 17}
+  calibration check piece 18: {'checks': 900, 'good': 633, 'bad': 267, 'unjudged': 0, 'trusted_pct': 70.2, 'i': 18}
+  calibration check piece 19: {'checks': 900, 'good': 891, 'bad': 9, 'unjudged': 0, 'trusted_pct': 99.0, 'i': 19}
+  calibration check piece 20: {'checks': 491, 'good': 404, 'bad': 87, 'unjudged': 0, 'trusted_pct': 82.2, 'i': 20}
+periods: [(0.0, 3059.99), (3509.01, 5940.0)] s; 91 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 91.1% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 40 held-out test frames mapped into the full match
+clean: dropped 35179 off-pitch, merged 17675 duplicates, stitched 14237 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
+clean: players per frame median A 4 / B 5, max A 20 / B 16
 
 ## train_ball.log (1 lines, last 60)
 
