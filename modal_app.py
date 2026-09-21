@@ -152,7 +152,7 @@ def api():
     return web
 
 
-@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384, secrets=[modal.Secret.from_name("ipanema-storage")])
 def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int = 300):
     """New match on a new ground: fetch it, cut a 5-minute test segment, stitch that segment's panorama so the ground
     can be calibrated once. Returns the panorama and three sample frames (base64 JPEG)."""
@@ -160,6 +160,13 @@ def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int
     subprocess.run(f"rm -rf /content/ipanema-analysis && git clone -q {REPO} /content/ipanema-analysis", shell=True, check=True)
     sys.path.insert(0, "/content/ipanema-analysis")
     from ipanema.mosaic import build
+    if match_id == "latest":      # newest uploaded match that is still waiting for its ground setup
+        from supabase import create_client
+        db = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_KEY"])
+        rows = db.table("matches").select("id,status,created_at,files").eq("status", "processing").order("created_at", desc=True).limit(1).execute().data
+        if not rows: raise RuntimeError("no uploaded match is waiting")
+        match_id = rows[0]["id"]; video_url = (rows[0].get("files") or {}).get("video") or video_url.replace("/latest/", f"/{match_id}/")
+        print("latest upload:", match_id)
     vd = f"{ROOT}/videos/{match_id}"; os.makedirs(vd, exist_ok=True); full = f"{vd}/full.mp4"
     if not os.path.exists(full):
         with requests.get(video_url, stream=True, timeout=600) as r:
@@ -171,7 +178,7 @@ def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int
         subprocess.run(["ffmpeg", "-y", "-ss", str(start_s), "-i", full, "-t", str(dur_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", seg], check=True, capture_output=True)
     cdir = f"{ROOT}/cache/{match_id}_s{start_s}"; os.makedirs(cdir, exist_ok=True)
     mos = build(seg, f"{cdir}/mosaic_seg.pkl", stride=25, canvas=(4200, 1500), log=print)
-    out = {"panorama.jpg": base64.b64encode(cv2.imencode(".jpg", mos["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88])[1]).decode(), "segment": os.path.basename(seg)}
+    out = {"panorama.jpg": base64.b64encode(cv2.imencode(".jpg", mos["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88])[1]).decode(), "segment": os.path.basename(seg), "match_id": match_id}
     cap = cv2.VideoCapture(seg); n = int(cap.get(7))
     for q in (0.2, 0.5, 0.8):
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(n * q)); ok, f = cap.read()
