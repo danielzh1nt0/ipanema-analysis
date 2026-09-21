@@ -297,6 +297,32 @@ def export_picker_data(match_id: str):
     return {"npz": base64.b64encode(buf.getvalue()).decode(), "frames": len(per), "candidates": len(cr), "file": os.path.basename(cf[-1])}
 
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, max_containers=21)
+def calib_report_piece(match_id: str, i: int):
+    """one piece: line-fit score over ~60 frames, off-pitch rate, players per frame, one drawn frame (CPU, reads saved data)"""
+    import pickle, base64
+    _setup()
+    from ipanema import fullmatch as FM, calcheck as CC
+    pid = FM.piece_id(match_id, i); p = pickle.load(open(f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}", "rb"))
+    out, jpg = CC.report_piece(f"{ROOT}/videos/{pid}.mp4", p["H"], p["per"], p["L"], p["W"])
+    out["i"] = i
+    return out, (base64.b64encode(jpg).decode() if jpg else None)
+
+@app.function(timeout=25 * 60, volumes={"/data": vol}, cpu=1.0)
+def calib_report(match_id: str):
+    _setup()
+    from ipanema import fullmatch as FM
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
+    res = list(calib_report_piece.map([match_id] * len(plan_), [p["i"] for p in plan_], return_exceptions=True))
+    rows, imgs = [], {}
+    for p, r in zip(plan_, res):
+        if isinstance(r, tuple):
+            rows.append(r[0])
+            if r[1]: imgs[f"piece_{p['i']:02d}.jpg"] = r[1]
+        else: rows.append({"i": p["i"], "error": str(r)[:300]})
+    return {"rows": rows, "images": imgs}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

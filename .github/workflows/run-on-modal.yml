@@ -131,6 +131,22 @@ jobs:
         run: |
           M=$(python -c "import os,re; print(re.search(r'\[collect:([A-Za-z0-9_-]+)\]', os.environ['MSG']).group(1))")
           python scripts_watch.py collect "$M"
+      - name: calibration report per piece (commit tagged calreport:<match_id>)
+        if: contains(github.event.head_commit.message, '[calreport:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid = re.search(r"\[calreport:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "calib_report").remote(mid)
+          d = f"results/check/{mid}_calib"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out["images"].items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/report.json", "w").write(json.dumps(out["rows"], indent=1))
+          print(json.dumps(out["rows"], indent=1)[:4000])
+          PY
       - name: scoreboard
         if: always()
         run: |
