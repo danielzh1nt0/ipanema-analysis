@@ -66,6 +66,120 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
     return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
 
+# ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
+AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
+AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
+api_image = modal.Image.debian_slim(python_version="3.11").apt_install("ffmpeg").pip_install("fastapi[standard]", "boto3", "requests", "supabase")
+PART_MB = 32
+
+@app.function(image=api_image, secrets=[modal.Secret.from_name("ipanema-storage")], timeout=300)
+@modal.asgi_app(label="ipanema-api")
+def api():
+    import re, time, secrets as _s, json, subprocess, requests, boto3
+    from fastapi import FastAPI, HTTPException, Request
+    from fastapi.middleware.cors import CORSMiddleware
+    from supabase import create_client
+    web = FastAPI()
+    web.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"], expose_headers=["ETag"])
+    E = os.environ
+    r2 = boto3.client("s3", endpoint_url=f"https://{E['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=E["R2_ACCESS_KEY"], aws_secret_access_key=E["R2_SECRET_KEY"], region_name="auto")
+    bucket, pub = E["R2_BUCKET"], E["R2_PUBLIC_URL"].rstrip("/")
+    db = create_client(E["SUPABASE_URL"], E["SUPABASE_SERVICE_KEY"])
+
+    def user_of(req: Request):
+        auth = req.headers.get("authorization", "")
+        if not auth.lower().startswith("bearer "): raise HTTPException(401, "Sign in to upload")
+        r = requests.get(f"{AUTH_URL}/auth/v1/user", headers={"Authorization": auth, "apikey": AUTH_KEY}, timeout=10)
+        if r.status_code != 200: raise HTTPException(401, "Session expired — sign in again")
+        return r.json()
+
+    def slug(s):
+        return re.sub(r"[^a-z0-9]+", "-", (s or "").lower()).strip("-")[:24] or "team"
+
+    @web.get("/health")
+    def health(): return {"ok": True}
+
+    @web.post("/upload/start")
+    async def start(req: Request):
+        user_of(req); body = await req.json()
+        size = int(body.get("size") or 0)
+        if size <= 0 or size > 12 * 1024 ** 3: raise HTTPException(400, "Video must be under 12 GB")
+        date = re.sub(r"[^0-9-]", "", str(body.get("date") or time.strftime("%Y-%m-%d")))[:10]
+        match_id = f"{slug(body.get('team'))}-vs-{slug(body.get('opponent'))}-{date}-{_s.token_hex(2)}"
+        key = f"{match_id}/video.mp4"
+        up = r2.create_multipart_upload(Bucket=bucket, Key=key, ContentType="video/mp4")
+        part = PART_MB * 1024 * 1024; n = (size + part - 1) // part
+        urls = [r2.generate_presigned_url("upload_part", Params={"Bucket": bucket, "Key": key, "UploadId": up["UploadId"], "PartNumber": i}, ExpiresIn=6 * 3600) for i in range(1, n + 1)]
+        return {"match_id": match_id, "key": key, "upload_id": up["UploadId"], "part_size": part, "urls": urls}
+
+    @web.post("/upload/complete")
+    async def complete(req: Request):
+        user = user_of(req); body = await req.json()
+        key, upload_id, match_id = body["key"], body["upload_id"], body["match_id"]
+        if not key.startswith(match_id + "/"): raise HTTPException(400, "Key does not belong to this match")
+        parts = sorted(({"PartNumber": int(p["n"]), "ETag": p["etag"]} for p in body["parts"]), key=lambda p: p["PartNumber"])
+        r2.complete_multipart_upload(Bucket=bucket, Key=key, UploadId=upload_id, MultipartUpload={"Parts": parts})
+        video_url = f"{pub}/{key}"
+        duration = 0.0
+        try:
+            out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", video_url], capture_output=True, text=True, timeout=90)
+            duration = float(out.stdout.strip() or 0)
+        except Exception: pass
+        m = body.get("meta") or {}
+        db.table("matches").upsert({"id": match_id, "status": "processing", "duration_s": round(duration, 1), "files": {"video": video_url}}).execute()
+        try:
+            db.table("match_labels").upsert({"match_id": match_id, "club_team": "A", "name_a": m.get("team"), "name_b": m.get("opponent"), "opponent": m.get("opponent"),
+                                             "colour_a": m.get("kit_colour"), "date": m.get("date"), "competition": m.get("competition"),
+                                             "tags": [t for t in [m.get("age_group"), m.get("venue")] if t]}).execute()
+        except Exception as e: print("labels:", e)
+        print(json.dumps({"uploaded": match_id, "by": user.get("email"), "parts": len(parts), "duration_s": duration}))
+        return {"match_id": match_id, "status": "processing", "duration_s": duration}
+
+    @web.post("/upload/abort")
+    async def abort(req: Request):
+        user_of(req); body = await req.json()
+        try: r2.abort_multipart_upload(Bucket=bucket, Key=body["key"], UploadId=body["upload_id"])
+        except Exception: pass
+        return {"ok": True}
+
+    @web.post("/admin/r2-cors")
+    async def r2_cors(req: Request):
+        user_of(req)
+        rules = {"CORSRules": [{"AllowedOrigins": ["*"], "AllowedMethods": ["PUT", "GET", "HEAD"], "AllowedHeaders": ["*"], "ExposeHeaders": ["ETag"], "MaxAgeSeconds": 3600}]}
+        try: r2.put_bucket_cors(Bucket=bucket, CORSConfiguration=rules); return {"ok": True}
+        except Exception as e: return {"ok": False, "error": str(e)[:300]}
+
+    return web
+
+
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int = 300):
+    """New match on a new ground: fetch it, cut a 5-minute test segment, stitch that segment's panorama so the ground
+    can be calibrated once. Returns the panorama and three sample frames (base64 JPEG)."""
+    import subprocess, sys, requests, cv2, base64
+    subprocess.run(f"rm -rf /content/ipanema-analysis && git clone -q {REPO} /content/ipanema-analysis", shell=True, check=True)
+    sys.path.insert(0, "/content/ipanema-analysis")
+    from ipanema.mosaic import build
+    vd = f"{ROOT}/videos/{match_id}"; os.makedirs(vd, exist_ok=True); full = f"{vd}/full.mp4"
+    if not os.path.exists(full):
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(full, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+    seg = f"{ROOT}/videos/{match_id}_s{start_s}.mp4"
+    if not os.path.exists(seg):
+        subprocess.run(["ffmpeg", "-y", "-ss", str(start_s), "-i", full, "-t", str(dur_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", seg], check=True, capture_output=True)
+    cdir = f"{ROOT}/cache/{match_id}_s{start_s}"; os.makedirs(cdir, exist_ok=True)
+    mos = build(seg, f"{cdir}/mosaic_seg.pkl", stride=25, canvas=(4200, 1500), log=print)
+    out = {"panorama.jpg": base64.b64encode(cv2.imencode(".jpg", mos["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88])[1]).decode(), "segment": os.path.basename(seg)}
+    cap = cv2.VideoCapture(seg); n = int(cap.get(7))
+    for q in (0.2, 0.5, 0.8):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(n * q)); ok, f = cap.read()
+        if ok: out[f"frame_{int(n * q):06d}.jpg"] = base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1]).decode()
+    cap.release(); vol.commit()
+    return out
+
+
 @app.local_entrypoint()
 def main(match_id: str, video_url: str = "", start_s: int = 0, dur_s: int = 0):
     out = run_match.remote(match_id, video_url, start_s, dur_s)

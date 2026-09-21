@@ -10,7 +10,6 @@ permissions:
   contents: write
 jobs:
   run:
-    if: contains(github.event.head_commit.message, '[run]') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment: MODAL_TOKEN_ID
     timeout-minutes: 60
@@ -19,26 +18,48 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
       - run: pip install -q modal numpy
-      - name: deploy, run, collect
+      - name: deploy (always; costs nothing until something calls it)
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: modal deploy modal_app.py
+      - name: run a match (only when the commit is tagged run)
+        if: contains(github.event.head_commit.message, '[run]') || github.event_name == 'workflow_dispatch'
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           MATCH: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}
         run: |
-          modal deploy modal_app.py
           python - <<'PY'
-          import modal, os, json
+          import modal, os, json, base64
           m = os.environ["MATCH"]; f = modal.Function.from_name("ipanema", "run_match")
           out = f.remote(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4")
           os.makedirs("results/modal", exist_ok=True)
           open(f"results/modal/{m}.txt", "w").write("\n".join(out["log_tail"]) + "\n\nSUMMARY " + json.dumps(out["summary"], default=str))
-          import base64
           for name, b64 in out.get("files", {}).items(): open(f"results/modal/{m}_{name}", "wb").write(base64.b64decode(b64))
           print("\n".join(out["log_tail"][-25:]))
+          PY
+      - name: prepare a new match (commit tagged prepare:<match_id>)
+        if: contains(github.event.head_commit.message, '[prepare:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, base64
+          mid = re.search(r"\[prepare:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "prepare_match").remote(mid, f"{os.environ['R2_PUBLIC_URL']}/{mid}/video.mp4")
+          d = f"results/prepare/{mid}"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out.items():
+              if name.endswith(".jpg"): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/segment.txt", "w").write(out.get("segment", ""))
+          print("prepared", mid)
           PY
       - name: commit results
         run: |
           git config user.name modal-bot && git config user.email modal@ipanema
-          git add results/modal && git commit -m "modal results: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}" || echo "nothing to commit"
+          git add results && git commit -m "modal results" || echo "nothing to commit"
           git pull --rebase -X theirs origin main && git push origin HEAD:main
