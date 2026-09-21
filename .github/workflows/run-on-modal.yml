@@ -2,7 +2,7 @@ name: run on modal
 on:
   push:
     branches: [main]
-    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py"]
+    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py", "periods/**", "triggers/**"]
   workflow_dispatch:
     inputs:
       match_id: { description: "match id", default: "SFKBP1109_s1200" }
