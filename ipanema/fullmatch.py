@@ -70,3 +70,23 @@ def remap_gt(src_gt, start_s, fps, dst):
     """labels of a segment cut at start_s -> the same frames in the full match"""
     gt = json.load(open(src_gt)); off = int(round(start_s * fps))
     json.dump({str(off + int(k)): v for k, v in gt.items()}, open(dst, "w")); return dst
+
+
+def canary_index(plan_, todo_ids):
+    """a piece from the middle of the first half (not warm-up), among those still to run"""
+    if not todo_ids: return None
+    target = round(0.2 * (len(plan_) - 1))
+    return min(todo_ids, key=lambda i: abs(i - target))
+
+def canary_ok(log_lines, expect_panorama, players_range=(6.0, 16.0)):
+    """(ok, reason) for the first piece of a full match, from its own log"""
+    import re
+    text = "\n".join(log_lines)
+    if "PIECE FAILED" in text: return False, "the piece crashed"
+    if "mosaic calibration failed" in text: return False, "the panorama calibration crashed"
+    if expect_panorama and "calibration: from panorama" not in text: return False, "the panorama calibration was not used"
+    m = re.search(r"(\d+) frames, ([\d.]+) players/frame", text)
+    if not m: return False, "no player count in the piece's log"
+    p = float(m.group(2))
+    if not (players_range[0] <= p <= players_range[1]): return False, f"{p} players per frame is outside {players_range[0]:.0f}-{players_range[1]:.0f}"
+    return True, f"calibration from the panorama, {p} players per frame"

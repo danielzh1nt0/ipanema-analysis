@@ -209,6 +209,19 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     cpu_todo = [p for p in todo if detected(p)]; gpu_todo = [p for p in todo if not detected(p)]
     log(f"pieces: {len(cached)} already processed, {len(cpu_todo)} to finish on CPU (detections saved), {len(gpu_todo)} need a GPU")
     res = [{"i": p["i"], "ok": True, "path": f"{cdir(p)}/{PIECE_FILE}", "log": ["cached"], "images": {}} for p in cached]
+    # canary: one piece first; the rest only start if it looks right
+    ci = FM.canary_index(plan_, [p["i"] for p in todo])
+    if ci is not None:
+        cp = next(p for p in todo if p["i"] == ci); fn = run_piece_cpu if cp in cpu_todo else run_piece
+        log(f"canary: piece {ci} first ({'CPU' if fn is run_piece_cpu else 'GPU'})")
+        r = fn.remote(match_id, cp, full)
+        ok, why = FM.canary_ok(r.get("log") or [], os.path.exists(f"/content/ipanema-analysis/calibration/{match_id}.json"))
+        if not (r.get("ok") and ok):
+            log(f"CANARY FAILED on piece {ci}: {why}; the other {len(todo) - 1} pieces were not started")
+            for line in (r.get("log") or [])[-12:]: log("  " + line)
+            return {"summary": {"error": "canary failed: " + why}, "log_tail": lines[-log_tail:], "files": r.get("images") or {}}
+        log(f"canary passed: {why}"); res.append(r)
+        cpu_todo = [p for p in cpu_todo if p["i"] != ci]; gpu_todo = [p for p in gpu_todo if p["i"] != ci]
     calls = []
     if cpu_todo: calls.append(run_piece_cpu.map([match_id] * len(cpu_todo), cpu_todo, [full] * len(cpu_todo), return_exceptions=True))
     if gpu_todo: calls.append(run_piece.map([match_id] * len(gpu_todo), gpu_todo, [full] * len(gpu_todo), return_exceptions=True))

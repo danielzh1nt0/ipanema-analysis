@@ -2,14 +2,26 @@ name: run on modal
 on:
   push:
     branches: [main]
-    paths: ["ipanema/**", "modal_app.py", "calibration/**"]
+    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py"]
   workflow_dispatch:
     inputs:
       match_id: { description: "match id", default: "SFKBP1109_s1200" }
 permissions:
   contents: write
+  issues: write
 jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless pandas scipy pytest pyyaml
+      - name: tests (a failure stops everything below — no deploy, no run, no spend)
+        run: python -m pytest -q tests
   run:
+    needs: tests
     runs-on: ubuntu-latest
     environment: MODAL_TOKEN_ID
     timeout-minutes: 170
@@ -19,7 +31,7 @@ jobs:
         with: { python-version: "3.11" }
       - run: pip install -q modal numpy
       - name: check the code compiles on the runner's Python (stops here before any spend)
-        run: python -m py_compile modal_app.py scripts_scoreboard.py scripts_watch.py ipanema/*.py && python --version
+        run: python -m py_compile modal_app.py scripts_scoreboard.py scripts_watch.py scripts_notify.py ipanema/*.py && python --version
       - name: deploy (always; costs nothing until something calls it)
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
@@ -114,7 +126,17 @@ jobs:
         run: |
           for f in $(git ls-files --others --modified results/modal | grep '\.txt$'); do m=$(basename "$f" .txt); python scripts_scoreboard.py "$f" "${{ github.sha }}" "$m" || true; done
       - name: commit results
+        if: always()
         run: |
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results && git commit -m "modal results" || echo "nothing to commit"
           git pull --rebase -X theirs origin main && git push origin HEAD:main
+      - name: tell Daniel (opens an issue, which GitHub emails)
+        if: always() && (contains(github.event.head_commit.message, '[run') || contains(github.event.head_commit.message, '[full:') || contains(github.event.head_commit.message, '[check:'))
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MSG: ${{ github.event.head_commit.message }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          git pull -q origin main || true
+          python scripts_notify.py && gh issue create --title "$(cat /tmp/issue_title)" --body-file /tmp/issue_body.md

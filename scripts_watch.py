@@ -6,6 +6,7 @@ DANGER = [
     (r"mosaic calibration failed", "the panorama calibration crashed, so positions would come from the wrong fallback calibration"),
     (r"RUN FAILED", "the run crashed"),
     (r"too many pieces failed", "too many pieces failed"),
+    (r"CANARY FAILED", "the first piece failed its check, so the rest were not started"),
 ]
 FALLBACK = (r"calibration: \d+ frames, keypoints on", "the fallback calibration was used although this match has a panorama calibration")
 
@@ -38,7 +39,7 @@ def render(mid, logs, status):
 def push(msg):
     subprocess.run(f"git add results && (git commit -q -m '{msg}' || true) && git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main", shell=True)
 
-def watch(call, vol, mid, since, check_fallback, every=90, poll=45, write=True, log_path=None, cancel=True):
+def watch(call, vol, mid, since, check_fallback, every=90, poll=45, write=True, log_path=None, cancel=True, budget_min=None):
     import modal
     log_path = log_path or f"results/live/{mid}.log"; os.makedirs(os.path.dirname(log_path), exist_ok=True); last = 0.0
     while True:
@@ -50,6 +51,8 @@ def watch(call, vol, mid, since, check_fallback, every=90, poll=45, write=True, 
         except Exception as e: done, err = True, repr(e)[:500]
         logs = read_logs(vol, mid, since)
         reason = None if done else danger_in(logs, check_fallback)
+        if not done and not reason and budget_min and time.time() - since > budget_min * 60:
+            reason = f"it ran past its time budget of {budget_min:.0f} min (1.5x the expected time)"
         status = "STOPPED AUTOMATICALLY: " + reason if reason else ("failed: " + err if err else ("finished" if done else "running"))
         if write: open(log_path, "w").write(render(mid, logs, status))
         if reason:
@@ -68,7 +71,10 @@ def main():
     fn = modal.Function.from_name("ipanema", "run_full" if kind == "full" else "run_match")
     call = fn.spawn(mid, f"{R2}/{mid}/video.mp4")
     print(f"started {kind} {mid}: {call.object_id}", flush=True)
-    res, err = watch(call, vol, mid, since, check_fallback)
+    tag = re.search(r"\[budget:(\d+)\]", os.environ.get("MSG", ""))
+    budget = float(tag.group(1)) if tag else (1.5 * (60 if kind == "full" else 45))       # expected: full match ~60 min, clip ~45 min
+    print(f"time budget: {budget:.0f} min", flush=True)
+    res, err = watch(call, vol, mid, since, check_fallback, budget_min=budget)
     os.makedirs("results/modal", exist_ok=True); name = f"{mid}_full" if kind == "full" else mid
     if res:
         open(f"results/modal/{name}.txt", "w").write("\n".join(res["log_tail"]) + "\n\nSUMMARY " + json.dumps(res["summary"], default=str))
