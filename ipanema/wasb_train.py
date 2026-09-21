@@ -69,7 +69,7 @@ _LAST_BEST = {}
 
 _SAMPLES = {}
 
-def train(root, videos_dir, epochs=30, lr=1e-4, log=print, seed=0, eval_every=2, patience=5):
+def train(root, videos_dir, epochs=40, lr=3e-4, log=print, seed=0, eval_every=2, patience=5):
     # cosine decay to a low LR helps the last few percent on a small set
     import torch
     from .wasb import ensure, _model
@@ -118,7 +118,7 @@ def train(root, videos_dir, epochs=30, lr=1e-4, log=print, seed=0, eval_every=2,
 
 def ensure_finetuned(root, videos_dir, log=print):
     """train when there is no fine-tuned weight yet, or when the labels changed"""
-    RECIPE = "e30-lr1e-4-earlystop-pretrained-heldout-v1"
+    RECIPE = "e40-lr3e-4-earlystop-pretrained-heldout-v1"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len([v for v in json.load(open(p)).values()]) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
