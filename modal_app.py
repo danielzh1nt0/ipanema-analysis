@@ -46,6 +46,18 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
         import traceback; log("RUN FAILED: " + traceback.format_exc()); summary = {"error": str(e)}
     try: prog.finished(ok="error" not in summary)
     except Exception: pass
+    # a test segment of an uploaded match inherits that match's team names, so its library card reads properly
+    try:
+        import re as _re
+        base = _re.sub(r"_s(\d+)$", "", match_id)
+        if base != match_id and "error" not in summary and prog.db:
+            lab = prog.db.table("match_labels").select("*").eq("match_id", base).maybe_single().execute()
+            if lab and lab.data:
+                row = {k: v for k, v in lab.data.items() if k not in ("match_id", "id", "created_at", "updated_at")}
+                start = int(_re.search(r"_s(\d+)$", match_id).group(1)); mm = lambda s: f"{s // 60}:{s % 60:02d}"
+                row["competition"] = f"5-minute test · {mm(start)}–{mm(start + 300)}" + (f" · {row['competition']}" if row.get("competition") else "")
+                prog.db.table("match_labels").upsert({"match_id": match_id, **row}).execute()
+    except Exception as e: log(f"label copy skipped: {e!r}")
     if os.environ.get("IPANEMA_PNL_VALIDATE", "0") == "1":
         try:
             from ipanema import pnlcalib

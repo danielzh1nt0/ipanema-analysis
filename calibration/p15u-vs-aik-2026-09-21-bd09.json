@@ -1,0 +1,68 @@
+{
+ "clip": "p15u-vs-aik-2026-09-21-bd09",
+ "segment_start_s": 2520,
+ "segment_len_s": 300,
+ "mosaic": "results/prepare/p15u-vs-aik-2026-09-21-bd09/panorama.jpg",
+ "H_pitch_to_mosaic": [
+  [
+   94.06836157192429,
+   -38.86702093693892,
+   -2787.5569946932324
+  ],
+  [
+   12.121621798586983,
+   -17.338148768749498,
+   751.1196419529189
+  ],
+  [
+   0.021164529317493935,
+   -0.03120547650731557,
+   1.0
+  ]
+ ],
+ "points_pitch_m": [
+  [
+   60,
+   0
+  ],
+  [
+   60,
+   25.85
+  ],
+  [
+   60,
+   44.15
+  ],
+  [
+   50.85,
+   35
+  ],
+  [
+   69.15,
+   35
+  ]
+ ],
+ "points_mosaic_px": [
+  [
+   1258,
+   654
+  ],
+  [
+   1266,
+   694
+  ],
+  [
+   1278,
+   797
+  ],
+  [
+   646,
+   777
+  ],
+  [
+   1719,
+   722
+  ]
+ ],
+ "note": "hand-read centre features on the stitched view, refined against the painted halfway line; ~0.3 m near the centre, ~0.7 m at the circle's far-left end"
+}
