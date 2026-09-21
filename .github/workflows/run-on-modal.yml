@@ -19,31 +19,24 @@ jobs:
         with: { python-version: "3.11" }
       - run: pip install -q modal numpy
       - name: check the code compiles on the runner's Python (stops here before any spend)
-        run: python -m py_compile modal_app.py scripts_scoreboard.py ipanema/*.py && python --version
+        run: python -m py_compile modal_app.py scripts_scoreboard.py scripts_watch.py ipanema/*.py && python --version
       - name: deploy (always; costs nothing until something calls it)
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: modal deploy modal_app.py
-      - name: run a match (only when the commit is tagged run)
+      - name: run a match (only when the commit is tagged run) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[run') || github.event_name == 'workflow_dispatch'
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
-          MATCH: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}
           MSG: ${{ github.event.head_commit.message }}
+          MATCH: ${{ github.event.inputs.match_id || 'SFKBP1109_s1200' }}
         run: |
-          python - <<'PY'
-          import modal, os, json, base64, re
-          hit = re.search(r"\[run:([A-Za-z0-9_-]+)\]", os.environ.get("MSG", ""))
-          m = hit.group(1) if hit else os.environ["MATCH"]; f = modal.Function.from_name("ipanema", "run_match")
-          out = f.remote(m, f"{os.environ['R2_PUBLIC_URL']}/{m}/video.mp4")
-          os.makedirs("results/modal", exist_ok=True)
-          open(f"results/modal/{m}.txt", "w").write("\n".join(out["log_tail"]) + "\n\nSUMMARY " + json.dumps(out["summary"], default=str))
-          for name, b64 in out.get("files", {}).items(): open(f"results/modal/{m}_{name}", "wb").write(base64.b64decode(b64))
-          print("\n".join(out["log_tail"][-25:]))
-          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          M=$(python -c "import os,re; h=re.search(r'\[run:([A-Za-z0-9_-]+)\]', os.environ['MSG']); print(h.group(1) if h else os.environ['MATCH'])")
+          python scripts_watch.py match "$M"
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
@@ -62,7 +55,7 @@ jobs:
           open(f"{d}/segment.txt", "w").write(out.get("segment", ""))
           print("prepared", mid)
           PY
-      - name: run a full match (commit tagged full:<match_id>)
+      - name: run a full match (commit tagged full:<match_id>) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[full:')
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
@@ -70,15 +63,9 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           MSG: ${{ github.event.head_commit.message }}
         run: |
-          python - <<'PY'
-          import modal, os, re, json, base64
-          mid = re.search(r"\[full:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
-          out = modal.Function.from_name("ipanema", "run_full").remote(mid, f"{os.environ['R2_PUBLIC_URL']}/{mid}/video.mp4")
-          os.makedirs("results/modal", exist_ok=True)
-          open(f"results/modal/{mid}_full.txt", "w").write("\n".join(out["log_tail"]) + "\n\nSUMMARY " + json.dumps(out["summary"], default=str))
-          for name, b64 in out.get("files", {}).items(): open(f"results/modal/{mid}_full_{name}", "wb").write(base64.b64decode(b64))
-          print("\n".join(out["log_tail"][-40:]))
-          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          M=$(python -c "import os,re; print(re.search(r'\[full:([A-Za-z0-9_-]+)\]', os.environ['MSG']).group(1))")
+          python scripts_watch.py full "$M"
       - name: export picker data (commit tagged export:<match_id>)
         if: contains(github.event.head_commit.message, '[export:')
         env:

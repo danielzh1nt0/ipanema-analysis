@@ -33,12 +33,12 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     from ipanema.config import Settings
     from ipanema.run import run
     S = Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
-    lines = []
     from ipanema.progress import Progress
     prog = Progress(match_id)
+    _log, lines = _logger(f"{match_id}/run_match.log")
     def log(*a):
-        s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
-        try: prog.feed(s)
+        _log(*a)
+        try: prog.feed(" ".join(str(x) for x in a))
         except Exception: pass
     prog.push()
     try: summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
@@ -86,6 +86,20 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
     return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
 
+
+def _logger(relpath):
+    """log to stdout, keep the lines, and stream them to logs/<relpath> on the volume (committed every 30 s)"""
+    import time as _t
+    path = f"{ROOT}/logs/{relpath}"; os.makedirs(os.path.dirname(path), exist_ok=True)
+    fh = open(path, "w"); state = {"t": 0.0}; lines = []
+    def log(*a):
+        s = " ".join(str(x) for x in a); print(s, flush=True); lines.append(s)
+        try:
+            fh.write(s + "\n"); fh.flush()
+            if _t.time() - state["t"] > 30: state["t"] = _t.time(); vol.commit()
+        except Exception: pass
+    return log, lines
+
 # ---------------- Full match: pieces in parallel on GPUs, then one analysis on CPU ----------------
 def _setup():
     import subprocess, sys
@@ -95,23 +109,23 @@ def _setup():
     return Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
 
 @app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
-def train_ball():
+def train_ball(match_id: str = "_train"):
     """make sure the fine-tuned ball model exists (trains once, before the pieces start)"""
     S = _setup()
     from ipanema import wasb
     from ipanema.wasb_train import ensure_finetuned
-    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    log, lines = _logger(f"{match_id}/train_ball.log")
     wasb.ensure(S.root, log=log); ensure_finetuned(S.root, f"{S.root}/videos", log=log); vol.commit()
     return lines[-40:]
 
 def _piece_body(match_id, piece, full_path):
     S = _setup()
     from ipanema.fullmatch import process_piece
-    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    log, lines = _logger(f"{match_id}/piece_{piece['i']:03d}.log")
     vol.reload()
     try: path = process_piece(full_path, match_id, piece, S, log=log); ok = True
     except Exception:
-        import traceback; lines.append(traceback.format_exc()[-1500:]); path = None; ok = False
+        import traceback; log("PIECE FAILED: " + traceback.format_exc()[-1500:]); path = None; ok = False
     vol.commit()
     import glob as _g, base64
     imgs = {}
@@ -172,7 +186,9 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     S = _setup()
     from ipanema import fullmatch as FM
     from ipanema.run import analyse
-    lines = []; log = lambda *a: (print(*a, flush=True), lines.append(" ".join(str(x) for x in a)))
+    import shutil
+    shutil.rmtree(f"{ROOT}/logs/{match_id}", ignore_errors=True)          # fresh live log for this run
+    log, lines = _logger(f"{match_id}/run_full.log")
     t0 = time.time()
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     if full is None:
@@ -184,7 +200,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
         vol.commit()
     n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
     log(f"=== {match_id} full match === {n} frames @ {fps:.3f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces")
-    for line in train_ball.remote(): log("  " + line)
+    for line in train_ball.remote(match_id): log("  " + line)
     from ipanema.fullmatch import piece_id, PIECE_FILE
     cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
     cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}")]
