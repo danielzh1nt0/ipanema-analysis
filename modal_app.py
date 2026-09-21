@@ -104,7 +104,7 @@ def train_ball():
     wasb.ensure(S.root, log=log); ensure_finetuned(S.root, f"{S.root}/videos", log=log); vol.commit()
     return lines[-40:]
 
-@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+@app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], max_containers=10)   # plan limit: 10 GPUs at once
 def run_piece(match_id: str, piece: dict, full_path: str):
     S = _setup()
     from ipanema.fullmatch import process_piece
