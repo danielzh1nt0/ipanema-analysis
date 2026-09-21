@@ -140,7 +140,12 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
     log(f"=== {match_id} full match === {n} frames @ {fps:.3f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces")
     for line in train_ball.remote(): log("  " + line)
-    res = list(run_piece.map([match_id] * len(plan_), plan_, [full] * len(plan_), return_exceptions=True))
+    from ipanema.fullmatch import piece_id
+    cached = [p for p in plan_ if os.path.exists(f"{ROOT}/cache/{piece_id(match_id, p['i'])}/piece.pkl")]
+    todo = [p for p in plan_ if p not in cached]
+    log(f"pieces: {len(cached)} already processed, {len(todo)} to run")
+    res = [{"i": p["i"], "ok": True, "path": f"{ROOT}/cache/{piece_id(match_id, p['i'])}/piece.pkl", "log": ["cached"], "images": {}} for p in cached]
+    if todo: res += list(run_piece.map([match_id] * len(todo), todo, [full] * len(todo), return_exceptions=True))
     ok = [r for r in res if isinstance(r, dict) and r.get("ok")]; bad = [r for r in res if not (isinstance(r, dict) and r.get("ok"))]
     log(f"pieces: {len(ok)}/{len(plan_)} done in {(time.time() - t0) / 60:.1f} min")
     for r in bad: log(f"  piece failed: {str(r)[-600:]}")
@@ -151,7 +156,8 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
     ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
            "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"]}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
-           "per": per, "fps": fps, "cands": cands, "t0": t0}
+           "per": per, "fps": fps, "cands": cands, "t0": t0,
+           "picker_gt": [p for p in (f"{ROOT}/reference/{match_id}/ball_gt.json", f"{ROOT}/reference/{match_id}b/ball_gt.json") if os.path.exists(p)]}
     # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)
     gt = {}
     for d in glob.glob(f"{ROOT}/reference/{match_id}_s*/ball_gt.json"):

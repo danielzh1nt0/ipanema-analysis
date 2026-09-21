@@ -93,10 +93,24 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     """from raw tracks + ball candidates to stats, events and the exported match (CPU)"""
     match_id, video, vi, H, L, W, cal, tm, per, fps, cands, t0 = (ctx[k] for k in ("match_id", "video", "vi", "H", "L", "W", "cal", "tm", "per", "fps", "cands", "t0"))
     per, cl = TR.clean(per, L, W, fps, log=log)
-    ball_g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
-    if len(ball_g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); ball_g = BL.pick(cands, H, L, W, per=per, log=log)
-    ball = BL.bridge(ball_g, fps)
+    def _v1():
+        g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
+        if len(g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); g = BL.pick(cands, H, L, W, per=per, log=log)
+        return BL.bridge(g, fps)
+    def _v2(): return BL.bridge(BL.pick_v2(cands, H, L, W, per=per, fps=fps, log=log), fps)
+    picker = os.environ.get("IPANEMA_PICKER", "v2")
+    ball = _v2() if picker == "v2" else _v1()
+    other = (_v1 if picker == "v2" else _v2) if cands else None
     ball_check = BL.check(ball, cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
+    # the other picker on the same frames, logged side by side (CPU only)
+    try:
+        if other is not None:
+            o = BL.check(other(), cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=lambda *a: None)
+            if o: log(f"ball check (other picker, {'v1' if picker == 'v2' else 'v2'}): {o['correct']}/{o['total']} correct, ceiling {o['ceiling']}/{o['total']}")
+        for pg in ctx.get("picker_gt") or []:
+            a = BL.check(ball, cands, pg, log=lambda *a: None); b = BL.check(other(), cands, pg, log=lambda *a: None) if other else None
+            if a: log(f"picker test on detector-training clicks ({os.path.basename(os.path.dirname(pg))}, {a['total']} frames; detection is optimistic here, the pick is the fair part): {picker} {a['correct']}/{a['total']}" + (f", other {b['correct']}/{b['total']}" if b else "") + f", ceiling {a['ceiling']}")
+    except Exception as e: log(f"picker comparison failed: {e!r}")
     if ctx.get("cands_alt"):
         try:
             alt = BL.pick_global(ctx["cands_alt"], H, L, W, per=per, fps=fps, log=lambda *a: None)

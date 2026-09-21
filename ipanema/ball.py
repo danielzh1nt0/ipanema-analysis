@@ -1,5 +1,5 @@
 """Ball: tiled detection (cached) -> candidates on the pitch -> trajectories in pitch space -> speed gate + confidence score -> picks."""
-import os, pickle, numpy as np, json
+import os, pickle, numpy as np, json, cv2
 from .video import frames
 from .calibration import to_m
 
@@ -171,4 +171,62 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
         s = back[i][s]
         if s < 0: break
     log(f"ball (global path): {len(ball)}/{n} frames on the chosen path")
+    return ball
+
+
+# ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
+def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=1.5, near_w=1.0, air_w=0.6,
+            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, log=print):
+    n = len(cands); C = []
+    ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
+    inv = {}
+    for i in range(n):
+        rows = []
+        if cands.get(i):
+            top = [c for c in sorted(cands[i], key=lambda z: -z[2])[:top_k] if c[2] >= min_conf]
+            if top:
+                pts = np.float32([[x, y] for x, y, _ in top]).reshape(-1, 1, 2)
+                m = cv2.perspectiveTransform(pts, np.linalg.inv(H[i]).astype(np.float32)).reshape(-1, 2)
+                for (x, y, cf), (mx, my) in zip(top, m):
+                    on = bool(-margin < mx < L + margin and -margin < my < W + margin)
+                    near = float(np.linalg.norm(ppos[i] - np.array([mx, my]), axis=1).min() < 4.0) if (on and i in ppos) else 0.0
+                    rows.append((float(mx), float(my), float(cf), float(x), float(y), near, on))
+        C.append(rows)
+    # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
+    win = int(3 * fps); grid = {}
+    for i in range(n):
+        for r in C[i]: grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), set()).add(i)
+    dropped = 0
+    for i in range(n):
+        keep = []
+        for r in C[i]:
+            if r[5] == 0.0 and len(grid.get((i // win, round(r[0] * 2), round(r[1] * 2)), ())) > 0.6 * win: dropped += 1; continue
+            keep.append(r)
+        C[i] = keep
+    INF = 1e18; back = []; prev_cost = None
+    for i in range(n):
+        rows = C[i]; k = len(rows)
+        emit = np.array([conf_w * (1 - r[2]) + (near_w * (1 - r[5]) if r[6] else air_w) for r in rows] + [miss_cost])
+        if prev_cost is None:
+            cur = emit.copy(); bk = np.full(k + 1, -1, int)
+        else:
+            prows = C[i - 1]; pk = len(prows)
+            if k and pk:
+                G = H[i - 1] @ np.linalg.inv(H[i])                       # frame i pixels -> frame i-1 pixels (camera pan removed)
+                q = cv2.perspectiveTransform(np.float32([[r[3], r[4]] for r in rows]).reshape(-1, 1, 2), G.astype(np.float32)).reshape(-1, 2)
+                p = np.float32([[r[3], r[4]] for r in prows])
+                d = np.linalg.norm(q[:, None, :] - p[None, :, :], axis=2)   # (k, pk) pixels
+                tr = px_w * d + np.where(d > jump_px, jump_cost, 0.0) + np.where(d > gate_px, 1e6, 0.0)
+            else:
+                tr = np.zeros((k, pk))
+            full = np.full((k + 1, pk + 1), 0.8); full[:k, :pk] = tr; full[k, pk] = 0.0
+            tot = prev_cost[None, :] + full
+            bk = np.argmin(tot, axis=1); cur = tot[np.arange(k + 1), bk] + emit
+        back.append(bk); prev_cost = cur
+    ball = {}; s = int(np.argmin(prev_cost))
+    for i in range(n - 1, -1, -1):
+        if s < len(C[i]): r = C[i][s]; ball[i] = [r[3], r[4]]
+        s = back[i][s]
+        if s < 0: break
+    log(f"ball v2: {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")
     return ball

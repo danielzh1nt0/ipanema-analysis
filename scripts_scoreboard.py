@@ -8,6 +8,10 @@ ver = re.search(r"\(ipanema ([0-9.]+)", txt); cands = re.search(r"ball: ([A-Za-z
 held = re.findall(r"kept best seed, held-out (\d+)", txt)
 alt = re.search(r"alternative: WASB \+ YOLO candidates\): (\d+)/(\d+) correct, ceiling (\d+)", txt)
 alt_txt = (" · with YOLO: %s/%s, ceiling %s" % (alt.group(1), alt.group(2), alt.group(3))) if alt else ""
+oth = re.search(r"ball check \(other picker, (v\d)\): (\d+)/(\d+)", txt)
+if oth: alt_txt += " · other picker %s: %s/%s" % (oth.group(1), oth.group(2), oth.group(3))
+for pt in re.finditer(r"picker test on detector-training clicks \(([^,]+), (\d+) frames[^)]*\): (v\d) (\d+)/(\d+)(?:, other (\d+)/(\d+))?", txt):
+    alt_txt += " · picker test %s: %s %s/%s%s" % (pt.group(1), pt.group(3), pt.group(4), pt.group(5), (", other %s/%s" % (pt.group(6), pt.group(7))) if pt.group(6) else "")
 row = (f"| {datetime.datetime.now(datetime.timezone.utc):%Y-%m-%d %H:%M} | {sha} | {match} | {ver.group(1) if ver else '?'} | "
        f"{bc.get('correct', '—')}/{bc.get('total', '—')} | {bc.get('ceiling', '—')} | {held[-1] if held else '—'} | "
        f"{'OK' if g.get('possession_ok') else 'withheld'} | {'OK' if g.get('events_ok') else 'withheld'} | "
