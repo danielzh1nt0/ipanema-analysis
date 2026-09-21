@@ -1,16 +1,18 @@
-=== SFKBP1109_s1200 === (ipanema 0.19.3; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.21.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [292, 317], dark share A 0.49 / B 0.29 (A = darker kit)
+teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit)
 tracking: cached
+ball: WASB-only candidates, 2.9/frame
 clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
 clean: players per frame median A 5 / B 8, max A 12 / B 14
-ball: WASB-only candidates, 1.6/frame
-ball (global path): 3355/8992 frames on the chosen path
-ball check: 7/34 correct, 26 wrong, 1 no pick (ceiling 11/34)
-direction: A ←  B →  confidence A 0.10 / B 0.03  WARNING low confidence
+ball: dropped 308 static-clutter candidates
+ball (global path): 5808/8992 frames on the chosen path
+ball check: 18/34 correct, 15 wrong, 1 no pick (ceiling 25/34)
+ball check (alternative: WASB + YOLO candidates): 18/34 correct, ceiling 30/34
+direction: A ←  B →  confidence A 0.30 / B 0.01  WARNING low confidence
 direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: sequences
   step: turnovers
@@ -19,43 +21,38 @@ direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy 0.21, near-player 0.93, possession withheld, events withheld
-ball reliability: 44% frames, 93% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball grade: accuracy 0.53, near-player 0.93, possession OK, events withheld
+ball reliability: 62% frames, 93% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (21.2 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (487 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+  wrote match_data.json (21.1 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (328 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
 upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   SFKBP1109_s1200
   ball_reliable              False
-  ball_grade                 {'accuracy': 0.21, 'near_player_pct': 0.93, 'frames_pct': 0.44, 'possession_ok': False, 'events_ok': False}
+  ball_grade                 {'accuracy': 0.53, 'near_player_pct': 0.93, 'frames_pct': 0.62, 'possession_ok': True, 'events_ok': False}
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.49, 'B': 0.29}
+  team_dark_share            {'A': 0.51, 'B': 0.3}
   players_per_frame_median   {'A': 5.0, 'B': 8.0}
   ball_frames_pct            99
-  ball_check                 {'correct': 7, 'total': 34, 'wrong': 26, 'ceiling': 11}
-  possession_pct             {'A': 33, 'B': 67}
-  loose_pct                  33
-  dead_pct                   1
+  ball_check                 {'correct': 18, 'total': 34, 'wrong': 15, 'ceiling': 25}
+  possession_pct             {'A': 25, 'B': 75}
+  loose_pct                  31
+  dead_pct                   3
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.1, 'B': 0.03}
-  turnovers                  4
-  passes                     1763
-  restarts                   1
-  sequences                  56
-  shots                      {'A': 0, 'B': 0}
+  direction_confidence       {'A': 0.3, 'B': 0.01}
+  turnovers                  1
+  passes                     1308
+  restarts                   2
+  sequences                  71
+  shots                      {'A': 0, 'B': 1}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 0, 'B': 2}
-  field_tilt                 {'A': 10, 'B': 24}
-  runtime_min                5.7
-pnlcalib: no calibration found
-pnlcalib: no calibration found
-pnlcalib: no calibration found
-pnlcalib: no calibration found
-pnlcalib validation: {"panorama": "no calibration", "pano_crop": {"median_err_m": 1.47, "p90_err_m": 5.75, "flip": [1, 1]}, "frame2248": "no calibration", "frame4496": "no calibration", "frame6744": "no calibration"}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 7, 'B': 40}
+  runtime_min                3.9
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.21, "near_player_pct": 0.93, "frames_pct": 0.44, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 99, "ball_check": {"correct": 7, "total": 34, "wrong": 26, "ceiling": 11}, "possession_pct": {"A": 33, "B": 67}, "loose_pct": 33, "dead_pct": 1, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.03}, "turnovers": 4, "passes": 1763, "restarts": 1, "sequences": 56, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 2}, "field_tilt": {"A": 10, "B": 24}, "runtime_min": 5.7}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.53, "near_player_pct": 0.93, "frames_pct": 0.62, "possession_ok": true, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.51, "B": 0.3}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 99, "ball_check": {"correct": 18, "total": 34, "wrong": 15, "ceiling": 25}, "possession_pct": {"A": 25, "B": 75}, "loose_pct": 31, "dead_pct": 3, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.3, "B": 0.01}, "turnovers": 1, "passes": 1308, "restarts": 2, "sequences": 71, "shots": {"A": 0, "B": 1}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 7, "B": 40}, "runtime_min": 3.9}
