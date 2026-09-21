@@ -33,7 +33,7 @@ def events(turnovers_, passes_, restarts_, sequences_, fps):
     return sorted(ev, key=lambda e: e["t"])
 
 def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, turnovers_, passes_, restarts_, sequences_, lanes_, shapes_, stats_, team_model, summary, log=print,
-          frame_stride=1, split_s=None, copy_video=True, make_zip=True, video_url=None):
+          frame_stride=1, split_s=None, copy_video=True, make_zip=True, video_url=None, periods=None):
     """frame_stride: keep every Nth frame for overlays (the app interpolates); split_s: write frames in files of this many
     seconds (full matches) instead of inside match_data.json; copy_video/make_zip off for full matches (video already in R2)."""
     root = os.path.join(out_dir, "matches", match_id); os.makedirs(root, exist_ok=True); fps = vinfo["fps"]; n = len(per)
@@ -51,7 +51,7 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
         from .metrics import extra_events
         ev = sorted(ev + extra_events(stats_['metrics']), key=lambda x: x['t'])
     md = {"schema_version": SCHEMA_VERSION, "match_id": match_id, "video": os.path.basename(video), "fps": fps, "width": vinfo["width"], "height": vinfo["height"], "pitch": {"length": L, "width": W},
-          "teams": {"light": "A", "dark": "B"}, "periods": [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}],
+          "teams": {"light": "A", "dark": "B"}, "periods": ([dict(p, attack_right=attack_right, confidence=conf) for p in periods] if periods else [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}]),
           "attack_right": attack_right, "attack_right_confidence": conf, "kits": {"A": "kit_A.png", "B": "kit_B.png"}, "contract": "1.1", "frames": frames_out, "events": ev,
           "turnovers": turnovers_, "sequences": sequences_, "restarts": restarts_}
     import tempfile

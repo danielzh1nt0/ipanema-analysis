@@ -147,10 +147,11 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     log("  step: metrics"); t_ = time.time()
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
     ctrl = int((state < 2).sum()); n = len(per)
+    play = ctx.get("play_mask"); n_play = int(play.sum()) if play is not None else n; play_ks = [k for k in range(n) if play is None or play[k]]
     # ball reliability: a real ball is near a player most of the time and does not teleport
     near = [k for k in ballm if per[k] and min(np.linalg.norm(r[2] - ballm[k]) for r in per[k]) < 4.0]
     jumps = sum(1 for k in ballm if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > 35)
-    ball_reliable = bool(len(ballm) > 0.4 * n and len(near) > 0.6 * max(1, len(ballm)) and jumps < 0.02 * max(1, len(ballm)))
+    ball_reliable = bool(len(ballm) > 0.4 * n_play and len(near) > 0.6 * max(1, len(ballm)) and jumps < 0.02 * max(1, len(ballm)))
     # graded reliability: different stats need different ball accuracy
     acc = (ball_check["correct"] / ball_check["total"]) if (ball_check and ball_check.get("total", 0) >= 10) else None
     if acc is not None: ball_reliable = acc >= 0.6
@@ -158,9 +159,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     ball_grade = {
         "accuracy": round(acc, 2) if acc is not None else None,
         "near_player_pct": round(near_frac, 2),
-        "frames_pct": round(len(ballm) / n, 2),
+        "frames_pct": round(len(ballm) / max(1, n_play), 2),
         # possession and territory tolerate a loose ball: the nearest player is usually still right
-        "possession_ok": bool((acc is None or acc >= 0.45) and near_frac >= 0.85 and len(ballm) > 0.4 * n),
+        "possession_ok": bool((acc is None or acc >= 0.45) and near_frac >= 0.85 and len(ballm) > 0.4 * n_play),
         # events need the ball in the right place at the right moment
         "events_ok": bool(acc is not None and acc >= 0.6 and near_frac >= 0.85),
     }
@@ -168,12 +169,12 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     ball_reliable = bool(ball_grade["possession_ok"])      # one verdict everywhere: the old flag follows the stricter grade
     log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
     summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
-               "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in range(n)])) for t in ("A", "B")},
-               "ball_frames_pct": round(100 * len(ball) / n), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
+               "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in play_ks] or [0])) for t in ("A", "B")},
+               "ball_frames_pct": round(100 * len(ball) / max(1, n_play)), "match_seconds": round(n_play / fps, 1), "periods": ctx.get("periods"), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
-    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, **(export_kw or {}))
+    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), **(export_kw or {}))
     try:
         from .upload import upload_match; upload_match(S.root, match_id, log=log)
     except Exception as e: log(f"upload failed: {e!r}")

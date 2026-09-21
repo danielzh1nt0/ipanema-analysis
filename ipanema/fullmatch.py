@@ -90,3 +90,28 @@ def canary_ok(log_lines, expect_panorama, players_range=(6.0, 16.0)):
     p = float(m.group(2))
     if not (players_range[0] <= p <= players_range[1]): return False, f"{p} players per frame is outside {players_range[0]:.0f}-{players_range[1]:.0f}"
     return True, f"calibration from the panorama, {p} players per frame"
+
+
+def apply_periods(per, H, cands, periods_s, fps, L, W):
+    """Keep only match time and normalise direction.
+    periods_s: [(start_s, end_s), ...] in video seconds. Frames outside every period are blanked (no players, no ball) but
+    stay on the timeline. Teams swap ends at half-time, so every period after the first is mirrored (x -> L-x, y -> W-y)
+    THROUGH the calibration: H' = H @ M. Positions computed with H' come out mirrored, and drawing mirrored positions with
+    H' lands on the same pixels, so overlays stay correct. Returns per, H, cands, play mask, period records."""
+    from .tracking import reposition
+    import numpy as np
+    n = len(per); M = np.array([[-1.0, 0, L], [0, -1.0, W], [0, 0, 1.0]])
+    spans = [(int(round(a * fps)), min(n, int(round(b * fps)))) for a, b in periods_s]
+    which = np.full(n, -1, int)
+    for idx, (a, b) in enumerate(spans): which[max(0, a):b] = idx
+    H2 = {}; per2 = {}; cands2 = {}; mirrored = {}
+    for k in range(n):
+        p = which[k]
+        if p < 0:
+            per2[k] = []; cands2[k] = []; H2[k] = H[k]; continue
+        cands2[k] = cands.get(k, [])
+        if p >= 1: H2[k] = np.asarray(H[k], float) @ M; mirrored[k] = per.get(k, [])
+        else: H2[k] = H[k]; per2[k] = per.get(k, [])
+    per2.update(reposition(mirrored, H2))
+    records = [{"index": i + 1, "t_start": round(a / fps, 2), "t_end": round(b / fps, 2), "mirrored": i >= 1} for i, (a, b) in enumerate(spans)]
+    return per2, H2, cands2, which >= 0, records

@@ -234,9 +234,16 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     vol.reload()
     done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
+    play_mask, periods = None, None
+    pf = f"/content/ipanema-analysis/periods/{match_id}.json"
+    if os.path.exists(pf):
+        spec = json.load(open(pf))
+        per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
+        log(f"periods: {[(p['t_start'], p['t_end']) for p in periods]} s; {int(play_mask.sum() / fps / 60)} min of match time kept, later halves mirrored so each team attacks the same way")
+    else: log("periods: none set, the whole recording counts as match time")
     ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
            "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"]}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
-           "per": per, "fps": fps, "cands": cands, "t0": t0,
+           "per": per, "fps": fps, "cands": cands, "t0": t0, "play_mask": play_mask, "periods": periods,
            "picker_gt": [p for p in (f"{ROOT}/reference/{match_id}/ball_gt.json", f"{ROOT}/reference/{match_id}b/ball_gt.json") if os.path.exists(p)]}
     # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)
     gt = {}
