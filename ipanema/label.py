@@ -1,14 +1,17 @@
 """Ball labelling tool for a reference clip (Colab). Saves reference/<match_id>/ball_gt.json on every click."""
 import cv2, base64, json, os
+import numpy as np
 def label_ball(video, match_id, root, n_label=20):
     from IPython.display import HTML, display
     from google.colab import output
     out_dir = os.path.join(root, "reference", match_id); os.makedirs(out_dir, exist_ok=True); gt_path = os.path.join(out_dir, "ball_gt.json")
-    cap = cv2.VideoCapture(video); n = int(cap.get(7)); idxs = [int(round(k * (n - 1) / (n_label - 1))) for k in range(n_label)]; imgs = {}
+    cap = cv2.VideoCapture(video); n = int(cap.get(7)); idxs = [int(round(k * (n - 5) / (n_label - 1))) for k in range(n_label)]   # stay clear of the last frames, which some files can't seek to; imgs = {}
     for i in idxs:
         cap.set(cv2.CAP_PROP_POS_FRAMES, i); ok, f = cap.read()
         if ok: imgs[i] = base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1]).decode()
-    cap.release(); h, w = f.shape[:2]
+    cap.release()
+    if not imgs: raise RuntimeError(f"could not read any frames from {video}")
+    first = cv2.imdecode(np.frombuffer(base64.b64decode(next(iter(imgs.values()))), np.uint8), cv2.IMREAD_COLOR); h, w = first.shape[:2]
     output.register_callback("ipanema_save_gt", lambda js: json.dump(json.loads(js), open(gt_path, "w")))
     display(HTML(f"""<div style="font:14px monospace;color:#ddd"><div id="p" style="color:#ffd54f;font-size:16px"></div>
 <canvas id="cv" width="{w}" height="{h}" style="max-width:100%;border:1px solid #444;cursor:crosshair"></canvas><div>Click the ball · S = not visible · U = undo</div></div>
