@@ -1,0 +1,8 @@
+# live log · SFKBP1109 · failed: RuntimeError('there are open files preventing the operation: path match_analysis/logs/SFKBP1109/run_full.log is open') · 21:37:49 UTC
+
+
+## run_full.log (1 lines, last 60)
+=== SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
+
+## train_ball.log (1 lines, last 60)
+
