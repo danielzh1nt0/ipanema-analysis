@@ -6,6 +6,9 @@ def weights_path(root): return os.path.join(root, "models", "wasb_finetuned.pth"
 def manifest_path(root): return os.path.join(root, "models", "wasb_train_manifest.json")
 
 def _video_for(clip, videos_dir, log=print):
+    import re as _re
+    m = _re.match(r"^(.*\d)([a-z])$", clip)          # extra label sets for the same match: SFKBP1109b -> SFKBP1109
+    if m and not glob.glob(f"{videos_dir}/{clip}*"): log(f"wasb train: labels {clip} -> video of {m.group(1)}"); clip = m.group(1)
     v = next((p for p in glob.glob(f"{videos_dir}/{clip}.*")), None)
     if v is None and os.path.isdir(f"{videos_dir}/{clip}"):
         vs = [p for p in glob.glob(f"{videos_dir}/{clip}/*") if p.lower().endswith((".mp4", ".mov", ".mkv"))]; v = max(vs, key=os.path.getsize) if vs else None
