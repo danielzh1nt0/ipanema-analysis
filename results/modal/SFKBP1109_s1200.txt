@@ -51,8 +51,8 @@ upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B
   goals                      {'A': 0, 'B': 0}
   high_turnovers             {'A': 0, 'B': 0}
   field_tilt                 {'A': 17, 'B': 42}
-  runtime_min                6.1
+  runtime_min                5.8
 pnlcalib: no calibration found
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.47, "near_player_pct": 0.95, "frames_pct": 0.57, "possession_ok": true, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 16, "total": 34, "wrong": 17, "ceiling": 31}, "possession_pct": {"A": 12, "B": 88}, "loose_pct": 15, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.02}, "turnovers": 0, "passes": 1497, "restarts": 5, "sequences": 49, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 17, "B": 42}, "runtime_min": 6.1}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.47, "near_player_pct": 0.95, "frames_pct": 0.57, "possession_ok": true, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 16, "total": 34, "wrong": 17, "ceiling": 31}, "possession_pct": {"A": 12, "B": 88}, "loose_pct": 15, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.02}, "turnovers": 0, "passes": 1497, "restarts": 5, "sequences": 49, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 17, "B": 42}, "runtime_min": 5.8}
