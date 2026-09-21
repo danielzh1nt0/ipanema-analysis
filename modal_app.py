@@ -374,6 +374,33 @@ def build_full_panorama(match_id: str, every_s: float = 5.0):
             "placed": [[str(k[0]).split("/")[-1], int(k[1]), g] for k, H, g in placed],
             "panorama_jpg": enc(canvas, 88), "drawn_jpg": enc(cv2.resize(drawn, (2400, int(2400 * drawn.shape[0] / drawn.shape[1]))), 85)}
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def recheck_frames(match_id: str, items: list):
+    """Gate 2: place specific frames on the new full-coverage map and compare with the old calibration (CPU)."""
+    import json, pickle, base64, numpy as np, cv2
+    _setup()
+    from ipanema import fullmatch as FM, panorama as PX, calcheck as CC
+    d = json.load(open(f"/content/ipanema-analysis/results/panorama/{match_id}/panorama_full.json"))
+    pano = cv2.imread(f"/content/ipanema-analysis/results/panorama/{match_id}/panorama_full.jpg"); Hpm = np.array(d["H_pitch_to_mosaic_new"])
+    cf = PX.canvas_features(cv2.SIFT_create(nfeatures=40000), pano, pano.max(2) > 8); matcher = PX.canvas_matcher(cf); sift = cv2.SIFT_create(nfeatures=4000)
+    L, W = 120.0, 70.0; pts = CC.model_points(L, W); out = []; pieces = {}
+    for i, k in items:
+        pid = FM.piece_id(match_id, i)
+        if pid not in pieces: pieces[pid] = pickle.load(open(f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}", "rb"))["H"]
+        cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); cap.release()
+        if not ok: out.append({"i": i, "k": k, "error": "frame not readable"}); continue
+        H_old = np.asarray(pieces[pid][k], float); s_old = CC.score_frame(f, H_old, L, W, pts)
+        Hfc, why = PX.register(PX.frame_features(sift, f), cf, f.shape, matcher=matcher)
+        row = {"i": i, "k": k, "old_p80": s_old and round(s_old["p80_px"], 1), "placed": Hfc is not None, "why": why}
+        img = CC.draw_model(f.copy(), H_old, L, W, (0, 220, 255), 3)
+        if Hfc is not None:
+            H_new = np.linalg.inv(Hfc) @ Hpm; s_new = CC.score_frame(f, H_new, L, W, pts); row["new_p80"] = s_new and round(s_new["p80_px"], 1)
+            img = CC.draw_model(img, H_new, L, W, (0, 0, 255), 2)
+        txt = f"piece {i} frame {k}: old p80 {row['old_p80']} -> new {row.get('new_p80', 'NOT PLACED: ' + why)}"
+        cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 0), 5); cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (255, 255, 255), 2)
+        row["jpg"] = base64.b64encode(cv2.imencode(".jpg", cv2.resize(img, (960, 540)), [cv2.IMWRITE_JPEG_QUALITY, 80])[1].tobytes()).decode(); out.append(row)
+    return out
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

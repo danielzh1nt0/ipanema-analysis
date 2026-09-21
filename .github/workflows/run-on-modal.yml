@@ -180,6 +180,23 @@ jobs:
           open(f"{d}/panorama_full_drawn.jpg", "wb").write(base64.b64decode(out.pop("drawn_jpg")))
           open(f"{d}/panorama_full.json", "w").write(json.dumps(out, indent=1)); print("\n".join(out["log"]))
           PY
+      - name: gate 2 - re-check the worst frames on the new map (commit tagged recheck:<match_id>)
+        if: contains(github.event.head_commit.message, '[recheck:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid = re.search(r"\[recheck:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          items = sorted({(r["i"], r["k"]) for r in json.load(open(f"results/check/{mid}_snap/snap.json")) if r.get("kind") == "worst"})
+          out = modal.Function.from_name("ipanema", "recheck_frames").remote(mid, [list(x) for x in items])
+          d = f"results/check/{mid}_recheck"; os.makedirs(d, exist_ok=True)
+          for r in out:
+              if "jpg" in r: open(f"{d}/piece{r['i']:02d}_{r['k']:05d}.jpg", "wb").write(base64.b64decode(r.pop("jpg")))
+          open(f"{d}/recheck.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
+          PY
       - name: scoreboard
         if: always()
         run: |
