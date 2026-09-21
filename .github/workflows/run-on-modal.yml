@@ -79,6 +79,21 @@ jobs:
           for name, b64 in out.get("files", {}).items(): open(f"results/modal/{mid}_full_{name}", "wb").write(base64.b64decode(b64))
           print("\n".join(out["log_tail"][-40:]))
           PY
+      - name: export picker data (commit tagged export:<match_id>)
+        if: contains(github.event.head_commit.message, '[export:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, base64, json
+          mid = re.search(r"\[export:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "export_picker_data").remote(mid)
+          os.makedirs("results/picker", exist_ok=True)
+          if "npz" in out: open(f"results/picker/{mid}.npz", "wb").write(base64.b64decode(out.pop("npz")))
+          open(f"results/picker/{mid}.json", "w").write(json.dumps(out)); print(out)
+          PY
       - name: scoreboard
         if: always()
         run: |

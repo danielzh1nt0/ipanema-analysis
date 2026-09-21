@@ -181,6 +181,28 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     return {"summary": safe, "log_tail": [str(l) for l in lines[-log_tail:]], "files": files}
 
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=8192)
+def export_picker_data(match_id: str):
+    """ball candidates + player positions + calibration + labels of one clip, packed small, for offline picker work (no GPU)"""
+    import pickle, glob, json, io, base64, numpy as np
+    _setup()
+    cache = f"{ROOT}/cache/{match_id}"
+    cf = sorted(glob.glob(f"{cache}/ball_cands_wasb_*_t2x2.pkl"), key=os.path.getmtime)
+    if not cf: return {"error": f"no tiled candidates in {cache}: {sorted(os.listdir(cache)) if os.path.isdir(cache) else 'missing'}"}
+    cands = pickle.load(open(cf[-1], "rb"))
+    per, fps = pickle.load(open(f"{cache}/tracks_pano_direct-v3.pkl", "rb"))
+    Hm = pickle.load(open(sorted(glob.glob(f"{cache}/calibration_pano_*.pkl"))[-1], "rb"))
+    cr = [(k, x, y, c) for k, v in cands.items() for x, y, c in v]
+    pr = [(k, r[0], 0 if r[1] == "A" else 1, r[2][0], r[2][1], r[3][0], r[3][1], int(bool(r[5]))) for k, rows in per.items() for r in rows]
+    hk = sorted(Hm)
+    gt_path = f"{ROOT}/reference/{match_id}/ball_gt.json"; gt = json.load(open(gt_path)) if os.path.exists(gt_path) else {}
+    buf = io.BytesIO()
+    np.savez_compressed(buf, cands=np.array(cr, np.float32).reshape(-1, 4), players=np.array(pr, np.float32).reshape(-1, 8),
+                        h_frames=np.array(hk, np.int32), h=np.stack([np.asarray(Hm[k], np.float32) for k in hk]), fps=np.float32(fps), n=np.int32(len(per)),
+                        gt=np.frombuffer(json.dumps(gt).encode(), np.uint8), source=np.frombuffer(os.path.basename(cf[-1]).encode(), np.uint8))
+    return {"npz": base64.b64encode(buf.getvalue()).decode(), "frames": len(per), "candidates": len(cr), "file": os.path.basename(cf[-1])}
+
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
