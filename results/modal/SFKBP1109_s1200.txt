@@ -1,65 +1,16 @@
-=== SFKBP1109_s1200 === (ipanema 0.19.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.19.3; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit)
+teams: 609 crops, clusters [292, 317], dark share A 0.49 / B 0.29 (A = darker kit)
 tracking: cached
 clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
 clean: players per frame median A 5 / B 8, max A 12 / B 14
-wasb train: SFKBP1109_s1200 held out as a test set
-wasb train: labels SFKBP1109b -> video of SFKBP1109
-wasb train: bundesliga1 held out as a test set
-wasb train: bundesliga2 held out as a test set
-wasb train: 317 samples (212 with a visible ball)
-wasb train: before fine-tune, held-out hit rate 1/41
-  wasb epoch 2: loss 0.000200, held-out hit rate 9/41
-  wasb epoch 4: loss 0.000145, held-out hit rate 17/41
-  wasb epoch 6: loss 0.000113, held-out hit rate 16/41
-  wasb epoch 8: loss 0.000091, held-out hit rate 18/41
-  wasb epoch 10: loss 0.000071, held-out hit rate 15/41
-  wasb epoch 12: loss 0.000063, held-out hit rate 16/41
-  wasb epoch 14: loss 0.000042, held-out hit rate 16/41
-  wasb epoch 16: loss 0.000037, held-out hit rate 16/41
-  wasb epoch 18: loss 0.000030, held-out hit rate 14/41
-  wasb early stop at epoch 18 (best 18/41)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 18/41)
-wasb seed 0: held-out 18
-wasb train: before fine-tune, held-out hit rate 1/41
-  wasb epoch 2: loss 0.000200, held-out hit rate 9/41
-  wasb epoch 4: loss 0.000145, held-out hit rate 18/41
-  wasb epoch 6: loss 0.000112, held-out hit rate 16/41
-  wasb epoch 8: loss 0.000092, held-out hit rate 16/41
-  wasb epoch 10: loss 0.000069, held-out hit rate 15/41
-  wasb epoch 12: loss 0.000062, held-out hit rate 18/41
-  wasb epoch 14: loss 0.000042, held-out hit rate 17/41
-  wasb early stop at epoch 14 (best 18/41)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 18/41)
-wasb seed 1: held-out 18
-wasb train: before fine-tune, held-out hit rate 1/41
-  wasb epoch 2: loss 0.000200, held-out hit rate 9/41
-  wasb epoch 4: loss 0.000145, held-out hit rate 18/41
-  wasb epoch 6: loss 0.000112, held-out hit rate 16/41
-  wasb epoch 8: loss 0.000089, held-out hit rate 17/41
-  wasb epoch 10: loss 0.000069, held-out hit rate 15/41
-  wasb epoch 12: loss 0.000062, held-out hit rate 15/41
-  wasb epoch 14: loss 0.000042, held-out hit rate 15/41
-  wasb early stop at epoch 14 (best 18/41)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 18/41)
-wasb seed 2: held-out 18
-wasb: kept best seed, held-out 18
-wasb: using fine-tuned weights
-  wasb frame 1500
-  wasb frame 3000
-  wasb frame 4500
-  wasb frame 6000
-  wasb frame 7500
-wasb: 5436/8992 frames with a ball peak, 1.6 peaks/frame; heatmap max p50/p90/p99 = 0.28/0.51/0.75
-ball: WASB + YOLO candidates merged, 23.9/frame
-ball: dropped 6332 static-clutter candidates
-ball (global path): 5779/8992 frames on the chosen path
-ball check: 13/34 correct, 20 wrong, 1 no pick (ceiling 27/34)
-direction: A →  B ←  confidence A 0.08 / B 0.06  WARNING low confidence
+ball: WASB-only candidates, 1.6/frame
+ball (global path): 3355/8992 frames on the chosen path
+ball check: 7/34 correct, 26 wrong, 1 no pick (ceiling 11/34)
+direction: A ←  B →  confidence A 0.10 / B 0.03  WARNING low confidence
 direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: sequences
   step: turnovers
@@ -68,38 +19,38 @@ direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy 0.38, near-player 0.96, possession withheld, events withheld
-ball reliability: 58% frames, 96% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball grade: accuracy 0.21, near-player 0.93, possession withheld, events withheld
+ball reliability: 44% frames, 93% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (21.3 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (390 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+  wrote match_data.json (21.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (487 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
 upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   SFKBP1109_s1200
   ball_reliable              False
-  ball_grade                 {'accuracy': 0.38, 'near_player_pct': 0.96, 'frames_pct': 0.58, 'possession_ok': False, 'events_ok': False}
+  ball_grade                 {'accuracy': 0.21, 'near_player_pct': 0.93, 'frames_pct': 0.44, 'possession_ok': False, 'events_ok': False}
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.51, 'B': 0.3}
+  team_dark_share            {'A': 0.49, 'B': 0.29}
   players_per_frame_median   {'A': 5.0, 'B': 8.0}
-  ball_frames_pct            100
-  ball_check                 {'correct': 13, 'total': 34, 'wrong': 20, 'ceiling': 27}
-  possession_pct             {'A': 20, 'B': 80}
-  loose_pct                  21
-  dead_pct                   6
+  ball_frames_pct            99
+  ball_check                 {'correct': 7, 'total': 34, 'wrong': 26, 'ceiling': 11}
+  possession_pct             {'A': 33, 'B': 67}
+  loose_pct                  33
+  dead_pct                   1
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.08, 'B': 0.06}
-  turnovers                  2
-  passes                     1470
-  restarts                   6
-  sequences                  68
+  direction_confidence       {'A': 0.1, 'B': 0.03}
+  turnovers                  4
+  passes                     1763
+  restarts                   1
+  sequences                  56
   shots                      {'A': 0, 'B': 0}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 0, 'B': 0}
-  field_tilt                 {'A': 10, 'B': 40}
-  runtime_min                21.3
+  high_turnovers             {'A': 0, 'B': 2}
+  field_tilt                 {'A': 10, 'B': 24}
+  runtime_min                5.7
 pnlcalib: no calibration found
 pnlcalib: no calibration found
 pnlcalib: no calibration found
@@ -107,4 +58,4 @@ pnlcalib: no calibration found
 pnlcalib validation: {"panorama": "no calibration", "pano_crop": {"median_err_m": 1.47, "p90_err_m": 5.75, "flip": [1, 1]}, "frame2248": "no calibration", "frame4496": "no calibration", "frame6744": "no calibration"}
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.38, "near_player_pct": 0.96, "frames_pct": 0.58, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.51, "B": 0.3}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 13, "total": 34, "wrong": 20, "ceiling": 27}, "possession_pct": {"A": 20, "B": 80}, "loose_pct": 21, "dead_pct": 6, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.08, "B": 0.06}, "turnovers": 2, "passes": 1470, "restarts": 6, "sequences": 68, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 10, "B": 40}, "runtime_min": 21.3}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.21, "near_player_pct": 0.93, "frames_pct": 0.44, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 99, "ball_check": {"correct": 7, "total": 34, "wrong": 26, "ceiling": 11}, "possession_pct": {"A": 33, "B": 67}, "loose_pct": 33, "dead_pct": 1, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.03}, "turnovers": 4, "passes": 1763, "restarts": 1, "sequences": 56, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 2}, "field_tilt": {"A": 10, "B": 24}, "runtime_min": 5.7}
