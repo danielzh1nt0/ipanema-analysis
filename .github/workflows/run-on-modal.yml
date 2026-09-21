@@ -77,6 +77,10 @@ jobs:
           for name, b64 in out.get("files", {}).items(): open(f"results/modal/{mid}_full_{name}", "wb").write(base64.b64decode(b64))
           print("\n".join(out["log_tail"][-40:]))
           PY
+      - name: scoreboard
+        if: always()
+        run: |
+          for f in $(git ls-files --others --modified results/modal | grep '\.txt$'); do m=$(basename "$f" .txt); python scripts_scoreboard.py "$f" "${{ github.sha }}" "$m" || true; done
       - name: commit results
         run: |
           git config user.name modal-bot && git config user.email modal@ipanema
