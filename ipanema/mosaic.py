@@ -26,24 +26,30 @@ def build(video, cache, stride=150, canvas=(7000, 2200), log=print):
     vi = info(video); sift = cv2.SIFT_create(nfeatures=4000); bf = cv2.BFMatcher(cv2.NORM_L2)
     W, Hc = canvas; off = np.array([[1, 0, (W - vi["width"]) / 2], [0, 1, (Hc - vi["height"]) / 2], [0, 0, 1]], np.float64)
     acc = np.zeros((Hc, W, 3), np.float32); cnt = np.zeros((Hc, W, 1), np.float32)
-    Hs = {}; prev = None; prevH = None; n_used = 0
+    Hs = {}; n_used = 0; skipped = 0
+    anchors = []   # (features, H) of frames already placed in the panorama, newest last
     for k, f in frames(video):
         if k % stride: continue
         cur = _feats(sift, f)
-        if prev is None: H = off.copy()
+        if not anchors: H = off.copy()
         else:
-            r = _homog(bf, cur[0], cur[1], prev[0], prev[1])
-            if r is None: log(f"  mosaic: lost registration at frame {k}"); prev = cur; continue
-            H = prevH @ r[0]
-        # guard against drift: reject wild transforms
+            # match against placed frames only (newest first). A frame that failed is never used as a reference:
+            # doing so without knowing where it sits shifts everything after it (ghosted, doubled lines).
+            H = None
+            for feats_a, H_a in reversed(anchors[-8:]):
+                r = _homog(bf, cur[0], cur[1], feats_a[0], feats_a[1])
+                if r is not None: H = H_a @ r[0]; break
+            if H is None: skipped += 1; log(f"  mosaic: could not place frame {k}, skipped"); continue
         corners = cv2.perspectiveTransform(np.float32([[[0, 0]], [[vi["width"], 0]], [[vi["width"], vi["height"]]], [[0, vi["height"]]]]), H).reshape(-1, 2)
-        if corners.min() < -W or corners.max() > 2 * W: log(f"  mosaic: drift at frame {k}, skipping"); prev = cur; continue
-        Hs[k] = H; prev, prevH = cur, H; n_used += 1
+        if corners.min() < -W or corners.max() > 2 * W: skipped += 1; log(f"  mosaic: implausible placement at frame {k}, skipped"); continue
+        Hs[k] = H; anchors.append((cur, H)); n_used += 1
+        if len(anchors) > 64: anchors = anchors[:1] + anchors[-63:]   # keep the reference frame and the recent ones
         warp = cv2.warpPerspective(f.astype(np.float32), H, (W, Hc))
         mask = cv2.warpPerspective(np.ones(f.shape[:2], np.float32), H, (W, Hc))[..., None]
         acc += warp * mask; cnt += mask
         if k % (stride * 40) == 0: log(f"  mosaic frame {k} ({n_used} stitched)")
     mosaic = (acc / np.maximum(cnt, 1e-3)).astype(np.uint8)
+    log(f"mosaic: {n_used} frames placed, {skipped} skipped")
     out = {"mosaic": mosaic, "H_to_mosaic": Hs, "stride": stride, "size": (W, Hc), "video_size": (vi["width"], vi["height"])}
     log(f"mosaic: {n_used} frames stitched over {vi['n']} ({vi['n']/vi['fps']:.0f} s)")
     pickle.dump({k: v for k, v in out.items() if k != "mosaic"} | {"mosaic": mosaic}, open(cache, "wb")); return out
