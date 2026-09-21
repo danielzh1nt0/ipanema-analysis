@@ -131,3 +131,29 @@ def snap_preview(video, H, L, W, to_model=None, every=150, n_worst=3, n_median=1
         cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 0), 5); cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (255, 255, 255), 2)
         out.append({"k": k, "kind": kind, "info": info, "jpg": cv2.imencode(".jpg", cv2.resize(img, (960, 540)), [cv2.IMWRITE_JPEG_QUALITY, 80])[1].tobytes()})
     cap.release(); return out
+
+
+def confidence_mask(video, H, n, L, W, every=10, bad_px=40.0):
+    """'Don't guess': check the calibration against the painted lines every `every` frames. A frame is trusted unless a
+    neighbouring check shows the drawn lines more than bad_px from the paint (good frames score ~10-26 px; the misplaced
+    ones we inspected scored 58-147 px). Frames with no calibration at all are not trusted. Checks with too few lines in
+    view can't judge and don't reject. Returns (ok[n] bool array, summary)."""
+    pts = model_points(L, W); status = {}
+    cap = cv2.VideoCapture(video); k = 0
+    while k < n:
+        ok_read, f = cap.read()
+        if not ok_read: break
+        if k % every == 0 and k in H:
+            s = score_frame(f, H[k], L, W, pts)
+            status[k] = None if s is None else ("bad" if s["p80_px"] > bad_px else "good")
+        k += 1
+    cap.release()
+    ok = np.array([i in H for i in range(n)], bool)
+    samples = sorted(status)
+    for idx, s in enumerate(samples):
+        if status[s] != "bad": continue
+        lo = samples[idx - 1] + 1 if idx > 0 else 0; hi = samples[idx + 1] if idx + 1 < len(samples) else n
+        ok[lo:hi] = False                                     # everything between the neighbouring checks is untrusted
+    vals = list(status.values())
+    return ok, {"checks": len(vals), "good": vals.count("good"), "bad": vals.count("bad"), "unjudged": vals.count(None),
+                "trusted_pct": round(100 * float(ok.mean()), 1) if n else 0.0}

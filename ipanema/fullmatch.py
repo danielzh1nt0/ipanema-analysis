@@ -115,3 +115,10 @@ def apply_periods(per, H, cands, periods_s, fps, L, W):
     per2.update(reposition(mirrored, H2))
     records = [{"index": i + 1, "t_start": round(a / fps, 2), "t_end": round(b / fps, 2), "mirrored": i >= 1} for i, (a, b) in enumerate(spans)]
     return per2, H2, cands2, which >= 0, records
+
+
+def apply_unknown(per, cands, ok):
+    """frames whose calibration isn't trusted: no positions, no ball (like half-time); they stay on the timeline"""
+    for k in range(len(ok)):
+        if not ok[k]: per[k] = []; cands[k] = []
+    return per, cands

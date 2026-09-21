@@ -180,9 +180,21 @@ def check_piece(match_id: str):
     out["piece"] = pick; out["frames_total"] = n; out["fps"] = fps
     return out
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, max_containers=21)
+def calib_mask_piece(match_id: str, i: int):
+    """'Don't guess' check for one piece: which frames' calibration is trusted (CPU, reads saved data); saved as calib_ok.npy"""
+    import pickle, numpy as np
+    _setup()
+    from ipanema import fullmatch as FM, calcheck as CC
+    pid = FM.piece_id(match_id, i); c = f"{ROOT}/cache/{pid}"; p = pickle.load(open(f"{c}/{FM.PIECE_FILE}", "rb"))
+    ok, summary = CC.confidence_mask(f"{ROOT}/videos/{pid}.mp4", p["H"], int(p["n"]), p["L"], p["W"])
+    np.save(f"{c}/calib_ok.npy", ok); vol.commit()
+    summary["i"] = i; return summary
+
 @app.function(timeout=150 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=32768)
 def run_full(match_id: str, video_url: str, log_tail: int = 500):
     import pickle, glob, types, json, time, requests
+    import numpy as np
     S = _setup()
     from ipanema import fullmatch as FM
     from ipanema.run import analyse
@@ -231,6 +243,12 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     for r in bad: log(f"  piece failed: {str(r)[-600:]}")
     for r in sorted(ok, key=lambda r: r["i"]): log(f"  piece {r['i']:02d}: " + (r["log"][-1] if r["log"] else ""))
     if len(ok) < len(plan_) * 0.8: log("too many pieces failed; not analysing"); return {"summary": {"error": "pieces failed"}, "log_tail": lines[-log_tail:], "files": {}}
+    # "don't guess": which frames' calibration is trusted, per piece (computed once, cached)
+    vol.reload()
+    need = [r["i"] for r in ok if not os.path.exists(f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok.npy")]
+    if need:
+        for s in calib_mask_piece.map([match_id] * len(need), need, return_exceptions=True):
+            log(f"  calibration check piece {s.get('i') if isinstance(s, dict) else '?'}: {s}")
     vol.reload()
     done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
@@ -241,6 +259,15 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
         per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
         log(f"periods: {[(p['t_start'], p['t_end']) for p in periods]} s; {int(play_mask.sum() / fps / 60)} min of match time kept, later halves mirrored so each team attacks the same way")
     else: log("periods: none set, the whole recording counts as match time")
+    trusted = np.ones(n, bool); missing = []
+    for r, p in zip(done, pl):
+        f = f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok.npy"
+        if not os.path.exists(f): missing.append(r["i"]); continue
+        m_ = np.load(f); a = p["offset"]; b = min(n, a + len(m_)); trusted[a:b] = m_[:b - a]
+    if missing: log(f"calibration check missing for pieces {missing}: their frames are trusted as before")
+    base = play_mask if play_mask is not None else np.ones(n, bool)
+    log(f"calibration: {100 * (trusted & base).sum() / max(1, base.sum()):.1f}% of match frames placed confidently; the rest are marked unknown and excluded")
+    per, cands = FM.apply_unknown(per, cands, trusted); play_mask = base & trusted
     ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
            "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"]}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
            "per": per, "fps": fps, "cands": cands, "t0": t0, "play_mask": play_mask, "periods": periods,
