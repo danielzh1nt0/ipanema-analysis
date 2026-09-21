@@ -1,35 +1,18 @@
-=== SFKBP1109_s1200 === (ipanema 0.17.1; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== SFKBP1109_s1200 === (ipanema 0.17.2; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [334, 275], dark share A 0.52 / B 0.29 (A = darker kit)
-  tracking frame 0
-  tracking frame 500
-  tracking frame 1000
-  tracking frame 1500
-  tracking frame 2000
-  tracking frame 2500
-  tracking frame 3000
-  tracking frame 3500
-  tracking frame 4000
-  tracking frame 4500
-  tracking frame 5000
-  tracking frame 5500
-  tracking frame 6000
-  tracking frame 6500
-  tracking frame 7000
-  tracking frame 7500
-  tracking frame 8000
-  tracking frame 8500
-clean: dropped 208 off-pitch, merged 610 duplicates, stitched 854 ids, keepers [] -> A defends left
-clean: players per frame median A 5 / B 7, max A 12 / B 14
+teams: 609 crops, clusters [292, 317], dark share A 0.49 / B 0.29 (A = darker kit)
+tracking: cached
+clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
+clean: players per frame median A 5 / B 8, max A 12 / B 14
 ball: WASB + YOLO candidates merged, 23.7/frame
-ball: dropped 6290 static-clutter candidates
-ball (global path): 5586/8992 frames on the chosen path
-ball check: 15/34 correct, 18 wrong, 1 no pick (ceiling 31/34)
-direction: A →  B ←  confidence A 0.02 / B 0.05  WARNING low confidence
-direction (fallback from player positions): A →  B ←  median x A 45 / B 50
+ball: dropped 6285 static-clutter candidates
+ball (global path): 5580/8992 frames on the chosen path
+ball check: 16/34 correct, 17 wrong, 1 no pick (ceiling 31/34)
+direction: A ←  B →  confidence A 0.10 / B 0.02  WARNING low confidence
+direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: sequences
   step: turnovers
   step: lanes
@@ -37,50 +20,39 @@ direction (fallback from player positions): A →  B ←  median x A 45 / B 50
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy 0.44, near-player 0.95, possession withheld, events withheld
-ball reliability: 56% frames, 95% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball grade: accuracy 0.47, near-player 0.95, possession OK, events withheld
+ball reliability: 57% frames, 95% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (21.2 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (396 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+  wrote match_data.json (21.3 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (419 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
 upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   SFKBP1109_s1200
   ball_reliable              False
-  ball_grade                 {'accuracy': 0.44, 'near_player_pct': 0.95, 'frames_pct': 0.56, 'possession_ok': False, 'events_ok': False}
+  ball_grade                 {'accuracy': 0.47, 'near_player_pct': 0.95, 'frames_pct': 0.57, 'possession_ok': True, 'events_ok': False}
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.52, 'B': 0.29}
-  players_per_frame_median   {'A': 5.0, 'B': 7.0}
+  team_dark_share            {'A': 0.49, 'B': 0.29}
+  players_per_frame_median   {'A': 5.0, 'B': 8.0}
   ball_frames_pct            100
-  ball_check                 {'correct': 15, 'total': 34, 'wrong': 18, 'ceiling': 31}
-  possession_pct             {'A': 14, 'B': 86}
-  loose_pct                  17
+  ball_check                 {'correct': 16, 'total': 34, 'wrong': 17, 'ceiling': 31}
+  possession_pct             {'A': 12, 'B': 88}
+  loose_pct                  15
   dead_pct                   4
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.02, 'B': 0.05}
-  turnovers                  3
-  passes                     1498
-  restarts                   6
-  sequences                  53
+  direction_confidence       {'A': 0.1, 'B': 0.02}
+  turnovers                  0
+  passes                     1497
+  restarts                   5
+  sequences                  49
   shots                      {'A': 0, 'B': 0}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 1, 'B': 0}
-  field_tilt                 {'A': 11, 'B': 43}
-  runtime_min                34.1
-pnlcalib: downloaded SV_kp (265 MB)
-pnlcalib: downloaded SV_lines (265 MB)
-pnlcalib validation failed: ntent/ipanema-analysis/ipanema/pnlcalib.py", line 26, in calibrate
-    import inference as PI
-  File "/content/PnLCalib/inference.py", line 17, in <module>
-    from utils.utils_calib import FramebyFrameCalib, pan_tilt_roll_to_orientation
-  File "/content/PnLCalib/utils/utils_calib.py", line 10, in <module>
-    from utils.utils_optimize import vector_to_mtx,  point_to_line_distance, get_opt_vector, line_plane_intersection, \
-  File "/content/PnLCalib/utils/utils_optimize.py", line 8, in <module>
-    from shapely.geometry import LineString, Polygon
-ModuleNotFoundError: No module named 'shapely'
-
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 17, 'B': 42}
+  runtime_min                6.1
+pnlcalib: no calibration found
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.44, "near_player_pct": 0.95, "frames_pct": 0.56, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.52, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 7.0}, "ball_frames_pct": 100, "ball_check": {"correct": 15, "total": 34, "wrong": 18, "ceiling": 31}, "possession_pct": {"A": 14, "B": 86}, "loose_pct": 17, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.02, "B": 0.05}, "turnovers": 3, "passes": 1498, "restarts": 6, "sequences": 53, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 0}, "field_tilt": {"A": 11, "B": 43}, "runtime_min": 34.1}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.47, "near_player_pct": 0.95, "frames_pct": 0.57, "possession_ok": true, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 16, "total": 34, "wrong": 17, "ceiling": 31}, "possession_pct": {"A": 12, "B": 88}, "loose_pct": 15, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.1, "B": 0.02}, "turnovers": 0, "passes": 1497, "restarts": 5, "sequences": 49, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 17, "B": 42}, "runtime_min": 6.1}
