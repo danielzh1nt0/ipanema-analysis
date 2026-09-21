@@ -1,0 +1,14 @@
+# Veo AI event list (minute · team · event), pasted with a filter active: minutes 83-91 only.
+83 SFK Foul
+84 AIK Penalty kick
+84 AIK Goal 1-6
+85 SFK Kickoff
+85 SFK Throw-in
+87 SFK Free kick
+87 AIK Throw-in
+88 SFK Goal kick
+88 SFK Throw-in
+89 SFK Free kick
+90 SFK Throw-in
+90 SFK Foul
+91 AIK Throw-in
