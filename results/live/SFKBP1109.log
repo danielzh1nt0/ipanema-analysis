@@ -1,39 +1,7 @@
-# live log · SFKBP1109 · running · 23:52:13 UTC
+# live log · SFKBP1109 · finished · 23:53:04 UTC
 
 
-## run_full.log (73 lines, last 60)
-  piece 10: cached
-  piece 11: cached
-  piece 12: cached
-  piece 13: cached
-  piece 14: cached
-  piece 15: cached
-  piece 16: cached
-  piece 17: cached
-  piece 18: cached
-  piece 19: cached
-  piece 20: cached
-  calibration check piece 0: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 0}
-  calibration check piece 1: {'checks': 900, 'good': 687, 'bad': 213, 'unjudged': 0, 'trusted_pct': 75.8, 'i': 1}
-  calibration check piece 2: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 2}
-  calibration check piece 3: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 3}
-  calibration check piece 4: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 4}
-  calibration check piece 5: {'checks': 900, 'good': 752, 'bad': 148, 'unjudged': 0, 'trusted_pct': 83.0, 'i': 5}
-  calibration check piece 6: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 6}
-  calibration check piece 7: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 97.1, 'i': 7}
-  calibration check piece 8: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 8}
-  calibration check piece 9: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 9}
-  calibration check piece 10: {'checks': 900, 'good': 743, 'bad': 157, 'unjudged': 0, 'trusted_pct': 82.5, 'i': 10}
-  calibration check piece 11: {'checks': 900, 'good': 900, 'bad': 0, 'unjudged': 0, 'trusted_pct': 100.0, 'i': 11}
-  calibration check piece 12: {'checks': 900, 'good': 874, 'bad': 26, 'unjudged': 0, 'trusted_pct': 96.3, 'i': 12}
-  calibration check piece 13: {'checks': 900, 'good': 827, 'bad': 73, 'unjudged': 0, 'trusted_pct': 91.3, 'i': 13}
-  calibration check piece 14: {'checks': 900, 'good': 772, 'bad': 128, 'unjudged': 0, 'trusted_pct': 85.8, 'i': 14}
-  calibration check piece 15: {'checks': 900, 'good': 814, 'bad': 86, 'unjudged': 0, 'trusted_pct': 89.9, 'i': 15}
-  calibration check piece 16: {'checks': 900, 'good': 826, 'bad': 74, 'unjudged': 0, 'trusted_pct': 91.8, 'i': 16}
-  calibration check piece 17: {'checks': 900, 'good': 663, 'bad': 237, 'unjudged': 0, 'trusted_pct': 73.4, 'i': 17}
-  calibration check piece 18: {'checks': 900, 'good': 633, 'bad': 267, 'unjudged': 0, 'trusted_pct': 70.2, 'i': 18}
-  calibration check piece 19: {'checks': 900, 'good': 891, 'bad': 9, 'unjudged': 0, 'trusted_pct': 99.0, 'i': 19}
-  calibration check piece 20: {'checks': 491, 'good': 404, 'bad': 87, 'unjudged': 0, 'trusted_pct': 82.2, 'i': 20}
+## run_full.log (105 lines, last 60)
 periods: [(0.0, 3059.99), (3509.01, 5940.0)] s; 91 min of match time kept, later halves mirrored so each team attacks the same way
 calibration: 91.1% of match frames placed confidently; the rest are marked unknown and excluded
 ball check: 40 held-out test frames mapped into the full match
@@ -62,6 +30,38 @@ direction (from keepers): A →  B ←
 ball grade: accuracy 0.62, near-player 0.61, possession withheld, events withheld
 ball reliability: 57% frames, 61% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
+  wrote 21 frame files (every 3 frames, 300 s each, largest 6.2 MB)
+  wrote match_data.json (2.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109 (3274 events) · library.json updated · zip None
+upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109
+  ball_reliable              False
+  ball_grade                 {'accuracy': 0.62, 'near_player_pct': 0.61, 'frames_pct': 0.7, 'possession_ok': False, 'events_ok': False}
+  duration_s                 6163.7
+  calibration_coverage       1.0
+  calibration_frozen         0
+  team_dark_share            {'A': 0.43, 'B': 0.24}
+  players_per_frame_median   {'A': 5.0, 'B': 6.0}
+  ball_frames_pct            100
+  match_seconds              4999.6
+  periods                    [{'index': 1, 't_start': 0.0, 't_end': 3059.99, 'mirrored': False}, {'index': 2, 't_start': 3509.01, 't_end': 5940.0, 'mirrored': True}]
+  ball_check                 {'correct': 21, 'total': 34, 'wrong': 12, 'ceiling': 24}
+  possession_pct             {'A': 49, 'B': 51}
+  loose_pct                  41
+  dead_pct                   20
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.11, 'B': 0.05}
+  turnovers                  16
+  passes                     12800
+  restarts                   337
+  sequences                  934
+  shots                      {'A': 4, 'B': 6}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 1, 'B': 1}
+  field_tilt                 {'A': 16, 'B': 26}
+  runtime_min                5.8
 
 ## train_ball.log (1 lines, last 60)
 
