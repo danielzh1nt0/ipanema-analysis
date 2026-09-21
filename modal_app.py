@@ -323,6 +323,25 @@ def calib_report(match_id: str):
         else: rows.append({"i": p["i"], "error": str(r)[:300]})
     return {"rows": rows, "images": imgs}
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, max_containers=21)
+def snap_preview_piece(match_id: str, i: int, L: float, W: float):
+    import pickle, base64, numpy as np
+    _setup()
+    from ipanema import fullmatch as FM, calcheck as CC
+    pid = FM.piece_id(match_id, i); p = pickle.load(open(f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}", "rb"))
+    to_model = np.array([[1, 0, (p["L"] - L) / 2], [0, 1, (p["W"] - W) / 2], [0, 0, 1.0]])     # real-pitch coords -> the calibration's coords (centres aligned)
+    res = CC.snap_preview(f"{ROOT}/videos/{pid}.mp4", p["H"], L, W, to_model=to_model)
+    return [{"i": i, "k": r["k"], "kind": r["kind"], "info": r["info"], "jpg": base64.b64encode(r["jpg"]).decode()} for r in res]
+
+@app.function(timeout=25 * 60, volumes={"/data": vol}, cpu=1.0)
+def snap_preview_match(match_id: str, pieces: list, L: float, W: float):
+    _setup()
+    out = []
+    for r in snap_preview_piece.map([match_id] * len(pieces), pieces, [L] * len(pieces), [W] * len(pieces), return_exceptions=True):
+        if isinstance(r, list): out += r
+        else: out.append({"error": str(r)[:300]})
+    return out
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

@@ -100,3 +100,34 @@ def refine_to_lines(frame, H, L, W, pts=None, mask=None, caps=(60.0, 25.0, 10.0)
     if better and shift <= max_shift_px:
         return Hn, {"snapped": True, "p80_before": round(base[0], 1), "p80_after": round(new[0], 1), "shift_px": round(shift, 1)}
     return H, {"snapped": False, "why": "no clear improvement" if not better else f"shift {shift:.0f} px too large", "p80": round(base[0], 1)}
+
+
+def draw_model(img, H, L, W, colour, thick=2):
+    for a, b in pitch_segments(L, W):
+        p = cv2.perspectiveTransform(np.float32([[a], [b]]), np.float32(H)).reshape(-1, 2)
+        if np.isfinite(p).all() and np.abs(p).max() < 1e5: cv2.line(img, tuple(p[0].astype(int)), tuple(p[1].astype(int)), colour, thick)
+    return img
+
+def snap_preview(video, H, L, W, to_model=None, every=150, n_worst=3, n_median=1):
+    """worst-fitting (and typical) frames of a piece: current calibration in yellow, snapped in red, with fit numbers.
+    to_model: 3x3 matrix mapping (L, W) pitch coordinates to the coordinates H was made in (e.g. 106x64 -> 120x70)."""
+    T = np.eye(3) if to_model is None else np.asarray(to_model, float); pts = model_points(L, W)
+    cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); scored = []
+    for k in range(0, n, every):
+        if k not in H: continue
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if not ok: continue
+        s = score_frame(f, np.asarray(H[k], float) @ T, L, W, pts)
+        if s: scored.append((s["p80_px"], k))
+    if not scored: cap.release(); return []
+    scored.sort(); picks = [k for _, k in scored[-n_worst:]] + [scored[len(scored) // 2][1]] * min(1, n_median)
+    out = []
+    for kind, k in [("worst", k) for k in picks[:n_worst]] + [("typical", k) for k in picks[n_worst:]]:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if not ok: continue
+        H0 = np.asarray(H[k], float) @ T; Hs, info = refine_to_lines(f, H0, L, W, pts)
+        img = draw_model(f.copy(), H0, L, W, (0, 220, 255), 3); img = draw_model(img, Hs, L, W, (0, 0, 255), 2)
+        txt = f"{kind} frame {k}: " + (f"SNAPPED p80 {info['p80_before']} -> {info['p80_after']} px, moved {info['shift_px']} px" if info.get("snapped") else f"kept ({info.get('why')})")
+        cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 0), 5); cv2.putText(img, txt, (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (255, 255, 255), 2)
+        out.append({"k": k, "kind": kind, "info": info, "jpg": cv2.imencode(".jpg", cv2.resize(img, (960, 540)), [cv2.IMWRITE_JPEG_QUALITY, 80])[1].tobytes()})
+    cap.release(); return out

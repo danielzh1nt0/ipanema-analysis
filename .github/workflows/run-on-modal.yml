@@ -147,6 +147,23 @@ jobs:
           open(f"{d}/report.json", "w").write(json.dumps(out["rows"], indent=1))
           print(json.dumps(out["rows"], indent=1)[:4000])
           PY
+      - name: calibration snapping preview (commit tagged snappreview:<match_id>)
+        if: contains(github.event.head_commit.message, '[snappreview:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid = re.search(r"\[snappreview:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "snap_preview_match").remote(mid, [1, 5, 14, 15, 17, 18, 4], 106.0, 64.0)
+          d = f"results/check/{mid}_snap"; os.makedirs(d, exist_ok=True); rows = []
+          for r in out:
+              if "jpg" in r: open(f"{d}/piece{r['i']:02d}_{r['kind']}_{r['k']:05d}.jpg", "wb").write(base64.b64decode(r.pop("jpg")))
+              rows.append(r)
+          open(f"{d}/snap.json", "w").write(json.dumps(rows, indent=1)); print(json.dumps(rows, indent=1)[:3000])
+          PY
       - name: scoreboard
         if: always()
         run: |
