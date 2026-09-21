@@ -5,7 +5,10 @@ from .video import frames, info
 
 def _feats(sift, img, scale=0.5):
     g = cv2.cvtColor(cv2.resize(img, None, fx=scale, fy=scale), cv2.COLOR_BGR2GRAY)
-    return sift.detectAndCompute(g, None)
+    # ignore the broadcaster watermark (Veo: bottom-right corner). It is fixed to the screen, not the pitch, so matching it
+    # says "the camera didn't move" and folds parts of a pan back onto each other in the stitched panorama.
+    h, w = g.shape[:2]; mask = np.full((h, w), 255, np.uint8); mask[int(h * 0.84):, int(w * 0.78):] = 0
+    return sift.detectAndCompute(g, mask)
 
 def _homog(bf, k1, d1, k2, d2, scale=0.5, min_inl=25):
     if d1 is None or d2 is None or len(k1) < 20 or len(k2) < 20: return None

@@ -185,7 +185,7 @@ def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int
     if not os.path.exists(seg):
         subprocess.run(["ffmpeg", "-y", "-ss", str(start_s), "-i", full, "-t", str(dur_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", seg], check=True, capture_output=True)
     cdir = f"{ROOT}/cache/{match_id}_s{start_s}"; os.makedirs(cdir, exist_ok=True)
-    mos = build(seg, f"{cdir}/mosaic_seg.pkl", stride=25, canvas=(4200, 1500), log=print)
+    mos = build(seg, f"{cdir}/mosaic_seg_v2.pkl", stride=25, canvas=(4200, 1500), log=print)
     out = {"panorama.jpg": base64.b64encode(cv2.imencode(".jpg", mos["mosaic"], [cv2.IMWRITE_JPEG_QUALITY, 88])[1]).decode(), "segment": os.path.basename(seg), "match_id": match_id}
     cap = cv2.VideoCapture(seg); n = int(cap.get(7))
     for q in (0.2, 0.5, 0.8):
