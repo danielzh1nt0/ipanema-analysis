@@ -79,7 +79,7 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
         except Exception as e: log(f"publish failed: {e!r}")
     files = {}
     import glob as _g, base64
-    for p in _g.glob("/content/ipanema-analysis/results/debug/ballcheck_*/ballcheck.jpg") + sorted(_g.glob("/content/ipanema-analysis/results/debug/pnlcalib_*.jpg"))[:5] + _g.glob("/content/ipanema-analysis/results/debug/*_f*.jpg")[:3]:
+    for p in _g.glob(f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}/ballcheck.jpg") + sorted(_g.glob("/content/ipanema-analysis/results/debug/pnlcalib_*.jpg"))[:5] + sorted(_g.glob(f"/content/ipanema-analysis/results/debug/{match_id}_f*.jpg"))[:4]:
         try: files[os.path.basename(os.path.dirname(p)) + "_" + os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
     import json as _json
