@@ -3,7 +3,7 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [292, 317], dark share A 0.49 / B 0.29 (A = darker kit)
+teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit)
 tracking: cached
 clean: dropped 219 off-pitch, merged 624 duplicates, stitched 835 ids, keepers [] -> A defends left
 clean: players per frame median A 5 / B 8, max A 12 / B 14
@@ -16,33 +16,34 @@ wasb train: before fine-tune, held-out hit rate 1/41
   wasb epoch 2: loss 0.000257, held-out hit rate 2/41
   wasb epoch 4: loss 0.000203, held-out hit rate 4/41
   wasb epoch 6: loss 0.000175, held-out hit rate 9/41
+  wasb epoch 8: loss 0.000154, held-out hit rate 13/41
+  wasb epoch 10: loss 0.000133, held-out hit rate 14/41
+  wasb epoch 12: loss 0.000123, held-out hit rate 14/41
+  wasb epoch 14: loss 0.000102, held-out hit rate 13/41
+  wasb epoch 16: loss 0.000090, held-out hit rate 15/41
+  wasb epoch 18: loss 0.000078, held-out hit rate 15/41
+  wasb epoch 20: loss 0.000066, held-out hit rate 15/41
+  wasb epoch 22: loss 0.000059, held-out hit rate 16/41
+  wasb epoch 24: loss 0.000050, held-out hit rate 14/41
+  wasb epoch 26: loss 0.000045, held-out hit rate 14/41
+  wasb epoch 28: loss 0.000039, held-out hit rate 14/41
+  wasb epoch 30: loss 0.000040, held-out hit rate 14/41
+wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 16/41)
+wasb seed 0: held-out 16
+wasb train: before fine-tune, held-out hit rate 1/41
+  wasb epoch 2: loss 0.000257, held-out hit rate 2/41
+  wasb epoch 4: loss 0.000203, held-out hit rate 4/41
+  wasb epoch 6: loss 0.000175, held-out hit rate 9/41
   wasb epoch 8: loss 0.000154, held-out hit rate 14/41
   wasb epoch 10: loss 0.000133, held-out hit rate 14/41
   wasb epoch 12: loss 0.000123, held-out hit rate 14/41
   wasb epoch 14: loss 0.000102, held-out hit rate 13/41
   wasb epoch 16: loss 0.000090, held-out hit rate 15/41
   wasb epoch 18: loss 0.000078, held-out hit rate 15/41
-  wasb epoch 20: loss 0.000067, held-out hit rate 15/41
-  wasb epoch 22: loss 0.000060, held-out hit rate 15/41
-  wasb epoch 24: loss 0.000051, held-out hit rate 14/41
-  wasb epoch 26: loss 0.000044, held-out hit rate 14/41
-  wasb early stop at epoch 26 (best 15/41)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 15/41)
-wasb seed 0: held-out 15
-wasb train: before fine-tune, held-out hit rate 1/41
-  wasb epoch 2: loss 0.000257, held-out hit rate 2/41
-  wasb epoch 4: loss 0.000203, held-out hit rate 4/41
-  wasb epoch 6: loss 0.000175, held-out hit rate 8/41
-  wasb epoch 8: loss 0.000154, held-out hit rate 14/41
-  wasb epoch 10: loss 0.000132, held-out hit rate 13/41
-  wasb epoch 12: loss 0.000122, held-out hit rate 14/41
-  wasb epoch 14: loss 0.000102, held-out hit rate 13/41
-  wasb epoch 16: loss 0.000089, held-out hit rate 15/41
-  wasb epoch 18: loss 0.000078, held-out hit rate 15/41
   wasb epoch 20: loss 0.000066, held-out hit rate 15/41
   wasb epoch 22: loss 0.000060, held-out hit rate 15/41
   wasb epoch 24: loss 0.000051, held-out hit rate 14/41
-  wasb epoch 26: loss 0.000044, held-out hit rate 14/41
+  wasb epoch 26: loss 0.000045, held-out hit rate 14/41
   wasb early stop at epoch 26 (best 15/41)
 wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 15/41)
 wasb seed 1: held-out 15
@@ -50,32 +51,33 @@ wasb train: before fine-tune, held-out hit rate 1/41
   wasb epoch 2: loss 0.000257, held-out hit rate 2/41
   wasb epoch 4: loss 0.000203, held-out hit rate 4/41
   wasb epoch 6: loss 0.000175, held-out hit rate 9/41
-  wasb epoch 8: loss 0.000154, held-out hit rate 14/41
-  wasb epoch 10: loss 0.000133, held-out hit rate 13/41
+  wasb epoch 8: loss 0.000154, held-out hit rate 13/41
+  wasb epoch 10: loss 0.000133, held-out hit rate 14/41
   wasb epoch 12: loss 0.000123, held-out hit rate 14/41
   wasb epoch 14: loss 0.000102, held-out hit rate 13/41
   wasb epoch 16: loss 0.000090, held-out hit rate 15/41
   wasb epoch 18: loss 0.000078, held-out hit rate 15/41
-  wasb epoch 20: loss 0.000067, held-out hit rate 15/41
-  wasb epoch 22: loss 0.000060, held-out hit rate 15/41
-  wasb epoch 24: loss 0.000050, held-out hit rate 14/41
-  wasb epoch 26: loss 0.000044, held-out hit rate 14/41
-  wasb early stop at epoch 26 (best 15/41)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 15/41)
-wasb seed 2: held-out 15
-wasb: kept best seed, held-out 15
+  wasb epoch 20: loss 0.000066, held-out hit rate 15/41
+  wasb epoch 22: loss 0.000060, held-out hit rate 16/41
+  wasb epoch 24: loss 0.000051, held-out hit rate 14/41
+  wasb epoch 26: loss 0.000045, held-out hit rate 14/41
+  wasb epoch 28: loss 0.000039, held-out hit rate 15/41
+  wasb epoch 30: loss 0.000039, held-out hit rate 16/41
+wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 16/41)
+wasb seed 2: held-out 16
+wasb: kept best seed, held-out 16
 wasb: using fine-tuned weights
   wasb frame 1500
   wasb frame 3000
   wasb frame 4500
   wasb frame 6000
   wasb frame 7500
-wasb: 4822/8992 frames with a ball peak, 1.8 peaks/frame; heatmap max p50/p90/p99 = 0.26/0.51/0.79
+wasb: 5269/8992 frames with a ball peak, 1.8 peaks/frame; heatmap max p50/p90/p99 = 0.28/0.56/0.84
 ball: WASB + YOLO candidates merged, 24.2/frame
-ball: dropped 6248 static-clutter candidates
-ball (global path): 5642/8992 frames on the chosen path
-ball check: 13/34 correct, 20 wrong, 1 no pick (ceiling 27/34)
-direction: A →  B ←  confidence A 0.32 / B 0.05  WARNING low confidence
+ball: dropped 6305 static-clutter candidates
+ball (global path): 5529/8992 frames on the chosen path
+ball check: 14/34 correct, 19 wrong, 1 no pick (ceiling 27/34)
+direction: A →  B ←  confidence A 0.11 / B 0.19  WARNING low confidence
 direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: sequences
   step: turnovers
@@ -84,39 +86,39 @@ direction (fallback from player positions): A →  B ←  median x A 46 / B 49
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy 0.38, near-player 0.96, possession withheld, events withheld
-ball reliability: 55% frames, 96% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball grade: accuracy 0.41, near-player 0.95, possession withheld, events withheld
+ball reliability: 56% frames, 95% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (21.3 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (455 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+  wrote match_data.json (21.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (391 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
 upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   SFKBP1109_s1200
   ball_reliable              False
-  ball_grade                 {'accuracy': 0.38, 'near_player_pct': 0.96, 'frames_pct': 0.55, 'possession_ok': False, 'events_ok': False}
+  ball_grade                 {'accuracy': 0.41, 'near_player_pct': 0.95, 'frames_pct': 0.56, 'possession_ok': False, 'events_ok': False}
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.49, 'B': 0.29}
+  team_dark_share            {'A': 0.51, 'B': 0.3}
   players_per_frame_median   {'A': 5.0, 'B': 8.0}
   ball_frames_pct            100
-  ball_check                 {'correct': 13, 'total': 34, 'wrong': 20, 'ceiling': 27}
-  possession_pct             {'A': 16, 'B': 84}
-  loose_pct                  21
-  dead_pct                   5
+  ball_check                 {'correct': 14, 'total': 34, 'wrong': 19, 'ceiling': 27}
+  possession_pct             {'A': 18, 'B': 82}
+  loose_pct                  22
+  dead_pct                   4
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.32, 'B': 0.05}
-  turnovers                  3
-  passes                     1576
+  direction_confidence       {'A': 0.11, 'B': 0.19}
+  turnovers                  7
+  passes                     1438
   restarts                   7
-  sequences                  59
-  shots                      {'A': 0, 'B': 1}
+  sequences                  57
+  shots                      {'A': 0, 'B': 0}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 1, 'B': 1}
-  field_tilt                 {'A': 14, 'B': 38}
-  runtime_min                34.2
+  high_turnovers             {'A': 1, 'B': 0}
+  field_tilt                 {'A': 10, 'B': 39}
+  runtime_min                33.0
 pnlcalib validation: {"panorama": "error ModuleNotFoundError(\"No module named 'utils.utils_calib'\")", "pano_crop": "error ModuleNotFoundError(\"No module named 'utils.utils_calib'\")", "frame2248": "error ModuleNotFoundError(\"No module named 'utils.utils_calib'\")", "frame4496": "error ModuleNotFoundError(\"No module named 'utils.utils_calib'\")", "frame6744": "error ModuleNotFoundError(\"No module named 'utils.utils_calib'\")"}
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.38, "near_player_pct": 0.96, "frames_pct": 0.55, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.49, "B": 0.29}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 13, "total": 34, "wrong": 20, "ceiling": 27}, "possession_pct": {"A": 16, "B": 84}, "loose_pct": 21, "dead_pct": 5, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.32, "B": 0.05}, "turnovers": 3, "passes": 1576, "restarts": 7, "sequences": 59, "shots": {"A": 0, "B": 1}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 1}, "field_tilt": {"A": 14, "B": 38}, "runtime_min": 34.2}
+SUMMARY {"match_id": "SFKBP1109_s1200", "ball_reliable": false, "ball_grade": {"accuracy": 0.41, "near_player_pct": 0.95, "frames_pct": 0.56, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.51, "B": 0.3}, "players_per_frame_median": {"A": 5.0, "B": 8.0}, "ball_frames_pct": 100, "ball_check": {"correct": 14, "total": 34, "wrong": 19, "ceiling": 27}, "possession_pct": {"A": 18, "B": 82}, "loose_pct": 22, "dead_pct": 4, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.11, "B": 0.19}, "turnovers": 7, "passes": 1438, "restarts": 7, "sequences": 57, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 1, "B": 0}, "field_tilt": {"A": 10, "B": 39}, "runtime_min": 33.0}
