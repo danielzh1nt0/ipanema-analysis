@@ -47,7 +47,7 @@ def watch(call, vol, mid, since, check_fallback, every=90, poll=45, write=True, 
         try: res = call.get(timeout=poll); done = True
         except modal.exception.FunctionTimeoutError as e: done, err = True, f"hit its time limit ({e})"
         except modal.exception.OutputExpiredError as e: done, err = True, f"result expired ({e})"
-        except modal.exception.TimeoutError: pass                         # still running
+        except (modal.exception.TimeoutError, TimeoutError): pass        # still running (modal raises Python's built-in TimeoutError here)
         except Exception as e: done, err = True, repr(e)[:500]
         logs = read_logs(vol, mid, since)
         reason = None if done else danger_in(logs, check_fallback)
@@ -62,9 +62,17 @@ def watch(call, vol, mid, since, check_fallback, every=90, poll=45, write=True, 
         if write and (done or time.time() - last > every): push(f"live log {mid}: {status}"[:70]); last = time.time()
         if done: return res, err
 
+def collect(mid):
+    """read a run's logs straight from the volume (e.g. a run whose watcher stopped early) into results/live/<mid>.log"""
+    import modal
+    logs = read_logs(modal.Volume.from_name("ipanema-data"), mid, 0)
+    os.makedirs("results/live", exist_ok=True); open(f"results/live/{mid}.log", "w").write(render(mid, logs, "collected from the volume"))
+    print(render(mid, logs, "collected")[-4000:])
+
 def main():
     import modal
     kind, mid = sys.argv[1], sys.argv[2]
+    if kind == "collect": return collect(mid)
     R2 = os.environ["R2_PUBLIC_URL"]; base = re.sub(r"_(seg|s|c)\d+$", "", mid)
     check_fallback = os.path.exists(f"calibration/{base}.json")
     vol = modal.Volume.from_name("ipanema-data"); since = time.time()

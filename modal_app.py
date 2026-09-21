@@ -265,6 +265,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     vol.commit()
     import json as _json
     safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
+    log("SUMMARY " + _json.dumps(safe))                                   # also in the volume log, so a result can be collected later
     files = {}
     import glob as _g, base64
     for r in ok: files.update(r.get("images") or {})

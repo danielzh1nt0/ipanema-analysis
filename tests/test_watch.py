@@ -17,7 +17,7 @@ def test_watcher(monkeypatch):
     class Call:
         def __init__(s, polls, result=None, raise_at_end=None): s.n = polls; s.result = result; s.raise_at_end = raise_at_end; s.cancelled = False
         def get(s, timeout=None):
-            if s.n > 0: s.n -= 1; raise TimeoutError_("still running")
+            if s.n > 0: s.n -= 1; raise TimeoutError()
             if s.raise_at_end: raise s.raise_at_end
             return s.result
         def cancel(s, terminate_containers=False): s.cancelled = True
@@ -61,7 +61,7 @@ def test_watcher_budget(monkeypatch):
     import scripts_watch as W; monkeypatch.setattr(W, "push", lambda msg: None)
     class Call:
         cancelled = False
-        def get(self, timeout=None): raise TE("running")
+        def get(self, timeout=None): raise TimeoutError()
         def cancel(self, terminate_containers=False): self.cancelled = True
     class Vol:
         def listdir(self, p, recursive=False): return []
