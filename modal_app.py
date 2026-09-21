@@ -129,6 +129,22 @@ def run_piece_cpu(match_id: str, piece: dict, full_path: str):
     """pieces whose players and ball are already detected only need calibration + positions + team split: no GPU"""
     return _piece_body(match_id, piece, full_path)
 
+@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+def piece_inventory(match_id: str):
+    """which pieces of a full match are done / can finish on CPU / need a GPU (reads the volume only; costs ~nothing)"""
+    import glob
+    _setup()
+    from ipanema import fullmatch as FM
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    n, fps = FM.video_info(full); rows = []
+    for p in FM.plan(n, fps):
+        c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"
+        done = os.path.exists(f"{c}/{FM.PIECE_FILE}")
+        det = (os.path.exists(f"{c}/tracks_kp.pkl") or bool(glob.glob(f"{c}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{c}/ball_cands_wasb_*_t2x2.pkl"))
+        rows.append({"i": p["i"], "status": "done" if done else ("cpu" if det else "gpu")})
+    return {"pieces": rows, "done": sum(r["status"] == "done" for r in rows), "cpu": sum(r["status"] == "cpu" for r in rows), "gpu": sum(r["status"] == "gpu" for r in rows)}
+
 @app.function(timeout=40 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384)
 def check_piece(match_id: str):
     """ONE piece of a full match on CPU only, as a check before the whole match. Uses a piece whose players and ball are
