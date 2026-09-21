@@ -9,7 +9,9 @@ image = (modal.Image.debian_slim(python_version="3.11")
          .pip_install("torch==2.4.1", "torchvision==0.19.1", index_url="https://download.pytorch.org/whl/cu121")
          .pip_install("ultralytics==8.3.40", "supervision==0.25.1", "opencv-python-headless", "numpy<2", "pandas", "scipy", "scikit-learn", "umap-learn", "transformers==4.46.3", "timm==1.0.11", "huggingface_hub<1.0", "pillow", "tqdm", "boto3", "supabase", "requests", "boxmot")
          .pip_install("gdown", "pyyaml", "omegaconf")
-         .run_commands("git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /content/WASB-SBDT")
+         .run_commands("git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /content/WASB-SBDT",
+                       "git clone -q --depth 1 https://github.com/mguti97/PnLCalib.git /content/PnLCalib")
+         .pip_install("lsq-ellipse==2.2.1")
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
                        "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)
@@ -36,6 +38,12 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
     try: summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
     except Exception as e:
         import traceback; log("RUN FAILED: " + traceback.format_exc()); summary = {"error": str(e)}
+    if os.environ.get("IPANEMA_PNL_VALIDATE", "1") == "1":
+        try:
+            from ipanema import pnlcalib
+            pnlcalib.validate(ROOT, log=log)
+        except Exception as e:
+            import traceback; log("pnlcalib validation failed: " + traceback.format_exc()[-600:])
     vol.commit()
     # publish log + summary to the repo (results/modal/<match>.txt) so results can be read without the dashboard
     tok = os.environ.get("GITHUB_TOKEN")
@@ -51,7 +59,7 @@ def run_match(match_id: str, video_url: str, start_s: int = 0, dur_s: int = 0, l
         except Exception as e: log(f"publish failed: {e!r}")
     files = {}
     import glob as _g, base64
-    for p in _g.glob("/content/ipanema-analysis/results/debug/ballcheck_*/ballcheck.jpg") + _g.glob("/content/ipanema-analysis/results/debug/*_f*.jpg")[:3]:
+    for p in _g.glob("/content/ipanema-analysis/results/debug/ballcheck_*/ballcheck.jpg") + _g.glob("/content/ipanema-analysis/results/debug/pnlcalib_*.jpg") + _g.glob("/content/ipanema-analysis/results/debug/*_f*.jpg")[:3]:
         try: files[os.path.basename(os.path.dirname(p)) + "_" + os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
     import json as _json
