@@ -15,9 +15,10 @@ def detect_tiled(model, f, conf, tiles):
     """run the detector on each tile, map boxes back to the frame, merge duplicates in the overlaps (NMS)"""
     import supervision as sv
     h, w = f.shape[:2]; boxes, confs, cls = [], [], []; names = None
-    for x0, y0, x1, y1 in tiles:
-        a, b, c, d = int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)
-        res = model(f[b:d, a:c], conf=conf, verbose=False)[0]; names = res.names
+    rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
+    results = model([f[b:d, a:c] for a, b, c, d in rects], conf=conf, verbose=False)      # all tiles in one GPU batch
+    for (a, b, c, d), res in zip(rects, results):
+        names = res.names
         det = sv.Detections.from_ultralytics(res)
         if len(det):
             xy = det.xyxy.copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b
@@ -62,12 +63,21 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
         rows = []
         if len(det):
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
-            labs = team_model.predict_batch(f, det.xyxy)
+            # team check: every frame for the follow-cam; on panorama clips (many more players in view) every 5th frame per
+            # player plus any new track - each player keeps a running vote of its last 25 checks either way
+            every = 5 if tiles else 1
+            tids = [int(det.tracker_id[j]) if det.tracker_id is not None else -1 for j in range(len(det))]
+            need = [j for j in range(len(det)) if k % every == 0 or tids[j] not in votes]
+            labs = [None] * len(det)
+            if need:
+                for j, lab in zip(need, team_model.predict_batch(f, det.xyxy[need])): labs[j] = lab
             for j in range(len(det)):
-                if labs[j] == "R": continue                                   # referee / bib: not a player
-                tid = int(det.tracker_id[j]) if det.tracker_id is not None else -1
-                v = votes.setdefault(tid, []); v.append(labs[j]); del v[:-25]
-                rows.append([tid, max(set(v), key=v.count), m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
+                tid = tids[j]; v = votes.setdefault(tid, [])
+                if labs[j] is not None: v.append(labs[j]); del v[:-25]
+                if not v: continue
+                team = max(set(v), key=v.count)
+                if (labs[j] if labs[j] is not None else team) == "R": continue      # referee / bib: not a player
+                rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
         per[k] = rows
         if k % 500 == 0: log(f"  tracking frame {k}")
     return per, fps
