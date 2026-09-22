@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "stats": {
+  "frames": 9000,
+  "players_per_frame_median": 21.0,
+  "frames_with_18_plus_pct": 83.2,
+  "team_A_median": 3.0,
+  "team_B_median": 18.0,
+  "off_pitch_pct": 37.62,
+  "pitch": [
+   106.0,
+   64.0
+  ],
+  "camera": {
+   "camera": "cylindrical",
+   "params": {
+    "cx": 52.91919440846247,
+    "cy": 64.4941445912436,
+    "h": 0.6854595612575928,
+    "yaw": -0.12256848807694942,
+    "fu": 464.1405553332594,
+    "fv": 1034.0916484375357,
+    "u0": 1607.3109139735993,
+    "v0": 532.1276035496003,
+    "tilt": 0.11122436768673769,
+    "roll": 0.015839569014303927
+   },
+   "pitch_transform": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ]
+  }
+ },
+ "log": [
+  "clip: 54229 frames @ 30.00 fps (30.1 min) -> 7 pieces; testing piece 2",
+  "    tracking frame 8000",
+  "    tracking frame 8500",
+  "  wasb: using fine-tuned weights, 2x2 tiles",
+  "    wasb frame 1500",
+  "    wasb frame 3000",
+  "    wasb frame 4500",
+  "    wasb frame 6000",
+  "    wasb frame 7500",
+  "    wasb frame 9000",
+  "  wasb: 772/9000 frames with a ball peak, 0.1 peaks/frame; heatmap max p50/p90/p99 = 0.10/0.24/0.47",
+  "  ball: WASB-only candidates, 0.1/frame",
+  "  p15u-vs-bp-2026-09-22-2000_c002: 9000 frames, 20.8 players/frame",
+  "TEST RESULT: {'frames': 9000, 'players_per_frame_median': 21.0, 'frames_with_18_plus_pct': 83.2, 'team_A_median': 3.0, 'team_B_median': 18.0, 'off_pitch_pct': 37.62, 'pitch': [106.0, 64.0], 'camera': {'camera': 'cylindrical', 'params': {'cx': 52.91919440846247, 'cy': 64.4941445912436, 'h': 0.6854595612575928, 'yaw': -0.12256848807694942, 'fu': 464.1405553332594, 'fv': 1034.0916484375357, 'u0': 1607.3109139735993, 'v0': 532.1276035496003, 'tilt': 0.11122436768673769, 'roll': 0.015839569014303927}, 'pitch_transform': [[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]}}"
+ ]
+}
