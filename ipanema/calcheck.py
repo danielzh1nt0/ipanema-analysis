@@ -144,8 +144,8 @@ def confidence_mask(video, H, n, L, W, every=10, bad_px=40.0):
         ok_read, f = cap.read()
         if not ok_read: break
         if k % every == 0 and k in H:
-            s = score_frame(f, H[k], L, W, pts)
-            status[k] = None if s is None else ("bad" if s["p80_px"] > bad_px else "good")
+            v = judge_frame(f, H[k], L, W)["verdict"]              # the validated check (the old p80 score was fooled by lines in the trees)
+            status[k] = None if v == "unjudged" else v
         k += 1
     cap.release()
     ok = np.array([i in H for i in range(n)], bool)
@@ -157,3 +157,26 @@ def confidence_mask(video, H, n, L, W, every=10, bad_px=40.0):
     vals = list(status.values())
     return ok, {"checks": len(vals), "good": vals.count("good"), "bad": vals.count("bad"), "unjudged": vals.count(None),
                 "trusted_pct": round(100 * float(ok.mean()), 1) if n else 0.0}
+
+
+def judge_frame(frame, H, L, W, min_seg_points=30, weak_support=0.40, max_off_grass=0.03):
+    """Is this frame's calibration right? Validated on 28 labelled SFK-BP frames (22 wrong, 3 right, 3 unsure; 21 Sep):
+    WRONG if any pitch line clearly in view on the grass has < 40% support from painted lines, or > 3% of the drawn lines
+    land off the grass (trees, sky, fence). The old single-number score passed most of the wrong frames."""
+    h, w = frame.shape[:2]
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    grass = cv2.morphologyEx(((hsv[..., 0] > 30) & (hsv[..., 0] < 95) & (hsv[..., 1] > 50)).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((25, 25), np.uint8)) > 0
+    dt = cv2.distanceTransform((1 - line_mask(frame)).astype(np.uint8), cv2.DIST_L2, 5)
+    inview = offg = 0; support = []
+    for a, b in pitch_segments(L, W):
+        a, b = np.array(a, float), np.array(b, float); m = max(2, int(np.linalg.norm(b - a) / 0.5))
+        q = cv2.perspectiveTransform((a + (b - a) * np.linspace(0, 1, m)[:, None]).astype(np.float32).reshape(-1, 1, 2), np.float32(H)).reshape(-1, 2)
+        ok = np.isfinite(q).all(1) & (q[:, 0] >= 0) & (q[:, 0] < w) & (q[:, 1] >= 0) & (q[:, 1] < h); q = q[ok].astype(int)
+        if not len(q): continue
+        on = grass[q[:, 1], q[:, 0]]; inview += len(q); offg += int((~on).sum())
+        if on.sum() >= min_seg_points: support.append(float((dt[q[:, 1], q[:, 0]] <= 8)[on].mean()))
+    off = offg / max(1, inview)
+    if not support: return {"verdict": "unjudged", "off_grass": round(off, 3), "segments": 0}
+    weakest = min(support)
+    bad = weakest < weak_support or off > max_off_grass
+    return {"verdict": "bad" if bad else "good", "off_grass": round(off, 3), "weakest_support": round(weakest, 3), "segments": len(support)}

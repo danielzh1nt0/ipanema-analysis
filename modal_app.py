@@ -188,7 +188,7 @@ def calib_mask_piece(match_id: str, i: int):
     from ipanema import fullmatch as FM, calcheck as CC
     pid = FM.piece_id(match_id, i); c = f"{ROOT}/cache/{pid}"; p = pickle.load(open(f"{c}/{FM.PIECE_FILE}", "rb"))
     ok, summary = CC.confidence_mask(f"{ROOT}/videos/{pid}.mp4", p["H"], int(p["n"]), p["L"], p["W"])
-    np.save(f"{c}/calib_ok.npy", ok); vol.commit()
+    np.save(f"{c}/calib_ok_v2.npy", ok); vol.commit()
     summary["i"] = i; return summary
 
 @app.function(timeout=150 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=32768)
@@ -245,7 +245,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     if len(ok) < len(plan_) * 0.8: log("too many pieces failed; not analysing"); return {"summary": {"error": "pieces failed"}, "log_tail": lines[-log_tail:], "files": {}}
     # "don't guess": which frames' calibration is trusted, per piece (computed once, cached)
     vol.reload()
-    need = [r["i"] for r in ok if not os.path.exists(f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok.npy")]
+    need = [r["i"] for r in ok if not os.path.exists(f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok_v2.npy")]
     if need:
         for s in calib_mask_piece.map([match_id] * len(need), need, return_exceptions=True):
             log(f"  calibration check piece {s.get('i') if isinstance(s, dict) else '?'}: {s}")
@@ -261,7 +261,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     else: log("periods: none set, the whole recording counts as match time")
     trusted = np.ones(n, bool); missing = []
     for r, p in zip(done, pl):
-        f = f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok.npy"
+        f = f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok_v2.npy"
         if not os.path.exists(f): missing.append(r["i"]); continue
         m_ = np.load(f); a = p["offset"]; b = min(n, a + len(m_)); trusted[a:b] = m_[:b - a]
     if missing: log(f"calibration check missing for pieces {missing}: their frames are trusted as before")
@@ -464,8 +464,8 @@ def detect_periods(match_id: str):
         for k, rows in pk["per"].items():
             g = p["offset"] + k
             if g < n: per[g] = [[r[0], r[1], np.asarray(r[2], float)] for r in rows]
-        if os.path.exists(f"{c}/calib_ok.npy"):
-            m = np.load(f"{c}/calib_ok.npy"); a = p["offset"]; b = min(n, a + len(m)); trusted[a:b] = m[:b - a]
+        if os.path.exists(f"{c}/calib_ok_v2.npy"):
+            m = np.load(f"{c}/calib_ok_v2.npy"); a = p["offset"]; b = min(n, a + len(m)); trusted[a:b] = m[:b - a]
         del pk
     ps = PD.per_second(per, fps, L, W, trusted); r = PD.detect(ps)
     out = {"detected": r, "per_second": {k: [round(float(v), 2) for v in a] for k, a in ps.items()}}   # for offline work on the detector
