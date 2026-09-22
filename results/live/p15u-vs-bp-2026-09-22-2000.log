@@ -1,14 +1,27 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 18:58:03 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · finished · 18:58:32 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000 full match === video: 54229 frames (1808 s) @ 30.000 fps -> 7 pieces
 calibration: from the clip's own camera
 pieces: 1 already processed, 0 to finish on CPU (detections saved), 6 need a GPU
 canary: piece 1 first (GPU)
+CANARY FAILED on piece 1: the piece crashed; the other 5 pieces were not started
 
-## piece_001.log (1 lines, last 60)
-
+## piece_001.log (13 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+panorama calibration: {'points': 1932, 'median_px': 5.0, 'p80_px': 17.2, 'within6_pct': 56.6}
+PIECE FAILED: Traceback (most recent call last):
+  File "/root/modal_app.py", line 126, in _piece_body
+    try: path = process_piece(full_path, match_id, piece, S, log=log); ok = True
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/fullmatch.py", line 37, in process_piece
+    ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece["i"] in (0, 4, 10, 16)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/run.py", line 50, in prepare
+    raise RuntimeError(f"panorama calibration rejected: {', '.join(why)} (params {dict(zip(_CN, map(lambda v: round(float(v), 3), cam.params)))})")
+RuntimeError: panorama calibration rejected: height 0.4 m, tilted/rolled too much (params {'cx': 53.077, 'cy': 63.89, 'h': 0.41, 'yaw': -1.111, 'fu': 383.876, 'fv': 180.479, 'u0': 976.399, 'v0': 323.626, 'tilt': 0.441, 'roll': 0.004})
 
 ## train_ball.log (1 lines, last 60)
 
