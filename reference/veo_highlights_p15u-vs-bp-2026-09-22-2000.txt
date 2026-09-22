@@ -1,6 +1,5 @@
-# Veo highlights for the panorama recording of SFK vs BP, minutes 0:00-30:08 (screen-recorded from Veo time 0:00, so times are unchanged).
-# Taken from reference/veo_highlights_SFKBP1109.txt.
-28 goal
-28 shot
-610 shot
-863 shot
+# Veo highlights inside the panorama recording of SFK vs BP. The recording starts at Veo time 9:53 (593 s), read from the
+# Veo clock visible in the recording at two points (recording 11:00 = Veo 20:53, 12:30 = 22:23); times below are recording seconds.
+17 shot
+270 shot
+1590 shot
