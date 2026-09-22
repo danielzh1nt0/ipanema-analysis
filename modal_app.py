@@ -543,26 +543,34 @@ def test_piece(match_id: str, i: int, video_url: str):
 
 @app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
 def profile_tracking(match_id: str, i: int, n_frames: int = 300):
-    """where tracking time goes on a panorama piece: first n_frames only, timed per part, GPU checked"""
-    import json, time, torch
+    """detector size vs speed vs players ON THE PITCH (via the verified calibration), then 300 tracked frames timed per part"""
+    import json, time, numpy as np, cv2, torch
+    import supervision as sv
     S = _setup()
     from ipanema import fullmatch as FM, tracking as TR, teams as T
     from ipanema.cylcam import CylCam
+    from ultralytics import YOLO
     log, lines = _logger(f"{match_id}/profile.log")
     pid = FM.piece_id(match_id, i); cache = f"{ROOT}/cache/{pid}"; video = f"{ROOT}/videos/{pid}.mp4"
-    log(f"GPU visible to torch: {torch.cuda.is_available()} ({torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'})")
-    cam = CylCam(json.load(open(f"{cache}/calibration_cyl.json"))["params"])
-    t0 = time.time(); T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log); log(f"team model fit: {time.time() - t0:.0f} s")
-    from ultralytics import YOLO
-    import numpy as np, cv2
-    m = YOLO(S.weights["player"]); cap = cv2.VideoCapture(video); ok, f = cap.read(); cap.release()
-    for label, fn in (("one full frame", lambda: m(f, verbose=False)), ("6 tiles, one batch", lambda: TR.detect_tiled(m, f, 0.3, TR.PANO_TILES))):
-        fn(); t0 = time.time()
-        for _ in range(10): fn()
-        log(f"detector speed, {label}: {(time.time() - t0) / 10 * 1000:.0f} ms per frame (device: {next(m.model.parameters()).device})")
+    cam = CylCam(json.load(open(f"{cache}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    cap = cv2.VideoCapture(video); frames = []
+    for k in range(0, 9000, 300):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release(); log(f"GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'}; video {frames[0].shape[1]}x{frames[0].shape[0]}; {len(frames)} test frames")
+    m = YOLO(S.weights["player"])
+    for sz in (1920, 2560):
+        def det(f): return sv.Detections.from_ultralytics(m(f, conf=S.conf_player, verbose=False, imgsz=sz)[0]).with_nms(0.5, class_agnostic=True)
+        det(frames[0]); t0 = time.time(); on = []
+        for f in frames:
+            d = det(f); feet = np.c_[(d.xyxy[:, 0] + d.xyxy[:, 2]) / 2, d.xyxy[:, 3]] if len(d) else np.zeros((0, 2))
+            mm = cam.to_m(feet) if len(feet) else np.zeros((0, 2))
+            on.append(int((np.isfinite(mm).all(1) & (mm[:, 0] >= 0) & (mm[:, 0] <= L) & (mm[:, 1] >= 0) & (mm[:, 1] <= W)).sum()))
+        ms = (time.time() - t0) / len(frames) * 1000
+        log(f"SIZE {sz}: {ms:.0f} ms/frame ({1000 / ms:.1f} frames/s) | players ON the pitch per frame: median {np.median(on):.0f}, 10th pct {np.percentile(on, 10):.0f}, max {max(on)}")
     os.environ["IPANEMA_MAX_FRAMES"] = str(n_frames)
-    t0 = time.time(); per, fps = TR.track(video, S.weights["player"], {k: cam for k in range(9000)}, tm, S.conf_player, log=log, tiles=TR.PANO_TILES)
-    log(f"PROFILE: tracked {len(per)} frames in {time.time() - t0:.1f} s; median players/frame {np.median([len(v) for v in per.values()]):.0f}")
+    t0 = time.time(); per, fps = TR.track(video, S.weights["player"], {k: cam for k in range(9000)}, None, S.conf_player, log=log, imgsz=1920)
+    log(f"PROFILE 1920: tracked {len(per)} frames in {time.time() - t0:.1f} s")
     return lines[-40:]
 
 @app.function(gpu="L4", timeout=15 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
