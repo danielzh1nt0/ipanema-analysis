@@ -317,6 +317,19 @@ jobs:
           out = modal.Function.from_name("ipanema", "compare_detectors").remote(mid, int(i))
           os.makedirs("results/check", exist_ok=True); open(f"results/check/{mid}_compare_detectors.txt", "w").write("\n".join(out)); print("\n".join(out))
           PY
+      - name: proof of the follow-cam <-> panorama link (commit tagged linkproof)
+        if: contains(github.event.head_commit.message, '[linkproof]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, json, base64
+          out = modal.Function.from_name("ipanema", "link_proof").remote("p15u-vs-bp-2026-09-22-2000", "SFKBP1109", [300, 660, 900, 1200, 1500], 593.0)
+          d = "results/check/link_proof"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/link.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out["rows"], indent=1, default=str))
+          PY
       - name: scoreboard
         if: always()
         run: |

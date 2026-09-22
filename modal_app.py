@@ -630,6 +630,48 @@ def prepare_panorama_clip(match_id: str, video_url: str):
     img = base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode() if ok else None
     return {"rect": [x0, y0, x1, y1], "url": url, "log": lines[-20:], "image": img}
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def link_proof(pano_mid: str, fc_mid: str, rec_times: list, offset_s: float):
+    """Proof of the follow-cam <-> panorama link at a few moments: exact same-moment frame, follow-cam calibration from the
+    panorama (pitch lines drawn), and the follow-cam's ball drawn onto the panorama (CPU, reads saved data)."""
+    import json, glob, pickle, base64, numpy as np, cv2
+    _setup()
+    from ipanema import fullmatch as FM, link as LK
+    from ipanema.cylcam import CylCam
+    from ipanema.calibration import draw_model
+    log, lines = _logger(f"{pano_mid}/link_proof.log")
+    cam = CylCam(json.load(open(f"{ROOT}/cache/{FM.piece_id(pano_mid, 2)}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    pv = cv2.VideoCapture(f"{ROOT}/videos/{pano_mid}/full_cropped.mp4"); pfps = pv.get(cv2.CAP_PROP_FPS)
+    fcv = f"{ROOT}/videos/{fc_mid}.mp4"; fn, ffps = FM.video_info(fcv); fcap = cv2.VideoCapture(fcv); plan_ = FM.plan(fn, ffps)
+    def read(cap, k):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(k)); ok, f = cap.read(); return f if ok else None
+    out, imgs = [], {}
+    for t in rec_times:
+        g = int(round((t + offset_s) * ffps)); fc = read(fcap, g)
+        if fc is None: out.append({"t": t, "error": "follow-cam frame not readable"}); continue
+        k0 = int(round(t * pfps)); ks = list(range(k0 - 45, k0 + 46, 3))
+        n1, i1, _ = LK.best_frame(fc, [read(pv, k) for k in ks], cam, L, W)                       # coarse: +-1.5 s in steps of 0.1 s
+        if i1 is None: out.append({"t": t, "error": "no panorama frame matched"}); continue
+        ks2 = list(range(ks[i1] - 3, ks[i1] + 4)); frames2 = [read(pv, k) for k in ks2]
+        n2, i2, H = LK.best_frame(fc, frames2, cam, L, W); kbest = ks2[i2]; pano = frames2[i2]    # fine: frame by frame
+        H, info = LK.fc_to_metres(fc, pano, cam, L, W)
+        row = {"t": t, "fc_frame": g, "pano_frame": kbest, "offset_s": round(g / ffps - kbest / pfps, 3), **info}
+        # the ball the follow-cam detector found in this frame (top candidate), into metres and onto the panorama
+        p = next(pp for pp in reversed(plan_) if pp["offset"] <= g); cf = sorted(glob.glob(f"{ROOT}/cache/{FM.piece_id(fc_mid, p['i'])}/ball_cands_wasb_*_t2x2.pkl"), key=os.path.getmtime)
+        cands = pickle.load(open(cf[-1], "rb")).get(g - p["offset"], []) if cf else []
+        fcd = fc.copy(); pad = pano.copy()
+        draw_model(fcd, np.linalg.inv(H), L, W, (0, 0, 255)); draw_model(pad, cam, L, W, (0, 0, 255))
+        if cands:
+            bx, by, bc = max(cands, key=lambda c: c[2]); bm = cv2.perspectiveTransform(np.float32([[[bx, by]]]), H).reshape(2); bp = cam.project(bm)[0]
+            row.update(ball_conf=round(float(bc), 2), ball_m=[round(float(v), 1) for v in bm])
+            cv2.circle(fcd, (int(bx), int(by)), 22, (0, 255, 255), 4)
+            if np.isfinite(bp).all(): cv2.circle(pad, (int(bp[0]), int(bp[1])), 14, (0, 255, 255), 3)
+        a = cv2.resize(fcd, (960, 540)); b = cv2.resize(pad, (960, int(960 * pad.shape[0] / pad.shape[1])))
+        both = np.vstack([a, b]); cv2.putText(both, f"t {t}s: follow-cam (top) / panorama (bottom); yellow = follow-cam ball", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+        imgs[f"link_t{int(t):04d}.jpg"] = base64.b64encode(cv2.imencode(".jpg", both, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+        log(f"LINK t={t}: {row}"); out.append(row)
+    return {"rows": out, "images": imgs, "log": lines[-30:]}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
