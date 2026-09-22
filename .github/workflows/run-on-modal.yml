@@ -330,6 +330,21 @@ jobs:
           for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
           open(f"{d}/link.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out["rows"], indent=1, default=str))
           PY
+      - name: compare detectors for small dark players (commit tagged comparedet2:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[comparedet2:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, base64
+          mid, i = re.search(r"\[comparedet2:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "compare_detectors2").remote(mid, int(i))
+          d = f"results/check/{mid}_det2"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out["images"].items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/compare.txt", "w").write("\n".join(out["log"])); print("\n".join(out["log"]))
+          PY
       - name: scoreboard
         if: always()
         run: |
