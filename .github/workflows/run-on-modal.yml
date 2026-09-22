@@ -242,6 +242,17 @@ jobs:
           if ps: open(f"results/check/{mid}_per_second.json", "w").write(json.dumps(ps))
           open(f"results/check/{mid}_periods.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str))
           PY
+      - name: list the newest matches (commit tagged uploads)
+        if: contains(github.event.head_commit.message, '[uploads]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, json
+          out = modal.Function.from_name("ipanema", "recent_matches").remote()
+          os.makedirs("results/check", exist_ok=True); open("results/check/recent_matches.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:3000])
+          PY
       - name: scoreboard
         if: always()
         run: |

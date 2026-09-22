@@ -478,6 +478,21 @@ def detect_periods(match_id: str):
         out["veo_second_half_kickoff_s"] = PD.veo_second_half_kickoff(goals, mins, r["periods"][0][1])
     return out
 
+@app.function(timeout=3 * 60, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=0.5)
+def recent_matches(limit: int = 8):
+    """newest match rows (to find an upload without asking the coach for its id)"""
+    from supabase import create_client
+    db = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_KEY"])
+    rows = db.table("matches").select("*").order("created_at", desc=True).limit(limit).execute().data or []
+    keep = ("id", "status", "created_at", "updated_at", "title", "opponent", "match_date", "duration_s")
+    out = []
+    for r in rows:
+        o = {k: r.get(k) for k in keep if k in r}
+        s = r.get("summary") or {}
+        if isinstance(s, dict): o["summary_keys"] = sorted(s)[:12]; o["progress"] = s.get("progress")
+        o["columns"] = sorted(r)[:30]; out.append(o)
+    return out
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
