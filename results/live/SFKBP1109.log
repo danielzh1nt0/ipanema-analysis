@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 06:00:09 UTC
+# live log · SFKBP1109 · running · 06:01:42 UTC
 
 
-## run_full.log (24 lines, last 60)
+## run_full.log (39 lines, last 60)
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
 pieces: 21/21 done in 0.1 min
@@ -26,6 +26,21 @@ pieces: 21/21 done in 0.1 min
   piece 18: cached
   piece 19: cached
   piece 20: cached
+  calibration check piece 0: {'checks': 900, 'good': 523, 'bad': 377, 'unjudged': 0, 'trusted_pct': 56.5, 'i': 0}
+  calibration check piece 1: {'checks': 900, 'good': 571, 'bad': 329, 'unjudged': 0, 'trusted_pct': 62.5, 'i': 1}
+  calibration check piece 2: {'checks': 900, 'good': 273, 'bad': 627, 'unjudged': 0, 'trusted_pct': 28.8, 'i': 2}
+  calibration check piece 3: {'checks': 900, 'good': 168, 'bad': 732, 'unjudged': 0, 'trusted_pct': 16.2, 'i': 3}
+  calibration check piece 4: {'checks': 900, 'good': 429, 'bad': 471, 'unjudged': 0, 'trusted_pct': 44.4, 'i': 4}
+  calibration check piece 5: {'checks': 900, 'good': 401, 'bad': 499, 'unjudged': 0, 'trusted_pct': 43.0, 'i': 5}
+  calibration check piece 6: {'checks': 900, 'good': 328, 'bad': 572, 'unjudged': 0, 'trusted_pct': 34.0, 'i': 6}
+  calibration check piece 7: {'checks': 900, 'good': 302, 'bad': 598, 'unjudged': 0, 'trusted_pct': 31.4, 'i': 7}
+  calibration check piece 8: {'checks': 900, 'good': 214, 'bad': 686, 'unjudged': 0, 'trusted_pct': 22.7, 'i': 8}
+  calibration check piece 9: {'checks': 900, 'good': 320, 'bad': 580, 'unjudged': 0, 'trusted_pct': 33.8, 'i': 9}
+  calibration check piece 10: {'checks': 900, 'good': 647, 'bad': 253, 'unjudged': 0, 'trusted_pct': 66.2, 'i': 10}
+  calibration check piece 11: {'checks': 900, 'good': 338, 'bad': 562, 'unjudged': 0, 'trusted_pct': 31.6, 'i': 11}
+  calibration check piece 12: {'checks': 900, 'good': 125, 'bad': 775, 'unjudged': 0, 'trusted_pct': 12.2, 'i': 12}
+  calibration check piece 13: {'checks': 900, 'good': 240, 'bad': 660, 'unjudged': 0, 'trusted_pct': 25.3, 'i': 13}
+  calibration check piece 14: {'checks': 900, 'good': 252, 'bad': 648, 'unjudged': 0, 'trusted_pct': 26.4, 'i': 14}
 
 ## train_ball.log (1 lines, last 60)
 
