@@ -1,7 +1,8 @@
-# Veo AI event list for SFK vs BP (minute · team · event), pasted from the Veo match page, merged and de-duplicated.
-# Minutes are MATCH-CLOCK minutes (e.g. 57' goal 2-0 then 58' kickoff fall in video half-time 51:00-58:29, so they cannot be video minutes).
-# Second half: video_s = 3509 + (minute - 46) * 60. First half: video_s = minute * 60 (coach: the recording starts at kick-off).
-# Coverage: minutes 1-10, 13-26, 50-66, 76-82. MISSING: 10-13, 26-50, 66-76, 82-end (the 1-0 goal is in a gap).
+# Veo AI event list for SFK vs BP (minute · team · event), pasted from the Veo match page in overlapping scrolls, merged.
+# Minutes are Veo's match-clock minutes. Coach: first half = video 0:00-51:00, half-time 51:00-58:29, second half to 1:39:00.
+# Veo counts 44'-51' continuously with no kickoff, so 46'-51' labels are AMBIGUOUS (first-half stoppage vs second-half start);
+# the shot comparison leaves them out. Minutes >= 52 map to video_s = 3509 + (minute - 46) * 60.
+# Coverage: 1-10, 13-31, 44-66, 70-74, 76-82. MISSING: 10-13, 31-44, 66-70, 75-76, 82-end (the 1-0 goal is in a gap).
 1 BP1 Shot
 2 BP1 Corner
 3 BP1 Throw-in
@@ -41,7 +42,24 @@
 24 BP1 Foul
 25 SFK Free kick
 26 BP1 Foul
+27 SFK Free kick
+27 BP1 Shot
+28 BP1 Foul
+28 SFK Free kick
+29 BP1 Throw-in
+44 SFK Throw-in
+44 SFK Throw-in
+45 BP1 Shot
+45 SFK Goal kick
+45 SFK Throw-in
+46 SFK Shot
+46 BP1 Goal kick
+47 SFK Free kick
+47 SFK Shot
+48 BP1 Goal kick
+48 SFK Throw-in
 50 SFK Shot
+50 BP1 Throw-in
 51 BP1 Goal kick
 51 SFK Shot
 52 BP1 Throw-in
@@ -65,6 +83,17 @@
 65 SFK Goal kick
 65 BP1 Goal kick
 66 BP1 Throw-in
+70 BP1 Throw-in
+70 SFK Throw-in
+71 SFK Throw-in
+72 BP1 Throw-in
+72 SFK Foul
+72 BP1 Free kick
+73 BP1 Throw-in
+73 BP1 Throw-in
+74 BP1 Shot
+74 BP1 Shot
+74 SFK Throw-in
 76 SFK Throw-in
 77 BP1 Goal 2-1
 78 SFK Kickoff
