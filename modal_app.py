@@ -988,6 +988,17 @@ def detector_variants(match_id: str, i: int):
             imgs[f"variant_{len(imgs)}.jpg"] = base64.b64encode(cv2.imencode(".jpg", show, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
     return {"rows": out, "images": imgs}
 
+@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+def seed_clip_calibration(match_id: str, from_piece: int):
+    """use a piece's verified panorama calibration as the clip's calibration (every piece then shares it)"""
+    import json, shutil
+    _setup()
+    from ipanema import fullmatch as FM
+    src = f"{ROOT}/cache/{FM.piece_id(match_id, from_piece)}/calibration_cyl.json"; dst_dir = f"{ROOT}/cache/{match_id}"
+    if not os.path.exists(src): return {"error": f"no calibration at {src}"}
+    os.makedirs(dst_dir, exist_ok=True); shutil.copy(src, f"{dst_dir}/calibration_cyl.json"); vol.commit()
+    return {"seeded_from": from_piece, "params": json.load(open(src))["params"], "fit": json.load(open(src)).get("fit")}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

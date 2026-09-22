@@ -34,20 +34,29 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     if panorama:
         from .cylcam import CylCam, fit as _cylfit, NAMES as _CN
         spec = _json.load(open(_spec)); L, W = spec["pitch"]["length"], spec["pitch"]["width"]
-        cam_cache = f"{cache}/calibration_cyl.json"
+        clip_cache = os.path.join(S.root, "cache", _mid); os.makedirs(clip_cache, exist_ok=True)
+        cam_cache = f"{clip_cache}/calibration_cyl.json"                    # one camera for the whole clip: every piece uses it
+        if not os.path.exists(cam_cache) and os.path.exists(f"{cache}/calibration_cyl.json"):
+            import shutil as _sh; _sh.copy(f"{cache}/calibration_cyl.json", cam_cache)
         if os.path.exists(cam_cache):
-            cam = CylCam(_json.load(open(cam_cache))["params"]); log("calibration: curved panorama camera (cached fit)")
+            cam = CylCam(_json.load(open(cam_cache))["params"]); log("calibration: curved panorama camera (fitted once for this clip)")
         else:
             import cv2 as _cv
-            cap = _cv.VideoCapture(video); cap.set(_cv.CAP_PROP_POS_FRAMES, int(vi["n"] * 0.5)); ok, fr = cap.read(); cap.release()
-            iw, ih = spec["image_size"]; hh, ww = fr.shape[:2]
-            init = [spec["params"][k] for k in _CN]; s = ww / iw
-            for j in (4, 5, 6, 7): init[j] *= s                            # screenshot fit scaled to this video's size
-            cam, stats = _cylfit(fr, init, L, W, mask_top=int(spec["mask_rows"]["top"] / ih * hh), mask_bottom=int(spec["mask_rows"]["bottom_from"] / ih * hh), log=log)
             from .cylcam import plausible as _plaus
-            ok_cam, why = _plaus(cam.params, L, W)
-            if not ok_cam:                                                   # never accept a camera that can't exist, however well its lines score
-                raise RuntimeError(f"panorama calibration rejected: {', '.join(why)} (params {dict(zip(_CN, map(lambda v: round(float(v), 3), cam.params)))})")
+            cap = _cv.VideoCapture(video); iw, ih = spec["image_size"]; init0 = [spec["params"][k] for k in _CN]
+            tries = []
+            for frac in (0.15, 0.35, 0.5, 0.7, 0.9):                        # one frame can fit badly: try five across the clip, keep the best possible one
+                cap.set(_cv.CAP_PROP_POS_FRAMES, int(vi["n"] * frac)); okf, fr = cap.read()
+                if not okf: continue
+                hh, ww = fr.shape[:2]; init = list(init0); s = ww / iw
+                for j in (4, 5, 6, 7): init[j] *= s
+                cam_i, stats_i = _cylfit(fr, init, L, W, mask_top=int(spec["mask_rows"]["top"] / ih * hh), mask_bottom=int(spec["mask_rows"]["bottom_from"] / ih * hh), log=lambda *a: None)
+                good, why = _plaus(cam_i.params, L, W)
+                log(f"  calibration try at {frac:.0%} of the clip: {stats_i} {'ok' if good else 'rejected: ' + ', '.join(why)}")
+                if good: tries.append((stats_i["median_px"], cam_i, stats_i))
+            cap.release()
+            if not tries: raise RuntimeError("panorama calibration: no physically possible camera fitted on any of five frames")
+            _, cam, stats = min(tries, key=lambda z: z[0]); log(f"calibration: kept the best of {len(tries)} possible fits ({stats})")
             _json.dump({"params": cam.params.tolist(), "fit": stats}, open(cam_cache, "w"))
         H = {k: cam for k in range(vi["n"])}
         cal = {"coverage": 1.0, "frozen": 0, "H": H, "L": L, "W": W}

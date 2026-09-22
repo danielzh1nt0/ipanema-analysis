@@ -73,6 +73,18 @@ jobs:
           open(f"{d}/segment.txt", "w").write(out.get("segment", ""))
           print("prepared", mid)
           PY
+      - name: seed a clip's panorama calibration from a verified piece (commit tagged seedcal:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[seedcal:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json
+          mid, i = re.search(r"\[seedcal:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          print(json.dumps(modal.Function.from_name("ipanema", "seed_clip_calibration").remote(mid, int(i)), indent=1))
+          PY
       - name: run a full match (commit tagged full:<match_id>) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[full:')
         env:
