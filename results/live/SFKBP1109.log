@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 00:40:37 UTC
+# live log · SFKBP1109 · running · 00:42:10 UTC
 
 
-## run_full.log (24 lines, last 60)
+## run_full.log (30 lines, last 60)
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
 pieces: 21/21 done in 0.2 min
@@ -26,6 +26,12 @@ pieces: 21/21 done in 0.2 min
   piece 18: cached
   piece 19: cached
   piece 20: cached
+periods: [(0.0, 3059.99), (3509.01, 5940.0)] s; 91 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 91.1% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 40 held-out test frames mapped into the full match
+clean: dropped 35179 off-pitch, merged 17675 duplicates, stitched 14237 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
+clean: players per frame median A 4 / B 5, max A 20 / B 16
+ball v2: 127321/184725 frames on the path, 4902 static-clutter candidates dropped
 
 ## train_ball.log (1 lines, last 60)
 
