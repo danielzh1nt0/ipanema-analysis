@@ -14,3 +14,11 @@ def test_kit_labels():
     for name, (bgr, want) in cases.items():
         f, box = _player(bgr); assert kit_labels(f, [box])[0] == want, name
     f, box = _player((25, 25, 25), size=(4, 2)); assert kit_labels(f, [box])[0] is None      # too small to judge
+
+def test_small_players_with_grey_background():
+    """far players: tiny, and the box also holds grey fence/path; black must still read as A, white as B"""
+    for shirt, want in (((25, 25, 25), "A"), ((230, 230, 230), "B")):
+        f = np.zeros((200, 400, 3), np.uint8); f[:] = (40, 140, 60); f[40:100, :] = (135, 135, 135)     # grey fence/path band
+        x, y, w, h = 200, 60, 6, 24
+        f[y + 3:y + 12, x + 1:x + 5] = shirt; f[y + 12:y + h, x + 1:x + 5] = (30, 30, 30)            # 4 px wide shirt, dark shorts
+        assert kit_labels(f, [[x - 2, y, x + w + 2, y + h]])[0] == want, (shirt, want)

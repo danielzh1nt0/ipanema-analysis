@@ -84,7 +84,7 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
         per, fps = pickle.load(open(alt_trk, "rb")); per = TR.reposition(per, H); pickle.dump((per, fps), open(trk, "wb"))
         log("tracking: reused detections, re-positioned with the panorama calibration")
-    else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log, imgsz=2560 if panorama else None)   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s); pickle.dump((per, fps), open(trk, "wb"))
+    else: per, fps = TR.track(video, S.weights["player"], H, tm, 0.1 if panorama else S.conf_player, log=log, imgsz=2560 if panorama else None)   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s); pickle.dump((per, fps), open(trk, "wb"))
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     cands = None
     if ball_backend == "wasb":
