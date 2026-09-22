@@ -451,6 +451,33 @@ def export_events(match_id: str, types: list):
     md = json.load(open(f"{ROOT}/runs/matches/{match_id}/match_data.json"))
     return [{"t": e.get("t"), "type": e.get("type"), "team": e.get("team"), "title": e.get("title"), "payload": {k: v for k, v in (e.get("payload") or {}).items() if isinstance(v, (int, float, str, bool))}} for e in md.get("events", []) if e.get("type") in types]
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def detect_periods(match_id: str):
+    """match periods from the saved pieces (CPU), compared with the coach's periods and Veo's goal times"""
+    import pickle, json, re, numpy as np
+    _setup()
+    from ipanema import fullmatch as FM, periods as PD
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    n, fps = FM.video_info(full); per = {}; trusted = np.ones(n, bool); L = W = None
+    for p in FM.plan(n, fps):
+        c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"; pk = pickle.load(open(f"{c}/{FM.PIECE_FILE}", "rb")); L, W = pk["L"], pk["W"]
+        for k, rows in pk["per"].items():
+            g = p["offset"] + k
+            if g < n: per[g] = [[r[0], r[1], np.asarray(r[2], float)] for r in rows]
+        if os.path.exists(f"{c}/calib_ok.npy"):
+            m = np.load(f"{c}/calib_ok.npy"); a = p["offset"]; b = min(n, a + len(m)); trusted[a:b] = m[:b - a]
+        del pk
+    r = PD.detect(PD.per_second(per, fps, L, W, trusted))
+    out = {"detected": r}
+    pf = f"/content/ipanema-analysis/periods/{match_id}.json"
+    if os.path.exists(pf): out["coach"] = json.load(open(pf))["periods_s"]
+    hf = f"/content/ipanema-analysis/reference/veo_highlights_{match_id}.txt"; ef = f"/content/ipanema-analysis/reference/veo_events_{match_id}.txt"
+    if os.path.exists(hf) and os.path.exists(ef) and r:
+        goals = [int(l.split()[0]) for l in open(hf) if l.strip() and not l.startswith("#") and l.split()[1] == "goal"]
+        mins = [int(l.split()[0]) for l in open(ef) if re.match(r"^\d+ \S+ Goal \d", l)]
+        out["veo_second_half_kickoff_s"] = PD.veo_second_half_kickoff(goals, mins, r["periods"][0][1])
+    return out
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
