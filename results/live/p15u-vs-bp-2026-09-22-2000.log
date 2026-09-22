@@ -1,4 +1,4 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:47:24 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:49:05 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -8,7 +8,7 @@ pieces: 1 already processed, 0 to finish on CPU (detections saved), 6 need a GPU
 canary: piece 1 first (GPU)
 canary passed: calibration from the panorama, 21.0 players per frame
 
-## piece_000.log (23 lines, last 60)
+## piece_000.log (24 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -32,6 +32,7 @@ teams: 601 crops, clusters [301, 300], dark share A 0.28 / B 0.0 (A = darker kit
   tracking frame 6500 (4.5 frames/s)
   tracking frame 7000 (4.5 frames/s)
   tracking frame 7500 (4.5 frames/s)
+  tracking frame 8000 (4.5 frames/s)
 
 ## piece_001.log (34 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -69,7 +70,7 @@ wasb: 3111/9000 frames with a ball peak, 0.5 peaks/frame; heatmap max p50/p90/p9
 ball: WASB-only candidates, 0.5/frame
 p15u-vs-bp-2026-09-22-2000_c001: 9000 frames, 21.0 players/frame
 
-## piece_003.log (22 lines, last 60)
+## piece_003.log (23 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -92,8 +93,9 @@ teams: 602 crops, clusters [602], dark share A 0.12 / B 0.0 (A = darker kit)
   tracking frame 6500 (4.5 frames/s)
   tracking frame 7000 (4.5 frames/s)
   tracking frame 7500 (4.5 frames/s)
+  tracking frame 8000 (4.5 frames/s)
 
-## piece_004.log (23 lines, last 60)
+## piece_004.log (24 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -117,8 +119,9 @@ teams: 602 crops, clusters [301, 301], dark share A 0.37 / B 0.0 (A = darker kit
   tracking frame 6500 (4.5 frames/s)
   tracking frame 7000 (4.5 frames/s)
   tracking frame 7500 (4.5 frames/s)
+  tracking frame 8000 (4.5 frames/s)
 
-## piece_005.log (22 lines, last 60)
+## piece_005.log (23 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -141,6 +144,7 @@ teams: 608 crops, clusters [608], dark share A 0.14 / B 0.0 (A = darker kit)
   tracking frame 6500 (4.5 frames/s)
   tracking frame 7000 (4.5 frames/s)
   tracking frame 7500 (4.5 frames/s)
+  tracking frame 8000 (4.5 frames/s)
 
 ## piece_006.log (10 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
