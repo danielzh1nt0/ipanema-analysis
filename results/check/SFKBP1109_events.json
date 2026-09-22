@@ -1,0 +1,162 @@
+[
+ {
+  "t": 890.52,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 890.52,
+   "team": "B",
+   "x_m": 15.5,
+   "y_m": 45.1,
+   "distance_m": 18.4,
+   "speed_ms": 18.6,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 930.0,
+  "type": "shot",
+  "team": "A",
+  "title": "Shot \u00b7 A",
+  "payload": {
+   "t": 930.0,
+   "team": "A",
+   "x_m": 108.4,
+   "y_m": 40.6,
+   "distance_m": 12.9,
+   "speed_ms": 22.2,
+   "outcome": "saved or blocked",
+   "goal": false
+  }
+ },
+ {
+  "t": 944.71,
+  "type": "shot",
+  "team": "A",
+  "title": "Shot \u00b7 A",
+  "payload": {
+   "t": 944.71,
+   "team": "A",
+   "x_m": 107.7,
+   "y_m": 61.2,
+   "distance_m": 28.9,
+   "speed_ms": 20.4,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 1320.65,
+  "type": "shot",
+  "team": "A",
+  "title": "Shot \u00b7 A",
+  "payload": {
+   "t": 1320.65,
+   "team": "A",
+   "x_m": 95.2,
+   "y_m": 51.2,
+   "distance_m": 29.6,
+   "speed_ms": 18.2,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 2204.0,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 2204.0,
+   "team": "B",
+   "x_m": 9.6,
+   "y_m": 42.4,
+   "distance_m": 12.1,
+   "speed_ms": 33.1,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 2983.65,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 2983.65,
+   "team": "B",
+   "x_m": 21.2,
+   "y_m": 55.7,
+   "distance_m": 29.6,
+   "speed_ms": 29.4,
+   "outcome": "on target",
+   "goal": false
+  }
+ },
+ {
+  "t": 4842.67,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 4842.67,
+   "team": "B",
+   "x_m": 13.7,
+   "y_m": 26.3,
+   "distance_m": 16.3,
+   "speed_ms": 19.2,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 5221.15,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 5221.15,
+   "team": "B",
+   "x_m": 15.1,
+   "y_m": 28.7,
+   "distance_m": 16.4,
+   "speed_ms": 17.6,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 5695.76,
+  "type": "shot",
+  "team": "B",
+  "title": "Shot \u00b7 B",
+  "payload": {
+   "t": 5695.76,
+   "team": "B",
+   "x_m": 19.3,
+   "y_m": 23.2,
+   "distance_m": 22.6,
+   "speed_ms": 17.5,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ },
+ {
+  "t": 5711.87,
+  "type": "shot",
+  "team": "A",
+  "title": "Shot \u00b7 A",
+  "payload": {
+   "t": 5711.87,
+   "team": "A",
+   "x_m": 98.7,
+   "y_m": 36.6,
+   "distance_m": 21.3,
+   "speed_ms": 28.1,
+   "outcome": "blocked or saved",
+   "goal": false
+  }
+ }
+]
