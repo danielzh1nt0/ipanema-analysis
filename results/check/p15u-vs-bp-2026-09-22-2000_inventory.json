@@ -1,0 +1,35 @@
+{
+ "pieces": [
+  {
+   "i": 0,
+   "status": "gpu"
+  },
+  {
+   "i": 1,
+   "status": "done"
+  },
+  {
+   "i": 2,
+   "status": "done"
+  },
+  {
+   "i": 3,
+   "status": "gpu"
+  },
+  {
+   "i": 4,
+   "status": "gpu"
+  },
+  {
+   "i": 5,
+   "status": "gpu"
+  },
+  {
+   "i": 6,
+   "status": "done"
+  }
+ ],
+ "done": 3,
+ "cpu": 0,
+ "gpu": 4
+}
