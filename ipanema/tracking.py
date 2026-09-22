@@ -108,7 +108,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
         per[k] = rows
         t_mark = _time.time(); prof["rest"] += t_mark - _t3
-        if k % 500 == 0: log(f"  tracking frame {k}")
+        if k % 500 == 0: log(f"  tracking frame {k}" + (f" ({k / max(1e-6, _time.time() - t_start):.1f} frames/s)" if k else ""))
         if k and k % 100 == 0 and max_frames:
             el = t_mark - t_start; log(f"  timing @ frame {k}: {k / el:.1f} frames/s | " + ", ".join(f"{a} {v:.1f}s" for a, v in prof.items()) + f" (team rest incl. in 'rest'), {len(det)} detections this frame")
         if max_frames and k + 1 >= max_frames: break
