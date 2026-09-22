@@ -1,0 +1,38 @@
+{
+ "rows": [
+  {
+   "t": 300,
+   "fc_frame": 26763,
+   "pano_frame": 8967,
+   "offset_s": 594.092,
+   "matches": 74,
+   "on_pitch": 40,
+   "inliers": 18,
+   "residual_m": 0.012,
+   "ball_conf": 0.62,
+   "ball_m": [
+    117.6,
+    22.1
+   ]
+  },
+  {
+   "t": 660,
+   "error": "no panorama frame matched"
+  },
+  {
+   "t": 900,
+   "error": "no panorama frame matched"
+  },
+  {
+   "t": 1200,
+   "error": "no panorama frame matched"
+  },
+  {
+   "t": 1500,
+   "error": "no panorama frame matched"
+  }
+ ],
+ "log": [
+  "LINK t=300: {'t': 300, 'fc_frame': 26763, 'pano_frame': 8967, 'offset_s': 594.092, 'matches': 74, 'on_pitch': 40, 'inliers': 18, 'residual_m': 0.012, 'ball_conf': 0.62, 'ball_m': [117.6, 22.1]}"
+ ]
+}
