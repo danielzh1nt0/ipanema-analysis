@@ -1,5 +1,18 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 21:02:42 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · running · 21:04:17 UTC
 
 
-## run_full.log (1 lines, last 60)
+## run_full.log (4 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000 full match === video: 54229 frames (1808 s) @ 30.000 fps -> 7 pieces
+calibration: from the clip's own camera
+pieces: 3 already processed, 0 to finish on CPU (detections saved), 4 need a GPU
+canary: piece 0 first (GPU)
+
+## piece_000.log (5 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
+  debug overlays -> /content/ipanema-analysis/results/debug
+
+## train_ball.log (1 lines, last 60)
 
