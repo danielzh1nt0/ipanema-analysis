@@ -859,6 +859,60 @@ def compare_detectors_v2(match_id: str, i: int):
     cv2.putText(f, f"best: {best[1]}", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 3)
     return {"log": lines[-20:], "best": best[1], "image": base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 88])[1].tobytes()).decode()}
 
+@app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def detector_options(match_id: str, i: int):
+    """which detector setting finds the small, dark far-side players: players ON the pitch and how many in black, per option"""
+    import json, time, base64, numpy as np, cv2
+    import supervision as sv
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR
+    from ipanema.cylcam import CylCam
+    from ultralytics import YOLO
+    log, lines = _logger(f"{match_id}/detector_options.log")
+    pid = FM.piece_id(match_id, i); cam = CylCam(json.load(open(f"{ROOT}/cache/{pid}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); frames = []
+    for k in range(0, 9000, 300):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    foot = YOLO(S.weights["player"]); coco = YOLO("yolo11x.pt")
+    def run(model, f, sz, conf, classes=None):
+        kw = {"imgsz": sz, "conf": conf, "verbose": False}
+        if classes is not None: kw["classes"] = classes
+        return sv.Detections.from_ultralytics(model(f, **kw)[0])
+    def far_band(f):
+        h, w = f.shape[:2]; y0, y1 = int(0.22 * h), int(0.52 * h); parts = []
+        for x0, x1 in ((0, int(0.4 * w)), (int(0.3 * w), int(0.7 * w)), (int(0.6 * w), w)):
+            d = run(foot, f[y0:y1, x0:x1], 1280, 0.2)
+            if len(d): xy = d.xyxy.copy(); xy[:, [0, 2]] += x0; xy[:, [1, 3]] += y0; parts.append(sv.Detections(xyxy=xy, confidence=d.confidence, class_id=d.class_id))
+        parts.append(run(foot, f, 1920, 0.2))
+        return sv.Detections.merge(parts).with_nms(0.5, class_agnostic=True)
+    options = [("football model, 2560, conf 0.30 (current)", lambda f: run(foot, f, 2560, 0.30).with_nms(0.5, class_agnostic=True)),
+               ("football model, 2560, conf 0.12", lambda f: run(foot, f, 2560, 0.12).with_nms(0.5, class_agnostic=True)),
+               ("football model, far side zoomed + whole frame", far_band),
+               ("general person detector (yolo11x), 2560, conf 0.15", lambda f: run(coco, f, 2560, 0.15, classes=[0]).with_nms(0.5, class_agnostic=True))]
+    out, imgs = [], {}
+    for name, fn in options:
+        fn(frames[0]); t0 = time.time(); on, dark, white = [], [], []; sample = None
+        for j, f in enumerate(frames):
+            d = fn(f)
+            if not len(d): on.append(0); dark.append(0); white.append(0); continue
+            feet = np.c_[(d.xyxy[:, 0] + d.xyxy[:, 2]) / 2, d.xyxy[:, 3]]; mm = cam.to_m(feet)
+            inside = np.isfinite(mm).all(1) & (mm[:, 0] >= 0) & (mm[:, 0] <= L) & (mm[:, 1] >= 0) & (mm[:, 1] <= W)
+            labs = TR.kit_labels(f, d.xyxy[inside]); on.append(int(inside.sum())); dark.append(labs.count("A")); white.append(labs.count("B"))
+            if j == 15: sample = (f.copy(), d.xyxy[inside], labs)
+        ms = (time.time() - t0) / len(frames) * 1000
+        row = {"option": name, "ms_per_frame": round(ms), "on_pitch_median": float(np.median(on)), "on_pitch_p10": float(np.percentile(on, 10)), "black_median": float(np.median(dark)), "white_median": float(np.median(white))}
+        log(f"OPTION {row}"); out.append(row)
+        if sample:
+            img, boxes, labs = sample
+            for (x0, y0, x1, y1), lab in zip(boxes, labs):
+                col = {"A": (0, 0, 0), "B": (255, 255, 255), "K": (0, 165, 255)}.get(lab, (128, 128, 128)); cx, cy = int((x0 + x1) / 2), int(y1)
+                cv2.circle(img, (cx, cy), 9, (0, 255, 255), 3); cv2.circle(img, (cx, cy), 5, col, -1)
+            cv2.putText(img, f"{name}: {len(boxes)} on pitch", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 3)
+            imgs[f"option{len(out)}.jpg"] = base64.b64encode(cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+    return {"rows": out, "images": imgs}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

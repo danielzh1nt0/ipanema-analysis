@@ -375,6 +375,21 @@ jobs:
           open(f"{d}/{mid}_compare_detectors_v2.txt", "w").write("\n".join(out["log"]) + "\nBEST: " + out["best"])
           open(f"{d}/{mid}_best_detector.jpg", "wb").write(base64.b64decode(out["image"])); print("\n".join(out["log"]))
           PY
+      - name: compare detector options on a panorama piece (commit tagged detopt:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[detopt:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid, i = re.search(r"\[detopt:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "detector_options").remote(mid, int(i))
+          d = f"results/check/{mid}_detopt"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/options.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
+          PY
       - name: scoreboard
         if: always()
         run: |
