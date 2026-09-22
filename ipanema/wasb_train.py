@@ -15,7 +15,9 @@ def _video_for(clip, videos_dir, log=print):
     if m and not glob.glob(f"{videos_dir}/{clip}*"): log(f"wasb train: labels {clip} -> video of {m.group(1)}"); clip = m.group(1)
     v = next((p for p in glob.glob(f"{videos_dir}/{clip}.*")), None)
     if v is None and os.path.isdir(f"{videos_dir}/{clip}"):
-        vs = [p for p in glob.glob(f"{videos_dir}/{clip}/*") if p.lower().endswith((".mp4", ".mov", ".mkv"))]; v = max(vs, key=os.path.getsize) if vs else None
+        cropped = f"{videos_dir}/{clip}/full_cropped.mp4"                   # panorama screen recording: labels are on the cropped player area
+        vs = [p for p in glob.glob(f"{videos_dir}/{clip}/*") if p.lower().endswith((".mp4", ".mov", ".mkv"))]
+        v = cropped if os.path.exists(cropped) else (max(vs, key=os.path.getsize) if vs else None)
     if v is None and os.environ.get("R2_PUBLIC_URL"):     # labelled clip not on this machine: fetch from R2 if it was ever exported
         try:
             import requests
