@@ -467,8 +467,8 @@ def detect_periods(match_id: str):
         if os.path.exists(f"{c}/calib_ok.npy"):
             m = np.load(f"{c}/calib_ok.npy"); a = p["offset"]; b = min(n, a + len(m)); trusted[a:b] = m[:b - a]
         del pk
-    r = PD.detect(PD.per_second(per, fps, L, W, trusted))
-    out = {"detected": r}
+    ps = PD.per_second(per, fps, L, W, trusted); r = PD.detect(ps)
+    out = {"detected": r, "per_second": {k: [round(float(v), 2) for v in a] for k, a in ps.items()}}   # for offline work on the detector
     pf = f"/content/ipanema-analysis/periods/{match_id}.json"
     if os.path.exists(pf): out["coach"] = json.load(open(pf))["periods_s"]
     hf = f"/content/ipanema-analysis/reference/veo_highlights_{match_id}.txt"; ef = f"/content/ipanema-analysis/reference/veo_events_{match_id}.txt"
