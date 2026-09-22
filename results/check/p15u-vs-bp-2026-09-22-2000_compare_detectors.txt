@@ -1,0 +1,6 @@
+model's own image size: 1280
+COMPARE whole frame, default size :    58 ms/frame (17.2 frames/s) | detections per frame median 14.5, 10th pct 11.0
+COMPARE whole frame, 1920         :   134 ms/frame ( 7.4 frames/s) | detections per frame median 23.0, 10th pct 18.0
+COMPARE tiles, default size       :   568 ms/frame ( 1.8 frames/s) | detections per frame median 24.0, 10th pct 17.0
+COMPARE tiles, 640                :   169 ms/frame ( 5.9 frames/s) | detections per frame median 16.0, 10th pct 11.9
+COMPARE tiles, 960                :   306 ms/frame ( 3.3 frames/s) | detections per frame median 21.0, 10th pct 15.0
