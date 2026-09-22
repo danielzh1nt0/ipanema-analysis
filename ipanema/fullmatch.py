@@ -78,7 +78,7 @@ def canary_index(plan_, todo_ids):
     target = round(0.2 * (len(plan_) - 1))
     return min(todo_ids, key=lambda i: abs(i - target))
 
-def canary_ok(log_lines, expect_panorama, players_range=(6.0, 16.0)):
+def canary_ok(log_lines, expect_panorama, players_range=(6.0, 30.0)):   # panorama clips show every player at once (18-25); follow-cam pieces 6-16
     """(ok, reason) for the first piece of a full match, from its own log"""
     import re
     text = "\n".join(log_lines)

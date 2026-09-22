@@ -198,9 +198,15 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     S = _setup()
     from ipanema import fullmatch as FM
     from ipanema.run import analyse
+    from ipanema.progress import Progress
     import shutil
     shutil.rmtree(f"{ROOT}/logs/{match_id}", ignore_errors=True)          # fresh live log for this run
-    log, lines = _logger(f"{match_id}/run_full.log")
+    _log, lines = _logger(f"{match_id}/run_full.log")
+    prog = Progress(match_id)                                              # live stage/percent in the app's processing screen
+    def log(*a):
+        _log(*a)
+        try: prog.feed(" ".join(str(x) for x in a))
+        except Exception: pass
     t0 = time.time()
     full = next((p for p in (f"{ROOT}/videos/{match_id}/full_cropped.mp4", f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     if full and full.endswith("full_cropped.mp4"): video_url = video_url.replace("/video.mp4", "/video_cropped.mp4")   # the app plays what we analysed
@@ -212,7 +218,8 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
                 for chunk in r.iter_content(8 << 20): f.write(chunk)
         vol.commit()
     n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
-    log(f"=== {match_id} full match === {n} frames @ {fps:.3f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces")
+    log(f"=== {match_id} full match === video: {n} frames ({n / fps:.0f} s) @ {fps:.3f} fps -> {len(plan_)} pieces")
+    log("calibration: from the clip's own camera")
     for line in train_ball.remote(match_id): log("  " + line)
     from ipanema.fullmatch import piece_id, PIECE_FILE
     cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
@@ -241,6 +248,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     for c in calls: res += list(c)
     ok = [r for r in res if isinstance(r, dict) and r.get("ok")]; bad = [r for r in res if not (isinstance(r, dict) and r.get("ok"))]
     log(f"pieces: {len(ok)}/{len(plan_)} done in {(time.time() - t0) / 60:.1f} min")
+    log(f"tracking frame {int(n * len(ok) / max(1, len(plan_)))}")          # moves the app's progress bar to match the pieces done
     for r in bad: log(f"  piece failed: {str(r)[-600:]}")
     for r in sorted(ok, key=lambda r: r["i"]): log(f"  piece {r['i']:02d}: " + (r["log"][-1] if r["log"] else ""))
     if len(ok) < len(plan_) * 0.8: log("too many pieces failed; not analysing"); return {"summary": {"error": "pieces failed"}, "log_tail": lines[-log_tail:], "files": {}}
@@ -290,9 +298,21 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
                 row = {k: v for k, v in src[0].items() if k not in ("match_id", "id", "created_at", "updated_at")}; row["competition"] = "Full match"
                 db.table("match_labels").upsert({"match_id": match_id, **row}).execute(); log("labels copied from " + src[0]["match_id"])
     except Exception as e: log(f"label copy skipped: {e!r}")
+    qa = []
+    def check(name, ok_, detail): qa.append(f"QA {'PASS' if ok_ else 'FAIL'}: {name} ({detail})")
+    ppf = summary.get("players_per_frame_median") or {}
+    a_, b_ = float(ppf.get("A", 0)), float(ppf.get("B", 0))
+    check("pieces processed", len(ok) == len(plan_), f"{len(ok)}/{len(plan_)}")
+    check("calibration", (summary.get("calibration_coverage") or 0) > 0.95, f"coverage {summary.get('calibration_coverage')}")
+    check("players per frame", a_ + b_ >= 14, f"A {a_} + B {b_}")
+    check("team balance", min(a_, b_) >= 0.5 * max(a_, b_) if max(a_, b_) else False, f"A {a_} vs B {b_}")
+    check("shots and goals from Veo", (summary.get("shots") or {}) != {} and sum((summary.get("goals") or {}).values()) > 0, f"shots {summary.get('shots')}, goals {summary.get('goals')}")
+    check("match time", (summary.get("match_seconds") or 0) > 0.5 * n / fps, f"{summary.get('match_seconds')} s of {n / fps:.0f} s")
+    for q in qa: log(q)
     vol.commit()
     import json as _json
     safe = _json.loads(_json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o)))
+    safe["qa"] = qa
     log("SUMMARY " + _json.dumps(safe))                                   # also in the volume log, so a result can be collected later
     files = {}
     import glob as _g, base64

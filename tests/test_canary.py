@@ -12,4 +12,5 @@ def test_canary_decisions():
     assert not canary_ok(["calibration: 8992 frames, keypoints on 39%", "x: 8992 frames, 12.0 players/frame"], True)[0]
     assert canary_ok(["calibration: 8992 frames, keypoints on 39%", "x: 8992 frames, 12.0 players/frame"], False)[0]
     assert not canary_ok(["calibration: from panorama, 8992/8992 frames registered", "x: 8992 frames, 3.6 players/frame"], True)[0]
+    assert canary_ok(["calibration: curved panorama camera for all 9000 frames", "x: 9000 frames, 22.0 players/frame"], False)[0]      # panorama clip
     assert not canary_ok(["PIECE FAILED: Traceback ..."], True)[0]
