@@ -1,4 +1,4 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · collected from the volume · 15:13:39 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · collected from the volume · 15:40:02 UTC
 
 
 ## compare_detectors.log (6 lines, last 60)
@@ -12,30 +12,19 @@ COMPARE tiles, 960                :   306 ms/frame ( 3.3 frames/s) | detections 
 ## link_proof.log (1 lines, last 60)
 LINK t=300: {'t': 300, 'fc_frame': 26763, 'pano_frame': 8967, 'offset_s': 594.092, 'matches': 74, 'on_pitch': 40, 'inliers': 18, 'residual_m': 0.012, 'ball_conf': 0.62, 'ball_m': [117.6, 22.1]}
 
-## piece_002.log (23 lines, last 60)
+## piece_002.log (12 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (cached fit)
 calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
 teams: 600 crops, clusters [428, 172], dark share A 0.5 / B 0.18 (A = darker kit)
   tracking frame 0
-  tracking frame 500
-  tracking frame 1000
-  tracking frame 1500
-  tracking frame 2000
-  tracking frame 2500
-  tracking frame 3000
-  tracking frame 3500
-  tracking frame 4000
-  tracking frame 4500
-  tracking frame 5000
-  tracking frame 5500
-  tracking frame 6000
-  tracking frame 6500
-  tracking frame 7000
-  tracking frame 7500
-  tracking frame 8000
-  tracking frame 8500
+  tracking frame 500 (4.2 frames/s)
+  tracking frame 1000 (4.3 frames/s)
+  tracking frame 1500 (4.3 frames/s)
+  tracking frame 2000 (4.3 frames/s)
+  tracking frame 2500 (4.3 frames/s)
+  tracking frame 3000 (4.3 frames/s)
 
 ## prepare_panorama.log (4 lines, last 60)
 recording 1920x1080: Veo player area x 155-1699, y 189-1055 (1544x866, aspect 1.783)
@@ -43,17 +32,14 @@ cropped video: 54229 frames @ 30.00 fps (original 54229)
 cleared caches and pieces made from the uncropped recording
 cropped video uploaded: https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-bp-2026-09-22-2000/video_cropped.mp4
 
-## profile.log (10 lines, last 60)
-GPU visible to torch: True (NVIDIA L4)
-teams: embedding split [172, 437] unreliable -> brightness split at 0.25
-teams: 609 crops, clusters [305, 304], dark share A 0.52 / B 0.06 (A = darker kit)
-team model fit: 74 s
-detector speed, one full frame: 59 ms per frame (device: cuda:0)
-detector speed, 6 tiles, one batch: 556 ms per frame (device: cuda:0)
+## profile.log (7 lines, last 60)
+GPU: NVIDIA L4; video 1544x866; 30 test frames
+SIZE 1920: 141 ms/frame (7.1 frames/s) | players ON the pitch per frame: median 15, 10th pct 12, max 23
+SIZE 2560: 209 ms/frame (4.8 frames/s) | players ON the pitch per frame: median 17, 10th pct 13, max 24
   tracking frame 0
-  timing @ frame 100: 1.7 frames/s | read 0.3s, detect 56.8s, tracker 0.4s, team 0.0s, rest 0.0s (team rest incl. in 'rest'), 14 detections this frame
-  timing @ frame 200: 1.7 frames/s | read 1.8s, detect 112.9s, tracker 0.7s, team 0.0s, rest 0.1s (team rest incl. in 'rest'), 17 detections this frame
-PROFILE: tracked 300 frames in 173.5 s; median players/frame 16
+  timing @ frame 100: 6.6 frames/s | read 0.2s, detect 14.8s, tracker 0.2s, team 0.0s, rest 0.0s (team rest incl. in 'rest'), 17 detections this frame
+  timing @ frame 200: 6.4 frames/s | read 1.9s, detect 28.9s, tracker 0.5s, team 0.0s, rest 0.1s (team rest incl. in 'rest'), 12 detections this frame
+PROFILE 1920: tracked 300 frames in 46.1 s
 
 ## test_piece.log (2 lines, last 60)
 clip: 54229 frames @ 30.00 fps (30.1 min) -> 7 pieces; testing piece 2 (full_cropped.mp4)
