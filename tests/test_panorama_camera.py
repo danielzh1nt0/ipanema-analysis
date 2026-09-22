@@ -52,7 +52,7 @@ def test_full_analysis_through_curved_camera():
 def test_find_video_rect_on_real_recording():
     """today's screen recording: Veo's player sits inside the browser; the crop must find it (checked by eye: ~154-1701 x 185-1056)"""
     from ipanema.cylcam import find_video_rect
-    fs = [cv2.imread(f"{ROOT}/results/check/p15u-vs-bp-2026-09-22-2000_test/test_piece2_f{k:05d}.jpg") for k in (1800, 4500, 7200)]
+    fs = [cv2.imread(f"{ROOT}/tests/data/recording_uncropped_f{k:05d}.jpg") for k in (1800, 4500, 7200)]
     x0, y0, x1, y1 = find_video_rect(fs)
     assert abs(x0 - 154) <= 8 and abs(x1 - 1701) <= 8 and abs(y0 - 185) <= 8 and abs(y1 - 1056) <= 8, (x0, y0, x1, y1)
 

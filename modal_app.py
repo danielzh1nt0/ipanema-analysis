@@ -512,7 +512,11 @@ def test_piece(match_id: str, i: int, video_url: str):
             with open(full, "wb") as f:
                 for chunk in r.iter_content(8 << 20): f.write(chunk)
         vol.commit()
-    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); log(f"clip: {n} frames @ {fps:.2f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces; testing piece {i}")
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); log(f"clip: {n} frames @ {fps:.2f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces; testing piece {i} ({os.path.basename(full)})")
+    pc = f"{ROOT}/cache/{FM.piece_id(match_id, i)}"
+    for stale in ("tracks_cyl.pkl", FM.PIECE_FILE):                         # a test always re-tracks (keeps the verified calibration)
+        if os.path.exists(f"{pc}/{stale}"): os.remove(f"{pc}/{stale}"); log(f"cleared {stale}")
+    vol.commit()
     res = run_piece.remote(match_id, plan_[i], full)
     for l in res.get("log", []): log("  " + l)
     if not res.get("ok"): return {"ok": False, "log": lines[-60:]}

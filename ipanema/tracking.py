@@ -28,6 +28,24 @@ def detect_tiled(model, f, conf, tiles, imgsz=None):
     det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls))
     return det.with_nms(0.5, class_agnostic=True), names
 
+def kit_labels(f, boxes, dark_v=115, keeper_s=110):
+    """Team by shirt colour for panorama clips: the shirt area (upper body) of each box, grass pixels ignored.
+    Dark shirt -> "A" (SFK, the darker kit), white -> "B", strongly coloured (keepers: orange/yellow) -> "K"; None if
+    too few non-grass pixels to judge."""
+    import cv2
+    out = []; H, W = f.shape[:2]
+    for x0, y0, x1, y1 in np.asarray(boxes, float):
+        h, w = y1 - y0, x1 - x0
+        a, b = int(max(0, x0 + 0.2 * w)), int(min(W, x1 - 0.2 * w)); c, d = int(max(0, y0 + 0.15 * h)), int(min(H, y0 + 0.55 * h))
+        if b - a < 2 or d - c < 2: out.append(None); continue
+        hsv = cv2.cvtColor(f[c:d, a:b], cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(float)
+        grass = (hsv[:, 0] > 30) & (hsv[:, 0] < 95) & (hsv[:, 1] > 40)
+        shirt = hsv[~grass]
+        if len(shirt) < 6: out.append(None); continue
+        s, v = np.median(shirt[:, 1]), np.median(shirt[:, 2])
+        out.append("K" if (s > keeper_s and v > 90) else ("A" if v < dark_v else "B"))
+    return out
+
 def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None):
     import supervision as sv
     from ultralytics import YOLO
@@ -78,7 +96,8 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
             labs = [None] * len(det)
             _t4 = _time.time()
             if need:
-                for j, lab in zip(need, team_model.predict_batch(f, det.xyxy[need])): labs[j] = lab
+                pred = kit_labels(f, det.xyxy[need]) if (tiles or imgsz) else team_model.predict_batch(f, det.xyxy[need])   # panorama: black vs white shirts
+                for j, lab in zip(need, pred): labs[j] = lab
             prof["team"] += _time.time() - _t4
             for j in range(len(det)):
                 tid = tids[j]; v = votes.setdefault(tid, [])
