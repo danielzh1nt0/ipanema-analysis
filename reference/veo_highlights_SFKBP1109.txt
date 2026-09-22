@@ -1,0 +1,31 @@
+# Veo highlight clips for SFK vs BP, video time in seconds from the clip file names (HHMMSS). 29 clips: 25 'shot on goal', 4 'goal'.
+# Every goal clip has a shot clip within 1 s (the same moment), so there are 25 distinct shot events.
+28 goal
+28 shot
+610 shot
+863 shot
+2183 shot
+2425 shot
+2618 shot
+2619 goal
+2786 shot
+2865 shot
+3584 shot
+3684 shot
+3753 shot
+3844 shot
+4018 shot
+4038 shot
+4421 shot
+4422 goal
+4801 shot
+4992 shot
+5095 shot
+5132 shot
+5414 shot
+5450 shot
+5623 shot
+5624 goal
+5696 shot
+5774 shot
+5869 shot
