@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 00:43:43 UTC
+# live log · SFKBP1109 · running · 00:45:16 UTC
 
 
-## run_full.log (37 lines, last 60)
+## run_full.log (49 lines, last 60)
 === SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
 pieces: 21/21 done in 0.2 min
@@ -39,6 +39,18 @@ ball check (other picker, v1): 18/34 correct, ceiling 24/34
 ball: dropped 3373 static-clutter candidates
 ball (global path): 92399/184725 frames on the chosen path
 picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 36/59, other 26/59, ceiling 46
+ball: dropped 3373 static-clutter candidates
+ball (global path): 92399/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 70/134, other 38/134, ceiling 93
+direction: A →  B ←  confidence A 0.11 / B 0.05  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
 
 ## train_ball.log (1 lines, last 60)
 
