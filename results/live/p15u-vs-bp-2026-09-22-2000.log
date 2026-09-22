@@ -1,4 +1,4 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 19:48:11 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · running · 19:49:46 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -7,7 +7,7 @@ calibration: from the clip's own camera
 pieces: 1 already processed, 0 to finish on CPU (detections saved), 6 need a GPU
 canary: piece 1 first (GPU)
 
-## piece_001.log (16 lines, last 60)
+## piece_001.log (17 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -24,6 +24,7 @@ teams: 601 crops, clusters [302, 299], dark share A 0.37 / B 0.0 (A = darker kit
   tracking frame 3500 (4.5 frames/s)
   tracking frame 4000 (4.5 frames/s)
   tracking frame 4500 (4.5 frames/s)
+  tracking frame 5000 (4.5 frames/s)
 
 ## train_ball.log (1 lines, last 60)
 
