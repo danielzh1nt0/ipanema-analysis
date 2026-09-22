@@ -2,7 +2,7 @@
 # Minutes are Veo's match-clock minutes. Coach: first half = video 0:00-51:00, half-time 51:00-58:29, second half to 1:39:00.
 # Veo counts 44'-51' continuously with no kickoff, so 46'-51' labels are AMBIGUOUS (first-half stoppage vs second-half start);
 # the shot comparison leaves them out. Minutes >= 52 map to video_s = 3509 + (minute - 46) * 60.
-# Coverage: 1-10, 13-31, 44-66, 70-74, 76-82. MISSING: 10-13, 31-44, 66-70, 75-76, 82-end (the 1-0 goal is in a gap).
+# Coverage: 1-31, 44-66, 70-74, 76-82. MISSING: 31-44, 66-70, 75-76, 82-end (the 1-0 goal is in a gap).
 1 BP1 Shot
 2 BP1 Corner
 3 BP1 Throw-in
@@ -18,6 +18,11 @@
 9 BP1 Foul
 9 SFK Free kick
 10 BP1 Goal kick
+11 BP1 Throw-in
+11 BP1 Throw-in
+12 BP1 Foul
+12 SFK Free kick
+12 BP1 Free kick
 13 BP1 Throw-in
 14 SFK Throw-in
 15 BP1 Throw-in
