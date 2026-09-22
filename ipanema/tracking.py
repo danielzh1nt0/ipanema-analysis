@@ -28,27 +28,25 @@ def detect_tiled(model, f, conf, tiles, imgsz=None):
     det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls))
     return det.with_nms(0.5, class_agnostic=True), names
 
-def kit_labels(f, boxes, dark_v=75, bright_v=165, bright_s=70, keeper_s=110):
-    """Team by shirt colour for panorama clips, from the shirt area (upper body) of each box. Small far players' boxes also
-    contain fence, path and trees, so pixels are not averaged: clearly dark pixels (black shirt) are counted against clearly
-    white ones (white shirt); grey background is neither. Dark -> "A" (SFK), white -> "B", strongly coloured -> "K" (keeper),
-    None when neither clearly wins (tracking then decides from other frames)."""
+def kit_labels(f, boxes, min_px=2):
+    """Team by shirt colour for panorama clips (black vs white kits). Far-away players are a few pixels wide and their box
+    also holds grass, trees and fence, which are strongly green; black and white shirts are colourless. So only
+    colourless pixels count: dark ones (black shirt) vs bright ones (white shirt); clearly orange/yellow bright pixels mark
+    a keeper. -> "A" (dark, SFK), "B" (white), "K" (keeper) or None if there's nothing to judge."""
     import cv2
     out = []; H, W = f.shape[:2]
     for x0, y0, x1, y1 in np.asarray(boxes, float):
         h, w = y1 - y0, x1 - x0
-        if h < 8: out.append(None); continue                                   # too small to judge (real far players are ~15-25 px)
-        a, b = int(max(0, x0 + 0.25 * w)), int(min(W, x1 - 0.25 * w)); c, d = int(max(0, y0 + 0.15 * h)), int(min(H, y0 + 0.5 * h))
+        a, b = int(max(0, x0 + 0.15 * w)), int(min(W, x1 - 0.15 * w)); c, d = int(max(0, y0 + 0.10 * h)), int(min(H, y0 + 0.60 * h))
         if b - a < 1 or d - c < 2: out.append(None); continue
-        hsv = cv2.cvtColor(f[c:d, a:b], cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(float)
-        grass = (hsv[:, 0] > 30) & (hsv[:, 0] < 95) & (hsv[:, 1] > 40)
-        px = hsv[~grass]
-        if len(px) < 3: out.append(None); continue
-        dark = int((px[:, 2] < dark_v).sum()); white = int(((px[:, 2] > bright_v) & (px[:, 1] < bright_s)).sum())
-        colour = int(((px[:, 1] > keeper_s) & (px[:, 2] > 90)).sum())
-        if colour > max(dark, white) and colour >= 0.3 * len(px): out.append("K")
-        elif dark >= 2 and dark > 1.3 * white: out.append("A")
-        elif white >= 2 and white > 1.3 * dark: out.append("B")
+        hsv = cv2.cvtColor(f[c:d, a:b], cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(int)
+        hue, sat, val = hsv[:, 0], hsv[:, 1], hsv[:, 2]
+        grey = sat < 70
+        dark = int((grey & (val < 90)).sum()); bright = int((grey & (val > 150)).sum())
+        keeper = int(((hue >= 5) & (hue <= 35) & (sat > 120) & (val > 120)).sum())      # orange / yellow shirts
+        if keeper >= max(min_px, dark, bright): out.append("K")
+        elif dark >= min_px and dark > bright: out.append("A")
+        elif bright >= min_px and bright >= dark: out.append("B")
         else: out.append(None)
     return out
 
