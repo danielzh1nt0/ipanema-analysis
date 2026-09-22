@@ -1,4 +1,4 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:16:50 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:18:35 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -8,8 +8,15 @@ pieces: 1 already processed, 0 to finish on CPU (detections saved), 6 need a GPU
 canary: piece 1 first (GPU)
 canary passed: calibration from the panorama, 21.0 players per frame
 
-## piece_000.log (1 lines, last 60)
+## piece_000.log (8 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
+  debug overlays -> /content/ipanema-analysis/results/debug
+teams: embedding split [558, 43] unreliable -> brightness split at 0.01
+teams: 601 crops, clusters [301, 300], dark share A 0.28 / B 0.0 (A = darker kit)
+  tracking frame 0
 
 ## piece_001.log (34 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -47,20 +54,35 @@ wasb: 3111/9000 frames with a ball peak, 0.5 peaks/frame; heatmap max p50/p90/p9
 ball: WASB-only candidates, 0.5/frame
 p15u-vs-bp-2026-09-22-2000_c001: 9000 frames, 21.0 players/frame
 
-## piece_003.log (1 lines, last 60)
+## piece_003.log (4 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
 
-## piece_004.log (1 lines, last 60)
+## piece_004.log (6 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
+  debug overlays -> /content/ipanema-analysis/results/debug
+teams: embedding split [496, 106] unreliable -> brightness split at 0.05
 
-## piece_005.log (1 lines, last 60)
+## piece_005.log (5 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
+teams: embedding split [531, 77] unreliable -> brightness split at 0.00
 
-## piece_006.log (4 lines, last 60)
+## piece_006.log (7 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 229 frames (8 s)
 calibration: curved panorama camera (fitted once for this clip)
 calibration: curved panorama camera for all 229 frames, pitch 106 x 64 m
+teams: 157 crops, clusters [34, 123], dark share A 0.34 / B 0.1 (A = darker kit)
+  tracking frame 0
+wasb: using fine-tuned weights, 2x2 tiles
 
 ## train_ball.log (1 lines, last 60)
 
