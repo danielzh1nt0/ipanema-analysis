@@ -1,13 +1,17 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:15:10 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · running · 20:16:50 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000 full match === video: 54229 frames (1808 s) @ 30.000 fps -> 7 pieces
 calibration: from the clip's own camera
 pieces: 1 already processed, 0 to finish on CPU (detections saved), 6 need a GPU
 canary: piece 1 first (GPU)
+canary passed: calibration from the panorama, 21.0 players per frame
 
-## piece_001.log (30 lines, last 60)
+## piece_000.log (1 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_001.log (34 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1544x866 @ 30.0 fps, 9000 frames (300 s)
 calibration: curved panorama camera (fitted once for this clip)
@@ -38,6 +42,25 @@ wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 4500
   wasb frame 6000
   wasb frame 7500
+  wasb frame 9000
+wasb: 3111/9000 frames with a ball peak, 0.5 peaks/frame; heatmap max p50/p90/p99 = 0.18/0.44/0.64
+ball: WASB-only candidates, 0.5/frame
+p15u-vs-bp-2026-09-22-2000_c001: 9000 frames, 21.0 players/frame
+
+## piece_003.log (1 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_004.log (1 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_005.log (1 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_006.log (4 lines, last 60)
+=== p15u-vs-bp-2026-09-22-2000_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1544x866 @ 30.0 fps, 229 frames (8 s)
+calibration: curved panorama camera (fitted once for this clip)
+calibration: curved panorama camera for all 229 frames, pitch 106 x 64 m
 
 ## train_ball.log (1 lines, last 60)
 
