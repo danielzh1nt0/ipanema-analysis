@@ -390,6 +390,21 @@ jobs:
           for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
           open(f"{d}/options.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
           PY
+      - name: compare detector variants (commit tagged detvariants:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[detvariants:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid, i = re.search(r"\[detvariants:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "detector_variants").remote(mid, int(i))
+          d = f"results/check/{mid}_detvariants"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/variants.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
+          PY
       - name: scoreboard
         if: always()
         run: |

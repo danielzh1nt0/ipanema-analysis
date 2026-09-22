@@ -913,6 +913,61 @@ def detector_options(match_id: str, i: int):
             imgs[f"option{len(out)}.jpg"] = base64.b64encode(cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
     return {"rows": out, "images": imgs}
 
+@app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def detector_variants(match_id: str, i: int):
+    """which detector setting finds the faint dark far-side players: players ON the pitch, how many dark (SFK) vs white (BP),
+    speed, and one picture per setting (same frame)"""
+    import json, time, base64, numpy as np, cv2
+    import supervision as sv
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR
+    from ipanema.cylcam import CylCam
+    from ultralytics import YOLO
+    log, lines = _logger(f"{match_id}/detector_variants.log")
+    pid = FM.piece_id(match_id, i); cam = CylCam(json.load(open(f"{ROOT}/cache/{pid}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); frames = []
+    for k in range(0, 9000, 300):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    foot = YOLO(S.weights["player"]); coco = YOLO("yolo11x.pt")
+    def run(model, f, sz, conf, classes=None):
+        kw = {"imgsz": sz, "conf": conf, "verbose": False}
+        if classes is not None: kw["classes"] = classes
+        return sv.Detections.from_ultralytics(model(f, **kw)[0])
+    def farband(f):
+        h, w = f.shape[:2]; y0, y1 = int(0.18 * h), int(0.52 * h); out = [run(foot, f, 1920, 0.2)]
+        for a, b in ((0.0, 0.38), (0.31, 0.69), (0.62, 1.0)):
+            x0, x1 = int(a * w), int(b * w); d = run(foot, f[y0:y1, x0:x1], 1280, 0.2)
+            if len(d): d.xyxy[:, [0, 2]] += x0; d.xyxy[:, [1, 3]] += y0; out.append(d)
+        return sv.Detections.merge(out).with_nms(0.5, class_agnostic=True)
+    variants = [("football model 2560, conf 0.30 (current)", lambda f: run(foot, f, 2560, 0.30)),
+                ("football model 2560, conf 0.10", lambda f: run(foot, f, 2560, 0.10)),
+                ("football model 1920 + zoomed far band", farband),
+                ("general person model (COCO) 2560, conf 0.20", lambda f: run(coco, f, 2560, 0.20, classes=[0]))]
+    out, imgs = [], {}
+    for name, fn in variants:
+        fn(frames[0]); t0 = time.time(); on, dark, white = [], [], []; show = None
+        for j, f in enumerate(frames):
+            d = fn(f).with_nms(0.5, class_agnostic=True)
+            feet = np.c_[(d.xyxy[:, 0] + d.xyxy[:, 2]) / 2, d.xyxy[:, 3]] if len(d) else np.zeros((0, 2))
+            mm = cam.to_m(feet) if len(feet) else np.zeros((0, 2))
+            inside = np.isfinite(mm).all(1) & (mm[:, 0] >= 0) & (mm[:, 0] <= L) & (mm[:, 1] >= 0) & (mm[:, 1] <= W) if len(mm) else np.zeros(0, bool)
+            labs = TR.kit_labels(f, d.xyxy[inside]) if inside.any() else []
+            on.append(int(inside.sum())); dark.append(sum(1 for x in labs if x == "A")); white.append(sum(1 for x in labs if x == "B"))
+            if j == 15:
+                show = f.copy()
+                for (fx, fy), lab in zip(feet[inside], labs):
+                    col = (30, 30, 30) if lab == "A" else ((255, 255, 255) if lab == "B" else (0, 165, 255))
+                    cv2.circle(show, (int(fx), int(fy)), 8, (0, 255, 255), 2); cv2.circle(show, (int(fx), int(fy)), 5, col, -1)
+        ms = (time.time() - t0) / len(frames) * 1000
+        row = {"variant": name, "ms_per_frame": round(ms), "on_pitch_median": float(np.median(on)), "dark_median": float(np.median(dark)), "white_median": float(np.median(white))}
+        log(f"VARIANT {row}"); out.append(row)
+        if show is not None:
+            cv2.putText(show, f"{name}: {on[15]} on pitch ({dark[15]} dark, {white[15]} white)", (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 3)
+            imgs[f"variant_{len(imgs)}.jpg"] = base64.b64encode(cv2.imencode(".jpg", show, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+    return {"rows": out, "images": imgs}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
