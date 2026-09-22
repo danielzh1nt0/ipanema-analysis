@@ -138,6 +138,8 @@ def confidence_mask(video, H, n, L, W, every=10, bad_px=40.0):
     neighbouring check shows the drawn lines more than bad_px from the paint (good frames score ~10-26 px; the misplaced
     ones we inspected scored 58-147 px). Frames with no calibration at all are not trusted. Checks with too few lines in
     view can't judge and don't reject. Returns (ok[n] bool array, summary)."""
+    if n and any(hasattr(v, "to_m") for v in list(H.values())[:1]):          # fixed, verified panorama camera
+        return np.ones(n, bool), {"checks": 0, "good": 0, "bad": 0, "unjudged": 0, "trusted_pct": 100.0, "static_camera": True}
     pts = model_points(L, W); status = {}
     cap = cv2.VideoCapture(video); k = 0
     while k < n:

@@ -35,7 +35,7 @@ def process_piece(full, match_id, piece, S, log=print):
     if os.path.exists(out): log(f"{pid}: cached"); return out
     src = cut(full, os.path.join(S.root, "videos", f"{pid}.mp4"), piece["start_s"], piece["dur_s"])
     ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece["i"] in (0, 4, 10, 16)))
-    keep = {"per": ctx["per"], "H": {k: np.asarray(v, np.float32) for k, v in ctx["H"].items()}, "cands": ctx["cands"], "fps": ctx["fps"],
+    keep = {"per": ctx["per"], "H": {k: (v if hasattr(v, "to_m") else np.asarray(v, np.float32)) for k, v in ctx["H"].items()}, "cands": ctx["cands"], "fps": ctx["fps"],
             "n": ctx["vi"]["n"], "L": ctx["L"], "W": ctx["W"], "coverage": ctx["cal"]["coverage"], "frozen": ctx["cal"]["frozen"],
             "dark_share": getattr(ctx["tm"], "dark_share", None), "strips": getattr(ctx["tm"], "strips", None), "width": ctx["vi"]["width"], "height": ctx["vi"]["height"]}
     os.makedirs(os.path.dirname(out), exist_ok=True); pickle.dump(keep, open(out, "wb"))
@@ -110,7 +110,7 @@ def apply_periods(per, H, cands, periods_s, fps, L, W):
         if p < 0:
             per2[k] = []; cands2[k] = []; H2[k] = H[k]; continue
         cands2[k] = cands.get(k, [])
-        if p >= 1: H2[k] = np.asarray(H[k], float) @ M; mirrored[k] = per.get(k, [])
+        if p >= 1: H2[k] = (H[k] @ M) if hasattr(H[k], "to_m") else np.asarray(H[k], float) @ M; mirrored[k] = per.get(k, [])
         else: H2[k] = H[k]; per2[k] = per.get(k, [])
     per2.update(reposition(mirrored, H2))
     records = [{"index": i + 1, "t_start": round(a / fps, 2), "t_end": round(b / fps, 2), "mirrored": i >= 1} for i, (a, b) in enumerate(spans)]

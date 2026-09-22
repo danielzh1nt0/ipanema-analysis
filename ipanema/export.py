@@ -45,12 +45,12 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
             "ball": ({"px": [round(ball[k][0], 1), round(ball[k][1], 1)], "m": [round(float(ballm[k][0]), 2), round(float(ballm[k][1]), 2)] if k in ballm else None, "state": "observed"} if k in ball else None),
             "possession": STATES[state[k]] if state[k] < 2 else None, "phase": "control" if state[k] < 2 else STATES[state[k]],
             "carrier": f["carrier"], "pressure_m": f["pressure_m"], "near_opps": f["near_opps"], "shape": sh, "lanes": lanes_.get(k),
-            "pitch_lines": [float(v) for v in H[k].ravel()]})
+            "pitch_lines": None if hasattr(H[k], "to_m") else [float(v) for v in H[k].ravel()]})
     ev = events(turnovers_, passes_, restarts_, sequences_, fps)
     if stats_.get('metrics'):
         from .metrics import extra_events
         ev = sorted(ev + extra_events(stats_['metrics']), key=lambda x: x['t'])
-    md = {"schema_version": SCHEMA_VERSION, "match_id": match_id, "video": os.path.basename(video), "fps": fps, "width": vinfo["width"], "height": vinfo["height"], "pitch": {"length": L, "width": W},
+    md = {"schema_version": SCHEMA_VERSION, "match_id": match_id, "video": os.path.basename(video), "fps": fps, "width": vinfo["width"], "height": vinfo["height"], "pitch": {"length": L, "width": W}, "camera": (H[0].as_dict() if hasattr(H.get(0) if isinstance(H, dict) else None, "as_dict") else None),
           "teams": {"light": "A", "dark": "B"}, "periods": ([dict(p, attack_right=attack_right, confidence=conf) for p in periods] if periods else [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}]),
           "attack_right": attack_right, "attack_right_confidence": conf, "kits": {"A": "kit_A.png", "B": "kit_B.png"}, "contract": "1.1", "frames": frames_out, "events": ev,
           "turnovers": turnovers_, "sequences": sequences_, "restarts": restarts_}

@@ -5,7 +5,28 @@ from collections import defaultdict
 from .video import frames
 from .calibration import to_m
 
-def track(video, weights_player, H, team_model, conf=0.3, log=print):
+
+# Veo panorama: players are small (about 20 px tall on the far side), so detect on zoomed tiles.
+# Far band (top of the picture) in 4 tiles, near band in 2; fractions of the frame (x0, y0, x1, y1), with overlap.
+PANO_TILES = [(0.00, 0.20, 0.30, 0.58), (0.23, 0.20, 0.53, 0.58), (0.47, 0.20, 0.77, 0.58), (0.70, 0.20, 1.00, 0.58),
+              (0.00, 0.45, 0.55, 1.00), (0.45, 0.45, 1.00, 1.00)]
+
+def detect_tiled(model, f, conf, tiles):
+    """run the detector on each tile, map boxes back to the frame, merge duplicates in the overlaps (NMS)"""
+    import supervision as sv
+    h, w = f.shape[:2]; boxes, confs, cls = [], [], []; names = None
+    for x0, y0, x1, y1 in tiles:
+        a, b, c, d = int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)
+        res = model(f[b:d, a:c], conf=conf, verbose=False)[0]; names = res.names
+        det = sv.Detections.from_ultralytics(res)
+        if len(det):
+            xy = det.xyxy.copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b
+            boxes.append(xy); confs.append(det.confidence); cls.append(det.class_id)
+    if not boxes: return sv.Detections.empty(), names or {}
+    det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls))
+    return det.with_nms(0.5, class_agnostic=True), names
+
+def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None):
     import supervision as sv
     from ultralytics import YOLO
     from .video import info
@@ -23,8 +44,11 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print):
         tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
     votes = {}; per = {}
     for k, f in frames(video):
-        res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True)
-        ref_id = next((i for i, nm in res.names.items() if "referee" in nm.lower()), None)
+        if tiles:
+            det, names = detect_tiled(model, f, conf, tiles)
+        else:
+            res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
+        ref_id = next((i for i, nm in names.items() if "referee" in nm.lower()), None)
         if ref_id is not None: det = det[det.class_id != ref_id]
         if hasattr(tracker, "update_with_detections"): det = tracker.update_with_detections(det)
         else:

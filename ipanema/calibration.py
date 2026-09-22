@@ -69,6 +69,12 @@ def pitch_segments(L, W):
     PITCH_SEGS_CACHE[key] = segs; return segs
 
 def draw_model(frame, Hm, L, W, colour=(0, 0, 255)):
+    if hasattr(Hm, "project"):                                 # curved panorama camera: draw each line as a curve
+        for a, b in pitch_segments(L, W):
+            q = Hm.project(np.array(a, float) + (np.array(b, float) - np.array(a, float)) * np.linspace(0, 1, 60)[:, None])
+            q = q[np.isfinite(q).all(1)]
+            if len(q) > 1: cv2.polylines(frame, [q.astype(np.int32).reshape(-1, 1, 2)], False, colour, 2)
+        return
     for a, b in pitch_segments(L, W):
         pa = Hm @ np.array([a[0], a[1], 1.0]); pb_ = Hm @ np.array([b[0], b[1], 1.0])
         if pa[2] <= 1e-6 or pb_[2] <= 1e-6: continue
@@ -77,5 +83,6 @@ def draw_model(frame, Hm, L, W, colour=(0, 0, 255)):
         cv2.line(frame, tuple(pa.astype(int)), tuple(pb_.astype(int)), colour, 2)
 
 def to_m(Hm, pts):
+    if hasattr(Hm, "to_m"): return Hm.to_m(np.asarray(pts, float).reshape(-1, 2)).astype(np.float32)   # curved panorama camera
     pts = np.float32(pts).reshape(-1, 1, 2)
     return cv2.perspectiveTransform(pts, np.linalg.inv(Hm).astype(np.float32)).reshape(-1, 2)

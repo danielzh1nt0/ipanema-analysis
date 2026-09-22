@@ -14,15 +14,39 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
     from .mosaic import calibrate_via_mosaic
     Hm = None
+    # Veo panorama clips (<match>_pano...): one curved-camera calibration for every frame (no per-frame registration)
+    import re as _re, json as _json
+    # looked up by the exact clip name (e.g. an app upload) or its "<name>_pano" prefix; a follow-cam match never matches one
+    _mid = _re.sub(r"_c\d+$", "", match_id); _dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "calibration", "panorama")
+    _cands = [f"{_dir}/{_mid}.json"] + ([f"{_dir}/{_re.match(r'^(.*?_pano)', _mid).group(1)}.json"] if "_pano" in _mid else [])
+    _spec = next((c for c in _cands if os.path.exists(c)), None)
+    panorama = _spec is not None
     from .mosaic import CAL_VERSION as _CV
     pano_cache = f"{cache}/calibration_pano_{_CV}.pkl"
     try:
+        if panorama: raise StopIteration
         if os.path.exists(pano_cache): Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
         else:
             Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
             if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
+    except StopIteration: pass
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
-    if Hm:
+    if panorama:
+        from .cylcam import CylCam, fit as _cylfit, NAMES as _CN
+        spec = _json.load(open(_spec)); L, W = spec["pitch"]["length"], spec["pitch"]["width"]
+        cam_cache = f"{cache}/calibration_cyl.json"
+        if os.path.exists(cam_cache):
+            cam = CylCam(_json.load(open(cam_cache))["params"]); log("calibration: curved panorama camera (cached fit)")
+        else:
+            import cv2 as _cv
+            cap = _cv.VideoCapture(video); cap.set(_cv.CAP_PROP_POS_FRAMES, int(vi["n"] * 0.5)); ok, fr = cap.read(); cap.release()
+            iw, ih = spec["image_size"]; hh = fr.shape[0]
+            cam, stats = _cylfit(fr, [spec["params"][k] for k in _CN], L, W, mask_top=int(spec["mask_rows"]["top"] / ih * hh), mask_bottom=int(spec["mask_rows"]["bottom_from"] / ih * hh), log=log)
+            _json.dump({"params": cam.params.tolist(), "fit": stats}, open(cam_cache, "w"))
+        H = {k: cam for k in range(vi["n"])}
+        cal = {"coverage": 1.0, "frozen": 0, "H": H, "L": L, "W": W}
+        log(f"calibration: curved panorama camera for all {vi['n']} frames, pitch {L:.0f} x {W:.0f} m")
+    elif Hm:
         from .calibration import _pitch_config
         _, L, W = _pitch_config(S.sports_dir)
         valid = sorted(Hm)
@@ -47,14 +71,14 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
     _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
-    trk = f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
-    alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if Hm else None
+    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
+    alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if (Hm and not panorama) else None
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     elif alt_trk and alt_trk != trk and os.path.exists(alt_trk):
         # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
         per, fps = pickle.load(open(alt_trk, "rb")); per = TR.reposition(per, H); pickle.dump((per, fps), open(trk, "wb"))
         log("tracking: reused detections, re-positioned with the panorama calibration")
-    else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log); pickle.dump((per, fps), open(trk, "wb"))
+    else: per, fps = TR.track(video, S.weights["player"], H, tm, S.conf_player, log=log, tiles=TR.PANO_TILES if panorama else None); pickle.dump((per, fps), open(trk, "wb"))
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     cands = None
     if ball_backend == "wasb":

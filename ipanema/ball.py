@@ -186,7 +186,7 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
             top = [c for c in sorted(cands[i], key=lambda z: -z[2])[:top_k] if c[2] >= min_conf]
             if top:
                 pts = np.float32([[x, y] for x, y, _ in top]).reshape(-1, 1, 2)
-                m = cv2.perspectiveTransform(pts, np.linalg.inv(H[i]).astype(np.float32)).reshape(-1, 2)
+                m = to_m(H[i], pts.reshape(-1, 2))
                 for (x, y, cf), (mx, my) in zip(top, m):
                     on = bool(-margin < mx < L + margin and -margin < my < W + margin)
                     near = float(np.linalg.norm(ppos[i] - np.array([mx, my]), axis=1).min() < 4.0) if (on and i in ppos) else 0.0
@@ -212,8 +212,10 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
         else:
             prows = C[i - 1]; pk = len(prows)
             if k and pk:
-                G = H[i - 1] @ np.linalg.inv(H[i])                       # frame i pixels -> frame i-1 pixels (camera pan removed)
-                q = cv2.perspectiveTransform(np.float32([[r[3], r[4]] for r in rows]).reshape(-1, 1, 2), G.astype(np.float32)).reshape(-1, 2)
+                if hasattr(H[i], "to_m"): q = np.float32([[r[3], r[4]] for r in rows])     # fixed camera: nothing to remove
+                else:
+                    G = H[i - 1] @ np.linalg.inv(H[i])                   # frame i pixels -> frame i-1 pixels (camera pan removed)
+                    q = cv2.perspectiveTransform(np.float32([[r[3], r[4]] for r in rows]).reshape(-1, 1, 2), G.astype(np.float32)).reshape(-1, 2)
                 p = np.float32([[r[3], r[4]] for r in prows])
                 d = np.linalg.norm(q[:, None, :] - p[None, :, :], axis=2)   # (k, pk) pixels
                 tr = px_w * d + np.where(d > jump_px, jump_cost, 0.0) + np.where(d > gate_px, 1e6, 0.0)
