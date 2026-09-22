@@ -44,11 +44,16 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
     if tracker is None:
         tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
     votes = {}; per = {}
+    import time as _time
+    prof = {"read": 0.0, "detect": 0.0, "tracker": 0.0, "team": 0.0, "rest": 0.0}; t_mark = _time.time(); t_start = t_mark
+    max_frames = int(os.environ.get("IPANEMA_MAX_FRAMES", "0") or 0)
     for k, f in frames(video):
+        _t = _time.time(); prof["read"] += _t - t_mark
         if tiles:
             det, names = detect_tiled(model, f, conf, tiles)
         else:
             res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
+        _t2 = _time.time(); prof["detect"] += _t2 - _t
         ref_id = next((i for i, nm in names.items() if "referee" in nm.lower()), None)
         if ref_id is not None: det = det[det.class_id != ref_id]
         if hasattr(tracker, "update_with_detections"): det = tracker.update_with_detections(det)
@@ -60,6 +65,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
                 det = sv.Detections(xyxy=out[:, :4].astype(float), confidence=out[:, 5].astype(float),
                                     class_id=out[:, 6].astype(int), tracker_id=out[:, 4].astype(int))
             else: det = sv.Detections.empty()
+        _t3 = _time.time(); prof["tracker"] += _t3 - _t2
         rows = []
         if len(det):
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
@@ -69,8 +75,10 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
             tids = [int(det.tracker_id[j]) if det.tracker_id is not None else -1 for j in range(len(det))]
             need = [j for j in range(len(det)) if k % every == 0 or tids[j] not in votes]
             labs = [None] * len(det)
+            _t4 = _time.time()
             if need:
                 for j, lab in zip(need, team_model.predict_batch(f, det.xyxy[need])): labs[j] = lab
+            prof["team"] += _time.time() - _t4
             for j in range(len(det)):
                 tid = tids[j]; v = votes.setdefault(tid, [])
                 if labs[j] is not None: v.append(labs[j]); del v[:-25]
@@ -79,7 +87,11 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
                 if (labs[j] if labs[j] is not None else team) == "R": continue      # referee / bib: not a player
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
         per[k] = rows
+        t_mark = _time.time(); prof["rest"] += t_mark - _t3
         if k % 500 == 0: log(f"  tracking frame {k}")
+        if k and k % 100 == 0 and max_frames:
+            el = t_mark - t_start; log(f"  timing @ frame {k}: {k / el:.1f} frames/s | " + ", ".join(f"{a} {v:.1f}s" for a, v in prof.items()) + f" (team rest incl. in 'rest'), {len(det)} detections this frame")
+        if max_frames and k + 1 >= max_frames: break
     return per, fps
 
 def clean(per, L, W, fps, log=print):

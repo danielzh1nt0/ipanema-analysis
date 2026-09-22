@@ -535,6 +535,30 @@ def test_piece(match_id: str, i: int, video_url: str):
     cap.release()
     return {"ok": True, "stats": stats, "log": lines[-60:], "images": imgs}
 
+@app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def profile_tracking(match_id: str, i: int, n_frames: int = 300):
+    """where tracking time goes on a panorama piece: first n_frames only, timed per part, GPU checked"""
+    import json, time, torch
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR, teams as T
+    from ipanema.cylcam import CylCam
+    log, lines = _logger(f"{match_id}/profile.log")
+    pid = FM.piece_id(match_id, i); cache = f"{ROOT}/cache/{pid}"; video = f"{ROOT}/videos/{pid}.mp4"
+    log(f"GPU visible to torch: {torch.cuda.is_available()} ({torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none'})")
+    cam = CylCam(json.load(open(f"{cache}/calibration_cyl.json"))["params"])
+    t0 = time.time(); T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log); log(f"team model fit: {time.time() - t0:.0f} s")
+    from ultralytics import YOLO
+    import numpy as np, cv2
+    m = YOLO(S.weights["player"]); cap = cv2.VideoCapture(video); ok, f = cap.read(); cap.release()
+    for label, fn in (("one full frame", lambda: m(f, verbose=False)), ("6 tiles, one batch", lambda: TR.detect_tiled(m, f, 0.3, TR.PANO_TILES))):
+        fn(); t0 = time.time()
+        for _ in range(10): fn()
+        log(f"detector speed, {label}: {(time.time() - t0) / 10 * 1000:.0f} ms per frame (device: {next(m.model.parameters()).device})")
+    os.environ["IPANEMA_MAX_FRAMES"] = str(n_frames)
+    t0 = time.time(); per, fps = TR.track(video, S.weights["player"], {k: cam for k in range(9000)}, tm, S.conf_player, log=log, tiles=TR.PANO_TILES)
+    log(f"PROFILE: tracked {len(per)} frames in {time.time() - t0:.1f} s; median players/frame {np.median([len(v) for v in per.values()]):.0f}")
+    return lines[-40:]
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

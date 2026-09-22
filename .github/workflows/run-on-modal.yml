@@ -275,6 +275,19 @@ jobs:
           for name, b64 in (out.pop("images", None) or {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
           open(f"{d}/test.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:4000])
           PY
+      - name: profile tracking speed (commit tagged profile:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[profile:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json
+          mid, i = re.search(r"\[profile:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "profile_tracking").remote(mid, int(i))
+          os.makedirs("results/check", exist_ok=True); open(f"results/check/{mid}_profile.txt", "w").write("\n".join(out)); print("\n".join(out))
+          PY
       - name: scoreboard
         if: always()
         run: |
