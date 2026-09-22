@@ -28,7 +28,7 @@ def detect_tiled(model, f, conf, tiles, imgsz=None):
     det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls))
     return det.with_nms(0.5, class_agnostic=True), names
 
-def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None):
+def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None):
     import supervision as sv
     from ultralytics import YOLO
     from .video import info
@@ -53,7 +53,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
         if tiles:
             det, names = detect_tiled(model, f, conf, tiles)
         else:
-            res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
+            res = model(f, conf=conf, verbose=False, **({"imgsz": imgsz} if imgsz else {}))[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
         _t2 = _time.time(); prof["detect"] += _t2 - _t
         ref_id = next((i for i, nm in names.items() if "referee" in nm.lower()), None)
         if ref_id is not None: det = det[det.class_id != ref_id]
@@ -72,7 +72,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None)
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
             # team check: every frame for the follow-cam; on panorama clips (many more players in view) every 5th frame per
             # player plus any new track - each player keeps a running vote of its last 25 checks either way
-            every = 5 if tiles else 1
+            every = 5 if (tiles or imgsz) else 1
             tids = [int(det.tracker_id[j]) if det.tracker_id is not None else -1 for j in range(len(det))]
             need = [j for j in range(len(det)) if k % every == 0 or tids[j] not in votes]
             labs = [None] * len(det)
