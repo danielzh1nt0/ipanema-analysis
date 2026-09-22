@@ -1,0 +1,6 @@
+OPTION A football 2560 conf .30 (current): 242 ms/frame | on the pitch median 18 (10th pct 15) | dark shirts median 1, white 8
+OPTION B football 2560 conf .12: 243 ms/frame | on the pitch median 24 (10th pct 18) | dark shirts median 2, white 9
+OPTION C football 1920 + far-side zoom, conf .20: 358 ms/frame | on the pitch median 23 (10th pct 17) | dark shirts median 1, white 8
+OPTION D general detector 2560 conf .15: 247 ms/frame | on the pitch median 17 (10th pct 13) | dark shirts median 1, white 7
+OPTION E general detector 1920 + far-side zoom, conf .15: 356 ms/frame | on the pitch median 18 (10th pct 14) | dark shirts median 1, white 7
+BEST: B football 2560 conf .12

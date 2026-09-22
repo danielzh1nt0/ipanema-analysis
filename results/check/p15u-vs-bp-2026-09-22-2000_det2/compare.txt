@@ -1,5 +1,5 @@
-DET football model, 2560, conf 0.3 (now)        :   210 ms/frame | on the pitch median 18.5 (10th pct 14.9) | in black median  1.0
-DET football model, 2560, conf 0.1              :   209 ms/frame | on the pitch median 25.0 (10th pct 18.9) | in black median  1.5
-DET football 2560 conf 0.1 + far side zoomed    :   347 ms/frame | on the pitch median 25.5 (10th pct 19.0) | in black median  1.0
-DET general person model, 2560, conf 0.2        :   210 ms/frame | on the pitch median 14.0 (10th pct 10.0) | in black median  1.0
-DET general person 2560 + far side zoomed       :   345 ms/frame | on the pitch median 15.5 (10th pct 12.9) | in black median  1.0
+DET football model, 2560, conf 0.3 (now)        :   221 ms/frame | on the pitch median 18.5 (10th pct 14.9) | in black median  1.0
+DET football model, 2560, conf 0.1              :   224 ms/frame | on the pitch median 25.0 (10th pct 18.9) | in black median  1.5
+DET football 2560 conf 0.1 + far side zoomed    :   371 ms/frame | on the pitch median 25.5 (10th pct 19.0) | in black median  1.0
+DET general person model, 2560, conf 0.2        :   226 ms/frame | on the pitch median 14.0 (10th pct 10.0) | in black median  1.0
+DET general person 2560 + far side zoomed       :   372 ms/frame | on the pitch median 15.5 (10th pct 12.9) | in black median  1.0
