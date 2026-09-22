@@ -444,6 +444,13 @@ def export_frames(match_id: str, items: list):
                     "jpg": base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 95])[1].tobytes()).decode()})
     return out
 
+@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+def export_events(match_id: str, types: list):
+    """events of the given types from a match's exported data (reads the volume only)"""
+    import json
+    md = json.load(open(f"{ROOT}/runs/matches/{match_id}/match_data.json"))
+    return [{"t": e.get("t"), "type": e.get("type"), "team": e.get("team"), "title": e.get("title"), "payload": {k: v for k, v in (e.get("payload") or {}).items() if isinstance(v, (int, float, str, bool))}} for e in md.get("events", []) if e.get("type") in types]
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

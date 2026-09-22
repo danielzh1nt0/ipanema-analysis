@@ -214,6 +214,19 @@ jobs:
               open(f"{d}/piece{r['i']:02d}_{r['k']:05d}.jpg", "wb").write(base64.b64decode(r.pop("jpg"))); meta.append(r)
           open(f"{d}/frames.json", "w").write(json.dumps(meta)); print(len(meta), "frames exported")
           PY
+      - name: export events (commit tagged events:<match_id>)
+        if: contains(github.event.head_commit.message, '[events:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json
+          mid = re.search(r"\[events:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "export_events").remote(mid, ["shot", "goal"])
+          os.makedirs("results/check", exist_ok=True); open(f"results/check/{mid}_events.json", "w").write(json.dumps(out, indent=1)); print(len(out), "events")
+          PY
       - name: scoreboard
         if: always()
         run: |
