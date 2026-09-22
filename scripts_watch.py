@@ -80,7 +80,8 @@ def main():
     call = fn.spawn(mid, f"{R2}/{mid}/video.mp4")
     print(f"started {kind} {mid}: {call.object_id}", flush=True)
     tag = re.search(r"\[budget:(\d+)\]", os.environ.get("MSG", ""))
-    budget = float(tag.group(1)) if tag else (1.5 * (60 if kind == "full" else 45))       # expected: full match ~60 min, clip ~45 min
+    # measured 22 Sep: a panorama piece takes ~40 min (4.5 frames/s) and pieces run in rounds, so a full clip needs ~2 h
+    budget = float(tag.group(1)) if tag else (180.0 if kind == "full" else 60.0)
     print(f"time budget: {budget:.0f} min", flush=True)
     res, err = watch(call, vol, mid, since, check_fallback, budget_min=budget)
     os.makedirs("results/modal", exist_ok=True); name = f"{mid}_full" if kind == "full" else mid
