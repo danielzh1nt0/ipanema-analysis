@@ -28,27 +28,33 @@ def detect_tiled(model, f, conf, tiles, imgsz=None):
     det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls))
     return det.with_nms(0.5, class_agnostic=True), names
 
-def kit_labels(f, boxes, min_px=2):
-    """Team by shirt colour for panorama clips (black vs white kits). Far-away players are a few pixels wide and their box
-    also holds grass, trees and fence, which are strongly green; black and white shirts are colourless. So only
-    colourless pixels count: dark ones (black shirt) vs bright ones (white shirt); clearly orange/yellow bright pixels mark
-    a keeper. -> "A" (dark, SFK), "B" (white), "K" (keeper) or None if there's nothing to judge."""
+def kit_labels(f, boxes, min_gap=18.0, dark_fallback=105.0):
+    """Team by shirt colour for panorama clips (black vs white kits). A far-away black shirt is only a few pixels and comes
+    out grey, so no fixed brightness cut-off works. Instead: measure each player's shirt brightness (colourless pixels of
+    the upper body), set aside clearly orange/yellow keepers, then split the players of THIS frame into two brightness
+    groups - the darker group is "A" (SFK), the lighter "B" (BP). Relative to each other, so it survives washed-out light.
+    Falls back to a fixed cut-off when one team alone is in view (the two groups would not separate). -> "A"/"B"/"K"/None"""
     import cv2
-    out = []; H, W = f.shape[:2]
+    H, W = f.shape[:2]; vals = []; keeper = []
     for x0, y0, x1, y1 in np.asarray(boxes, float):
         h, w = y1 - y0, x1 - x0
         a, b = int(max(0, x0 + 0.15 * w)), int(min(W, x1 - 0.15 * w)); c, d = int(max(0, y0 + 0.10 * h)), int(min(H, y0 + 0.60 * h))
-        if b - a < 1 or d - c < 2: out.append(None); continue
+        if b - a < 1 or d - c < 1: vals.append(None); keeper.append(False); continue
         hsv = cv2.cvtColor(f[c:d, a:b], cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(int)
         hue, sat, val = hsv[:, 0], hsv[:, 1], hsv[:, 2]
-        grey = sat < 70
-        dark = int((grey & (val < 90)).sum()); bright = int((grey & (val > 150)).sum())
-        keeper = int(((hue >= 5) & (hue <= 35) & (sat > 120) & (val > 120)).sum())      # orange / yellow shirts
-        if keeper >= max(min_px, dark, bright): out.append("K")
-        elif dark >= min_px and dark > bright: out.append("A")
-        elif bright >= min_px and bright >= dark: out.append("B")
-        else: out.append(None)
-    return out
+        keeper.append(int(((hue >= 5) & (hue <= 35) & (sat > 120) & (val > 120)).sum()) >= 3)      # orange / yellow shirt
+        plain = val[sat < 70]                                                                     # black and white are colourless; grass and trees are not
+        vals.append(float(np.median(plain)) if len(plain) >= 2 else (float(np.median(val)) if len(val) else None))
+    v = np.array([x for x, k in zip(vals, keeper) if x is not None and not k], float)
+    cut = dark_fallback
+    if len(v) >= 4:
+        lo, hi = v.min(), v.max()                                                                 # two-group split (1-D k-means, two runs are enough)
+        for _ in range(12):
+            mid = (lo + hi) / 2; a_, b_ = v[v <= mid], v[v > mid]
+            if not len(a_) or not len(b_): break
+            lo, hi = a_.mean(), b_.mean()
+        if hi - lo >= min_gap: cut = (lo + hi) / 2
+    return [("K" if k else (None if x is None else ("A" if x < cut else "B"))) for x, k in zip(vals, keeper)]
 
 def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None):
     import supervision as sv
