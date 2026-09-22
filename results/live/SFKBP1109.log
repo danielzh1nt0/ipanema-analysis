@@ -1,67 +1,31 @@
-# live log · SFKBP1109 · finished · 23:53:04 UTC
+# live log · SFKBP1109 · running · 00:40:37 UTC
 
 
-## run_full.log (105 lines, last 60)
-periods: [(0.0, 3059.99), (3509.01, 5940.0)] s; 91 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: 91.1% of match frames placed confidently; the rest are marked unknown and excluded
-ball check: 40 held-out test frames mapped into the full match
-clean: dropped 35179 off-pitch, merged 17675 duplicates, stitched 14237 ids, keepers [204850, 501672, 502157, 502164, 600794, 701286, 705874, 705887, 706020, 706152, 800245, 800370, 800501, 800736, 801419, 802782, 803030, 805766, 900445, 900663, 901607, 901807, 903006, 903052, 903207, 1202448, 1202632, 1305954, 1403353, 1403541, 1404186, 1603013, 1701887, 1806088, 1901745, 1901837, 1903551, 1903663] -> A defends left
-clean: players per frame median A 4 / B 5, max A 20 / B 16
-ball v2: 127321/184725 frames on the path, 4902 static-clutter candidates dropped
-ball check: 21/34 correct, 12 wrong, 1 no pick (ceiling 24/34)
-ball: dropped 3373 static-clutter candidates
-ball (global path): 92399/184725 frames on the chosen path
-ball check (other picker, v1): 18/34 correct, ceiling 24/34
-ball: dropped 3373 static-clutter candidates
-ball (global path): 92399/184725 frames on the chosen path
-picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 36/59, other 26/59, ceiling 46
-ball: dropped 3373 static-clutter candidates
-ball (global path): 92399/184725 frames on the chosen path
-picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 70/134, other 38/134, ceiling 93
-direction: A →  B ←  confidence A 0.11 / B 0.05  WARNING low confidence
-direction (from keepers): A →  B ←
-  step: sequences
-  step: turnovers
-  step: lanes
-  step: passes
-  step: shapes
-  step: stats
-  step: metrics
-ball grade: accuracy 0.62, near-player 0.61, possession withheld, events withheld
-ball reliability: 57% frames, 61% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
-  step: export
-  wrote 21 frame files (every 3 frames, 300 s each, largest 6.2 MB)
-  wrote match_data.json (2.2 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109 (3274 events) · library.json updated · zip None
-upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, thumb)
-
---- SUMMARY ---
-  match_id                   SFKBP1109
-  ball_reliable              False
-  ball_grade                 {'accuracy': 0.62, 'near_player_pct': 0.61, 'frames_pct': 0.7, 'possession_ok': False, 'events_ok': False}
-  duration_s                 6163.7
-  calibration_coverage       1.0
-  calibration_frozen         0
-  team_dark_share            {'A': 0.43, 'B': 0.24}
-  players_per_frame_median   {'A': 5.0, 'B': 6.0}
-  ball_frames_pct            100
-  match_seconds              4999.6
-  periods                    [{'index': 1, 't_start': 0.0, 't_end': 3059.99, 'mirrored': False}, {'index': 2, 't_start': 3509.01, 't_end': 5940.0, 'mirrored': True}]
-  ball_check                 {'correct': 21, 'total': 34, 'wrong': 12, 'ceiling': 24}
-  possession_pct             {'A': 49, 'B': 51}
-  loose_pct                  41
-  dead_pct                   20
-  attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.11, 'B': 0.05}
-  turnovers                  16
-  passes                     12800
-  restarts                   337
-  sequences                  934
-  shots                      {'A': 4, 'B': 6}
-  goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 1, 'B': 1}
-  field_tilt                 {'A': 16, 'B': 26}
-  runtime_min                5.8
+## run_full.log (24 lines, last 60)
+=== SFKBP1109 full match === 184725 frames @ 29.970 fps (102.7 min) -> 21 pieces
+pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 21/21 done in 0.2 min
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: cached
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
 
 ## train_ball.log (1 lines, last 60)
 
