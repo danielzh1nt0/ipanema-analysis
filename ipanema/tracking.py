@@ -11,12 +11,13 @@ from .calibration import to_m
 PANO_TILES = [(0.00, 0.20, 0.30, 0.58), (0.23, 0.20, 0.53, 0.58), (0.47, 0.20, 0.77, 0.58), (0.70, 0.20, 1.00, 0.58),
               (0.00, 0.45, 0.55, 1.00), (0.45, 0.45, 1.00, 1.00)]
 
-def detect_tiled(model, f, conf, tiles):
+def detect_tiled(model, f, conf, tiles, imgsz=None):
     """run the detector on each tile, map boxes back to the frame, merge duplicates in the overlaps (NMS)"""
     import supervision as sv
     h, w = f.shape[:2]; boxes, confs, cls = [], [], []; names = None
     rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
-    results = model([f[b:d, a:c] for a, b, c, d in rects], conf=conf, verbose=False)      # all tiles in one GPU batch
+    kw = {"imgsz": imgsz} if imgsz else {}
+    results = model([f[b:d, a:c] for a, b, c, d in rects], conf=conf, verbose=False, **kw)      # all tiles in one GPU batch
     for (a, b, c, d), res in zip(rects, results):
         names = res.names
         det = sv.Detections.from_ultralytics(res)

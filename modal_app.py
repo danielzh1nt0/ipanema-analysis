@@ -559,6 +559,31 @@ def profile_tracking(match_id: str, i: int, n_frames: int = 300):
     log(f"PROFILE: tracked {len(per)} frames in {time.time() - t0:.1f} s; median players/frame {np.median([len(v) for v in per.values()]):.0f}")
     return lines[-40:]
 
+@app.function(gpu="L4", timeout=15 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def compare_detectors(match_id: str, i: int):
+    """speed and players found for several detector settings on the same 60 frames of a panorama piece"""
+    import time, numpy as np, cv2
+    import supervision as sv
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR
+    from ultralytics import YOLO
+    log, lines = _logger(f"{match_id}/compare_detectors.log")
+    m = YOLO(S.weights["player"]); log(f"model's own image size: {m.overrides.get('imgsz')}")
+    cap = cv2.VideoCapture(f"{ROOT}/videos/{FM.piece_id(match_id, i)}.mp4"); frames = []
+    for k in range(0, 9000, 150):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    def whole(f, sz): return sv.Detections.from_ultralytics(m(f, conf=S.conf_player, verbose=False, **({"imgsz": sz} if sz else {}))[0]).with_nms(0.5, class_agnostic=True)
+    configs = [("whole frame, default size", lambda f: whole(f, None)), ("whole frame, 1920", lambda f: whole(f, 1920)),
+               ("tiles, default size", lambda f: TR.detect_tiled(m, f, S.conf_player, TR.PANO_TILES)[0]),
+               ("tiles, 640", lambda f: TR.detect_tiled(m, f, S.conf_player, TR.PANO_TILES, imgsz=640)[0]),
+               ("tiles, 960", lambda f: TR.detect_tiled(m, f, S.conf_player, TR.PANO_TILES, imgsz=960)[0])]
+    for name, fn in configs:
+        fn(frames[0]); t0 = time.time(); counts = [len(fn(f)) for f in frames]; ms = (time.time() - t0) / len(frames) * 1000
+        log(f"COMPARE {name:26s}: {ms:5.0f} ms/frame ({1000 / ms:4.1f} frames/s) | detections per frame median {np.median(counts):4.1f}, 10th pct {np.percentile(counts, 10):4.1f}")
+    return lines[-20:]
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

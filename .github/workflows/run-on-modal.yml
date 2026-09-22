@@ -288,6 +288,19 @@ jobs:
           out = modal.Function.from_name("ipanema", "profile_tracking").remote(mid, int(i))
           os.makedirs("results/check", exist_ok=True); open(f"results/check/{mid}_profile.txt", "w").write("\n".join(out)); print("\n".join(out))
           PY
+      - name: compare detector settings (commit tagged comparedet:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[comparedet:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re
+          mid, i = re.search(r"\[comparedet:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "compare_detectors").remote(mid, int(i))
+          os.makedirs("results/check", exist_ok=True); open(f"results/check/{mid}_compare_detectors.txt", "w").write("\n".join(out)); print("\n".join(out))
+          PY
       - name: scoreboard
         if: always()
         run: |
