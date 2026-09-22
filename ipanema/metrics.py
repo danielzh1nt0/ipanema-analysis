@@ -141,7 +141,8 @@ def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, p
 def extra_events(metrics):
     ev = []
     for s in metrics["shots"]:
-        ev.append({"id": f"shot_{s['t']}", "t": s["t"], "type": "goal" if s["goal"] else "shot", "team": s["team"], "title": ("GOAL" if s["goal"] else "Shot") + f" · {s['team']}", "subtitle": f"{s['distance_m']} m · {s['outcome']}", "payload": s})
+        dist = f"{s['distance_m']} m · " if s.get("distance_m") is not None else ""
+        ev.append({"id": f"shot_{s['t']}", "t": s["t"], "type": "goal" if s["goal"] else "shot", "team": s["team"], "title": ("GOAL" if s["goal"] else "Shot") + (f" · {s['team']}" if s.get("team") else ""), "subtitle": f"{dist}{s['outcome']}" + (" · from Veo" if s.get("source") == "veo" else ""), "payload": s})
     for h in metrics["high_turnovers"]:
         if h["zone"] == "high": ev.append({"id": f"hto_{h['t']}", "t": h["t"], "type": "high_turnover", "team": h["team"], "title": f"High turnover · {h['team']}", "subtitle": "won the ball in the final third", "payload": h})
     return ev

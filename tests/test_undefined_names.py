@@ -17,7 +17,7 @@ def _undefined(path):
         d |= {n.name for n in ast.walk(fn) if isinstance(n, ast.ExceptHandler) and n.name}
         d |= {n.name for n in ast.walk(fn) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef))}
         used = {n.id for n in ast.walk(fn) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Load)}
-        miss = sorted(used - d - mod - set(dir(builtins)))
+        miss = sorted(used - d - mod - set(dir(builtins)) - {"__file__", "__name__", "__doc__", "__spec__", "__package__"})
         if miss: bad[fn.name] = miss
     return bad
 

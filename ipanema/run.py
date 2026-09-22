@@ -146,6 +146,17 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r)
     log("  step: metrics"); t_ = time.time()
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
+    # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
+    try:
+        from . import veo as VEO
+        vp = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")
+        if os.path.exists(vp):
+            vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log)
+            sc = VEO.score_detector(mx["shots"], vs)
+            log(f"our shot detector vs Veo: found {sc['found']}/{sc['veo_shots']} of Veo's shots, {sc['real']}/{sc['ours']} of ours are real (within 10 s)")
+            for g in rej: log(f"veo: rejected goal tag at {g['t']} s: {g['why']}")
+            mx["shots_detected"], mx["shots"], mx["goals"], mx["veo_rejected"] = mx["shots"], vs, [s for s in vs if s["goal"]], rej
+    except Exception as e: log(f"veo import failed: {e!r}")
     ctrl = int((state < 2).sum()); n = len(per)
     play = ctx.get("play_mask"); n_play = int(play.sum()) if play is not None else n; play_ks = [k for k in range(n) if play is None or play[k]]
     # ball reliability: a real ball is near a player most of the time and does not teleport
