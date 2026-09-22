@@ -298,16 +298,22 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
                 row = {k: v for k, v in src[0].items() if k not in ("match_id", "id", "created_at", "updated_at")}; row["competition"] = "Full match"
                 db.table("match_labels").upsert({"match_id": match_id, **row}).execute(); log("labels copied from " + src[0]["match_id"])
     except Exception as e: log(f"label copy skipped: {e!r}")
-    qa = []
-    def check(name, ok_, detail): qa.append(f"QA {'PASS' if ok_ else 'FAIL'}: {name} ({detail})")
+    qa = []; verdicts = {}
+    def check(name, ok_, detail, stat=None):
+        qa.append(f"QA {'PASS' if ok_ else 'FAIL'}: {name} ({detail})")
+        if stat: verdicts[stat] = {"ok": bool(ok_), "detail": detail}
     ppf = summary.get("players_per_frame_median") or {}
     a_, b_ = float(ppf.get("A", 0)), float(ppf.get("B", 0))
-    check("pieces processed", len(ok) == len(plan_), f"{len(ok)}/{len(plan_)}")
-    check("calibration", (summary.get("calibration_coverage") or 0) > 0.95, f"coverage {summary.get('calibration_coverage')}")
-    check("players per frame", a_ + b_ >= 14, f"A {a_} + B {b_}")
-    check("team balance", min(a_, b_) >= 0.5 * max(a_, b_) if max(a_, b_) else False, f"A {a_} vs B {b_}")
-    check("shots and goals from Veo", (summary.get("shots") or {}) != {} and sum((summary.get("goals") or {}).values()) > 0, f"shots {summary.get('shots')}, goals {summary.get('goals')}")
-    check("match time", (summary.get("match_seconds") or 0) > 0.5 * n / fps, f"{summary.get('match_seconds')} s of {n / fps:.0f} s")
+    check("pieces processed", len(ok) == len(plan_), f"{len(ok)}/{len(plan_)}", "pieces")
+    check("calibration", (summary.get("calibration_coverage") or 0) > 0.95, f"coverage {summary.get('calibration_coverage')}", "positions")
+    check("players per frame", a_ + b_ >= 14, f"A {a_} + B {b_}", "players")
+    check("team balance", min(a_, b_) >= 0.5 * max(a_, b_) if max(a_, b_) else False, f"A {a_} vs B {b_}", "teams")
+    check("shots and goals from Veo", (summary.get("shots") or {}) != {} and sum((summary.get("goals") or {}).values()) > 0, f"shots {summary.get('shots')}, goals {summary.get('goals')}", "shots")
+    check("match time", (summary.get("match_seconds") or 0) > 0.5 * n / fps, f"{summary.get('match_seconds')} s of {n / fps:.0f} s", "match_time")
+    grade = (summary.get("ball_grade") or {})
+    verdicts["ball"] = {"ok": bool(grade.get("possession_ok")), "detail": f"accuracy {grade.get('accuracy')}, near a player {grade.get('near_player_pct')}"}
+    verdicts["possession"] = {"ok": bool(grade.get("possession_ok")), "detail": "unlocked" if grade.get("possession_ok") else "withheld: ball not reliable enough"}
+    summary["quality"] = verdicts                                           # travels with the match so the app can show what to trust
     for q in qa: log(q)
     vol.commit()
     import json as _json

@@ -20,6 +20,8 @@ jobs:
       - run: pip install -q "numpy<2" opencv-python-headless pandas scipy pytest pyyaml supervision
       - name: tests (a failure stops everything below — no deploy, no run, no spend)
         run: python -m pytest -q tests
+      - name: model evals (scored on stored labelled data; a drop below a floor stops everything)
+        run: python scripts_evals.py
   run:
     needs: tests
     runs-on: ubuntu-latest
@@ -439,6 +441,9 @@ jobs:
         if: always()
         run: |
           for f in $(git ls-files --others --modified results/modal | grep '\.txt$'); do m=$(basename "$f" .txt); python scripts_scoreboard.py "$f" "${{ github.sha }}" "$m" || true; done
+      - name: release log (one entry per pipeline version)
+        if: always()
+        run: python scripts_release.py
       - name: commit results
         if: always()
         run: |
