@@ -797,6 +797,68 @@ def compare_player_detectors(match_id: str, i: int):
         log(f"OPTION {row}"); out.append(row)
     return {"rows": out, "images": imgs, "log": lines[-20:]}
 
+@app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def compare_detectors_v2(match_id: str, i: int):
+    """Find the dark far-side players: detector options on 30 frames, counting players ON the pitch and how many wear
+    dark vs white shirts (target: 20+ on the pitch, about half dark). Picture of the best option."""
+    import json, time, base64, numpy as np, cv2
+    import supervision as sv
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR
+    from ipanema.cylcam import CylCam
+    from ultralytics import YOLO
+    log, lines = _logger(f"{match_id}/compare_detectors_v2.log")
+    pid = FM.piece_id(match_id, i); cam = CylCam(json.load(open(f"{ROOT}/cache/{pid}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); frames = []
+    for k in range(0, 9000, 300):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    foot = YOLO(S.weights["player"]); coco = YOLO("yolov8x.pt")
+    FAR = [(0.00, 0.15, 0.40, 0.55), (0.30, 0.15, 0.70, 0.55), (0.60, 0.15, 1.00, 0.55)]            # the far side of the pitch
+    def dets(model, f, sz, conf, person_only=False):
+        r = model(f, conf=conf, verbose=False, imgsz=sz)[0]; d = sv.Detections.from_ultralytics(r)
+        if person_only and len(d): d = d[d.class_id == 0]
+        return d
+    def far_tiles(model, f, conf, person_only=False):
+        h, w = f.shape[:2]; boxes, confs = [], []
+        for x0, y0, x1, y1 in FAR:
+            a, b, c, e = int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)
+            d = dets(model, f[b:e, a:c], 1280, conf, person_only)
+            if len(d): xy = d.xyxy.copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b; boxes.append(xy); confs.append(d.confidence)
+        return (np.vstack(boxes), np.concatenate(confs)) if boxes else (np.zeros((0, 4)), np.zeros(0))
+    def merged(f, model, sz, conf, person_only=False):
+        d = dets(model, f, sz, conf, person_only); fb, fc = far_tiles(model, f, conf, person_only)
+        xy = np.vstack([d.xyxy, fb]) if len(fb) else d.xyxy; cf = np.concatenate([d.confidence, fc]) if len(fc) else d.confidence
+        if not len(xy): return xy
+        return sv.Detections(xyxy=xy, confidence=cf, class_id=np.zeros(len(xy), int)).with_nms(0.4, class_agnostic=True).xyxy
+    options = {
+        "A football 2560 conf .30 (current)": lambda f: dets(foot, f, 2560, 0.30).xyxy,
+        "B football 2560 conf .12": lambda f: dets(foot, f, 2560, 0.12).xyxy,
+        "C football 1920 + far-side zoom, conf .20": lambda f: merged(f, foot, 1920, 0.20),
+        "D general detector 2560 conf .15": lambda f: dets(coco, f, 2560, 0.15, True).xyxy,
+        "E general detector 1920 + far-side zoom, conf .15": lambda f: merged(f, coco, 1920, 0.15, True)}
+    best = None
+    for name, fn in options.items():
+        fn(frames[0]); t0 = time.time(); on, dark, white = [], [], []
+        for f in frames:
+            xy = np.asarray(fn(f)).reshape(-1, 4)
+            if not len(xy): on.append(0); dark.append(0); white.append(0); continue
+            feet = np.c_[(xy[:, 0] + xy[:, 2]) / 2, xy[:, 3]]; mm = cam.to_m(feet)
+            inside = np.isfinite(mm).all(1) & (mm[:, 0] >= 0) & (mm[:, 0] <= L) & (mm[:, 1] >= 0) & (mm[:, 1] <= W)
+            labs = TR.kit_labels(f, xy[inside]) if inside.any() else []
+            on.append(int(inside.sum())); dark.append(sum(1 for l in labs if l == "A")); white.append(sum(1 for l in labs if l == "B"))
+        ms = (time.time() - t0) / len(frames) * 1000
+        log(f"OPTION {name}: {ms:.0f} ms/frame | on the pitch median {np.median(on):.0f} (10th pct {np.percentile(on, 10):.0f}) | dark shirts median {np.median(dark):.0f}, white {np.median(white):.0f}")
+        score = np.median(on) + np.median(dark)                          # more players, and the dark ones found
+        if best is None or score > best[0]: best = (score, name, fn)
+    f = frames[15].copy(); xy = np.asarray(best[2](f)).reshape(-1, 4); labs = TR.kit_labels(f, xy) if len(xy) else []
+    for (x0, y0, x1, y1), lab in zip(xy, labs):
+        c = (int((x0 + x1) / 2), int(y1)); col = {"A": (20, 20, 20), "B": (255, 255, 255), "K": (0, 140, 255)}.get(lab, (0, 0, 255))
+        cv2.circle(f, c, 8, (0, 255, 255), 2); cv2.circle(f, c, 5, col, -1)
+    cv2.putText(f, f"best: {best[1]}", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 3)
+    return {"log": lines[-20:], "best": best[1], "image": base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 88])[1].tobytes()).decode()}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
