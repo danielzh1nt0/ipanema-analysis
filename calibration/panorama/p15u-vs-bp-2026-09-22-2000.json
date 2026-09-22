@@ -1,0 +1,29 @@
+{
+ "camera": "cylindrical",
+ "pitch": {
+  "length": 106.0,
+  "width": 64.0
+ },
+ "params": {
+  "cx": 53.34692818884818,
+  "cy": 67.56938971168857,
+  "h": 3.7938953281654113,
+  "yaw": -1.3172980712064606,
+  "fu": 746.0017440072955,
+  "fv": 1978.0723729792076,
+  "u0": 1465.0171444577272,
+  "v0": 415.77016726495884,
+  "tilt": 0.06390707505993788,
+  "roll": 0.0037211520335196993
+ },
+ "image_size": [
+  2450,
+  1364
+ ],
+ "mask_rows": {
+  "top": 100,
+  "bottom_from": 1225
+ },
+ "fit": "fitted to all painted lines of a Veo panorama screenshot at 14:11 (median 1 px, 80th pct 3 px, 93% within 6 px over 1884 model points); verified by eye",
+ "note": "Veo panorama (interactive full-field view), screen-recorded. Pitch coords: x along the pitch (0-106), y toward the camera (0 = far touchline), camera ~3.6 m behind the near touchline on the halfway line."
+}

@@ -493,6 +493,48 @@ def recent_matches(limit: int = 8):
         o["columns"] = sorted(r)[:30]; out.append(o)
     return out
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=4.0, memory=16384)
+def test_piece(match_id: str, i: int, video_url: str):
+    """One 5-minute piece end to end (GPU via run_piece), then pictures: pitch lines + every detected player on 3 frames,
+    and the numbers that decide whether the rest is worth running: players per frame, team split, off-pitch rate."""
+    import pickle, base64, requests, numpy as np, cv2
+    S = _setup()
+    from ipanema import fullmatch as FM
+    from ipanema.calibration import draw_model
+    log, lines = _logger(f"{match_id}/test_piece.log")
+    full = f"{ROOT}/videos/{match_id}/full.mp4"
+    if not os.path.exists(full):
+        os.makedirs(os.path.dirname(full), exist_ok=True)
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(full, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+        vol.commit()
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); log(f"clip: {n} frames @ {fps:.2f} fps ({n / fps / 60:.1f} min) -> {len(plan_)} pieces; testing piece {i}")
+    res = run_piece.remote(match_id, plan_[i], full)
+    for l in res.get("log", []): log("  " + l)
+    if not res.get("ok"): return {"ok": False, "log": lines[-60:]}
+    vol.reload(); p = pickle.load(open(res["path"], "rb")); per, H, L, W = p["per"], p["H"], p["L"], p["W"]
+    counts = [len(per[k]) for k in sorted(per)]; dets = [r for k in per for r in per[k]]
+    off = sum(1 for r in dets if not (0 <= r[2][0] <= L and 0 <= r[2][1] <= W))
+    teamA = [sum(1 for r in per[k] if r[1] == "A") for k in sorted(per)]; teamB = [sum(1 for r in per[k] if r[1] == "B") for k in sorted(per)]
+    stats = {"frames": len(per), "players_per_frame_median": float(np.median(counts)), "frames_with_18_plus_pct": round(100 * float(np.mean(np.array(counts) >= 18)), 1),
+             "team_A_median": float(np.median(teamA)), "team_B_median": float(np.median(teamB)), "off_pitch_pct": round(100 * off / max(1, len(dets)), 2),
+             "pitch": [L, W], "camera": H[0].as_dict() if hasattr(H[0], "as_dict") else None}
+    log(f"TEST RESULT: {stats}")
+    imgs = {}; pv = f"{ROOT}/videos/{FM.piece_id(match_id, i)}.mp4"; cap = cv2.VideoCapture(pv)
+    for frac in (0.2, 0.5, 0.8):
+        k = int(len(per) * frac); cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, fr = cap.read()
+        if not ok: continue
+        draw_model(fr, H[k], L, W, (0, 0, 255))
+        for r in per.get(k, []):
+            fx, fy = map(int, r[3]); col = (40, 40, 40) if r[1] == "A" else (255, 255, 255)
+            cv2.circle(fr, (fx, fy), 9, (0, 255, 255), 3); cv2.circle(fr, (fx, fy), 5, col, -1)
+        cv2.putText(fr, f"frame {k}: {len(per.get(k, []))} players", (30, 60), cv2.FONT_HERSHEY_SIMPLEX, 1.4, (255, 255, 255), 4)
+        imgs[f"test_piece{i}_f{k:05d}.jpg"] = base64.b64encode(cv2.imencode(".jpg", fr, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+    cap.release()
+    return {"ok": True, "stats": stats, "log": lines[-60:], "images": imgs}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)

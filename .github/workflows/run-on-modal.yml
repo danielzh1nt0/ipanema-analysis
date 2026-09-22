@@ -253,6 +253,22 @@ jobs:
           out = modal.Function.from_name("ipanema", "recent_matches").remote()
           os.makedirs("results/check", exist_ok=True); open("results/check/recent_matches.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:3000])
           PY
+      - name: test one piece of a clip (commit tagged testpiece:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[testpiece:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid, i = re.search(r"\[testpiece:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "test_piece").remote(mid, int(i), f"{os.environ['R2_PUBLIC_URL']}/{mid}/video.mp4")
+          d = f"results/check/{mid}_test"; os.makedirs(d, exist_ok=True)
+          for name, b64 in (out.pop("images", None) or {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/test.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:4000])
+          PY
       - name: scoreboard
         if: always()
         run: |
