@@ -2,31 +2,31 @@
  "rows": [
   {
    "variant": "football model 2560, conf 0.30 (current)",
-   "ms_per_frame": 221,
+   "ms_per_frame": 213,
    "on_pitch_median": 17.0,
    "dark_median": 1.0,
-   "white_median": 7.0
+   "white_median": 12.0
   },
   {
    "variant": "football model 2560, conf 0.10",
-   "ms_per_frame": 217,
+   "ms_per_frame": 213,
    "on_pitch_median": 21.0,
-   "dark_median": 1.0,
-   "white_median": 8.5
+   "dark_median": 2.0,
+   "white_median": 14.0
   },
   {
    "variant": "football model 1920 + zoomed far band",
-   "ms_per_frame": 328,
+   "ms_per_frame": 324,
    "on_pitch_median": 25.5,
-   "dark_median": 1.0,
-   "white_median": 9.0
+   "dark_median": 1.5,
+   "white_median": 17.0
   },
   {
    "variant": "general person model (COCO) 2560, conf 0.20",
-   "ms_per_frame": 204,
+   "ms_per_frame": 203,
    "on_pitch_median": 11.0,
    "dark_median": 1.0,
-   "white_median": 5.5
+   "white_median": 7.0
   }
  ]
 }
