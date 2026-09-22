@@ -1,0 +1,15 @@
+{
+ "rect": [
+  155,
+  189,
+  1699,
+  1055
+ ],
+ "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-bp-2026-09-22-2000/video_cropped.mp4",
+ "log": [
+  "recording 1920x1080: Veo player area x 155-1699, y 189-1055 (1544x866, aspect 1.783)",
+  "cropped video: 54229 frames @ 30.00 fps (original 54229)",
+  "cleared caches and pieces made from the uncropped recording",
+  "cropped video uploaded: https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-bp-2026-09-22-2000/video_cropped.mp4"
+ ]
+}
