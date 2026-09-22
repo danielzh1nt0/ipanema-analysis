@@ -437,6 +437,17 @@ jobs:
           for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
           open(f"{d}/variants.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
           PY
+      - name: export a frame sample for offline development (commit tagged sample)
+        if: contains(github.event.head_commit.message, '[sample]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, base64
+          out = modal.Function.from_name("ipanema", "export_sample").remote("SFKBP1109", "p15u-vs-bp-2026-09-22-2000", [[1274.0, 1282.0], [1372.0, 1380.0]], 593.0)
+          os.makedirs("results/samples", exist_ok=True); open("results/samples/SFKBP1109_two_windows.zip", "wb").write(base64.b64decode(out["zip"])); print(out["frames"], "frames,", out["mb"], "MB")
+          PY
       - name: scoreboard
         if: always()
         run: |

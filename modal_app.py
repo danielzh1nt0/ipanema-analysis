@@ -1027,6 +1027,29 @@ def prepare_match_files(match_id: str, source_match: str, offset_s: float, perio
     vol.commit()
     return {"duration_s": round(dur, 1), "veo_clips_inside": len(kept), "periods": per}
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def export_sample(fc_mid: str, pano_mid: str, windows: list, pano_offset_s: float, fps_out: int = 15, width: int = 960):
+    """Consecutive follow-cam frames plus the same-moment panorama frames, reduced, zipped (CPU only). For offline development."""
+    import io, zipfile, base64, cv2, numpy as np
+    _setup()
+    fc = cv2.VideoCapture(f"{ROOT}/videos/{fc_mid}.mp4"); ffps = fc.get(cv2.CAP_PROP_FPS)
+    pv = cv2.VideoCapture(f"{ROOT}/videos/{pano_mid}/full_cropped.mp4"); pfps = pv.get(cv2.CAP_PROP_FPS)
+    buf = io.BytesIO(); z = zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED); n = 0; manifest = []
+    def grab(cap, k):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(k))); ok, f = cap.read()
+        if not ok: return None
+        return cv2.resize(f, (width, int(f.shape[0] * width / f.shape[1])))
+    for (t0, t1) in windows:
+        for t in np.arange(t0, t1, 1.0 / fps_out):
+            f = grab(fc, t * ffps); p = grab(pv, (t - pano_offset_s) * pfps)
+            for tag, img in (("fc", f), ("pano", p)):
+                if img is None: continue
+                name = f"{tag}_{t:08.3f}.jpg"; z.writestr(name, cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes()); n += 1
+            manifest.append(round(float(t), 3))
+    z.writestr("manifest.json", __import__("json").dumps({"fc": fc_mid, "pano": pano_mid, "windows": windows, "fps_out": fps_out, "width": width, "pano_offset_s": pano_offset_s, "fc_fps": ffps, "pano_fps": pfps, "times": manifest}))
+    z.close()
+    return {"frames": n, "zip": base64.b64encode(buf.getvalue()).decode(), "mb": round(len(buf.getvalue()) / 1e6, 1)}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
