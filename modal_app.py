@@ -202,7 +202,8 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     shutil.rmtree(f"{ROOT}/logs/{match_id}", ignore_errors=True)          # fresh live log for this run
     log, lines = _logger(f"{match_id}/run_full.log")
     t0 = time.time()
-    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    full = next((p for p in (f"{ROOT}/videos/{match_id}/full_cropped.mp4", f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full and full.endswith("full_cropped.mp4"): video_url = video_url.replace("/video.mp4", "/video_cropped.mp4")   # the app plays what we analysed
     if full is None:
         full = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(full), exist_ok=True)
         with requests.get(video_url, stream=True, timeout=600) as r:
@@ -503,7 +504,8 @@ def test_piece(match_id: str, i: int, video_url: str):
     from ipanema.calibration import draw_model
     log, lines = _logger(f"{match_id}/test_piece.log")
     full = f"{ROOT}/videos/{match_id}/full.mp4"
-    if not os.path.exists(full):
+    if os.path.exists(f"{ROOT}/videos/{match_id}/full_cropped.mp4"): full = f"{ROOT}/videos/{match_id}/full_cropped.mp4"   # panorama: Veo player area only
+    elif not os.path.exists(full):
         os.makedirs(os.path.dirname(full), exist_ok=True)
         with requests.get(video_url, stream=True, timeout=600) as r:
             r.raise_for_status()
@@ -583,6 +585,46 @@ def compare_detectors(match_id: str, i: int):
         fn(frames[0]); t0 = time.time(); counts = [len(fn(f)) for f in frames]; ms = (time.time() - t0) / len(frames) * 1000
         log(f"COMPARE {name:26s}: {ms:5.0f} ms/frame ({1000 / ms:4.1f} frames/s) | detections per frame median {np.median(counts):4.1f}, 10th pct {np.percentile(counts, 10):4.1f}")
     return lines[-20:]
+
+@app.function(timeout=60 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384)
+def prepare_panorama_clip(match_id: str, video_url: str):
+    """Screen recordings include the browser around Veo's player: find the player area, crop the whole clip to it once,
+    upload the cropped video for the app, and clear caches made from the uncropped video (CPU)."""
+    import json, glob, shutil, subprocess, base64, requests, numpy as np, cv2
+    _setup()
+    from ipanema.cylcam import find_video_rect
+    from ipanema import fullmatch as FM
+    log, lines = _logger(f"{match_id}/prepare_panorama.log")
+    d = f"{ROOT}/videos/{match_id}"; src = f"{d}/full.mp4"; dst = f"{d}/full_cropped.mp4"; os.makedirs(d, exist_ok=True)
+    if not os.path.exists(src):
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(src, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+    n, fps = FM.video_info(src); cap = cv2.VideoCapture(src); frames = []
+    for k in np.linspace(0.05, 0.95, 9) * n:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(k)); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    x0, y0, x1, y1 = find_video_rect(frames); W_, H_ = x1 - x0, y1 - y0
+    log(f"recording {frames[0].shape[1]}x{frames[0].shape[0]}: Veo player area x {x0}-{x1}, y {y0}-{y1} ({W_}x{H_}, aspect {W_ / H_:.3f})")
+    if not (1.6 < W_ / H_ < 2.0 and W_ > 0.4 * frames[0].shape[1]):
+        raise RuntimeError(f"player area looks wrong ({W_}x{H_}); not cropping")
+    subprocess.run(["ffmpeg", "-y", "-i", src, "-vf", f"crop={W_}:{H_}:{x0}:{y0}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", dst], check=True, capture_output=True)
+    m, fps2 = FM.video_info(dst); log(f"cropped video: {m} frames @ {fps2:.2f} fps (original {n})")
+    for p in glob.glob(f"{ROOT}/cache/{match_id}_c*"): shutil.rmtree(p, ignore_errors=True)
+    for p in glob.glob(f"{ROOT}/videos/{match_id}_c*.mp4"): os.remove(p)
+    log("cleared caches and pieces made from the uncropped recording")
+    json.dump({"rect": [x0, y0, x1, y1], "source_size": [frames[0].shape[1], frames[0].shape[0]]}, open(f"{d}/crop.json", "w"))
+    import boto3
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    r2.upload_file(dst, c["R2_BUCKET"], f"{match_id}/video_cropped.mp4", ExtraArgs={"ContentType": "video/mp4"})
+    url = f"{c['R2_PUBLIC_URL'].rstrip('/')}/{match_id}/video_cropped.mp4"; log(f"cropped video uploaded: {url}")
+    vol.commit()
+    cap = cv2.VideoCapture(dst); cap.set(cv2.CAP_PROP_POS_FRAMES, m // 2); ok, f = cap.read(); cap.release()
+    img = base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode() if ok else None
+    return {"rect": [x0, y0, x1, y1], "url": url, "log": lines[-20:], "image": img}
 
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in

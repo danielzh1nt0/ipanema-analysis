@@ -48,3 +48,15 @@ def test_full_analysis_through_curved_camera():
     assert all(fr["pitch_lines"] is None for fr in f0)
     pl = [p for fr in f0 for p in fr["players"]]; assert pl and all(0 <= p["m"][0] <= 106 and 0 <= p["m"][1] <= 64 for p in pl if p.get("m"))
     assert summary["players_per_frame_median"]["A"] >= 9 and summary["match_seconds"] == 110.0
+
+def test_find_video_rect_on_real_recording():
+    """today's screen recording: Veo's player sits inside the browser; the crop must find it (checked by eye: ~154-1701 x 185-1056)"""
+    from ipanema.cylcam import find_video_rect
+    fs = [cv2.imread(f"{ROOT}/results/check/p15u-vs-bp-2026-09-22-2000_test/test_piece2_f{k:05d}.jpg") for k in (1800, 4500, 7200)]
+    x0, y0, x1, y1 = find_video_rect(fs)
+    assert abs(x0 - 154) <= 8 and abs(x1 - 1701) <= 8 and abs(y0 - 185) <= 8 and abs(y1 - 1056) <= 8, (x0, y0, x1, y1)
+
+def test_impossible_camera_rejected():
+    from ipanema.cylcam import plausible
+    assert plausible(P0, 106.0, 64.0)[0]
+    assert not plausible([52.919, 64.494, 0.685, -0.123, 464.1, 1034.1, 1607.3, 532.1, 0.111, 0.016], 106.0, 64.0)[0]   # 21 Sep wrong fit

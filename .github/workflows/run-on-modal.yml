@@ -259,6 +259,22 @@ jobs:
           out = modal.Function.from_name("ipanema", "recent_matches").remote()
           os.makedirs("results/check", exist_ok=True); open("results/check/recent_matches.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str)[:3000])
           PY
+      - name: prepare a panorama clip - crop to the player area (commit tagged panoprep:<match_id>)
+        if: contains(github.event.head_commit.message, '[panoprep:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid = re.search(r"\[panoprep:([A-Za-z0-9_-]+)\]", os.environ["MSG"]).group(1)
+          out = modal.Function.from_name("ipanema", "prepare_panorama_clip").remote(mid, f"{os.environ['R2_PUBLIC_URL']}/{mid}/video.mp4")
+          d = f"results/check/{mid}_panoprep"; os.makedirs(d, exist_ok=True)
+          if out.get("image"): open(f"{d}/cropped_frame.jpg", "wb").write(base64.b64decode(out.pop("image")))
+          open(f"{d}/panoprep.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out, indent=1))
+          PY
       - name: test one piece of a clip (commit tagged testpiece:<match_id>:<piece>)
         if: contains(github.event.head_commit.message, '[testpiece:')
         env:

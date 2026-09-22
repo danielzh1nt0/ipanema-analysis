@@ -78,3 +78,35 @@ def fit(frame, init, L, W, mask_top=0, mask_bottom=None, search=True, log=print)
     stats = {"points": int(ok.sum()), "median_px": round(float(np.median(d)), 1), "p80_px": round(float(np.percentile(d, 80)), 1), "within6_pct": round(float((d <= 6).mean() * 100), 1)}
     log(f"panorama calibration: {stats}")
     return CylCam(best[1]), stats
+
+
+def _longest_run(mask):
+    best, start = (0, 0), None
+    for i, v in enumerate(list(mask) + [False]):
+        if v and start is None: start = i
+        if not v and start is not None:
+            if i - start > best[1] - best[0]: best = (start, i)
+            start = None
+    return best
+
+def find_video_rect(frames, black_v=30, min_share=0.5):
+    """Screen recordings of Veo's player include the browser and page around the video. Veo's page is near-black around
+    the player, so the video is the widest run of non-black columns, and within them the tallest run of non-black rows
+    (a black header band separates the browser from the player). Median over several frames. -> (x0, y0, x1, y1)"""
+    blacks = [cv2.cvtColor(f, cv2.COLOR_BGR2HSV)[..., 2] < black_v for f in frames]
+    black = np.median(np.stack(blacks).astype(np.float32), axis=0) > 0.5
+    x0, x1 = _longest_run(black.mean(0) < min_share)
+    y0, y1 = _longest_run(black[:, x0:x1].mean(1) < min_share)
+    x0, y0 = x0 + 2, y0 + 2; x1, y1 = x1 - 2, y1 - 2
+    return x0, y0, x0 + ((x1 - x0) // 2) * 2, y0 + ((y1 - y0) // 2) * 2       # even width/height for video encoders
+
+
+def plausible(params, L, W):
+    """a fitted panorama camera must be physically possible: 2-20 m up, beside the pitch on the near side, level-ish"""
+    cx, cy, h = params[0], params[1], params[2]
+    why = []
+    if not (2.0 <= h <= 20.0): why.append(f"height {h:.1f} m")
+    if not (W - 1.0 <= cy <= W + 40.0): why.append(f"not behind the near touchline (y {cy:.1f} m)")
+    if not (-10.0 <= cx <= L + 10.0): why.append(f"not beside the pitch (x {cx:.1f} m)")
+    if abs(params[8]) > 0.35 or abs(params[9]) > 0.35: why.append("tilted/rolled too much")
+    return not why, why

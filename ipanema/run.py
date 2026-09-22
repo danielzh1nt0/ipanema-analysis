@@ -40,8 +40,14 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         else:
             import cv2 as _cv
             cap = _cv.VideoCapture(video); cap.set(_cv.CAP_PROP_POS_FRAMES, int(vi["n"] * 0.5)); ok, fr = cap.read(); cap.release()
-            iw, ih = spec["image_size"]; hh = fr.shape[0]
-            cam, stats = _cylfit(fr, [spec["params"][k] for k in _CN], L, W, mask_top=int(spec["mask_rows"]["top"] / ih * hh), mask_bottom=int(spec["mask_rows"]["bottom_from"] / ih * hh), log=log)
+            iw, ih = spec["image_size"]; hh, ww = fr.shape[:2]
+            init = [spec["params"][k] for k in _CN]; s = ww / iw
+            for j in (4, 5, 6, 7): init[j] *= s                            # screenshot fit scaled to this video's size
+            cam, stats = _cylfit(fr, init, L, W, mask_top=int(spec["mask_rows"]["top"] / ih * hh), mask_bottom=int(spec["mask_rows"]["bottom_from"] / ih * hh), log=log)
+            from .cylcam import plausible as _plaus
+            ok_cam, why = _plaus(cam.params, L, W)
+            if not ok_cam:                                                   # never accept a camera that can't exist, however well its lines score
+                raise RuntimeError(f"panorama calibration rejected: {', '.join(why)} (params {dict(zip(_CN, map(lambda v: round(float(v), 3), cam.params)))})")
             _json.dump({"params": cam.params.tolist(), "fit": stats}, open(cam_cache, "w"))
         H = {k: cam for k in range(vi["n"])}
         cal = {"coverage": 1.0, "frozen": 0, "H": H, "L": L, "W": W}
