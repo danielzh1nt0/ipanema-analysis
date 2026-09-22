@@ -1,7 +1,7 @@
-# live log · p15u-vs-bp-2026-09-22-2000 · collected from the volume · 11:28:56 UTC
+# live log · p15u-vs-bp-2026-09-22-2000 · collected from the volume · 11:41:02 UTC
 
 
-## piece_002.log (7 lines, last 60)
+## piece_002.log (10 lines, last 60)
 === p15u-vs-bp-2026-09-22-2000_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 9000 frames (300 s)
 panorama calibration: {'points': 1925, 'median_px': 2.8, 'p80_px': 8.4, 'within6_pct': 72.1}
@@ -9,6 +9,9 @@ calibration: curved panorama camera for all 9000 frames, pitch 106 x 64 m
 teams: embedding split [535, 68] unreliable -> brightness split at 0.24
 teams: 603 crops, clusters [302, 301], dark share A 0.52 / B 0.05 (A = darker kit)
   tracking frame 0
+  tracking frame 500
+  tracking frame 1000
+  tracking frame 1500
 
 ## test_piece.log (1 lines, last 60)
 clip: 54229 frames @ 30.00 fps (30.1 min) -> 7 pieces; testing piece 2
