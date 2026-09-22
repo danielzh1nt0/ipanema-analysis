@@ -1,45 +1,7 @@
-# live log · SFKBP1109 · running · 06:04:48 UTC
+# live log · SFKBP1109 · finished · 06:05:17 UTC
 
 
-## run_full.log (76 lines, last 60)
-  piece 13: cached
-  piece 14: cached
-  piece 15: cached
-  piece 16: cached
-  piece 17: cached
-  piece 18: cached
-  piece 19: cached
-  piece 20: cached
-  calibration check piece 0: {'checks': 900, 'good': 523, 'bad': 377, 'unjudged': 0, 'trusted_pct': 56.5, 'i': 0}
-  calibration check piece 1: {'checks': 900, 'good': 571, 'bad': 329, 'unjudged': 0, 'trusted_pct': 62.5, 'i': 1}
-  calibration check piece 2: {'checks': 900, 'good': 273, 'bad': 627, 'unjudged': 0, 'trusted_pct': 28.8, 'i': 2}
-  calibration check piece 3: {'checks': 900, 'good': 168, 'bad': 732, 'unjudged': 0, 'trusted_pct': 16.2, 'i': 3}
-  calibration check piece 4: {'checks': 900, 'good': 429, 'bad': 471, 'unjudged': 0, 'trusted_pct': 44.4, 'i': 4}
-  calibration check piece 5: {'checks': 900, 'good': 401, 'bad': 499, 'unjudged': 0, 'trusted_pct': 43.0, 'i': 5}
-  calibration check piece 6: {'checks': 900, 'good': 328, 'bad': 572, 'unjudged': 0, 'trusted_pct': 34.0, 'i': 6}
-  calibration check piece 7: {'checks': 900, 'good': 302, 'bad': 598, 'unjudged': 0, 'trusted_pct': 31.4, 'i': 7}
-  calibration check piece 8: {'checks': 900, 'good': 214, 'bad': 686, 'unjudged': 0, 'trusted_pct': 22.7, 'i': 8}
-  calibration check piece 9: {'checks': 900, 'good': 320, 'bad': 580, 'unjudged': 0, 'trusted_pct': 33.8, 'i': 9}
-  calibration check piece 10: {'checks': 900, 'good': 647, 'bad': 253, 'unjudged': 0, 'trusted_pct': 66.2, 'i': 10}
-  calibration check piece 11: {'checks': 900, 'good': 338, 'bad': 562, 'unjudged': 0, 'trusted_pct': 31.6, 'i': 11}
-  calibration check piece 12: {'checks': 900, 'good': 125, 'bad': 775, 'unjudged': 0, 'trusted_pct': 12.2, 'i': 12}
-  calibration check piece 13: {'checks': 900, 'good': 240, 'bad': 660, 'unjudged': 0, 'trusted_pct': 25.3, 'i': 13}
-  calibration check piece 14: {'checks': 900, 'good': 252, 'bad': 648, 'unjudged': 0, 'trusted_pct': 26.4, 'i': 14}
-  calibration check piece 15: {'checks': 900, 'good': 318, 'bad': 582, 'unjudged': 0, 'trusted_pct': 32.3, 'i': 15}
-  calibration check piece 16: {'checks': 900, 'good': 294, 'bad': 606, 'unjudged': 0, 'trusted_pct': 31.2, 'i': 16}
-  calibration check piece 17: {'checks': 900, 'good': 185, 'bad': 715, 'unjudged': 0, 'trusted_pct': 18.3, 'i': 17}
-  calibration check piece 18: {'checks': 900, 'good': 342, 'bad': 558, 'unjudged': 0, 'trusted_pct': 36.4, 'i': 18}
-  calibration check piece 19: {'checks': 900, 'good': 312, 'bad': 588, 'unjudged': 0, 'trusted_pct': 32.9, 'i': 19}
-  calibration check piece 20: {'checks': 491, 'good': 375, 'bad': 116, 'unjudged': 0, 'trusted_pct': 73.1, 'i': 20}
-periods: [(0.0, 3059.99), (3733.0, 5940.0)] s; 87 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: 32.5% of match frames placed confidently; the rest are marked unknown and excluded
-ball check: 40 held-out test frames mapped into the full match
-clean: dropped 264 off-pitch, merged 8441 duplicates, stitched 5207 ids, keepers [] -> A defends left
-clean: players per frame median A 0 / B 0, max A 20 / B 15
-ball v2: 42809/184725 frames on the path, 317 static-clutter candidates dropped
-ball check: 12/34 correct, 4 wrong, 18 no pick (ceiling 12/34)
-ball: dropped 317 static-clutter candidates
-ball (global path): 34054/184725 frames on the chosen path
+## run_full.log (114 lines, last 60)
 ball: global path too sparse, falling back to trajectory picker
 ball: 0.8 candidates/frame, 13873 trajectories, top (score,len,conf,speed) [(322.5, 878, 0.54, 2.37), (295.9, 648, 0.55, 2.41), (229.6, 628, 0.58, 2.93), (228.8, 396, 0.62, 1.63), (224.6, 458, 0.39, 1.36)], picks 40262/184725
 ball check (other picker, v1): 10/34 correct, ceiling 12/34
@@ -62,6 +24,44 @@ direction (fallback from player positions): A →  B ←  median x A 58 / B 62
   step: shapes
   step: stats
   step: metrics
+veo: 25 shots incl. 3 goals imported; 1 goal tag(s) rejected; team from the ball for 4, from the players for 9, unknown for 12
+our shot detector vs Veo: found 0/25 of Veo's shots, 0/0 of ours are real (within 10 s)
+veo: rejected goal tag at 28 s: goal tagged within a minute of kick-off with no kick-off restart after it
+ball grade: accuracy 0.35, near-player 0.68, possession withheld, events withheld
+ball reliability: 20% frames, 68% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+  step: export
+  wrote 21 frame files (every 3 frames, 300 s each, largest 3.6 MB)
+  wrote match_data.json (0.9 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109 (1412 events) · library.json updated · zip None
+upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109
+  ball_reliable              False
+  ball_grade                 {'accuracy': 0.35, 'near_player_pct': 0.68, 'frames_pct': 0.73, 'possession_ok': False, 'events_ok': False}
+  duration_s                 6163.7
+  calibration_coverage       1.0
+  calibration_frozen         0
+  team_dark_share            {'A': 0.43, 'B': 0.24}
+  players_per_frame_median   {'A': 6.0, 'B': 6.0}
+  ball_frames_pct            105
+  match_seconds              1709.4
+  periods                    [{'index': 1, 't_start': 0.0, 't_end': 3059.99, 'mirrored': False}, {'index': 2, 't_start': 3733.0, 't_end': 5940.0, 'mirrored': True}]
+  ball_check                 {'correct': 12, 'total': 34, 'wrong': 4, 'ceiling': 12}
+  possession_pct             {'A': 39, 'B': 61}
+  loose_pct                  26
+  dead_pct                   17
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.09, 'B': 0.09}
+  turnovers                  19
+  passes                     5198
+  restarts                   100
+  sequences                  394
+  shots                      {'A': 5, 'B': 8}
+  goals                      {'A': 1, 'B': 1}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 3, 'B': 6}
+  runtime_min                5.2
 
 ## train_ball.log (1 lines, last 60)
 
