@@ -262,7 +262,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
     play_mask, periods = None, None
-    pf = f"/content/ipanema-analysis/periods/{match_id}.json"
+    pf = next((p for p in (f"{ROOT}/periods/{match_id}.json", f"/content/ipanema-analysis/periods/{match_id}.json") if os.path.exists(p)), f"/content/ipanema-analysis/periods/{match_id}.json")
     if os.path.exists(pf):
         spec = json.load(open(pf))
         per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
@@ -492,7 +492,7 @@ def detect_periods(match_id: str):
     out = {"detected": r, "per_second": {k: [round(float(v), 2) for v in a] for k, a in ps.items()}}   # for offline work on the detector
     pf = f"/content/ipanema-analysis/periods/{match_id}.json"
     if os.path.exists(pf): out["coach"] = json.load(open(pf))["periods_s"]
-    hf = f"/content/ipanema-analysis/reference/veo_highlights_{match_id}.txt"; ef = f"/content/ipanema-analysis/reference/veo_events_{match_id}.txt"
+    hf = next((p for p in (f"{ROOT}/reference/veo_highlights_{match_id}.txt", f"/content/ipanema-analysis/reference/veo_highlights_{match_id}.txt") if os.path.exists(p)), ""); ef = f"/content/ipanema-analysis/reference/veo_events_{match_id}.txt"
     if os.path.exists(hf) and os.path.exists(ef) and r:
         goals = [int(l.split()[0]) for l in open(hf) if l.strip() and not l.startswith("#") and l.split()[1] == "goal"]
         mins = [int(l.split()[0]) for l in open(ef) if re.match(r"^\d+ \S+ Goal \d", l)]
@@ -998,6 +998,28 @@ def seed_clip_calibration(match_id: str, from_piece: int):
     if not os.path.exists(src): return {"error": f"no calibration at {src}"}
     os.makedirs(dst_dir, exist_ok=True); shutil.copy(src, f"{dst_dir}/calibration_cyl.json"); vol.commit()
     return {"seeded_from": from_piece, "params": json.load(open(src))["params"], "fit": json.load(open(src)).get("fit")}
+
+@app.function(timeout=10 * 60, volumes={"/data": vol}, cpu=1.0)
+def prepare_match_files(match_id: str, source_match: str, offset_s: float, periods_s: list = None):
+    """put a clip's Veo shots (shifted to the clip's own clock) and its match periods on the volume, so a run needs no commit"""
+    import json
+    _setup()
+    from ipanema import fullmatch as FM
+    full = next((p for p in (f"{ROOT}/videos/{match_id}/full_cropped.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    n, fps = FM.video_info(full); dur = n / fps
+    os.makedirs(f"{ROOT}/reference", exist_ok=True); os.makedirs(f"{ROOT}/periods", exist_ok=True)
+    src = f"/content/ipanema-analysis/reference/veo_highlights_{source_match}.txt"; kept = []
+    if os.path.exists(src):
+        for line in open(src):
+            if line.strip() and not line.startswith("#"):
+                t, kind = line.split()[:2]
+                if offset_s <= float(t) <= offset_s + dur: kept.append((round(float(t) - offset_s, 2), kind))
+        open(f"{ROOT}/reference/veo_highlights_{match_id}.txt", "w").write(
+            f"# Veo shots/goals of {source_match} inside this clip; the clip starts at {offset_s:.0f} s of that recording.\n" + "".join(f"{t} {k}\n" for t, k in kept))
+    per = periods_s or [[0, round(dur, 1)]]
+    json.dump({"periods_s": per, "note": f"clip of {source_match} from {offset_s:.0f} s", "veo_offset_s": offset_s}, open(f"{ROOT}/periods/{match_id}.json", "w"))
+    vol.commit()
+    return {"duration_s": round(dur, 1), "veo_clips_inside": len(kept), "periods": per}
 
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in

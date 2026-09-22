@@ -85,6 +85,24 @@ jobs:
           mid, i = re.search(r"\[seedcal:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
           print(json.dumps(modal.Function.from_name("ipanema", "seed_clip_calibration").remote(mid, int(i)), indent=1))
           PY
+      - name: one command for a new panorama match (commit tagged match:<match_id>:<source_match>:<veo_start_s>)
+        if: contains(github.event.head_commit.message, '[match:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          git config user.name modal-bot && git config user.email modal@ipanema
+          python - <<'PY'
+          import modal, os, re, json
+          mid, src, off = re.search(r"\[match:([A-Za-z0-9_-]+):([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          crop = modal.Function.from_name("ipanema", "prepare_panorama_clip").remote(mid, f"{os.environ['R2_PUBLIC_URL']}/{mid}/video.mp4")
+          print("cropped:", {k: v for k, v in crop.items() if k != "image"})
+          print("files:", modal.Function.from_name("ipanema", "prepare_match_files").remote(mid, src, float(off)))
+          PY
+          M=$(python -c "import os,re; print(re.search(r'\[match:([A-Za-z0-9_-]+):', os.environ['MSG']).group(1))")
+          python scripts_watch.py full "$M"
       - name: run a full match (commit tagged full:<match_id>) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[full:')
         env:

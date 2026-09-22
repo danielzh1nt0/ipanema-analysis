@@ -188,7 +188,8 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
     try:
         from . import veo as VEO
-        vp = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")
+        vp = next((p for p in (os.path.join(S.root, "reference", f"veo_highlights_{match_id}.txt"),
+                               os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")) if os.path.exists(p)), "")
         if os.path.exists(vp):
             vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log)
             sc = VEO.score_detector(mx["shots"], vs)
