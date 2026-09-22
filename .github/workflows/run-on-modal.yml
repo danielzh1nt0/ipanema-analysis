@@ -345,6 +345,21 @@ jobs:
           for name, b64 in out["images"].items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
           open(f"{d}/compare.txt", "w").write("\n".join(out["log"])); print("\n".join(out["log"]))
           PY
+      - name: compare player detectors (commit tagged cmpplayers:<match_id>:<piece>)
+        if: contains(github.event.head_commit.message, '[cmpplayers:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          mid, i = re.search(r"\[cmpplayers:([A-Za-z0-9_-]+):(\d+)\]", os.environ["MSG"]).groups()
+          out = modal.Function.from_name("ipanema", "compare_player_detectors").remote(mid, int(i))
+          d = f"results/check/{mid}_cmpplayers"; os.makedirs(d, exist_ok=True)
+          for name, b64 in out.pop("images", {}).items(): open(f"{d}/{name}", "wb").write(base64.b64decode(b64))
+          open(f"{d}/cmp.json", "w").write(json.dumps(out, indent=1)); print(json.dumps(out["rows"], indent=1))
+          PY
       - name: scoreboard
         if: always()
         run: |

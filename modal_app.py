@@ -738,6 +738,65 @@ def compare_detectors2(match_id: str, i: int):
         log(f"DET {name:44s}: {ms:5.0f} ms/frame | on the pitch median {np.median(on_n):4.1f} (10th pct {np.percentile(on_n, 10):4.1f}) | in black median {np.median(dark_n):4.1f}")
     return {"log": lines[-20:], "images": imgs}
 
+@app.function(gpu="L4", timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def compare_player_detectors(match_id: str, i: int):
+    """Which detector finds the players in black on the far side? Same 30 frames: players ON the pitch, how many in dark
+    and white shirts, speed; plus one picture per option."""
+    import json, time, base64, numpy as np, cv2
+    import supervision as sv
+    S = _setup()
+    from ipanema import fullmatch as FM, tracking as TR
+    from ipanema.cylcam import CylCam
+    from ultralytics import YOLO
+    log, lines = _logger(f"{match_id}/compare_player_detectors.log")
+    pid = FM.piece_id(match_id, i); cam = CylCam(json.load(open(f"{ROOT}/cache/{pid}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
+    cap = cv2.VideoCapture(f"{ROOT}/videos/{pid}.mp4"); frames = []
+    for k in list(range(0, 9000, 300)):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release()
+    football = YOLO(S.weights["player"]); coco = YOLO("yolo11x.pt")
+    def run(model, f, sz, conf, classes=None):
+        kw = {"imgsz": sz, "conf": conf, "verbose": False}
+        if classes is not None: kw["classes"] = classes
+        return sv.Detections.from_ultralytics(model(f, **kw)[0]).with_nms(0.5, class_agnostic=True)
+    def far_band(model, f, conf, classes=None):
+        h, w = f.shape[:2]; y0, y1 = int(0.22 * h), int(0.58 * h); boxes, confs = [], []
+        for a, b in ((0, 0.4), (0.3, 0.7), (0.6, 1.0)):
+            x0, x1 = int(a * w), int(b * w); kw = {"imgsz": 1280, "conf": conf, "verbose": False}
+            if classes is not None: kw["classes"] = classes
+            d = sv.Detections.from_ultralytics(model(f[y0:y1, x0:x1], **kw)[0])
+            if len(d): xy = d.xyxy.copy(); xy[:, [0, 2]] += x0; xy[:, [1, 3]] += y0; boxes.append(xy); confs.append(d.confidence)
+        full = run(model, f, 1920, conf, classes)
+        if len(full): boxes.append(full.xyxy); confs.append(full.confidence)
+        if not boxes: return sv.Detections.empty()
+        return sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.zeros(sum(len(c) for c in confs), int)).with_nms(0.5, class_agnostic=True)
+    options = [("football 2560, conf 0.30 (current)", lambda f: run(football, f, 2560, 0.30)),
+               ("football 2560, conf 0.10", lambda f: run(football, f, 2560, 0.10)),
+               ("football, far band zoomed, conf 0.15", lambda f: far_band(football, f, 0.15)),
+               ("general person 2560, conf 0.15", lambda f: run(coco, f, 2560, 0.15, [0])),
+               ("general person, far band zoomed, conf 0.15", lambda f: far_band(coco, f, 0.15, [0]))]
+    out, imgs = [], {}
+    for name, fn in options:
+        fn(frames[0]); t0 = time.time(); on, dark, white = [], [], []
+        for idx, f in enumerate(frames):
+            d = fn(f)
+            if not len(d): on.append(0); dark.append(0); white.append(0); continue
+            feet = np.c_[(d.xyxy[:, 0] + d.xyxy[:, 2]) / 2, d.xyxy[:, 3]]; mm = cam.to_m(feet)
+            inside = np.isfinite(mm).all(1) & (mm[:, 0] >= 0) & (mm[:, 0] <= L) & (mm[:, 1] >= 0) & (mm[:, 1] <= W)
+            labs = TR.kit_labels(f, d.xyxy[inside]); on.append(int(inside.sum())); dark.append(labs.count("A")); white.append(labs.count("B"))
+            if idx == 15:
+                v = f.copy()
+                for (x0, y0, x1, y1), lab in zip(d.xyxy[inside], labs):
+                    col = (30, 30, 30) if lab == "A" else ((255, 255, 255) if lab == "B" else (0, 200, 255))
+                    cv2.rectangle(v, (int(x0), int(y0)), (int(x1), int(y1)), (0, 255, 255), 2); cv2.circle(v, (int((x0 + x1) / 2), int(y1)), 5, col, -1)
+                cv2.putText(v, f"{name}: {int(inside.sum())} on pitch", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 3)
+                imgs[f"opt{len(imgs)}.jpg"] = base64.b64encode(cv2.imencode(".jpg", v, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+        ms = (time.time() - t0) / len(frames) * 1000
+        row = {"option": name, "ms_per_frame": round(ms), "on_pitch_median": float(np.median(on)), "dark_median": float(np.median(dark)), "white_median": float(np.median(white))}
+        log(f"OPTION {row}"); out.append(row)
+    return {"rows": out, "images": imgs, "log": lines[-20:]}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
