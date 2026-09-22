@@ -1,0 +1,37 @@
+{
+ "detected": {
+  "periods": [
+   [
+    734.0,
+    3080.0
+   ],
+   [
+    3435.0,
+    6164.0
+   ]
+  ],
+  "evidence": {
+   "players_on_pitch_typical": 14.4,
+   "halftime": [
+    3080,
+    3435
+   ],
+   "kickoff_1_by_formation": false,
+   "kickoff_2_by_formation": false
+  }
+ },
+ "coach": [
+  [
+   0,
+   3060
+  ],
+  [
+   3509,
+   5940
+  ]
+ ],
+ "veo_second_half_kickoff_s": [
+  3704,
+  3762
+ ]
+}
