@@ -1,0 +1,46 @@
+{
+ "rows": [
+  {
+   "option": "football 2560, conf 0.30 (current)",
+   "ms_per_frame": 223,
+   "on_pitch_median": 17.0,
+   "dark_median": 1.0,
+   "white_median": 7.0
+  },
+  {
+   "option": "football 2560, conf 0.10",
+   "ms_per_frame": 223,
+   "on_pitch_median": 21.0,
+   "dark_median": 1.0,
+   "white_median": 8.5
+  },
+  {
+   "option": "football, far band zoomed, conf 0.15",
+   "ms_per_frame": 337,
+   "on_pitch_median": 27.0,
+   "dark_median": 1.0,
+   "white_median": 9.0
+  },
+  {
+   "option": "general person 2560, conf 0.15",
+   "ms_per_frame": 210,
+   "on_pitch_median": 13.5,
+   "dark_median": 1.0,
+   "white_median": 7.0
+  },
+  {
+   "option": "general person, far band zoomed, conf 0.15",
+   "ms_per_frame": 245,
+   "on_pitch_median": 18.0,
+   "dark_median": 1.0,
+   "white_median": 8.0
+  }
+ ],
+ "log": [
+  "OPTION {'option': 'football 2560, conf 0.30 (current)', 'ms_per_frame': 223, 'on_pitch_median': 17.0, 'dark_median': 1.0, 'white_median': 7.0}",
+  "OPTION {'option': 'football 2560, conf 0.10', 'ms_per_frame': 223, 'on_pitch_median': 21.0, 'dark_median': 1.0, 'white_median': 8.5}",
+  "OPTION {'option': 'football, far band zoomed, conf 0.15', 'ms_per_frame': 337, 'on_pitch_median': 27.0, 'dark_median': 1.0, 'white_median': 9.0}",
+  "OPTION {'option': 'general person 2560, conf 0.15', 'ms_per_frame': 210, 'on_pitch_median': 13.5, 'dark_median': 1.0, 'white_median': 7.0}",
+  "OPTION {'option': 'general person, far band zoomed, conf 0.15', 'ms_per_frame': 245, 'on_pitch_median': 18.0, 'dark_median': 1.0, 'white_median': 8.0}"
+ ]
+}
