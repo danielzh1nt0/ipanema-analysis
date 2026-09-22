@@ -37,6 +37,12 @@ jobs:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: modal deploy modal_app.py
+      - name: stop the Modal app (commit tagged stopapp) - halts every running job; the next push redeploys it
+        if: contains(github.event.head_commit.message, '[stopapp]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: modal app stop ipanema && echo "Modal app stopped"
       - name: run a match (only when the commit is tagged run) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[run') || github.event_name == 'workflow_dispatch'
         env:
