@@ -1,0 +1,16 @@
+{
+ "C": [
+  53.34862969883341,
+  67.61590252543742,
+  -5.3250297469848356
+ ],
+ "base_tilt": [
+  -0.0136541014181566,
+  0.006422822686977
+ ],
+ "pitch": [
+  106.0,
+  64.0
+ ],
+ "note": "joint solve 23 Sep against the real 106x64 painted lines: 3 midfield + 2 corner frames (corner, goal, near touchline marked by hand); camera 4.0 m behind the near touchline, 5.3 m up, base tilted slightly. Replaces the 22 Sep base built from 120x70 calibrations."
+}
