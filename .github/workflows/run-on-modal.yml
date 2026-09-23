@@ -496,6 +496,18 @@ jobs:
           out = modal.Function.from_name("ipanema", "export_sample").remote("SFKBP1109", "", [[306.0, 314.0], [352.0, 360.0], [1528.0, 1536.0], [4232.0, 4240.0], [5416.0, 5424.0]], 0.0)
           os.makedirs("results/samples", exist_ok=True); open("results/samples/SFKBP1109_nearside.zip", "wb").write(base64.b64decode(out["zip"])); print(out["frames"], "frames,", out["mb"], "MB")
           PY
+      - name: export ~300 follow-cam frames spread over the whole match, for clicking pitch points (commit tagged sample3)
+        if: contains(github.event.head_commit.message, '[sample3]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, base64
+          wins = [[float(t), float(t) + 0.05] for t in range(15, 6150, 20)]
+          out = modal.Function.from_name("ipanema", "export_sample").remote("SFKBP1109", "", wins, 0.0, 15, 1280)
+          os.makedirs("results/samples", exist_ok=True); open("results/samples/SFKBP1109_spread.zip", "wb").write(base64.b64decode(out["zip"])); print(out["frames"], "frames,", out["mb"], "MB")
+          PY
       - name: scoreboard
         if: always()
         run: |
