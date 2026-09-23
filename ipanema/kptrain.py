@@ -24,8 +24,20 @@ def project(camera, pose, P, w, h):
     out = np.column_stack([w / 2 + f * c[:, 0] / c[:, 2], h / 2 + f * c[:, 1] / c[:, 2]]); out[c[:, 2] <= 1e-6] = np.nan
     return out
 
+def merge_aligned(solution_json, aligned):
+    """add lined-up frames ({session: align json}) to the click solution; poses are stored per 1280x720 frame"""
+    sol = json.load(open(solution_json)); have = {(f["session"], f["frame"]) for f in sol["frames"]}
+    for s, path in aligned.items():
+        if not os.path.exists(path): continue
+        for name, v in json.load(open(path)).items():
+            if v.get("pose") and not v.get("skipped") and (s, name) not in have:
+                w = (v.get("size") or [1280, 720])[0]; p = list(v["pose"]); p[3] *= 1280.0 / w
+                sol["frames"].append({"session": s, "frame": name, "pose": p, "source": "aligned"})
+    return sol
+
 def build_dataset(solution_json, frame_zips, out_dir, val_every=6, margin=4):
-    sol = json.load(open(solution_json)); cam = sol["camera"]; W0, H0 = sol["image_size"]; kp = pitch_keypoints(*sol["pitch"])
+    sol = json.load(open(solution_json)) if isinstance(solution_json, str) else solution_json
+    cam = sol["camera"]; W0, H0 = sol["image_size"]; kp = pitch_keypoints(*sol["pitch"])
     P = np.array([kp[n] for n in KEYPOINT_NAMES]); zips = {s: zipfile.ZipFile(p) for s, p in frame_zips.items()}; n_tr = n_va = 0; labels_per = []
     for i, fr in enumerate(sol["frames"]):
         split = "val" if i % val_every == val_every - 1 else "train"

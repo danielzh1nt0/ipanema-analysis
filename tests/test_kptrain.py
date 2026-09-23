@@ -21,3 +21,12 @@ def test_dataset_from_solution():
     kp = pitch_keypoints(); good = [n for n, u, v in clicks if "penalty spot" not in n]
     q = project(sol["camera"], fr["pose"], [kp[n] for n in good], 1280, 720); Q = np.array([[u, v] for n, u, v in clicks if "penalty spot" not in n], float)
     assert np.median(np.linalg.norm(q - Q, axis=1)) < 15
+
+def test_merge_aligned_frames():
+    """lined-up frames join the training set (poses scaled to 1280 wide); skipped ones and duplicates don't"""
+    from ipanema.kptrain import merge_aligned
+    d = tempfile.mkdtemp(); p = f"{d}/a.json"
+    json.dump({"fc_4000.000.jpg": {"pose": [-1.5, 0.1, 0.0, 800.0], "size": [960, 540]}, "fc_4100.000.jpg": {"pose": None, "skipped": True}}, open(p, "w"))
+    sol = merge_aligned(f"{ROOT}/calibration/panorama/SFKBP1109_clicks_solution.json", {"s3": p})
+    added = [f for f in sol["frames"] if f.get("source") == "aligned"]
+    assert len(added) == 1 and abs(added[0]["pose"][3] - 800.0 * 1280 / 960) < 1e-9

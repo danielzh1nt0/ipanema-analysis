@@ -146,3 +146,90 @@ def sample_session(video, out_zip, session, n=70, sessions=3, width=1280, play=S
     print(f"session {session}: {got} frames from {times[0] / 60:.1f} to {times[-1] / 60:.1f} min -> {out_zip}")
     if got < 0.9 * n: raise RuntimeError(f"only {got} of {n} frames could be read")
     return out_zip
+
+
+# ---------------------------------------------------------------- "line up the lines": label a frame by its camera pose
+def _pitch_polylines(L=106.0, W=64.0, step=0.5):
+    from .calcheck import pitch_segments
+    out = []
+    for a, b in pitch_segments(L, W):
+        a, b = np.array(a, float), np.array(b, float); n = max(2, int(np.linalg.norm(b - a) / step))
+        out.append([[round(float(x), 3), round(float(y), 3)] for x, y in a + (b - a) * np.linspace(0, 1, n)[:, None]])
+    return out
+
+ALIGN_JS = r"""
+function rotPose(pan, tilt, roll){
+  const d=[Math.cos(tilt)*Math.cos(pan), Math.cos(tilt)*Math.sin(pan), Math.sin(tilt)];
+  let r=[-d[1], d[0], 0]; const n=Math.hypot(r[0],r[1]); r=[r[0]/n, r[1]/n, 0];          // z x d  (z = down)
+  const u=[d[1]*r[2]-d[2]*r[1], d[2]*r[0]-d[0]*r[2], d[0]*r[1]-d[1]*r[0]];                  // d x r
+  const R=[r,u,d]; const c=Math.cos(roll), s=Math.sin(roll);
+  return [[c*R[0][0]-s*R[1][0], c*R[0][1]-s*R[1][1], c*R[0][2]-s*R[1][2]],
+          [s*R[0][0]+c*R[1][0], s*R[0][1]+c*R[1][1], s*R[0][2]+c*R[1][2]], R[2]];
+}
+function rotBase(bx, by){
+  const cx=Math.cos(bx), sx=Math.sin(bx), cy=Math.cos(by), sy=Math.sin(by);
+  const A=[[1,0,0],[0,cx,-sx],[0,sx,cx]], B=[[cy,0,sy],[0,1,0],[-sy,0,cy]]; const M=[[0,0,0],[0,0,0],[0,0,0]];
+  for(let i=0;i<3;i++) for(let j=0;j<3;j++) for(let k=0;k<3;k++) M[i][j]+=A[i][k]*B[k][j];
+  return M;
+}
+function projector(C, base, pose, w, h){
+  const P=rotPose(pose[0],pose[1],pose[2]), B=rotBase(base[0],base[1]); const R=[[0,0,0],[0,0,0],[0,0,0]];
+  for(let i=0;i<3;i++) for(let j=0;j<3;j++) for(let k=0;k<3;k++) R[i][j]+=P[i][k]*B[k][j];
+  const f=pose[3];
+  return (x,y)=>{ const v=[x-C[0], y-C[1], -C[2]];
+    const c=[R[0][0]*v[0]+R[0][1]*v[1]+R[0][2]*v[2], R[1][0]*v[0]+R[1][1]*v[1]+R[1][2]*v[2], R[2][0]*v[0]+R[2][1]*v[1]+R[2][2]*v[2]];
+    if(c[2]<=1e-6) return null; return [w/2+f*c[0]/c[2], h/2+f*c[1]/c[2]]; };
+}
+"""
+
+def align_session(frames_zip, out_json, base_json, start_pose=None, skip_clicked=None):
+    """Label frames by lining the drawn pitch up with the painted one: arrows = pan/tilt, +/- = zoom, [ ] = roll,
+    Shift = bigger steps, F = snap to the painted lines automatically, Enter = accept, S = skip, B = back, R = reset.
+    Every frame starts from the previous accepted pose (frames are in time order). Saves after every frame."""
+    import zipfile, base64
+    from google.colab import output
+    from IPython.display import HTML, display
+    from . import fccam as FC
+    base = json.load(open(base_json)); C, bt = base["C"], base["base_tilt"]; FC.set_base_tilt(*bt)
+    z = zipfile.ZipFile(frames_zip); names = sorted(z.namelist(), key=lambda n: float(n[3:-4]))
+    if skip_clicked and os.path.exists(skip_clicked):                       # frames already labelled by clicking points: not shown again
+        clicked = {k for k, v in json.load(open(skip_clicked)).items() if len(v.get("pairs", [])) >= 3}; names = [n for n in names if n not in clicked]
+    first = cv2.imdecode(np.frombuffer(z.read(names[0]), np.uint8), cv2.IMREAD_COLOR); h, w = first.shape[:2]
+    done = json.load(open(out_json)) if os.path.exists(out_json) else {}
+    def save(js): done.update(json.loads(js)); json.dump(done, open(out_json, "w"), indent=0)
+    def snap(name, pose_js):
+        img = cv2.imdecode(np.frombuffer(z.read(name), np.uint8), cv2.IMREAD_COLOR); p = json.loads(pose_js)
+        s = 1280.0 / img.shape[1]; img = cv2.resize(img, (1280, int(round(img.shape[0] * s)))) if img.shape[1] != 1280 else img
+        q = FC.refine(img, C, 106.0, 64.0, np.array([p[0], p[1], p[2], p[3] * s]), max_pan_deg=4.0, max_tilt_deg=3.0, max_zoom=0.15)
+        from IPython.display import JSON
+        return JSON({"pose": [float(q[0]), float(q[1]), float(q[2]), float(q[3] / s)]})
+    output.register_callback("ipanema_align_save", save); output.register_callback("ipanema_align_snap", snap)
+    imgs = [base64.b64encode(z.read(n)).decode() for n in names]
+    p0 = start_pose or next((v["pose"] for k, v in sorted(done.items(), key=lambda kv: float(kv[0][3:-4])) if v.get("pose")), [-1.9, 0.09, 0.0, 1500.0 * w / 1280])
+    start = next((i for i, n in enumerate(names) if n not in done), len(names))
+    display(HTML(f"""<div style="font:13px sans-serif;color:#ddd"><div id="al_p" style="color:#ffd54f;font-size:15px"></div>
+<canvas id="al_c" width="{w}" height="{h}" tabindex="0" style="max-width:96vw;outline:none;border:1px solid #444"></canvas>
+<div>arrows = move · Shift = bigger steps · + / - = zoom · [ ] = rotate · <b>F</b> = snap to lines · <b>Enter</b> = accept · <b>S</b> skip · <b>B</b> back · <b>R</b> reset</div></div>
+<script>{ALIGN_JS}
+const names={json.dumps(names)}, imgs={json.dumps(imgs)}, LINES={json.dumps(_pitch_polylines())}, C={json.dumps(C)}, BASE={json.dumps(bt)};
+const done={json.dumps(done)}; let k={start}, pose={json.dumps(p0)}; const c=document.getElementById('al_c'), g=c.getContext('2d'); const im=new Image();
+function show(){{ if(k>=names.length){{ document.getElementById('al_p').textContent='All frames done - saved. Tell Claude you are done.'; g.clearRect(0,0,c.width,c.height); return; }}
+  const prev=done[names[k]]; if(prev && prev.pose) pose=prev.pose.slice(); im.onload=draw; im.src='data:image/jpeg;base64,'+imgs[k]; }}
+function draw(){{ g.drawImage(im,0,0); const pr=projector(C,BASE,pose,c.width,c.height); g.strokeStyle='rgba(255,40,40,0.85)'; g.lineWidth=2;
+  for(const L of LINES){{ g.beginPath(); let on=false; for(const [x,y] of L){{ const q=pr(x,y); if(!q||Math.abs(q[0])>1e5){{on=false;continue;}} if(!on){{g.moveTo(q[0],q[1]);on=true;}} else g.lineTo(q[0],q[1]); }} g.stroke(); }}
+  document.getElementById('al_p').textContent=`Frame ${{k+1}}/${{names.length}} (${{names[k].slice(3,-4)}} s) - line the red pitch up with the painted lines, then Enter`; }}
+function store(skip){{ const o={{}}; o[names[k]]={{pose: skip?null:pose.slice(), skipped: !!skip, size:[c.width,c.height]}}; done[names[k]]=o[names[k]]; google.colab.kernel.invokeFunction('ipanema_align_save',[JSON.stringify(o)],{{}}); }}
+c.addEventListener('keydown', async e=>{{ const big=e.shiftKey?5:1, d=Math.PI/180; let used=true;
+  if(e.key==='ArrowLeft') pose[0]-=0.15*d*big; else if(e.key==='ArrowRight') pose[0]+=0.15*d*big;
+  else if(e.key==='ArrowUp') pose[1]-=0.08*d*big; else if(e.key==='ArrowDown') pose[1]+=0.08*d*big;
+  else if(e.key==='+'||e.key==='=') pose[3]*=1+0.01*big; else if(e.key==='-'||e.key==='_') pose[3]/=1+0.01*big;
+  else if(e.key==='[') pose[2]-=0.1*d*big; else if(e.key===']') pose[2]+=0.1*d*big;
+  else if(e.key==='Enter'){{ store(false); k++; show(); return; }} else if(e.key==='s'||e.key==='S'){{ store(true); k++; show(); return; }}
+  else if(e.key==='b'||e.key==='B'){{ if(k>0){{k--; show();}} return; }} else if(e.key==='r'||e.key==='R'){{ pose={json.dumps(p0)}; }}
+  else if(e.key==='f'||e.key==='F'){{ document.getElementById('al_p').textContent='snapping to the lines...';
+    const r=await google.colab.kernel.invokeFunction('ipanema_align_snap',[names[k], JSON.stringify(pose)],{{}}); pose=r.data['application/json'].pose; }}
+  else used=false;
+  if(used){{ e.preventDefault(); draw(); }} }});
+c.focus(); show();
+</script>"""))
+    print(f"{len(names)} frames ({w}x{h}); {len(done)} already done; saving to {out_json}. Click the picture once so it gets the keys.")
