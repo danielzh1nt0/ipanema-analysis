@@ -17,6 +17,16 @@ def rays_from_pano(cam, Q):
     d = np.column_stack([np.cos(az), np.sin(az), tb]) @ R                   # R^T applied: back to pitch frame
     return d / np.linalg.norm(d, axis=1, keepdims=True)
 
+def rot_base(bx, by):
+    """small tilt of the camera's pan axis away from vertical (solved once per ground)"""
+    cx, sx, cy, sy = np.cos(bx), np.sin(bx), np.cos(by), np.sin(by)
+    return np.array([[1, 0, 0], [0, cx, -sx], [0, sx, cx]]) @ np.array([[cy, 0, sy], [0, 1, 0], [-sy, 0, cy]])
+
+BASE_TILT = (0.0, 0.0)
+
+def set_base_tilt(bx, by):
+    global BASE_TILT; BASE_TILT = (float(bx), float(by))
+
 def rotation(pan, tilt, roll):
     d = np.array([np.cos(tilt) * np.cos(pan), np.cos(tilt) * np.sin(pan), np.sin(tilt)])
     right = np.cross([0, 0, 1.0], d); right /= np.linalg.norm(right)      # z points DOWN: z x forward = image right
@@ -24,14 +34,14 @@ def rotation(pan, tilt, roll):
     c, s = np.cos(roll), np.sin(roll); return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]]) @ R
 
 def project_rays(pose, D, w, h):
-    pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll); c = D @ R.T
+    pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll) @ rot_base(*BASE_TILT); c = D @ R.T
     z = c[:, 2]; ok = z > 1e-6
     q = np.full((len(D), 2), np.nan); q[ok, 0] = w / 2 + f * c[ok, 0] / z[ok]; q[ok, 1] = h / 2 + f * c[ok, 1] / z[ok]
     return q
 
 def homography(pose, C, w, h):
     """pitch metres -> follow-cam pixels for this pose"""
-    pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll); K = np.array([[f, 0, w / 2], [0, f, h / 2], [0, 0, 1.0]])
+    pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll) @ rot_base(*BASE_TILT); K = np.array([[f, 0, w / 2], [0, f, h / 2], [0, 0, 1.0]])
     return K @ np.column_stack([R[:, 0], R[:, 1], -R @ np.asarray(C, float)])
 
 def features(img, mask=None, n=5000):
@@ -108,7 +118,7 @@ def track_sequence(frames, C, first_pose, w, h, refine_lines=None, log=print, ma
             P1, st, err = cv2.calcOpticalFlowPyrLK(prev_g, g, P0, None, winSize=(21, 21), maxLevel=3)
             ok = st.ravel() == 1; P0, P1 = P0.reshape(-1, 2)[ok], P1.reshape(-1, 2)[ok]
             if len(P0) >= 12:
-                pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll)
+                pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll) @ rot_base(*BASE_TILT)
                 cam = np.column_stack([(P0[:, 0] - w / 2) / f, (P0[:, 1] - h / 2) / f, np.ones(len(P0))]); D = cam @ R
                 D /= np.linalg.norm(D, axis=1, keepdims=True)
                 v, inl = fit_pose(P1.astype(np.float32), D, w, h, init=pose)

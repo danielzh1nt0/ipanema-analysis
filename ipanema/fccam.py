@@ -7,6 +7,16 @@ zoom vary per frame. Three unknowns are few enough to search for directly, score
 import numpy as np, cv2
 from .calcheck import line_mask, pitch_segments
 
+def rot_base(bx, by):
+    """small tilt of the camera's pan axis away from vertical (solved once per ground)"""
+    cx, sx, cy, sy = np.cos(bx), np.sin(bx), np.cos(by), np.sin(by)
+    return np.array([[1, 0, 0], [0, cx, -sx], [0, sx, cx]]) @ np.array([[cy, 0, sy], [0, 1, 0], [-sy, 0, cy]])
+
+BASE_TILT = (0.0, 0.0)
+
+def set_base_tilt(bx, by):
+    global BASE_TILT; BASE_TILT = (float(bx), float(by))
+
 def rotation(pan, tilt, roll=0.0):
     d = np.array([np.cos(tilt) * np.cos(pan), np.cos(tilt) * np.sin(pan), np.sin(tilt)])     # z points into the ground
     right = np.cross([0, 0, 1.0], d); right /= np.linalg.norm(right)      # z points DOWN: z x forward = image right
@@ -17,7 +27,7 @@ def rotation(pan, tilt, roll=0.0):
 
 def homography(C, pan, tilt, f, roll=0.0, cx=960.0, cy=540.0):
     """pitch metres -> follow-cam pixels"""
-    R = rotation(pan, tilt, roll); K = np.array([[f, 0, cx], [0, f, cy], [0, 0, 1.0]])
+    R = rotation(pan, tilt, roll) @ rot_base(*BASE_TILT); K = np.array([[f, 0, cx], [0, f, cy], [0, 0, 1.0]])
     return K @ np.column_stack([R[:, 0], R[:, 1], -R @ np.asarray(C, float)])
 
 class Scorer:
@@ -42,12 +52,13 @@ class Scorer:
         d = cv2.remap(self.dt, q[ok, 0].reshape(1, -1).astype(np.float32), q[ok, 1].reshape(1, -1).astype(np.float32), cv2.INTER_LINEAR).ravel()
         return float(np.mean(np.minimum(d, cap)) + self.off_w * (~on).mean())
 
-def fit(frame, C, L, W, pan_range=(-175, -5), tilt_range=(1, 30), f_range=(900, 4500), coarse=(3.0, 2.0, 6), log=None):
+def fit(frame, C, L, W, pan_range=(-178, -2), tilt_range=(1, 45), f_range=(600, 4500), coarse=(3.0, 2.0, 6), log=None):
     """search pan / tilt / zoom, then refine -> (H, info). Nothing is inherited from other frames."""
     from scipy.optimize import minimize
     sc = Scorer(frame, L, W)
+    k = sc.w / 1920.0                                                        # zoom range is given for 1920-wide frames: scale to this frame
     pans = np.radians(np.arange(pan_range[0], pan_range[1], coarse[0])); tilts = np.radians(np.arange(tilt_range[0], tilt_range[1], coarse[1]))
-    fs = np.geomspace(f_range[0], f_range[1], coarse[2])
+    fs = np.geomspace(f_range[0] * k, f_range[1] * k, coarse[2])
     best = (1e18, None)
     for f in fs:
         for p in pans:

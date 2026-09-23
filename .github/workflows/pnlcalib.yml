@@ -1,0 +1,38 @@
+name: PnLCalib test on GitHub's free runner (no Modal)
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/pnlcalib.txt"]
+permissions:
+  contents: write
+jobs:
+  pnlcalib:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: install PnLCalib (CPU)
+        run: |
+          pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          git clone -q https://github.com/mguti97/PnLCalib.git /tmp/pnl
+          grep -viE "nvidia|^torch|^triton" /tmp/pnl/requirements.txt > /tmp/req.txt
+          pip install -q -r /tmp/req.txt || pip install -q opencv-python-headless scipy lsq-ellipse munkres pyyaml tqdm matplotlib pillow shapely
+          cd /tmp/pnl && for w in SV_kp SV_lines; do curl -sL -o $w https://github.com/mguti97/PnLCalib/releases/download/v1.0.0/$w; done; ls -la SV_kp SV_lines
+      - name: run on midfield and corner frames
+        run: |
+          mkdir -p /tmp/frames results/check/pnlcalib
+          cd /tmp/frames && unzip -qo $GITHUB_WORKSPACE/results/samples/SFKBP1109_two_windows.zip fc_1274.000.jpg fc_1279.933.jpg fc_1372.000.jpg fc_1379.933.jpg
+          unzip -qo $GITHUB_WORKSPACE/results/samples/SFKBP1109_nearside.zip fc_4236.000.jpg fc_5420.000.jpg fc_1532.000.jpg fc_0310.000.jpg
+          cd /tmp/pnl
+          for f in /tmp/frames/*.jpg; do n=$(basename $f .jpg)
+            python inference.py --weights_kp SV_kp --weights_line SV_lines --pnl_refine --device cpu --input_path $f --input_type image --save_path $GITHUB_WORKSPACE/results/check/pnlcalib/$n.png > $GITHUB_WORKSPACE/results/check/pnlcalib/$n.log 2>&1 || echo "failed $n" >> $GITHUB_WORKSPACE/results/check/pnlcalib/failures.txt
+          done
+          ls -la $GITHUB_WORKSPACE/results/check/pnlcalib
+      - name: commit results
+        if: always()
+        run: |
+          git config user.name "pnlcalib-bot" && git config user.email "bot@ipanema"
+          git add results/check/pnlcalib && git commit -qm "PnLCalib test results" || echo "nothing to commit"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
