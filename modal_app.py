@@ -156,7 +156,12 @@ def piece_inventory(match_id: str):
         c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"
         done = os.path.exists(f"{c}/{FM.PIECE_FILE}")
         det = (os.path.exists(f"{c}/tracks_kp.pkl") or bool(glob.glob(f"{c}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{c}/ball_cands_wasb_*_t2x2.pkl"))
-        rows.append({"i": p["i"], "status": "done" if done else ("cpu" if det else "gpu")})
+        tracked = False
+        if os.path.exists(f"{c}/calibration_ptz.pkl"):
+            try:
+                import pickle as _pk; tracked = bool(_pk.load(open(f"{c}/calibration_ptz.pkl", "rb")).get("complete"))
+            except Exception: tracked = False
+        rows.append({"i": p["i"], "status": "done" if done else ("cpu" if det else "gpu"), "tracked": tracked})
     return {"pieces": rows, "done": sum(r["status"] == "done" for r in rows), "cpu": sum(r["status"] == "cpu" for r in rows), "gpu": sum(r["status"] == "gpu" for r in rows)}
 
 @app.function(timeout=40 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384)
