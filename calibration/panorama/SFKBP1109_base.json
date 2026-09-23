@@ -1,1 +1,16 @@
-{"C": [53.978689645044014, 75.67638852650961, -5.62014070240495], "note": "fixed camera base from 3 verified follow-cam frames, 106x64 pitch coords, z down"}
+{
+ "C": [
+  53.34103527863754,
+  67.61505697167415,
+  -4.797268525940169
+ ],
+ "base_tilt": [
+  -0.026830143424128566,
+  0.00716594659984411
+ ],
+ "pitch": [
+  106.0,
+  64.0
+ ],
+ "note": "joint solve 23 Sep from Daniel's clicks, sessions 1-2 (56 frames, 319 points). Hidden-point check: midfield 5.0 px, right end 6.7 px, left end 7.8 px median (1280 wide)."
+}
