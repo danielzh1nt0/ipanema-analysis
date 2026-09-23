@@ -1050,6 +1050,65 @@ def export_sample(fc_mid: str, pano_mid: str, windows: list, pano_offset_s: floa
     z.close()
     return {"frames": n, "zip": base64.b64encode(buf.getvalue()).decode(), "mb": round(len(buf.getvalue()) / 1e6, 1)}
 
+@app.function(timeout=90 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384, max_containers=21)
+def track_piece(match_id: str, i: int, step: int = 2, base_json: str = ""):
+    """Follow-cam calibration for one 5-minute piece by fixed-base pan/tilt/zoom tracking (CPU). Poses every `step`
+    frames (interpolated between), re-localised from a single-frame line fit whenever the judge says the track is lost.
+    Saves calibration_ptz.pkl (a homography per frame) and returns judged-correct rate plus 3 drawn frames."""
+    import json, pickle, base64, numpy as np, cv2, time
+    _setup()
+    from ipanema import fullmatch as FM, ptz, fccam as FC
+    from ipanema.calcheck import judge_frame
+    from ipanema.calibration import draw_model
+    log, lines = _logger(f"{match_id}/track_{i:03d}.log")
+    base = json.load(open(base_json or f"/content/ipanema-analysis/calibration/panorama/{match_id}_base.json")); C = base["C"]; L, W = 106.0, 64.0
+    pid = FM.piece_id(match_id, i); video = f"{ROOT}/videos/{pid}.mp4"
+    cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS)
+    frames = []; k = 0
+    while True:
+        ok, f = cap.read()
+        if not ok: break
+        if k % step == 0: frames.append(cv2.resize(f, (960, 540)))
+        k += 1
+    cap.release(); h, w = 540, 960; t0 = time.time(); log(f"{pid}: {n} frames, tracking every {step} at 960x540")
+    def single(fr):
+        H, info = FC.fit(fr, C, L, W, tilt_range=(0.5, 30), coarse=(3.0, 1.5, 8))
+        ok_ = judge_frame(fr, H, L, W)["verdict"] == "good"
+        return (np.array([np.radians(info["pan_deg"]), np.radians(info["tilt_deg"]), np.radians(info["roll_deg"]), info["zoom"]]) if ok_ else None)
+    poses = [None] * len(frames); verdict = ["none"] * len(frames); j = 0; relocs = 0
+    while j < len(frames):
+        p = single(frames[j])
+        if p is None: j += 1; continue                                  # can't start here: try the next sampled frame
+        relocs += 1; start = j; pose = p; poses[j] = p; verdict[j] = "good"; lost = 0
+        prev_pts, prev_desc = ptz.features(frames[j], None)
+        for t in range(j + 1, len(frames)):
+            seg, _ = ptz.track_sequence([frames[t - 1], frames[t]], C, pose, w, h, refine_lines=lambda f_, p_: FC.refine(f_, C, L, W, p_))
+            pose = seg[-1]; v = judge_frame(frames[t], ptz.homography(pose, C, w, h), L, W)["verdict"]
+            poses[t] = pose; verdict[t] = v; lost = 0 if v == "good" else lost + 1
+            if lost >= 15: j = t; break                                 # lost for a second: re-localise from a fresh single-frame fit
+        else: j = len(frames)
+    good = verdict.count("good"); log(f"{pid}: judged good {good}/{len(frames)} sampled frames ({100 * good / max(1, len(frames)):.1f}%), {relocs} (re)starts, {time.time() - t0:.0f} s")
+    # per-frame homographies at FULL resolution (1920x1080), interpolated between sampled frames
+    S = np.diag([2.0, 2.0, 1.0]); Hs = {}
+    for t in range(len(frames)):
+        if poses[t] is None: continue
+        Hf = S @ ptz.homography(poses[t], C, w, h)
+        for d in range(step):
+            if t * step + d < n: Hs[t * step + d] = Hf.astype(np.float32)
+    ok_mask = np.zeros(n, bool)
+    for t in range(len(frames)):
+        if verdict[t] == "good":
+            for d in range(step):
+                if t * step + d < n: ok_mask[t * step + d] = True
+    os.makedirs(f"{ROOT}/cache/{pid}", exist_ok=True); pickle.dump({"H": Hs, "ok": ok_mask, "step": step}, open(f"{ROOT}/cache/{pid}/calibration_ptz.pkl", "wb")); vol.commit()
+    imgs = {}
+    for frac in (0.15, 0.5, 0.85):
+        t = int(len(frames) * frac)
+        if poses[t] is None: continue
+        vis = frames[t].copy(); draw_model(vis, ptz.homography(poses[t], C, w, h), L, W, (0, 0, 255)); cv2.putText(vis, f"frame {t * step}: {verdict[t]}", (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 3)
+        imgs[f"track_{pid}_f{t * step:05d}.jpg"] = base64.b64encode(cv2.imencode(".jpg", vis, [cv2.IMWRITE_JPEG_QUALITY, 85])[1].tobytes()).decode()
+    return {"piece": i, "frames": n, "sampled": len(frames), "good": good, "good_pct": round(100 * good / max(1, len(frames)), 1), "restarts": relocs, "seconds": round(time.time() - t0), "images": imgs, "log": lines[-10:]}
+
 # ---------------- Upload API (runs only when someone uploads; no GPU) ----------------
 AUTH_URL = "https://savbsnvusqbogdzvkjaf.supabase.co"   # Lovable Cloud project: who is signed in
 AUTH_KEY = "sb_publishable_KIrOxTM-qNYnJCfuJlcR_g_TE8is32f"                                 # its publishable key (public by design)
