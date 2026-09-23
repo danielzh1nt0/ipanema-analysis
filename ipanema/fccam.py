@@ -71,6 +71,8 @@ def refine(frame, C, L, W, pose, max_pan_deg=1.5, max_tilt_deg=1.0, max_zoom=0.0
     from scipy.optimize import minimize
     sc = Scorer(frame, L, W); cx, cy = sc.w / 2, sc.h / 2
     pose = np.asarray(pose, float)
+    if (sc.dt <= 0).mean() < 0.002: return pose                            # no painted lines in view: snapping would only drag the pose away
+                                                                            # (measured 23 Sep: 17-44 m drift in 5 s without this, 2-4 m with it)
     def obj(v): return sc.cost(homography(C, v[0], v[1], np.exp(v[2]), v[3], cx=cx, cy=cy))
     v0 = np.array([pose[0], pose[1], np.log(pose[3]), pose[2]]); c0 = obj(v0)
     r = minimize(obj, v0, method="Nelder-Mead", options={"xatol": 1e-4, "fatol": 1e-3, "maxiter": 300, "initial_simplex": np.array([v0, v0 + [0.004, 0, 0, 0], v0 + [0, 0.003, 0, 0], v0 + [0, 0, 0.02, 0], v0 + [0, 0, 0, 0.002]])})
