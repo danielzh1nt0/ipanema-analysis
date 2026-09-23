@@ -237,32 +237,39 @@ c.focus(); show();
 
 def review_session(frames_zip, proposals_json, out_json, base_json):
     """YES / NO on proposed pitch lines: Y (or the green button) if the red lines sit on the painted ones, N if not,
-    B = back. Saves after every answer; rerun to continue."""
+    B = back. Pictures are fetched ONE AT A TIME (all of them at once is far over Colab's output limit). Saves after
+    every answer; rerun to continue."""
     import zipfile, base64
     from google.colab import output
-    from IPython.display import HTML, display
+    from IPython.display import HTML, JSON, display
     base = json.load(open(base_json)); prop = json.load(open(proposals_json)); z = zipfile.ZipFile(frames_zip)
-    names = sorted([n for n in prop if n in set(z.namelist())], key=lambda n: float(n[3:-4]))
+    inzip = set(z.namelist()); names = sorted([n for n in prop if n in inzip], key=lambda n: float(n[3:-4]))
+    if not names: raise RuntimeError("no proposed frames found in the zip - was step 1 finished?")
     done = json.load(open(out_json)) if os.path.exists(out_json) else {}
     def save(js): done.update(json.loads(js)); json.dump(done, open(out_json, "w"))
-    output.register_callback("ipanema_review_save", save)
-    imgs = [base64.b64encode(z.read(n)).decode() for n in names]; poses = [prop[n]["pose"] for n in names]; w, h = prop[names[0]]["size"]
-    start = next((i for i, n in enumerate(names) if n not in done), len(names))
+    def fetch(i):
+        i = int(i); n = names[i]; return JSON({"img": base64.b64encode(z.read(n)).decode(), "pose": prop[n]["pose"], "name": n})
+    output.register_callback("ipanema_review_save", save); output.register_callback("ipanema_review_img", fetch)
+    w, h = prop[names[0]]["size"]; start = next((i for i, n in enumerate(names) if n not in done), len(names))
     display(HTML(f"""<div style="font:14px sans-serif;color:#ddd"><div id="rv_p" style="color:#ffd54f;font-size:16px"></div>
 <canvas id="rv_c" width="{w}" height="{h}" tabindex="0" style="max-width:96vw;outline:none;border:1px solid #444"></canvas><br>
 <button id="rv_y" style="font-size:20px;padding:8px 40px;background:#2e7d32;color:#fff;border:0;margin:6px">YES - lines on the paint (Y)</button>
 <button id="rv_n" style="font-size:20px;padding:8px 40px;background:#c62828;color:#fff;border:0;margin:6px">NO (N)</button>
 <button id="rv_b" style="font-size:14px;padding:8px 16px;margin:6px">back (B)</button></div>
 <script>{ALIGN_JS}
-const names={json.dumps(names)}, imgs={json.dumps(imgs)}, poses={json.dumps(poses)}, LINES={json.dumps(_pitch_polylines())}, C={json.dumps(base['C'])}, BASE={json.dumps(base['base_tilt'])};
-let k={start}; const c=document.getElementById('rv_c'), g=c.getContext('2d'), im=new Image(); let yes=0, no=0;
-function show(){{ if(k>=names.length){{ document.getElementById('rv_p').textContent=`All ${{names.length}} frames reviewed - saved. Tell Claude you are done.`; return; }} im.onload=draw; im.src='data:image/jpeg;base64,'+imgs[k]; }}
-function draw(){{ g.drawImage(im,0,0); const pr=projector(C,BASE,poses[k],c.width,c.height); g.strokeStyle='rgba(255,40,40,0.9)'; g.lineWidth=2;
+const N={len(names)}, LINES={json.dumps(_pitch_polylines())}, C={json.dumps(base['C'])}, BASE={json.dumps(base['base_tilt'])};
+let k={start}, cur=null, busy=false, yes=0, no=0; const c=document.getElementById('rv_c'), g=c.getContext('2d'), im=new Image();
+async function show(){{ if(k>=N){{ document.getElementById('rv_p').textContent=`All ${{N}} frames reviewed - saved. Tell Claude you are done.`; return; }}
+  busy=true; document.getElementById('rv_p').textContent='loading...';
+  const r=await google.colab.kernel.invokeFunction('ipanema_review_img',[k],{{}}); cur=r.data['application/json'];
+  im.onload=()=>{{ draw(); busy=false; }}; im.src='data:image/jpeg;base64,'+cur.img; }}
+function draw(){{ g.drawImage(im,0,0); const pr=projector(C,BASE,cur.pose,c.width,c.height); g.strokeStyle='rgba(255,40,40,0.9)'; g.lineWidth=2;
   for(const L of LINES){{ g.beginPath(); let on=false; for(const [x,y] of L){{ const q=pr(x,y); if(!q||Math.abs(q[0])>1e5){{on=false;continue;}} if(!on){{g.moveTo(q[0],q[1]);on=true;}} else g.lineTo(q[0],q[1]); }} g.stroke(); }}
-  document.getElementById('rv_p').textContent=`Frame ${{k+1}}/${{names.length}} - do the red lines sit on the painted lines everywhere? (this session: ${{yes}} yes / ${{no}} no)`; }}
-function answer(a){{ if(k>=names.length) return; const o={{}}; o[names[k]]=a; google.colab.kernel.invokeFunction('ipanema_review_save',[JSON.stringify(o)],{{}}); if(a==='yes') yes++; else no++; k++; show(); }}
-document.getElementById('rv_y').onclick=()=>answer('yes'); document.getElementById('rv_n').onclick=()=>answer('no'); document.getElementById('rv_b').onclick=()=>{{ if(k>0){{k--;show();}} }};
-c.addEventListener('keydown', e=>{{ if(e.key==='y'||e.key==='Y') answer('yes'); else if(e.key==='n'||e.key==='N') answer('no'); else if(e.key==='b'||e.key==='B'){{ if(k>0){{k--;show();}} }} }});
+  document.getElementById('rv_p').textContent=`Frame ${{k+1}}/${{N}} - do the red lines sit on the painted lines everywhere? (this session: ${{yes}} yes / ${{no}} no)`; }}
+function answer(a){{ if(k>=N||busy||!cur) return; const o={{}}; o[cur.name]=a; google.colab.kernel.invokeFunction('ipanema_review_save',[JSON.stringify(o)],{{}}); if(a==='yes') yes++; else no++; k++; show(); }}
+document.getElementById('rv_y').onclick=()=>answer('yes'); document.getElementById('rv_n').onclick=()=>answer('no');
+document.getElementById('rv_b').onclick=()=>{{ if(k>0&&!busy){{k--;show();}} }};
+c.addEventListener('keydown', e=>{{ if(e.key==='y'||e.key==='Y') answer('yes'); else if(e.key==='n'||e.key==='N') answer('no'); else if((e.key==='b'||e.key==='B')&&k>0&&!busy){{k--;show();}} }});
 c.focus(); show();
 </script>"""))
     print(f"{len(names)} proposed frames; {len(done)} already reviewed; saving to {out_json}. Click the picture once for the Y/N keys, or use the buttons.")
