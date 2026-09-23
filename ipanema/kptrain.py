@@ -114,3 +114,40 @@ def merge_reviewed(sol, proposals_json, review_json, session):
         if rev.get(name) == "yes":
             p = list(v["pose"]); p[3] *= 1280.0 / v["size"][0]; sol["frames"].append({"session": session, "frame": name, "pose": p, "source": "reviewed"})
     return sol
+
+
+def propose_random(video, base_json, out_zip, out_json, n_candidates=900, play=((0.0, 51 * 60.0), (62 * 60 + 13.0, 99 * 60.0)),
+                   avoid=(), avoid_s=5.0, width=1280, fit_width=960, seed=0, log=print):
+    """VARIETY: calibrate moments spread over the whole match with the single-frame line fit (known camera base), keep
+    only those the judge accepts, and save them for the yes/no review (same format as propagate). `avoid` = times (s)
+    already labelled or held back; nothing within avoid_s of them is proposed."""
+    import zipfile
+    from . import fccam as FC
+    from .calcheck import judge_frame
+    base = json.load(open(base_json)); C = base["C"]; FC.set_base_tilt(*base["base_tilt"])
+    rng = np.random.RandomState(seed); total = sum(b - a for a, b in play); times = []
+    for u in np.sort(rng.uniform(0, total, n_candidates)):
+        for a, b in play:
+            if u < b - a: times.append(a + u); break
+            u -= b - a
+    avoid = np.array(sorted(avoid), float)
+    times = [t for t in times if not len(avoid) or np.min(np.abs(avoid - t)) > avoid_s]
+    cap = cv2.VideoCapture(video); vfps = cap.get(cv2.CAP_PROP_FPS) or 25.0
+    z = zipfile.ZipFile(out_zip, "w"); out = {}; tried = 0
+    for t in times:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * vfps))); ok, f = cap.read()
+        if not ok: continue
+        tried += 1; big = cv2.resize(f, (width, int(round(f.shape[0] * width / f.shape[1])))); small = cv2.resize(f, (fit_width, int(round(f.shape[0] * fit_width / f.shape[1]))))
+        H, info = FC.fit(small, C, 106.0, 64.0, tilt_range=(0.5, 45), f_range=(500, 4500), coarse=(3.0, 1.5, 10))
+        if judge_frame(small, H, 106.0, 64.0)["verdict"] != "good": continue
+        pose = [float(np.radians(info["pan_deg"])), float(np.radians(info["tilt_deg"])), float(np.radians(info["roll_deg"])), float(info["zoom"]) * width / fit_width]
+        name = f"fc_{t:08.3f}.jpg"; z.writestr(name, cv2.imencode(".jpg", big, [cv2.IMWRITE_JPEG_QUALITY, 88])[1].tobytes())
+        out[name] = {"pose": pose, "size": [big.shape[1], big.shape[0]], "seed": "auto"}
+        if len(out) % 20 == 0: json.dump(out, open(out_json, "w")); log(f"  {len(out)} proposed from {tried} moments tried")
+    z.close(); cap.release(); json.dump(out, open(out_json, "w"))
+    log(f"proposed {len(out)} new moments out of {tried} tried ({100 * len(out) / max(1, tried):.0f}%), spread over the match")
+    return len(out)
+
+def labelled_times(solution_json):
+    """times (s) of every clicked frame, to keep new proposals away from them"""
+    return [float(f["frame"][3:-4]) for f in json.load(open(solution_json))["frames"]]
