@@ -58,7 +58,7 @@ def pitch_keypoints(L=106.0, W=64.0):
         P[f"{side} goal: far post (base)"] = (x0, c - gw); P[f"{side} goal: near post (base)"] = (x0, c + gw)
     return P
 
-def label_points(frames_zip, out_json, L=106.0, W=64.0):
+def label_points(frames_zip, out_json, L=106.0, W=64.0, start=None):
     """Colab tool: click a point in the frame, then the same point on the pitch diagram. 4-6 per frame, only clearly
     visible ones. Keys: U undo, N next frame, B back, S nothing identifiable. Saves to out_json after every change and
     resumes where it stopped."""
@@ -74,7 +74,7 @@ def label_points(frames_zip, out_json, L=106.0, W=64.0):
     print(f"{len(names)} frames ({w}x{h}); {len(done)} already done; saving to {out_json}")
     output.register_callback("ipanema_save_points", lambda js: json.dump(json.loads(js), open(out_json, "w"), indent=0))
     kp = pitch_keypoints(L, W); S = 7.0; pw, ph = int(L * S + 40), int(W * S + 40)
-    start = next((i for i, n in enumerate(names) if n not in done), len(names))
+    start = (max(1, min(int(start), len(names))) - 1) if start else next((i for i, n in enumerate(names) if n not in done), len(names))   # start=N opens frame N (to review)
     display(HTML(f"""<div style="font:13px sans-serif;color:#ddd">
 <div id="p" style="color:#ffd54f;font-size:15px;margin:4px 0"></div>
 <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap">
