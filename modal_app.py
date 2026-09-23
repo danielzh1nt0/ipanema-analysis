@@ -680,7 +680,7 @@ def link_proof(pano_mid: str, fc_mid: str, rec_times: list, offset_s: float):
     from ipanema.calibration import draw_model
     log, lines = _logger(f"{pano_mid}/link_proof.log")
     cam = CylCam(json.load(open(f"{ROOT}/cache/{FM.piece_id(pano_mid, 2)}/calibration_cyl.json"))["params"]); L, W = 106.0, 64.0
-    pv = cv2.VideoCapture(f"{ROOT}/videos/{pano_mid}/full_cropped.mp4"); pfps = pv.get(cv2.CAP_PROP_FPS)
+    pv = cv2.VideoCapture(f"{ROOT}/videos/{pano_mid}/full_cropped.mp4") if pano_mid else None; pfps = pv.get(cv2.CAP_PROP_FPS) if pv else 0.0
     fcv = f"{ROOT}/videos/{fc_mid}.mp4"; fn, ffps = FM.video_info(fcv); fcap = cv2.VideoCapture(fcv); plan_ = FM.plan(fn, ffps)
     def read(cap, k):
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(k)); ok, f = cap.read(); return f if ok else None
@@ -1046,7 +1046,7 @@ def export_sample(fc_mid: str, pano_mid: str, windows: list, pano_offset_s: floa
         return cv2.resize(f, (width, int(f.shape[0] * width / f.shape[1])))
     for (t0, t1) in windows:
         for t in np.arange(t0, t1, 1.0 / fps_out):
-            f = grab(fc, t * ffps); p = grab(pv, (t - pano_offset_s) * pfps)
+            f = grab(fc, t * ffps); p = grab(pv, (t - pano_offset_s) * pfps) if pv else None
             for tag, img in (("fc", f), ("pano", p)):
                 if img is None: continue
                 name = f"{tag}_{t:08.3f}.jpg"; z.writestr(name, cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes()); n += 1
