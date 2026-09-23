@@ -13,3 +13,14 @@ def test_judge_matches_visual_labels():
         if n in RIGHT and v != "good": rejected_right.append(n)
         if n not in RIGHT and n not in UNSURE and v == "good": kept_wrong.append(n)
     assert not kept_wrong and not rejected_right, {"wrong frames passed": kept_wrong, "right frames rejected": rejected_right}
+
+def test_judge_matches_labels_at_half_size():
+    """tracking runs on half-size frames: there the judge must also pass every right frame and fail every wrong one"""
+    meta = json.load(open(f"{ROOT}/results/frames/SFKBP1109/frames.json")); S = np.diag([0.5, 0.5, 1.0]); kept_wrong, rejected_right = [], []
+    for n, r in enumerate(meta):
+        if n in UNSURE: continue
+        img = cv2.resize(cv2.imread(f"{ROOT}/results/frames/SFKBP1109/piece{r['i']:02d}_{r['k']:05d}.jpg"), (960, 540))
+        v = judge_frame(img, S @ np.asarray(r["H_old"]), 120.0, 70.0)["verdict"]
+        if n in RIGHT and v != "good": rejected_right.append(n)
+        if n not in RIGHT and v == "good": kept_wrong.append(n)
+    assert not kept_wrong and not rejected_right, {"wrong passed": kept_wrong, "right rejected": rejected_right}

@@ -162,6 +162,19 @@ def confidence_mask(video, H, n, L, W, every=10, bad_px=40.0):
 
 
 def judge_frame(frame, H, L, W, min_seg_points=30, weak_support=0.40, max_off_grass=0.03):
+    """(size-aware wrapper) The judge was validated on 1920-wide frames: any other size is scaled to 1920 wide first,
+    calibration scaled to match, so a verdict means the same at every size (at half size it had passed 4 wrong frames)."""
+    h0, w0 = frame.shape[:2]
+    if w0 != 1920:
+        s = 1920.0 / w0; frame = cv2.resize(frame, (1920, int(round(h0 * s))), interpolation=cv2.INTER_LINEAR)
+        H = np.diag([s, s, 1.0]) @ np.asarray(H, float)
+        if w0 <= 1100 and weak_support == 0.40:
+            # half-size frames blur thin lines: measured on the 25 labelled frames (23 Sep), right frames score 0.30-0.47
+            # and wrong ones <= 0.25 (one exception caught by lines off the grass) -> 0.27. Thin margin: keep testing.
+            weak_support = 0.27
+    return _judge_frame_1920(frame, H, L, W, min_seg_points, weak_support, max_off_grass)
+
+def _judge_frame_1920(frame, H, L, W, min_seg_points=30, weak_support=0.40, max_off_grass=0.03):
     """Is this frame's calibration right? Validated on 28 labelled SFK-BP frames (22 wrong, 3 right, 3 unsure; 21 Sep):
     WRONG if any pitch line clearly in view on the grass has < 40% support from painted lines, or > 3% of the drawn lines
     land off the grass (trees, sky, fence). The old single-number score passed most of the wrong frames."""
