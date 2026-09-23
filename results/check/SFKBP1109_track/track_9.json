@@ -1,0 +1,17 @@
+{
+ "piece": 9,
+ "frames": 8992,
+ "sampled": 4496,
+ "good": 4152,
+ "good_pct": 92.3,
+ "restarts": 11,
+ "seconds": 814,
+ "log": [
+  "SFKBP1109_c009: 8992 frames, tracking every 2 at 960x540 on one core",
+  "  SFKBP1109_c009: 663/4496 sampled frames done, 626 good, 118 s",
+  "  SFKBP1109_c009: 2416/4496 sampled frames done, 2196 good, 437 s",
+  "  SFKBP1109_c009: 3747/4496 sampled frames done, 3455 good, 675 s",
+  "  SFKBP1109_c009: 4272/4496 sampled frames done, 3939 good, 771 s",
+  "SFKBP1109_c009: judged good 4152/4496 sampled frames (92.3%), 11 (re)starts, 813 s"
+ ]
+}
