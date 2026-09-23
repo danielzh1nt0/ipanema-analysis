@@ -30,3 +30,21 @@ def test_merge_aligned_frames():
     sol = merge_aligned(f"{ROOT}/calibration/panorama/SFKBP1109_clicks_solution.json", {"s3": p})
     added = [f for f in sol["frames"] if f.get("source") == "aligned"]
     assert len(added) == 1 and abs(added[0]["pose"][3] - 800.0 * 1280 / 960) < 1e-9
+
+def test_reviewed_frames_train_only():
+    """proposed-and-approved frames join TRAINING only: the held-back grade stays on clicked frames"""
+    from ipanema.kptrain import merge_reviewed
+    sol = json.load(open(f"{ROOT}/calibration/panorama/SFKBP1109_clicks_solution.json")); d = tempfile.mkdtemp()
+    names = [f"fc_{3000 + i:08.3f}.jpg" for i in range(12)]
+    json.dump({n: {"pose": sol["frames"][0]["pose"], "size": [1280, 720], "seed": "x"} for n in names}, open(f"{d}/p.json", "w"))
+    json.dump({n: ("yes" if i % 3 else "no") for i, n in enumerate(names)}, open(f"{d}/r.json", "w"))
+    sol = merge_reviewed(sol, f"{d}/p.json", f"{d}/r.json", "p")
+    zips = {}
+    for s in ("s1", "s2", "p"):
+        zp = f"{d}/{s}.zip"; z = zipfile.ZipFile(zp, "w")
+        for fr in sol["frames"]:
+            if fr["session"] == s: z.writestr(fr["frame"], cv2.imencode(".jpg", np.zeros((720, 1280, 3), np.uint8))[1].tobytes())
+        z.close(); zips[s] = zp
+    build_dataset(sol, zips, f"{d}/ds")
+    assert sum(1 for f in os.listdir(f"{d}/ds/labels/train") if f.startswith("p_")) == 8          # 8 yes answers, all in training
+    assert not any(f.startswith("p_") for f in os.listdir(f"{d}/ds/labels/val"))
