@@ -9,7 +9,7 @@ from .calcheck import line_mask, pitch_segments
 
 def rotation(pan, tilt, roll=0.0):
     d = np.array([np.cos(tilt) * np.cos(pan), np.cos(tilt) * np.sin(pan), np.sin(tilt)])     # z points into the ground
-    right = np.cross(d, [0, 0, 1.0]); right /= np.linalg.norm(right)
+    right = np.cross([0, 0, 1.0], d); right /= np.linalg.norm(right)      # z points DOWN: z x forward = image right
     R = np.vstack([right, np.cross(d, right), d])
     if roll:
         c, s = np.cos(roll), np.sin(roll); R = np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]]) @ R
@@ -52,13 +52,29 @@ def fit(frame, C, L, W, pan_range=(-175, -5), tilt_range=(1, 30), f_range=(900, 
     for f in fs:
         for p in pans:
             for t in tilts:
-                c = sc.cost(homography(C, p, t, f))
+                c = sc.cost(homography(C, p, t, f, cx=sc.w / 2, cy=sc.h / 2))
                 if c < best[0]: best = (c, (p, t, f))
     if best[1] is None: return None, {"why": "no pose scored"}
     p0, t0, f0 = best[1]
-    obj = lambda v: sc.cost(homography(C, v[0], v[1], np.exp(v[2]), v[3]))
+    cx, cy = sc.w / 2, sc.h / 2                                            # principal point at the centre of THIS frame, whatever its size
+    obj = lambda v: sc.cost(homography(C, v[0], v[1], np.exp(v[2]), v[3], cx=cx, cy=cy))
     r = minimize(obj, [p0, t0, np.log(f0), 0.0], method="Nelder-Mead", options={"xatol": 1e-4, "fatol": 1e-3, "maxiter": 1200})
-    H = homography(C, r.x[0], r.x[1], np.exp(r.x[2]), r.x[3])
+    H = homography(C, r.x[0], r.x[1], np.exp(r.x[2]), r.x[3], cx=cx, cy=cy)
     info = {"pan_deg": round(float(np.degrees(r.x[0])), 1), "tilt_deg": round(float(np.degrees(r.x[1])), 1), "zoom": round(float(np.exp(r.x[2]))), "roll_deg": round(float(np.degrees(r.x[3])), 2), "cost": round(float(r.fun), 2)}
     if log: log(f"follow-cam fit: {info}")
     return H, info
+
+
+def refine(frame, C, L, W, pose, max_pan_deg=1.5, max_tilt_deg=1.0, max_zoom=0.06):
+    """snap a tracked pose to this frame's painted lines with a SMALL local search (can't jump to the other end).
+    Accepted only if it scores better and stays within the limits; otherwise the tracked pose is kept."""
+    from scipy.optimize import minimize
+    sc = Scorer(frame, L, W); cx, cy = sc.w / 2, sc.h / 2
+    pose = np.asarray(pose, float)
+    def obj(v): return sc.cost(homography(C, v[0], v[1], np.exp(v[2]), v[3], cx=cx, cy=cy))
+    v0 = np.array([pose[0], pose[1], np.log(pose[3]), pose[2]]); c0 = obj(v0)
+    r = minimize(obj, v0, method="Nelder-Mead", options={"xatol": 1e-4, "fatol": 1e-3, "maxiter": 300, "initial_simplex": np.array([v0, v0 + [0.004, 0, 0, 0], v0 + [0, 0.003, 0, 0], v0 + [0, 0, 0.02, 0], v0 + [0, 0, 0, 0.002]])})
+    v = r.x
+    if r.fun < c0 and abs(np.degrees(v[0] - pose[0])) <= max_pan_deg and abs(np.degrees(v[1] - pose[1])) <= max_tilt_deg and abs(np.exp(v[2]) / pose[3] - 1) <= max_zoom:
+        return np.array([v[0], v[1], v[3], np.exp(v[2])])
+    return pose

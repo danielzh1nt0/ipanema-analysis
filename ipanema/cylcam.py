@@ -43,7 +43,7 @@ class CylCam:
     def __matmul__(self, M): return CylCam(self.params, self.M @ np.asarray(M, float))
     def as_dict(self): return {"camera": "cylindrical", "params": dict(zip(NAMES, map(float, self.params))), "pitch_transform": self.M.tolist()}
 
-def fit(frame, init, L, W, mask_top=0, mask_bottom=None, search=True, log=print):
+def fit(frame, init, L, W, mask_top=0, mask_bottom=None, search=True, log=print, fix_position=True):
     """fit the curved camera to the painted lines of a frame, starting from `init` (e.g. another clip's calibration).
     A coarse search over scale and offset first (a recording can show the pitch at a slightly different size or place)."""
     from scipy.optimize import least_squares
@@ -55,7 +55,12 @@ def fit(frame, init, L, W, mask_top=0, mask_bottom=None, search=True, log=print)
     for a, b in pitch_segments(L, W):
         a, b = np.array(a, float), np.array(b, float); n = max(2, int(np.linalg.norm(b - a) / 0.4)); P.append(a + (b - a) * np.linspace(0, 1, n)[:, None])
     P = np.vstack(P)
-    def resid(p, cap):
+    free = np.array([not fix_position] * 3 + [True] * 7)            # the camera doesn't move: with fix_position, cx/cy/h stay at init
+    base = np.asarray(init, float).copy()
+    def full(v):
+        p = base.copy(); p[free] = v; return p
+    def resid(v, cap):
+        p = full(v) if len(v) == free.sum() else v
         q = project(p, P); ok = np.isfinite(q).all(1) & (q[:, 0] >= 0) & (q[:, 0] < w - 1) & (q[:, 1] >= mask_top) & (q[:, 1] < mb - 1)
         r = np.full(len(q), cap, np.float32)
         if ok.any(): r[ok] = np.minimum(cv2.remap(dt, q[ok, 0].reshape(1, -1).astype(np.float32), q[ok, 1].reshape(1, -1).astype(np.float32), cv2.INTER_LINEAR).ravel(), cap)
@@ -69,9 +74,10 @@ def fit(frame, init, L, W, mask_top=0, mask_bottom=None, search=True, log=print)
     scored = sorted(starts, key=lambda p: float(np.mean(resid(p, 60.0))))[:4]
     best = None
     for p in scored:
+        v = np.asarray(p, float)[free]
         for cap in (60.0, 25.0, 10.0):
-            p = least_squares(lambda v, cap=cap: resid(v, cap), p, loss="soft_l1", f_scale=cap / 4, diff_step=1e-3, max_nfev=500).x
-        c = float(np.mean(resid(p, 10.0)))
+            v = least_squares(lambda vv, cap=cap: resid(vv, cap), v, loss="soft_l1", f_scale=cap / 4, diff_step=1e-3, max_nfev=500).x
+        p = full(v); c = float(np.mean(resid(p, 10.0)))
         if best is None or c < best[0]: best = (c, p)
     q = project(best[1], P); ok = np.isfinite(q).all(1) & (q[:, 0] >= 0) & (q[:, 0] < w - 1) & (q[:, 1] >= mask_top) & (q[:, 1] < mb - 1)
     d = dt[q[ok, 1].astype(int), q[ok, 0].astype(int)]
