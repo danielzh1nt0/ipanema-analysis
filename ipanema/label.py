@@ -113,3 +113,36 @@ document.addEventListener('keydown',e=>{{const K=e.key.toLowerCase();if(k>=N.len
  else if(K==='s'){{const d=cur();d.pairs=[];d.skipped=true;pend=null;k++;save();show();}}}});
 show();
 </script>"""))
+
+
+# ---------------------------------------------------------------- pitch-point sessions from the full follow-cam match (Colab)
+SFKBP_PLAY = ((0.0, 51 * 60.0), (62 * 60 + 13.0, 99 * 60.0))           # first half, second half (seconds of the recording)
+
+def sample_session(video, out_zip, session, n=70, sessions=3, width=1280, play=SFKBP_PLAY, min_minutes=90):
+    """n frames spread over the playing time, a different set per session (1..sessions), resized to `width`, zipped as
+    fc_<seconds>.jpg. Checks the video first and fails with a clear message."""
+    import zipfile
+    if not os.path.exists(video): raise FileNotFoundError(f"video not found: {video}")
+    cap = cv2.VideoCapture(video)
+    if not cap.isOpened(): raise RuntimeError(f"could not open {video}")
+    fps = cap.get(cv2.CAP_PROP_FPS) or 25.0; nfr = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); minutes = nfr / fps / 60
+    print(f"video: {os.path.basename(video)} · {minutes:.1f} min · {fps:.2f} fps")
+    if minutes < min_minutes: cap.release(); raise RuntimeError(f"this video is {minutes:.1f} min long; expected the full match (at least {min_minutes} min). Wrong file?")
+    if not 1 <= session <= sessions: raise ValueError(f"session must be 1..{sessions}")
+    total = sum(b - a for a, b in play); step = total / (n * sessions)
+    times = []
+    for j in range(n):                                                  # interleaved: session s takes every sessions-th slot, offset s-1
+        u = (j * sessions + (session - 1) + 0.5) * step
+        for a, b in play:
+            if u < b - a: times.append(a + u); break
+            u -= b - a
+    os.makedirs(os.path.dirname(out_zip) or ".", exist_ok=True); z = zipfile.ZipFile(out_zip, "w"); got = 0
+    for t in times:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * fps))); ok, f = cap.read()
+        if not ok: continue
+        f = cv2.resize(f, (width, int(round(f.shape[0] * width / f.shape[1]))))
+        z.writestr(f"fc_{t:08.3f}.jpg", cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 90])[1].tobytes()); got += 1
+    z.close(); cap.release()
+    print(f"session {session}: {got} frames from {times[0] / 60:.1f} to {times[-1] / 60:.1f} min -> {out_zip}")
+    if got < 0.9 * n: raise RuntimeError(f"only {got} of {n} frames could be read")
+    return out_zip
