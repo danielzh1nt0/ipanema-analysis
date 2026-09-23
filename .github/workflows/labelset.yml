@@ -16,7 +16,15 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
         run: |
           set -e
-          curl -sfL -o /tmp/v.mp4 "$R2_PUBLIC_URL/SFKBP1109/video.mp4"
+          mkdir -p $GITHUB_WORKSPACE/results/labelset
+          : > $GITHUB_WORKSPACE/results/labelset/probe.txt
+          URL=""
+          for k in SFKBP1109/video.mp4 SFKBP1109/full.mp4 SFKBP1109.mp4 SFKBP1109/video_cropped.mp4 videos/SFKBP1109.mp4 SFKBP1109/SFKBP1109.mp4; do
+            code=$(curl -s -o /dev/null -w "%{http_code} %{size_download}" -r 0-0 "$R2_PUBLIC_URL/$k"); echo "$k -> $code" | tee -a $GITHUB_WORKSPACE/results/labelset/probe.txt
+            if [ -z "$URL" ] && [ "${code%% *}" = "206" -o "${code%% *}" = "200" ]; then URL="$R2_PUBLIC_URL/$k"; fi
+          done
+          if [ -z "$URL" ]; then echo "follow-cam video not found under any name" | tee -a $GITHUB_WORKSPACE/results/labelset/probe.txt; exit 0; fi
+          curl -sfL -o /tmp/v.mp4 "$URL"
           ls -la /tmp/v.mp4
           D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/v.mp4); echo "duration $D s"
           python3 -c "import sys; d=float('$D'); assert d > 90*60, f'expected the full match, got {d/60:.1f} min'"
@@ -29,6 +37,7 @@ jobs:
           ls /tmp/ls/frames | wc -l
           mkdir -p $GITHUB_WORKSPACE/results/labelset && cd /tmp/ls && zip -qr $GITHUB_WORKSPACE/results/labelset/SFKBP1109_frames.zip frames && ls -la $GITHUB_WORKSPACE/results/labelset
       - name: commit
+        if: always()
         run: |
           git config user.name "labelset-bot" && git config user.email "bot@ipanema"
           git add results/labelset && git commit -qm "Label set: follow-cam frames every 25 s plus near-side frames" || echo "nothing to commit"
