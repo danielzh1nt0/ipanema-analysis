@@ -1,0 +1,8 @@
+fc_0310.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 0 lines -> no calibration | thr 0.1/0.3: 0 keypoints, 0 lines -> no calibration
+fc_1274.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 0 lines -> no calibration | thr 0.1/0.3: 0 keypoints, 1 lines -> no calibration
+fc_1279.933: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 1 lines -> no calibration | thr 0.1/0.3: 0 keypoints, 3 lines -> no calibration
+fc_1372.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 1 lines -> no calibration | thr 0.1/0.3: 0 keypoints, 4 lines -> no calibration
+fc_1379.933: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 0 lines -> no calibration | thr 0.1/0.3: 0 keypoints, 0 lines -> no calibration
+fc_1532.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 0 keypoints, 1 lines -> no calibration | thr 0.1/0.3: 2 keypoints, 1 lines -> no calibration
+fc_4236.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 3 keypoints, 1 lines -> no calibration | thr 0.1/0.3: 5 keypoints, 4 lines -> CALIBRATED
+fc_5420.000: thr 0.3434/0.7867: 0 keypoints, 0 lines -> no calibration | thr 0.2/0.5: 3 keypoints, 0 lines -> no calibration | thr 0.1/0.3: 5 keypoints, 2 lines -> CALIBRATED
