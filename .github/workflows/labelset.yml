@@ -1,0 +1,35 @@
+name: Label set of follow-cam frames (GitHub's free runner, no Modal)
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/labelset.txt"]
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: download the follow-cam match and cut frames
+        env:
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+        run: |
+          set -e
+          curl -sfL -o /tmp/v.mp4 "$R2_PUBLIC_URL/SFKBP1109/video.mp4"
+          ls -la /tmp/v.mp4
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/v.mp4); echo "duration $D s"
+          python3 -c "import sys; d=float('$D'); assert d > 90*60, f'expected the full match, got {d/60:.1f} min'"
+          mkdir -p /tmp/ls/frames
+          for t in $(python3 -c "print(' '.join(str(t) for t in range(15, int(float('$D')) - 5, 25)))"); do
+            ffmpeg -v error -ss $t -i /tmp/v.mp4 -frames:v 1 -vf scale=960:-2 -q:v 3 /tmp/ls/frames/t$(printf '%05d' $t).jpg
+          done
+          cd /tmp/ls/frames && unzip -qo $GITHUB_WORKSPACE/results/samples/SFKBP1109_nearside.zip 'fc_*.jpg' -d /tmp/near
+          for f in $(ls /tmp/near/fc_*.jpg | awk 'NR % 12 == 1'); do b=$(basename $f .jpg); cp $f /tmp/ls/frames/near_${b#fc_}.jpg; done
+          ls /tmp/ls/frames | wc -l
+          mkdir -p $GITHUB_WORKSPACE/results/labelset && cd /tmp/ls && zip -qr $GITHUB_WORKSPACE/results/labelset/SFKBP1109_frames.zip frames && ls -la $GITHUB_WORKSPACE/results/labelset
+      - name: commit
+        run: |
+          git config user.name "labelset-bot" && git config user.email "bot@ipanema"
+          git add results/labelset && git commit -qm "Label set: follow-cam frames every 25 s plus near-side frames" || echo "nothing to commit"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
