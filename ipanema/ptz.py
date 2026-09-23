@@ -60,10 +60,12 @@ def fit_pose(P, D, w, h, init=None, thr_px=6.0, seed=0):
         cands = [np.array([pan0 + dp, tilt0 + dt, roll0, f0 * df]) for dp in np.radians(np.arange(-12, 13, 2.0)) for dt in np.radians(np.arange(-4, 5, 2.0)) for df in (0.8, 0.9, 1.0, 1.12, 1.25)]
     else:
         cands = [np.array([p, t, 0.0, f]) for p in np.radians(np.arange(-180, 180, 2.0)) for t in np.radians(np.arange(0, 22, 2.0)) for f in np.geomspace(700, 6000, 9)]
+    if len(P) > 400:                                                   # a few hundred well-spread matches are plenty; more only costs time
+        keep = np.random.RandomState(seed).choice(len(P), 400, replace=False); P, D = P[keep], D[keep]
     scores = [(int(_inliers(c, P, D, w, h, thr_px * 2.5).sum()), i) for i, c in enumerate(cands)]
     scores.sort(reverse=True)
     best = (0, None, None)
-    for n0, i in scores[:6]:
+    for n0, i in scores[:(2 if init is not None else 6)]:
         v = cands[i]
         for thr in (thr_px * 2.5, thr_px):
             inl = _inliers(v, P, D, w, h, thr)
@@ -90,28 +92,31 @@ def track(fc_frames, pano_frames, cam, w, h, log=print):
     return poses, ninl
 
 
-def track_sequence(frames, C, first_pose, w, h, refine_lines=None, log=print):
-    """Carry a pose through consecutive follow-cam frames. Adjacent frames match reliably (same view, small motion):
-    features of frame t become rays through pose t, and pose t+1 is fitted to where those features moved (only pan,
-    tilt, roll, zoom can change: the base C is fixed). Optional refine_lines(frame, pose) -> pose snaps to painted lines."""
+def track_sequence(frames, C, first_pose, w, h, refine_lines=None, log=print, max_pts=600, judge=None, max_lost=15):
+    """Carry a pose through consecutive follow-cam frames. Adjacent frames barely differ, so points are followed with
+    sparse optical flow (no descriptors, ~10 ms): points of frame t become rays through pose t, and pose t+1 is fitted to
+    where they land (only pan, tilt, roll, zoom can change: the base C is fixed). refine_lines(frame, pose) -> pose
+    optionally snaps each frame to its painted lines."""
     poses = [np.asarray(first_pose, float)]; ninl = [None]
-    fc_mask = np.full((h, w), 255, np.uint8); fc_mask[int(h * 0.84):, int(w * 0.78):] = 0
-    prev_pts, prev_desc = features(frames[0], fc_mask)
+    mask = np.full((h, w), 255, np.uint8); mask[int(h * 0.84):, int(w * 0.78):] = 0        # Veo watermark
+    prev_g = cv2.cvtColor(frames[0], cv2.COLOR_BGR2GRAY); lost = 0
     for t in range(1, len(frames)):
-        pts, desc = features(frames[t], fc_mask); pose = poses[-1]
-        if prev_desc is not None and desc is not None:
-            fl = cv2.FlannBasedMatcher(dict(algorithm=1, trees=4), dict(checks=64)); pairs = fl.knnMatch(prev_desc.astype(np.float32), desc.astype(np.float32), k=2)
-            good = [p[0] for p in pairs if len(p) == 2 and p[0].distance < 0.75 * p[1].distance]
-            P0 = np.float32([prev_pts[g.queryIdx] for g in good]); P1 = np.float32([pts[g.trainIdx] for g in good])
+        g = cv2.cvtColor(frames[t], cv2.COLOR_BGR2GRAY); pose = poses[-1]
+        P0 = cv2.goodFeaturesToTrack(prev_g, max_pts, 0.01, 8, mask=mask, blockSize=5)
+        n_in = 0
+        if P0 is not None and len(P0) >= 12:
+            P1, st, err = cv2.calcOpticalFlowPyrLK(prev_g, g, P0, None, winSize=(21, 21), maxLevel=3)
+            ok = st.ravel() == 1; P0, P1 = P0.reshape(-1, 2)[ok], P1.reshape(-1, 2)[ok]
             if len(P0) >= 12:
                 pan, tilt, roll, f = pose; R = rotation(pan, tilt, roll)
-                cam = np.column_stack([(P0[:, 0] - w / 2) / f, (P0[:, 1] - h / 2) / f, np.ones(len(P0))]); D = cam @ R      # rays of frame t's features (R^T applied)
+                cam = np.column_stack([(P0[:, 0] - w / 2) / f, (P0[:, 1] - h / 2) / f, np.ones(len(P0))]); D = cam @ R
                 D /= np.linalg.norm(D, axis=1, keepdims=True)
-                v, inl = fit_pose(P1, D, w, h, init=pose)
-                if v is not None: pose = v; ninl.append(int(inl.sum()))
-                else: ninl.append(0)
-            else: ninl.append(0)
-        else: ninl.append(0)
+                v, inl = fit_pose(P1.astype(np.float32), D, w, h, init=pose)
+                if v is not None: pose = v; n_in = int(inl.sum())
+        ninl.append(n_in)
         if refine_lines is not None: pose = refine_lines(frames[t], pose)
-        poses.append(pose); prev_pts, prev_desc = pts, desc
+        poses.append(pose); prev_g = g
+        if judge is not None:                                                 # stop when the track has been wrong for a while (caller re-localises)
+            lost = 0 if judge(frames[t], pose) else lost + 1
+            if lost >= max_lost: return poses, ninl
     return poses, ninl
