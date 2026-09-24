@@ -89,7 +89,7 @@ def load(weights_path, encoder="resnet34", device=None):
     device = device or ("cuda" if torch.cuda.is_available() else "cpu"); m = make_model(encoder, None)
     m.load_state_dict(torch.load(weights_path, map_location=device)); return m.to(device).eval(), device
 
-def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near_px=10.0, log=print):
+def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near_px=10.0, log=print, snap=False):
     """GRADE on the held-back clicked frames: predict lines -> cold pose fit (known base) -> pixel error of the whole pitch
     against Daniel's clicked pose. Saves one picture per frame (left: predicted lines, right: the fitted pitch) and a
     summary JSON. extra = [(name, image)] frames without a known answer: pictures only, to be judged by eye."""
@@ -99,8 +99,14 @@ def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near
         pred = predict(model, img, device); pose, info = LN.fit_pose(pred, cam)
         ref = meta["poses"].get(name, {}).get("pose") if m is not None else None
         e = None if ref is None else (LN.pose_error(cam, pose, ref) if pose is not None else {"median_px": float("inf")})
+        full = f"{ds_dir}/images_full/val/{name}.jpg"; e_fit = e
+        if snap and pose is not None:                                           # final polish on the painted pixels at full size
+            big = cv2.imread(full) if (m is not None and os.path.exists(full)) else cv2.resize(img, (1280, 720), interpolation=cv2.INTER_LINEAR)
+            pose = np.array(LN.snap(big, cam, pose))
+            if ref is not None: e = LN.pose_error(cam, pose, ref)
         row = {"frame": name, "held_back": ref is not None, "confident": info.get("confident"), "error_median_px_1280": None if e is None else (round(e["median_px"], 1) if np.isfinite(e["median_px"]) else None),
-               "correct": None if e is None else bool(e["median_px"] <= near_px), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
+               "correct": None if e is None else bool(e["median_px"] <= near_px),
+               "error_before_snap_px": None if (e_fit is None or not np.isfinite(e_fit["median_px"])) else round(e_fit["median_px"], 1), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
         rows.append(row)
         left = LN.overlay(img, pred, 0.75); right = LN.draw_pose(img, cam, pose) if pose is not None else img.copy()
         txt = ("no pose found" if pose is None else ("error %.0f px" % e["median_px"] if e else "no answer known")) + (" | confident" if info.get("confident") else " | NOT sure")
@@ -110,6 +116,7 @@ def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near
     held = [r for r in rows if r["held_back"]]; conf = [r for r in held if r["confident"]]
     s = {"held_back_frames": len(held), "placed_correctly": sum(r["correct"] for r in held), "confident": len(conf),
          "confident_and_correct": sum(r["correct"] for r in conf), "confident_but_wrong": [r["frame"] for r in conf if not r["correct"]],
-         "median_error_px_1280": float(np.median([r["error_median_px_1280"] if r["error_median_px_1280"] is not None else np.inf for r in held])) if held else None, "extra_frames_pictured": len(rows) - len(held)}
+         "median_error_px_1280": float(np.median([r["error_median_px_1280"] if r["error_median_px_1280"] is not None else np.inf for r in held])) if held else None,
+         "errors_px": [r["error_median_px_1280"] for r in held], "errors_before_snap_px": [r["error_before_snap_px"] for r in held], "extra_frames_pictured": len(rows) - len(held)}
     json.dump({"summary": s, "frames": rows}, open(f"{out_dir}/eval.json", "w"), indent=0); log(f"grade: {s}")
     return s

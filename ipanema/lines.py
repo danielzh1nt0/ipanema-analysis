@@ -285,12 +285,12 @@ def held_back(sol, val_every=6):
     return [f for i, f in enumerate(sol["frames"]) if i % val_every == val_every - 1 and not f.get("source")]
 
 def build_dataset(solution_json, frame_zips, out_dir, random_json=None, random_review=None, random_zip=None,
-                  size=(640, 360), val_every=6, keep_away_s=10.0, log=print):
+                  size=(640, 360), val_every=6, keep_away_s=10.0, log=print, pose_fn=None, full_val=True, near_m=None):
     """images/{train,val}/*.jpg + masks/{train,val}/*.png (class ids, 255 = don't know) + poses.json.
     Train = clicked frames not held back + random-moment frames Daniel said YES to (none within keep_away_s of a held-back
     moment). Val = the held-back clicked frames only. Propagated neighbours are NOT used: near-copies add volume, not variety."""
     import os, json, zipfile
-    sol = json.load(open(solution_json)); cam = sol["camera"]; w, h = size
+    sol = json.load(open(solution_json)) if isinstance(solution_json, str) else solution_json; cam = sol["camera"]; w, h = size
     val = {(f["session"], f["frame"]) for f in held_back(sol, val_every)}; val_t = [float(n[3:-4]) for _, n in val]
     items = [(f["session"], f["frame"], f["pose"], "val" if (f["session"], f["frame"]) in val else "train") for f in sol["frames"]]
     if random_json and random_review and random_zip and os.path.exists(random_review):
@@ -298,14 +298,16 @@ def build_dataset(solution_json, frame_zips, out_dir, random_json=None, random_r
         for name, v in sorted(prop.items()):
             if rev.get(name) != "yes": continue
             if min(abs(float(name[3:-4]) - t) for t in val_t) < keep_away_s: n_near += 1; continue
-            p = list(v["pose"]); p[3] *= 1280.0 / v["size"][0]; items.append(("random", name, p, "train"))
+            p = list(v["pose"]); p[3] *= 1280.0 / v["size"][0]
+            items.append(("random", name, pose_fn(p) if pose_fn else p, "train"))            # pose_fn: re-express under a new base
         if n_near: log(f"  {n_near} YES frames skipped: within {keep_away_s:.0f} s of a held-back moment")
     zips = {s: zipfile.ZipFile(p) for s, p in frame_zips.items()}; poses = {}; count = {"train": 0, "val": 0}; missing = 0
-    for sub in ("images/train", "images/val", "masks/train", "masks/val"): os.makedirs(f"{out_dir}/{sub}", exist_ok=True)
+    for sub in ("images/train", "images/val", "masks/train", "masks/val", "images_full/val"): os.makedirs(f"{out_dir}/{sub}", exist_ok=True)
     for s, name, pose, split in items:
         try: img = cv2.imdecode(np.frombuffer(zips[s].read(name), np.uint8), cv2.IMREAD_COLOR)
         except KeyError: missing += 1; continue
-        img = cv2.resize(img, size, interpolation=cv2.INTER_AREA); m = render_mask(cam, pose, w, h)
+        if full_val and split == "val": cv2.imwrite(f"{out_dir}/images_full/val/{s}_{name[:-4]}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 95])
+        img = cv2.resize(img, size, interpolation=cv2.INTER_AREA); m = render_mask(cam, pose, w, h, near_m=near_m)
         if ((m > 0) & (m != IGNORE)).sum() < 50: continue                          # no pitch lines in view: nothing to learn
         key = f"{s}_{name[:-4]}"
         cv2.imwrite(f"{out_dir}/images/{split}/{key}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 92]); cv2.imwrite(f"{out_dir}/masks/{split}/{key}.png", m)
@@ -332,3 +334,12 @@ def draw_pose(img, camera, pose, colour=None, thick=2):
             ok, p1, p2 = cv2.clipLine((0, 0, w, h), (int(round(x0)), int(round(y0))), (int(round(x1)), int(round(y1))))
             if ok: cv2.line(out, p1, p2, colour or COLOURS[k], thick, cv2.LINE_AA)
     return out
+
+def snap(img, camera, pose, rounds=3, L=L_DEF, W=W_DEF):
+    """final polish on the actual painted white pixels at full size (the old line refine, which is precise once it starts
+    from the right place, and limited to small moves so it can't jump). pose f is for 1280 wide; returns the same."""
+    from . import fccam as FC
+    FC.set_base_tilt(*camera["base_tilt"]); w = img.shape[1]; k = w / 1280.0
+    p = np.array([pose[0], pose[1], pose[2], pose[3] * k], float)
+    for _ in range(rounds): p = FC.refine(img, camera["C"], L, W, p)
+    return [float(p[0]), float(p[1]), float(p[2]), float(p[3] / k)]
