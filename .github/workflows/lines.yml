@@ -1,0 +1,38 @@
+name: Line model round (GitHub's free runner, no Modal)
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/lines.txt"]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  lines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless scipy && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q segmentation-models-pytorch
+      - name: round
+        env:
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          TAG: ${{ github.run_number }}
+          EPOCHS: "40"
+          MAX_MIN: "150"
+        run: python scripts_lines_runner.py
+      - name: keep the weights as an artifact (too big for the repo)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: lines-weights-${{ github.run_number }}, path: results/lines/${{ github.run_number }}/last.pt, if-no-files-found: ignore }
+      - name: commit results and open the report issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -f results/lines/*/last.pt
+          git config user.name "lines-bot" && git config user.email "bot@ipanema"
+          git add results/lines && git commit -qm "Lines round ${{ github.run_number }}: results and pictures" || echo "nothing to commit"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
+          if [ -f /tmp/issue_title ]; then gh issue create --title "$(cat /tmp/issue_title)" --body-file /tmp/issue_body.md; else gh issue create --title "Ipanema lines ${{ github.run_number }}: FAILED before grading" --body "See the run log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"; fi

@@ -6,6 +6,30 @@ from . import lines as LN, basefix as BF, linetrain as LT
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def extra_pick(prop, review, n_extra=12):
+    """frames Daniel marked NO (the old method got them wrong), spread over the match: pictures only"""
+    no = sorted(n for n in prop if review.get(n) == "no"); return no[::max(1, len(no) // n_extra)][:n_extra]
+
+def cut_frames(video, LAB, n_extra=12, width=1280, log=print, min_minutes=90):
+    """the same frames as the Drive zips, cut from the match video with the same seeking (round(t * fps)):
+    clicked frames (s1, s2), YES frames and the NO frames used for pictures"""
+    sol = json.load(open(f"{ROOT}/calibration/panorama/SFKBP1109_clicks_solution.json"))
+    prop = json.load(open(f"{ROOT}/results/labels/SFKBP1109_random.json")); rev = json.load(open(f"{ROOT}/results/labels/SFKBP1109_random_review.json"))
+    os.makedirs(LAB, exist_ok=True); shutil.copy(f"{ROOT}/results/labels/SFKBP1109_random.json", LAB); shutil.copy(f"{ROOT}/results/labels/SFKBP1109_random_review.json", LAB)
+    want = {"s1": [], "s2": [], "random": sorted(n for n in prop if rev.get(n) == "yes") + extra_pick(prop, rev, n_extra)}
+    for f in sol["frames"]: want[f["session"]].append(f["frame"])
+    cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); t0 = time.time(); done = 0
+    assert n_tot / fps > min_minutes * 60, f"expected the full match, got {n_tot / fps / 60:.1f} min"
+    for s, names in want.items():
+        z = zipfile.ZipFile(f"{LAB}/SFKBP1109_{'frames_' + s if s != 'random' else 'random'}.zip", "w")
+        for name in sorted(set(names)):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(float(name[3:-4]) * fps))); ok, f = cap.read()
+            if not ok: log(f"  could not read {name}"); continue
+            f = cv2.resize(f, (width, int(round(f.shape[0] * width / f.shape[1]))))
+            z.writestr(name, cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 88])[1].tobytes()); done += 1
+        z.close()
+    cap.release(); log(f"cut {done} frames in {(time.time() - t0) / 60:.1f} min")
+
 def run(LAB, OUT, epochs=80, max_minutes=40, n_extra=12, log=print, work="/content", weights="imagenet"):
     t0 = time.time(); os.makedirs(f"{OUT}/base_check", exist_ok=True); os.makedirs(f"{OUT}/eval", exist_ok=True)
     sol = json.load(open(f"{ROOT}/calibration/panorama/SFKBP1109_clicks_solution.json"))
@@ -33,7 +57,7 @@ def run(LAB, OUT, epochs=80, max_minutes=40, n_extra=12, log=print, work="/conte
     shutil.copy(w, f"{OUT}/last.pt"); shutil.copy(f"{work}/lines_model2/progress.json", f"{OUT}/progress.json")
     # 4) grade (+ frames the old method got wrong, pictures only)
     prop = json.load(open(f"{LAB}/SFKBP1109_random.json")); revw = json.load(open(f"{LAB}/SFKBP1109_random_review.json"))
-    no = sorted(n for n in prop if revw.get(n) == "no"); pick = no[::max(1, len(no) // n_extra)][:n_extra]; zr = zipfile.ZipFile(f"{LAB}/SFKBP1109_random.zip")
+    pick = extra_pick(prop, revw, n_extra); zr = zipfile.ZipFile(f"{LAB}/SFKBP1109_random.zip")
     extra = [(n[:-4], cv2.resize(cv2.imdecode(np.frombuffer(zr.read(n), np.uint8), 1), (640, 360), interpolation=cv2.INTER_AREA)) for n in pick]
     s = LT.evaluate(w, ds, f"{OUT}/eval", extra=extra, snap=ok, log=log)
     s["base_fix_accepted"] = ok; s["minutes"] = round((time.time() - t0) / 60, 1); json.dump(s, open(f"{OUT}/summary.json", "w"), indent=1, default=float)
