@@ -56,3 +56,29 @@ Read this first in a new chat. The previous chat is in the IPANEMA project and c
 - Never embed many images in one Colab page (340 MB page was truncated) — fetch one at a time.
 - Old calibrations (120x70 model) poisoned the camera base; the panorama fit's position is not reliable for the follow-cam.
 - Budget/time estimates on Modal were repeatedly wrong: measure first, save progress incrementally, one core per CPU piece.
+
+
+## Update 24 Sep 2026 (end of the long chat)
+- **v2 pitch-point model** (658 frames = 47 clicked moments + 611 approved propagated neighbours): WORSE — held-back 0/9 placed,
+  median 77 px (best.pt) / 1 of 9, 187 px (last.pt), 14-22 confident mistakes. Cause: memorised 47 moments (propagated frames
+  are near-copies); held-back frames are other moments. Lesson: **variety of moments, not volume.**
+- **Random-moment proposals** (`kptrain.propose_random`, single-frame line fit + judge, avoiding labelled times): 420 proposals
+  (Drive `ipanema_labels/SFKBP1109_random.zip/.json`); Daniel reviewed all: ~180 YES / ~240 NO
+  (`SFKBP1109_random_review.json`), both halves covered. So the automatic fit+judge is wrong ~60% of the time even when
+  "confident" — never trust it without review. The NO frames are useful hard negatives.
+- Verified distinct moments now ~230 (47 clicked-train + 9 held-back + ~180 random YES) + ~580 propagated YES neighbours.
+
+## Next steps (agreed)
+1. **Line-based model instead of point regression**: train segmentation of painted-line classes (touchlines, goal lines,
+   halfway, box/goal-area lines, circle) from verified poses (render the 106x64 model lines through each verified pose as
+   masks). Then per frame: fit pan/tilt/roll/zoom with the KNOWN base to the predicted line masks (fccam Scorer with the
+   predicted mask instead of line_mask), temporal tracking re-anchored every few seconds. Build + test offline first
+   (render masks, check overlays), then one Colab training cell (free T4; torch must be 2.11.0+cu128 — Colab's cu130 build
+   crashes on T4: `pip install --force-reinstall "torch==2.11.0" torchvision --index-url .../cu128`, then restart via
+   `os.kill(os.getpid(), 9)`).
+2. **Corner-only click session** (~60 corner/near-side frames, both ends, both halves) — random proposals barely cover them.
+3. Grade every round on the same 9 held-back clicked frames (add held-back corner frames too).
+4. Ideas discussed: per-match camera base is solved automatically from detections (model learns appearance, not position);
+   synthetic views from other camera positions; AI-agent YES/NO review (test agreement on Daniel's 1,157 answers first,
+   API cost a few $); Upwork/CVAT labelling of 4 more matches (~250-300 varied frames each, auto-QA via camera-consistency
+   check; footage shows minors -> club permission + GDPR data agreement first).
