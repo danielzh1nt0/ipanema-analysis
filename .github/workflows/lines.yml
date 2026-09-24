@@ -25,7 +25,10 @@ jobs:
       - name: keep the weights as an artifact (too big for the repo)
         if: always()
         uses: actions/upload-artifact@v4
-        with: { name: lines-weights-${{ github.run_number }}, path: results/lines/${{ github.run_number }}/last.pt, if-no-files-found: ignore }
+        with:
+          name: lines-weights-${{ github.run_number }}
+          path: results/lines/${{ github.run_number }}/last.pt
+          if-no-files-found: ignore
       - name: commit results and open the report issue
         if: always()
         env:
