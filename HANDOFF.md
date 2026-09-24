@@ -58,6 +58,48 @@ Read this first in a new chat. The previous chat is in the IPANEMA project and c
 - Budget/time estimates on Modal were repeatedly wrong: measure first, save progress incrementally, one core per CPU piece.
 
 
+## READ FIRST: working rules and every mistake made so far (do not repeat)
+
+### How Daniel wants this run
+- Product = Veo follow-cam footage ONLY. The screen-recorded panorama is internal (calibration reference / training). A whole
+  day and ~$5 were wasted running analyses on the panorama as if it were the product.
+- **Never spend money (Modal) on an unproven idea.** Prove it offline first (sandbox, GitHub's free runner for public-repo jobs,
+  Colab free GPU), show pictures, give a MEASURED cost, get an explicit "go". Estimates were wrong repeatedly (25 min became
+  70; 90-min budget killed a run that needed 2 h). ~$30 total was burned on avoidable mistakes.
+- Status questions get an immediate short answer from what is already known; slow checks come after, not before.
+- Plain language, short, no jargon, no promises, say "I don't know yet" when true. Admit mistakes in one sentence and fix them.
+- Don't hand Daniel tedious interfaces: keyboard line-nudging was rejected as "the worst way". Yes/no review (1-2 s/frame) and
+  short targeted click sessions work. Always say how many frames and how long before asking.
+- Never tell him something will happen in the UI that you haven't verified (a Drive sign-in prompt that never appeared was
+  reported as coming; a Colab "Restart session" menu that didn't exist). Give the robust way (os.kill restart).
+
+### Verification rules
+- **Judge by pictures, never by a score alone.** Several "successes" (93% whole-match tracking, 120/120 midfield) were partly
+  false once looked at. The automatic line judge passes wrong frames (Daniel's review: ~60% of judge-accepted auto fits wrong).
+- Before quoting any number, confirm the file/log is FRESH (timestamps). A stale log once made a nearly-finished run look stuck
+  and it was stopped. `git pull` errors were hidden with 2>/dev/null and stale files were read — never suppress errors.
+- Check `git log` for commits you didn't make: a second session once pushed to the same repo in parallel.
+- Hold-out frames must be different MOMENTS from training frames (propagated neighbours are near-copies -> fake progress).
+
+### Technical lessons (each cost hours)
+- Optimisers need double precision: float32 cv2.perspectiveTransform made least_squares stall at the start values.
+- Reject points behind the camera (w <= 0) in projections and drawings; otherwise mirrored points "match" and segments vanish.
+- Principal point = frame centre of the actual frame size; zoom ranges must scale with frame width.
+- The frame judge was validated at 1920 wide; at half size it is too lenient (now size-aware, thin margin 0.25 vs 0.30).
+- Old calibrations used a 120x70 pitch model; anything derived from them (camera base) was wrong. Pitch = 106 x 64, standard markings.
+- A camera base can't be solved from one frame or from views all looking one way (degenerate); it needs many spread views
+  (Chen-Zhu-Little procedure). Daniel's 56 clicked frames solved it: halfway line, ~3.6 m behind near touchline, ~4.8 m up.
+- Line-snapping when no lines are visible drags the pose away (17-44 m drift); now skipped when no lines in view.
+- Straight-line (pinhole) pan/tilt/zoom model is right for the follow-cam; curvature, per-lens cameras and non-standard
+  markings were all tested and ruled out. Penalty-spot clicks are unreliable.
+- Off-the-shelf pitch models (Roboflow sports keypoints, PnLCalib) do not transfer to Veo amateur footage (PnLCalib: 0 keypoints).
+- YOLO-pose with one 31-keypoint object overfits on few moments; prefer line segmentation (every line pixel is a label).
+- Colab: never embed many images in one page (340 MB page truncated); fetch one at a time. Zip files are unreadable until
+  closed -> save JSON incrementally and rebuild pictures from it. Colab's default torch cu130 crashes on T4 (nvrtc builtins) ->
+  force-reinstall torch 2.11.0 cu128 + restart. Colab reads the 3.6 GB match from Drive slowly (~1-2 s per random seek).
+- Claude's sandbox cannot reach Modal volumes, R2 or Drive videos; the Drive connector reads small files (JSON) only.
+- Modal: save progress incrementally, one CPU core per piece, time budget from measured speed, watchdog on, canary piece first.
+
 ## Update 24 Sep 2026 (end of the long chat)
 - **v2 pitch-point model** (658 frames = 47 clicked moments + 611 approved propagated neighbours): WORSE — held-back 0/9 placed,
   median 77 px (best.pt) / 1 of 9, 187 px (last.pt), 14-22 confident mistakes. Cause: memorised 47 moments (propagated frames
