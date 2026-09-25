@@ -9,15 +9,18 @@ permissions:
 jobs:
   lines:
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
     timeout-minutes: 340
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q segmentation-models-pytorch
+      - run: pip install -q "numpy<2" opencv-python-headless scipy modal && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q segmentation-models-pytorch
       - name: round
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           TAG: ${{ github.run_number }}
           EPOCHS: "40"
           MAX_MIN: "150"

@@ -1232,3 +1232,20 @@ def prepare_match(match_id: str, video_url: str, start_s: int = 1200, dur_s: int
 def main(match_id: str, video_url: str = "", start_s: int = 0, dur_s: int = 0):
     out = run_match.remote(match_id, video_url, start_s, dur_s)
     for l in out["log_tail"]: print(l)
+
+@app.function(timeout=25 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=2.0, memory=4096)
+def export_line_frames(match_id: str = "SFKBP1109"):
+    """The ~230 frames the line-model rounds need (clicked + reviewed moments), cut from the full match on the volume and
+    put on R2 under {match_id}/lines/ so GitHub's free runner can fetch them. CPU only, a few minutes, cents. One-off."""
+    import boto3, glob
+    _setup()
+    from ipanema import linerun
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    lab = "/tmp/lab"; log = []; linerun.cut_frames(full, lab, log=lambda m: log.append(m))
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    keys = []
+    for p in sorted(glob.glob(f"{lab}/*")):
+        k = f"{match_id}/lines/{os.path.basename(p)}"; r2.upload_file(p, c["R2_BUCKET"], k); keys.append(f"{c['R2_PUBLIC_URL'].rstrip('/')}/{k}")
+    return {"log": log, "files": keys}

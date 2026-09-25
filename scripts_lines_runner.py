@@ -6,14 +6,19 @@ tag = os.environ.get("TAG", time.strftime("%Y%m%d_%H%M")); OUT = f"results/lines
 log_path = f"{OUT}/log.txt"
 def log(msg):
     line = f"{time.strftime('%H:%M:%S')} {msg}"; print(line, flush=True); open(log_path, "a").write(line + "\n")
-url = os.environ["R2_PUBLIC_URL"].rstrip("/"); video = "/tmp/v.mp4"
-for k in ("SFKBP1109/video.mp4", "SFKBP1109/full.mp4", "SFKBP1109.mp4", "SFKBP1109/video_cropped.mp4", "videos/SFKBP1109.mp4", "SFKBP1109/SFKBP1109.mp4"):
-    code = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "-r", "0-0", f"{url}/{k}"], capture_output=True, text=True).stdout
-    if code in ("200", "206"):
-        log(f"downloading {k}"); subprocess.run(["curl", "-sfL", "-o", video, f"{url}/{k}"], check=True); break
-else: log("follow-cam video not found on R2"); sys.exit(1)
-log(f"video {os.path.getsize(video) / 1e9:.2f} GB")
-linerun.cut_frames(video, LAB, log=log)
+url = os.environ["R2_PUBLIC_URL"].rstrip("/"); os.makedirs(LAB, exist_ok=True)
+NAMES = ("SFKBP1109_frames_s1.zip", "SFKBP1109_frames_s2.zip", "SFKBP1109_random.zip", "SFKBP1109_random.json", "SFKBP1109_random_review.json")
+def fetch_frames():
+    for n in NAMES:
+        r = subprocess.run(["curl", "-sfL", "-o", f"{LAB}/{n}", f"{url}/SFKBP1109/lines/{n}"])
+        if r.returncode != 0: return False
+    return True
+if not fetch_frames():                                                     # not on R2 yet: Modal cuts them once (cents)
+    import modal
+    log("frames not on R2: asking Modal to cut them from the full match (one-off)")
+    out = modal.Function.from_name("ipanema", "export_line_frames").remote("SFKBP1109"); log(str(out)[:500])
+    if not fetch_frames(): log("frames still not on R2"); sys.exit(1)
+log("frames fetched from R2")
 s = linerun.run(LAB, OUT, epochs=int(os.environ.get("EPOCHS", "40")), max_minutes=int(os.environ.get("MAX_MIN", "150")), log=log, work="/tmp")
 r = s; g = f"{r['placed_correctly']}/{r['held_back_frames']} held-back frames placed within 10 px, median error {r['median_error_px_1280']:.1f} px; base fix {'accepted' if r['base_fix_accepted'] else 'rejected'}; {r['minutes']:.0f} min"
 open("/tmp/issue_title", "w").write(f"Ipanema lines {tag}: {g[:120]}")
