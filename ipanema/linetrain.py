@@ -98,18 +98,21 @@ def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near
     for img, m, name in load_split(ds_dir, "val") + [(im, None, n) for n, im in (extra or [])]:
         pred = predict(model, img, device); pose, info = LN.fit_pose(pred, cam)
         ref = meta["poses"].get(name, {}).get("pose") if m is not None else None
-        e = None if ref is None else (LN.pose_error(cam, pose, ref) if pose is not None else {"median_px": float("inf")})
+        pairs = meta["poses"].get(name, {}).get("clicks") if m is not None else None
+        grade = (lambda P: LN.click_error(cam, P, pairs)) if pairs else (lambda P: LN.pose_error(cam, P, ref) if P is not None else {"median_px": float("inf")})
+        e = None if ref is None else grade(pose)
         full = f"{ds_dir}/images_full/val/{name}.jpg"; e_fit = e
+        e_ref = LN.click_error(cam, ref, pairs)["median_px"] if (pairs and ref is not None) else None      # the reference pose's own miss
         if snap and pose is not None:                                           # final polish on the painted pixels at full size
             big = cv2.imread(full) if (m is not None and os.path.exists(full)) else cv2.resize(img, (1280, 720), interpolation=cv2.INTER_LINEAR)
             pose = np.array(LN.snap(big, cam, pose))
-            if ref is not None: e = LN.pose_error(cam, pose, ref)
+            if ref is not None: e = grade(pose)
         row = {"frame": name, "held_back": ref is not None, "confident": info.get("confident"), "error_median_px_1280": None if e is None else (round(e["median_px"], 1) if np.isfinite(e["median_px"]) else None),
                "correct": None if e is None else bool(e["median_px"] <= near_px),
-               "error_before_snap_px": None if (e_fit is None or not np.isfinite(e_fit["median_px"])) else round(e_fit["median_px"], 1), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
+               "reference_pose_click_error_px": None if e_ref is None else round(e_ref, 1), "error_before_snap_px": None if (e_fit is None or not np.isfinite(e_fit["median_px"])) else round(e_fit["median_px"], 1), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
         rows.append(row)
         left = LN.overlay(img, pred, 0.75); right = LN.draw_pose(img, cam, pose) if pose is not None else img.copy()
-        txt = ("no pose found" if pose is None else ("error %.0f px" % e["median_px"] if e else "no answer known")) + (" | confident" if info.get("confident") else " | NOT sure")
+        txt = ("no pose found" if pose is None else ("%.0f px from your clicks" % e["median_px"] if e else "no answer known")) + (" | confident" if info.get("confident") else " | NOT sure")
         cv2.putText(right, txt, (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 4); cv2.putText(right, txt, (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         cv2.imwrite(f"{out_dir}/{'held' if ref is not None else 'extra'}_{name}.jpg", np.hstack([left, right]), [cv2.IMWRITE_JPEG_QUALITY, 82])
         json.dump(rows, open(f"{out_dir}/eval.json", "w"), indent=0)

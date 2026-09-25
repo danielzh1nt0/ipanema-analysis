@@ -134,6 +134,16 @@ def legend(img):
     return img
 
 # ---- grading: how far apart are two poses, in pixels, over the pitch actually in view ----
+def click_error(camera, pose, pairs, w=1280, h=720):
+    """THE grade (25 Sep): pixel distance (1280 frame) between where a pose puts Daniel's clicked points and where he
+    clicked them. Penalty spots left out (as in the base solve). Unlike pose_error it needs no reference pose, which
+    carries its own 5-15 px uncertainty and differs most on near grass that nobody clicked."""
+    from .label import pitch_keypoints
+    kp = pitch_keypoints(); pr = [(kp[n], (u, v)) for n, u, v in pairs if "penalty spot" not in n and n in kp]
+    if not pr or pose is None: return {"median_px": float("inf"), "max_px": float("inf"), "clicks": 0}
+    q = project(camera, pose, np.array([p for p, _ in pr]), w, h); d = np.linalg.norm(np.nan_to_num(q, nan=1e6) - np.array([c for _, c in pr]), axis=1)
+    return {"median_px": float(np.median(d)), "max_px": float(d.max()), "clicks": len(pr)}
+
 def pose_error(camera, pose, ref, w=1280, h=720, L=L_DEF, W=W_DEF, step=2.0):
     """median / 90th percentile pixel distance between where `pose` and `ref` put the pitch (grid every 2 m, only points
     in view under ref). This is what matters for positions: a wrong pose that happens to share a line still scores badly."""
@@ -206,6 +216,16 @@ class MaskScorer:
 
     def model_to_image(self, pose, need=25): return float(self.model_to_image_batch([pose], need)[0])
 
+    def segs_px(self, pose, z_near=0.5):
+        """(M,4) pixel segments of every model piece, clipped at z_near in front of the camera, and their classes"""
+        R = _rot(*pose[:3]) @ self.B; A = self.SA @ R.T; Bc = self.SB @ R.T; f = pose[3] * self.w / 1280.0
+        keep = (A[:, 2] >= z_near) | (Bc[:, 2] >= z_near); A, Bc, k = A[keep], Bc[keep], self.scls[keep]
+        ta = np.clip((z_near - A[:, 2]) / np.where(np.abs(Bc[:, 2] - A[:, 2]) > 1e-12, Bc[:, 2] - A[:, 2], 1e-12), 0, 1)[:, None]
+        A2 = np.where((A[:, 2] < z_near)[:, None], A + (Bc - A) * ta, A)
+        tb = np.clip((z_near - Bc[:, 2]) / np.where(np.abs(A[:, 2] - Bc[:, 2]) > 1e-12, A[:, 2] - Bc[:, 2], 1e-12), 0, 1)[:, None]
+        B2 = np.where((Bc[:, 2] < z_near)[:, None], Bc + (A - Bc) * tb, Bc)
+        return np.column_stack([self.w / 2 + f * A2[:, 0] / A2[:, 2], self.h / 2 + f * A2[:, 1] / A2[:, 2], self.w / 2 + f * B2[:, 0] / B2[:, 2], self.h / 2 + f * B2[:, 1] / B2[:, 2]]), k
+
     def image_to_model(self, pose, z_near=0.5):
         if not self.n_pred: return self.cap
         R = _rot(*pose[:3]) @ self.B; A = self.SA @ R.T; Bc = self.SB @ R.T; f = pose[3] * self.w / 1280.0
@@ -226,14 +246,25 @@ class MaskScorer:
     def support(self, pose, near_frac=0.015, min_px=40, min_share=0.6):
         """line families (along the pitch / across it / circle / D) that the pose explains with real evidence: enough of the
         class's predicted pixels lie on its drawn line. One family alone (e.g. only the far touchline) can't place a frame."""
-        R = _rot(*pose[:3]) @ self.B; f = pose[3] * self.w / 1280.0; fams = set()
+        SS, kk = self.segs_px(pose); fams = set()
         for k, P in self.img.items():
-            A = self.SA[self.scls == k] @ R.T; Bc = self.SB[self.scls == k] @ R.T; ok = (A[:, 2] > 0.5) & (Bc[:, 2] > 0.5)
-            if not ok.any(): continue
-            S = np.column_stack([self.w / 2 + f * A[ok, 0] / A[ok, 2], self.h / 2 + f * A[ok, 1] / A[ok, 2], self.w / 2 + f * Bc[ok, 0] / Bc[ok, 2], self.h / 2 + f * Bc[ok, 1] / Bc[ok, 2]])
+            S = SS[kk == k]
+            if not len(S): continue
             on = _pt_seg_dist(P, S) <= near_frac * self.w; n_on = on.mean() * self.n_pix[k]
             if on.mean() >= min_share and n_on >= min_px: fams.add(self.FAMILY[k])
         return fams
+
+    def unexplained(self, pose, near_frac=0.015, big_px=150, min_share=0.5):
+        """classes the network paints clearly (big_px pixels or more) that the pose does NOT explain (under min_share of
+        their pixels on the drawn line). One such class means the pose is wrong somewhere, whatever else fits
+        (fc_0388 on 25 Sep: far lines fitted, painted centre circle 40 px off, still called confident)."""
+        SS, kk = self.segs_px(pose); bad = []
+        for k, P in self.img.items():
+            if self.n_pix[k] < big_px: continue
+            S = SS[kk == k]
+            if not len(S): bad.append(CLASSES[k]); continue
+            if (_pt_seg_dist(P, S) <= near_frac * self.w).mean() < min_share: bad.append(CLASSES[k])
+        return bad
 
 def fit_pose(mask, camera, pan_deg=(-178, -2), tilt_deg=(1, 28), f1280=(250, 4000), steps=(2.0, 1.0, 16), keep=8,
              init=None, L=L_DEF, W=W_DEF, log=None, rival_px=25.0, min_margin=0.35, max_cost_frac=0.02):
@@ -271,9 +302,9 @@ def fit_pose(mask, camera, pan_deg=(-178, -2), tilt_deg=(1, 28), f1280=(250, 400
                  options={"xatol": 1e-6, "fatol": 1e-5, "maxiter": 800, "initial_simplex": np.array([v, v + [0.003, 0, 0, 0], v + [0, 0.002, 0, 0], v + [0, 0, 0.002, 0], v + [0, 0, 0, 0.01]])})
     if r.fun <= fine.cost([v[0], v[1], v[2], np.exp(v[3])]): v = r.x
     pose = np.array([v[0], v[1], v[2], np.exp(v[3])])
-    fams = fine.support(pose)
-    confident = bool(margin >= min_margin and best[0] <= max_cost_frac * sc.w and len(fams) >= 2)
-    info = {"confident": confident, "margin": round(float(margin), 2) if np.isfinite(margin) else None, "cost": round(float(best[0]), 3), "cost_px_at_width": sc.w, "supported_families": sorted(fams), "classes_seen": [CLASSES[k] for k in sorted(sc.img)],
+    fams = fine.support(pose); bad = fine.unexplained(pose)
+    confident = bool(margin >= min_margin and best[0] <= max_cost_frac * sc.w and len(fams) >= 2 and not bad)
+    info = {"confident": confident, "margin": round(float(margin), 2) if np.isfinite(margin) else None, "cost": round(float(best[0]), 3), "cost_px_at_width": sc.w, "supported_families": sorted(fams), "unexplained": bad, "classes_seen": [CLASSES[k] for k in sorted(sc.img)],
             "pan_deg": round(float(np.degrees(pose[0])), 2), "tilt_deg": round(float(np.degrees(pose[1])), 2), "f1280": round(float(pose[3]), 1)}
     if log: log(f"line fit: {info}")
     return pose, info
@@ -291,6 +322,8 @@ def build_dataset(solution_json, frame_zips, out_dir, random_json=None, random_r
     moment). Val = the held-back clicked frames only. Propagated neighbours are NOT used: near-copies add volume, not variety."""
     import os, json, zipfile
     sol = json.load(open(solution_json)) if isinstance(solution_json, str) else solution_json; cam = sol["camera"]; w, h = size
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    clicks = {s: json.load(open(f"{root}/results/labels/SFKBP1109_points_{s}.json")) for s in ("s1", "s2") if os.path.exists(f"{root}/results/labels/SFKBP1109_points_{s}.json")}
     val = {(f["session"], f["frame"]) for f in held_back(sol, val_every)}; val_t = [float(n[3:-4]) for _, n in val]
     items = [(f["session"], f["frame"], f["pose"], "val" if (f["session"], f["frame"]) in val else "train") for f in sol["frames"]]
     if random_json and random_review and random_zip and os.path.exists(random_review):
@@ -311,7 +344,8 @@ def build_dataset(solution_json, frame_zips, out_dir, random_json=None, random_r
         if ((m > 0) & (m != IGNORE)).sum() < 50: continue                          # no pitch lines in view: nothing to learn
         key = f"{s}_{name[:-4]}"
         cv2.imwrite(f"{out_dir}/images/{split}/{key}.jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 92]); cv2.imwrite(f"{out_dir}/masks/{split}/{key}.png", m)
-        poses[key] = {"pose": [float(v) for v in pose], "split": split, "source": s, "frame": name}; count[split] += 1
+        poses[key] = {"pose": [float(v) for v in pose], "split": split, "source": s, "frame": name,
+                      "clicks": clicks.get(s, {}).get(name, {}).get("pairs")}; count[split] += 1
     json.dump({"camera": cam, "size": list(size), "classes": CLASSES, "poses": poses}, open(f"{out_dir}/poses.json", "w"))
     log(f"line dataset: {count['train']} training frames, {count['val']} held-back clicked frames ({missing} missing from zips) -> {out_dir}")
     return count
