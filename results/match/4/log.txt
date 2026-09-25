@@ -1,0 +1,110 @@
+12:27:30 full-match calibration on Modal
+13:36:35   stretch 0-514s: 528 frames, 14 checkpoints
+13:36:35   t=57s: 29/60 confident
+13:36:35   t=115s: 77/120 confident
+13:36:35   t=174s: 128/180 confident
+13:36:35   t=233s: 188/240 confident
+13:36:35   t=291s: 237/300 confident
+13:36:35   t=349s: 275/360 confident
+13:36:35   t=408s: 323/420 confident
+13:36:35   t=466s: 378/480 confident
+13:36:35   stretch 514-1027s: 528 frames, 14 checkpoints
+13:36:35   t=571s: 59/60 confident
+13:36:35   t=630s: 100/120 confident
+13:36:35   t=689s: 130/180 confident
+13:36:35   t=747s: 171/240 confident
+13:36:35   t=805s: 210/300 confident
+13:36:35   t=864s: 246/360 confident
+13:36:35   t=922s: 281/420 confident
+13:36:35   t=981s: 320/480 confident
+13:36:35   stretch 1027-1541s: 526 frames, 13 checkpoints
+13:36:35   t=1086s: 39/60 confident
+13:36:35   t=1144s: 74/120 confident
+13:36:35   t=1203s: 106/180 confident
+13:36:35   t=1261s: 151/240 confident
+13:36:35   t=1319s: 188/300 confident
+13:36:35   t=1378s: 221/360 confident
+13:36:35   t=1437s: 256/420 confident
+13:36:35   t=1495s: 291/480 confident
+13:36:35   stretch 1541-2055s: 528 frames, 14 checkpoints
+13:36:35   t=1598s: 35/60 confident
+13:36:35   t=1657s: 76/120 confident
+13:36:35   t=1715s: 120/180 confident
+13:36:35   t=1773s: 167/240 confident
+13:36:35   t=1832s: 202/300 confident
+13:36:35   t=1891s: 237/360 confident
+13:36:35   t=1949s: 276/420 confident
+13:36:35   t=2007s: 312/480 confident
+13:36:35   stretch 2055-2568s: 527 frames, 13 checkpoints
+13:36:35   t=2113s: 32/60 confident
+13:36:35   t=2171s: 75/120 confident
+13:36:35   t=2229s: 104/180 confident
+13:36:35   t=2288s: 152/240 confident
+13:36:35   t=2346s: 196/300 confident
+13:36:35   t=2405s: 219/360 confident
+13:36:35   t=2463s: 253/420 confident
+13:36:35   t=2521s: 277/480 confident
+13:36:35   stretch 2568-3082s: 527 frames, 14 checkpoints
+13:36:35   t=2626s: 36/60 confident
+13:36:35   t=2684s: 71/120 confident
+13:36:35   t=2743s: 122/180 confident
+13:36:35   t=2801s: 162/240 confident
+13:36:35   t=2860s: 194/300 confident
+13:36:35   t=2918s: 219/360 confident
+13:36:35   t=2976s: 270/420 confident
+13:36:35   t=3035s: 318/480 confident
+13:36:35   stretch 3082-3595s: 514 frames, 0 checkpoints
+13:36:35   t=3141s: 60/60 confident
+13:36:35   t=3201s: 120/120 confident
+13:36:35   t=3261s: 180/180 confident
+13:36:35   t=3321s: 240/240 confident
+13:36:35   t=3381s: 299/300 confident
+13:36:35   t=3441s: 359/360 confident
+13:36:35   t=3501s: 419/420 confident
+13:36:35   t=3561s: 472/480 confident
+13:36:35   stretch 3595-4109s: 524 frames, 10 checkpoints
+13:36:35   t=3655s: 39/60 confident
+13:36:35   t=3715s: 83/120 confident
+13:36:35   t=3774s: 127/180 confident
+13:36:35   t=3833s: 162/240 confident
+13:36:35   t=3891s: 194/300 confident
+13:36:35   t=3949s: 225/360 confident
+13:36:35   t=4008s: 265/420 confident
+13:36:35   t=4067s: 292/480 confident
+13:36:35   stretch 4109-4623s: 526 frames, 13 checkpoints
+13:36:35   t=4168s: 47/60 confident
+13:36:35   t=4226s: 85/120 confident
+13:36:35   t=4285s: 130/180 confident
+13:36:35   t=4343s: 165/240 confident
+13:36:35   t=4401s: 190/300 confident
+13:36:35   t=4460s: 212/360 confident
+13:36:35   t=4519s: 262/420 confident
+13:36:35   t=4577s: 293/480 confident
+13:36:35   stretch 4623-5136s: 528 frames, 14 checkpoints
+13:36:35   t=4680s: 54/60 confident
+13:36:35   t=4739s: 86/120 confident
+13:36:35   t=4797s: 123/180 confident
+13:36:35   t=4855s: 157/240 confident
+13:36:35   t=4914s: 194/300 confident
+13:36:35   t=4973s: 221/360 confident
+13:36:35   t=5031s: 229/420 confident
+13:36:35   t=5089s: 281/480 confident
+13:36:35   stretch 5136-5650s: 527 frames, 13 checkpoints
+13:36:35   t=5195s: 11/60 confident
+13:36:35   t=5253s: 61/120 confident
+13:36:35   t=5311s: 112/180 confident
+13:36:35   t=5370s: 139/240 confident
+13:36:35   t=5428s: 183/300 confident
+13:36:35   t=5487s: 219/360 confident
+13:36:35   t=5545s: 265/420 confident
+13:36:35   t=5603s: 318/480 confident
+13:36:35   stretch 5650-6164s: 521 frames, 8 checkpoints
+13:36:35   t=5708s: 48/60 confident
+13:36:35   t=5766s: 87/120 confident
+13:36:35   t=5825s: 129/180 confident
+13:36:35   t=5883s: 150/240 confident
+13:36:35   t=5942s: 177/300 confident
+13:36:35   t=6002s: 226/360 confident
+13:36:35   t=6062s: 284/420 confident
+13:36:35   t=6122s: 344/480 confident
+13:36:35 62% of the match placed confidently (3932/6304 seconds); 42/57 of Daniel's clicked moments within 10 px (median 6.5 px); 5 confident-but-wrong; longest unsure stretch 79 s
