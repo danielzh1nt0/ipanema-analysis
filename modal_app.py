@@ -104,6 +104,7 @@ def _logger(relpath):
 def _setup():
     import subprocess, sys
     subprocess.run(f"rm -rf /content/ipanema-analysis && git clone -q {REPO} /content/ipanema-analysis", shell=True, check=True)
+    for m in [k for k in sys.modules if k == "ipanema" or k.startswith("ipanema.")]: del sys.modules[m]   # a warm container keeps old code loaded (25 Sep: two runs died on it)
     if "/content/ipanema-analysis" not in sys.path: sys.path.insert(0, "/content/ipanema-analysis")
     from ipanema.config import Settings
     return Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
