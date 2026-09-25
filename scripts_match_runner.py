@@ -6,8 +6,14 @@ try:
     log("full-match calibration on Modal"); res = modal.Function.from_name("ipanema", "match_calibration").remote("SFKBP1109", 12, 1.0)
     if "error" in res: log(res["error"]); sys.exit(1)
     for l in res["log"]: log(l)
+    os.makedirs(f"{OUT}/misses", exist_ok=True)
+    for g_ in res["grades"]:
+        if g_.get("picture"): open(f"{OUT}/misses/t{g_['t']:.1f}_{g_['median_px']:.0f}px{'_confident' if g_['confident'] else ''}.jpg", "wb").write(bytes.fromhex(g_.pop("picture")))
+        else: g_.pop("picture", None)
     json.dump({"rows": res["rows"], "grades": res["grades"]}, open(f"{OUT}/rows.json", "w"))
     json.dump(res["summary"], open(f"{OUT}/summary.json", "w"), indent=1); open(f"{OUT}/strip.jpg", "wb").write(base64.b64decode(res["strip_b64"]))
+    os.makedirs(f"{OUT}/checkpoints", exist_ok=True)
+    for t, b64 in res.get("pictures", {}).items(): open(f"{OUT}/checkpoints/t{float(t):07.1f}.jpg", "wb").write(base64.b64decode(b64))
     s = res["summary"]
     g = (f"{s['confident_share'] * 100:.0f}% of the match placed confidently ({s['confident']}/{s['frames']} seconds); "
          f"{s['checkpoints_within_10px']}/{s['checkpoints']} of Daniel's clicked moments within 10 px (median {s['checkpoint_median_px']:.1f} px); "

@@ -20,7 +20,7 @@ def hard_moment(prev_pose, pose, dt):
     if prev_pose is not None and dt > 0 and abs(np.degrees(pose[0] - prev_pose[0])) / dt > 3.0: tags.append("fast pan")
     return tags
 
-def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0):
+def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0, agree_px=8.0):
     """one frame: refine from prev if given, cold-place if not (or if the refine is doubtful), polish, decide confidence.
     Returns (pose or None, info). big = full-size frame for the painted-pixel polish."""
     why = []; pose = None; info = {}
@@ -34,36 +34,61 @@ def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0):
         if pose is not None and cinfo.get("confident") and LN.pose_error(camera, cold, pose)["median_px"] > jump_px:
             why.append("cold and tracked disagree")
         if cinfo.get("confident") or pose is None: pose, info = cold, cinfo
-    if snap and big is not None and pose is not None: pose = np.array(LN.snap(big, camera, pose))
-    conf = bool(info.get("confident")) and not any(w in ("cold and tracked disagree", "no lines") for w in why)
-    return pose, {"confident": conf, "why": why, "cost": info.get("cost"), "classes": info.get("classes_seen"), "unexplained": info.get("unexplained")}
+    move = None; before = None
+    if snap and big is not None and pose is not None:                    # second opinion: the exact painted pixels
+        before = np.asarray(pose, float); pose = np.array(LN.snap(big, camera, pose)); move = LN.pose_error(camera, pose, before)["median_px"]
+        if move > agree_px: why.append("lines and paint disagree")        # two independent estimates apart: not to be trusted
+    conf = bool(info.get("confident")) and not any(w in ("cold and tracked disagree", "no lines", "lines and paint disagree") for w in why)
+    return pose, {"confident": conf, "why": why, "cost": info.get("cost"), "classes": info.get("classes_seen"), "unexplained": info.get("unexplained"),
+                  "snap_move_px": None if move is None else round(float(move), 1), "before_snap": None if before is None else [float(v) for v in before]}
 
-def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0):
-    """frames: iterable of (t, image) at ~fps (images any size; the network runs on 640x360). checkpoints: {t: clicks}
-    graded when a frame within 1/(2 fps) s of t is processed. Returns (rows, grades)."""
-    rows, grades = [], []; prev = None; prev_t = None; last_anchor = -1e9
+def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0, agree_px=8.0, two_way=True):
+    """frames: iterable of (t, image) at ~fps. Forward pass: anchors every anchor_s (fresh placement + polish), tracked
+    frames in between. Backward pass (two_way): each in-between frame is re-tracked from the NEXT anchor; forward and
+    backward must agree within agree_px (at 1280) for the frame to be confident, and the average is used. checkpoints:
+    {t: clicks} graded on the exact frame. Returns (rows, grades)."""
+    rows, grades = [], []; prev = None; prev_t = None; last_anchor = -1e9; masks = []
     for t, img in frames:
         small = cv2.resize(img, (640, 360), interpolation=cv2.INTER_AREA) if img.shape[1] != 640 else img
         mask = predict_fn(small); big = cv2.resize(img, (1280, 720)) if img.shape[1] != 1280 else img
         anchor = (t - last_anchor) >= anchor_s
-        pose, info = place(mask, camera, prev=None if anchor else prev, big=big if snap else None)
+        is_cp = bool(checkpoints) and any(abs(tc - t) <= 1e-3 for tc in checkpoints)
+        pose, info = place(mask, camera, prev=None if anchor else prev, big=big if snap else None, keep_unsnapped=is_cp)
         if anchor and pose is not None:
             last_anchor = t
             if prev is not None and LN.pose_error(camera, pose, prev)["median_px"] > max_jump_px and info["confident"]:
-                # the anchor jumped away from where we were tracking: keep the anchor (it is fresh evidence) but mark it
                 info["why"].append("jump from track"); info["confident"] = False
         tags = hard_moment(prev, pose, (t - prev_t) if prev_t is not None else 0) if pose is not None else []
         rows.append({"t": round(float(t), 3), "pose": None if pose is None else [float(v) for v in pose], "confident": bool(info["confident"]),
-                     "anchor": bool(anchor), "why": info["why"], "cost": info["cost"], "hard": tags})
-        if checkpoints:
-            for tc, clicks in checkpoints.items():
-                if abs(tc - t) <= 1e-3 and pose is not None and clicks:
-                    e = LN.click_error(camera, pose, clicks)
-                    if not np.isfinite(e["median_px"]): continue
-                    grades.append({"t": tc, "frame_t": round(float(t), 3), "median_px": round(e["median_px"], 1), "confident": bool(info["confident"])})
+                     "anchor": bool(anchor), "why": list(info["why"]), "cost": info["cost"], "hard": tags}); masks.append(mask)
         if pose is not None: prev, prev_t = pose, t
         if log and len(rows) % 60 == 0: log(f"  t={t:.0f}s: {sum(r['confident'] for r in rows)}/{len(rows)} confident")
+    if two_way: backward_pass(rows, masks, camera, agree_px)
+    if checkpoints:
+        for r in rows:
+            for tc, clicks in checkpoints.items():
+                if abs(tc - r["t"]) <= 1e-3 and r["pose"] is not None and clicks:
+                    e = LN.click_error(camera, r["pose"], clicks)
+                    if np.isfinite(e["median_px"]): grades.append({"t": tc, "frame_t": r["t"], "median_px": round(e["median_px"], 1), "confident": bool(r["confident"])})
     return rows, grades
+
+def backward_pass(rows, masks, camera, agree_px=8.0):
+    """re-track every non-anchor frame from the NEXT anchor backwards; a frame is confident only if the two directions
+    agree within agree_px (px at 1280); the pose becomes their average (25 Sep: 4 silent 17-41 px misses in the full
+    match were all tracked frames whose fit looked fine on its own)."""
+    n = len(rows); nxt = None
+    for i in range(n - 1, -1, -1):
+        r = rows[i]
+        if r["anchor"] or r["pose"] is None:
+            nxt = np.array(r["pose"]) if (r["pose"] is not None and r["anchor"]) else nxt; continue
+        if nxt is None: r["why"].append("no anchor after"); r["confident"] = False; continue
+        back, binfo = LN.fit_pose(masks[i], camera, init=nxt)
+        if back is None: r["why"].append("backward lost"); r["confident"] = False; continue
+        fwd = np.array(r["pose"]); d = LN.pose_error(camera, back, fwd)["median_px"]; r["fwd_bwd_px"] = round(float(d), 1)
+        if d > agree_px: r["why"].append("forward/backward disagree"); r["confident"] = False
+        else:
+            avg = (fwd + back) / 2; avg[3] = np.sqrt(fwd[3] * back[3]); r["pose"] = [float(v) for v in avg]
+        nxt = back
 
 def frame_times(duration_s, fps=1.0, checkpoint_ts=()):
     """the moments to process: a regular grid plus the exact checkpoint moments"""
@@ -116,7 +141,7 @@ def strip(video_or_frames, rows, camera, n=20, out_path=None):
     return sheet
 
 
-def calibrate_video(video, weights, camera, t0, t1, fps=1.0, anchor_s=5.0, checkpoints=None, log=print, snap=True, encoder="resnet34"):
+def calibrate_video(video, weights, camera, t0, t1, fps=1.0, anchor_s=5.0, checkpoints=None, log=print, snap=True, encoder="resnet34", pictures=None):
     """one stretch [t0, t1) of a match with the real network (CPU is fine). Returns (rows, grades)."""
     from . import linetrain as LT
     model, device = LT.load(weights, encoder, device="cpu")
@@ -124,7 +149,7 @@ def calibrate_video(video, weights, camera, t0, t1, fps=1.0, anchor_s=5.0, check
     cps = {t: c for t, c in (checkpoints or {}).items() if t0 <= t < t1}
     times = [t for t in frame_times(t1, fps, cps) if t >= t0]
     if log: log(f"  stretch {t0:.0f}-{t1:.0f}s: {len(times)} frames, {len(cps)} checkpoints")
-    return run_chunk(read_frames(video, times), camera, predict, fps=fps, anchor_s=anchor_s, checkpoints=cps, snap=snap, log=log)
+    return run_chunk(read_frames(video, times), camera, predict, fps=fps, anchor_s=anchor_s, checkpoints=cps, snap=snap, log=log, pictures=pictures)
 
 def checkpoints_from_clicks(root):
     """{t: clicks} for every clicked frame (both sessions)"""

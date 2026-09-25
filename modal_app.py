@@ -1285,9 +1285,10 @@ def calib_stretch(match_id: str, t0: float, t1: float, fps: float = 1.0):
     from ipanema import matchcal as MC
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     sol = __import__("json").load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
-    cps = MC.checkpoints_from_clicks("/content/ipanema-analysis"); log = []
-    rows, grades = MC.calibrate_video(full, f"{ROOT}/models/lines/last.pt", sol["camera"], t0, t1, fps=fps, checkpoints=cps, log=lambda m: log.append(m))
-    return {"rows": rows, "grades": grades, "log": log}
+    cps = MC.checkpoints_from_clicks("/content/ipanema-analysis"); log = []; pics = {}
+    rows, grades = MC.calibrate_video(full, f"{ROOT}/models/lines/last.pt", sol["camera"], t0, t1, fps=fps, checkpoints=cps, log=lambda m: log.append(m), pictures=pics)
+    import base64
+    return {"rows": rows, "grades": grades, "log": log, "pictures": {str(t): base64.b64encode(b).decode() for t, b in pics.items()}}
 
 @app.function(timeout=90 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
 def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: float = 1.0):
@@ -1304,4 +1305,4 @@ def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: flo
     sol = _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
     sheet = MC.strip(full, rows, sol["camera"], n=20); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])
     return {"rows": rows, "grades": grades, "summary": MC.summarize(rows, grades), "duration_s": dur, "strip_b64": base64.b64encode(buf.tobytes()).decode(),
-            "log": [l for p in parts for l in p["log"]]}
+            "log": [l for p in parts for l in p["log"]], "pictures": {k: v for p in parts for k, v in p.get("pictures", {}).items()}}
