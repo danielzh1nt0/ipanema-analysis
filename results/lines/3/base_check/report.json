@@ -1,0 +1,29 @@
+{
+ "frames_with_near_line": 12,
+ "accepted": true,
+ "before": {
+  "clicks_median_px": 4.49,
+  "clicks_p90_px": 12.25,
+  "near_line_median_px": 28.0
+ },
+ "heldout": {
+  "near_line_B_before_px": 25.9,
+  "near_line_B_after_px": 10.5
+ },
+ "after": {
+  "clicks_median_px": 4.68,
+  "clicks_p90_px": 14.05,
+  "near_line_median_px": 1.0
+ },
+ "base_change": {
+  "C_m": [
+   -0.02,
+   -0.38,
+   0.06
+  ],
+  "base_tilt_deg": [
+   -0.02,
+   0.32
+  ]
+ }
+}
