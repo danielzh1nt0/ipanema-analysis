@@ -1,0 +1,48 @@
+12:07:16 full-match calibration on Modal
+12:07:52 FAILED:
+object.py", line 46, in wrapped
+    return await method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1893, in remote
+    return await self._call_function(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1830, in _call_function
+    return await invocation.run_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 503, in run_function
+    return await _process_result(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py", line 572, in _process_result
+    raise exc_with_hints(exc)
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/root/modal_app.py", line 1302, in match_calibration
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 856, in __iter__
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 934, in run_async_gen
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/synchronicity/async_utils.py", line 82, in run
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/usr/local/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/synchronicity/async_utils.py", line 48, in wrapper_coro
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 766, in asend
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 1042, in _map_async
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 1015, in _map_helper
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_object.py", line 56, in wrapped
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_functions.py", line 1774, in _map
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 971, in _map_invocation_inputplane
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 926, in poll_outputs
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1237, in async_map_ordered
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1213, in async_map
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1202, in worker
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1167, in prevent_cancellation_abortion
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/async_utils.py", line 1226, in mapper_func_wrapper
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 915, in fetch_output
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/parallel_map.py", line 910, in fetch_output
+  File "<ta-01M3C7CXHX48XTMF06NG1FXTXR>:/pkg/modal/_utils/function_utils.py", line 572, in _process_result
+  File "<ta-01M3C7DKE9A39MAKADJS2H5ZVR>:/root/modal_app.py", line 1289, in calib_stretch
+  File "<ta-01M3C7DKE9A39MAKADJS2H5ZVR>:/content/ipanema-analysis/ipanema/matchcal.py", line 163, in calibrate_video
+  File "<ta-01M3C7DKE9A39MAKADJS2H5ZVR>:/content/ipanema-analysis/ipanema/matchcal.py", line 56, in run_chunk
+TypeError: place() got an unexpected keyword argument 'keep_unsnapped'
+
