@@ -1,0 +1,33 @@
+name: Ball frames to click
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/ballframes.txt"]
+permissions:
+  contents: write
+  issues: write
+jobs:
+  ballframes:
+    runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q modal
+      - name: run
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          TAG: ${{ github.run_number }}
+        run: python scripts_ballframes_runner.py
+      - name: commit results and open the report issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "lines-bot" && git config user.email "bot@ipanema"
+          git add results/ballclicks && git commit -qm "Ball frames ${{ github.run_number }}" || echo "nothing to commit"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
+          if [ -f /tmp/issue_title ]; then gh issue create --title "$(cat /tmp/issue_title)" --body-file /tmp/issue_body.md; else gh issue create --title "Ipanema ball frames ${{ github.run_number }}: FAILED" --body "See results/ballclicks/${{ github.run_number }}/log.txt"; fi

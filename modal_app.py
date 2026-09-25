@@ -1307,3 +1307,38 @@ def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: flo
     sheet = MC.strip(full, rows, sol["camera"], n=20); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])
     return {"rows": rows, "grades": grades, "summary": MC.summarize(rows, grades), "duration_s": dur, "strip_b64": base64.b64encode(buf.tobytes()).decode(),
             "log": [l for p in parts for l in p["log"]], "pictures": {k: v for p in parts for k, v in p.get("pictures", {}).items()}}
+
+@app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0):
+    """The frames worth clicking: run the ball detector once a second over the match and keep the moments where it is
+    absent, unsure or the ball is far/small - spread over the match. Returns 960-wide JPEGs (base64) + the detector's
+    own guesses so the click page can show them. One GPU pass (~5 min)."""
+    import base64, cv2, numpy as np
+    from ultralytics import YOLO
+    S = _setup()
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    model = YOLO(S.weights["ball"]); cap = cv2.VideoCapture(full); vfps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    step = int(round(vfps / fps)); recs = []; k = 0
+    while True:
+        ok, f = cap.read()
+        if not ok: break
+        if k % step == 0:
+            r = model(f, conf=0.05, imgsz=1920, verbose=False)[0]; det = [(float((a + c) / 2), float((b + d) / 2), float(cf)) for (a, b, c, d), cf in zip(r.boxes.xyxy.cpu().numpy(), r.boxes.conf.cpu().numpy())]
+            det.sort(key=lambda z: -z[2]); top = det[0][2] if det else 0.0
+            group = "absent" if top < 0.15 else ("unsure" if top < 0.5 else ("far" if det[0][1] < f.shape[0] * 0.38 else "easy"))
+            recs.append({"t": round(k / vfps, 3), "k": k, "group": group, "top": round(top, 3), "det": [[round(x, 1), round(y, 1), round(c, 3)] for x, y, c in det[:5]]})
+        k += 1
+    cap.release()
+    quota = {"absent": int(n * 0.35), "unsure": int(n * 0.35), "far": int(n * 0.2), "easy": n - int(n * 0.35) * 2 - int(n * 0.2)}; chosen = []
+    for g_, q in quota.items():
+        pool = [r for r in recs if r["group"] == g_]
+        if pool: chosen += [pool[i] for i in sorted(set(np.linspace(0, len(pool) - 1, min(q, len(pool))).astype(int)))]
+    chosen.sort(key=lambda r: r["t"]); cap = cv2.VideoCapture(full); out = []
+    for r in chosen:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, r["k"]); ok, f = cap.read()
+        if not ok: continue
+        h, w = f.shape[:2]; s = 960 / w; img = cv2.resize(f, (960, int(round(h * s))))
+        out.append(dict(r, w=w, h=h, jpg=base64.b64encode(cv2.imencode(".jpg", img, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes()).decode()))
+    cap.release()
+    return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
