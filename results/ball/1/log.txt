@@ -1,0 +1,4 @@
+21:14:38 20:29:56   ball dataset: 121 training frames, 40 exam frames
+21:14:38 20:29:56 training from ball_finetuned.pt for 60 epochs
+21:14:38 21:14:31   grade new: {'correct': 29, 'of': 40, 'ball_found': 21, 'ball_frames': 31, 'no_ball_right': 8, 'no_ball_frames': 9}  old: {'correct': 23, 'of': 40, 'ball_found': 17, 'ball_frames': 31, 'no_ball_right': 6, 'no_ball_frames': 9}
+21:14:38 ball exam (40 frames Daniel clicked, never trained on): NEW 29/40 correct (ball found 21/31, no-ball right 8/9); OLD 23/40 (ball found 17/31)

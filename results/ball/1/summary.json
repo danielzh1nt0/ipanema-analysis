@@ -1,0 +1,660 @@
+{
+ "new": {
+  "correct": 29,
+  "of": 40,
+  "ball_found": 21,
+  "ball_frames": 31,
+  "no_ball_right": 8,
+  "no_ball_frames": 9
+ },
+ "old": {
+  "correct": 23,
+  "of": 40,
+  "ball_found": 17,
+  "ball_frames": 31,
+  "no_ball_right": 6,
+  "no_ball_frames": 9
+ },
+ "frames": [
+  {
+   "file": "t00085.1.jpg",
+   "t": 85.085,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00226.2.jpg",
+   "t": 226.226,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00404.4.jpg",
+   "t": 404.404,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.2,
+    "conf": 0.44322970509529114
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.7,
+    "conf": 0.4612175524234772
+   }
+  },
+  {
+   "file": "t00560.6.jpg",
+   "t": 560.56,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00710.7.jpg",
+   "t": 710.71,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 1.8,
+    "conf": 0.40853554010391235
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00867.9.jpg",
+   "t": 867.867,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 1.4,
+    "conf": 0.4152055084705353
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01035.0.jpg",
+   "t": 1035.034,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 6.8,
+    "conf": 0.34788742661476135
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.34398213028907776
+   }
+  },
+  {
+   "file": "t01166.2.jpg",
+   "t": 1166.165,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": 718.2,
+    "conf": 0.3066997826099396
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01337.3.jpg",
+   "t": 1337.336,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01512.5.jpg",
+   "t": 1512.511,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 1.5,
+    "conf": 0.3922731578350067
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.5820157527923584
+   }
+  },
+  {
+   "file": "t01661.7.jpg",
+   "t": 1661.66,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01821.8.jpg",
+   "t": 1821.82,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01980.0.jpg",
+   "t": 1979.978,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02156.2.jpg",
+   "t": 2156.154,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.9,
+    "conf": 0.4849534332752228
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.4599701464176178
+   }
+  },
+  {
+   "file": "t02286.3.jpg",
+   "t": 2286.284,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02463.5.jpg",
+   "t": 2463.461,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.8,
+    "conf": 0.3724178373813629
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.5,
+    "conf": 0.4622625410556793
+   }
+  },
+  {
+   "file": "t02605.6.jpg",
+   "t": 2605.603,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.2,
+    "conf": 0.3744383454322815
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.3,
+    "conf": 0.28546762466430664
+   }
+  },
+  {
+   "file": "t02748.7.jpg",
+   "t": 2748.746,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 2.2,
+    "conf": 0.5104676485061646
+   },
+   "old": {
+    "correct": true,
+    "dist": 1.2,
+    "conf": 0.5264065265655518
+   }
+  },
+  {
+   "file": "t02904.9.jpg",
+   "t": 2904.902,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.5544692873954773
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.8,
+    "conf": 0.5224910378456116
+   }
+  },
+  {
+   "file": "t03061.1.jpg",
+   "t": 3061.058,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 3.3,
+    "conf": 0.535662055015564
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.1,
+    "conf": 0.47573092579841614
+   }
+  },
+  {
+   "file": "t03214.2.jpg",
+   "t": 3214.211,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.9,
+    "conf": 0.49827882647514343
+   },
+   "old": {
+    "correct": true,
+    "dist": 7.1,
+    "conf": 0.4662947952747345
+   }
+  },
+  {
+   "file": "t03341.3.jpg",
+   "t": 3341.338,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.8,
+    "conf": 0.5150202512741089
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.0,
+    "conf": 0.5018472671508789
+   }
+  },
+  {
+   "file": "t03502.5.jpg",
+   "t": 3502.499,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03662.7.jpg",
+   "t": 3662.659,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.29107728600502014
+   }
+  },
+  {
+   "file": "t03816.8.jpg",
+   "t": 3816.813,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": 642.0,
+    "conf": 0.4530108869075775
+   },
+   "old": {
+    "correct": false,
+    "dist": 641.5,
+    "conf": 0.46773961186408997
+   }
+  },
+  {
+   "file": "t03956.0.jpg",
+   "t": 3955.952,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04125.1.jpg",
+   "t": 4125.121,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 6.0,
+    "conf": 0.44583091139793396
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.8,
+    "conf": 0.34291312098503113
+   }
+  },
+  {
+   "file": "t04219.2.jpg",
+   "t": 4219.215,
+   "has_ball": true,
+   "group": "far",
+   "new": {
+    "correct": true,
+    "dist": 2.5,
+    "conf": 0.3993915617465973
+   },
+   "old": {
+    "correct": true,
+    "dist": 0.9,
+    "conf": 0.5062861442565918
+   }
+  },
+  {
+   "file": "t04389.4.jpg",
+   "t": 4389.385,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04542.5.jpg",
+   "t": 4542.538,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 5.8,
+    "conf": 0.4187449514865875
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04694.7.jpg",
+   "t": 4694.69,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04865.9.jpg",
+   "t": 4865.861,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 3.8,
+    "conf": 0.4910593032836914
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.578767716884613
+   }
+  },
+  {
+   "file": "t05035.0.jpg",
+   "t": 5035.03,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.3,
+    "conf": 0.3074723184108734
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.9,
+    "conf": 0.2728061378002167
+   }
+  },
+  {
+   "file": "t05205.2.jpg",
+   "t": 5205.2,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 4.1,
+    "conf": 0.4253816604614258
+   },
+   "old": {
+    "correct": true,
+    "dist": 1.8,
+    "conf": 0.5439068078994751
+   }
+  },
+  {
+   "file": "t05307.3.jpg",
+   "t": 5307.302,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05495.5.jpg",
+   "t": 5495.49,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 3.4,
+    "conf": 0.39392516016960144
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05652.6.jpg",
+   "t": 5652.647,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05798.8.jpg",
+   "t": 5798.793,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.1,
+    "conf": 0.541205883026123
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.0,
+    "conf": 0.40170818567276
+   }
+  },
+  {
+   "file": "t05962.0.jpg",
+   "t": 5961.956,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.36540713906288147
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.25090041756629944
+   }
+  },
+  {
+   "file": "t06162.2.jpg",
+   "t": 6162.156,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.28573161363601685
+   }
+  }
+ ]
+}
