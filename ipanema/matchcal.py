@@ -37,12 +37,13 @@ def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0, agree_px=8
     move = None; before = None
     if snap and big is not None and pose is not None:                    # second opinion: the exact painted pixels
         before = np.asarray(pose, float); pose = np.array(LN.snap(big, camera, pose)); move = LN.pose_error(camera, pose, before)["median_px"]
-        if move > agree_px: why.append("lines and paint disagree")        # two independent estimates apart: not to be trusted
-    conf = bool(info.get("confident")) and not any(w in ("cold and tracked disagree", "no lines", "lines and paint disagree") for w in why)
+        if move > agree_px: why.append("lines and paint disagree")        # recorded, but no longer a reason to doubt:
+    # 25 Sep, Daniel judged 20 such moments by eye: all acceptable. Forward/backward disagreement stays the test (15 px).
+    conf = bool(info.get("confident")) and not any(w in ("cold and tracked disagree", "no lines") for w in why)
     return pose, {"confident": conf, "why": why, "cost": info.get("cost"), "classes": info.get("classes_seen"), "unexplained": info.get("unexplained"),
                   "snap_move_px": None if move is None else round(float(move), 1), "before_snap": None if before is None else [float(v) for v in before]}
 
-def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0, agree_px=8.0, two_way=True, pictures=None):
+def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0, agree_px=15.0, two_way=True, pictures=None):
     """frames: iterable of (t, image) at ~fps. Forward pass: anchors every anchor_s (fresh placement + polish), tracked
     frames in between. Backward pass (two_way): each in-between frame is re-tracked from the NEXT anchor; forward and
     backward must agree within agree_px (at 1280) for the frame to be confident, and the average is used. checkpoints:
@@ -83,7 +84,7 @@ def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpo
                         pictures[tc] = cv2.imencode(".jpg", o, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes()
     return rows, grades
 
-def backward_pass(rows, masks, camera, agree_px=8.0):
+def backward_pass(rows, masks, camera, agree_px=15.0):
     """re-track every non-anchor frame from the NEXT anchor backwards; a frame is confident only if the two directions
     agree within agree_px (px at 1280); the pose becomes their average (25 Sep: 4 silent 17-41 px misses in the full
     match were all tracked frames whose fit looked fine on its own)."""
