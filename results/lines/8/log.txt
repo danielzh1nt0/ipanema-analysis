@@ -1,0 +1,24 @@
+10:05:07   painted near touchline found on 12 of 56 clicked frames
+10:06:16   base fix ACCEPTED: {"frames_with_near_line": 12, "before": {"clicks_median_px": 4.49, "clicks_p90_px": 12.25, "near_line_median_px": 28.0}, "heldout": {"near_line_B_before_px": 25.9, "near_line_B_after_px": 10.5}, "after": {"clicks_median_px": 4.68, "clicks_p90_px": 14.05, "near_line_median_px": 1.0}, "base_change": {"C_m": [-0.02, -0.38, 0.06], "base_tilt_deg": [0.2, 0.23]}}
+10:06:16 step 1 (base) done in 1.6 min: NEW base used
+10:06:18   1 YES frames skipped: within 10 s of a held-back moment
+10:06:30 line dataset: 209 training frames, 9 held-back clicked frames (0 missing from zips) -> /tmp/lines_ds2
+10:07:18   epoch 5/80: loss 1.8243, held-back line IoU 0.076, 0.6 min
+10:07:53   epoch 10/80: loss 0.9627, held-back line IoU 0.228, 1.2 min
+10:08:27   epoch 15/80: loss 0.7054, held-back line IoU 0.231, 1.8 min
+10:09:01   epoch 20/80: loss 0.6184, held-back line IoU 0.32, 2.3 min
+10:09:36   epoch 25/80: loss 0.5145, held-back line IoU 0.34, 2.9 min
+10:10:10   epoch 30/80: loss 0.4893, held-back line IoU 0.342, 3.5 min
+10:10:44   epoch 35/80: loss 0.4589, held-back line IoU 0.322, 4.1 min
+10:11:19   epoch 40/80: loss 0.4287, held-back line IoU 0.34, 4.6 min
+10:11:53   epoch 45/80: loss 0.4153, held-back line IoU 0.333, 5.2 min
+10:12:27   epoch 50/80: loss 0.3951, held-back line IoU 0.356, 5.8 min
+10:13:02   epoch 55/80: loss 0.3618, held-back line IoU 0.331, 6.4 min
+10:13:36   epoch 60/80: loss 0.3456, held-back line IoU 0.358, 6.9 min
+10:14:11   epoch 65/80: loss 0.3148, held-back line IoU 0.34, 7.5 min
+10:14:45   epoch 70/80: loss 0.3007, held-back line IoU 0.342, 8.1 min
+10:15:19   epoch 75/80: loss 0.2917, held-back line IoU 0.347, 8.6 min
+10:15:54   epoch 80/80: loss 0.2868, held-back line IoU 0.343, 9.2 min
+10:20:00 grade: {'held_back_frames': 9, 'placed_correctly': 7, 'confident': 9, 'confident_and_correct': 7, 'confident_but_wrong': ['s1_fc_0840.212', 's2_fc_1015.779'], 'median_error_px_1280': 7.5, 'errors_px': [8.4, 16.3, 7.8, 3.9, 3.1, 7.5, 3.4, 17.1, 4.6], 'errors_before_snap_px': [8.8, 12.6, 16.0, 22.6, 4.8, 6.4, 3.5, 9.8, 14.2], 'per_variant_within_10px': {'fit': 5, 'old_snap': 7, 'sharp_polish': 3}, 'per_variant_median_px': {'fit': 9.8, 'old_snap': 7.5, 'sharp_polish': 10.5}, 'extra_frames_pictured': 12}
+10:20:00 ALL DONE in 15 min - tell Claude "done"
+10:20:05 7/9 held-back frames within 10 px of Daniel's clicks, median 7.5 px; base fix accepted; 15 min

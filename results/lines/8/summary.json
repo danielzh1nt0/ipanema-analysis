@@ -1,0 +1,46 @@
+{
+ "held_back_frames": 9,
+ "placed_correctly": 7,
+ "confident": 9,
+ "confident_and_correct": 7,
+ "confident_but_wrong": [
+  "s1_fc_0840.212",
+  "s2_fc_1015.779"
+ ],
+ "median_error_px_1280": 7.5,
+ "errors_px": [
+  8.4,
+  16.3,
+  7.8,
+  3.9,
+  3.1,
+  7.5,
+  3.4,
+  17.1,
+  4.6
+ ],
+ "errors_before_snap_px": [
+  8.8,
+  12.6,
+  16.0,
+  22.6,
+  4.8,
+  6.4,
+  3.5,
+  9.8,
+  14.2
+ ],
+ "per_variant_within_10px": {
+  "fit": 5,
+  "old_snap": 7,
+  "sharp_polish": 3
+ },
+ "per_variant_median_px": {
+  "fit": 9.8,
+  "old_snap": 7.5,
+  "sharp_polish": 10.5
+ },
+ "extra_frames_pictured": 12,
+ "base_fix_accepted": true,
+ "minutes": 15.4
+}
