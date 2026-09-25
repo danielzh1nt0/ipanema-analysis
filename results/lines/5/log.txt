@@ -1,0 +1,27 @@
+08:59:27 frames fetched from R2
+08:59:28 training on Modal's GPU
+08:59:45 MODAL ERROR:
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/scripts_lines_runner.py", line 25, in <module>
+    try: res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_object.py", line 46, in wrapped
+    return await method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1893, in remote
+    return await self._call_function(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1830, in _call_function
+    return await invocation.run_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 503, in run_function
+    return await _process_result(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py", line 572, in _process_result
+    raise exc_with_hints(exc)
+  File "<ta-01M3BWN18P4Y9KBD7RX46AA6CR>:/root/modal_app.py", line 1264, in lines_round
+  File "<ta-01M3BWN18P4Y9KBD7RX46AA6CR>:/usr/local/lib/python3.11/subprocess.py", line 548, in run
+  File "<ta-01M3BWN18P4Y9KBD7RX46AA6CR>:/usr/local/lib/python3.11/subprocess.py", line 1026, in __init__
+  File "<ta-01M3BWN18P4Y9KBD7RX46AA6CR>:/usr/local/lib/python3.11/subprocess.py", line 1955, in _execute_child
+FileNotFoundError: [Errno 2] No such file or directory: 'curl'
+
