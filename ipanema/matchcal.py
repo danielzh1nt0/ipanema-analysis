@@ -20,7 +20,7 @@ def hard_moment(prev_pose, pose, dt):
     if prev_pose is not None and dt > 0 and abs(np.degrees(pose[0] - prev_pose[0])) / dt > 3.0: tags.append("fast pan")
     return tags
 
-def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0, agree_px=8.0):
+def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0, agree_px=8.0, keep_unsnapped=False):
     """one frame: refine from prev if given, cold-place if not (or if the refine is doubtful), polish, decide confidence.
     Returns (pose or None, info). big = full-size frame for the painted-pixel polish."""
     why = []; pose = None; info = {}
@@ -61,7 +61,7 @@ def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpo
         tags = hard_moment(prev, pose, (t - prev_t) if prev_t is not None else 0) if pose is not None else []
         rows.append({"t": round(float(t), 3), "pose": None if pose is None else [float(v) for v in pose], "confident": bool(info["confident"]),
                      "anchor": bool(anchor), "why": list(info["why"]), "cost": info["cost"], "hard": tags}); masks.append(mask)
-        if is_cp: cp_data[round(float(t), 3)] = (big, mask, info.get("raw_pose"))
+        if is_cp: cp_data[round(float(t), 3)] = (big, mask, info.get("before_snap"))
         if pose is not None: prev, prev_t = pose, t
         if log and len(rows) % 60 == 0: log(f"  t={t:.0f}s: {sum(r['confident'] for r in rows)}/{len(rows)} confident")
     if two_way: backward_pass(rows, masks, camera, agree_px)
