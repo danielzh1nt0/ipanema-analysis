@@ -1309,7 +1309,7 @@ def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: flo
             "log": [l for p in parts for l in p["log"]], "pictures": {k: v for p in parts for k, v in p.get("pictures", {}).items()}}
 
 @app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0):
+def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0, weights: str = "", exclude_json: str = ""):
     """The frames worth clicking: run the ball detector once a second over the match and keep the moments where it is
     absent, unsure or the ball is far/small - spread over the match. Returns 960-wide JPEGs (base64) + the detector's
     own guesses so the click page can show them. One GPU pass (~5 min)."""
@@ -1318,12 +1318,14 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     S = _setup()
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     if full is None: return {"error": "full video not on the volume"}
-    model = YOLO(S.weights["ball"]); cap = cv2.VideoCapture(full); vfps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    import json as _j
+    model = YOLO(weights if weights and os.path.exists(weights) else S.weights["ball"]); cap = cv2.VideoCapture(full)
+    already = {round(r["t"]) for r in _j.load(open(exclude_json))["frames"]} if exclude_json and os.path.exists(exclude_json) else set(); vfps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     step = int(round(vfps / fps)); recs = []; k = 0
     while True:
         ok, f = cap.read()
         if not ok: break
-        if k % step == 0:
+        if k % step == 0 and round(k / vfps) not in already:
             r = model(f, conf=0.05, imgsz=1920, verbose=False)[0]; det = [(float((a + c) / 2), float((b + d) / 2), float(cf)) for (a, b, c, d), cf in zip(r.boxes.xyxy.cpu().numpy(), r.boxes.conf.cpu().numpy())]
             det.sort(key=lambda z: -z[2]); top = det[0][2] if det else 0.0
             group = "absent" if top < 0.15 else ("unsure" if top < 0.5 else ("far" if det[0][1] < f.shape[0] * 0.38 else "easy"))
