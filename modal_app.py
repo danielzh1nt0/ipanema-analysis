@@ -1359,5 +1359,5 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60):
     model = YOLO(base); model.train(data=f"{ds}/data.yaml", epochs=epochs, imgsz=1920, batch=4, lr0=0.001, freeze=4, mosaic=0.5, scale=0.3, fliplr=0.5, project="/tmp/ballft", name="run", exist_ok=True, verbose=False, patience=100)
     new_w = "/tmp/ballft/run/weights/last.pt"; pics = {}
     s = BC.grade(new_w, f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json", ds, log=L, pictures=pics, old_weights=base)
-    os.makedirs(f"{ROOT}/models/ball", exist_ok=True); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_v1.pt"); vol.commit()
+    os.makedirs(f"{ROOT}/models/ball", exist_ok=True); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_latest.pt"); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_v{int(os.environ.get('BALL_ROUND', '0'))}.pt") if os.environ.get('BALL_ROUND') else None; vol.commit()
     return {"summary": s, "log": log, "pictures": {k: base64.b64encode(v).decode() for k, v in pics.items()}}

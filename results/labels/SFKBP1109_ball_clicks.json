@@ -1,5 +1,5 @@
 {
-"source": "results/ballclicks/1 frames, clicked by Daniel 25 Sep 2026 (pixels of the original frame)",
+"source": "Daniel's ball clicks, rounds 1 (161, 25 Sep) and 2 (125, 26 Sep, frames the round-1 detector was unsure about); exam = every 4th, never trained on",
 "frames": [
 {
 "file": "t00000.0.jpg",
@@ -9,7 +9,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00001.0.jpg",
@@ -19,7 +20,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00062.1.jpg",
@@ -29,7 +31,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00085.1.jpg",
@@ -39,7 +42,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00102.1.jpg",
@@ -49,7 +53,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00155.2.jpg",
@@ -59,7 +64,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00180.2.jpg",
@@ -69,7 +75,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00226.2.jpg",
@@ -79,7 +86,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00254.3.jpg",
@@ -89,7 +97,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00317.3.jpg",
@@ -99,7 +108,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00335.3.jpg",
@@ -109,7 +119,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00404.4.jpg",
@@ -119,7 +130,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00428.4.jpg",
@@ -129,7 +141,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00502.5.jpg",
@@ -139,7 +152,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00504.5.jpg",
@@ -149,7 +163,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00560.6.jpg",
@@ -159,7 +174,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00622.6.jpg",
@@ -169,7 +185,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00655.7.jpg",
@@ -179,7 +196,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00665.7.jpg",
@@ -189,7 +207,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00710.7.jpg",
@@ -199,7 +218,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00767.8.jpg",
@@ -209,7 +229,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00788.8.jpg",
@@ -219,7 +240,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00847.8.jpg",
@@ -229,7 +251,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00867.9.jpg",
@@ -239,7 +262,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t00917.9.jpg",
@@ -249,7 +273,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00975.0.jpg",
@@ -259,7 +284,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t00979.0.jpg",
@@ -269,7 +295,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01035.0.jpg",
@@ -279,7 +306,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01064.1.jpg",
@@ -289,7 +317,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01129.1.jpg",
@@ -299,7 +328,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01152.2.jpg",
@@ -309,7 +339,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01166.2.jpg",
@@ -319,7 +350,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01203.2.jpg",
@@ -329,7 +361,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01258.3.jpg",
@@ -339,7 +372,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01322.3.jpg",
@@ -349,7 +383,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01337.3.jpg",
@@ -359,7 +394,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01407.4.jpg",
@@ -369,7 +405,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01426.4.jpg",
@@ -379,7 +416,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01487.5.jpg",
@@ -389,7 +427,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01512.5.jpg",
@@ -399,7 +438,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01543.5.jpg",
@@ -409,7 +449,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01576.6.jpg",
@@ -419,7 +460,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01611.6.jpg",
@@ -429,7 +471,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01661.7.jpg",
@@ -439,7 +482,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01707.7.jpg",
@@ -449,7 +493,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01732.7.jpg",
@@ -459,7 +504,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01804.8.jpg",
@@ -469,7 +515,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01821.8.jpg",
@@ -479,7 +526,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t01891.9.jpg",
@@ -489,7 +537,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01900.9.jpg",
@@ -499,7 +548,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01917.9.jpg",
@@ -509,7 +559,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t01980.0.jpg",
@@ -519,7 +570,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02008.0.jpg",
@@ -529,7 +581,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02087.1.jpg",
@@ -539,7 +592,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02090.1.jpg",
@@ -549,7 +603,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02156.2.jpg",
@@ -559,7 +614,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02184.2.jpg",
@@ -569,7 +625,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02200.2.jpg",
@@ -579,7 +636,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02265.3.jpg",
@@ -589,7 +647,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02286.3.jpg",
@@ -599,7 +658,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02372.4.jpg",
@@ -609,7 +669,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02375.4.jpg",
@@ -619,7 +680,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02391.4.jpg",
@@ -629,7 +691,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02463.5.jpg",
@@ -639,7 +702,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02471.5.jpg",
@@ -649,7 +713,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02531.5.jpg",
@@ -659,7 +724,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02561.6.jpg",
@@ -669,7 +735,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02605.6.jpg",
@@ -679,7 +746,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02652.7.jpg",
@@ -689,7 +757,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02711.7.jpg",
@@ -699,7 +768,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02741.7.jpg",
@@ -709,7 +779,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02748.7.jpg",
@@ -719,7 +790,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02776.8.jpg",
@@ -729,7 +801,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02839.8.jpg",
@@ -739,7 +812,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02846.8.jpg",
@@ -749,7 +823,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02904.9.jpg",
@@ -759,7 +834,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t02936.9.jpg",
@@ -769,7 +845,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t02989.0.jpg",
@@ -779,7 +856,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03037.0.jpg",
@@ -789,7 +867,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03061.1.jpg",
@@ -799,7 +878,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03100.1.jpg",
@@ -809,7 +889,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03131.1.jpg",
@@ -819,7 +900,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03171.2.jpg",
@@ -829,7 +911,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03214.2.jpg",
@@ -839,7 +922,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03226.2.jpg",
@@ -849,7 +933,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03285.3.jpg",
@@ -859,7 +944,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03293.3.jpg",
@@ -869,7 +955,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03341.3.jpg",
@@ -879,7 +966,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03389.4.jpg",
@@ -889,7 +977,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03408.4.jpg",
@@ -899,7 +988,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03448.4.jpg",
@@ -909,7 +999,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03502.5.jpg",
@@ -919,7 +1010,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03520.5.jpg",
@@ -929,7 +1021,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03584.6.jpg",
@@ -939,7 +1032,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03649.6.jpg",
@@ -949,7 +1043,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03662.7.jpg",
@@ -959,7 +1054,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03710.7.jpg",
@@ -969,7 +1065,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03732.7.jpg",
@@ -979,7 +1076,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03738.7.jpg",
@@ -989,7 +1087,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03816.8.jpg",
@@ -999,7 +1098,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t03822.8.jpg",
@@ -1009,7 +1109,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03892.9.jpg",
@@ -1019,7 +1120,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03925.9.jpg",
@@ -1029,7 +1131,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t03956.0.jpg",
@@ -1039,7 +1142,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04004.0.jpg",
@@ -1049,7 +1153,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04067.1.jpg",
@@ -1059,7 +1164,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04088.1.jpg",
@@ -1069,7 +1175,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04125.1.jpg",
@@ -1079,7 +1186,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04155.2.jpg",
@@ -1089,7 +1197,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04185.2.jpg",
@@ -1099,7 +1208,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04208.2.jpg",
@@ -1109,7 +1219,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04219.2.jpg",
@@ -1119,7 +1230,8 @@
 "w": 1920,
 "h": 1080,
 "group": "far",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04266.3.jpg",
@@ -1129,7 +1241,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04293.3.jpg",
@@ -1139,7 +1252,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04370.4.jpg",
@@ -1149,7 +1263,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04389.4.jpg",
@@ -1159,7 +1274,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04433.4.jpg",
@@ -1169,7 +1285,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04462.5.jpg",
@@ -1179,7 +1296,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04491.5.jpg",
@@ -1189,7 +1307,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04542.5.jpg",
@@ -1199,7 +1318,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04567.6.jpg",
@@ -1209,7 +1329,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04624.6.jpg",
@@ -1219,7 +1340,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04658.7.jpg",
@@ -1229,7 +1351,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04694.7.jpg",
@@ -1239,7 +1362,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04754.8.jpg",
@@ -1249,7 +1373,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04775.8.jpg",
@@ -1259,7 +1384,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04829.8.jpg",
@@ -1269,7 +1395,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04865.9.jpg",
@@ -1279,7 +1406,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t04896.9.jpg",
@@ -1289,7 +1417,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04925.9.jpg",
@@ -1299,7 +1428,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t04973.0.jpg",
@@ -1309,7 +1439,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05035.0.jpg",
@@ -1319,7 +1450,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05058.1.jpg",
@@ -1329,7 +1461,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05105.1.jpg",
@@ -1339,7 +1472,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05146.1.jpg",
@@ -1349,7 +1483,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05205.2.jpg",
@@ -1359,7 +1494,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05206.2.jpg",
@@ -1369,7 +1505,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05234.2.jpg",
@@ -1379,7 +1516,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05297.3.jpg",
@@ -1389,7 +1527,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05307.3.jpg",
@@ -1399,7 +1538,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05370.4.jpg",
@@ -1409,7 +1549,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05411.4.jpg",
@@ -1419,7 +1560,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05459.5.jpg",
@@ -1429,7 +1571,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05495.5.jpg",
@@ -1439,7 +1582,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05552.5.jpg",
@@ -1449,7 +1593,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05576.6.jpg",
@@ -1459,7 +1604,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05606.6.jpg",
@@ -1469,7 +1615,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05652.6.jpg",
@@ -1479,7 +1626,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05684.7.jpg",
@@ -1489,7 +1637,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05715.7.jpg",
@@ -1499,7 +1648,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05797.8.jpg",
@@ -1509,7 +1659,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05798.8.jpg",
@@ -1519,7 +1670,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05890.9.jpg",
@@ -1529,7 +1681,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05908.9.jpg",
@@ -1539,7 +1692,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05940.9.jpg",
@@ -1549,7 +1703,8 @@
 "w": 1920,
 "h": 1080,
 "group": "easy",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t05962.0.jpg",
@@ -1559,7 +1714,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t05984.0.jpg",
@@ -1569,7 +1725,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t06043.0.jpg",
@@ -1579,7 +1736,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t06099.1.jpg",
@@ -1589,7 +1747,8 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
 },
 {
 "file": "t06162.2.jpg",
@@ -1599,7 +1758,8 @@
 "w": 1920,
 "h": 1080,
 "group": "unsure",
-"split": "exam"
+"split": "exam",
+"round": 1
 },
 {
 "file": "t06163.2.jpg",
@@ -1609,7 +1769,1383 @@
 "w": 1920,
 "h": 1080,
 "group": "absent",
-"split": "train"
+"split": "train",
+"round": 1
+},
+{
+"file": "t00002.0.jpg",
+"t": 2.002,
+"x": 938,
+"y": 443,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00003.0.jpg",
+"t": 3.003,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00008.0.jpg",
+"t": 8.008,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00094.1.jpg",
+"t": 94.094,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t00175.2.jpg",
+"t": 175.175,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00207.2.jpg",
+"t": 207.207,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00260.3.jpg",
+"t": 260.26,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00327.3.jpg",
+"t": 327.327,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t00413.4.jpg",
+"t": 413.413,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00442.4.jpg",
+"t": 442.442,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00517.5.jpg",
+"t": 517.517,
+"x": 829,
+"y": 544,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00597.6.jpg",
+"t": 597.597,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t00606.6.jpg",
+"t": 606.606,
+"x": 677,
+"y": 540,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00709.7.jpg",
+"t": 709.709,
+"x": 863,
+"y": 497,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00722.7.jpg",
+"t": 722.722,
+"x": 886,
+"y": 482,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00831.8.jpg",
+"t": 831.831,
+"x": 461,
+"y": 495,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t00844.8.jpg",
+"t": 844.844,
+"x": 697,
+"y": 475,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00865.9.jpg",
+"t": 865.865,
+"x": 838,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00933.9.jpg",
+"t": 933.933,
+"x": 521,
+"y": 480,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t00983.0.jpg",
+"t": 982.982,
+"x": 1111,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t01052.1.jpg",
+"t": 1052.051,
+"x": 380,
+"y": 577,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01116.1.jpg",
+"t": 1116.115,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01190.2.jpg",
+"t": 1190.189,
+"x": 960,
+"y": 490,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01202.2.jpg",
+"t": 1202.201,
+"x": 1297,
+"y": 522,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t01216.2.jpg",
+"t": 1216.215,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01324.3.jpg",
+"t": 1324.323,
+"x": 848,
+"y": 480,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01331.3.jpg",
+"t": 1331.33,
+"x": 903,
+"y": 530,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01410.4.jpg",
+"t": 1410.409,
+"x": 960,
+"y": 480,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t01474.5.jpg",
+"t": 1474.473,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01529.5.jpg",
+"t": 1529.528,
+"x": 605,
+"y": 579,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01596.6.jpg",
+"t": 1596.595,
+"x": 1531,
+"y": 549,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01609.6.jpg",
+"t": 1609.608,
+"x": 1044,
+"y": 465,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t01629.6.jpg",
+"t": 1629.628,
+"x": 1094,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01722.7.jpg",
+"t": 1722.721,
+"x": 553,
+"y": 979,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01748.7.jpg",
+"t": 1748.747,
+"x": 896,
+"y": 386,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01836.8.jpg",
+"t": 1836.835,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t01865.9.jpg",
+"t": 1865.864,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01971.0.jpg",
+"t": 1970.969,
+"x": 1079,
+"y": 510,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t01988.0.jpg",
+"t": 1987.986,
+"x": 1059,
+"y": 510,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02056.1.jpg",
+"t": 2056.054,
+"x": 1084,
+"y": 510,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t02094.1.jpg",
+"t": 2094.092,
+"x": 1059,
+"y": 527,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02104.1.jpg",
+"t": 2104.102,
+"x": 801,
+"y": 495,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02185.2.jpg",
+"t": 2185.183,
+"x": 804,
+"y": 505,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02238.2.jpg",
+"t": 2238.236,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t02296.3.jpg",
+"t": 2296.294,
+"x": 900,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02377.4.jpg",
+"t": 2377.375,
+"x": 1196,
+"y": 520,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02403.4.jpg",
+"t": 2403.401,
+"x": 1714,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02438.4.jpg",
+"t": 2438.436,
+"x": 1297,
+"y": 569,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t02500.5.jpg",
+"t": 2500.498,
+"x": 1163,
+"y": 530,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02526.5.jpg",
+"t": 2526.524,
+"x": 1034,
+"y": 557,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02617.6.jpg",
+"t": 2617.615,
+"x": 444,
+"y": 559,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02656.7.jpg",
+"t": 2656.654,
+"x": 861,
+"y": 559,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t02704.7.jpg",
+"t": 2704.702,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02779.8.jpg",
+"t": 2779.777,
+"x": 1803,
+"y": 500,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02836.8.jpg",
+"t": 2836.834,
+"x": 536,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02856.9.jpg",
+"t": 2856.854,
+"x": 1114,
+"y": 512,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t02909.9.jpg",
+"t": 2909.907,
+"x": 987,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t02980.0.jpg",
+"t": 2979.977,
+"x": 466,
+"y": 517,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03010.0.jpg",
+"t": 3010.007,
+"x": 841,
+"y": 542,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03104.1.jpg",
+"t": 3104.101,
+"x": 1094,
+"y": 562,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03121.1.jpg",
+"t": 3121.118,
+"x": 1322,
+"y": 547,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03185.2.jpg",
+"t": 3185.182,
+"x": 1444,
+"y": 554,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03212.2.jpg",
+"t": 3212.209,
+"x": 1416,
+"y": 557,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03271.3.jpg",
+"t": 3271.268,
+"x": 1263,
+"y": 552,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03298.3.jpg",
+"t": 3298.295,
+"x": 1136,
+"y": 544,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03348.3.jpg",
+"t": 3348.345,
+"x": 1260,
+"y": 544,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03367.4.jpg",
+"t": 3367.364,
+"x": 955,
+"y": 388,
+"w": 1920,
+"h": 1080,
+"group": "far",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03378.4.jpg",
+"t": 3378.375,
+"x": 925,
+"y": 408,
+"w": 1920,
+"h": 1080,
+"group": "far",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03387.4.jpg",
+"t": 3387.384,
+"x": 945,
+"y": 393,
+"w": 1920,
+"h": 1080,
+"group": "far",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03394.4.jpg",
+"t": 3394.391,
+"x": 1034,
+"y": 482,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03457.5.jpg",
+"t": 3457.454,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03518.5.jpg",
+"t": 3518.515,
+"x": 1208,
+"y": 517,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03548.5.jpg",
+"t": 3548.545,
+"x": 975,
+"y": 517,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03640.6.jpg",
+"t": 3640.637,
+"x": 1064,
+"y": 540,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03657.7.jpg",
+"t": 3657.654,
+"x": 977,
+"y": 487,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03683.7.jpg",
+"t": 3683.68,
+"x": 804,
+"y": 497,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03743.7.jpg",
+"t": 3743.74,
+"x": 717,
+"y": 505,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03786.8.jpg",
+"t": 3786.783,
+"x": 734,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03825.8.jpg",
+"t": 3825.822,
+"x": 1181,
+"y": 738,
+"w": 1920,
+"h": 1080,
+"group": "far",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03852.8.jpg",
+"t": 3852.849,
+"x": 764,
+"y": 485,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t03903.9.jpg",
+"t": 3903.9,
+"x": 980,
+"y": 502,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t03960.0.jpg",
+"t": 3959.956,
+"x": 985,
+"y": 641,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04014.0.jpg",
+"t": 4014.01,
+"x": 1079,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04103.1.jpg",
+"t": 4103.099,
+"x": 938,
+"y": 520,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t04129.1.jpg",
+"t": 4129.125,
+"x": 846,
+"y": 480,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04218.2.jpg",
+"t": 4218.214,
+"x": 605,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04253.2.jpg",
+"t": 4253.249,
+"x": 660,
+"y": 527,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04256.3.jpg",
+"t": 4256.252,
+"x": 1126,
+"y": 520,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t04324.3.jpg",
+"t": 4324.32,
+"x": 853,
+"y": 537,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04375.4.jpg",
+"t": 4375.371,
+"x": 1072,
+"y": 547,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04444.4.jpg",
+"t": 4444.44,
+"x": 1126,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04497.5.jpg",
+"t": 4497.493,
+"x": 1124,
+"y": 807,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t04551.5.jpg",
+"t": 4551.547,
+"x": 1029,
+"y": 487,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04614.6.jpg",
+"t": 4614.61,
+"x": 1337,
+"y": 420,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04650.6.jpg",
+"t": 4650.646,
+"x": 1139,
+"y": 515,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04741.7.jpg",
+"t": 4741.737,
+"x": 1082,
+"y": 465,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t04750.7.jpg",
+"t": 4750.746,
+"x": 1054,
+"y": 544,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04848.8.jpg",
+"t": 4848.844,
+"x": 1044,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04859.9.jpg",
+"t": 4859.855,
+"x": 905,
+"y": 515,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04885.9.jpg",
+"t": 4885.881,
+"x": 1136,
+"y": 535,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t04961.0.jpg",
+"t": 4960.956,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t04987.0.jpg",
+"t": 4986.982,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05079.1.jpg",
+"t": 5079.074,
+"x": 1010,
+"y": 525,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05121.1.jpg",
+"t": 5121.116,
+"x": 1188,
+"y": 502,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t05208.2.jpg",
+"t": 5208.203,
+"x": 1473,
+"y": 540,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05226.2.jpg",
+"t": 5226.221,
+"x": 1310,
+"y": 401,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05262.3.jpg",
+"t": 5262.257,
+"x": 1295,
+"y": 676,
+"w": 1920,
+"h": 1080,
+"group": "far",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05328.3.jpg",
+"t": 5328.323,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t05338.3.jpg",
+"t": 5338.333,
+"x": 1282,
+"y": 460,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05441.4.jpg",
+"t": 5441.436,
+"x": 1724,
+"y": 547,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05443.4.jpg",
+"t": 5443.438,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05532.5.jpg",
+"t": 5532.527,
+"x": 838,
+"y": 554,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t05535.5.jpg",
+"t": 5535.53,
+"x": 831,
+"y": 507,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05582.6.jpg",
+"t": 5582.577,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05644.6.jpg",
+"t": 5644.639,
+"x": 1203,
+"y": 500,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05692.7.jpg",
+"t": 5692.687,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t05777.8.jpg",
+"t": 5777.772,
+"x": 714,
+"y": 671,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05799.8.jpg",
+"t": 5799.794,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05897.9.jpg",
+"t": 5897.892,
+"x": 1694,
+"y": 559,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "train",
+"round": 2
+},
+{
+"file": "t05930.9.jpg",
+"t": 5930.925,
+"x": 1094,
+"y": 559,
+"w": 1920,
+"h": 1080,
+"group": "easy",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t05950.9.jpg",
+"t": 5950.945,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t06027.0.jpg",
+"t": 6027.021,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t06092.1.jpg",
+"t": 6092.086,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
+},
+{
+"file": "t06155.1.jpg",
+"t": 6155.149,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "unsure",
+"split": "exam",
+"round": 2
+},
+{
+"file": "t06161.2.jpg",
+"t": 6161.155,
+"x": null,
+"y": null,
+"w": 1920,
+"h": 1080,
+"group": "absent",
+"split": "train",
+"round": 2
 }
 ]
 }
