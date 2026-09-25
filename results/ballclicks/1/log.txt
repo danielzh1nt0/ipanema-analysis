@@ -1,0 +1,1 @@
+14:50:34 161 ball frames to click picked from 6158 sampled seconds; detector groups over the match: {'absent': 3513, 'unsure': 1891, 'far': 1, 'easy': 753}
