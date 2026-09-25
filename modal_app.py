@@ -1260,8 +1260,11 @@ def lines_round(epochs: int = 80, max_minutes: int = 25, match_id: str = "SFKBP1
     _setup()
     from ipanema import linerun
     lab, out = "/tmp/lab", "/tmp/out"; os.makedirs(lab, exist_ok=True); pub = os.environ["R2_PUBLIC_URL"].rstrip("/")
+    import requests
     for n in ("SFKBP1109_frames_s1.zip", "SFKBP1109_frames_s2.zip", "SFKBP1109_random.zip", "SFKBP1109_random.json", "SFKBP1109_random_review.json"):
-        subprocess.run(["curl", "-sfL", "-o", f"{lab}/{n}", f"{pub}/{match_id}/lines/{n}"], check=True)
+        r = requests.get(f"{pub}/{match_id}/lines/{n}", stream=True, timeout=600); r.raise_for_status()
+        with open(f"{lab}/{n}", "wb") as fh:
+            for chunk in r.iter_content(1 << 20): fh.write(chunk)
     log_lines = []
     def log(m): log_lines.append(f"{time.strftime('%H:%M:%S')} {m}"); print(m, flush=True)
     s = linerun.run(lab, out, epochs=epochs, max_minutes=max_minutes, log=log, work="/tmp")

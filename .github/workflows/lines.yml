@@ -1,4 +1,4 @@
-name: Line model round (GitHub's free runner, no Modal)
+name: Line model round
 on:
   push:
     branches: [main]

@@ -19,15 +19,18 @@ if not fetch_frames():                                                     # not
     out = modal.Function.from_name("ipanema", "export_line_frames").remote("SFKBP1109"); log(str(out)[:500])
     if not fetch_frames(): log("frames still not on R2"); sys.exit(1)
 log("frames fetched from R2")
-if "modal" in open("triggers/lines.txt").read().lower():                 # GPU round on Modal (~15-20 min, ~$0.30)
+import traceback
+def modal_round():                 # GPU round on Modal (~15-20 min, ~$0.30)
     import modal, base64, io, zipfile
     log("training on Modal's GPU")
-    try: res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
-    except Exception:
-        import traceback; log("MODAL ERROR:\n" + traceback.format_exc()[-3000:]); sys.exit(1)
+    res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
     zipfile.ZipFile(io.BytesIO(base64.b64decode(res["zip_b64"]))).extractall(OUT)
     for line in open(f"{OUT}/log.txt"): print(line.rstrip())
-    s = res["summary"]
+    return res["summary"]
+if "modal" in open("triggers/lines.txt").read().lower():
+    try: s = modal_round()
+    except Exception:
+        log("MODAL ROUND FAILED:\n" + traceback.format_exc()[-4000:]); sys.exit(1)   # the error lands in the repo log
 else:
     s = linerun.run(LAB, OUT, epochs=int(os.environ.get("EPOCHS", "40")), max_minutes=int(os.environ.get("MAX_MIN", "150")), log=log, work="/tmp")
 r = s; g = f"{r['placed_correctly']}/{r['held_back_frames']} held-back frames within 10 px of Daniel's clicks, median {r['median_error_px_1280']:.1f} px; base fix {'accepted' if r['base_fix_accepted'] else 'rejected'}; {r['minutes']:.0f} min"
