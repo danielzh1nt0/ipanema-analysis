@@ -42,12 +42,12 @@ def place(mask, camera, prev=None, big=None, snap=True, jump_px=40.0, agree_px=8
     return pose, {"confident": conf, "why": why, "cost": info.get("cost"), "classes": info.get("classes_seen"), "unexplained": info.get("unexplained"),
                   "snap_move_px": None if move is None else round(float(move), 1), "before_snap": None if before is None else [float(v) for v in before]}
 
-def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0, agree_px=8.0, two_way=True):
+def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpoints=None, snap=True, log=None, max_jump_px=60.0, agree_px=8.0, two_way=True, pictures=None):
     """frames: iterable of (t, image) at ~fps. Forward pass: anchors every anchor_s (fresh placement + polish), tracked
     frames in between. Backward pass (two_way): each in-between frame is re-tracked from the NEXT anchor; forward and
     backward must agree within agree_px (at 1280) for the frame to be confident, and the average is used. checkpoints:
     {t: clicks} graded on the exact frame. Returns (rows, grades)."""
-    rows, grades = [], []; prev = None; prev_t = None; last_anchor = -1e9; masks = []
+    rows, grades = [], []; prev = None; prev_t = None; last_anchor = -1e9; masks = []; cp_data = {}
     for t, img in frames:
         small = cv2.resize(img, (640, 360), interpolation=cv2.INTER_AREA) if img.shape[1] != 640 else img
         mask = predict_fn(small); big = cv2.resize(img, (1280, 720)) if img.shape[1] != 1280 else img
@@ -61,6 +61,7 @@ def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpo
         tags = hard_moment(prev, pose, (t - prev_t) if prev_t is not None else 0) if pose is not None else []
         rows.append({"t": round(float(t), 3), "pose": None if pose is None else [float(v) for v in pose], "confident": bool(info["confident"]),
                      "anchor": bool(anchor), "why": list(info["why"]), "cost": info["cost"], "hard": tags}); masks.append(mask)
+        if is_cp: cp_data[round(float(t), 3)] = (big, mask, info.get("raw_pose"))
         if pose is not None: prev, prev_t = pose, t
         if log and len(rows) % 60 == 0: log(f"  t={t:.0f}s: {sum(r['confident'] for r in rows)}/{len(rows)} confident")
     if two_way: backward_pass(rows, masks, camera, agree_px)
@@ -69,7 +70,17 @@ def run_chunk(frames, camera, predict_fn, t0=0.0, fps=1.0, anchor_s=5.0, checkpo
             for tc, clicks in checkpoints.items():
                 if abs(tc - r["t"]) <= 1e-3 and r["pose"] is not None and clicks:
                     e = LN.click_error(camera, r["pose"], clicks)
-                    if np.isfinite(e["median_px"]): grades.append({"t": tc, "frame_t": r["t"], "median_px": round(e["median_px"], 1), "confident": bool(r["confident"])})
+                    if not np.isfinite(e["median_px"]): continue
+                    big, mask, raw = cp_data.get(r["t"], (None, None, None)); e_raw = LN.click_error(camera, raw, clicks)["median_px"] if raw is not None else None
+                    grades.append({"t": tc, "frame_t": r["t"], "median_px": round(e["median_px"], 1), "raw_px": None if e_raw is None else round(e_raw, 1), "confident": bool(r["confident"]), "why": r["why"]})
+                    if pictures is not None and big is not None:
+                        o = LN.overlay(cv2.resize(big, (640, 360)), cv2.resize(mask, (640, 360), interpolation=cv2.INTER_NEAREST), 0.5)
+                        if raw is not None: o = LN.draw_pose(o, camera, raw, colour=(0, 0, 255), thick=1)
+                        o = LN.draw_pose(o, camera, r["pose"], thick=2)
+                        for n, u, v in clicks: cv2.circle(o, (int(u / 2), int(v / 2)), 5, (0, 0, 0), 2); cv2.circle(o, (int(u / 2), int(v / 2)), 5, (255, 255, 255), 1)
+                        txt = f"t={tc:.1f}s final {e['median_px']:.0f}px" + (f" raw {e_raw:.0f}px" if e_raw is not None else "") + (" OK" if r["confident"] else " UNSURE: " + ", ".join(r["why"]))
+                        cv2.putText(o, txt, (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 0, 0), 4); cv2.putText(o, txt, (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 2)
+                        pictures[tc] = cv2.imencode(".jpg", o, [cv2.IMWRITE_JPEG_QUALITY, 82])[1].tobytes()
     return rows, grades
 
 def backward_pass(rows, masks, camera, agree_px=8.0):
