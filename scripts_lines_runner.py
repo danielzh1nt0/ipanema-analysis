@@ -19,8 +19,16 @@ if not fetch_frames():                                                     # not
     out = modal.Function.from_name("ipanema", "export_line_frames").remote("SFKBP1109"); log(str(out)[:500])
     if not fetch_frames(): log("frames still not on R2"); sys.exit(1)
 log("frames fetched from R2")
-s = linerun.run(LAB, OUT, epochs=int(os.environ.get("EPOCHS", "40")), max_minutes=int(os.environ.get("MAX_MIN", "150")), log=log, work="/tmp")
-r = s; g = f"{r['placed_correctly']}/{r['held_back_frames']} held-back frames placed within 10 px, median error {r['median_error_px_1280']:.1f} px; base fix {'accepted' if r['base_fix_accepted'] else 'rejected'}; {r['minutes']:.0f} min"
+if "modal" in open("triggers/lines.txt").read().lower():                 # GPU round on Modal (~15-20 min, ~$0.30)
+    import modal, base64, io, zipfile
+    log("training on Modal's GPU")
+    res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
+    zipfile.ZipFile(io.BytesIO(base64.b64decode(res["zip_b64"]))).extractall(OUT)
+    for line in open(f"{OUT}/log.txt"): print(line.rstrip())
+    s = res["summary"]
+else:
+    s = linerun.run(LAB, OUT, epochs=int(os.environ.get("EPOCHS", "40")), max_minutes=int(os.environ.get("MAX_MIN", "150")), log=log, work="/tmp")
+r = s; g = f"{r['placed_correctly']}/{r['held_back_frames']} held-back frames within 10 px of Daniel's clicks, median {r['median_error_px_1280']:.1f} px; base fix {'accepted' if r['base_fix_accepted'] else 'rejected'}; {r['minutes']:.0f} min"
 open("/tmp/issue_title", "w").write(f"Ipanema lines {tag}: {g[:120]}")
 open("/tmp/issue_body.md", "w").write(f"**{g}**\n\nErrors per frame (px at 1280): {r['errors_px']}\nBefore snap: {r['errors_before_snap_px']}\nConfident but wrong: {r['confident_but_wrong']}\n\nPictures: `results/lines/{tag}/eval` and `results/lines/{tag}/base_check` in the repo.\n")
 log(g)

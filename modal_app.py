@@ -1249,3 +1249,26 @@ def export_line_frames(match_id: str = "SFKBP1109"):
     for p in sorted(glob.glob(f"{lab}/*")):
         k = f"{match_id}/lines/{os.path.basename(p)}"; r2.upload_file(p, c["R2_BUCKET"], k); keys.append(f"{c['R2_PUBLIC_URL'].rstrip('/')}/{k}")
     return {"log": log, "files": keys}
+
+@app.function(gpu="L4", timeout=45 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=4.0, memory=16384)
+def lines_round(epochs: int = 80, max_minutes: int = 25, match_id: str = "SFKBP1109"):
+    """One line-model round on a GPU (~15-20 min, ~$0.30): frames from R2 (put there once by export_line_frames),
+    base check, labels, training, grading against Daniel's clicks. Returns the results folder as a zip (base64);
+    the weights stay on the volume. Hard stop at 45 min."""
+    import subprocess, base64, io, zipfile, time, shutil
+    subprocess.run("pip install -q --no-deps segmentation-models-pytorch", shell=True, check=True)
+    _setup()
+    from ipanema import linerun
+    lab, out = "/tmp/lab", "/tmp/out"; os.makedirs(lab, exist_ok=True); pub = os.environ["R2_PUBLIC_URL"].rstrip("/")
+    for n in ("SFKBP1109_frames_s1.zip", "SFKBP1109_frames_s2.zip", "SFKBP1109_random.zip", "SFKBP1109_random.json", "SFKBP1109_random_review.json"):
+        subprocess.run(["curl", "-sfL", "-o", f"{lab}/{n}", f"{pub}/{match_id}/lines/{n}"], check=True)
+    log_lines = []
+    def log(m): log_lines.append(f"{time.strftime('%H:%M:%S')} {m}"); print(m, flush=True)
+    s = linerun.run(lab, out, epochs=epochs, max_minutes=max_minutes, log=log, work="/tmp")
+    open(f"{out}/log.txt", "w").write("\n".join(log_lines) + "\n")
+    os.makedirs(f"{ROOT}/models/lines", exist_ok=True); shutil.copy(f"{out}/last.pt", f"{ROOT}/models/lines/last.pt"); os.remove(f"{out}/last.pt"); vol.commit()
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for root, _, files in os.walk(out):
+            for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
+    return {"summary": s, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
