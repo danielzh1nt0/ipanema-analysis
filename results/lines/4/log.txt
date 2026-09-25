@@ -1,0 +1,2 @@
+08:55:49 frames fetched from R2
+08:55:49 training on Modal's GPU
