@@ -1275,3 +1275,33 @@ def lines_round(epochs: int = 80, max_minutes: int = 25, match_id: str = "SFKBP1
         for root, _, files in os.walk(out):
             for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
     return {"summary": s, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
+
+@app.function(timeout=70 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192, max_containers=12)
+def calib_stretch(match_id: str, t0: float, t1: float, fps: float = 1.0):
+    """one stretch of the match: line network on CPU, track + fresh placements, self-grading at Daniel's clicked moments"""
+    import subprocess
+    subprocess.run("pip install -q --no-deps segmentation-models-pytorch", shell=True, check=True)
+    _setup()
+    from ipanema import matchcal as MC
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    sol = __import__("json").load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
+    cps = MC.checkpoints_from_clicks("/content/ipanema-analysis"); log = []
+    rows, grades = MC.calibrate_video(full, f"{ROOT}/models/lines/last.pt", sol["camera"], t0, t1, fps=fps, checkpoints=cps, log=lambda m: log.append(m))
+    return {"rows": rows, "grades": grades, "log": log}
+
+@app.function(timeout=90 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: float = 1.0):
+    """the whole match, in parallel stretches (~$3, ~35 min). Returns rows, grades, summary and the 20-picture strip."""
+    import base64, json as _j, cv2
+    _setup()
+    from ipanema import matchcal as MC
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    cap = cv2.VideoCapture(full); dur = cap.get(cv2.CAP_PROP_FRAME_COUNT) / (cap.get(cv2.CAP_PROP_FPS) or 29.97); cap.release()
+    edges = [dur * i / stretches for i in range(stretches + 1)]
+    parts = list(calib_stretch.map([match_id] * stretches, edges[:-1], edges[1:], [fps] * stretches))
+    rows = sorted((r for p in parts for r in p["rows"]), key=lambda r: r["t"]); grades = sorted((g for p in parts for g in p["grades"]), key=lambda g: g["t"])
+    sol = _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
+    sheet = MC.strip(full, rows, sol["camera"], n=20); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])
+    return {"rows": rows, "grades": grades, "summary": MC.summarize(rows, grades), "duration_s": dur, "strip_b64": base64.b64encode(buf.tobytes()).decode(),
+            "log": [l for p in parts for l in p["log"]]}
