@@ -89,7 +89,7 @@ def load(weights_path, encoder="resnet34", device=None):
     device = device or ("cuda" if torch.cuda.is_available() else "cpu"); m = make_model(encoder, None)
     m.load_state_dict(torch.load(weights_path, map_location=device)); return m.to(device).eval(), device
 
-def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near_px=10.0, log=print, snap=False):
+def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near_px=10.0, log=print, snap=False, polish_choice="old_snap"):
     """GRADE on the held-back clicked frames: predict lines -> cold pose fit (known base) -> pixel error of the whole pitch
     against Daniel's clicked pose. Saves one picture per frame (left: predicted lines, right: the fitted pitch) and a
     summary JSON. extra = [(name, image)] frames without a known answer: pictures only, to be judged by eye."""
@@ -101,17 +101,18 @@ def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near
         pairs = meta["poses"].get(name, {}).get("clicks") if m is not None else None
         grade = (lambda P: LN.click_error(cam, P, pairs)) if pairs else (lambda P: LN.pose_error(cam, P, ref) if P is not None else {"median_px": float("inf")})
         e = None if ref is None else grade(pose)
-        full = f"{ds_dir}/images_full/val/{name}.jpg"; e_fit = e; snap_dropped = False
+        full = f"{ds_dir}/images_full/val/{name}.jpg"; e_fit = e
         e_ref = LN.click_error(cam, ref, pairs)["median_px"] if (pairs and ref is not None) else None      # the reference pose's own miss
-        if snap and pose is not None:                                           # final polish on the painted pixels at full size
+        variants = {"fit": pose}
+        if snap and pose is not None:                                           # every polish graded side by side
             big = cv2.imread(full) if (m is not None and os.path.exists(full)) else cv2.resize(img, (1280, 720), interpolation=cv2.INTER_LINEAR)
-            snapped = np.array(LN.snap(big, cam, pose)); judge = LN.MaskScorer(pred, cam, cap_frac=0.015)
-            if judge.cost(snapped) <= 1.1 * judge.cost(pose): pose = snapped        # keep the polish only if the network's lines agree
-            else: snap_dropped = True                                               # (25 Sep: it made 1015 and 0112 worse)
-            if ref is not None: e = grade(pose)
+            variants["old_snap"] = np.array(LN.snap(big, cam, pose)); variants["sharp_polish"] = LN.polish(big, pred, cam, pose)[0]
+        errs = {k: (None if (ref is None or v is None) else round(grade(v)["median_px"], 1)) for k, v in variants.items()}
+        pose = variants.get(polish_choice, pose) if variants.get(polish_choice) is not None else pose   # the one used for the pictures
+        if ref is not None: e = grade(pose)
         row = {"frame": name, "held_back": ref is not None, "confident": info.get("confident"), "error_median_px_1280": None if e is None else (round(e["median_px"], 1) if np.isfinite(e["median_px"]) else None),
                "correct": None if e is None else bool(e["median_px"] <= near_px),
-               "reference_pose_click_error_px": None if e_ref is None else round(e_ref, 1), "snap_dropped": snap_dropped, "error_before_snap_px": None if (e_fit is None or not np.isfinite(e_fit["median_px"])) else round(e_fit["median_px"], 1), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
+               "reference_pose_click_error_px": None if e_ref is None else round(e_ref, 1), "variants_px": errs, "error_before_snap_px": None if (e_fit is None or not np.isfinite(e_fit["median_px"])) else round(e_fit["median_px"], 1), "classes_seen": info.get("classes_seen"), "families": info.get("supported_families")}
         rows.append(row)
         left = LN.overlay(img, pred, 0.75); right = LN.draw_pose(img, cam, pose) if pose is not None else img.copy()
         txt = ("no pose found" if pose is None else ("%.0f px from your clicks" % e["median_px"] if e else "no answer known")) + (" | confident" if info.get("confident") else " | NOT sure")
@@ -122,6 +123,8 @@ def evaluate(weights_path, ds_dir, out_dir, extra=None, encoder="resnet34", near
     s = {"held_back_frames": len(held), "placed_correctly": sum(r["correct"] for r in held), "confident": len(conf),
          "confident_and_correct": sum(r["correct"] for r in conf), "confident_but_wrong": [r["frame"] for r in conf if not r["correct"]],
          "median_error_px_1280": float(np.median([r["error_median_px_1280"] if r["error_median_px_1280"] is not None else np.inf for r in held])) if held else None,
-         "errors_px": [r["error_median_px_1280"] for r in held], "errors_before_snap_px": [r["error_before_snap_px"] for r in held], "extra_frames_pictured": len(rows) - len(held)}
+         "errors_px": [r["error_median_px_1280"] for r in held], "errors_before_snap_px": [r["error_before_snap_px"] for r in held],
+         "per_variant_within_10px": {k: sum(1 for r in held if r["variants_px"].get(k) is not None and r["variants_px"][k] <= near_px) for k in (held[0]["variants_px"] if held else {})},
+         "per_variant_median_px": {k: float(np.median([r["variants_px"][k] for r in held if r["variants_px"].get(k) is not None])) for k in (held[0]["variants_px"] if held else {})}, "extra_frames_pictured": len(rows) - len(held)}
     json.dump({"summary": s, "frames": rows}, open(f"{out_dir}/eval.json", "w"), indent=0); log(f"grade: {s}")
     return s

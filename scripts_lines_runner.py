@@ -35,5 +35,5 @@ else:
     s = linerun.run(LAB, OUT, epochs=int(os.environ.get("EPOCHS", "40")), max_minutes=int(os.environ.get("MAX_MIN", "150")), log=log, work="/tmp")
 r = s; g = f"{r['placed_correctly']}/{r['held_back_frames']} held-back frames within 10 px of Daniel's clicks, median {r['median_error_px_1280']:.1f} px; base fix {'accepted' if r['base_fix_accepted'] else 'rejected'}; {r['minutes']:.0f} min"
 open("/tmp/issue_title", "w").write(f"Ipanema lines {tag}: {g[:120]}")
-open("/tmp/issue_body.md", "w").write(f"**{g}**\n\nErrors per frame (px at 1280): {r['errors_px']}\nBefore snap: {r['errors_before_snap_px']}\nConfident but wrong: {r['confident_but_wrong']}\n\nPictures: `results/lines/{tag}/eval` and `results/lines/{tag}/base_check` in the repo.\n")
+open("/tmp/issue_body.md", "w").write(f"**{g}**\n\nErrors per frame (px at 1280): {r['errors_px']}\nPolish options, frames within 10 px: {r.get('per_variant_within_10px')}\nPolish options, median px: {r.get('per_variant_median_px')}\nConfident but wrong: {r['confident_but_wrong']}\n\nPictures: `results/lines/{tag}/eval` and `results/lines/{tag}/base_check` in the repo.\n")
 log(g)

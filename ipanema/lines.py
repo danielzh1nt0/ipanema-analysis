@@ -377,3 +377,23 @@ def snap(img, camera, pose, rounds=3, L=L_DEF, W=W_DEF):
     p = np.array([pose[0], pose[1], pose[2], pose[3] * k], float)
     for _ in range(rounds): p = FC.refine(img, camera["C"], L, W, p)
     return [float(p[0]), float(p[1]), float(p[2]), float(p[3] / k)]
+
+
+def sharp_mask(img, pred_mask, reach_px=8):
+    """Precise class mask at the picture's own size: the painted white-line pixels (exact), labelled with the class the
+    network painted nearby; anything the network didn't paint is dropped. Replaces the old class-blind snap (25 Sep:
+    that snap helped some frames by 15 px and hurt others by 10, and no judge could tell which)."""
+    from .calcheck import line_mask
+    h, w = img.shape[:2]; pm = cv2.resize(pred_mask, (w, h), interpolation=cv2.INTER_NEAREST); pm[pm == IGNORE] = 0
+    painted = line_mask(img) > 0; out = np.zeros((h, w), np.uint8); r = int(round(reach_px * w / 1280)) * 2 + 1
+    for k in np.unique(pm):
+        if k == 0: continue
+        near = cv2.dilate((pm == k).astype(np.uint8), np.ones((r, r), np.uint8)) > 0
+        out[painted & near & (out == 0)] = k
+    return out
+
+def polish(img, pred_mask, camera, pose, L=L_DEF, W=W_DEF):
+    """refine a placed pose on the sharp mask, starting from the pose (no global search). Returns (pose, info)."""
+    m = sharp_mask(img, pred_mask)
+    if ((m > 0).sum()) < 200: return np.asarray(pose, float), {"polished": False, "why": "too few sharp pixels"}
+    p, info = fit_pose(m, camera, init=pose, L=L, W=W); info["polished"] = True; return p, info
