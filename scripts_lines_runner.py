@@ -22,7 +22,9 @@ log("frames fetched from R2")
 if "modal" in open("triggers/lines.txt").read().lower():                 # GPU round on Modal (~15-20 min, ~$0.30)
     import modal, base64, io, zipfile
     log("training on Modal's GPU")
-    res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
+    try: res = modal.Function.from_name("ipanema", "lines_round").remote(80, 25)
+    except Exception:
+        import traceback; log("MODAL ERROR:\n" + traceback.format_exc()[-3000:]); sys.exit(1)
     zipfile.ZipFile(io.BytesIO(base64.b64decode(res["zip_b64"]))).extractall(OUT)
     for line in open(f"{OUT}/log.txt"): print(line.rstrip())
     s = res["summary"]
