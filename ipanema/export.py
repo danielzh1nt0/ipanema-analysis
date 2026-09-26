@@ -32,7 +32,7 @@ def events(turnovers_, passes_, restarts_, sequences_, fps):
     seen = set(); ev = [e for e in ev if not (e["id"] in seen or seen.add(e["id"]))]
     return sorted(ev, key=lambda e: e["t"])
 
-def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, turnovers_, passes_, restarts_, sequences_, lanes_, shapes_, stats_, team_model, summary, log=print,
+def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, turnovers_, passes_, restarts_, sequences_, lanes_, shapes_, stats_, team_model, summary, log=print, unsure=frozenset(),
           frame_stride=1, split_s=None, copy_video=True, make_zip=True, video_url=None, periods=None):
     """frame_stride: keep every Nth frame for overlays (the app interpolates); split_s: write frames in files of this many
     seconds (full matches) instead of inside match_data.json; copy_video/make_zip off for full matches (video already in R2)."""
@@ -45,7 +45,7 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
             "ball": ({"px": [round(ball[k][0], 1), round(ball[k][1], 1)], "m": [round(float(ballm[k][0]), 2), round(float(ballm[k][1]), 2)] if k in ballm else None, "state": "observed"} if k in ball else None),
             "possession": STATES[state[k]] if state[k] < 2 else None, "phase": "control" if state[k] < 2 else STATES[state[k]],
             "carrier": f["carrier"], "pressure_m": f["pressure_m"], "near_opps": f["near_opps"], "shape": sh, "lanes": lanes_.get(k),
-            "pitch_lines": None if hasattr(H[k], "to_m") else [float(v) for v in H[k].ravel()]})
+            "pitch_lines": None if (hasattr(H[k], "to_m") or k in unsure) else [float(v) for v in H[k].ravel()], "cal_ok": k not in unsure})
     ev = events(turnovers_, passes_, restarts_, sequences_, fps)
     if stats_.get('metrics'):
         from .metrics import extra_events

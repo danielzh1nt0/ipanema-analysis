@@ -14,6 +14,8 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
     from .mosaic import calibrate_via_mosaic
     Hm = None
+    from . import linecal as LC
+    _lines = LC.find_rows(S.root, match_id)                                   # the line model's full-match calibration, if this match has one
     # Veo panorama clips (<match>_pano...): one curved-camera calibration for every frame (no per-frame registration)
     import re as _re, json as _json
     # looked up by the exact clip name (e.g. an app upload) or its "<name>_pano" prefix; a follow-cam match never matches one
@@ -24,14 +26,18 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     from .mosaic import CAL_VERSION as _CV
     pano_cache = f"{cache}/calibration_pano_{_CV}.pkl"
     try:
-        if panorama: raise StopIteration
+        if panorama or _lines: raise StopIteration
         if os.path.exists(pano_cache): Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
         else:
             Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
             if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
     except StopIteration: pass
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
-    if panorama:
+    if _lines:
+        _base, _off, _rows = _lines
+        cal = LC.calibration_for_clip(_rows, vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=_off, log=log)
+        L, W = cal["L"], cal["W"]
+    elif panorama:
         from .cylcam import CylCam, fit as _cylfit, NAMES as _CN
         spec = _json.load(open(_spec)); L, W = spec["pitch"]["length"], spec["pitch"]["width"]
         clip_cache = os.path.join(S.root, "cache", _mid); os.makedirs(clip_cache, exist_ok=True)
@@ -86,7 +92,7 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
     _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
-    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
+    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_lines.pkl" if _lines else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
     alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if (Hm and not panorama) else None
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     elif alt_trk and alt_trk != trk and os.path.exists(alt_trk):
@@ -225,7 +231,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
-    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), **(export_kw or {}))
+    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), unsure=cal.get("unsure", frozenset()), **(export_kw or {}))
     try:
         from .upload import upload_match; upload_match(S.root, match_id, log=log)
     except Exception as e: log(f"upload failed: {e!r}")
