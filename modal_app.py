@@ -1346,7 +1346,7 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
 
 @app.function(gpu="L4", timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def ball_round(match_id: str = "SFKBP1109", epochs: int = 60):
+def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = ""):
     """fine-tune the ball detector on Daniel's clicks, grade old vs new on the 40 exam frames, pictures for each (~$0.50)"""
     import base64, shutil, time
     from ultralytics import YOLO
@@ -1354,10 +1354,16 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60):
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     if full is None: return {"error": "full video not on the volume"}
     log = []; L = lambda m: (log.append(f"{time.strftime('%H:%M:%S')} {m}"), print(m, flush=True))
-    ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); BC.build_dataset(f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json", full, ds, log=L)
-    base = S.weights["ball"]; L(f"training from {os.path.basename(base)} for {epochs} epochs")
-    model = YOLO(base); model.train(data=f"{ds}/data.yaml", epochs=epochs, imgsz=1920, batch=4, lr0=0.001, freeze=4, mosaic=0.5, scale=0.3, fliplr=0.5, project="/tmp/ballft", name="run", exist_ok=True, verbose=False, patience=100)
+    ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); cj = f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"
+    if fast: BC.build_crop_dataset(cj, full, ds, log=L)
+    else: BC.build_dataset(cj, full, ds, log=L)
+    base = S.weights["ball"]; start = start_from if start_from and os.path.exists(start_from) else base
+    L(f"training from {os.path.basename(start)} for {epochs} epochs ({'crops, 640 px' if fast else 'full frames, 1920 px'})"); t_tr = time.time()
+    model = YOLO(start); model.train(data=f"{ds}/data.yaml", epochs=epochs, imgsz=640 if fast else 1920, batch=16 if fast else 4, lr0=0.001, freeze=4, mosaic=0.5, scale=0.3, fliplr=0.5, project="/tmp/ballft", name="run", exist_ok=True, verbose=False, patience=100, val=False)
+    L(f"training took {(time.time() - t_tr) / 60:.1f} min")
     new_w = "/tmp/ballft/run/weights/last.pt"; pics = {}
-    s = BC.grade(new_w, f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json", ds, log=L, pictures=pics, old_weights=base)
+    s = BC.grade(new_w, cj, ds, log=L, pictures=pics, old_weights=base)
+    prev = f"{ROOT}/models/ball/clicks_v1.pt"                                        # round 1's detector, for a fair three-way comparison
+    if os.path.exists(prev): s["round1"] = BC.grade(prev, cj, ds, log=L)["new"]; L(f"  grade round-1 detector on this exam: {s['round1']}")
     os.makedirs(f"{ROOT}/models/ball", exist_ok=True); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_latest.pt"); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_v{int(os.environ.get('BALL_ROUND', '0'))}.pt") if os.environ.get('BALL_ROUND') else None; vol.commit()
     return {"summary": s, "log": log, "pictures": {k: base64.b64encode(v).decode() for k, v in pics.items()}}

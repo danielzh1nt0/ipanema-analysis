@@ -35,6 +35,39 @@ def detect(model, img, conf=0.05, imgsz=1920, far_zoom=True, top=0.45):
         if all(np.hypot(z[0] - k[0], z[1] - k[1]) > 12 for k in keep): keep.append(z)
     return keep
 
+def build_crop_dataset(clicks_json, video, ds, crop=640, box=18, negatives_per=1, log=print, seed=0):
+    """FAST training data: crops of `crop` px around each click (ball off-centre at random), plus crops of ball-free
+    areas of the same frames as negatives. The exam frames are kept as FULL frames so the grade is unchanged."""
+    import random
+    rng = random.Random(seed); d = json.load(open(clicks_json))["frames"]; cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
+    for sub in ("images/train", "labels/train", "images/val", "labels/val"): os.makedirs(f"{ds}/{sub}", exist_ok=True)
+    n = {"train": 0, "val": 0}
+    for r in d:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(r["t"] * fps))); ok, f = cap.read()
+        if not ok: continue
+        h, w = f.shape[:2]; name = r["file"][:-4]
+        if r["split"] == "exam":                                                   # exam stays full-frame
+            cv2.imwrite(f"{ds}/images/val/{name}.jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            with open(f"{ds}/labels/val/{name}.txt", "w") as fh:
+                if r["x"] is not None: b = box * (0.6 if r["y"] < h * 0.4 else 1.0); fh.write(f"0 {r['x'] / w:.6f} {r['y'] / h:.6f} {b / w:.6f} {b / h:.6f}\n")
+            n["val"] += 1; continue
+        crops = []
+        if r["x"] is not None:
+            x0 = int(min(max(0, r["x"] - rng.randint(crop // 5, crop * 4 // 5)), w - crop)); y0 = int(min(max(0, r["y"] - rng.randint(crop // 5, crop * 4 // 5)), h - crop))
+            crops.append((x0, y0, True))
+        for _ in range(negatives_per):                                            # ball-free crop from the same frame
+            for _try in range(20):
+                x0, y0 = rng.randint(0, w - crop), rng.randint(0, h - crop)
+                if r["x"] is None or not (x0 - 40 <= r["x"] <= x0 + crop + 40 and y0 - 40 <= r["y"] <= y0 + crop + 40): crops.append((x0, y0, False)); break
+        for j, (x0, y0, has) in enumerate(crops):
+            c = f[y0:y0 + crop, x0:x0 + crop]; cn = f"{name}_c{j}"
+            cv2.imwrite(f"{ds}/images/train/{cn}.jpg", c, [cv2.IMWRITE_JPEG_QUALITY, 92])
+            with open(f"{ds}/labels/train/{cn}.txt", "w") as fh:
+                if has: b = box * (0.6 if r["y"] < h * 0.4 else 1.0); fh.write(f"0 {(r['x'] - x0) / crop:.6f} {(r['y'] - y0) / crop:.6f} {b / crop:.6f} {b / crop:.6f}\n")
+            n["train"] += 1
+    cap.release(); open(f"{ds}/data.yaml", "w").write(f"path: {ds}\ntrain: images/train\nval: images/val\nnames: ['ball']\n")
+    log(f"  crop dataset: {n['train']} training crops ({crop} px), {n['val']} full-frame exam frames"); return n
+
 def grade(weights, clicks_json, ds, hit_px=30, conf=0.25, imgsz=1920, log=print, pictures=None, old_weights=None):
     from ultralytics import YOLO
     m = YOLO(weights); old = YOLO(old_weights) if old_weights else None; d = [r for r in json.load(open(clicks_json))["frames"] if r["split"] == "exam"]; rows = []
