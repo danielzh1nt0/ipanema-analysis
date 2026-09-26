@@ -1,0 +1,26 @@
+name: New venue frames
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/venue.txt"]
+permissions:
+  contents: write
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q modal
+      - name: cut frames on Modal
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: python scripts_venue_runner.py
+      - name: commit frames
+        run: |
+          git config user.name "lines-bot" && git config user.email "bot@ipanema"
+          git add results/venue && git commit -qm "venue frames: $(cat triggers/venue.txt)" && git push

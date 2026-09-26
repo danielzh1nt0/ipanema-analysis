@@ -1320,6 +1320,20 @@ def venue_base(match_id: str, n_frames: int = 24):
     L(f"venue base {'ACCEPTED' if accepted else 'REJECTED (Edsberg base kept)'}: {np.round(cam['C'], 2)}")
     return {"report": rep, "log": log, "strip_b64": base64.b64encode(buf.tobytes()).decode()}
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def venue_frames(match_id: str, n: int = 30, width: int = 1280):
+    """NEW VENUE, step 1: n frames spread over the match (1280 wide jpgs, base64) for Daniel's pitch-point clicks. Cents."""
+    import cv2, base64, numpy as np
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); out = []
+    for t in np.linspace(120, n_tot / fps - 120, n):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * fps))); ok, f = cap.read()
+        if not ok: continue
+        f = cv2.resize(f, (width, int(round(f.shape[0] * width / f.shape[1])))); ok, buf = cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 86])
+        out.append({"file": f"fc_{t:08.3f}.jpg", "t": float(t), "b64": base64.b64encode(buf.tobytes()).decode()})
+    cap.release(); return {"frames": out, "fps": fps, "minutes": n_tot / fps / 60}
+
 @app.function(timeout=70 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192, max_containers=12)
 def calib_stretch(match_id: str, t0: float, t1: float, fps: float = 1.0):
     """one stretch of the match: line network on CPU, track + fresh placements, self-grading at Daniel's clicked moments"""
