@@ -1,0 +1,417 @@
+{
+"fc_0349.612.jpg": {
+"pairs": [
+[
+"right penalty area: far front corner",
+557,
+244
+],
+[
+"right goal area: far corner on goal line",
+933,
+254
+],
+[
+"right goal area: far front corner",
+755,
+244
+]
+],
+"skipped": false
+},
+"fc_0579.225.jpg": {
+"pairs": [
+[
+"right goal: near post (base)",
+938,
+356
+],
+[
+"right penalty area: far front corner",
+248,
+342
+],
+[
+"right penalty area: far corner on goal line",
+525,
+329
+],
+[
+"far-right corner",
+371,
+326
+],
+[
+"right goal: far post (base)",
+785,
+342
+],
+[
+"right penalty area: near front corner",
+1171,
+411
+],
+[
+"right penalty spot",
+643,
+356
+],
+[
+"right goal area: near front corner",
+1007,
+366
+],
+[
+"right goal area: far front corner",
+611,
+346
+],
+[
+"right goal area: near corner on goal line",
+1048,
+359
+],
+[
+"right goal area: far corner on goal line",
+678,
+342
+]
+],
+"skipped": false
+},
+"fc_0808.837.jpg": {
+"pairs": [
+[
+"right penalty area: far front corner",
+622,
+346
+],
+[
+"right goal area: far front corner",
+993,
+354
+],
+[
+"far-right corner",
+750,
+321
+],
+[
+"right goal: far post (base)",
+1183,
+356
+],
+[
+"right goal area: far corner on goal line",
+1075,
+346
+],
+[
+"right penalty area: far corner on goal line",
+884,
+337
+],
+[
+"right penalty spot",
+943,
+354
+]
+],
+"skipped": false
+},
+"fc_1038.449.jpg": {
+"pairs": [
+[
+"centre spot",
+723,
+362
+],
+[
+"centre circle x halfway (near)",
+716,
+408
+],
+[
+"halfway x far touchline",
+725,
+309
+],
+[
+"centre circle x halfway (far)",
+721,
+339
+],
+[
+"left penalty area: far front corner",
+18,
+319
+]
+],
+"skipped": false
+},
+"fc_1268.062.jpg": {
+"pairs": [
+[
+"centre spot",
+389,
+399
+],
+[
+"centre circle x halfway (near)",
+388,
+450
+],
+[
+"centre circle x halfway (far)",
+386,
+362
+],
+[
+"halfway x far touchline",
+384,
+327
+],
+[
+"right penalty area: far front corner",
+1255,
+336
+]
+],
+"skipped": false
+},
+"fc_1497.674.jpg": {
+"pairs": [
+[
+"left goal: far post (base)",
+320,
+342
+],
+[
+"left goal: near post (base)",
+168,
+354
+],
+[
+"left goal area: far front corner",
+492,
+344
+],
+[
+"left goal area: near front corner",
+111,
+367
+],
+[
+"left goal area: near corner on goal line",
+18,
+361
+],
+[
+"left goal area: far corner on goal line",
+419,
+339
+],
+[
+"left penalty area: far front corner",
+854,
+342
+],
+[
+"left penalty area: far corner on goal line",
+597,
+329
+],
+[
+"far-left corner",
+736,
+319
+]
+],
+"skipped": false
+},
+"fc_1727.287.jpg": {
+"pairs": [
+[
+"right penalty area: far front corner",
+892,
+346
+],
+[
+"far-right corner",
+1008,
+321
+],
+[
+"right penalty area: far corner on goal line",
+1158,
+339
+]
+],
+"skipped": false
+},
+"fc_1956.899.jpg": {
+"pairs": [
+[
+"centre spot",
+280,
+292
+],
+[
+"centre circle x halfway (near)",
+278,
+322
+],
+[
+"halfway x far touchline",
+280,
+244
+],
+[
+"centre circle x halfway (far)",
+284,
+269
+],
+[
+"right penalty area: far front corner",
+767,
+245
+],
+[
+"far-right corner",
+837,
+235
+],
+[
+"right penalty area: far corner on goal line",
+916,
+244
+]
+],
+"skipped": false
+},
+"fc_2186.511.jpg": {
+"pairs": [
+[
+"left penalty area: far front corner",
+391,
+346
+],
+[
+"far-left corner",
+262,
+332
+],
+[
+"left penalty area: far corner on goal line",
+116,
+344
+],
+[
+"left goal area: far front corner",
+10,
+361
+]
+],
+"skipped": false
+},
+"fc_2416.124.jpg": {
+"pairs": [
+[
+"near-left corner",
+205,
+359
+],
+[
+"left penalty area: near front corner",
+718,
+389
+],
+[
+"left penalty area: near corner on goal line",
+544,
+346
+],
+[
+"left goal: near post (base)",
+936,
+336
+],
+[
+"left goal: far post (base)",
+1089,
+329
+],
+[
+"left goal area: near front corner",
+874,
+349
+],
+[
+"left goal area: near corner on goal line",
+815,
+339
+],
+[
+"left penalty spot",
+1154,
+357
+]
+],
+"skipped": false
+},
+"fc_2645.736.jpg": {
+"pairs": [
+[
+"left goal: near post (base)",
+409,
+351
+],
+[
+"left goal: far post (base)",
+554,
+347
+],
+[
+"left penalty area: near front corner",
+180,
+414
+],
+[
+"left goal area: near front corner",
+357,
+364
+],
+[
+"left goal area: near corner on goal line",
+285,
+362
+],
+[
+"left goal area: far corner on goal line",
+659,
+344
+],
+[
+"left goal area: far front corner",
+730,
+347
+],
+[
+"far-left corner",
+973,
+324
+],
+[
+"left penalty area: far corner on goal line",
+797,
+341
+],
+[
+"left penalty area: far front corner",
+1092,
+354
+]
+],
+"skipped": false
+}
+}
