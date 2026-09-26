@@ -103,7 +103,13 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         log(f"tracking: reused detections, re-positioned with the {'line' if _lines else 'panorama'} calibration")
     else: per, fps = TR.track(video, S.weights["player"], H, tm, 0.1 if panorama else S.conf_player, log=log, imgsz=2560 if panorama else None)   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s); pickle.dump((per, fps), open(trk, "wb"))
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
+    _clicks_w = os.path.join(S.root, "models", "ball", "clicks_latest.pt")     # the click-trained ball model (26 Sep: 52/71 vs 38/71 old)
+    if "IPANEMA_BALL" not in os.environ and os.path.exists(_clicks_w): ball_backend = "clicks"
     cands = None
+    if ball_backend == "clicks":
+        from . import ballclicks as BC
+        cands = BC.candidates(video, _clicks_w, f"{cache}/ball_cands_clicks.pkl", S.conf_ball, log=log)
+        log(f"ball: click-trained model ({os.path.basename(_clicks_w)}), {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f} candidates/frame")
     if ball_backend == "wasb":
         try:
             from . import wasb

@@ -105,3 +105,22 @@ def grade(weights, clicks_json, ds, hit_px=30, conf=0.25, imgsz=1920, log=print,
                 "no_ball_right": sum(x[key]["correct"] for x in nb if x[key]), "no_ball_frames": len(nb)}
     s = {"new": score("new"), "new_farzoom": score("new_farzoom"), "old": score("old") if old else None, "frames": rows}
     log(f"  grade new: {s['new']}  new+far zoom: {s['new_farzoom']}  old: {s['old']}"); return s
+
+
+def candidates(video, weights, cache, conf=0.05, log=print):
+    """ball candidates for the app pipeline with the click-trained model, exactly as graded (full frame 1920 + far zoom);
+    same {frame: [(x, y, conf), ...]} shape as ball.candidates, cached and resumable"""
+    import pickle, os
+    from ultralytics import YOLO
+    from .video import frames
+    out = {}; partial = cache + ".partial"
+    if os.path.exists(cache): return pickle.load(open(cache, "rb"))
+    if os.path.exists(partial): out = pickle.load(open(partial, "rb")); log(f"  ball: resuming from frame {len(out)}")
+    model = YOLO(weights)
+    for k, f in frames(video):
+        if k in out: continue
+        out[k] = [(float(x), float(y), float(c)) for x, y, c in detect(model, f, conf=conf)]
+        if k % 500 == 0: log(f"  ball frame {k}: {len(out[k])} candidates"); pickle.dump(out, open(partial, "wb"))
+    pickle.dump(out, open(cache, "wb"))
+    if os.path.exists(partial): os.remove(partial)
+    return out
