@@ -1435,7 +1435,7 @@ def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: flo
             "log": [l for p in parts for l in p["log"]], "pictures": {k: v for p in parts for k, v in p.get("pictures", {}).items()}}
 
 @app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0, weights: str = "", exclude_json: str = ""):
+def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0, weights: str = "", exclude_json: str = "", mode: str = "hard"):
     """The frames worth clicking: run the ball detector once a second over the match and keep the moments where it is
     absent, unsure or the ball is far/small - spread over the match. Returns 960-wide JPEGs (base64) + the detector's
     own guesses so the click page can show them. One GPU pass (~5 min)."""
@@ -1446,6 +1446,7 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     if full is None: return {"error": "full video not on the volume"}
     import json as _j
     model = YOLO(weights if weights and os.path.exists(weights) else S.weights["ball"]); cap = cv2.VideoCapture(full)
+    players = YOLO(S.weights["player"]) if mode == "feet" else None                # at-feet round: the ball next to a player's feet
     already = {round(r["t"]) for r in _j.load(open(exclude_json))["frames"]} if exclude_json and os.path.exists(exclude_json) else set(); vfps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     step = int(round(vfps / fps)); recs = []; k = 0
     while True:
@@ -1455,10 +1456,15 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
             r = model(f, conf=0.05, imgsz=1920, verbose=False)[0]; det = [(float((a + c) / 2), float((b + d) / 2), float(cf)) for (a, b, c, d), cf in zip(r.boxes.xyxy.cpu().numpy(), r.boxes.conf.cpu().numpy())]
             det.sort(key=lambda z: -z[2]); top = det[0][2] if det else 0.0
             group = "absent" if top < 0.15 else ("unsure" if top < 0.5 else ("far" if det[0][1] < f.shape[0] * 0.38 else "easy"))
+            if players is not None and det:
+                pr = players(f, conf=0.3, imgsz=1280, verbose=False)[0]; feet = [((a + c) / 2, d) for a, b, c, d in pr.boxes.xyxy.cpu().numpy()]
+                if any(np.hypot(det[0][0] - fx, det[0][1] - fy) < 60 * f.shape[1] / 1280 for fx, fy in feet): group = "feet"
             recs.append({"t": round(k / vfps, 3), "k": k, "group": group, "top": round(top, 3), "det": [[round(x, 1), round(y, 1), round(c, 3)] for x, y, c in det[:5]]})
         k += 1
     cap.release()
-    quota = {"absent": int(n * 0.35), "unsure": int(n * 0.35), "far": int(n * 0.2), "easy": n - int(n * 0.35) * 2 - int(n * 0.2)}; chosen = []
+    quota = {"absent": int(n * 0.35), "unsure": int(n * 0.35), "far": int(n * 0.2), "easy": n - int(n * 0.35) * 2 - int(n * 0.2)}
+    if mode == "feet": quota = {"feet": int(n * 0.5), "absent": int(n * 0.35), "unsure": n - int(n * 0.5) - int(n * 0.35)}
+    chosen = []
     for g_, q in quota.items():
         pool = [r for r in recs if r["group"] == g_]
         if pool: chosen += [pool[i] for i in sorted(set(np.linspace(0, len(pool) - 1, min(q, len(pool))).astype(int)))]

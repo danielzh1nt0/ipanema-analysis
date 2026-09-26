@@ -3,7 +3,8 @@ import os, sys, json, time, base64, traceback, modal
 tag = os.environ.get("TAG", time.strftime("%Y%m%d_%H%M")); OUT = f"results/ballclicks/{tag}"; os.makedirs(OUT, exist_ok=True)
 def log(m): line = f"{time.strftime('%H:%M:%S')} {m}"; print(line, flush=True); open(f"{OUT}/log.txt", "a").write(line + "\n")
 try:
-    res = modal.Function.from_name("ipanema", "ball_hard_frames").remote("SFKBP1109", 150, 1.0, "/data/match_analysis/models/ball/clicks_v1.pt", "/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json")
+    mode = "feet" if "feet" in open("triggers/ballframes.txt").read() else "hard"
+    res = modal.Function.from_name("ipanema", "ball_hard_frames").remote("SFKBP1109", 150, 1.0, "/data/match_analysis/models/ball/clicks_latest.pt", "/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json", mode)
     if "error" in res: log(res["error"]); sys.exit(1)
     meta = []
     for r in res["frames"]:
