@@ -80,6 +80,7 @@ def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
     """yields (k, frame, detections, names) with detection done in batches"""
     buf = []
     def flush():
+        if not buf: return                                                     # 26 Sep: a clip of exactly N x batch frames crashed on the empty last flush
         dets = detect_tiled_batch(model, [f for _, f in buf], conf, tiles, imgsz)
         for (k, f), (det, names) in zip(buf, dets): yield k, f, det, names
         buf.clear()
