@@ -1,7 +1,7 @@
-# live log · SFKBP1109_s1200 · running · 19:54:55 UTC
+# live log · SFKBP1109_s1200 · finished · 19:55:15 UTC
 
 
-## run_match.log (23 lines, last 60)
+## run_match.log (44 lines, last 60)
 === SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
@@ -25,3 +25,24 @@ teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit
   tracking frame 7500 (6.4 frames/s)
   tracking frame 8000 (6.5 frames/s)
   tracking frame 8500 (6.4 frames/s)
+RUN FAILED: Traceback (most recent call last):
+  File "/root/modal_app.py", line 44, in run_match
+    try: summary, folder, z = run(src, match_id=match_id, settings=S, log=log)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/run.py", line 264, in run
+    return analyse(prepare(video_src, match_id, S, log=log), S, log=log)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/run.py", line 103, in prepare
+    else: per, fps = TR.track(video, S.weights["player"], H, tm, 0.1 if panorama else S.conf_player, log=log, imgsz=2560 if panorama else 960, tiles=None if panorama else TR.FOLLOW_TILES, pano=panorama); pickle.dump((per, fps), open(trk, "wb"))   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/tracking.py", line 113, in track
+    for k, f, det, names in src:
+  File "/content/ipanema-analysis/ipanema/tracking.py", line 89, in _batched_frames
+    yield from flush()
+  File "/content/ipanema-analysis/ipanema/tracking.py", line 83, in flush
+    dets = detect_tiled_batch(model, [f for _, f in buf], conf, tiles, imgsz)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/ipanema-analysis/ipanema/tracking.py", line 64, in detect_tiled_batch
+    h, w = fs[0].shape[:2]; rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
+           ~~^^^
+IndexError: list index out of range
