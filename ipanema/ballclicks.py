@@ -107,20 +107,36 @@ def grade(weights, clicks_json, ds, hit_px=30, conf=0.25, imgsz=1920, log=print,
     log(f"  grade new: {s['new']}  new+far zoom: {s['new_farzoom']}  old: {s['old']}"); return s
 
 
-def candidates(video, weights, cache, conf=0.05, log=print):
-    """ball candidates for the app pipeline with the click-trained model, exactly as graded (full frame 1920 + far zoom);
+def candidates(video, weights, cache, conf=0.05, log=print, batch=8, imgsz=1920, top=0.45):
+    """ball candidates for the app pipeline with the click-trained model, as graded (full frame 1920 + far zoom on the
+    top strip), batched on the GPU (26 Sep: one frame at a time ran at 1.5 frames/s = 90 min per 5-min clip);
     same {frame: [(x, y, conf), ...]} shape as ball.candidates, cached and resumable"""
-    import pickle, os
+    import pickle, os, time
     from ultralytics import YOLO
     from .video import frames
     out = {}; partial = cache + ".partial"
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
     if os.path.exists(partial): out = pickle.load(open(partial, "rb")); log(f"  ball: resuming from frame {len(out)}")
-    model = YOLO(weights)
+    model = YOLO(weights); t0 = time.time(); buf = []
+    def flush():
+        if not buf: return
+        ks = [k for k, _ in buf]; ims = [f for _, f in buf]
+        R1 = model(ims, conf=conf, imgsz=imgsz, verbose=False, half=True)
+        h = ims[0].shape[0]; strips = [cv2.resize(f[:int(h * top)], None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) for f in ims]
+        R2 = model(strips, conf=conf, imgsz=imgsz * 2, verbose=False, half=True)
+        for k, r1, r2 in zip(ks, R1, R2):
+            det = [(float((a + c) / 2), float((b + d) / 2), float(cf)) for (a, b, c, d), cf in zip(r1.boxes.xyxy.cpu().numpy(), r1.boxes.conf.cpu().numpy())]
+            det += [(float((a + c) / 4), float((b + d) / 4), float(cf)) for (a, b, c, d), cf in zip(r2.boxes.xyxy.cpu().numpy(), r2.boxes.conf.cpu().numpy())]
+            det.sort(key=lambda z: -z[2]); keep = []
+            for z in det:
+                if all(np.hypot(z[0] - q[0], z[1] - q[1]) > 12 for q in keep): keep.append(z)
+            out[k] = keep
+        buf.clear()
     for k, f in frames(video):
         if k in out: continue
-        out[k] = [(float(x), float(y), float(c)) for x, y, c in detect(model, f, conf=conf)]
-        if k % 500 == 0: log(f"  ball frame {k}: {len(out[k])} candidates"); pickle.dump(out, open(partial, "wb"))
-    pickle.dump(out, open(cache, "wb"))
+        buf.append((k, f))
+        if len(buf) >= batch: flush()
+        if k % 500 == 0 and k: log(f"  ball frame {k}: {len(out.get(k - 1, []))} candidates, {(k / max(time.time() - t0, 1e-6)):.1f} frames/s"); pickle.dump(out, open(partial, "wb"))
+    flush(); pickle.dump(out, open(cache, "wb"))
     if os.path.exists(partial): os.remove(partial)
     return out
