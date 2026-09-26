@@ -1284,7 +1284,7 @@ def _venue_solution(match_id):
     if os.path.exists(p): return {"camera": _j.load(open(p))["camera"]}
     return _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
 
-@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384, secrets=[modal.Secret.from_name("ipanema-storage")])
 def venue_base(match_id: str, n_frames: int = 24):
     """NEW VENUE: sample frames over the match, paint lines with the network, solve the camera base from the lines alone
     (no clicks), keep it only if it beats the Edsberg base on held-out frames. Returns the strip + report (~$0.5, ~20 min)."""
@@ -1292,9 +1292,16 @@ def venue_base(match_id: str, n_frames: int = 24):
     subprocess.run("pip install -q --no-deps segmentation-models-pytorch", shell=True, check=True)
     _setup()
     from ipanema import lines as LN, linetrain as LT, venue as V
-    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
-    if full is None: return {"error": "full video not on the volume"}
     log = []; L = lambda s: (log.append(f"{time.strftime('%H:%M:%S')} {s}"), print(s, flush=True))
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None:                                                           # uploaded through the app: fetch it from R2 once
+        import requests
+        url = f"{os.environ['R2_PUBLIC_URL'].rstrip('/')}/{match_id}/video.mp4"; full = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(full), exist_ok=True)
+        with requests.get(url, stream=True, timeout=600) as r:
+            if r.status_code != 200: return {"error": f"full video not on the volume and not on R2 ({url}: {r.status_code})"}
+            with open(full, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+        vol.commit(); L(f"video fetched from R2 ({os.path.getsize(full) / 1e9:.1f} GB)")
     cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); frames = []
     for t in np.linspace(120, n_tot / fps - 120, n_frames):
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * fps))); ok, f = cap.read()
