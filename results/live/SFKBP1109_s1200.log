@@ -1,7 +1,7 @@
-# live log · SFKBP1109_s1200 · running · 15:27:49 UTC
+# live log · SFKBP1109_s1200 · finished · 15:28:09 UTC
 
 
-## run_match.log (30 lines, last 60)
+## run_match.log (59 lines, last 60)
 segment: p15u-vs-bp-2026-09-22-2000 0s +300s -> p15u-vs-bp-2026-09-22-2000_s0.mp4
 === SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
@@ -32,3 +32,32 @@ ball reliability: 67% frames, 56% near a player, 0 jumps -> UNRELIABLE (stats wi
   step: export
   wrote match_data.json (19.9 MB)
 export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (187 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109_s1200
+  ball_reliable              False
+  ball_grade                 {'accuracy': 0.65, 'near_player_pct': 0.56, 'frames_pct': 0.67, 'possession_ok': False, 'events_ok': False}
+  duration_s                 300.0
+  calibration_coverage       0.72
+  calibration_frozen         2488
+  team_dark_share            {'A': 0.49, 'B': 0.29}
+  players_per_frame_median   {'A': 5.0, 'B': 8.0}
+  ball_frames_pct            100
+  match_seconds              300.0
+  periods                    None
+  ball_check                 {'correct': 22, 'total': 34, 'wrong': 12, 'ceiling': 25}
+  possession_pct             {'A': 32, 'B': 68}
+  loose_pct                  39
+  dead_pct                   26
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.1, 'B': 0.21}
+  turnovers                  0
+  passes                     657
+  restarts                   28
+  sequences                  61
+  shots                      {'A': 0, 'B': 0}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 9, 'B': 36}
+  runtime_min                3.7
