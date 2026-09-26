@@ -107,8 +107,17 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     cands = None
     if ball_backend == "clicks":
         from . import ballclicks as BC
-        cands = BC.candidates(video, _clicks_w, f"{cache}/ball_cands_clicks.pkl", S.conf_ball, log=log)
-        log(f"ball: click-trained model ({os.path.basename(_clicks_w)}), {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f} candidates/frame")
+        clicks = BC.candidates(video, _clicks_w, f"{cache}/ball_cands_clicks.pkl", S.conf_ball, log=log)
+        log(f"ball: click-trained model ({os.path.basename(_clicks_w)}), {sum(len(v) for v in clicks.values())/max(1,len(clicks)):.1f} candidates/frame")
+        try:                                                                   # 26 Sep clip: click model alone had the ball in 19/34 check frames, WASB 25/34 -> union
+            from . import wasb
+            wb = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log, train=train_ball); cands = {}
+            for k in set(clicks) | set(wb):
+                ws = [(x, y, min(0.99, 0.5 + 0.5 * c)) for x, y, c in wb.get(k, [])]
+                cs = [(x, y, c) for x, y, c in clicks.get(k, []) if all(np.hypot(x - wx, y - wy) > 12 for wx, wy, _ in ws)]
+                cands[k] = ws + cs
+            log(f"ball: WASB + click-model candidates merged, {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f}/frame")
+        except Exception as e: log(f"ball: WASB merge skipped ({e!r})"); cands = clicks
     if ball_backend == "wasb":
         try:
             from . import wasb
