@@ -1,10 +1,10 @@
   tracking frame 0
-  timing @ frame 100: 2.9 frames/s | read 19.0s, detect 0.0s, tracker 0.3s, team 15.4s, rest 15.4s (team rest incl. in 'rest'), 18 detections this frame
-  timing @ frame 200: 3.0 frames/s | read 37.2s, detect 0.0s, tracker 0.6s, team 28.9s, rest 29.0s (team rest incl. in 'rest'), 18 detections this frame
-  timing @ frame 300: 3.1 frames/s | read 54.1s, detect 0.0s, tracker 1.0s, team 40.4s, rest 40.5s (team rest incl. in 'rest'), 14 detections this frame
-batched far-band: 400 frames in 126 s
+  timing @ frame 100: 4.6 frames/s | read 11.6s, detect 0.0s, tracker 0.3s, team 9.7s, rest 9.7s (team rest incl. in 'rest'), 18 detections this frame
+  timing @ frame 200: 5.2 frames/s | read 22.6s, detect 0.0s, tracker 0.5s, team 14.9s, rest 15.0s (team rest incl. in 'rest'), 14 detections this frame
+  timing @ frame 300: 5.7 frames/s | read 32.4s, detect 0.0s, tracker 0.8s, team 19.7s, rest 19.7s (team rest incl. in 'rest'), 19 detections this frame
+batched far-band: 400 frames in 69 s
   tracking frame 0
-  timing @ frame 100: 5.5 frames/s | read 0.2s, detect 6.5s, tracker 0.2s, team 11.2s, rest 11.2s (team rest incl. in 'rest'), 16 detections this frame
-  timing @ frame 200: 5.5 frames/s | read 0.4s, detect 12.5s, tracker 0.5s, team 23.3s, rest 23.3s (team rest incl. in 'rest'), 14 detections this frame
-  timing @ frame 300: 5.5 frames/s | read 0.6s, detect 18.4s, tracker 0.7s, team 34.3s, rest 34.3s (team rest incl. in 'rest'), 15 detections this frame
-old full-frame only: 400 frames in 72 s
+  timing @ frame 100: 8.7 frames/s | read 0.3s, detect 6.4s, tracker 0.2s, team 4.5s, rest 4.6s (team rest incl. in 'rest'), 16 detections this frame
+  timing @ frame 200: 8.9 frames/s | read 0.4s, detect 12.2s, tracker 0.5s, team 9.3s, rest 9.4s (team rest incl. in 'rest'), 14 detections this frame
+  timing @ frame 300: 9.1 frames/s | read 0.6s, detect 18.1s, tracker 0.7s, team 13.4s, rest 13.5s (team rest incl. in 'rest'), 15 detections this frame
+old full-frame only: 400 frames in 45 s
