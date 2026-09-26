@@ -58,6 +58,36 @@ def kit_labels(f, boxes, min_gap=18.0, dark_fallback=105.0):
 
 FOLLOW_TILES = ((0.0, 0.0, 1.0, 1.0), (0.0, 0.2, 0.55, 0.65), (0.45, 0.2, 1.0, 0.65))   # whole frame + the far band in two halves (far players are 15 px tall at 640)
 
+def detect_tiled_batch(model, fs, conf, tiles, imgsz=None, half=True):
+    """detect_tiled for several frames in ONE GPU call (26 Sep: one frame at a time ran at 2.3 frames/s)"""
+    import supervision as sv
+    h, w = fs[0].shape[:2]; rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
+    crops = [f[b:d, a:c] for f in fs for a, b, c, d in rects]
+    results = model(crops, conf=conf, verbose=False, half=half, **({"imgsz": imgsz} if imgsz else {})); out = []
+    for i in range(len(fs)):
+        boxes, confs, cls = [], [], []; names = {}
+        for (a, b, c, d), res in zip(rects, results[i * len(rects):(i + 1) * len(rects)]):
+            names = res.names; det = sv.Detections.from_ultralytics(res)
+            if len(det):
+                xy = det.xyxy.copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b
+                boxes.append(xy); confs.append(det.confidence); cls.append(det.class_id)
+        if not boxes: out.append((sv.Detections.empty(), names)); continue
+        det = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.concatenate(cls)).with_nms(0.5, class_agnostic=True)
+        out.append((det, names))
+    return out
+
+def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
+    """yields (k, frame, detections, names) with detection done in batches"""
+    buf = []
+    def flush():
+        dets = detect_tiled_batch(model, [f for _, f in buf], conf, tiles, imgsz)
+        for (k, f), (det, names) in zip(buf, dets): yield k, f, det, names
+        buf.clear()
+    for k, f in frames(video):
+        buf.append((k, f))
+        if len(buf) >= batch: yield from flush()
+    yield from flush()
+
 def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None, pano=None):
     pano = (tiles is not None or imgsz is not None) if pano is None else pano       # panorama clips: kit colours, team check every 5th frame
     import supervision as sv
@@ -79,9 +109,11 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
     import time as _time
     prof = {"read": 0.0, "detect": 0.0, "tracker": 0.0, "team": 0.0, "rest": 0.0}; t_mark = _time.time(); t_start = t_mark
     max_frames = int(os.environ.get("IPANEMA_MAX_FRAMES", "0") or 0)
-    for k, f in frames(video):
+    src = _batched_frames(video, model, conf, tiles, imgsz) if (tiles and not pano) else ((k, f, None, None) for k, f in frames(video))
+    for k, f, det, names in src:
         _t = _time.time(); prof["read"] += _t - t_mark
-        if tiles:
+        if det is not None: pass                                               # follow-cam: detected in batches already
+        elif tiles:
             det, names = detect_tiled(model, f, conf, tiles, imgsz=imgsz)
         else:
             res = model(f, conf=conf, verbose=False, **({"imgsz": imgsz} if imgsz else {}))[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
@@ -123,7 +155,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
         t_mark = _time.time(); prof["rest"] += t_mark - _t3
         if k % 500 == 0: log(f"  tracking frame {k}" + (f" ({k / max(1e-6, _time.time() - t_start):.1f} frames/s)" if k else ""))
         if k == 1500 and not max_frames:                                   # watchdog: stop a run that cannot finish in time
-            sp = k / max(1e-6, _time.time() - t_start); floor = float(os.environ.get("IPANEMA_MIN_FPS", "2.0"))
+            sp = k / max(1e-6, _time.time() - t_start); floor = float(os.environ.get("IPANEMA_MIN_FPS", "4.0"))   # 9000 frames must fit well inside the 60-min watchdog
             if sp < floor: raise RuntimeError(f"tracking too slow: {sp:.1f} frames/s after {k} frames (needs at least {floor:.1f}); stopping instead of burning the time limit")
         if k and k % 100 == 0 and max_frames:
             el = t_mark - t_start; log(f"  timing @ frame {k}: {k / el:.1f} frames/s | " + ", ".join(f"{a} {v:.1f}s" for a, v in prof.items()) + f" (team rest incl. in 'rest'), {len(det)} detections this frame")
