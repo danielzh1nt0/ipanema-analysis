@@ -1,0 +1,7 @@
+06:20:41 06:08:24   crop dataset: 380 training crops (640 px), 71 full-frame exam frames
+06:20:41 06:08:24 training from clicks_v1.pt for 40 epochs (crops, 640 px)
+06:20:41 06:18:30 training took 10.1 min
+06:20:41 06:19:57   grade new: {'correct': 50, 'of': 71, 'ball_found': 35, 'ball_frames': 54, 'no_ball_right': 15, 'no_ball_frames': 17}  new+far zoom: {'correct': 49, 'of': 71, 'ball_found': 35, 'ball_frames': 54, 'no_ball_right': 14, 'no_ball_frames': 17}  old: {'correct': 38, 'of': 71, 'ball_found': 24, 'ball_frames': 54, 'no_ball_right': 14, 'no_ball_frames': 17}
+06:20:41 06:20:35   grade new: {'correct': 51, 'of': 71, 'ball_found': 35, 'ball_frames': 54, 'no_ball_right': 16, 'no_ball_frames': 17}  new+far zoom: {'correct': 51, 'of': 71, 'ball_found': 35, 'ball_frames': 54, 'no_ball_right': 16, 'no_ball_frames': 17}  old: None
+06:20:41 06:20:35   grade round-1 detector on this exam: {'correct': 51, 'of': 71, 'ball_found': 35, 'ball_frames': 54, 'no_ball_right': 16, 'no_ball_frames': 17}
+06:20:41 ball exam (40 frames Daniel clicked, never trained on): NEW 50/71 correct (ball found 35/54, no-ball right 15/17); NEW + far zoom 49/71 (ball found 35/54); OLD 38/71 (ball found 24/54); ROUND-1 detector 51/71
