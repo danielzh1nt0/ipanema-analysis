@@ -1324,6 +1324,28 @@ def venue_round(match_id: str, epochs: int = 30, max_minutes: int = 20):
             for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
     return {"summary": summary, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
 
+@app.function(gpu="L4", timeout=15 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")])
+def profile_tracking(match_id: str = "SFKBP1109_s1200", n_frames: int = 400):
+    """WHERE does tracking time go? 400 frames of a clip already on the volume, per-stage seconds every 100 frames. ~3 min, cents."""
+    import time, io, contextlib
+    _setup(); os.environ["IPANEMA_MAX_FRAMES"] = str(n_frames)
+    from ipanema.config import Settings
+    from ipanema import tracking as TR, teams as T, linecal as LC, video as V
+    S = Settings(root=ROOT, sports_dir="/content/sports", work="/tmp/work")
+    video = f"{S.work}/{match_id}/video.mp4"
+    if not os.path.exists(video):
+        src = next((p for p in (f"{ROOT}/videos/{match_id}.mp4",) if os.path.exists(p)), None)
+        if src is None: return {"error": "clip not on the volume"}
+        video = V.normalise(src, video)
+    vi = V.info(video); lines = LC.find_rows(S.root, match_id); lg = []
+    cal = LC.calibration_for_clip(lines[2], vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=lines[1], log=lg.append)
+    T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=lg.append)
+    t0 = time.time(); TR.track(video, S.weights["player"], cal["H"], tm, S.conf_player, log=lg.append, imgsz=1280, tiles=TR.FOLLOW_TILES, pano=False)
+    lg.append(f"batched far-band: {n_frames} frames in {time.time() - t0:.0f} s")
+    t0 = time.time(); TR.track(video, S.weights["player"], cal["H"], tm, S.conf_player, log=lg.append, imgsz=None, tiles=None, pano=False)
+    lg.append(f"old full-frame only: {n_frames} frames in {time.time() - t0:.0f} s")
+    return {"log": [l for l in lg if "timing" in l or "frames in" in l or "frame 0" in l]}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j

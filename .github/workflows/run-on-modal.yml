@@ -57,6 +57,19 @@ jobs:
           git config user.name modal-bot && git config user.email modal@ipanema
           M=$(python -c "import os,re; h=re.search(r'\[run:([A-Za-z0-9_-]+)\]', os.environ['MSG']); print(h.group(1) if h else os.environ['MATCH'])")
           python scripts_watch.py match "$M"
+      - name: profile tracking (commit tagged [profile]) - 400 frames, cents
+        if: contains(github.event.head_commit.message, '[profile]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os
+          out = modal.Function.from_name("ipanema", "profile_tracking").remote("SFKBP1109_s1200", 400)
+          os.makedirs("results/modal", exist_ok=True); txt = "\n".join(out.get("log", [])) or str(out); open("results/modal/profile_tracking.txt", "w").write(txt + "\n"); print(txt)
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/modal/profile_tracking.txt && git commit -qm "profile tracking" && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
