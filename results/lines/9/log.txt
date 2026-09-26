@@ -1,0 +1,15 @@
+14:34:35   1 YES frames skipped: within 10 s of a held-back moment
+14:34:49 line dataset: 209 training frames, 9 held-back clicked frames (0 missing from zips) -> /tmp/lines_ds_multi
+14:34:49   venue dataset: 6 clicked frames x6 for training, 3 held back for the exam
+14:34:49   36 venue training pictures merged with Edsberg's
+14:35:42   epoch 5/30: loss 0.3701, held-back line IoU 0.388, 0.7 min
+14:36:23   epoch 10/30: loss 0.3224, held-back line IoU 0.329, 1.4 min
+14:37:03   epoch 15/30: loss 0.2954, held-back line IoU 0.329, 2.1 min
+14:37:43   epoch 20/30: loss 0.2683, held-back line IoU 0.342, 2.7 min
+14:38:22   epoch 25/30: loss 0.262, held-back line IoU 0.331, 3.4 min
+14:39:01   epoch 30/30: loss 0.2505, held-back line IoU 0.335, 4.0 min
+14:40:42 grade: {'held_back_frames': 9, 'placed_correctly': 4, 'confident': 8, 'confident_and_correct': 4, 'confident_but_wrong': ['s1_fc_1366.912', 's1_fc_1818.369', 's2_fc_0112.864', 's2_fc_1467.236'], 'median_error_px_1280': 12.5, 'errors_px': [7.9, 16.4, 18.0, 24.6, 4.5, 12.5, 3.6, 8.4, 14.0], 'errors_before_snap_px': [7.9, 16.4, 18.0, 24.6, 4.5, 12.5, 3.6, 8.4, 14.0], 'per_variant_within_10px': {'fit': 4}, 'per_variant_median_px': {'fit': 12.5}, 'extra_frames_pictured': 0}
+14:42:21 grade: {'held_back_frames': 9, 'placed_correctly': 5, 'confident': 9, 'confident_and_correct': 5, 'confident_but_wrong': ['s1_fc_0840.212', 's1_fc_1366.912', 's1_fc_1818.369', 's2_fc_1467.236'], 'median_error_px_1280': 9.8, 'errors_px': [8.8, 12.6, 16.0, 22.6, 4.8, 6.4, 3.5, 9.8, 14.2], 'errors_before_snap_px': [8.8, 12.6, 16.0, 22.6, 4.8, 6.4, 3.5, 9.8, 14.2], 'per_variant_within_10px': {'fit': 5}, 'per_variant_median_px': {'fit': 9.8}, 'extra_frames_pictured': 0}
+14:42:55 grade: {'held_back_frames': 3, 'placed_correctly': 3, 'confident': 2, 'confident_and_correct': 2, 'confident_but_wrong': [], 'median_error_px_1280': 5.3, 'errors_px': [3.1, 5.3, 5.4], 'errors_before_snap_px': [3.1, 5.3, 5.4], 'per_variant_within_10px': {'fit': 3}, 'per_variant_median_px': {'fit': 5.3}, 'extra_frames_pictured': 0}
+14:43:28 grade: {'held_back_frames': 3, 'placed_correctly': 1, 'confident': 1, 'confident_and_correct': 1, 'confident_but_wrong': [], 'median_error_px_1280': 1331.9, 'errors_px': [3.5, 1331.9, 1413540.4], 'errors_before_snap_px': [3.5, 1331.9, 1413540.4], 'per_variant_within_10px': {'fit': 1}, 'per_variant_median_px': {'fit': 1331.9}, 'extra_frames_pictured': 0}
+14:43:33 p15u-vs-aik-2026-09-21-bd09: new ground held-back frames 1/3 -> 3/3 within 10 px (median 5.3 px); Edsberg 5/9 -> 4/9; 9 min

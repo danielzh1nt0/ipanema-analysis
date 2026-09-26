@@ -1,0 +1,19 @@
+{
+ "edsberg": {
+  "before": "5/9",
+  "after": "4/9",
+  "median_px_after": 12.5
+ },
+ "venue": {
+  "before": "1/3",
+  "after": "3/3",
+  "median_px_after": 5.3,
+  "errors_px": [
+   3.1,
+   5.3,
+   5.4
+  ]
+ },
+ "minutes": 9.0,
+ "weights": "models/lines/venue_p15u-vs-aik-2026-09-21-bd09.pt (Edsberg's last.pt untouched)"
+}

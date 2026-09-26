@@ -1,0 +1,105 @@
+{
+"summary": {
+"held_back_frames": 3,
+"placed_correctly": 3,
+"confident": 2,
+"confident_and_correct": 2,
+"confident_but_wrong": [],
+"median_error_px_1280": 5.3,
+"errors_px": [
+3.1,
+5.3,
+5.4
+],
+"errors_before_snap_px": [
+3.1,
+5.3,
+5.4
+],
+"per_variant_within_10px": {
+"fit": 3
+},
+"per_variant_median_px": {
+"fit": 5.3
+},
+"extra_frames_pictured": 0
+},
+"frames": [
+{
+"frame": "venue_fc_1038.449",
+"held_back": true,
+"confident": true,
+"error_median_px_1280": 3.1,
+"correct": true,
+"reference_pose_click_error_px": 2.8,
+"variants_px": {
+"fit": 3.1
+},
+"error_before_snap_px": 3.1,
+"classes_seen": [
+"far touchline",
+"halfway line",
+"centre circle"
+],
+"families": [
+"across",
+"along",
+"circle"
+]
+},
+{
+"frame": "venue_fc_1956.899",
+"held_back": true,
+"confident": false,
+"error_median_px_1280": 5.3,
+"correct": true,
+"reference_pose_click_error_px": 2.9,
+"variants_px": {
+"fit": 5.3
+},
+"error_before_snap_px": 5.3,
+"classes_seen": [
+"far touchline",
+"goal line",
+"halfway line",
+"centre circle",
+"penalty box front",
+"penalty box sides",
+"goal area front",
+"penalty arc"
+],
+"families": [
+"across",
+"along",
+"arc",
+"circle"
+]
+},
+{
+"frame": "venue_fc_2645.736",
+"held_back": true,
+"confident": true,
+"error_median_px_1280": 5.4,
+"correct": true,
+"reference_pose_click_error_px": 3.7,
+"variants_px": {
+"fit": 5.4
+},
+"error_before_snap_px": 5.4,
+"classes_seen": [
+"far touchline",
+"goal line",
+"penalty box front",
+"penalty box sides",
+"goal area front",
+"goal area sides",
+"penalty arc"
+],
+"families": [
+"across",
+"along",
+"arc"
+]
+}
+]
+}
