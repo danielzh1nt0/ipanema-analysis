@@ -34,7 +34,10 @@ def train(ds_dir, out_dir, epochs=80, batch=8, lr=3e-4, encoder="resnet34", weig
     import torch, torch.nn.functional as F
     device = device or ("cuda" if torch.cuda.is_available() else "cpu"); os.makedirs(out_dir, exist_ok=True)
     tr, va = load_split(ds_dir, "train"), load_split(ds_dir, "val")
-    torch.manual_seed(seed); rng = np.random.RandomState(seed); model = make_model(encoder, weights).to(device)
+    torch.manual_seed(seed); rng = np.random.RandomState(seed)
+    if isinstance(weights, str) and weights.endswith(".pt"):                     # continue from an earlier round's weights
+        model = make_model(encoder, None); model.load_state_dict(torch.load(weights, map_location="cpu")); model = model.to(device)
+    else: model = make_model(encoder, weights).to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-4); steps = epochs * max(1, len(tr) // batch)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=steps, pct_start=0.1)
     cw = torch.ones(len(LN.CLASSES), device=device); cw[0] = 0.15                # thin lines vs lots of grass

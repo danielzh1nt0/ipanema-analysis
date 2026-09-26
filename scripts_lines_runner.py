@@ -27,6 +27,19 @@ def modal_round():                 # GPU round on Modal (~15-20 min, ~$0.30)
     zipfile.ZipFile(io.BytesIO(base64.b64decode(res["zip_b64"]))).extractall(OUT)
     for line in open(f"{OUT}/log.txt"): print(line.rstrip())
     return res["summary"]
+trig = open("triggers/lines.txt").read().split()
+if "venue" in trig:                                                        # new ground round: Edsberg + venue together, two exams
+    try:
+        import modal, base64, io, zipfile
+        match_id = next(w for w in trig if w.startswith("match="))[6:]; log(f"venue round for {match_id} on Modal's GPU")
+        res = modal.Function.from_name("ipanema", "venue_round").remote(match_id, 30, 20)
+        zipfile.ZipFile(io.BytesIO(base64.b64decode(res["zip_b64"]))).extractall(OUT); s = res["summary"]
+        g = f"{match_id}: new ground held-back frames {s['venue']['before']} -> {s['venue']['after']} within 10 px (median {s['venue']['median_px_after']} px); Edsberg {s['edsberg']['before']} -> {s['edsberg']['after']}; {s['minutes']:.0f} min"
+        open("/tmp/issue_title", "w").write(f"Ipanema lines {tag} (venue): {g[:120]}"); open("/tmp/issue_body.md", "w").write(f"**{g}**\n\nPictures: `results/lines/{tag}/eval_venue` (new ground), `results/lines/{tag}/eval_edsberg`.\n")
+        log(g); sys.exit(0)
+    except SystemExit: raise
+    except Exception:
+        log("VENUE ROUND FAILED:\n" + traceback.format_exc()[-4000:]); sys.exit(1)
 if "modal" in open("triggers/lines.txt").read().lower():
     try: s = modal_round()
     except Exception:

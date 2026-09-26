@@ -1277,6 +1277,53 @@ def lines_round(epochs: int = 80, max_minutes: int = 25, match_id: str = "SFKBP1
             for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
     return {"summary": s, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
 
+@app.function(gpu="L4", timeout=45 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=4.0, memory=16384)
+def venue_round(match_id: str, epochs: int = 30, max_minutes: int = 20):
+    """NEW VENUE, step 3 (~15 min GPU, ~$0.30): Daniel's pitch clicks -> camera + exact line labels for the new ground;
+    train Edsberg + new ground together, starting from the current weights; two exams: Edsberg held-back frames (must not
+    get worse) and the new ground's held-back clicked frames. Weights saved separately per venue; the venue camera saved."""
+    import subprocess, base64, io, zipfile, time, shutil, json as _j, requests
+    subprocess.run("pip install -q --no-deps segmentation-models-pytorch", shell=True, check=True)
+    _setup()
+    from ipanema import lines as LN, linetrain as LT, venuetrain as VT, basefix as BF
+    REPO_DIR = "/content/ipanema-analysis"; lab, out = "/tmp/lab", "/tmp/out"; shutil.rmtree(out, ignore_errors=True); os.makedirs(lab, exist_ok=True); os.makedirs(f"{out}/eval_venue", exist_ok=True)
+    pub = os.environ["R2_PUBLIC_URL"].rstrip("/"); log_lines = []; t0 = time.time()
+    def log(m): log_lines.append(f"{time.strftime('%H:%M:%S')} {m}"); print(m, flush=True)
+    for n in ("SFKBP1109_frames_s1.zip", "SFKBP1109_frames_s2.zip", "SFKBP1109_random.zip", "SFKBP1109_random.json", "SFKBP1109_random_review.json"):
+        if os.path.exists(f"{lab}/{n}"): continue
+        r = requests.get(f"{pub}/SFKBP1109/lines/{n}", stream=True, timeout=600); r.raise_for_status()
+        with open(f"{lab}/{n}", "wb") as fh:
+            for chunk in r.iter_content(1 << 20): fh.write(chunk)
+    # Edsberg labels under its line-fixed base (poses of the YES frames re-expressed under that base)
+    clicks_sol = _j.load(open(f"{REPO_DIR}/calibration/panorama/SFKBP1109_clicks_solution.json")); lines_sol = _j.load(open(f"{REPO_DIR}/calibration/panorama/SFKBP1109_lines_solution.json"))
+    ds = "/tmp/lines_ds_multi"; shutil.rmtree(ds, ignore_errors=True)
+    LN.build_dataset(lines_sol, {s: f"{lab}/SFKBP1109_frames_{s}.zip" for s in ("s1", "s2")}, ds, random_json=f"{lab}/SFKBP1109_random.json", random_review=f"{lab}/SFKBP1109_random_review.json",
+                     random_zip=f"{lab}/SFKBP1109_random.zip", pose_fn=lambda p: BF.transfer_pose(clicks_sol["camera"], lines_sol["camera"], p), log=log)
+    # the new ground: clicks -> exact labels
+    venue_dir = f"{REPO_DIR}/results/venue/{match_id}"; vsol = _j.load(open(f"{venue_dir}/clicks_solution.json")); vds = "/tmp/venue_ds"; shutil.rmtree(vds, ignore_errors=True)
+    VT.build(venue_dir, vsol, vds, log=log); k = VT.merge_train(vds, ds); log(f"  {k} venue training pictures merged with Edsberg's")
+    open(f"{out}/label_preview.jpg", "wb").write(LN.preview(vds, n=6))
+    # train from the current weights
+    start = f"{ROOT}/models/lines/last.pt"
+    w = LT.train(ds, "/tmp/lines_model_multi", epochs=epochs, lr=1.5e-4, max_minutes=max_minutes, log=log, weights=start)
+    shutil.copy("/tmp/lines_model_multi/progress.json", f"{out}/progress.json")
+    # exams
+    s_e = LT.evaluate(w, ds, f"{out}/eval_edsberg", snap=False, log=log); s_e0 = LT.evaluate(start, ds, f"{out}/eval_edsberg_before", snap=False, log=log)
+    s_v = LT.evaluate(w, vds, f"{out}/eval_venue", snap=False, log=log); s_v0 = LT.evaluate(start, vds, f"{out}/eval_venue_before", snap=False, log=log)
+    summary = {"edsberg": {"before": f"{s_e0['placed_correctly']}/{s_e0['held_back_frames']}", "after": f"{s_e['placed_correctly']}/{s_e['held_back_frames']}", "median_px_after": s_e["median_error_px_1280"]},
+               "venue": {"before": f"{s_v0['placed_correctly']}/{s_v0['held_back_frames']}", "after": f"{s_v['placed_correctly']}/{s_v['held_back_frames']}", "median_px_after": s_v["median_error_px_1280"], "errors_px": s_v.get("errors_px")},
+               "minutes": round((time.time() - t0) / 60, 1)}
+    os.makedirs(f"{ROOT}/models/lines", exist_ok=True); os.makedirs(f"{ROOT}/calibration", exist_ok=True)
+    shutil.copy(w, f"{ROOT}/models/lines/venue_{match_id}.pt")
+    _j.dump({"camera": vsol["camera"], "solved_from": "clicks", "match": match_id}, open(f"{ROOT}/calibration/{match_id}_base.json", "w")); vol.commit()
+    summary["weights"] = f"models/lines/venue_{match_id}.pt (Edsberg's last.pt untouched)"; _j.dump(summary, open(f"{out}/summary.json", "w"), indent=1, default=float)
+    open(f"{out}/log.txt", "w").write("\n".join(log_lines) + "\n")
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
+        for root, _, files in os.walk(out):
+            for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
+    return {"summary": summary, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
