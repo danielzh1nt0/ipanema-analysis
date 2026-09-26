@@ -1277,6 +1277,42 @@ def lines_round(epochs: int = 80, max_minutes: int = 25, match_id: str = "SFKBP1
             for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), out))
     return {"summary": s, "zip_b64": base64.b64encode(buf.getvalue()).decode()}
 
+def _venue_solution(match_id):
+    """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
+    import json as _j
+    p = f"{ROOT}/calibration/{match_id}_base.json"
+    if os.path.exists(p): return {"camera": _j.load(open(p))["camera"]}
+    return _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
+
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def venue_base(match_id: str, n_frames: int = 24):
+    """NEW VENUE: sample frames over the match, paint lines with the network, solve the camera base from the lines alone
+    (no clicks), keep it only if it beats the Edsberg base on held-out frames. Returns the strip + report (~$0.5, ~20 min)."""
+    import subprocess, base64, json as _j, cv2, numpy as np, time
+    subprocess.run("pip install -q --no-deps segmentation-models-pytorch", shell=True, check=True)
+    _setup()
+    from ipanema import lines as LN, linetrain as LT, venue as V
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    log = []; L = lambda s: (log.append(f"{time.strftime('%H:%M:%S')} {s}"), print(s, flush=True))
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); frames = []
+    for t in np.linspace(120, n_tot / fps - 120, n_frames):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * fps))); ok, f = cap.read()
+        if ok: frames.append(f)
+    cap.release(); L(f"{len(frames)} frames sampled over {n_tot / fps / 60:.0f} min")
+    model, device = LT.load(f"{ROOT}/models/lines/last.pt", "resnet34", device="cpu")
+    masks = [LT.predict(model, cv2.resize(f, (640, 360), interpolation=cv2.INTER_AREA), device) for f in frames]
+    keep = [i for i, mk in enumerate(masks) if ((mk > 0) & (mk != 255)).sum() > 300]; frames = [frames[i] for i in keep]; masks = [masks[i] for i in keep]
+    L(f"{len(masks)} frames with enough painted lines")
+    ref = _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))["camera"]
+    cam, poses, rep = V.solve_base(masks, ref, log=L); ho = V.heldout_check(masks, cam, ref, log=L)
+    accepted = ho["new"]["cost"] < ho["reference"]["cost"]; rep["heldout"] = ho; rep["accepted"] = bool(accepted)
+    if accepted:
+        os.makedirs(f"{ROOT}/calibration", exist_ok=True); _j.dump({"camera": cam, "solved_from": "lines", "match": match_id, "report": rep}, open(f"{ROOT}/calibration/{match_id}_base.json", "w")); vol.commit()
+    sheet = V.strip(frames, masks, cam, poses, n=20); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])
+    L(f"venue base {'ACCEPTED' if accepted else 'REJECTED (Edsberg base kept)'}: {np.round(cam['C'], 2)}")
+    return {"report": rep, "log": log, "strip_b64": base64.b64encode(buf.tobytes()).decode()}
+
 @app.function(timeout=70 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192, max_containers=12)
 def calib_stretch(match_id: str, t0: float, t1: float, fps: float = 1.0):
     """one stretch of the match: line network on CPU, track + fresh placements, self-grading at Daniel's clicked moments"""
@@ -1285,8 +1321,8 @@ def calib_stretch(match_id: str, t0: float, t1: float, fps: float = 1.0):
     _setup()
     from ipanema import matchcal as MC
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
-    sol = __import__("json").load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
-    cps = MC.checkpoints_from_clicks("/content/ipanema-analysis"); log = []; pics = {}
+    sol = _venue_solution(match_id)
+    cps = MC.checkpoints_from_clicks("/content/ipanema-analysis") if match_id == "SFKBP1109" else {}; log = []; pics = {}
     rows, grades = MC.calibrate_video(full, f"{ROOT}/models/lines/last.pt", sol["camera"], t0, t1, fps=fps, checkpoints=cps, log=lambda m: log.append(m), pictures=pics)
     import base64
     return {"rows": rows, "grades": grades, "log": log, "pictures": {str(t): base64.b64encode(b).decode() for t, b in pics.items()}}
@@ -1303,7 +1339,7 @@ def match_calibration(match_id: str = "SFKBP1109", stretches: int = 12, fps: flo
     edges = [dur * i / stretches for i in range(stretches + 1)]
     parts = list(calib_stretch.map([match_id] * stretches, edges[:-1], edges[1:], [fps] * stretches))
     rows = sorted((r for p in parts for r in p["rows"]), key=lambda r: r["t"]); grades = sorted((g for p in parts for g in p["grades"]), key=lambda g: g["t"])
-    sol = _j.load(open("/content/ipanema-analysis/calibration/panorama/SFKBP1109_lines_solution.json"))
+    sol = _venue_solution(match_id)
     sheet = MC.strip(full, rows, sol["camera"], n=20); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])
     return {"rows": rows, "grades": grades, "summary": MC.summarize(rows, grades), "duration_s": dur, "strip_b64": base64.b64encode(buf.tobytes()).decode(),
             "log": [l for p in parts for l in p["log"]], "pictures": {k: v for p in parts for k, v in p.get("pictures", {}).items()}}
