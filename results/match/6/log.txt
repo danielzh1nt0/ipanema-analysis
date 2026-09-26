@@ -1,0 +1,59 @@
+11:20:04 venue base for p15u-vs-aik-2026-09-21-bd09 on Modal
+11:57:55 11:20:28 24 frames sampled over 115 min
+11:57:55 11:20:47 24 frames with enough painted lines
+11:57:55 11:21:59   first poses from the reference base: 12/12 frames placed
+11:57:55 11:25:50   base search 25/100: best so far [50.  65.5 -3.5] cost 23.799
+11:57:55 11:29:37   base search 50/100: best so far [53.  65.5 -4.5] cost 22.724
+11:57:55 11:33:29   base search 75/100: best so far [53.  71.5 -3.5] cost 22.162
+11:57:55 11:37:19   base search 100/100: best so far [53.  71.5 -3.5] cost 22.162
+11:57:55 11:37:19   coarse best base [53.  71.5 -3.5] (cost 22.162); runner-up [53.  65.5 -4.5] (cost 22.724)
+11:57:55 11:55:34   refined base [52.91 71.34 -3.97] tilt [0.39 0.16] deg, cost 22.162 -> 16.787 on 24/24 frames
+11:57:55 11:57:52   held-out half: new base cost 13.789 vs reference (Edsberg) 17.708
+11:57:55 11:57:54 venue base ACCEPTED: [52.91 71.34 -3.97]
+11:57:55 full-match calibration on Modal: p15u-vs-aik-2026-09-21-bd09
+13:08:19 FAILED:
+.remote(match_id, 12, 1.0)
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_object.py", line 46, in wrapped
+    return await method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1893, in remote
+    return await self._call_function(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1830, in _call_function
+    return await invocation.run_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 503, in run_function
+    return await _process_result(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py", line 572, in _process_result
+    raise exc_with_hints(exc)
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/root/modal_app.py", line 1347, in match_calibration
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 856, in __iter__
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 934, in run_async_gen
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/synchronicity/async_utils.py", line 82, in run
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/usr/local/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/synchronicity/async_utils.py", line 48, in wrapper_coro
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 766, in asend
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 1042, in _map_async
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 1015, in _map_helper
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_object.py", line 56, in wrapped
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_functions.py", line 1774, in _map
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 971, in _map_invocation_inputplane
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 926, in poll_outputs
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1237, in async_map_ordered
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1213, in async_map
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1108, in async_merge
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1087, in producer
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1202, in worker
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1167, in prevent_cancellation_abortion
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/async_utils.py", line 1226, in mapper_func_wrapper
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 915, in fetch_output
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/parallel_map.py", line 910, in fetch_output
+  File "<ta-01M3ES8G6QN1QNHRTP1Z6BRRDR>:/pkg/modal/_utils/function_utils.py", line 534, in _process_result
+modal.exception.FunctionTimeoutError: Task's current input in-01M3ES92B610WE4ZDT132M1G01:1790423894376-0 hit its timeout of 4200s
+
