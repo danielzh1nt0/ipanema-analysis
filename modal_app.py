@@ -1340,7 +1340,7 @@ def profile_tracking(match_id: str = "SFKBP1109_s1200", n_frames: int = 400):
     vi = V.info(video); lines = LC.find_rows(S.root, match_id); lg = []
     cal = LC.calibration_for_clip(lines[2], vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=lines[1], log=lg.append)
     T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=lg.append)
-    t0 = time.time(); TR.track(video, S.weights["player"], cal["H"], tm, S.conf_player, log=lg.append, imgsz=1280, tiles=TR.FOLLOW_TILES, pano=False)
+    t0 = time.time(); TR.track(video, S.weights["player"], cal["H"], tm, S.conf_player, log=lg.append, imgsz=960, tiles=TR.FOLLOW_TILES, pano=False)
     lg.append(f"batched far-band: {n_frames} frames in {time.time() - t0:.0f} s")
     t0 = time.time(); TR.track(video, S.weights["player"], cal["H"], tm, S.conf_player, log=lg.append, imgsz=None, tiles=None, pano=False)
     lg.append(f"old full-frame only: {n_frames} frames in {time.time() - t0:.0f} s")

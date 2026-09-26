@@ -100,7 +100,7 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
         per, fps = pickle.load(open(alt_trk, "rb")); per = TR.reposition(per, H); pickle.dump((per, fps), open(trk, "wb"))
         log(f"tracking: reused detections, re-positioned with the {'line' if _lines else 'panorama'} calibration")
-    else: per, fps = TR.track(video, S.weights["player"], H, tm, 0.1 if panorama else S.conf_player, log=log, imgsz=2560 if panorama else 1280, tiles=None if panorama else TR.FOLLOW_TILES, pano=panorama); pickle.dump((per, fps), open(trk, "wb"))   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s)
+    else: per, fps = TR.track(video, S.weights["player"], H, tm, 0.1 if panorama else S.conf_player, log=log, imgsz=2560 if panorama else 960, tiles=None if panorama else TR.FOLLOW_TILES, pano=panorama); pickle.dump((per, fps), open(trk, "wb"))   # panorama: whole frame at full resolution (measured 12:29: 23 players/frame at 7.4 frames/s; 6 tiles found 24 at 1.8 frames/s)
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     _clicks_w = os.path.join(S.root, "models", "ball", "clicks_latest.pt")     # the click-trained ball model (26 Sep: 52/71 vs 38/71 old)
     if "IPANEMA_BALL" not in os.environ and os.path.exists(_clicks_w): ball_backend = "clicks"

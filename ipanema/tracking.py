@@ -135,7 +135,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
             # team check: every frame for the follow-cam; on panorama clips (many more players in view) every 5th frame per
             # player plus any new track - each player keeps a running vote of its last 25 checks either way
-            every = 5 if pano else 1
+            every = 5 if pano else 3                                            # measured 26 Sep: the team check per player per frame cost as much as detection
             tids = [int(det.tracker_id[j]) if det.tracker_id is not None else -1 for j in range(len(det))]
             need = [j for j in range(len(det)) if k % every == 0 or tids[j] not in votes]
             labs = [None] * len(det)
