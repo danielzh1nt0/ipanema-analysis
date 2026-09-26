@@ -56,7 +56,10 @@ def kit_labels(f, boxes, min_gap=18.0, dark_fallback=105.0):
         if hi - lo >= min_gap: cut = (lo + hi) / 2
     return [("K" if k else (None if x is None else ("A" if x < cut else "B"))) for x, k in zip(vals, keeper)]
 
-def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None):
+FOLLOW_TILES = ((0.0, 0.0, 1.0, 1.0), (0.0, 0.2, 0.55, 0.65), (0.45, 0.2, 1.0, 0.65))   # whole frame + the far band in two halves (far players are 15 px tall at 640)
+
+def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None, pano=None):
+    pano = (tiles is not None or imgsz is not None) if pano is None else pano       # panorama clips: kit colours, team check every 5th frame
     import supervision as sv
     from ultralytics import YOLO
     from .video import info
@@ -79,7 +82,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
     for k, f in frames(video):
         _t = _time.time(); prof["read"] += _t - t_mark
         if tiles:
-            det, names = detect_tiled(model, f, conf, tiles)
+            det, names = detect_tiled(model, f, conf, tiles, imgsz=imgsz)
         else:
             res = model(f, conf=conf, verbose=False, **({"imgsz": imgsz} if imgsz else {}))[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
         _t2 = _time.time(); prof["detect"] += _t2 - _t
@@ -100,13 +103,13 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
             feet = np.c_[(det.xyxy[:, 0] + det.xyxy[:, 2]) / 2, det.xyxy[:, 3]]; m = to_m(H[k], feet)
             # team check: every frame for the follow-cam; on panorama clips (many more players in view) every 5th frame per
             # player plus any new track - each player keeps a running vote of its last 25 checks either way
-            every = 5 if (tiles or imgsz) else 1
+            every = 5 if pano else 1
             tids = [int(det.tracker_id[j]) if det.tracker_id is not None else -1 for j in range(len(det))]
             need = [j for j in range(len(det)) if k % every == 0 or tids[j] not in votes]
             labs = [None] * len(det)
             _t4 = _time.time()
             if need:
-                pred = kit_labels(f, det.xyxy[need]) if (tiles or imgsz) else team_model.predict_batch(f, det.xyxy[need])   # panorama: black vs white shirts
+                pred = kit_labels(f, det.xyxy[need]) if pano else team_model.predict_batch(f, det.xyxy[need])   # panorama: black vs white shirts
                 for j, lab in zip(need, pred): labs[j] = lab
             prof["team"] += _time.time() - _t4
             for j in range(len(det)):
