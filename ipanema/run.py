@@ -188,7 +188,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     log("  step: passes"); t_ = time.time()
     ps, tracks = AN.passes(per, frames_, tvs, ln, attack_right, fps)
     log("  step: shapes"); t_ = time.time()
-    sh = AN.shapes(per, L)
+    sh = AN.shapes(per, L, fps)
     log("  step: stats"); t_ = time.time()
     st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r)
     log("  step: metrics"); t_ = time.time()

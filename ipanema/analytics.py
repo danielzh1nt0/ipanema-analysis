@@ -72,7 +72,7 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
         out.append(p)
     return out, tracks
 
-def shapes(per, L):
+def shapes(per, L, fps=25.0):
     """per frame, per team: hull (metres), block length/width, deepest/highest x, excluding keepers."""
     out = {}
     for k in range(len(per)):
@@ -84,6 +84,12 @@ def shapes(per, L):
                 sh[tm] = {"hull_m": [[round(float(x), 1), round(float(y), 1)] for x, y in hull], "n": int(len(pts)), "length": round(float(xs[-1] - xs[0]), 1), "width": round(float(pts[:, 1].max() - pts[:, 1].min()), 1), "x_min": round(float(xs[0]), 1), "x_max": round(float(xs[-1]), 1)}
             else: sh[tm] = None
         out[k] = sh
+    # a team's shape that drops out for under hold_s (a player or two briefly untracked) keeps its last value: no flicker
+    hold = int(1.5 * fps) if fps else 0; last = {"A": (None, -10 ** 9), "B": (None, -10 ** 9)}
+    for k in range(len(per)):
+        for tm in ("A", "B"):
+            if out[k][tm] is not None: last[tm] = (out[k][tm], k)
+            elif last[tm][0] is not None and k - last[tm][1] <= hold: out[k][tm] = dict(last[tm][0], held=True)
     return out
 
 def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_right, press_r=2.0, near_r=5.0):

@@ -32,21 +32,29 @@ def find_rows(root, match_id):
         if os.path.exists(p): return base, off, p
     return None
 
-def calibration_for_clip(rows_path, n_frames, fps, w, h, offset_s=0.0, L=106.0, W=64.0, log=print):
+def calibration_for_clip(rows_path, n_frames, fps, w, h, offset_s=0.0, L=106.0, W=64.0, bridge_s=4.0, draw_bridge_s=2.0, log=print):
+    """H per frame. Confident seconds (Daniel's braver setting) are trusted; a gap of unsure seconds up to bridge_s long is
+    bridged by interpolating between the confident poses on either side (the camera moves smoothly; a 1-3 s bridge is far
+    better than borrowing a neighbour's camera, which put the ball off the pitch and invented dead balls / restarts).
+    Lines are drawn for bridges up to draw_bridge_s; longer bridges and unbridgeable stretches (nearest confident camera
+    borrowed, metres unreliable) are listed in cal["unsure"] and get no drawn lines."""
     d = json.load(open(rows_path)); cam = d["camera"]; rows = sorted(d["rows"], key=lambda r: r["t"])
-    ts = np.array([r["t"] for r in rows]); ok = np.array([brave(r) for r in rows]); poses = [r["pose"] for r in rows]
-    H = {}; unsure = set(); cache = {}
+    ts = np.array([r["t"] for r in rows]); ok = np.array([brave(r) for r in rows]); poses = np.array([r["pose"] for r in rows], float)
+    conf_idx = np.nonzero(ok)[0]
+    if not len(conf_idx): raise RuntimeError("line calibration: no confident second in this match")
+    H = {}; unsure = set(); bridged = 0
     for k in range(n_frames):
-        t = offset_s + k / fps; j = int(np.searchsorted(ts, t, side="right")) - 1
-        a, b = (j, j + 1) if 0 <= j < len(rows) - 1 else (min(max(j, 0), len(rows) - 1), min(max(j, 0), len(rows) - 1))
-        if ok[a] and ok[b] and ts[b] - ts[a] <= 2.0 + 1e-6:
-            u = 0.0 if b == a else float(np.clip((t - ts[a]) / (ts[b] - ts[a]), 0, 1)); pose = [(1 - u) * pa + u * pb for pa, pb in zip(poses[a], poses[b])]
-            H[k] = homography(cam, pose, w, h, L, W)
-        else: H[k] = None
-        if H[k] is None: unsure.add(k)
+        t = offset_s + k / fps
+        a = conf_idx[np.searchsorted(ts[conf_idx], t, side="right") - 1] if t >= ts[conf_idx[0]] else None      # last confident at or before t
+        nb = np.searchsorted(ts[conf_idx], t, side="left"); b = conf_idx[nb] if nb < len(conf_idx) else None    # first confident at or after t
+        if a is None or b is None: pa, pb, ta, tb = (poses[b], poses[b], ts[b], ts[b]) if a is None else (poses[a], poses[a], ts[a], ts[a]); gap = float("inf") if (a is None or b is None) and abs(t - (ts[a] if a is not None else ts[b])) > 1.5 else 0.0
+        else: pa, pb, ta, tb = poses[a], poses[b], ts[a], ts[b]; gap = tb - ta
+        if gap > bridge_s: unsure.add(k)                                       # borrow the nearer confident pose, flagged
+        u = 0.0 if tb <= ta else float(np.clip((t - ta) / (tb - ta), 0, 1)); pose = (1 - u) * pa + u * pb
+        if gap > draw_bridge_s and gap > 1.0 + 1e-6: unsure.add(k); bridged += (gap <= bridge_s)
+        H[k] = homography(cam, pose, w, h, L, W)
     valid = sorted(k for k in H if H[k] is not None)
-    if not valid: raise RuntimeError("line calibration: no confident second in this clip")
-    for k in unsure: H[k] = H[min(valid, key=lambda v: abs(v - k))]
+    for k in [k for k in H if H[k] is None]: H[k] = H[min(valid, key=lambda v: abs(v - k))]; unsure.add(k)
     cov = 1 - len(unsure) / max(n_frames, 1)
-    log(f"calibration: from the line model, {cov:.0%} of frames confident ({len(unsure)} frames borrow the nearest confident camera and get no drawn lines)")
+    log(f"calibration: from the line model, {cov:.0%} of frames trusted (lines drawn); {len(unsure)} frames bridged or borrowed, no drawn lines")
     return {"coverage": cov, "frozen": len(unsure), "H": H, "L": L, "W": W, "unsure": unsure, "camera": cam, "source": "lines"}
