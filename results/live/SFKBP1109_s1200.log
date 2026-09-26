@@ -1,7 +1,7 @@
-# live log · SFKBP1109_s1200 · running · 16:51:12 UTC
+# live log · SFKBP1109_s1200 · running · 16:52:45 UTC
 
 
-## run_match.log (20 lines, last 60)
+## run_match.log (21 lines, last 60)
 === SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
@@ -22,3 +22,4 @@ tracking: cached
   ball frame 5500: 1 candidates
   ball frame 6000: 2 candidates
   ball frame 6500: 2 candidates
+  ball frame 7000: 1 candidates
