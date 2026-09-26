@@ -1,9 +1,34 @@
-# live log · SFKBP1109_s1200 · running · 15:26:15 UTC
+# live log · SFKBP1109_s1200 · running · 15:27:49 UTC
 
 
-## run_match.log (5 lines, last 60)
+## run_match.log (30 lines, last 60)
 segment: p15u-vs-bp-2026-09-22-2000 0s +300s -> p15u-vs-bp-2026-09-22-2000_s0.mp4
 === SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: from the line model, 72% of frames confident (2488 frames borrow the nearest confident camera and get no drawn lines)
   debug overlays -> /content/ipanema-analysis/results/debug
+teams: 609 crops, clusters [292, 317], dark share A 0.49 / B 0.29 (A = darker kit)
+tracking: reused detections, re-positioned with the line calibration
+ball: WASB-only candidates, 2.9/frame
+clean: dropped 1344 off-pitch, merged 540 duplicates, stitched 794 ids, keepers [426, 625, 2795, 2962, 3115, 4201, 4344, 4374, 4396, 4439, 4466, 4515, 4648, 4652, 5755] -> A defends left
+clean: players per frame median A 5 / B 8, max A 11 / B 14
+ball v2: 7618/8992 frames on the path, 310 static-clutter candidates dropped
+ball check: 22/34 correct, 12 wrong, 0 no pick (ceiling 25/34)
+ball: dropped 310 static-clutter candidates
+ball (global path): 5356/8992 frames on the chosen path
+ball check (other picker, v1): 17/34 correct, ceiling 25/34
+ball check (alternative: WASB + YOLO candidates): 16/34 correct, ceiling 30/34
+direction: A →  B ←  confidence A 0.10 / B 0.21  WARNING low confidence
+direction (fallback from player positions): A →  B ←  median x A 41 / B 42
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball grade: accuracy 0.65, near-player 0.56, possession withheld, events withheld
+ball reliability: 67% frames, 56% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+  step: export
+  wrote match_data.json (19.9 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (187 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
