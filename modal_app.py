@@ -1355,7 +1355,7 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     if full is None: return {"error": "full video not on the volume"}
     log = []; L = lambda m: (log.append(f"{time.strftime('%H:%M:%S')} {m}"), print(m, flush=True))
     ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); cj = f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"
-    if fast: BC.build_crop_dataset(cj, full, ds, log=L)
+    if fast: BC.build_crop_dataset(cj, full, ds, log=L, player_weights=S.weights["player"])
     else: BC.build_dataset(cj, full, ds, log=L)
     base = S.weights["ball"]; start = start_from if start_from and os.path.exists(start_from) else base
     L(f"training from {os.path.basename(start)} for {epochs} epochs ({'crops, 640 px' if fast else 'full frames, 1920 px'})"); t_tr = time.time()
