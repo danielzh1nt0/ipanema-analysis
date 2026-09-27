@@ -1489,6 +1489,14 @@ def ball_restore_v1():
     shutil.copy(src, f"{ROOT}/models/ball/clicks_latest.pt"); _js.dump({"correct": 66, "of": 108, "weights": "clicks_v1.pt"}, open(f"{ROOT}/models/ball/best.json", "w")); vol.commit()
     return {"restored": "clicks_v1.pt -> clicks_latest.pt (66/108)", "models": sorted(os.listdir(f"{ROOT}/models/ball"))}
 
+@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+def fetch_file(rel: str):
+    """a small file from the volume as base64 (weights for offline analysis)"""
+    import base64
+    p = f"{ROOT}/{rel}"
+    if not os.path.exists(p): return {"error": f"missing {rel}"}
+    return {"rel": rel, "bytes": os.path.getsize(p), "b64": base64.b64encode(open(p, "rb").read()).decode()}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j

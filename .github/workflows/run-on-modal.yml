@@ -156,6 +156,22 @@ jobs:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
         run: python -c "import modal; print(modal.Function.from_name('ipanema', 'ball_restore_v1').remote())"
+      - name: fetch a file from the volume into results/volume (commit tagged [fetch:<relative path>])
+        if: contains(github.event.head_commit.message, '[fetch:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, base64
+          for rel in re.findall(r"\[fetch:([^\]]+)\]", os.environ["MSG"]):
+              out = modal.Function.from_name("ipanema", "fetch_file").remote(rel)
+              if "error" in out: print(out); continue
+              dst = f"results/volume/{rel}"; os.makedirs(os.path.dirname(dst), exist_ok=True); open(dst, "wb").write(base64.b64decode(out["b64"])); print(rel, out["bytes"], "bytes")
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/volume && git commit -qm "fetched from the volume" && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
