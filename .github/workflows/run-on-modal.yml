@@ -104,6 +104,21 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/autolabel && git commit -qm "autolabel match" && git push
+      - name: build the ball crop dataset on CPU (commit tagged [balldata:<n_auto>])
+        if: contains(github.event.head_commit.message, '[balldata:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json
+          n = int(re.search(r"\[balldata:(\d+)\]", os.environ["MSG"]).group(1))
+          out = modal.Function.from_name("ipanema", "ball_dataset").remote("SFKBP1109", n); print(json.dumps(out, indent=1))
+          os.makedirs("results/ball", exist_ok=True); json.dump(out, open(f"results/ball/dataset_auto{n}.json", "w"), indent=1)
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/ball && git commit -qm "ball dataset built" && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
