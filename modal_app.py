@@ -1372,6 +1372,39 @@ def ball_autolabel_test(match_id: str = "SFKBP1109_s1200"):
     ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]) if sheet is not None else (False, None)
     return {"report": rep, "strip_b64": base64.b64encode(buf.tobytes()).decode() if ok else None}
 
+@app.function(timeout=40 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def ball_autolabel_match(match_id: str = "SFKBP1109"):
+    """AUTO-LABELS for a whole match from the cached WASB candidates of its full-match pieces (no GPU): link -> ball-like
+    tracks -> on the pitch in metres -> labels, never in Daniel's clicked seconds. Saves labels on the volume, returns
+    counts + a 24-picture strip. CPU only."""
+    import pickle, base64, cv2, glob, json as _j, numpy as np
+    _setup()
+    from ipanema import autolabel as AL, linecal as LC, fullmatch as FM
+    full = next((p for p in (f"{ROOT}/videos/{match_id}/full_cropped.mp4", f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); cap0 = cv2.VideoCapture(full); w, h = int(cap0.get(3)), int(cap0.get(4)); cap0.release()
+    lines = LC.find_rows(ROOT, match_id)
+    if lines is None: return {"error": "no line calibration rows for this match"}
+    cal = LC.calibration_for_clip(lines[2], n, fps, w, h, offset_s=0.0, log=lambda *a: None)
+    clicks = _j.load(open("/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json"))["frames"] if match_id == "SFKBP1109" else []
+    ex = [r["t"] for r in clicks]; labs = []; rep = {"pieces": 0, "pieces_with_candidates": 0, "tracks_linked": 0, "tracks_on_pitch": 0}
+    for p in plan_:
+        rep["pieces"] += 1; cdir = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"
+        cf = sorted(glob.glob(f"{cdir}/ball_cands_wasb_*_t2x2.pkl"), key=os.path.getmtime)
+        if not cf: continue
+        rep["pieces_with_candidates"] += 1; cands = pickle.load(open(cf[-1], "rb")); off = p["offset"]
+        g = {k + off: v for k, v in cands.items()}                                  # piece frame -> match frame
+        tr0 = AL.link(g, fps=fps); rep["tracks_linked"] += len(tr0)
+        tr = [t for t in tr0 if AL.track_on_pitch_share(t, cal["H"]) >= 0.8]; rep["tracks_on_pitch"] += len(tr)
+        labs += AL.on_pitch(AL.labels(tr, exclude_seconds=ex, fps=fps), cal["H"])
+    labs.sort(); rep["labels"] = len(labs); rep["frame_size"] = [w, h]
+    os.makedirs(f"{ROOT}/labels", exist_ok=True); _j.dump({"match": match_id, "size": [w, h], "labels": labs, "report": rep}, open(f"{ROOT}/labels/{match_id}_ball_auto.json", "w")); vol.commit()
+    cap = cv2.VideoCapture(full)
+    def frame(k): cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); return f if ok else None
+    sheet = AL.strip(frame, labs, n=24); cap.release()
+    ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]) if sheet is not None else (False, None)
+    return {"report": rep, "strip_b64": base64.b64encode(buf.tobytes()).decode() if ok else None}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j

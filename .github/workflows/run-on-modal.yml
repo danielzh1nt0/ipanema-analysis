@@ -87,6 +87,23 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/autolabel && git commit -qm "autolabel clip test" && git push
+      - name: auto-label the whole match from cached candidates (commit tagged [autolabel-match]) - CPU
+        if: contains(github.event.head_commit.message, '[autolabel-match]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, json, base64
+          out = modal.Function.from_name("ipanema", "ball_autolabel_match").remote("SFKBP1109")
+          os.makedirs("results/autolabel", exist_ok=True)
+          if "error" in out: open("results/autolabel/match_report.json", "w").write(json.dumps(out)); print(out)
+          else:
+              json.dump(out["report"], open("results/autolabel/match_report.json", "w"), indent=1); print(out["report"])
+              if out.get("strip_b64"): open("results/autolabel/match_strip.jpg", "wb").write(base64.b64decode(out["strip_b64"]))
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/autolabel && git commit -qm "autolabel match" && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
