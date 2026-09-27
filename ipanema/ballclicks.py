@@ -107,38 +107,49 @@ def grade(weights, clicks_json, ds, hit_px=30, conf=0.25, imgsz=1920, log=print,
     log(f"  grade new: {s['new']}  new+far zoom: {s['new_farzoom']}  old: {s['old']}"); return s
 
 
-def candidates(video, weights, cache, conf=0.05, log=print, batch=8, imgsz=1920, top=0.45):
-    """ball candidates for the app pipeline with the click-trained model, as graded (full frame 1920 + far zoom on the
-    top strip), batched on the GPU (26 Sep: one frame at a time ran at 1.5 frames/s = 90 min per 5-min clip);
-    same {frame: [(x, y, conf), ...]} shape as ball.candidates, cached and resumable"""
+def candidates(video, weights, cache, conf=0.05, log=print, batch=8, imgsz=1920, top=0.45, far_zoom=True, stride=1, half=True):
+    """ball candidates for the app pipeline with the click-trained model, batched on the GPU. far_zoom: a second pass on the
+    top strip enlarged 2x (27 Sep: heavy, and no gain on the exam, 65 vs 68 without); stride: only every stride-th frame
+    (skipped frames are grabbed, not decoded; WASB covers every frame). Same {frame: [(x, y, conf)]} shape, cached, resumable,
+    progress logged every 500 frames."""
     import pickle, os, time
     from ultralytics import YOLO
-    from .video import frames
     out = {}; partial = cache + ".partial"
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
-    if os.path.exists(partial): out = pickle.load(open(partial, "rb")); log(f"  ball: resuming from frame {len(out)}")
-    model = YOLO(weights); t0 = time.time(); buf = []
+    if os.path.exists(partial): out = pickle.load(open(partial, "rb")); log(f"  ball: resuming, {len(out)} frames already done")
+    model = YOLO(weights); t0 = time.time(); buf = []; done = 0
     def flush():
+        nonlocal done
         if not buf: return
         ks = [k for k, _ in buf]; ims = [f for _, f in buf]
-        R1 = model(ims, conf=conf, imgsz=imgsz, verbose=False, half=True)
-        h = ims[0].shape[0]; strips = [cv2.resize(f[:int(h * top)], None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) for f in ims]
-        R2 = model(strips, conf=conf, imgsz=imgsz * 2, verbose=False, half=True)
+        R1 = model(ims, conf=conf, imgsz=imgsz, verbose=False, half=half)
+        R2 = [None] * len(ims)
+        if far_zoom:
+            h = ims[0].shape[0]; strips = [cv2.resize(f[:int(h * top)], None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) for f in ims]
+            R2 = model(strips, conf=conf, imgsz=imgsz * 2, verbose=False, half=half)
         for k, r1, r2 in zip(ks, R1, R2):
             det = [(float((a + c) / 2), float((b + d) / 2), float(cf)) for (a, b, c, d), cf in zip(r1.boxes.xyxy.cpu().numpy(), r1.boxes.conf.cpu().numpy())]
-            det += [(float((a + c) / 4), float((b + d) / 4), float(cf)) for (a, b, c, d), cf in zip(r2.boxes.xyxy.cpu().numpy(), r2.boxes.conf.cpu().numpy())]
+            if r2 is not None: det += [(float((a + c) / 4), float((b + d) / 4), float(cf)) for (a, b, c, d), cf in zip(r2.boxes.xyxy.cpu().numpy(), r2.boxes.conf.cpu().numpy())]
             det.sort(key=lambda z: -z[2]); keep = []
             for z in det:
                 if all(np.hypot(z[0] - q[0], z[1] - q[1]) > 12 for q in keep): keep.append(z)
             out[k] = keep
-        buf.clear()
-    for k, f in frames(video):
-        if k in out: continue
-        buf.append((k, f))
-        if len(buf) >= batch: flush()
-        if k % 500 == 0 and k: log(f"  ball frame {k}: {len(out.get(k - 1, []))} candidates, {(k / max(time.time() - t0, 1e-6)):.1f} frames/s"); pickle.dump(out, open(partial, "wb"))
-    flush(); pickle.dump(out, open(cache, "wb"))
+        done += len(buf); buf.clear()
+    cap = cv2.VideoCapture(video); k = 0
+    while True:
+        if k % stride == 0 and k not in out:
+            ok, f = cap.read()
+            if not ok: break
+            buf.append((k, f))
+            if len(buf) >= batch: flush()
+        else:
+            if not cap.grab(): break
+        if k % 500 == 0 and k:
+            el = max(time.time() - t0, 1e-6); log(f"  click model: frame {k}, {done} run, {k / el:.1f} video frames/s"); pickle.dump(out, open(partial, "wb"))
+        k += 1
+    cap.release(); flush(); pickle.dump(out, open(cache, "wb"))
     if os.path.exists(partial): os.remove(partial)
+    log(f"  click model: {k} frames, {done} run, {(time.time() - t0) / 60:.1f} min")
     return out
 
 
