@@ -1490,12 +1490,14 @@ def ball_restore_v1():
     return {"restored": "clicks_v1.pt -> clicks_latest.pt (66/108)", "models": sorted(os.listdir(f"{ROOT}/models/ball"))}
 
 @app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
-def fetch_file(rel: str):
-    """a small file from the volume as base64 (weights for offline analysis)"""
+def fetch_file(rel: str, part: int = 0, chunk: int = 6 << 20):
+    """a file from the volume as base64, in `chunk`-byte parts (weights for offline analysis)"""
     import base64
     p = f"{ROOT}/{rel}"
     if not os.path.exists(p): return {"error": f"missing {rel}"}
-    return {"rel": rel, "bytes": os.path.getsize(p), "b64": base64.b64encode(open(p, "rb").read()).decode()}
+    n = os.path.getsize(p)
+    with open(p, "rb") as fh: fh.seek(part * chunk); data = fh.read(chunk)
+    return {"rel": rel, "bytes": n, "part": part, "parts": (n + chunk - 1) // chunk, "b64": base64.b64encode(data).decode()}
 
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
