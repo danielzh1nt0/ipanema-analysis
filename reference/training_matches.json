@@ -1,0 +1,13 @@
+{
+ "note": "Daniel's extra Veo matches for training (27 Sep). Drive folder 1zxJzMwGq10Qmm3nz2klq3mRshD3KftGA. Ground decides whether a camera base must be solved (new venue) or is known.",
+ "matches": [
+  {"id": "p15u-vs-vasalund-2026-09-20", "opponent": "Vasalund FF", "date": "2026-09-20", "ground": "Edsbergs Sportfalt plan 3", "home": true, "venue_known": true,
+   "drive_id": "13qFKZFhkFi-MbzphpxIBXmC4beDALlNb", "file": "p15u-2026-vs-vasalund-ff-2026-09-20.mp4", "bytes": 3289349198},
+  {"id": "p15u-vs-spanga-2026-09-25", "opponent": "Spanga IS FK", "date": "2026-09-25", "ground": "Karrdals IP", "home": true, "venue_known": false,
+   "drive_id": "1Do_IMFmU86ROMxaWYNEKsfBWw7GoEdqS", "file": "p15u-2026-vs-spanga-is-fk-2026-09-25.mp4", "bytes": 3279874704},
+  {"id": "p15u-vs-djursholm", "opponent": "Djursholm", "ground": "Djursholms IP", "home": false, "venue_known": false, "drive_id": null},
+  {"id": "p15u-vs-solberga", "opponent": "Solberga", "ground": "Solberga IP", "home": false, "venue_known": false, "drive_id": null},
+  {"id": "p15u-vs-reymersholm", "opponent": "Reymersholm", "ground": "Bagarmossen IP", "home": false, "venue_known": false, "drive_id": null},
+  {"id": "p15u-vs-solheim", "opponent": "Solheim", "ground": "unknown (probably away)", "home": false, "venue_known": false, "drive_id": null}
+ ]
+}
