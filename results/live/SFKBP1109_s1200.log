@@ -1,23 +1,7 @@
-# live log · SFKBP1109_s1200 · running · 16:50:09 UTC
+# live log · SFKBP1109_s1200 · finished · 16:51:27 UTC
 
 
-## run_match.log (23 lines, last 60)
-=== SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
-  debug overlays -> /content/ipanema-analysis/results/debug
-teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit)
-  tracking frame 0
-  tracking frame 500 (6.2 frames/s)
-  tracking frame 1000 (6.4 frames/s)
-  tracking frame 1500 (6.4 frames/s)
-  tracking frame 2000 (6.4 frames/s)
-  tracking frame 2500 (6.4 frames/s)
-  tracking frame 3000 (6.4 frames/s)
-  tracking frame 3500 (6.5 frames/s)
-  tracking frame 4000 (6.5 frames/s)
-  tracking frame 4500 (6.6 frames/s)
-  tracking frame 5000 (6.6 frames/s)
+## run_match.log (76 lines, last 60)
   tracking frame 5500 (6.6 frames/s)
   tracking frame 6000 (6.5 frames/s)
   tracking frame 6500 (6.5 frames/s)
@@ -25,3 +9,56 @@ teams: 609 crops, clusters [273, 336], dark share A 0.51 / B 0.3 (A = darker kit
   tracking frame 7500 (6.5 frames/s)
   tracking frame 8000 (6.5 frames/s)
   tracking frame 8500 (6.5 frames/s)
+ball: click-trained model (clicks_latest.pt), 2.4 candidates/frame
+ball: WASB + click-model guesses fused, 7.9/frame
+clean: dropped 1494 off-pitch, merged 1394 duplicates, stitched 1273 ids, keepers [544, 810, 3018, 4693, 4931, 4949, 5618, 7335, 7612, 7847, 7869, 7917, 9891] -> A defends left
+clean: players per frame median A 6 / B 8, max A 14 / B 15
+ball v2: 8348/8992 frames on the path, 941 static-clutter candidates dropped
+ball check: 23/34 correct, 11 wrong, 0 no pick (ceiling 27/34)
+ball: dropped 941 static-clutter candidates
+ball (global path): 7021/8992 frames on the chosen path
+ball check (other picker, v1): 15/34 correct, ceiling 27/34
+ball check (alternative: WASB + YOLO candidates): 14/34 correct, ceiling 31/34
+direction: A →  B ←  confidence A 0.01 / B 0.08  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball grade: accuracy 0.68, near-player 0.63, possession OK, events withheld
+ball reliability: 74% frames, 63% near a player, 0 jumps -> OK
+  step: export
+  wrote match_data.json (21.7 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (183 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109_s1200
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.68, 'near_player_pct': 0.63, 'frames_pct': 0.74, 'possession_ok': True, 'events_ok': False}
+  duration_s                 300.0
+  calibration_coverage       0.87
+  calibration_frozen         1170
+  team_dark_share            {'A': 0.51, 'B': 0.3}
+  players_per_frame_median   {'A': 6.0, 'B': 8.0}
+  ball_frames_pct            100
+  match_seconds              300.0
+  periods                    None
+  ball_check                 {'correct': 23, 'total': 34, 'wrong': 11, 'ceiling': 27}
+  possession_pct             {'A': 43, 'B': 57}
+  loose_pct                  24
+  dead_pct                   29
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.01, 'B': 0.08}
+  turnovers                  1
+  passes                     726
+  restarts                   31
+  sequences                  81
+  shots                      {'A': 0, 'B': 1}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 0, 'B': 0}
+  field_tilt                 {'A': 9, 'B': 35}
+  runtime_min                26.1
