@@ -1645,7 +1645,7 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     if full is None: return {"error": "full video not on the volume"}
     log = []; L = lambda m: (log.append(f"{time.strftime('%H:%M:%S')} {m}"), print(m, flush=True))
     ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); cj = f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"
-    if fast and n_auto:                                                          # 27 Sep: the dataset built once on CPU by ball_dataset (clicks + auto-labels)
+    if fast and (n_auto or dataset_zip):                                         # 27 Sep: the dataset built once on CPU by ball_dataset (clicks + auto-labels / SoccerTrack)
         import zipfile
         zp = dataset_zip or f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}.zip"
         if not os.path.exists(zp): return {"error": f"no cached dataset {os.path.basename(zp)}: run ball_dataset first"}
