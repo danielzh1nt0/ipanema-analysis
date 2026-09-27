@@ -221,6 +221,16 @@ jobs:
           python scripts_fetch_drive.py
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/datasets && git commit -qm "drive fetch" && git pull -q --rebase origin main && git push
+      - name: measure both ball finders on 10 min of a match (commit tagged [ballmeasure:<match>]) - GPU
+        if: contains(github.event.head_commit.message, '[ballmeasure:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python scripts_ball_measure.py
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/datasets && git commit -qm "ball measure" && git pull -q --rebase origin main && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:

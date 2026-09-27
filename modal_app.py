@@ -1659,6 +1659,30 @@ def fetch_drive(match_id: str, drive_id: str, expect_bytes: int = 0):
     return {"match": match_id, "bytes": os.path.getsize(dst), "ok_size": (not expect_bytes) or abs(os.path.getsize(dst) - expect_bytes) < 1024,
             "minutes_video": round(n / max(fps, 1) / 60, 1), "fps": fps, "size": [w, h], "download_min": round((time.time() - t0) / 60, 1)}
 
+@app.function(gpu="L4", timeout=45 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_measure(match_id: str, start_s: int = 1200, dur_s: int = 600):
+    """MEASURE before a full match: both ball finders on dur_s seconds of a match; minutes per finder, guesses per frame, and
+    how often the two agree / disagree (the disagreements are what Daniel would review). Caches kept for reuse."""
+    import subprocess, time, numpy as np
+    S = _setup(); from ipanema import ballclicks as BC, wasb as WB
+    full = f"{ROOT}/videos/{match_id}/full.mp4"
+    if not os.path.exists(full): return {"error": "match not on the volume"}
+    seg_id = f"{match_id}_s{start_s}"; seg = f"{ROOT}/videos/{seg_id}.mp4"; t0 = time.time()
+    if not os.path.exists(seg): subprocess.run(["ffmpeg", "-y", "-ss", str(start_s), "-i", full, "-t", str(dur_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", seg], check=True, capture_output=True)
+    t_cut = time.time() - t0; cache = f"{ROOT}/cache/{seg_id}"; os.makedirs(cache, exist_ok=True); lg = []
+    t1 = time.time(); clk = BC.candidates(seg, f"{ROOT}/models/ball/clicks_latest.pt", f"{cache}/ball_cands_clicks.pkl", 0.05, log=lg.append); t_clk = time.time() - t1
+    t2 = time.time(); wb = WB.candidates(seg, ROOT, f"{cache}/ball_cands_wasb.pkl", log=lg.append, thr=0.05, train=False); t_wb = time.time() - t2
+    vol.commit(); n = max(len(clk), len(wb)); agree = only_one = disagree = neither = 0
+    for k in range(n):
+        a = max(clk.get(k, []), key=lambda z: z[2], default=None); b = max(wb.get(k, []), key=lambda z: z[2], default=None)
+        a = a if a and a[2] >= 0.25 else None; b = b if b and b[2] >= 0.25 else None
+        if a and b: agree += np.hypot(a[0] - b[0], a[1] - b[1]) <= 15; disagree += np.hypot(a[0] - b[0], a[1] - b[1]) > 15
+        elif a or b: only_one += 1
+        else: neither += 1
+    return {"match": match_id, "segment_s": dur_s, "frames": n, "minutes": {"cut": round(t_cut / 60, 1), "click_model": round(t_clk / 60, 1), "wasb": round(t_wb / 60, 1), "total": round((time.time() - t0) / 60, 1)},
+            "frames_per_s": {"click_model": round(n / max(t_clk, 1e-6), 1), "wasb": round(n / max(t_wb, 1e-6), 1)},
+            "top_guesses": {"agree": int(agree), "disagree": int(disagree), "only_one_sure": int(only_one), "neither_sure": int(neither)}, "log": lg[-6:]}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
