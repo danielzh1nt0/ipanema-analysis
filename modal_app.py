@@ -1429,6 +1429,46 @@ def fetch_soccertrack(token: str, files: list = None):
     out["on_volume"] = sorted(os.path.relpath(p, dst) for p in have)[:200]; out["gb"] = round(sum(os.path.getsize(p) for p in have) / 1e9, 2); vol.commit()
     return out
 
+@app.function(timeout=15 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def soccertrack_check(n_clips: int = 6):
+    """look before training: video size/fps, the annotation CSV's header, and frames with the dataset's own ball box drawn
+    (zoomed crop beside the frame). CPU, cents."""
+    import glob, base64, cv2, numpy as np, pandas as pd
+    _setup()
+    root = f"{ROOT}/datasets/soccertrack/wide_view"; vids = sorted(glob.glob(f"{root}/videos/*.mp4")); out = {"clips": len(vids)}; tiles = []
+    if not vids: return {"error": "no wide-view videos on the volume"}
+    for v in vids[:: max(1, len(vids) // n_clips)][:n_clips]:
+        name = os.path.basename(v)[:-4]; csv = f"{root}/annotations/{name}.csv"
+        if not os.path.exists(csv): out.setdefault("missing_csv", []).append(name); continue
+        df = pd.read_csv(csv, header=[0, 1, 2], index_col=0)
+        if "csv_header" not in out: out["csv_header"] = [str(c) for c in df.columns[:12]]; out["csv_rows"] = int(len(df)); out["teams"] = sorted({str(c[0]) for c in df.columns})
+        ball_cols = [c for c in df.columns if "ball" in str(c[0]).lower() or str(c[0]) == "3"]
+        out.setdefault("ball_cols_example", [str(c) for c in ball_cols[:4]])
+        cap = cv2.VideoCapture(v); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS); w, h = int(cap.get(3)), int(cap.get(4))
+        out["video"] = {"w": w, "h": h, "fps": round(fps, 2), "frames": n}
+        for k in (n // 4, n // 2, 3 * n // 4):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+            if not ok or k >= len(df): continue
+            row = df.iloc[k]; box = None
+            for team, pid, attr in [(c[0], c[1], c[2]) for c in ball_cols]:
+                if attr == "bb_left":
+                    try: x, y, bw, bh = [float(row[(team, pid, a)]) for a in ("bb_left", "bb_top", "bb_width", "bb_height")]
+                    except Exception: continue
+                    if np.isfinite([x, y, bw, bh]).all(): box = (x, y, bw, bh); break
+            sm = cv2.resize(f, (640, int(640 * h / w)))
+            if box:
+                x, y, bw, bh = box; cx, cy = x + bw / 2, y + bh / 2
+                cv2.rectangle(sm, (int(x * 640 / w) - 4, int(y * 640 / w) - 4), (int((x + bw) * 640 / w) + 4, int((y + bh) * 640 / w) + 4), (0, 255, 255), 2)
+                x0, y0 = int(np.clip(cx - 80, 0, w - 160)), int(np.clip(cy - 80, 0, h - 160)); cr = cv2.resize(f[y0:y0 + 160, x0:x0 + 160], (sm.shape[0], sm.shape[0]), interpolation=cv2.INTER_CUBIC)
+                cv2.rectangle(cr, (int((x - x0) * sm.shape[0] / 160), int((y - y0) * sm.shape[0] / 160)), (int((x + bw - x0) * sm.shape[0] / 160), int((y + bh - y0) * sm.shape[0] / 160)), (0, 255, 255), 2)
+            else: cr = np.zeros((sm.shape[0], sm.shape[0], 3), np.uint8)
+            cv2.putText(sm, f"{name} f{k} {'ball box' if box else 'NO ball box'}", (8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 0, 0), 3); cv2.putText(sm, f"{name} f{k} {'ball box' if box else 'NO ball box'}", (8, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1)
+            tiles.append(np.hstack([sm, cr]))
+        cap.release()
+    if tiles:
+        sheet = np.vstack(tiles); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]); out["strip_b64"] = base64.b64encode(buf.tobytes()).decode()
+    return out
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
