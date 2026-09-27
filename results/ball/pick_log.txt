@@ -1,0 +1,55 @@
+msg: [ballpick:regen] picker step as a plain script that logs into results/ball
+regen: {'frames': 8992, 'peaks_per_frame': 6.0, 'minutes': 0.1, 'log': []}
+{
+ "results": {
+  "wasb_only/v2": {
+   "correct": 21,
+   "total": 34,
+   "ceiling": 25,
+   "frames_with_ball": 8992
+  },
+  "wasb_only/v1": {
+   "correct": 17,
+   "total": 34,
+   "ceiling": 25,
+   "frames_with_ball": 8752
+  },
+  "clicks_only/v2": {
+   "correct": 20,
+   "total": 34,
+   "ceiling": 19,
+   "frames_with_ball": 8828
+  },
+  "clicks_only/v1": {
+   "correct": 16,
+   "total": 34,
+   "ceiling": 19,
+   "frames_with_ball": 6887
+  },
+  "fused/v2": {
+   "correct": 25,
+   "total": 34,
+   "ceiling": 27,
+   "frames_with_ball": 8992
+  },
+  "fused/v1": {
+   "correct": 18,
+   "total": 34,
+   "ceiling": 27,
+   "frames_with_ball": 8879
+  },
+  "fused_strong_agree/v2": {
+   "correct": 26,
+   "total": 34,
+   "ceiling": 27,
+   "frames_with_ball": 8992
+  },
+  "fused_strong_agree/v1": {
+   "correct": 18,
+   "total": 34,
+   "ceiling": 27,
+   "frames_with_ball": 8909
+  }
+ },
+ "gt": true
+}
