@@ -1619,6 +1619,33 @@ def wasb_regen(match_id: str = "SFKBP1109_s1200", thr: float = 0.05):
     c = WB.candidates(video, ROOT, f"{ROOT}/cache/{match_id}/ball_cands_wasb.pkl", log=lines.append, thr=thr, train=False); vol.commit()
     return {"frames": len(c), "peaks_per_frame": round(sum(len(v) for v in c.values()) / max(1, len(c)), 2), "minutes": round((time.time() - t0) / 60, 1), "log": lines[-5:]}
 
+@app.function(timeout=15 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def contact_sheets(match_id: str = "SFKBP1109_s1200", every_s: float = 1.0, per_sheet: int = 20, cols: int = 4, tw: int = 640):
+    """one picture every `every_s` seconds, time-stamped, `per_sheet` to a sheet: the answer key is made from these by eye"""
+    import cv2, base64, numpy as np
+    src = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"/tmp/work/{match_id}/video.mp4") if os.path.exists(p)), None)
+    if src is None: return {"error": "clip not on the volume"}
+    cap = cv2.VideoCapture(src); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); tiles = []; k = 0; nxt = 0.0
+    while True:
+        ok = cap.grab()
+        if not ok: break
+        t = k / fps
+        if t + 1e-6 >= nxt:
+            ok, f = cap.retrieve()
+            if ok:
+                th = int(round(f.shape[0] * tw / f.shape[1])); im = cv2.resize(f, (tw, th), interpolation=cv2.INTER_AREA)
+                lab = f"{int(t // 60)}:{t % 60:04.1f}"; cv2.putText(im, lab, (8, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 0), 5); cv2.putText(im, lab, (8, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
+                tiles.append(im)
+            nxt += every_s
+        k += 1
+    cap.release(); sheets = []
+    for s in range(0, len(tiles), per_sheet):
+        grp = tiles[s:s + per_sheet]
+        while len(grp) % cols: grp.append(np.zeros_like(tiles[0]))
+        sheet = np.vstack([np.hstack(grp[i:i + cols]) for i in range(0, len(grp), cols)])
+        ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 75]); sheets.append(base64.b64encode(buf.tobytes()).decode())
+    return {"fps": fps, "frames": n, "pictures": len(tiles), "sheets": sheets}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
