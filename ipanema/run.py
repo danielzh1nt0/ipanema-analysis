@@ -182,7 +182,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
             if alt_check: log(f"ball check (alternative: WASB + YOLO candidates): {alt_check['correct']}/{alt_check['total']} correct, ceiling {alt_check['ceiling']}/{alt_check['total']}")
         except Exception as e: log(f"alternative ball check failed: {e!r}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
-    state, bspeed = P.viterbi(per, ballm, fps, L, W)
+    state, bspeed = P.viterbi(per, P.clean_ball(ballm, L, W), fps, L, W)
     attack_right, conf = P.direction(state, ballm, log=log)
     import glob as _g
     ref = next(iter(_g.glob(os.path.join(S.root, "reference", f"events_gt_{match_id}.json")) + _g.glob(os.path.join(S.root, "reference", match_id, "events_gt*.json"))), None)

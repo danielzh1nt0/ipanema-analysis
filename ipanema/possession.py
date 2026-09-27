@@ -125,13 +125,23 @@ def sequences(state, ballm, bspeed, fps, L, attack_right):
                    "gain_m": round(gain, 1) if gain is not None else None, "reached_final_third": bool(b1 is not None and ((b1[0] > 2 * L / 3) if sgn == 1 else (b1[0] < L / 3)))})
     return seqs
 
-def restarts(state, ballm, fps, L, W):
+def clean_ball(ballm, L, W, max_out=6.0):
+    """27 Sep: a pick more than max_out metres outside the pitch is not the match ball (spare balls by the bench, the
+    fence, the trees); it was turning the ball 'dead' and inventing set pieces (31 on a clip where Veo lists 6)"""
+    return {k: v for k, v in ballm.items() if max(-v[0], v[0] - L, -v[1], v[1] - W, 0.0) <= max_out}
+
+def restarts(state, ballm, fps, L, W, min_s=2.0, join_gap_s=1.5):
+    """a stoppage = dead runs joined across gaps up to join_gap_s, lasting min_s (27 Sep: 0.8 s let every flicker count)"""
     n = len(state); out = []; k = 0
     while k < n:
         if STATES[state[k]] == "dead":
             j = k
-            while j + 1 < n and STATES[state[j + 1]] == "dead": j += 1
-            if (j - k + 1) / fps >= 0.8:
+            while True:                                                            # extend across short non-dead gaps
+                while j + 1 < n and STATES[state[j + 1]] == "dead": j += 1
+                nxt = next((q for q in range(j + 1, min(n, j + 1 + int(join_gap_s * fps) + 1)) if STATES[state[q]] == "dead"), None)
+                if nxt is None: break
+                j = nxt
+            if (j - k + 1) / fps >= min_s:
                 bm = next((ballm[q] for q in range(j, min(n, j + int(1.5 * fps))) if q in ballm), None)
                 team_after = next((STATES[state[q]] for q in range(j + 1, min(n, j + int(3 * fps))) if state[q] < 2), None); kind = "unknown"
                 if bm is not None:
