@@ -58,7 +58,7 @@ header{display:grid;gap:6px}
 .pillar .src{font-size:13px;color:var(--muted)}
 .pillar .val{text-align:right;font-size:20px;font-weight:500}
 .pillar .fill.good{background:var(--good)} .pillar .fill.warn{background:var(--warn)} .pillar .fill.bad{background:var(--bad)}
-@media (max-width:560px){.pillar{grid-template-columns:1fr 64px}.pillar .bar{grid-column:1/-1;grid-row:2}}
+@media (max-width:560px){.pillar{grid-template-columns:1fr auto;gap:10px}.pillar>div:nth-child(2){grid-column:1/-1;grid-row:2}}
 .missing{display:grid;gap:10px;margin:0;padding:0;list-style:none}
 .missing li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
 .box{width:16px;height:16px;border:2px solid var(--muted);border-radius:4px;margin-top:3px}
@@ -74,7 +74,24 @@ header{display:grid;gap:6px}
 .sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
 .foot{font-size:13px;color:var(--muted)}
 </style>
-
+<style>
+.weekbar{display:grid;gap:14px}
+.wk-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.wk-title{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-size:28px;font-weight:700;line-height:1}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.ticks{display:grid;font:500 12px "IBM Plex Mono",monospace;color:var(--muted)}
+.ticks span{text-align:center}.ticks span:first-child{text-align:left}.ticks span:last-child{text-align:right}
+.ticks span.cur{color:var(--ink);font-weight:600}
+.trend{width:100%;height:auto;display:block}
+.trend .ln{fill:none;stroke:var(--accent);stroke-width:2.5}
+.trend .goal{stroke:var(--target);stroke-dasharray:4 4;stroke-width:1.2;opacity:.6}
+.trend .dot{fill:var(--surface);stroke:var(--accent);stroke-width:2.5;cursor:pointer}
+.trend .dot.cur{fill:var(--accent)}
+.trend text{font:500 15px "IBM Plex Mono",monospace;fill:var(--muted)}
+.navbtn{font:600 14px Barlow,system-ui,sans-serif;background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:8px 14px;min-height:40px;cursor:pointer}
+.navbtn:disabled{opacity:.4;cursor:default}
+.delta-up{color:var(--good)}.delta-flat{color:var(--muted)}
+</style>
 <div class="wrap">
   <header>
     <span class="eyebrow">Ipanema · Sollentuna FK · match analysis</span>
@@ -82,9 +99,20 @@ header{display:grid;gap:6px}
     <span class="muted" id="updated"></span>
   </header>
 
+  <section class="card weekbar" aria-labelledby="wk-h">
+    <div class="wk-head">
+      <div><span class="eyebrow" id="wk-h">Week by week</span><div class="wk-title" id="wk-title">–</div><div class="muted mono" id="wk-dates"></div></div>
+      <div style="display:flex;gap:8px"><button class="navbtn" id="prev" aria-label="Previous week">← Earlier</button><button class="navbtn" id="next" aria-label="Next week">Later →</button></div>
+    </div>
+    <input type="range" id="slider" min="0" max="0" step="1" value="0" aria-label="Choose week">
+    <div class="ticks" id="ticks"></div>
+    <svg class="trend" id="trend" viewBox="0 0 600 130" role="img" aria-label="Overall progress per week"></svg>
+    <div id="wk-head2"></div>
+  </section>
+
   <section class="top">
     <div class="card overall" aria-labelledby="ov-h">
-      <span class="eyebrow" id="ov-h">Road to 90%</span>
+      <span class="eyebrow" id="ov-h">Road to 90% · <span id="ov-week"></span></span>
       <div class="num mono" id="ov-num">–<small>%</small></div>
       <div class="bar" role="img" id="ov-bar-label"><div class="fill" id="ov-fill" style="width:0"></div><div class="tick"></div></div>
       <div class="muted" id="ov-note"></div>
@@ -99,124 +127,112 @@ header{display:grid;gap:6px}
   </section>
 
   <section class="card" aria-labelledby="p-h">
-    <div class="sec-head"><h2 id="p-h">Where each part stands</h2><span class="muted">bar = measured now · line = 90% goal</span></div>
+    <div class="sec-head"><h2 id="p-h">Where each part stands · <span id="p-week"></span></h2><span class="muted">bar = measured that week · line = 90% goal</span></div>
     <div class="pillars" id="pillars"></div>
   </section>
 
   <section class="cols">
     <div class="card"><div class="sec-head"><h2>What's missing for 90%</h2></div><ul class="missing" id="missing" style="margin-top:12px"></ul></div>
-    <div class="card"><div class="sec-head"><h2>In progress now</h2></div><ul class="missing" id="next" style="margin-top:12px"></ul></div>
+    <div class="card"><div class="sec-head"><h2>In progress now</h2></div><ul class="missing" id="next-list" style="margin-top:12px"></ul></div>
   </section>
 
   <section aria-labelledby="r-h" class="releases">
-    <div class="sec-head"><h2 id="r-h">All releases</h2><span class="muted" id="r-count"></span></div>
+    <div class="sec-head"><h2 id="r-h">Releases · <span id="r-week"></span></h2><span class="muted" id="r-count"></span></div>
     <div id="releases" class="releases"></div>
   </section>
 
-  <p class="foot">Every number here comes from a measurement against something real: your clicks, Veo's event list or the checked moments on the test clip. Parts we haven't measured yet count as 0 until we do.</p>
+  <p class="foot">Every number comes from a measurement against something real: your clicks, Veo's event list or the checked moments on the test clip. A part we haven't measured counts as 0, so the overall number can't look better than it is.</p>
 </div>
 
 <script>
-const SEED = {
-  board: {updated: "2026-09-27 23:55", overall_note: "Average of the six parts. Parts not measured yet count as 0."},
-  pillars: [
-    {key:"lines", order:1, label:"Pitch lines", value:87, status:"warn", source:"Share of the SFK–BP test clip with a trusted camera (lines drawn)"},
-    {key:"ball", order:2, label:"Ball tracking", value:68, status:"warn", source:"23 of 34 checked moments right on the test clip, in the app"},
-    {key:"setpieces", order:3, label:"Set pieces & dead ball", value:60, status:"warn", source:"Estimate: we find 10 on the clip, Veo lists 6. Not yet checked to the second"},
-    {key:"players", order:4, label:"Players found", value:null, status:"none", source:"Not measured yet. Far players improved, but no count against the real line-up"},
-    {key:"stats", order:5, label:"Stats checked vs real game", value:0, status:"bad", source:"No stat has been checked against a hand count yet"},
-    {key:"fullmatch", order:6, label:"Full match in the app", value:0, status:"bad", source:"Only the 5-minute test clip runs on the new pipeline so far"}
-  ],
-  missing: [
-    "Ball: from about 7 in 10 moments to 9 in 10 (training on the 6 new matches)",
-    "Set pieces: your Veo times for 20:00–25:00, then score every event to the second",
-    "Stats: one hand-counted stretch to check passes, possession and turnovers",
-    "Players: count found players against the real line-up on sample frames",
-    "Full Edsberg match through the app, checked in Lovable"
-  ],
-  next: [
-    "6 new matches processing: both ball finders over every minute (~4 hours)",
-    "Yes/no check pages per match, about 40 pictures each",
-    "Ball training round on all matches, graded on your exam frames"
-  ],
-  releases: [
-    {n:4, name:"Two Eyes", date:"2026-09-27", summary:"Both ball finders work together; set-piece logic stops inventing stoppages.",
-     improved:["Ball in the app: 18 → 23 of 34 checked moments","Ball layer now shown in Lovable","Set pieces on the clip: 31 → 10 (in code, app re-run pending)","Measured that the two finders together see the ball in 93% of frames"],
-     missing:["Ball still misses about 3 in 10 moments","Set pieces not yet checked to the second"],
-     tags:["ball","events"]},
-    {n:3, name:"App Camera", date:"2026-09-26", summary:"The app pipeline now uses the good pitch camera.",
-     improved:["Pitch lines in the app from the line model: 87% of the clip trusted","Short camera gaps bridged instead of borrowed","Team shape lines no longer flicker","Far-away players searched in an enlarged strip (5 → 6 per team found)"],
-     missing:["Ball layer was hidden","Set pieces and dead-ball time far too high"],
-     tags:["lines","players"]},
-    {n:2, name:"Norrviken", date:"2026-09-26", summary:"Second ground set up from your pitch clicks.",
-     improved:["Norrviken camera solved from 11 clicked pictures (lines within 2–5 px)","Line model recognises Norrviken: 1 → 3 of 3 exam pictures","150 at-feet ball clicks added (436 clicked frames in total)"],
-     missing:["Each new ground still needs about 10 minutes of clicks"],
-     tags:["lines","new ground"]},
-    {n:1, name:"Chalk", date:"2026-09-25", summary:"Pitch lines found from the painted lines themselves.",
-     improved:["7 of 9 held-back pictures within 10 px of your clicks","Camera base fixed from the near touchline","Full SFK–BP match: 83% of seconds placed confidently"],
-     missing:["Not yet connected to the app"],
-     tags:["lines"]}
-  ]
-};
-
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const statusText = {good:"at goal", warn:"on the way", bad:"not started", none:"not measured", inprog:"in progress"};
+const statusText = {good:"at goal", warn:"on the way", bad:"not started", none:"not measured"};
+let D = null, cur = 0;
 
-function render(d){
-  const P = [...d.pillars].sort((a,b)=>(a.order??0)-(b.order??0));
-  const vals = P.map(p => typeof p.value === "number" ? p.value : 0);
-  const overall = Math.round(vals.reduce((a,b)=>a+b,0) / Math.max(1, vals.length));
-  $("ov-num").innerHTML = overall + "<small>%</small>";
-  $("ov-fill").style.width = Math.min(100, overall) + "%";
-  $("ov-bar-label").setAttribute("aria-label", `Overall ${overall}% against a 90% goal`);
-  const atGoal = P.filter(p => typeof p.value === "number" && p.value >= 90).length;
-  $("ov-note").textContent = `${atGoal} of ${P.length} parts at 90%. ${d.board?.overall_note ?? ""}`;
-  $("updated").textContent = d.board?.updated ? "Updated " + d.board.updated : "";
+const overallOf = (w, P) => Math.round(P.reduce((a,p)=>a + (typeof w.values?.[p.key] === "number" ? w.values[p.key] : 0), 0) / Math.max(1, P.length));
+
+function drawTrend(W, P){
+  const svg = $("trend"), n = W.length, x = i => n < 2 ? 300 : 30 + i * (540 / (n - 1)), y = v => 118 - v;
+  const pts = W.map((w,i)=>[x(i), y(overallOf(w,P))]);
+  svg.innerHTML = `<line class="goal" x1="0" x2="600" y1="${y(90)}" y2="${y(90)}"/><text x="596" y="${y(90)-4}" text-anchor="end">90% goal</text>
+    <polyline class="ln" points="${pts.map(p=>p.join(",")).join(" ")}"/>
+    ${pts.map((p,i)=>`<circle class="dot ${i===cur?"cur":""}" cx="${p[0]}" cy="${p[1]}" r="6" data-i="${i}"><title>${esc(W[i].label)}: ${overallOf(W[i],P)}%</title></circle>
+      <text x="${p[0]}" y="${p[1]-11}" text-anchor="middle">${overallOf(W[i],P)}%</text>`).join("")}`;
+  svg.querySelectorAll(".dot").forEach(c => c.addEventListener("click", () => go(+c.dataset.i)));
+}
+
+function go(i){
+  const W = D.weeks; cur = Math.max(0, Math.min(W.length - 1, i));
+  $("slider").value = cur; renderWeek();
+}
+
+function renderWeek(){
+  const W = D.weeks, P = [...D.pillars].sort((a,b)=>(a.order??0)-(b.order??0)), w = W[cur];
+  $("wk-title").textContent = w.label; $("wk-dates").textContent = w.dates || "";
+  $("prev").disabled = cur === 0; $("next").disabled = cur === W.length - 1;
+  $("ticks").style.gridTemplateColumns = `repeat(${W.length},1fr)`;
+  $("ticks").innerHTML = W.map((x,i)=>`<span class="${i===cur?"cur":""}">${esc(x.short || x.label)}</span>`).join("");
+  drawTrend(W, P);
+
+  const ov = overallOf(w, P), prev = cur > 0 ? overallOf(W[cur-1], P) : null;
+  const dl = prev === null ? "" : ov > prev ? ` <span class="delta-up">▲ +${ov-prev} from the week before</span>` : ` <span class="delta-flat">no change from the week before</span>`;
+  $("wk-head2").innerHTML = `<div>${esc(w.headline || "")}${dl}</div>`;
+  $("ov-week").textContent = w.short || w.label; $("p-week").textContent = w.short || w.label; $("r-week").textContent = w.short || w.label;
+  $("ov-num").innerHTML = ov + "<small>%</small>";
+  $("ov-fill").style.width = Math.min(100, ov) + "%";
+  $("ov-bar-label").setAttribute("aria-label", `Overall ${ov}% against a 90% goal`);
+  const atGoal = P.filter(p => (w.values?.[p.key] ?? 0) >= 90).length;
+  $("ov-note").textContent = `${atGoal} of ${P.length} parts at 90%. Average of the six parts; parts not measured count as 0.`;
 
   $("pillars").innerHTML = P.map(p => {
-    const v = typeof p.value === "number" ? p.value : null;
-    const st = p.status || (v === null ? "none" : v >= 90 ? "good" : v >= 50 ? "warn" : "bad");
+    const v = typeof w.values?.[p.key] === "number" ? w.values[p.key] : null;
+    const st = v === null ? "none" : v >= 90 ? "good" : v > 0 ? "warn" : "bad";
+    const src = w.notes?.[p.key] ?? (cur === W.length - 1 ? p.source : "");
+    const pv = cur > 0 ? W[cur-1].values?.[p.key] : undefined;
+    const d = (typeof v === "number" && typeof pv === "number" && v !== pv) ? ` <span class="delta ${v>pv?"delta-up":""}">${v>pv?"+":""}${v-pv}</span>` : "";
     return `<div class="pillar">
-      <div class="lab"><b>${esc(p.label)}</b><span class="pill ${st}" style="justify-self:start">${statusText[st]||st}</span></div>
-      <div><div class="bar"><div class="fill ${st}" style="width:${v ?? 0}%"></div><div class="tick"></div></div><div class="src" style="margin-top:8px">${esc(p.source)}</div></div>
-      <div class="val mono">${v === null ? "?" : v + "%"}</div></div>`;
+      <div class="lab"><b>${esc(p.label)}</b><span class="pill ${st}" style="justify-self:start">${statusText[st]}</span></div>
+      <div><div class="bar"><div class="fill ${st}" style="width:${v ?? 0}%"></div><div class="tick"></div></div><div class="src" style="margin-top:8px">${esc(src)}</div></div>
+      <div class="val mono">${v === null ? "?" : v + "%"}${d}</div></div>`;
   }).join("");
 
-  const li = t => `<li><span class="box" aria-hidden="true"></span><span>${esc(t)}</span></li>`;
-  $("missing").innerHTML = (d.missing || []).map(li).join("");
-  $("next").innerHTML = (d.next || []).map(li).join("");
-
-  const R = [...d.releases].sort((a,b)=>b.n-a.n);
-  const L = R[0];
-  if (L){ $("lt-name").textContent = `R${L.n} · ${L.name}`; $("lt-date").textContent = L.date; $("lt-sum").textContent = L.summary;
-          $("lt-chips").innerHTML = (L.tags||[]).map(t=>`<span class="pill inprog">${esc(t)}</span>`).join(""); }
-  $("r-count").textContent = `${R.length} releases`;
-  $("releases").innerHTML = R.map(r => `<article class="card rel">
+  const R = D.releases.filter(r => r.week === w.id).sort((a,b)=>b.n-a.n);
+  $("r-count").textContent = R.length ? `${R.length} in this week · ${D.releases.length} in total` : `${D.releases.length} in total`;
+  $("releases").innerHTML = R.length ? R.map(r => `<article class="card rel">
       <div class="when"><span class="rel-name">R${r.n}</span><b>${esc(r.name)}</b><span class="muted mono">${esc(r.date)}</span></div>
       <div class="body"><div>${esc(r.summary)}</div>
         <div><span class="eyebrow">Improved</span><ul>${(r.improved||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
         ${(r.missing||[]).length ? `<div><span class="eyebrow">Still missing after this release</span><ul>${r.missing.map(x=>`<li class="muted">${esc(x)}</li>`).join("")}</ul></div>` : ""}
-      </div></article>`).join("");
+      </div></article>`).join("") : `<div class="card muted">No release this week yet.</div>`;
 }
 
-render(SEED);
+function render(d){
+  D = d;
+  D.weeks.sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+  const L = [...D.releases].sort((a,b)=>b.n-a.n)[0];
+  if (L){ $("lt-name").textContent = `R${L.n} · ${L.name}`; $("lt-date").textContent = L.date; $("lt-sum").textContent = L.summary;
+          $("lt-chips").innerHTML = (L.tags||[]).map(t=>`<span class="pill good">${esc(t)}</span>`).join(""); }
+  $("updated").textContent = D.board?.updated ? "Updated " + D.board.updated : "";
+  const li = t => `<li><span class="box" aria-hidden="true"></span><span>${esc(t)}</span></li>`;
+  $("missing").innerHTML = (D.lists?.missing || []).map(li).join("");
+  $("next-list").innerHTML = (D.lists?.next || []).map(li).join("");
+  $("slider").max = D.weeks.length - 1;
+  go(D.weeks.length - 1);
+}
+
+$("slider").addEventListener("input", e => go(+e.target.value));
+$("prev").addEventListener("click", () => go(cur - 1));
+$("next").addEventListener("click", () => go(cur + 1));
 
 (async () => {
   const db = window.claude ? await window.claude.use("db") : null;
-  if (!db) return;
+  if (!db) { $("updated").textContent = "Open this page from claude.ai to load the release data."; return; }
   try {
-    const [rel, pil, meta] = await Promise.all([db.collection("releases").limit(200).get(), db.collection("pillars").limit(50).get(), db.collection("board").limit(10).get()]);
-    const releases = rel.docs.map(s => s.data()); const pillars = pil.docs.map(s => s.data());
+    const [rel, pil, wk, meta] = await Promise.all(["releases","pillars","weeks","board"].map(c => db.collection(c).limit(500).get()));
     const board = Object.fromEntries(meta.docs.map(s => [s.id, s.data()]));
-    if (!releases.length && !pillars.length) return;
-    render({
-      board: board.meta || SEED.board,
-      pillars: pillars.length ? pillars : SEED.pillars,
-      releases: releases.length ? releases : SEED.releases,
-      missing: board.lists?.missing || SEED.missing,
-      next: board.lists?.next || SEED.next
-    });
-  } catch (e) { /* keep the built-in copy */ }
+    render({ releases: rel.docs.map(s=>s.data()), pillars: pil.docs.map(s=>s.data()), weeks: wk.docs.map(s=>s.data()),
+             board: board.meta, lists: board.lists });
+  } catch (e) { $("updated").textContent = "Could not load the release data. Reload the page."; }
 })();
 </script>

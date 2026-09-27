@@ -1,0 +1,1 @@
+{"n": 2, "name": "Panorama", "date": "2026-09-16", "week": "2026-W38", "summary": "Pitch metres for SFK from a hand-calibrated panorama.", "improved": ["Panorama built from the follow-cam; calibrated once by hand", "Any SFK clip can borrow that calibration"], "missing": ["Drifts when the follow-cam zooms: lines wrong"], "tags": ["lines"]}

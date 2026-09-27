@@ -1,0 +1,1 @@
+{"n": 4, "name": "Cloud", "date": "2026-09-20", "week": "2026-W38", "summary": "Every code change runs by itself in the cloud (GitHub \u2192 Modal).", "improved": ["No more Colab: runs start on every push", "Motion-based ball finder (WASB) added"], "missing": ["Runs sometimes crashed or were slow"], "tags": ["automation", "ball"]}
