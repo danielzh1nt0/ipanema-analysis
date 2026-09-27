@@ -1413,8 +1413,12 @@ def fetch_soccertrack(token: str, files: list = None):
     os.environ["KAGGLE_API_TOKEN"] = token
     subprocess.run("pip install -q kaggle", shell=True, check=True)
     dst = f"{ROOT}/datasets/soccertrack"; os.makedirs(dst, exist_ok=True); out = {"downloaded": []}
-    r = subprocess.run("kaggle datasets files atomscott/soccertrack --page-size 500", shell=True, capture_output=True, text=True)
-    out["listing"] = (r.stdout + r.stderr)[-8000:]
+    listing = ""
+    for page in range(1, 20):                                                  # the whole list, all pages
+        r = subprocess.run(f"kaggle datasets files atomscott/soccertrack --page-size 500 --page-token {page}" if page > 1 else "kaggle datasets files atomscott/soccertrack --page-size 500", shell=True, capture_output=True, text=True)
+        txt = r.stdout + r.stderr; listing += txt
+        if r.returncode != 0 or "Next Page Token" not in txt: break
+    out["listing"] = listing
     for f in (files or []):
         r2 = subprocess.run(f"kaggle datasets download atomscott/soccertrack -f '{f}' -p {dst} --unzip", shell=True, capture_output=True, text=True)
         out["downloaded"].append({"file": f, "ok": r2.returncode == 0, "msg": (r2.stdout + r2.stderr)[-300:]})
