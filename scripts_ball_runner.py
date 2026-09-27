@@ -4,7 +4,8 @@ tag = os.environ.get("TAG", time.strftime("%Y%m%d_%H%M")); OUT = f"results/ball/
 def log(m): line = f"{time.strftime('%H:%M:%S')} {m}"; print(line, flush=True); open(f"{OUT}/log.txt", "a").write(line + "\n")
 try:
     trig = open("triggers/ball.txt").read().lower(); fast = "fast" in trig
-    res = modal.Function.from_name("ipanema", "ball_round").remote("SFKBP1109", 40 if fast else 60, fast, "/data/match_analysis/models/ball/clicks_v1.pt" if fast else "")
+    trig = open("triggers/ball.txt").read(); n_auto = int(next((w[5:] for w in trig.split() if w.startswith("auto=")), "0"))
+    res = modal.Function.from_name("ipanema", "ball_round").remote("SFKBP1109", 40 if fast else 60, fast, "/data/match_analysis/models/ball/clicks_v1.pt" if fast else "", n_auto)
     if "error" in res: log(res["error"]); sys.exit(1)
     for l in res["log"]: log(l)
     for k, v in res["pictures"].items(): open(f"{OUT}/exam/{k}", "wb").write(base64.b64decode(v))

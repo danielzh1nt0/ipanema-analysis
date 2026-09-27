@@ -140,3 +140,36 @@ def candidates(video, weights, cache, conf=0.05, log=print, batch=8, imgsz=1920,
     flush(); pickle.dump(out, open(cache, "wb"))
     if os.path.exists(partial): os.remove(partial)
     return out
+
+
+def add_auto_crops(auto_json, video, ds, n_auto=4000, crop=640, box=18, negatives_per=1, seed=1, log=print, exclude_seconds=()):
+    """append crops around auto-labels (autolabel.py: ball tracks on the pitch) to an existing crop dataset; one sequential
+    pass over the video (frames sorted, grab() to skip). Never a second Daniel clicked (the exam stays clean)."""
+    import random
+    d = json.load(open(auto_json)); labs = d["labels"]; ex = {int(round(s)) for s in exclude_seconds}
+    rng = random.Random(seed); cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
+    labs = [l for l in labs if int(round(l[0] / fps)) not in ex]
+    pick = sorted(rng.sample(labs, min(n_auto, len(labs))), key=lambda l: l[0]); want = {}
+    for k, x, y, c in pick: want.setdefault(int(k), []).append((x, y))
+    n = 0; k = 0; last = max(want) if want else -1
+    while k <= last:
+        if k in want:
+            ok, f = cap.read()
+            if not ok: break
+            h, w = f.shape[:2]
+            for j, (x, y) in enumerate(want[k]):
+                x0 = int(min(max(0, x - rng.randint(crop // 5, crop * 4 // 5)), w - crop)); y0 = int(min(max(0, y - rng.randint(crop // 5, crop * 4 // 5)), h - crop))
+                crops = [(x0, y0, True)]
+                for _ in range(negatives_per):
+                    for _try in range(20):
+                        nx, ny = rng.randint(0, w - crop), rng.randint(0, h - crop)
+                        if not (nx - 40 <= x <= nx + crop + 40 and ny - 40 <= y <= ny + crop + 40): crops.append((nx, ny, False)); break
+                for i, (cx, cy, has) in enumerate(crops):
+                    cn = f"auto_f{k:06d}_{j}_{i}"; cv2.imwrite(f"{ds}/images/train/{cn}.jpg", f[cy:cy + crop, cx:cx + crop], [cv2.IMWRITE_JPEG_QUALITY, 90])
+                    with open(f"{ds}/labels/train/{cn}.txt", "w") as fh:
+                        if has: b = box * (0.6 if y < h * 0.4 else 1.0); fh.write(f"0 {(x - cx) / crop:.6f} {(y - cy) / crop:.6f} {b / crop:.6f} {b / crop:.6f}\n")
+                    n += 1
+        else:
+            if not cap.grab(): break
+        k += 1
+    cap.release(); log(f"  auto-label crops: {n} added from {len(pick)} labels ({len(labs)} available)"); return n

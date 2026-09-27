@@ -1537,7 +1537,7 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
 
 @app.function(gpu="L4", timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = ""):
+def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = "", n_auto: int = 0):
     """fine-tune the ball detector on Daniel's clicks, grade old vs new on the 40 exam frames, pictures for each (~$0.50)"""
     import base64, shutil, time
     from ultralytics import YOLO
@@ -1547,6 +1547,11 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     log = []; L = lambda m: (log.append(f"{time.strftime('%H:%M:%S')} {m}"), print(m, flush=True))
     ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); cj = f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"
     if fast: BC.build_crop_dataset(cj, full, ds, log=L, player_weights=S.weights["player"])
+    if fast and n_auto:                                                          # 27 Sep: auto-labels from ball tracks (autolabel.py), exam frames untouched
+        aj = f"{ROOT}/labels/{match_id}_ball_auto.json"
+        import json as _jj
+        if os.path.exists(aj): BC.add_auto_crops(aj, full, ds, n_auto=n_auto, log=L, exclude_seconds=[r["t"] for r in _jj.load(open(cj))["frames"]])
+        else: L("no auto-label file on the volume; clicks only")
     else: BC.build_dataset(cj, full, ds, log=L)
     base = S.weights["ball"]; start = start_from if start_from and os.path.exists(start_from) else base
     L(f"training from {os.path.basename(start)} for {epochs} epochs ({'crops, 640 px' if fast else 'full frames, 1920 px'})"); t_tr = time.time()
