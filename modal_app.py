@@ -1346,6 +1346,29 @@ def profile_tracking(match_id: str = "SFKBP1109_s1200", n_frames: int = 400):
     lg.append(f"old full-frame only: {n_frames} frames in {time.time() - t0:.0f} s")
     return {"log": [l for l in lg if "timing" in l or "frames in" in l or "frame 0" in l]}
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
+def ball_autolabel_test(match_id: str = "SFKBP1109_s1200"):
+    """AUTO-LABELS, offline test on the clip: link the click-model's cached candidates into tracks, keep the ball-like
+    ones, return counts + a picture strip of labels for Daniel's eye. CPU only, cents; no training."""
+    import pickle, base64, cv2, json as _j
+    _setup()
+    from ipanema import autolabel as AL
+    cache = f"{ROOT}/cache/{match_id}/ball_cands_clicks.pkl"
+    if not os.path.exists(cache): return {"error": "no cached click-model candidates for this clip"}
+    cands = pickle.load(open(cache, "rb")); tr = AL.link(cands)
+    off = float(match_id.rsplit("_s", 1)[1]) if "_s" in match_id else 0.0
+    clicks = _j.load(open("/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json"))["frames"]
+    labs = AL.labels(tr, exclude_seconds=[r["t"] - off for r in clicks if 0 <= r["t"] - off <= 400])
+    video = f"/tmp/work/{match_id}/video.mp4"
+    if not os.path.exists(video):
+        from ipanema import video as V; V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    cap = cv2.VideoCapture(video)
+    def frame(k): cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); return f if ok else None
+    sheet = AL.strip(frame, labs, n=24); cap.release()
+    rep = {"frames_with_candidates": len(cands), "tracks_kept": len(tr), "track_lengths": sorted([len(t) for t in tr], reverse=True)[:15], "labels": len(labs)}
+    ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]) if sheet is not None else (False, None)
+    return {"report": rep, "strip_b64": base64.b64encode(buf.tobytes()).decode() if ok else None}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
