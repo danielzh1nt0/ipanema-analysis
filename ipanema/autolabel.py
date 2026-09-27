@@ -67,3 +67,20 @@ def strip(video_or_frames, labs, n=24, size=(640, 360), crop=160):
         tiles.append(np.hstack([sm, cr]))
     if not tiles: return None
     return np.vstack(tiles)
+
+def on_pitch(labs, H, L=106.0, W=64.0, margin=2.0):
+    """keep labels whose ground-plane position is on the pitch: trees, fences and signs above the far touchline map beyond
+    it (27 Sep: a third of the first clip labels were in the trees because the camera pans and they glide like a ball).
+    H: {frame: 3x3 pitch->pixels}"""
+    from .calibration import to_m
+    out = []
+    for k, x, y, c in labs:
+        Hk = H.get(k)
+        if Hk is None: continue
+        m = to_m(Hk, np.array([[x, y]], np.float32))[0]
+        if -margin <= m[0] <= L + margin and -margin <= m[1] <= W + margin: out.append((k, x, y, c))
+    return out
+
+def track_on_pitch_share(tr, H, L=106.0, W=64.0, margin=2.0):
+    labs = [(k, x, y, c) for k, x, y, c in tr if k in H]
+    return len(on_pitch(labs, H, L, W, margin)) / max(1, len(labs))

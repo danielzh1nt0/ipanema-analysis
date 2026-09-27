@@ -1355,17 +1355,20 @@ def ball_autolabel_test(match_id: str = "SFKBP1109_s1200"):
     from ipanema import autolabel as AL
     cache = f"{ROOT}/cache/{match_id}/ball_cands_clicks.pkl"
     if not os.path.exists(cache): return {"error": "no cached click-model candidates for this clip"}
-    cands = pickle.load(open(cache, "rb")); tr = AL.link(cands)
+    cands = pickle.load(open(cache, "rb")); tr0 = AL.link(cands)
     off = float(match_id.rsplit("_s", 1)[1]) if "_s" in match_id else 0.0
-    clicks = _j.load(open("/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json"))["frames"]
-    labs = AL.labels(tr, exclude_seconds=[r["t"] - off for r in clicks if 0 <= r["t"] - off <= 400])
+    from ipanema import linecal as LC, video as V
     video = f"/tmp/work/{match_id}/video.mp4"
-    if not os.path.exists(video):
-        from ipanema import video as V; V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    vi = V.info(video); lines = LC.find_rows(ROOT, match_id)
+    cal = LC.calibration_for_clip(lines[2], vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=lines[1], log=lambda *a: None)
+    tr = [t for t in tr0 if AL.track_on_pitch_share(t, cal["H"]) >= 0.8]        # a ball track lives on the pitch
+    clicks = _j.load(open("/content/ipanema-analysis/results/labels/SFKBP1109_ball_clicks.json"))["frames"]
+    labs = AL.on_pitch(AL.labels(tr, exclude_seconds=[r["t"] - off for r in clicks if 0 <= r["t"] - off <= 400]), cal["H"])
     cap = cv2.VideoCapture(video)
     def frame(k): cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); return f if ok else None
     sheet = AL.strip(frame, labs, n=24); cap.release()
-    rep = {"frames_with_candidates": len(cands), "tracks_kept": len(tr), "track_lengths": sorted([len(t) for t in tr], reverse=True)[:15], "labels": len(labs)}
+    rep = {"frames_with_candidates": len(cands), "tracks_linked": len(tr0), "tracks_on_pitch": len(tr), "track_lengths": sorted([len(t) for t in tr], reverse=True)[:15], "labels": len(labs)}
     ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]) if sheet is not None else (False, None)
     return {"report": rep, "strip_b64": base64.b64encode(buf.tobytes()).decode() if ok else None}
 
