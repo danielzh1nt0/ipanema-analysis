@@ -1,0 +1,21 @@
+07:15:11 FAILED:
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/scripts_ball_runner.py", line 8, in <module>
+    res = modal.Function.from_name("ipanema", "ball_round").remote("SFKBP1109", 40 if fast else 60, fast, "/data/match_analysis/models/ball/clicks_v1.pt" if fast else "", n_auto)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_object.py", line 46, in wrapped
+    return await method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1893, in remote
+    return await self._call_function(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 1830, in _call_function
+    return await invocation.run_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py", line 503, in run_function
+    return await _process_result(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py", line 534, in _process_result
+    raise FunctionTimeoutError(result.exception)
+modal.exception.FunctionTimeoutError: Task's current input in-01M3GR1GEQVHXAMX3AMF4WW9WS:1790489706967-0 hit its timeout of 3600s
+
