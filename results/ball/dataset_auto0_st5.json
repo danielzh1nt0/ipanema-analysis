@@ -1,0 +1,25 @@
+{
+ "clicks": {
+  "train": 576,
+  "val": 108,
+  "at_feet": 0
+ },
+ "auto_crops": 0,
+ "soccertrack_crops": 19556,
+ "zip": "/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_st5.zip",
+ "minutes": 10.4,
+ "log": [
+  "  crop dataset: 576 training crops (640 px), 108 full-frame exam frames; 0 at-feet balls x3",
+  "click crops done in 0.9 min",
+  "auto crops done in 0.0 min",
+  "  soccertrack: 10 clips, 2906 crops so far",
+  "  soccertrack: 20 clips, 5834 crops so far",
+  "  soccertrack: 30 clips, 8834 crops so far",
+  "  soccertrack: 40 clips, 11834 crops so far",
+  "  soccertrack: 50 clips, 14834 crops so far",
+  "  soccertrack: 60 clips, 17756 crops so far",
+  "  soccertrack crops: 19556 from 66 clips (every 5th frame)",
+  "soccertrack crops done in 7.8 min",
+  "dataset zipped: 1440 MB, total 10.4 min"
+ ]
+}
