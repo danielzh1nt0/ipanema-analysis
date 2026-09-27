@@ -1,0 +1,34 @@
+{
+ "match": "p15u-vs-vasalund-2026-09-20",
+ "source": "clicks",
+ "checked_by": "Daniel",
+ "answers": {
+  "c00": "yes",
+  "c01": "yes",
+  "c02": "yes",
+  "c03": "yes",
+  "c04": "yes",
+  "c05": "yes",
+  "c06": "yes",
+  "c07": "yes",
+  "c08": "yes",
+  "c09": "yes",
+  "c10": "yes",
+  "c11": "no",
+  "c12": "yes",
+  "c13": "yes",
+  "c14": "yes",
+  "c15": "yes",
+  "c16": "yes",
+  "c17": "yes",
+  "c18": "yes",
+  "c19": "yes"
+ },
+ "yes": 19,
+ "total": 20,
+ "by_band": {
+  "0.30-0.50": "9/10",
+  "0.50-0.70": "10/10"
+ },
+ "verdict": "passes the 95% gate (19/20); labels accepted for training"
+}
