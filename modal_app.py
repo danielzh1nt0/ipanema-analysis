@@ -1492,8 +1492,10 @@ def ball_restore_v1():
 @app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
 def fetch_file(rel: str, part: int = 0, chunk: int = 6 << 20):
     """a file from the volume as base64, in `chunk`-byte parts (weights for offline analysis)"""
-    import base64
+    import base64, glob as _g
     p = f"{ROOT}/{rel}"
+    if any(ch in rel for ch in "*?["):                                          # a pattern: the newest match
+        hits = sorted(_g.glob(p), key=os.path.getmtime); p = hits[-1] if hits else p; rel = os.path.relpath(p, ROOT)
     if not os.path.exists(p): return {"error": f"missing {rel}"}
     n = os.path.getsize(p)
     with open(p, "rb") as fh: fh.seek(part * chunk); data = fh.read(chunk)
