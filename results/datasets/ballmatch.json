@@ -1,0 +1,29 @@
+{
+ "test": {
+  "match": "p15u-vs-vasalund-2026-09-20",
+  "pieces": 2,
+  "done": 2,
+  "failed": [],
+  "results": [
+   {
+    "match": "p15u-vs-vasalund-2026-09-20",
+    "start_s": 0,
+    "dur_s": 300,
+    "frames": 8992,
+    "click_frames": 2998,
+    "minutes": 18.2
+   },
+   {
+    "match": "p15u-vs-vasalund-2026-09-20",
+    "start_s": 300,
+    "dur_s": 300,
+    "frames": 8992,
+    "click_frames": 2998,
+    "minutes": 17.3
+   }
+  ],
+  "started": "21:24:00",
+  "elapsed_min": 18.5,
+  "finished": "21:42:35"
+ }
+}
