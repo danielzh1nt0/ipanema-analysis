@@ -1,0 +1,26 @@
+[
+ {
+  "match": "p15u-vs-vasalund-2026-09-20",
+  "bytes": 3289349198,
+  "ok_size": true,
+  "minutes_video": 94.2,
+  "fps": 29.970030500399908,
+  "size": [
+   1920,
+   1080
+  ],
+  "download_min": 0.7
+ },
+ {
+  "match": "p15u-vs-spanga-2026-09-25",
+  "bytes": 3279874704,
+  "ok_size": true,
+  "minutes_video": 93.8,
+  "fps": 29.97003050278127,
+  "size": [
+   1920,
+   1080
+  ],
+  "download_min": 1.7
+ }
+]
