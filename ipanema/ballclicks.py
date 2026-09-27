@@ -173,3 +173,41 @@ def add_auto_crops(auto_json, video, ds, n_auto=4000, crop=640, box=18, negative
             if not cap.grab(): break
         k += 1
     cap.release(); log(f"  auto-label crops: {n} added from {len(pick)} labels ({len(labs)} available)"); return n
+
+
+def add_soccertrack_crops(st_root, ds, every=5, crop=640, box=14, negatives_per=1, seed=2, log=print, max_per_clip=None):
+    """SoccerTrack wide view (6500x1000 stitched panorama, ball box per frame in a 3-level CSV): crops around the ball
+    every `every`-th frame + ball-free crops; appended to a crop dataset. The ball is ~8 px there, like ours."""
+    import glob, random, pandas as pd
+    rng = random.Random(seed); n = 0; clips = 0
+    for v in sorted(glob.glob(f"{st_root}/videos/*.mp4")):
+        name = os.path.basename(v)[:-4]; csv = f"{st_root}/annotations/{name}.csv"
+        if not os.path.exists(csv): continue
+        df = pd.read_csv(csv, header=[0, 1, 2], index_col=0); cols = [c for c in df.columns if str(c[0]).upper() == "BALL"]
+        if not cols: continue
+        team, pid = cols[0][0], cols[0][1]; clips += 1; cap = cv2.VideoCapture(v); k = 0; done = 0
+        while True:
+            ok = cap.grab()
+            if not ok: break
+            if k % every == 0 and k < len(df) and (max_per_clip is None or done < max_per_clip):
+                try: x, y, bw, bh = [float(df.iloc[k][(team, pid, a)]) for a in ("bb_left", "bb_top", "bb_width", "bb_height")]
+                except Exception: x = float("nan")
+                ok, f = cap.retrieve()
+                if ok and np.isfinite([x, y, bw, bh]).all() and bw > 0:
+                    h, w = f.shape[:2]; cx, cy = x + bw / 2, y + bh / 2; crop = min(crop, h, w)
+                    x0 = int(min(max(0, cx - rng.randint(crop // 5, crop * 4 // 5)), w - crop)); y0 = int(min(max(0, cy - rng.randint(crop // 5, crop * 4 // 5)), h - crop))
+                    crops = [(x0, y0, True)]
+                    for _ in range(negatives_per):
+                        for _try in range(20):
+                            nx, ny = rng.randint(0, w - crop), rng.randint(0, h - crop)
+                            if not (nx - 40 <= cx <= nx + crop + 40 and ny - 40 <= cy <= ny + crop + 40): crops.append((nx, ny, False)); break
+                    for i, (ax, ay, has) in enumerate(crops):
+                        cn = f"st_{name}_f{k:04d}_{i}"; cv2.imwrite(f"{ds}/images/train/{cn}.jpg", f[ay:ay + crop, ax:ax + crop], [cv2.IMWRITE_JPEG_QUALITY, 90])
+                        with open(f"{ds}/labels/train/{cn}.txt", "w") as fh:
+                            if has: bb = max(box, bw * 1.3); fh.write(f"0 {(cx - ax) / crop:.6f} {(cy - ay) / crop:.6f} {bb / crop:.6f} {bb / crop:.6f}\n")
+                        n += 1
+                    done += 1
+            k += 1
+        cap.release()
+        if clips % 10 == 0: log(f"  soccertrack: {clips} clips, {n} crops so far")
+    log(f"  soccertrack crops: {n} from {clips} clips (every {every}th frame)"); return n

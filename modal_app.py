@@ -1612,7 +1612,7 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
 
 @app.function(timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
-def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000):
+def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000, soccertrack_every: int = 0):
     """CPU: build the crop dataset (Daniel's clicks + n_auto auto-labels, exam full frames) ONCE and keep it on the volume
     as a zip. Logs progress to the volume. Measured 27 Sep; round 6 died at 60 min because this and training shared one cap."""
     import shutil, time, zipfile, json as _jj
@@ -1625,15 +1625,18 @@ def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000):
     t1 = time.time(); aj = f"{ROOT}/labels/{match_id}_ball_auto.json"; n2 = 0
     if n_auto and os.path.exists(aj): n2 = BC.add_auto_crops(aj, full, ds, n_auto=n_auto, log=_log, exclude_seconds=[r["t"] for r in _jj.load(open(cj))["frames"]])
     _log(f"auto crops done in {(time.time() - t1) / 60:.1f} min")
-    out = f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}.zip"; os.makedirs(os.path.dirname(out), exist_ok=True)
+    n3 = 0
+    if soccertrack_every:                                                       # 27 Sep: SoccerTrack wide view, 49,500 labelled frames
+        t2 = time.time(); n3 = BC.add_soccertrack_crops(f"{ROOT}/datasets/soccertrack/wide_view", ds, every=soccertrack_every, log=_log); _log(f"soccertrack crops done in {(time.time() - t2) / 60:.1f} min")
+    out = f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}" + (f"_st{soccertrack_every}" if soccertrack_every else "") + ".zip"; os.makedirs(os.path.dirname(out), exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_STORED) as z:
         for root, _, files in os.walk(ds):
             for f in files: z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), ds))
     vol.commit(); _log(f"dataset zipped: {os.path.getsize(out) / 1e6:.0f} MB, total {(time.time() - t0) / 60:.1f} min")
-    return {"clicks": n1, "auto_crops": n2, "zip": out, "minutes": round((time.time() - t0) / 60, 1), "log": lines[-20:]}
+    return {"clicks": n1, "auto_crops": n2, "soccertrack_crops": n3, "zip": out, "minutes": round((time.time() - t0) / 60, 1), "log": lines[-20:]}
 
 @app.function(gpu="L4", timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = "", n_auto: int = 0, max_train_min: float = 25.0):
+def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = "", n_auto: int = 0, max_train_min: float = 25.0, dataset_zip: str = ""):
     """fine-tune the ball detector on Daniel's clicks, grade old vs new on the 40 exam frames, pictures for each (~$0.50)"""
     import base64, shutil, time
     from ultralytics import YOLO
@@ -1644,7 +1647,7 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     ds = "/tmp/ball_ds"; shutil.rmtree(ds, ignore_errors=True); cj = f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"
     if fast and n_auto:                                                          # 27 Sep: the dataset built once on CPU by ball_dataset (clicks + auto-labels)
         import zipfile
-        zp = f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}.zip"
+        zp = dataset_zip or f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}.zip"
         if not os.path.exists(zp): return {"error": f"no cached dataset {os.path.basename(zp)}: run ball_dataset first"}
         zipfile.ZipFile(zp).extractall(ds); open(f"{ds}/data.yaml", "w").write(f"path: {ds}\ntrain: images/train\nval: images/val\nnames: ['ball']\n")
         L(f"dataset from the volume: {len(os.listdir(f'{ds}/images/train'))} training crops, {len(os.listdir(f'{ds}/images/val'))} exam frames")
