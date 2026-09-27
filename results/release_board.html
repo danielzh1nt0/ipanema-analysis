@@ -1,0 +1,222 @@
+<title>Ipanema Release Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F2F5F1; --surface:#FFFFFF; --ink:#15221B; --muted:#5B6A61; --line:#D8E0DA;
+  --accent:#1E7A4C; --accent-soft:#E2F1E8; --target:#15221B;
+  --good:#1E7A4C; --warn:#B7791F; --bad:#B8432F; --none:#8A968F;
+  --good-bg:#E2F1E8; --warn-bg:#FBF0DC; --bad-bg:#F8E3DE; --none-bg:#EDF0EE;
+  --track:#E6ECE8;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0D1511; --surface:#142019; --ink:#E4ECE6; --muted:#98A79E; --line:#26352C;
+  --accent:#4CC38A; --accent-soft:#16301F; --target:#E4ECE6;
+  --good:#4CC38A; --warn:#E0A94A; --bad:#E27A64; --none:#7F8D85;
+  --good-bg:#16301F; --warn-bg:#33280F; --bad-bg:#3A1C16; --none-bg:#1C2621; --track:#1F2C25;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0D1511; --surface:#142019; --ink:#E4ECE6; --muted:#98A79E; --line:#26352C;
+  --accent:#4CC38A; --accent-soft:#16301F; --target:#E4ECE6;
+  --good:#4CC38A; --warn:#E0A94A; --bad:#E27A64; --none:#7F8D85;
+  --good-bg:#16301F; --warn-bg:#33280F; --bad-bg:#3A1C16; --none-bg:#1C2621; --track:#1F2C25;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Barlow,system-ui,-apple-system,"Segoe UI",sans-serif;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:28px}
+h1,h2,.num,.rel-name{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;text-wrap:balance}
+h1{font-size:34px;font-weight:700;letter-spacing:.01em;margin:0;line-height:1.05}
+h2{font-size:22px;font-weight:600;margin:0;letter-spacing:.02em}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+header{display:grid;gap:6px}
+.top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.top{grid-template-columns:1fr}}
+.overall{display:grid;gap:14px}
+.overall .num{font-size:64px;font-weight:700;line-height:.9}
+.overall .num small{font-size:26px;color:var(--muted);font-weight:600;margin-left:4px}
+.bar{position:relative;height:12px;background:var(--track);border-radius:6px}
+.bar .fill{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--accent)}
+.bar .tick{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--target);left:90%}
+.bar .tick::after{content:"90%";position:absolute;top:-18px;left:50%;transform:translateX(-50%);font:500 11px "IBM Plex Mono",monospace;color:var(--muted)}
+.latest{display:grid;gap:10px;border-left:4px solid var(--accent)}
+.rel-name{font-size:28px;font-weight:700;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+.pill.good{background:var(--good-bg);color:var(--good)} .pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)} .pill.none{background:var(--none-bg);color:var(--none)}
+.pill.inprog{background:var(--accent-soft);color:var(--accent)}
+.pillars{display:grid;gap:0}
+.pillar{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 72px;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.pillar:first-of-type{border-top:0}
+.pillar .lab{display:grid;gap:2px}
+.pillar .lab b{font-weight:600}
+.pillar .src{font-size:13px;color:var(--muted)}
+.pillar .val{text-align:right;font-size:20px;font-weight:500}
+.pillar .fill.good{background:var(--good)} .pillar .fill.warn{background:var(--warn)} .pillar .fill.bad{background:var(--bad)}
+@media (max-width:560px){.pillar{grid-template-columns:1fr 64px}.pillar .bar{grid-column:1/-1;grid-row:2}}
+.missing{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.missing li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.box{width:16px;height:16px;border:2px solid var(--muted);border-radius:4px;margin-top:3px}
+.releases{display:grid;gap:14px}
+.rel{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px}
+@media (max-width:640px){.rel{grid-template-columns:1fr;gap:6px}}
+.rel .when{display:grid;gap:4px;align-content:start}
+.rel .body{display:grid;gap:10px}
+.rel ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.delta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;white-space:nowrap}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.foot{font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Ipanema · Sollentuna FK · match analysis</span>
+    <h1>Release Board</h1>
+    <span class="muted" id="updated"></span>
+  </header>
+
+  <section class="top">
+    <div class="card overall" aria-labelledby="ov-h">
+      <span class="eyebrow" id="ov-h">Road to 90%</span>
+      <div class="num mono" id="ov-num">–<small>%</small></div>
+      <div class="bar" role="img" id="ov-bar-label"><div class="fill" id="ov-fill" style="width:0"></div><div class="tick"></div></div>
+      <div class="muted" id="ov-note"></div>
+    </div>
+    <div class="card latest" aria-labelledby="lt-h">
+      <span class="eyebrow" id="lt-h">Latest release</span>
+      <div class="rel-name" id="lt-name">–</div>
+      <div class="muted mono" id="lt-date"></div>
+      <div id="lt-sum"></div>
+      <div class="chips" id="lt-chips"></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="p-h">
+    <div class="sec-head"><h2 id="p-h">Where each part stands</h2><span class="muted">bar = measured now · line = 90% goal</span></div>
+    <div class="pillars" id="pillars"></div>
+  </section>
+
+  <section class="cols">
+    <div class="card"><div class="sec-head"><h2>What's missing for 90%</h2></div><ul class="missing" id="missing" style="margin-top:12px"></ul></div>
+    <div class="card"><div class="sec-head"><h2>In progress now</h2></div><ul class="missing" id="next" style="margin-top:12px"></ul></div>
+  </section>
+
+  <section aria-labelledby="r-h" class="releases">
+    <div class="sec-head"><h2 id="r-h">All releases</h2><span class="muted" id="r-count"></span></div>
+    <div id="releases" class="releases"></div>
+  </section>
+
+  <p class="foot">Every number here comes from a measurement against something real: your clicks, Veo's event list or the checked moments on the test clip. Parts we haven't measured yet count as 0 until we do.</p>
+</div>
+
+<script>
+const SEED = {
+  board: {updated: "2026-09-27 23:55", overall_note: "Average of the six parts. Parts not measured yet count as 0."},
+  pillars: [
+    {key:"lines", order:1, label:"Pitch lines", value:87, status:"warn", source:"Share of the SFK–BP test clip with a trusted camera (lines drawn)"},
+    {key:"ball", order:2, label:"Ball tracking", value:68, status:"warn", source:"23 of 34 checked moments right on the test clip, in the app"},
+    {key:"setpieces", order:3, label:"Set pieces & dead ball", value:60, status:"warn", source:"Estimate: we find 10 on the clip, Veo lists 6. Not yet checked to the second"},
+    {key:"players", order:4, label:"Players found", value:null, status:"none", source:"Not measured yet. Far players improved, but no count against the real line-up"},
+    {key:"stats", order:5, label:"Stats checked vs real game", value:0, status:"bad", source:"No stat has been checked against a hand count yet"},
+    {key:"fullmatch", order:6, label:"Full match in the app", value:0, status:"bad", source:"Only the 5-minute test clip runs on the new pipeline so far"}
+  ],
+  missing: [
+    "Ball: from about 7 in 10 moments to 9 in 10 (training on the 6 new matches)",
+    "Set pieces: your Veo times for 20:00–25:00, then score every event to the second",
+    "Stats: one hand-counted stretch to check passes, possession and turnovers",
+    "Players: count found players against the real line-up on sample frames",
+    "Full Edsberg match through the app, checked in Lovable"
+  ],
+  next: [
+    "6 new matches processing: both ball finders over every minute (~4 hours)",
+    "Yes/no check pages per match, about 40 pictures each",
+    "Ball training round on all matches, graded on your exam frames"
+  ],
+  releases: [
+    {n:4, name:"Two Eyes", date:"2026-09-27", summary:"Both ball finders work together; set-piece logic stops inventing stoppages.",
+     improved:["Ball in the app: 18 → 23 of 34 checked moments","Ball layer now shown in Lovable","Set pieces on the clip: 31 → 10 (in code, app re-run pending)","Measured that the two finders together see the ball in 93% of frames"],
+     missing:["Ball still misses about 3 in 10 moments","Set pieces not yet checked to the second"],
+     tags:["ball","events"]},
+    {n:3, name:"App Camera", date:"2026-09-26", summary:"The app pipeline now uses the good pitch camera.",
+     improved:["Pitch lines in the app from the line model: 87% of the clip trusted","Short camera gaps bridged instead of borrowed","Team shape lines no longer flicker","Far-away players searched in an enlarged strip (5 → 6 per team found)"],
+     missing:["Ball layer was hidden","Set pieces and dead-ball time far too high"],
+     tags:["lines","players"]},
+    {n:2, name:"Norrviken", date:"2026-09-26", summary:"Second ground set up from your pitch clicks.",
+     improved:["Norrviken camera solved from 11 clicked pictures (lines within 2–5 px)","Line model recognises Norrviken: 1 → 3 of 3 exam pictures","150 at-feet ball clicks added (436 clicked frames in total)"],
+     missing:["Each new ground still needs about 10 minutes of clicks"],
+     tags:["lines","new ground"]},
+    {n:1, name:"Chalk", date:"2026-09-25", summary:"Pitch lines found from the painted lines themselves.",
+     improved:["7 of 9 held-back pictures within 10 px of your clicks","Camera base fixed from the near touchline","Full SFK–BP match: 83% of seconds placed confidently"],
+     missing:["Not yet connected to the app"],
+     tags:["lines"]}
+  ]
+};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const statusText = {good:"at goal", warn:"on the way", bad:"not started", none:"not measured", inprog:"in progress"};
+
+function render(d){
+  const P = [...d.pillars].sort((a,b)=>(a.order??0)-(b.order??0));
+  const vals = P.map(p => typeof p.value === "number" ? p.value : 0);
+  const overall = Math.round(vals.reduce((a,b)=>a+b,0) / Math.max(1, vals.length));
+  $("ov-num").innerHTML = overall + "<small>%</small>";
+  $("ov-fill").style.width = Math.min(100, overall) + "%";
+  $("ov-bar-label").setAttribute("aria-label", `Overall ${overall}% against a 90% goal`);
+  const atGoal = P.filter(p => typeof p.value === "number" && p.value >= 90).length;
+  $("ov-note").textContent = `${atGoal} of ${P.length} parts at 90%. ${d.board?.overall_note ?? ""}`;
+  $("updated").textContent = d.board?.updated ? "Updated " + d.board.updated : "";
+
+  $("pillars").innerHTML = P.map(p => {
+    const v = typeof p.value === "number" ? p.value : null;
+    const st = p.status || (v === null ? "none" : v >= 90 ? "good" : v >= 50 ? "warn" : "bad");
+    return `<div class="pillar">
+      <div class="lab"><b>${esc(p.label)}</b><span class="pill ${st}" style="justify-self:start">${statusText[st]||st}</span></div>
+      <div><div class="bar"><div class="fill ${st}" style="width:${v ?? 0}%"></div><div class="tick"></div></div><div class="src" style="margin-top:8px">${esc(p.source)}</div></div>
+      <div class="val mono">${v === null ? "?" : v + "%"}</div></div>`;
+  }).join("");
+
+  const li = t => `<li><span class="box" aria-hidden="true"></span><span>${esc(t)}</span></li>`;
+  $("missing").innerHTML = (d.missing || []).map(li).join("");
+  $("next").innerHTML = (d.next || []).map(li).join("");
+
+  const R = [...d.releases].sort((a,b)=>b.n-a.n);
+  const L = R[0];
+  if (L){ $("lt-name").textContent = `R${L.n} · ${L.name}`; $("lt-date").textContent = L.date; $("lt-sum").textContent = L.summary;
+          $("lt-chips").innerHTML = (L.tags||[]).map(t=>`<span class="pill inprog">${esc(t)}</span>`).join(""); }
+  $("r-count").textContent = `${R.length} releases`;
+  $("releases").innerHTML = R.map(r => `<article class="card rel">
+      <div class="when"><span class="rel-name">R${r.n}</span><b>${esc(r.name)}</b><span class="muted mono">${esc(r.date)}</span></div>
+      <div class="body"><div>${esc(r.summary)}</div>
+        <div><span class="eyebrow">Improved</span><ul>${(r.improved||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+        ${(r.missing||[]).length ? `<div><span class="eyebrow">Still missing after this release</span><ul>${r.missing.map(x=>`<li class="muted">${esc(x)}</li>`).join("")}</ul></div>` : ""}
+      </div></article>`).join("");
+}
+
+render(SEED);
+
+(async () => {
+  const db = window.claude ? await window.claude.use("db") : null;
+  if (!db) return;
+  try {
+    const [rel, pil, meta] = await Promise.all([db.collection("releases").limit(200).get(), db.collection("pillars").limit(50).get(), db.collection("board").limit(10).get()]);
+    const releases = rel.docs.map(s => s.data()); const pillars = pil.docs.map(s => s.data());
+    const board = Object.fromEntries(meta.docs.map(s => [s.id, s.data()]));
+    if (!releases.length && !pillars.length) return;
+    render({
+      board: board.meta || SEED.board,
+      pillars: pillars.length ? pillars : SEED.pillars,
+      releases: releases.length ? releases : SEED.releases,
+      missing: board.lists?.missing || SEED.missing,
+      next: board.lists?.next || SEED.next
+    });
+  } catch (e) { /* keep the built-in copy */ }
+})();
+</script>
