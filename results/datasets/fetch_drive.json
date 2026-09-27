@@ -1,26 +1,60 @@
 [
  {
   "match": "p15u-vs-vasalund-2026-09-20",
-  "bytes": 3289349198,
-  "ok_size": true,
-  "minutes_video": 94.2,
-  "fps": 29.970030500399908,
-  "size": [
-   1920,
-   1080
-  ],
-  "download_min": 0.7
+  "status": "already on the volume",
+  "bytes": 3289349198
  },
  {
   "match": "p15u-vs-spanga-2026-09-25",
-  "bytes": 3279874704,
+  "status": "already on the volume",
+  "bytes": 3279874704
+ },
+ {
+  "match": "p15u-vs-djursholm-2026-09-26",
+  "bytes": 4085890041,
   "ok_size": true,
-  "minutes_video": 93.8,
-  "fps": 29.97003050278127,
+  "minutes_video": 119.1,
+  "fps": 29.970030529375542,
   "size": [
    1920,
    1080
   ],
-  "download_min": 1.7
+  "download_min": 0.9
+ },
+ {
+  "match": "solberga-vs-p09-norrviken-2026-09-11",
+  "bytes": 4249891042,
+  "ok_size": true,
+  "minutes_video": 121.3,
+  "fps": 29.970030518878342,
+  "size": [
+   1920,
+   1080
+  ],
+  "download_min": 0.9
+ },
+ {
+  "match": "p15u-vs-reymersholm-2026-09-18",
+  "bytes": 3472873376,
+  "ok_size": true,
+  "minutes_video": 99.2,
+  "fps": 29.97003064124215,
+  "size": [
+   1920,
+   1080
+  ],
+  "download_min": 1.4
+ },
+ {
+  "match": "p09-norrviken-vs-solheim-2026-08-30",
+  "bytes": 3732557712,
+  "ok_size": true,
+  "minutes_video": 106.6,
+  "fps": 29.970030594503903,
+  "size": [
+   1920,
+   1080
+  ],
+  "download_min": 1.0
  }
 ]
