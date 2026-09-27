@@ -1564,6 +1564,48 @@ def wasb_ceiling(match_id: str = "SFKBP1109", thr: float = 0.05):
          "no_ball_frames_with_peak_over_0.25": sum(1 for r in rows if not r["has_ball"] and any(c[2] >= 0.25 for c in r["cands"]))}
     return {"summary": s, "rows": rows}
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_pick_test(match_id: str = "SFKBP1109_s1200"):
+    """STEP 2 (CPU, cents): on the clip, from CACHED candidates (WASB + click model) and cached player tracks, run the
+    pickers with several candidate mixes and grade each against the 34 checked moments. No GPU, nothing trained."""
+    import pickle, glob, json as _j, numpy as np
+    S = _setup(); from ipanema import ball as BL, linecal as LC, video as V, tracking as TR
+    cache = f"{ROOT}/cache/{match_id}"; out = {}
+    wf = sorted(glob.glob(f"{cache}/ball_cands_wasb_*_t2x2.pkl"), key=os.path.getmtime); cf = f"{cache}/ball_cands_clicks.pkl"
+    if not wf or not os.path.exists(cf): return {"error": f"caches missing: wasb {bool(wf)} clicks {os.path.exists(cf)}"}
+    wasb = pickle.load(open(wf[-1], "rb")); clk = pickle.load(open(cf, "rb"))
+    trk = next((p for p in (f"{cache}/tracks_lines_far.pkl", f"{cache}/tracks_lines.pkl") if os.path.exists(p)), None)
+    if trk is None: return {"error": "no cached tracks"}
+    per, fps = pickle.load(open(trk, "rb"))
+    video = f"/tmp/work/{match_id}/video.mp4"
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    vi = V.info(video); lines = LC.find_rows(ROOT, match_id); cal = LC.calibration_for_clip(lines[2], vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=lines[1], log=lambda *a: None)
+    H, L, W = cal["H"], cal["L"], cal["W"]; per, _ = TR.clean(per, L, W, fps, log=lambda *a: None)
+    gt = os.path.join(ROOT, "reference", match_id, "ball_gt.json")
+    def fuse(wy=1.5, wb=1.0, bonus=0.3, px=12):
+        c = {}
+        for k in set(wasb) | set(clk):
+            cands = [[x, y, wy * cf_] for x, y, cf_ in clk.get(k, [])]
+            for x, y, s in wasb.get(k, []):
+                j = next((i for i, q in enumerate(cands) if np.hypot(q[0] - x, q[1] - y) <= px), None)
+                if j is not None: cands[j][2] += wb * s + bonus
+                else: cands.append([x, y, wb * s])
+            c[k] = [(x, y, min(0.99, sc / 2.0)) for x, y, sc in cands]                 # picker expects 0..1 confidences
+        return c
+    mixes = {"wasb_only": wasb, "clicks_only": clk, "fused": fuse(), "fused_strong_agree": fuse(bonus=0.8)}
+    for name, cands in mixes.items():
+        for picker in ("v2", "v1"):
+            try:
+                if picker == "v2": ball = BL.bridge(BL.pick_v2(cands, H, L, W, per=per, fps=fps, log=lambda *a: None), fps)
+                else:
+                    g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=lambda *a: None)
+                    if len(g) < 0.2 * len(cands): g = BL.pick(cands, H, L, W, per=per, log=lambda *a: None)
+                    ball = BL.bridge(g, fps)
+                chk = BL.check(ball, cands, gt, log=lambda *a: None)
+                out[f"{name}/{picker}"] = {"correct": chk["correct"], "total": chk["total"], "ceiling": chk["ceiling"], "frames_with_ball": len(ball)} if chk else None
+            except Exception as e: out[f"{name}/{picker}"] = {"error": repr(e)[:200]}
+    return {"results": out, "gt": os.path.exists(gt)}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
