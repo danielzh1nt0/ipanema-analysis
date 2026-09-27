@@ -1530,6 +1530,40 @@ def ball_ceiling(match_id: str = "SFKBP1109", conf: float = 0.03, weights: str =
          "median_cands_per_frame": float(np.median([r["n_cands"] for r in rows])), "no_ball_frames_with_guess_over_0.25": sum(1 for r in rows if not r["has_ball"] and any(c[2] >= 0.25 for c in r["cands"]))}
     return {"summary": s, "rows": rows}
 
+@app.function(gpu="L4", timeout=15 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def wasb_ceiling(match_id: str = "SFKBP1109", thr: float = 0.05):
+    """STEP 1b: WASB (3-frame motion tracker) on the same 81 exam frames: the frame before, the frame, the frame after ->
+    heat-map peaks; is the ball among them (30 px)? Same count as ball_ceiling, so the two are comparable."""
+    import json as _j, cv2, numpy as np, torch
+    S = _setup(); from ipanema import wasb as WB
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    WB.ensure(ROOT, log=print); net = WB._model(ROOT, "cuda"); boxes = WB.tile_boxes(); nt = len(boxes)
+    exam = [r for r in _j.load(open(f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"))["frames"] if r["split"] == "exam"]
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; W, H = int(cap.get(3)), int(cap.get(4)); fx, fy = W / WB.BASE[0], H / WB.BASE[1]; rows = []
+    for r in exam:
+        k = int(round(r["t"] * fps)); cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, k - 1)); fr = []
+        for _ in range(3):
+            ok, f = cap.read()
+            if ok: fr.append(WB.to_base(f))
+        while len(fr) < 3: fr.append(fr[-1])
+        x = torch.from_numpy(np.stack([WB.crop_stack(fr, b) for b in boxes])).to("cuda")
+        with torch.no_grad():
+            pred = net(x); pred = list(pred.values())[0] if isinstance(pred, dict) else (pred[0] if isinstance(pred, (list, tuple)) else pred)
+            hms = torch.sigmoid(pred).float().cpu().numpy()
+        peaks = WB.tiled_heatmaps_to_peaks([hms[t, 1] for t in range(nt)], boxes, thr)   # channel 1 = the middle frame
+        det = [(px * fx, py * fy, sc) for px, py, sc in peaks]
+        row = {"file": r["file"], "has_ball": r["x"] is not None, "group": r.get("group"), "cands": [[round(a), round(b), round(c, 3)] for a, b, c in det]}
+        if r["x"] is not None:
+            d = [np.hypot(a - r["x"], b - r["y"]) for a, b, c in det]; hit = next((i for i, dd in enumerate(d) if dd <= 30), None)
+            row.update({"hit_rank": hit, "hit_score": round(det[hit][2], 3) if hit is not None else None, "nearest_px": round(min(d), 1) if d else None})
+        rows.append(row)
+    cap.release(); wb = [r for r in rows if r["has_ball"]]
+    s = {"ball_frames": len(wb), "thr": thr, "ball_among_peaks": sum(1 for r in wb if r["hit_rank"] is not None), "ball_is_top_peak": sum(1 for r in wb if r["hit_rank"] == 0),
+         "found_at_0.25": sum(1 for r in wb if r["hit_score"] is not None and r["hit_score"] >= 0.25), "median_peaks_per_frame": float(np.median([len(r["cands"]) for r in rows])),
+         "no_ball_frames_with_peak_over_0.25": sum(1 for r in rows if not r["has_ball"] and any(c[2] >= 0.25 for c in r["cands"]))}
+    return {"summary": s, "rows": rows}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
