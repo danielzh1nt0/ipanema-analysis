@@ -1480,6 +1480,15 @@ def soccertrack_check(n_clips: int = 6):
         sheet = np.vstack(tiles); ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]); out["strip_b64"] = base64.b64encode(buf.tobytes()).decode()
     return out
 
+@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+def ball_restore_v1():
+    """27 Sep: rounds 7 and 8 overwrote clicks_latest.pt with worse models; put round-1's back and record it as the best so far"""
+    import shutil, json as _js
+    src = f"{ROOT}/models/ball/clicks_v1.pt"
+    if not os.path.exists(src): return {"error": "clicks_v1.pt missing"}
+    shutil.copy(src, f"{ROOT}/models/ball/clicks_latest.pt"); _js.dump({"correct": 66, "of": 108, "weights": "clicks_v1.pt"}, open(f"{ROOT}/models/ball/best.json", "w")); vol.commit()
+    return {"restored": "clicks_v1.pt -> clicks_latest.pt (66/108)", "models": sorted(os.listdir(f"{ROOT}/models/ball"))}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
@@ -1661,5 +1670,11 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     s = BC.grade(new_w, cj, ds, log=L, pictures=pics, old_weights=base)
     prev = f"{ROOT}/models/ball/clicks_v1.pt"                                        # round 1's detector, for a fair three-way comparison
     if os.path.exists(prev): s["round1"] = BC.grade(prev, cj, ds, log=L)["new"]; L(f"  grade round-1 detector on this exam: {s['round1']}")
-    os.makedirs(f"{ROOT}/models/ball", exist_ok=True); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_latest.pt"); shutil.copy(new_w, f"{ROOT}/models/ball/clicks_v{int(os.environ.get('BALL_ROUND', '0'))}.pt") if os.environ.get('BALL_ROUND') else None; vol.commit()
+    os.makedirs(f"{ROOT}/models/ball", exist_ok=True); import json as _js
+    tag = time.strftime("%Y%m%d_%H%M"); shutil.copy(new_w, f"{ROOT}/models/ball/round_{tag}.pt")             # every round kept under its own name
+    best_p = f"{ROOT}/models/ball/best.json"; best = _js.load(open(best_p)) if os.path.exists(best_p) else {"correct": -1}
+    if s["new"]["correct"] > best["correct"]:                                    # promoted to clicks_latest ONLY when it beats the current best on the same exam
+        shutil.copy(new_w, f"{ROOT}/models/ball/clicks_latest.pt"); best = {"correct": s["new"]["correct"], "of": s["new"]["of"], "weights": f"round_{tag}.pt"}; _js.dump(best, open(best_p, "w")); L(f"  new best: {best}")
+    else: L(f"  not promoted: {s['new']['correct']}/{s['new']['of']} vs current best {best}")
+    s["current_best"] = best; vol.commit()
     return {"summary": s, "log": log, "pictures": {k: base64.b64encode(v).decode() for k, v in pics.items()}}
