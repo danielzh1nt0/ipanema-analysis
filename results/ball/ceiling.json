@@ -1,0 +1,2750 @@
+{
+ "summary": {
+  "exam_frames": 108,
+  "ball_frames": 81,
+  "conf_floor": 0.03,
+  "weights": "clicks_latest.pt",
+  "ball_among_guesses": 52,
+  "ball_is_top_guess": 47,
+  "ball_in_top3": 50,
+  "found_at_0.25": 44,
+  "found_at_0.10": 44,
+  "median_cands_per_frame": 2.0,
+  "no_ball_frames_with_guess_over_0.25": 3
+ },
+ "rows": [
+  {
+   "file": "t00085.1.jpg",
+   "t": 85.085,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     156,
+     139,
+     0.04
+    ]
+   ]
+  },
+  {
+   "file": "t00226.2.jpg",
+   "t": 226.226,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1699,
+     123,
+     0.035
+    ]
+   ]
+  },
+  {
+   "file": "t00404.4.jpg",
+   "t": 404.404,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     1231,
+     537,
+     0.441
+    ],
+    [
+     1620,
+     347,
+     0.167
+    ],
+    [
+     966,
+     421,
+     0.041
+    ],
+    [
+     1486,
+     147,
+     0.03
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.441,
+   "nearest_px": 7.3,
+   "ball_xy": [
+    1233,
+    544
+   ]
+  },
+  {
+   "file": "t00560.6.jpg",
+   "t": 560.56,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1514,
+     435,
+     0.09
+    ]
+   ]
+  },
+  {
+   "file": "t00710.7.jpg",
+   "t": 710.71,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     851,
+     498,
+     0.393
+    ],
+    [
+     1218,
+     216,
+     0.031
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.393,
+   "nearest_px": 1.8,
+   "ball_xy": [
+    853,
+    497
+   ]
+  },
+  {
+   "file": "t00867.9.jpg",
+   "t": 867.867,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     810,
+     503,
+     0.451
+    ],
+    [
+     1701,
+     396,
+     0.147
+    ],
+    [
+     662,
+     519,
+     0.031
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.451,
+   "nearest_px": 1.5,
+   "ball_xy": [
+    809,
+    502
+   ]
+  },
+  {
+   "file": "t01035.0.jpg",
+   "t": 1035.034,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     651,
+     452,
+     0.31
+    ],
+    [
+     1020,
+     357,
+     0.241
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.31,
+   "nearest_px": 6.5,
+   "ball_xy": [
+    652,
+    458
+   ]
+  },
+  {
+   "file": "t01166.2.jpg",
+   "t": 1166.165,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     1299,
+     347,
+     0.248
+    ],
+    [
+     787,
+     395,
+     0.101
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 292.9,
+   "ball_xy": [
+    650,
+    654
+   ]
+  },
+  {
+   "file": "t01337.3.jpg",
+   "t": 1337.336,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     1168,
+     543,
+     0.219
+    ],
+    [
+     453,
+     479,
+     0.125
+    ],
+    [
+     1705,
+     541,
+     0.072
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 204.1,
+   "ball_xy": [
+    655,
+    510
+   ]
+  },
+  {
+   "file": "t01512.5.jpg",
+   "t": 1512.511,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 3,
+   "cands": [
+    [
+     877,
+     544,
+     0.418
+    ],
+    [
+     1549,
+     180,
+     0.046
+    ],
+    [
+     138,
+     403,
+     0.041
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.418,
+   "nearest_px": 1.4,
+   "ball_xy": [
+    876,
+    544
+   ]
+  },
+  {
+   "file": "t01661.7.jpg",
+   "t": 1661.66,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     805,
+     548,
+     0.2
+    ],
+    [
+     1083,
+     543,
+     0.106
+    ],
+    [
+     367,
+     616,
+     0.032
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 49.1,
+   "ball_xy": [
+    794,
+    500
+   ]
+  },
+  {
+   "file": "t01821.8.jpg",
+   "t": 1821.82,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     210,
+     511,
+     0.144
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 437.1,
+   "ball_xy": [
+    647,
+    497
+   ]
+  },
+  {
+   "file": "t01980.0.jpg",
+   "t": 1979.978,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     842,
+     549,
+     0.197
+    ],
+    [
+     1805,
+     585,
+     0.055
+    ]
+   ]
+  },
+  {
+   "file": "t02156.2.jpg",
+   "t": 2156.154,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     1097,
+     505,
+     0.509
+    ],
+    [
+     553,
+     339,
+     0.367
+    ],
+    [
+     709,
+     381,
+     0.06
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.509,
+   "nearest_px": 1.5,
+   "ball_xy": [
+    1099,
+    505
+   ]
+  },
+  {
+   "file": "t02286.3.jpg",
+   "t": 2286.284,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1142,
+     458,
+     0.046
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 240.6,
+   "ball_xy": [
+    920,
+    552
+   ]
+  },
+  {
+   "file": "t02463.5.jpg",
+   "t": 2463.461,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1390,
+     526,
+     0.393
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.393,
+   "nearest_px": 5.6,
+   "ball_xy": [
+    1394,
+    530
+   ]
+  },
+  {
+   "file": "t02605.6.jpg",
+   "t": 2605.603,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     1127,
+     530,
+     0.363
+    ],
+    [
+     1010,
+     535,
+     0.157
+    ],
+    [
+     486,
+     459,
+     0.051
+    ],
+    [
+     878,
+     502,
+     0.051
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.363,
+   "nearest_px": 1.2,
+   "ball_xy": [
+    1126,
+    530
+   ]
+  },
+  {
+   "file": "t02748.7.jpg",
+   "t": 2748.746,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 3,
+   "cands": [
+    [
+     1210,
+     494,
+     0.509
+    ],
+    [
+     899,
+     496,
+     0.169
+    ],
+    [
+     774,
+     543,
+     0.051
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.509,
+   "nearest_px": 2.2,
+   "ball_xy": [
+    1208,
+    495
+   ]
+  },
+  {
+   "file": "t02904.9.jpg",
+   "t": 2904.902,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     852,
+     523,
+     0.563
+    ],
+    [
+     177,
+     447,
+     0.047
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.563,
+   "nearest_px": 2.8,
+   "ball_xy": [
+    851,
+    520
+   ]
+  },
+  {
+   "file": "t03061.1.jpg",
+   "t": 3061.058,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     1035,
+     508,
+     0.536
+    ],
+    [
+     281,
+     515,
+     0.138
+    ],
+    [
+     1848,
+     465,
+     0.085
+    ],
+    [
+     308,
+     517,
+     0.032
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.536,
+   "nearest_px": 3.3,
+   "ball_xy": [
+    1032,
+    510
+   ]
+  },
+  {
+   "file": "t03214.2.jpg",
+   "t": 3214.211,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1507,
+     556,
+     0.496
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.496,
+   "nearest_px": 5.9,
+   "ball_xy": [
+    1501,
+    557
+   ]
+  },
+  {
+   "file": "t03341.3.jpg",
+   "t": 3341.338,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1180,
+     542,
+     0.52
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.52,
+   "nearest_px": 5.8,
+   "ball_xy": [
+    1186,
+    544
+   ]
+  },
+  {
+   "file": "t03502.5.jpg",
+   "t": 3502.499,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1121,
+     572,
+     0.03
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.03,
+   "nearest_px": 5.4,
+   "ball_xy": [
+    1121,
+    567
+   ]
+  },
+  {
+   "file": "t03662.7.jpg",
+   "t": 3662.659,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 0,
+   "cands": []
+  },
+  {
+   "file": "t03816.8.jpg",
+   "t": 3816.813,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     251,
+     522,
+     0.525
+    ],
+    [
+     82,
+     592,
+     0.111
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 642.1,
+   "ball_xy": [
+    893,
+    527
+   ]
+  },
+  {
+   "file": "t03956.0.jpg",
+   "t": 3955.952,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 5,
+   "cands": [
+    [
+     1137,
+     476,
+     0.276
+    ],
+    [
+     553,
+     507,
+     0.166
+    ],
+    [
+     1554,
+     341,
+     0.048
+    ],
+    [
+     502,
+     293,
+     0.036
+    ],
+    [
+     38,
+     88,
+     0.032
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.276,
+   "nearest_px": 8.3,
+   "ball_xy": [
+    1129,
+    473
+   ]
+  },
+  {
+   "file": "t04125.1.jpg",
+   "t": 4125.121,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 5,
+   "cands": [
+    [
+     715,
+     527,
+     0.45
+    ],
+    [
+     1084,
+     437,
+     0.271
+    ],
+    [
+     1425,
+     475,
+     0.185
+    ],
+    [
+     1435,
+     441,
+     0.068
+    ],
+    [
+     690,
+     403,
+     0.041
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.45,
+   "nearest_px": 6.2,
+   "ball_xy": [
+    712,
+    532
+   ]
+  },
+  {
+   "file": "t04219.2.jpg",
+   "t": 4219.215,
+   "has_ball": true,
+   "group": "far",
+   "n_cands": 2,
+   "cands": [
+    [
+     748,
+     389,
+     0.391
+    ],
+    [
+     1466,
+     398,
+     0.229
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.391,
+   "nearest_px": 2.4,
+   "ball_xy": [
+    749,
+    391
+   ]
+  },
+  {
+   "file": "t04389.4.jpg",
+   "t": 4389.385,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 0,
+   "cands": [],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": null,
+   "ball_xy": [
+    819,
+    552
+   ]
+  },
+  {
+   "file": "t04542.5.jpg",
+   "t": 4542.538,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     947,
+     505,
+     0.425
+    ],
+    [
+     1570,
+     400,
+     0.076
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.425,
+   "nearest_px": 5.9,
+   "ball_xy": [
+    950,
+    510
+   ]
+  },
+  {
+   "file": "t04694.7.jpg",
+   "t": 4694.69,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     683,
+     182,
+     0.037
+    ]
+   ]
+  },
+  {
+   "file": "t04865.9.jpg",
+   "t": 4865.861,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 2,
+   "cands": [
+    [
+     1037,
+     526,
+     0.493
+    ],
+    [
+     1275,
+     436,
+     0.044
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.493,
+   "nearest_px": 3.8,
+   "ball_xy": [
+    1037,
+    522
+   ]
+  },
+  {
+   "file": "t05035.0.jpg",
+   "t": 5035.03,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     845,
+     497,
+     0.286
+    ],
+    [
+     1201,
+     400,
+     0.059
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.286,
+   "nearest_px": 2.3,
+   "ball_xy": [
+    843,
+    495
+   ]
+  },
+  {
+   "file": "t05205.2.jpg",
+   "t": 5205.2,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 2,
+   "cands": [
+    [
+     951,
+     501,
+     0.414
+    ],
+    [
+     1458,
+     191,
+     0.08
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.414,
+   "nearest_px": 3.9,
+   "ball_xy": [
+    950,
+    505
+   ]
+  },
+  {
+   "file": "t05307.3.jpg",
+   "t": 5307.302,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     409,
+     570,
+     0.032
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 401.2,
+   "ball_xy": [
+    804,
+    500
+   ]
+  },
+  {
+   "file": "t05495.5.jpg",
+   "t": 5495.49,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     714,
+     543,
+     0.413
+    ],
+    [
+     585,
+     537,
+     0.109
+    ],
+    [
+     1635,
+     453,
+     0.102
+    ],
+    [
+     1765,
+     401,
+     0.048
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.413,
+   "nearest_px": 3.4,
+   "ball_xy": [
+    717,
+    544
+   ]
+  },
+  {
+   "file": "t05652.6.jpg",
+   "t": 5652.647,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     584,
+     477,
+     0.177
+    ]
+   ]
+  },
+  {
+   "file": "t05798.8.jpg",
+   "t": 5798.793,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     799,
+     523,
+     0.536
+    ],
+    [
+     562,
+     524,
+     0.11
+    ],
+    [
+     5,
+     135,
+     0.035
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.536,
+   "nearest_px": 1.0,
+   "ball_xy": [
+    799,
+    522
+   ]
+  },
+  {
+   "file": "t05962.0.jpg",
+   "t": 5961.956,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1262,
+     484,
+     0.284
+    ]
+   ]
+  },
+  {
+   "file": "t06162.2.jpg",
+   "t": 6162.156,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     189,
+     78,
+     0.057
+    ],
+    [
+     1597,
+     39,
+     0.052
+    ]
+   ]
+  },
+  {
+   "file": "t00094.1.jpg",
+   "t": 94.094,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 0,
+   "cands": []
+  },
+  {
+   "file": "t00327.3.jpg",
+   "t": 327.327,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     1725,
+     467,
+     0.072
+    ],
+    [
+     564,
+     408,
+     0.064
+    ],
+    [
+     1077,
+     433,
+     0.035
+    ]
+   ]
+  },
+  {
+   "file": "t00597.6.jpg",
+   "t": 597.597,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     754,
+     510,
+     0.037
+    ]
+   ]
+  },
+  {
+   "file": "t00831.8.jpg",
+   "t": 831.831,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     715,
+     495,
+     0.038
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 253.9,
+   "ball_xy": [
+    461,
+    495
+   ]
+  },
+  {
+   "file": "t00983.0.jpg",
+   "t": 982.982,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     1109,
+     525,
+     0.376
+    ],
+    [
+     742,
+     548,
+     0.052
+    ],
+    [
+     402,
+     541,
+     0.032
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.376,
+   "nearest_px": 2.4,
+   "ball_xy": [
+    1111,
+    525
+   ]
+  },
+  {
+   "file": "t01202.2.jpg",
+   "t": 1202.201,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 2,
+   "cands": [
+    [
+     1298,
+     526,
+     0.559
+    ],
+    [
+     1141,
+     490,
+     0.074
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.559,
+   "nearest_px": 4.5,
+   "ball_xy": [
+    1297,
+    522
+   ]
+  },
+  {
+   "file": "t01410.4.jpg",
+   "t": 1410.409,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     966,
+     490,
+     0.291
+    ],
+    [
+     1086,
+     536,
+     0.04
+    ],
+    [
+     1194,
+     494,
+     0.036
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.291,
+   "nearest_px": 11.2,
+   "ball_xy": [
+    960,
+    480
+   ]
+  },
+  {
+   "file": "t01609.6.jpg",
+   "t": 1609.608,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     681,
+     474,
+     0.063
+    ],
+    [
+     1778,
+     364,
+     0.059
+    ],
+    [
+     18,
+     525,
+     0.052
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 363.2,
+   "ball_xy": [
+    1044,
+    465
+   ]
+  },
+  {
+   "file": "t01836.8.jpg",
+   "t": 1836.835,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     710,
+     482,
+     0.061
+    ],
+    [
+     706,
+     455,
+     0.034
+    ]
+   ]
+  },
+  {
+   "file": "t02056.1.jpg",
+   "t": 2056.054,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 5,
+   "cands": [
+    [
+     1094,
+     510,
+     0.525
+    ],
+    [
+     1233,
+     498,
+     0.055
+    ],
+    [
+     1217,
+     428,
+     0.047
+    ],
+    [
+     1658,
+     248,
+     0.035
+    ],
+    [
+     321,
+     383,
+     0.035
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.525,
+   "nearest_px": 9.6,
+   "ball_xy": [
+    1084,
+    510
+   ]
+  },
+  {
+   "file": "t02238.2.jpg",
+   "t": 2238.236,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     34,
+     592,
+     0.031
+    ],
+    [
+     427,
+     540,
+     0.03
+    ]
+   ]
+  },
+  {
+   "file": "t02438.4.jpg",
+   "t": 2438.436,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 1,
+   "cands": [
+    [
+     1296,
+     563,
+     0.501
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.501,
+   "nearest_px": 6.5,
+   "ball_xy": [
+    1297,
+    569
+   ]
+  },
+  {
+   "file": "t02656.7.jpg",
+   "t": 2656.654,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     860,
+     553,
+     0.449
+    ],
+    [
+     768,
+     454,
+     0.34
+    ],
+    [
+     819,
+     459,
+     0.175
+    ],
+    [
+     1263,
+     469,
+     0.143
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.449,
+   "nearest_px": 5.6,
+   "ball_xy": [
+    861,
+    559
+   ]
+  },
+  {
+   "file": "t02856.9.jpg",
+   "t": 2856.854,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1114,
+     514,
+     0.044
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.044,
+   "nearest_px": 1.7,
+   "ball_xy": [
+    1114,
+    512
+   ]
+  },
+  {
+   "file": "t03104.1.jpg",
+   "t": 3104.101,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1095,
+     557,
+     0.498
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.498,
+   "nearest_px": 4.8,
+   "ball_xy": [
+    1094,
+    562
+   ]
+  },
+  {
+   "file": "t03271.3.jpg",
+   "t": 3271.268,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     1263,
+     550,
+     0.487
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.487,
+   "nearest_px": 2.3,
+   "ball_xy": [
+    1263,
+    552
+   ]
+  },
+  {
+   "file": "t03378.4.jpg",
+   "t": 3378.375,
+   "has_ball": true,
+   "group": "far",
+   "n_cands": 1,
+   "cands": [
+    [
+     924,
+     406,
+     0.549
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.549,
+   "nearest_px": 2.0,
+   "ball_xy": [
+    925,
+    408
+   ]
+  },
+  {
+   "file": "t03518.5.jpg",
+   "t": 3518.515,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     1213,
+     511,
+     0.372
+    ],
+    [
+     932,
+     367,
+     0.087
+    ],
+    [
+     1735,
+     383,
+     0.08
+    ],
+    [
+     855,
+     535,
+     0.033
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.372,
+   "nearest_px": 8.4,
+   "ball_xy": [
+    1208,
+    517
+   ]
+  },
+  {
+   "file": "t03683.7.jpg",
+   "t": 3683.68,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 2,
+   "cands": [
+    [
+     1852,
+     517,
+     0.531
+    ],
+    [
+     805,
+     496,
+     0.328
+    ]
+   ],
+   "hit_rank": 1,
+   "hit_conf": 0.328,
+   "nearest_px": 1.1,
+   "ball_xy": [
+    804,
+    497
+   ]
+  },
+  {
+   "file": "t03852.8.jpg",
+   "t": 3852.849,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 4,
+   "cands": [
+    [
+     771,
+     482,
+     0.408
+    ],
+    [
+     690,
+     336,
+     0.136
+    ],
+    [
+     1797,
+     363,
+     0.092
+    ],
+    [
+     826,
+     506,
+     0.047
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.408,
+   "nearest_px": 8.0,
+   "ball_xy": [
+    764,
+    485
+   ]
+  },
+  {
+   "file": "t04103.1.jpg",
+   "t": 4103.099,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     937,
+     521,
+     0.437
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.437,
+   "nearest_px": 1.1,
+   "ball_xy": [
+    938,
+    520
+   ]
+  },
+  {
+   "file": "t04256.3.jpg",
+   "t": 4256.252,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1067,
+     420,
+     0.098
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 116.5,
+   "ball_xy": [
+    1126,
+    520
+   ]
+  },
+  {
+   "file": "t04497.5.jpg",
+   "t": 4497.493,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 4,
+   "cands": [
+    [
+     109,
+     403,
+     0.144
+    ],
+    [
+     831,
+     308,
+     0.119
+    ],
+    [
+     1910,
+     124,
+     0.053
+    ],
+    [
+     1120,
+     804,
+     0.036
+    ]
+   ],
+   "hit_rank": 3,
+   "hit_conf": 0.036,
+   "nearest_px": 4.9,
+   "ball_xy": [
+    1124,
+    807
+   ]
+  },
+  {
+   "file": "t04741.7.jpg",
+   "t": 4741.737,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1733,
+     456,
+     0.082
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 651.1,
+   "ball_xy": [
+    1082,
+    465
+   ]
+  },
+  {
+   "file": "t04885.9.jpg",
+   "t": 4885.881,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     976,
+     523,
+     0.1
+    ],
+    [
+     1910,
+     335,
+     0.069
+    ],
+    [
+     649,
+     200,
+     0.039
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 160.3,
+   "ball_xy": [
+    1136,
+    535
+   ]
+  },
+  {
+   "file": "t05121.1.jpg",
+   "t": 5121.116,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     1077,
+     415,
+     0.075
+    ],
+    [
+     583,
+     42,
+     0.042
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 140.6,
+   "ball_xy": [
+    1188,
+    502
+   ]
+  },
+  {
+   "file": "t05328.3.jpg",
+   "t": 5328.323,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     919,
+     644,
+     0.14
+    ]
+   ]
+  },
+  {
+   "file": "t05532.5.jpg",
+   "t": 5532.527,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     841,
+     558,
+     0.351
+    ],
+    [
+     325,
+     463,
+     0.196
+    ],
+    [
+     993,
+     431,
+     0.073
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.351,
+   "nearest_px": 4.9,
+   "ball_xy": [
+    838,
+    554
+   ]
+  },
+  {
+   "file": "t05692.7.jpg",
+   "t": 5692.687,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1762,
+     460,
+     0.048
+    ]
+   ]
+  },
+  {
+   "file": "t05930.9.jpg",
+   "t": 5930.925,
+   "has_ball": true,
+   "group": "easy",
+   "n_cands": 3,
+   "cands": [
+    [
+     1092,
+     552,
+     0.505
+    ],
+    [
+     310,
+     38,
+     0.167
+    ],
+    [
+     222,
+     661,
+     0.036
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.505,
+   "nearest_px": 7.3,
+   "ball_xy": [
+    1094,
+    559
+   ]
+  },
+  {
+   "file": "t06155.1.jpg",
+   "t": 6155.149,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     662,
+     335,
+     0.172
+    ],
+    [
+     1309,
+     195,
+     0.077
+    ]
+   ]
+  },
+  {
+   "file": "t00081.1.jpg",
+   "t": 81.081,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     712,
+     158,
+     0.08
+    ],
+    [
+     843,
+     542,
+     0.065
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 522.4,
+   "ball_xy": [
+    316,
+    498
+   ]
+  },
+  {
+   "file": "t00224.2.jpg",
+   "t": 224.224,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     1309,
+     436,
+     0.177
+    ],
+    [
+     1906,
+     302,
+     0.07
+    ]
+   ]
+  },
+  {
+   "file": "t00420.4.jpg",
+   "t": 420.42,
+   "has_ball": false,
+   "group": "feet",
+   "n_cands": 7,
+   "cands": [
+    [
+     1157,
+     484,
+     0.472
+    ],
+    [
+     1192,
+     489,
+     0.325
+    ],
+    [
+     1489,
+     450,
+     0.072
+    ],
+    [
+     1477,
+     437,
+     0.072
+    ],
+    [
+     1748,
+     128,
+     0.038
+    ],
+    [
+     1013,
+     375,
+     0.036
+    ],
+    [
+     448,
+     441,
+     0.033
+    ]
+   ]
+  },
+  {
+   "file": "t00563.6.jpg",
+   "t": 563.563,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 3,
+   "cands": [
+    [
+     85,
+     431,
+     0.223
+    ],
+    [
+     182,
+     22,
+     0.158
+    ],
+    [
+     975,
+     523,
+     0.053
+    ]
+   ],
+   "hit_rank": 2,
+   "hit_conf": 0.053,
+   "nearest_px": 6.5,
+   "ball_xy": [
+    970,
+    518
+   ]
+  },
+  {
+   "file": "t00768.8.jpg",
+   "t": 768.768,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 0,
+   "cands": [],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": null,
+   "ball_xy": [
+    999,
+    511
+   ]
+  },
+  {
+   "file": "t00879.9.jpg",
+   "t": 879.879,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1609,
+     499,
+     0.077
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 526.9,
+   "ball_xy": [
+    1082,
+    491
+   ]
+  },
+  {
+   "file": "t01029.0.jpg",
+   "t": 1029.028,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     641,
+     744,
+     0.307
+    ],
+    [
+     1747,
+     374,
+     0.06
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.307,
+   "nearest_px": 3.9,
+   "ball_xy": [
+    644,
+    746
+   ]
+  },
+  {
+   "file": "t01215.2.jpg",
+   "t": 1215.214,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 3,
+   "cands": [
+    [
+     1526,
+     415,
+     0.077
+    ],
+    [
+     862,
+     435,
+     0.049
+    ],
+    [
+     352,
+     188,
+     0.036
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 122.3,
+   "ball_xy": [
+    813,
+    547
+   ]
+  },
+  {
+   "file": "t01374.4.jpg",
+   "t": 1374.373,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     1501,
+     539,
+     0.293
+    ],
+    [
+     528,
+     555,
+     0.034
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 274.6,
+   "ball_xy": [
+    801,
+    523
+   ]
+  },
+  {
+   "file": "t01530.5.jpg",
+   "t": 1530.529,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 2,
+   "cands": [
+    [
+     988,
+     353,
+     0.106
+    ],
+    [
+     1323,
+     469,
+     0.066
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 430.3,
+   "ball_xy": [
+    563,
+    420
+   ]
+  },
+  {
+   "file": "t01710.7.jpg",
+   "t": 1710.709,
+   "has_ball": false,
+   "group": "unsure",
+   "n_cands": 3,
+   "cands": [
+    [
+     3,
+     144,
+     0.156
+    ],
+    [
+     1478,
+     228,
+     0.037
+    ],
+    [
+     756,
+     276,
+     0.032
+    ]
+   ]
+  },
+  {
+   "file": "t01879.9.jpg",
+   "t": 1879.878,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 7,
+   "cands": [
+    [
+     1090,
+     512,
+     0.273
+    ],
+    [
+     602,
+     511,
+     0.139
+    ],
+    [
+     1553,
+     564,
+     0.089
+    ],
+    [
+     1352,
+     507,
+     0.058
+    ],
+    [
+     853,
+     553,
+     0.05
+    ],
+    [
+     1210,
+     470,
+     0.037
+    ],
+    [
+     1301,
+     517,
+     0.035
+    ]
+   ],
+   "hit_rank": 5,
+   "hit_conf": 0.037,
+   "nearest_px": 5.7,
+   "ball_xy": [
+    1210,
+    476
+   ]
+  },
+  {
+   "file": "t02032.0.jpg",
+   "t": 2032.03,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1718,
+     248,
+     0.041
+    ]
+   ]
+  },
+  {
+   "file": "t02231.2.jpg",
+   "t": 2231.229,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 1,
+   "cands": [
+    [
+     725,
+     543,
+     0.034
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 178.7,
+   "ball_xy": [
+    894,
+    484
+   ]
+  },
+  {
+   "file": "t02354.4.jpg",
+   "t": 2354.352,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     1157,
+     441,
+     0.236
+    ],
+    [
+     872,
+     321,
+     0.156
+    ],
+    [
+     1293,
+     552,
+     0.087
+    ],
+    [
+     1707,
+     348,
+     0.03
+    ]
+   ],
+   "hit_rank": 2,
+   "hit_conf": 0.087,
+   "nearest_px": 2.5,
+   "ball_xy": [
+    1291,
+    552
+   ]
+  },
+  {
+   "file": "t02559.6.jpg",
+   "t": 2559.557,
+   "has_ball": false,
+   "group": "feet",
+   "n_cands": 1,
+   "cands": [
+    [
+     1014,
+     260,
+     0.049
+    ]
+   ]
+  },
+  {
+   "file": "t02702.7.jpg",
+   "t": 2702.7,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1778,
+     548,
+     0.042
+    ]
+   ]
+  },
+  {
+   "file": "t02873.9.jpg",
+   "t": 2873.871,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 4,
+   "cands": [
+    [
+     1519,
+     476,
+     0.048
+    ],
+    [
+     641,
+     455,
+     0.048
+    ],
+    [
+     161,
+     360,
+     0.033
+    ],
+    [
+     488,
+     554,
+     0.032
+    ]
+   ]
+  },
+  {
+   "file": "t03069.1.jpg",
+   "t": 3069.066,
+   "has_ball": false,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     562,
+     537,
+     0.551
+    ],
+    [
+     1529,
+     534,
+     0.106
+    ],
+    [
+     1004,
+     540,
+     0.1
+    ],
+    [
+     1446,
+     558,
+     0.04
+    ]
+   ]
+  },
+  {
+   "file": "t03325.3.jpg",
+   "t": 3325.322,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 2,
+   "cands": [
+    [
+     1075,
+     545,
+     0.489
+    ],
+    [
+     1916,
+     396,
+     0.031
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.489,
+   "nearest_px": 2.7,
+   "ball_xy": [
+    1073,
+    547
+   ]
+  },
+  {
+   "file": "t03555.6.jpg",
+   "t": 3555.552,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1290,
+     539,
+     0.055
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.055,
+   "nearest_px": 6.7,
+   "ball_xy": [
+    1296,
+    535
+   ]
+  },
+  {
+   "file": "t03687.7.jpg",
+   "t": 3687.684,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 0,
+   "cands": [],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": null,
+   "ball_xy": [
+    769,
+    545
+   ]
+  },
+  {
+   "file": "t03865.9.jpg",
+   "t": 3865.862,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1589,
+     599,
+     0.067
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 705.2,
+   "ball_xy": [
+    889,
+    516
+   ]
+  },
+  {
+   "file": "t04000.0.jpg",
+   "t": 3999.996,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     280,
+     510,
+     0.081
+    ],
+    [
+     1215,
+     357,
+     0.079
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 161.8,
+   "ball_xy": [
+    1058,
+    320
+   ]
+  },
+  {
+   "file": "t04164.2.jpg",
+   "t": 4164.16,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     1160,
+     460,
+     0.533
+    ],
+    [
+     1092,
+     392,
+     0.058
+    ],
+    [
+     1007,
+     445,
+     0.05
+    ],
+    [
+     973,
+     420,
+     0.044
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.533,
+   "nearest_px": 2.0,
+   "ball_xy": [
+    1161,
+    459
+   ]
+  },
+  {
+   "file": "t04307.3.jpg",
+   "t": 4307.303,
+   "has_ball": true,
+   "group": "unsure",
+   "n_cands": 1,
+   "cands": [
+    [
+     746,
+     466,
+     0.079
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.079,
+   "nearest_px": 2.3,
+   "ball_xy": [
+    747,
+    464
+   ]
+  },
+  {
+   "file": "t04492.5.jpg",
+   "t": 4492.488,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 3,
+   "cands": [
+    [
+     718,
+     575,
+     0.401
+    ],
+    [
+     622,
+     479,
+     0.222
+    ],
+    [
+     673,
+     477,
+     0.03
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.401,
+   "nearest_px": 5.3,
+   "ball_xy": [
+    722,
+    579
+   ]
+  },
+  {
+   "file": "t04640.6.jpg",
+   "t": 4640.636,
+   "has_ball": false,
+   "group": "absent",
+   "n_cands": 1,
+   "cands": [
+    [
+     1157,
+     543,
+     0.077
+    ]
+   ]
+  },
+  {
+   "file": "t04834.8.jpg",
+   "t": 4834.83,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     1075,
+     520,
+     0.507
+    ],
+    [
+     1125,
+     541,
+     0.079
+    ],
+    [
+     995,
+     524,
+     0.063
+    ],
+    [
+     1456,
+     344,
+     0.055
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.507,
+   "nearest_px": 3.3,
+   "ball_xy": [
+    1078,
+    520
+   ]
+  },
+  {
+   "file": "t04975.0.jpg",
+   "t": 4974.97,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 1,
+   "cands": [
+    [
+     811,
+     472,
+     0.034
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 39.6,
+   "ball_xy": [
+    816,
+    511
+   ]
+  },
+  {
+   "file": "t05138.1.jpg",
+   "t": 5138.133,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 3,
+   "cands": [
+    [
+     886,
+     501,
+     0.408
+    ],
+    [
+     1404,
+     473,
+     0.07
+    ],
+    [
+     898,
+     509,
+     0.062
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 92.8,
+   "ball_xy": [
+    987,
+    484
+   ]
+  },
+  {
+   "file": "t05311.3.jpg",
+   "t": 5311.306,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 2,
+   "cands": [
+    [
+     1209,
+     539,
+     0.251
+    ],
+    [
+     1244,
+     583,
+     0.041
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 79.3,
+   "ball_xy": [
+    1161,
+    476
+   ]
+  },
+  {
+   "file": "t05476.5.jpg",
+   "t": 5476.471,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     683,
+     501,
+     0.463
+    ],
+    [
+     1647,
+     186,
+     0.095
+    ],
+    [
+     1373,
+     332,
+     0.04
+    ],
+    [
+     297,
+     495,
+     0.04
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.463,
+   "nearest_px": 4.9,
+   "ball_xy": [
+    683,
+    506
+   ]
+  },
+  {
+   "file": "t05626.6.jpg",
+   "t": 5626.621,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 1,
+   "cands": [
+    [
+     1249,
+     447,
+     0.04
+    ]
+   ],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": 392.1,
+   "ball_xy": [
+    867,
+    535
+   ]
+  },
+  {
+   "file": "t05793.8.jpg",
+   "t": 5793.788,
+   "has_ball": true,
+   "group": "absent",
+   "n_cands": 0,
+   "cands": [],
+   "hit_rank": null,
+   "hit_conf": null,
+   "nearest_px": null,
+   "ball_xy": [
+    1063,
+    518
+   ]
+  },
+  {
+   "file": "t05929.9.jpg",
+   "t": 5929.924,
+   "has_ball": true,
+   "group": "feet",
+   "n_cands": 6,
+   "cands": [
+    [
+     1105,
+     545,
+     0.508
+    ],
+    [
+     27,
+     127,
+     0.074
+    ],
+    [
+     700,
+     433,
+     0.062
+    ],
+    [
+     185,
+     564,
+     0.037
+    ],
+    [
+     3,
+     198,
+     0.03
+    ],
+    [
+     194,
+     13,
+     0.03
+    ]
+   ],
+   "hit_rank": 0,
+   "hit_conf": 0.508,
+   "nearest_px": 2.8,
+   "ball_xy": [
+    1102,
+    545
+   ]
+  },
+  {
+   "file": "t06137.1.jpg",
+   "t": 6137.131,
+   "has_ball": false,
+   "group": "feet",
+   "n_cands": 4,
+   "cands": [
+    [
+     1695,
+     265,
+     0.082
+    ],
+    [
+     1465,
+     134,
+     0.053
+    ],
+    [
+     1571,
+     398,
+     0.048
+    ],
+    [
+     402,
+     148,
+     0.039
+    ]
+   ]
+  }
+ ]
+}
