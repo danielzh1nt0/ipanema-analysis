@@ -1732,7 +1732,7 @@ def ball_match(match_id: str, piece_s: int = 300, max_pieces: int = 0):
     prog["finished"] = time.strftime("%H:%M:%S"); save(); return prog
 
 @app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
-def build_trainset(match_id: str, n_check: int = 28, n_dis: int = 12):
+def build_trainset(match_id: str, n_check: int = 28, n_dis: int = 12, source: str = "wasb"):
     """labels + review sample for one training match from its finished pieces; review pictures (frame + zoom, circles drawn)
     returned for Daniel's yes/no page. Saves labels/<match>_trainset.json on the volume."""
     import cv2, base64, json as _j, numpy as np
@@ -1742,8 +1742,12 @@ def build_trainset(match_id: str, n_check: int = 28, n_dis: int = 12):
     cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
     ps = TS.piece_caches(ROOT, match_id, fps)
     if not ps: return {"error": "no finished pieces yet"}
-    ts = TS.match_trainset(ps, fps); smp = TS.review_sample(ts, n_check, n_dis)
-    os.makedirs(f"{ROOT}/labels", exist_ok=True); _j.dump(ts, open(f"{ROOT}/labels/{match_id}_trainset.json", "w")); vol.commit()
+    if source == "clicks":                                             # 28 Sep: labels from the click-trained finder, review split by confidence
+        ts = TS.match_click_trainset(ps, fps); smp = {"check": TS.review_by_conf(ts, per_bin=10), "disagree": []}
+        for it in smp["check"]: it["agreed"] = it["wasb_agrees"]
+    else:
+        ts = TS.match_trainset(ps, fps); smp = TS.review_sample(ts, n_check, n_dis)
+    os.makedirs(f"{ROOT}/labels", exist_ok=True); _j.dump(ts, open(f"{ROOT}/labels/{match_id}_trainset{'_clicks' if source == 'clicks' else ''}.json", "w")); vol.commit()
     def tile(k, marks):
         cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
         if not ok: return None
@@ -1760,12 +1764,13 @@ def build_trainset(match_id: str, n_check: int = 28, n_dis: int = 12):
     items = []
     for it in smp["check"]:
         b = tile(it["frame"], [(it["x"], it["y"], (0, 255, 255), "")])
-        if b: items.append({"kind": "check", "frame": it["frame"], "t": round(it["frame"] / fps, 2), "agreed": it["agreed"], "xy": [it["x"], it["y"]], "img": b})
+        if b: items.append({"kind": "check", "frame": it["frame"], "t": round(it["frame"] / fps, 2), "agreed": it["agreed"], "xy": [it["x"], it["y"]], "conf": it.get("conf"), "band": it.get("band"), "img": b})
     for it in smp["disagree"]:
         b = tile(it["frame"], [(it["click"][0], it["click"][1], (60, 60, 255), "A"), (it["wasb"][0], it["wasb"][1], (255, 160, 40), "B")])
         if b: items.append({"kind": "disagree", "frame": it["frame"], "t": round(it["frame"] / fps, 2), "A": it["click"][:2], "B": it["wasb"][:2], "img": b})
     cap.release()
-    return {"match": match_id, "pieces": ts["pieces"], "tracks": ts["tracks"], "labels": len(ts["labels"]), "agreed_share": ts["agreed_share"], "disagreements": len(ts["disagreements"]), "items": items}
+    return {"match": match_id, "source": source, "pieces": ts["pieces"], "tracks": ts["tracks"], "labels": len(ts["labels"]),
+            "agreed_share": ts.get("agreed_share", ts.get("wasb_agrees_share")), "by_conf": ts.get("by_conf"), "disagreements": len(ts.get("disagreements", [])), "items": items}
 
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
