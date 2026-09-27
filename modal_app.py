@@ -1536,7 +1536,6 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     cap.release()
     return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
 
-@app.function(gpu="L4", timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
 @app.function(timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
 def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000):
     """CPU: build the crop dataset (Daniel's clicks + n_auto auto-labels, exam full frames) ONCE and keep it on the volume
@@ -1558,6 +1557,7 @@ def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000):
     vol.commit(); _log(f"dataset zipped: {os.path.getsize(out) / 1e6:.0f} MB, total {(time.time() - t0) / 60:.1f} min")
     return {"clicks": n1, "auto_crops": n2, "zip": out, "minutes": round((time.time() - t0) / 60, 1), "log": lines[-20:]}
 
+@app.function(gpu="L4", timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
 def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False, start_from: str = "", n_auto: int = 0, max_train_min: float = 25.0):
     """fine-tune the ball detector on Daniel's clicks, grade old vs new on the 40 exam frames, pictures for each (~$0.50)"""
     import base64, shutil, time
