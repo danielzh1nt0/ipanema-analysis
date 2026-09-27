@@ -74,13 +74,22 @@ def pick(cands, H, L, W, margin=1.5, link_r=45, max_gap=6, min_speed=0.5, min_sc
     log(f"ball: {sum(len(v) for v in cands.values())/max(1,n):.1f} candidates/frame, {len(tracks)} trajectories, top (score,len,conf,speed) {top}, picks {len(ball)}/{n}")
     return ball
 
-def bridge(ball, fps, max_gap_s=1.0):
+def bridge(ball, fps, max_gap_s=1.0, bridged=None):
+    """fill gaps up to max_gap_s by straight lines; `bridged` (a set) receives the filled frame numbers"""
     ks = sorted(ball); g = int(round(max_gap_s * fps))
     for a, b in zip(ks, ks[1:]):
         if 1 < b - a <= g:
             for k in range(a + 1, b):
                 t = (k - a) / (b - a); ball[k] = [ball[a][0] + t * (ball[b][0] - ball[a][0]), ball[a][1] + t * (ball[b][1] - ball[a][1])]
+                if bridged is not None: bridged.add(k)
     return ball
+
+def pick_confidence(ball, cands, r_px=12.0):
+    """per frame: the strongest candidate score within r_px of the picked ball (0 when none, e.g. a bridged frame)"""
+    out = {}
+    for k, p in ball.items():
+        cs = [c for x, y, c in cands.get(k, []) if np.hypot(x - p[0], y - p[1]) <= r_px]; out[k] = float(max(cs)) if cs else 0.0
+    return out
 
 def check(ball, cands, gt_path, hit_px=30, log=print, video=None, debug_dir=None):
     if not gt_path or not os.path.exists(gt_path): return None

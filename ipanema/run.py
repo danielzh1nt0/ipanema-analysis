@@ -160,7 +160,8 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
         if len(g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); g = BL.pick(cands, H, L, W, per=per, log=log)
         return BL.bridge(g, fps)
-    def _v2(): return BL.bridge(BL.pick_v2(cands, H, L, W, per=per, fps=fps, log=log), fps)
+    bridged = set()
+    def _v2(): return BL.bridge(BL.pick_v2(cands, H, L, W, per=per, fps=fps, log=log), fps, bridged=bridged)
     picker = os.environ.get("IPANEMA_PICKER", "v2")
     ball = _v2() if picker == "v2" else _v1()
     other = (_v1 if picker == "v2" else _v2) if cands else None
@@ -231,7 +232,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         "near_player_pct": round(near_frac, 2),
         "frames_pct": round(len(ballm) / max(1, n_play), 2),
         # possession and territory tolerate a loose ball: the nearest player is usually still right
-        "possession_ok": bool((acc is None or acc >= 0.45) and near_frac >= 0.85 and len(ballm) > 0.4 * n_play),
+        "possession_ok": bool((acc >= 0.6) if acc is not None else (near_frac >= 0.85 and len(ballm) > 0.4 * n_play)),   # 27 Sep: the checked accuracy decides when we have it (the app hides the ball layer otherwise)
         # events need the ball in the right place at the right moment
         "events_ok": bool(acc is not None and acc >= 0.6 and near_frac >= 0.85),
     }
@@ -244,7 +245,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
-    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), unsure=cal.get("unsure", frozenset()), **(export_kw or {}))
+    root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), unsure=cal.get("unsure", frozenset()), cands_conf=BL.pick_confidence(ball, cands), bridged=bridged, **(export_kw or {}))
     try:
         from .upload import upload_match; upload_match(S.root, match_id, log=log)
     except Exception as e: log(f"upload failed: {e!r}")
