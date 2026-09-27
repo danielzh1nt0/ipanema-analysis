@@ -1499,6 +1499,37 @@ def fetch_file(rel: str, part: int = 0, chunk: int = 6 << 20):
     with open(p, "rb") as fh: fh.seek(part * chunk); data = fh.read(chunk)
     return {"rel": rel, "bytes": n, "part": part, "parts": (n + chunk - 1) // chunk, "b64": base64.b64encode(data).decode()}
 
+@app.function(gpu="L4", timeout=15 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_ceiling(match_id: str = "SFKBP1109", conf: float = 0.03, weights: str = ""):
+    """STEP 1 of the ball plan (27 Sep): on the 108 exam frames, keep EVERY detector guess down to `conf` and record, per
+    frame, whether the ball is among them (within 30 px), at what rank and confidence. Also WASB's candidates on the same
+    frames if the tracker is available. Nothing trained; the number says whether the problem is seeing or choosing."""
+    import json as _j, cv2, numpy as np
+    from ultralytics import YOLO
+    S = _setup(); from ipanema import ballclicks as BC
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full video not on the volume"}
+    w_ = weights or f"{ROOT}/models/ball/clicks_latest.pt"; model = YOLO(w_)
+    exam = [r for r in _j.load(open(f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"))["frames"] if r["split"] == "exam"]
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; rows = []
+    for r in exam:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(r["t"] * fps))); ok, f = cap.read()
+        if not ok: continue
+        det = BC.detect(model, f, conf=conf, imgsz=1920, far_zoom=True)             # sorted by confidence
+        row = {"file": r["file"], "t": r["t"], "has_ball": r["x"] is not None, "group": r.get("group"), "n_cands": len(det), "cands": [[round(x), round(y), round(c, 3)] for x, y, c in det[:30]]}
+        if r["x"] is not None:
+            d = [np.hypot(x - r["x"], y - r["y"]) for x, y, c in det]; hit = next((i for i, dd in enumerate(d) if dd <= 30), None)
+            row.update({"hit_rank": hit, "hit_conf": round(det[hit][2], 3) if hit is not None else None, "nearest_px": round(min(d), 1) if d else None, "ball_xy": [r["x"], r["y"]]})
+        rows.append(row)
+    cap.release()
+    wb = [r for r in rows if r["has_ball"]]
+    s = {"exam_frames": len(rows), "ball_frames": len(wb), "conf_floor": conf, "weights": os.path.basename(w_),
+         "ball_among_guesses": sum(1 for r in wb if r["hit_rank"] is not None), "ball_is_top_guess": sum(1 for r in wb if r["hit_rank"] == 0),
+         "ball_in_top3": sum(1 for r in wb if r["hit_rank"] is not None and r["hit_rank"] < 3),
+         "found_at_0.25": sum(1 for r in wb if r["hit_conf"] is not None and r["hit_conf"] >= 0.25), "found_at_0.10": sum(1 for r in wb if r["hit_conf"] is not None and r["hit_conf"] >= 0.10),
+         "median_cands_per_frame": float(np.median([r["n_cands"] for r in rows])), "no_ball_frames_with_guess_over_0.25": sum(1 for r in rows if not r["has_ball"] and any(c[2] >= 0.25 for c in r["cands"]))}
+    return {"summary": s, "rows": rows}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
