@@ -1731,6 +1731,42 @@ def ball_match(match_id: str, piece_s: int = 300, max_pieces: int = 0):
         prog["elapsed_min"] = round((time.time() - t0) / 60, 1); save()
     prog["finished"] = time.strftime("%H:%M:%S"); save(); return prog
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def build_trainset(match_id: str, n_check: int = 28, n_dis: int = 12):
+    """labels + review sample for one training match from its finished pieces; review pictures (frame + zoom, circles drawn)
+    returned for Daniel's yes/no page. Saves labels/<match>_trainset.json on the volume."""
+    import cv2, base64, json as _j, numpy as np
+    _setup(); from ipanema import trainset as TS
+    full = f"{ROOT}/videos/{match_id}/full.mp4"
+    if not os.path.exists(full): return {"error": "match not on the volume"}
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
+    ps = TS.piece_caches(ROOT, match_id, fps)
+    if not ps: return {"error": "no finished pieces yet"}
+    ts = TS.match_trainset(ps, fps); smp = TS.review_sample(ts, n_check, n_dis)
+    os.makedirs(f"{ROOT}/labels", exist_ok=True); _j.dump(ts, open(f"{ROOT}/labels/{match_id}_trainset.json", "w")); vol.commit()
+    def tile(k, marks):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if not ok: return None
+        h, w = f.shape[:2]; cx, cy = marks[0][0], marks[0][1]
+        if len(marks) > 1: cx, cy = (marks[0][0] + marks[1][0]) / 2, (marks[0][1] + marks[1][1]) / 2
+        z = 150 if len(marks) == 1 else int(min(360, max(150, abs(marks[0][0] - marks[1][0]) / 2 + 80, abs(marks[0][1] - marks[1][1]) / 2 + 80)))
+        x0, y0 = int(np.clip(cx - z, 0, w - 2 * z)), int(np.clip(cy - z, 0, h - 2 * z)); zoom = cv2.resize(f[y0:y0 + 2 * z, x0:x0 + 2 * z], (400, 400), interpolation=cv2.INTER_CUBIC)
+        small = cv2.resize(f, (711, 400), interpolation=cv2.INTER_AREA)
+        for (mx, my, col, lab) in marks:
+            cv2.circle(zoom, (int((mx - x0) * 400 / (2 * z)), int((my - y0) * 400 / (2 * z))), 22, col, 2)
+            cv2.circle(small, (int(mx * 711 / w), int(my * 400 / h)), 12, col, 2)
+            if lab: cv2.putText(zoom, lab, (int((mx - x0) * 400 / (2 * z)) + 24, int((my - y0) * 400 / (2 * z)) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, col, 2)
+        ok, buf = cv2.imencode(".jpg", np.hstack([small, zoom]), [cv2.IMWRITE_JPEG_QUALITY, 78]); return base64.b64encode(buf.tobytes()).decode()
+    items = []
+    for it in smp["check"]:
+        b = tile(it["frame"], [(it["x"], it["y"], (0, 255, 255), "")])
+        if b: items.append({"kind": "check", "frame": it["frame"], "t": round(it["frame"] / fps, 2), "agreed": it["agreed"], "xy": [it["x"], it["y"]], "img": b})
+    for it in smp["disagree"]:
+        b = tile(it["frame"], [(it["click"][0], it["click"][1], (60, 60, 255), "A"), (it["wasb"][0], it["wasb"][1], (255, 160, 40), "B")])
+        if b: items.append({"kind": "disagree", "frame": it["frame"], "t": round(it["frame"] / fps, 2), "A": it["click"][:2], "B": it["wasb"][:2], "img": b})
+    cap.release()
+    return {"match": match_id, "pieces": ts["pieces"], "tracks": ts["tracks"], "labels": len(ts["labels"]), "agreed_share": ts["agreed_share"], "disagreements": len(ts["disagreements"]), "items": items}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
