@@ -170,10 +170,10 @@ jobs:
           for rel in re.findall(r"\[fetch:([^\]]+)\]", os.environ["MSG"]):
               out = f.remote(rel, 0)
               if "error" in out: print(out); continue
-              dst = f"results/volume/{rel}"; os.makedirs(os.path.dirname(dst), exist_ok=True)
+              real = out["rel"]; dst = f"results/volume/{real}"; os.makedirs(os.path.dirname(dst), exist_ok=True)
               with open(dst, "wb") as fh:
                   fh.write(base64.b64decode(out["b64"]))
-                  for part in range(1, out["parts"]): fh.write(base64.b64decode(f.remote(rel, part)["b64"]))
+                  for part in range(1, out["parts"]): fh.write(base64.b64decode(f.remote(real, part)["b64"]))
               print(rel, out["bytes"], "bytes in", out["parts"], "parts")
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
