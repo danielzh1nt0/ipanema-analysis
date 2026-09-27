@@ -202,7 +202,8 @@ jobs:
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           MSG: ${{ github.event.head_commit.message }}
         run: |
-          python - <<'PY'
+          mkdir -p results/ball
+          python - > results/ball/pick_stdout.txt 2> results/ball/pick_stderr.txt <<'PY' || echo "step failed, see results/ball/pick_stderr.txt"
           import modal, os, json, traceback
           os.makedirs("results/ball", exist_ok=True)
           try:
