@@ -1405,6 +1405,23 @@ def ball_autolabel_match(match_id: str = "SFKBP1109"):
     ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 80]) if sheet is not None else (False, None)
     return {"report": rep, "strip_b64": base64.b64encode(buf.tobytes()).decode() if ok else None}
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
+def fetch_soccertrack(token: str, files: list = None):
+    """SoccerTrack (Kaggle, CC BY 4.0): fisheye wide-view soccer with ball boxes per frame. With no `files`: list the
+    dataset's files and sizes only (nothing downloaded). With `files`: download those to the volume once. CPU, no GPU."""
+    import subprocess, glob
+    os.environ["KAGGLE_API_TOKEN"] = token
+    subprocess.run("pip install -q kaggle", shell=True, check=True)
+    dst = f"{ROOT}/datasets/soccertrack"; os.makedirs(dst, exist_ok=True); out = {"downloaded": []}
+    r = subprocess.run("kaggle datasets files atomscott/soccertrack --page-size 500", shell=True, capture_output=True, text=True)
+    out["listing"] = (r.stdout + r.stderr)[-8000:]
+    for f in (files or []):
+        r2 = subprocess.run(f"kaggle datasets download atomscott/soccertrack -f '{f}' -p {dst} --unzip", shell=True, capture_output=True, text=True)
+        out["downloaded"].append({"file": f, "ok": r2.returncode == 0, "msg": (r2.stdout + r2.stderr)[-300:]})
+    have = [p for p in glob.glob(f"{dst}/**/*", recursive=True) if os.path.isfile(p)]
+    out["on_volume"] = sorted(os.path.relpath(p, dst) for p in have)[:200]; out["gb"] = round(sum(os.path.getsize(p) for p in have) / 1e9, 2); vol.commit()
+    return out
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j

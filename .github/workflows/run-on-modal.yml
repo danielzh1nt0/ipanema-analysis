@@ -119,6 +119,22 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/ball && git commit -qm "ball dataset built" && git push
+      - name: SoccerTrack from Kaggle (commit tagged [soccertrack] lists; [soccertrack:file1,file2] downloads) - CPU
+        if: contains(github.event.head_commit.message, '[soccertrack')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json
+          m = re.search(r"\[soccertrack(?::([^\]]+))?\]", os.environ["MSG"]); files = [f.strip() for f in m.group(1).split(",")] if m.group(1) else []
+          out = modal.Function.from_name("ipanema", "fetch_soccertrack").remote(os.environ["KAGGLE_API_TOKEN"], files)
+          os.makedirs("results/soccertrack", exist_ok=True); json.dump(out, open("results/soccertrack/fetch.json", "w"), indent=1); print(out["listing"][-3000:]); print(out["gb"], "GB on volume")
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/soccertrack && git commit -qm "soccertrack fetch" && git push
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
