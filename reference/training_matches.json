@@ -1,13 +1,71 @@
 {
  "note": "Daniel's extra Veo matches for training (27 Sep). Drive folder 1zxJzMwGq10Qmm3nz2klq3mRshD3KftGA. Ground decides whether a camera base must be solved (new venue) or is known.",
  "matches": [
-  {"id": "p15u-vs-vasalund-2026-09-20", "opponent": "Vasalund FF", "date": "2026-09-20", "ground": "Edsbergs Sportfalt plan 3", "home": true, "venue_known": true,
-   "drive_id": "13qFKZFhkFi-MbzphpxIBXmC4beDALlNb", "file": "p15u-2026-vs-vasalund-ff-2026-09-20.mp4", "bytes": 3289349198},
-  {"id": "p15u-vs-spanga-2026-09-25", "opponent": "Spanga IS FK", "date": "2026-09-25", "ground": "Karrdals IP", "home": true, "venue_known": false,
-   "drive_id": "1Do_IMFmU86ROMxaWYNEKsfBWw7GoEdqS", "file": "p15u-2026-vs-spanga-is-fk-2026-09-25.mp4", "bytes": 3279874704},
-  {"id": "p15u-vs-djursholm", "opponent": "Djursholm", "ground": "Djursholms IP", "home": false, "venue_known": false, "drive_id": null},
-  {"id": "p15u-vs-solberga", "opponent": "Solberga", "ground": "Solberga IP", "home": false, "venue_known": false, "drive_id": null},
-  {"id": "p15u-vs-reymersholm", "opponent": "Reymersholm", "ground": "Bagarmossen IP", "home": false, "venue_known": false, "drive_id": null},
-  {"id": "p15u-vs-solheim", "opponent": "Solheim", "ground": "unknown (probably away)", "home": false, "venue_known": false, "drive_id": null}
+  {
+   "id": "p15u-vs-vasalund-2026-09-20",
+   "opponent": "Vasalund FF",
+   "date": "2026-09-20",
+   "ground": "Edsbergs Sportfalt plan 3",
+   "home": true,
+   "venue_known": true,
+   "drive_id": "13qFKZFhkFi-MbzphpxIBXmC4beDALlNb",
+   "file": "p15u-2026-vs-vasalund-ff-2026-09-20.mp4",
+   "bytes": 3289349198
+  },
+  {
+   "id": "p15u-vs-spanga-2026-09-25",
+   "opponent": "Spanga IS FK",
+   "date": "2026-09-25",
+   "ground": "Karrdals IP",
+   "home": true,
+   "venue_known": false,
+   "drive_id": "1Do_IMFmU86ROMxaWYNEKsfBWw7GoEdqS",
+   "file": "p15u-2026-vs-spanga-is-fk-2026-09-25.mp4",
+   "bytes": 3279874704
+  },
+  {
+   "id": "p15u-vs-djursholm-2026-09-26",
+   "opponent": "Djursholm",
+   "ground": "Djursholms IP",
+   "home": false,
+   "venue_known": false,
+   "drive_id": "13k1tYjBOdECNGNNvjtpAd6uk6LE3cmcD",
+   "date": "2026-09-26",
+   "file": "p15u-2026-vs-fc-djursholm-p152-2026-09-26.mp4",
+   "bytes": 4085890041
+  },
+  {
+   "id": "solberga-vs-p09-norrviken-2026-09-11",
+   "opponent": "Solberga (Norrviken P09 away)",
+   "ground": "Solberga IP",
+   "home": false,
+   "venue_known": false,
+   "drive_id": "15i013KZ_Fzjcwul22Qbfkkzntfxl0d54",
+   "date": "2026-09-11",
+   "file": "solberga-vs-p09-norrviken-2026-09-11.mp4",
+   "bytes": 4249891042
+  },
+  {
+   "id": "p15u-vs-reymersholm-2026-09-18",
+   "opponent": "Reymersholm",
+   "ground": "Bagarmossen IP",
+   "home": false,
+   "venue_known": false,
+   "drive_id": "1rFPOiVReUYlwgG0BEQG-7qf51670bXBa",
+   "date": "2026-09-18",
+   "file": "p15u-2026-vs-reymersholms-ik-112-2026-09-18.mp4",
+   "bytes": 3472873376
+  },
+  {
+   "id": "p09-norrviken-vs-solheim-2026-08-30",
+   "opponent": "FC Solheim Taby P17 (Norrviken P09)",
+   "ground": "unknown; file name suggests a Norrviken home game (Norrvikens IP?) - to confirm",
+   "home": false,
+   "venue_known": false,
+   "drive_id": "1Dkq4U7ENh42MUmi1nJwplIe3LsBloaTZ",
+   "date": "2026-08-30",
+   "file": "p2009-norrviken-2026-vs-fc-solheim-taby-p17-2026-08-30.mp4",
+   "bytes": 3732557712
+  }
  ]
 }
