@@ -1646,6 +1646,19 @@ def contact_sheets(match_id: str = "SFKBP1109_s1200", every_s: float = 1.0, per_
         ok, buf = cv2.imencode(".jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 75]); sheets.append(base64.b64encode(buf.tobytes()).decode())
     return {"fps": fps, "frames": n, "pictures": len(tiles), "sheets": sheets}
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096)
+def fetch_drive(match_id: str, drive_id: str, expect_bytes: int = 0):
+    """a match video shared 'anyone with the link' on Google Drive -> videos/<match_id>/full.mp4 on the volume (once)"""
+    import subprocess, time, cv2
+    dst = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(dst), exist_ok=True)
+    if os.path.exists(dst) and (not expect_bytes or abs(os.path.getsize(dst) - expect_bytes) < 1024): return {"match": match_id, "status": "already on the volume", "bytes": os.path.getsize(dst)}
+    subprocess.run("pip install -q gdown", shell=True, check=True); t0 = time.time()
+    r = subprocess.run(["gdown", "--fuzzy", f"https://drive.google.com/file/d/{drive_id}/view", "-O", dst], capture_output=True, text=True)
+    if r.returncode != 0 or not os.path.exists(dst): return {"match": match_id, "error": (r.stdout + r.stderr)[-1500:]}
+    cap = cv2.VideoCapture(dst); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS); w, h = int(cap.get(3)), int(cap.get(4)); cap.release(); vol.commit()
+    return {"match": match_id, "bytes": os.path.getsize(dst), "ok_size": (not expect_bytes) or abs(os.path.getsize(dst) - expect_bytes) < 1024,
+            "minutes_video": round(n / max(fps, 1) / 60, 1), "fps": fps, "size": [w, h], "download_min": round((time.time() - t0) / 60, 1)}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
