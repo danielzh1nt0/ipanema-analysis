@@ -1,3 +1,34 @@
 {
- "error": "Traceback (most recent call last):\n  File \"/home/runner/work/ipanema-analysis/ipanema-analysis/scripts_ball_measure.py\", line 5, in <module>\n    try: out = modal.Function.from_name(\"ipanema\", \"ball_measure\").remote(mid, 1200, 600)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_object.py\", line 46, in wrapped\n    return await method(self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 1893, in remote\n    return await self._call_function(args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 1830, in _call_function\n    return await invocation.run_function()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 503, in run_function\n    return await _process_result(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py\", line 534, in _process_result\n    raise FunctionTimeoutError(result.exception)\nmodal.exception.FunctionTimeoutError: Task's current input in-01M3J425JZGQKMPZQNVKY7N22G:1790535865951-0 hit its timeout of 2700s\n"
+ "match": "p15u-vs-vasalund-2026-09-20",
+ "segment_s": 120,
+ "stride": 3,
+ "far_zoom": false,
+ "minutes": {
+  "cut": 0.25,
+  "click_model": 2.09,
+  "wasb": 4.81,
+  "total": 7.42
+ },
+ "frames": 3597,
+ "frames_both_ran": 1199,
+ "top_guesses": {
+  "agree": 0,
+  "disagree": 0,
+  "only_one_sure": 766,
+  "neither_sure": 433
+ },
+ "log": [
+  "  click model: frame 1500, 496 run, 29.8 video frames/s",
+  "  click model: frame 2000, 664 run, 29.7 video frames/s",
+  "  click model: frame 2500, 832 run, 30.6 video frames/s",
+  "  click model: frame 3000, 1000 run, 30.5 video frames/s",
+  "  click model: frame 3500, 1160 run, 31.1 video frames/s",
+  "  click model: 3597 frames, 1199 run, 2.0 min",
+  "click model done: 1199 frames in 2.09 min",
+  "wasb: using fine-tuned weights, 2x2 tiles",
+  "  wasb frame 1500",
+  "  wasb frame 3000",
+  "wasb: 3597/3597 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.31/0.58/0.70",
+  "wasb done: 3597 frames in 4.81 min"
+ ]
 }
