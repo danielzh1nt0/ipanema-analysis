@@ -1,29 +1,19 @@
 {
- "test": {
-  "match": "p15u-vs-vasalund-2026-09-20",
-  "pieces": 2,
-  "done": 2,
-  "failed": [],
-  "results": [
-   {
-    "match": "p15u-vs-vasalund-2026-09-20",
-    "start_s": 0,
-    "dur_s": 300,
-    "frames": 8992,
-    "click_frames": 2998,
-    "minutes": 18.2
-   },
-   {
-    "match": "p15u-vs-vasalund-2026-09-20",
-    "start_s": 300,
-    "dur_s": 300,
-    "frames": 8992,
-    "click_frames": 2998,
-    "minutes": 17.3
-   }
-  ],
-  "started": "21:24:00",
-  "elapsed_min": 18.5,
-  "finished": "21:42:35"
+ "started": {
+  "p15u-vs-vasalund-2026-09-20": "fc-01M3JDEB86NKDKJBH43XHHR2GF",
+  "p15u-vs-spanga-2026-09-25": "fc-01M3JDEBA96YAG65RTKHDBC0TK",
+  "p15u-vs-djursholm-2026-09-26": "fc-01M3JDEBC4QX8WS7GH06AXAB46",
+  "solberga-vs-p09-norrviken-2026-09-11": "fc-01M3JDEBE4WW2SZD2H2FNNYDJV",
+  "p15u-vs-reymersholm-2026-09-18": "fc-01M3JDEBG515ABG4HTZNWCRT7W",
+  "p09-norrviken-vs-solheim-2026-08-30": "fc-01M3JDEBHS89NZPMW8YDKBKTSR"
+ },
+ "status": {
+  "p15u-vs-vasalund-2026-09-20": {
+   "pieces": 2,
+   "done": 2,
+   "failed": [],
+   "elapsed_min": 18.5,
+   "finished": "21:42:35"
+  }
  }
 }
