@@ -1,1 +1,1 @@
-fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_st5.zip Sun Sep 27 10:23:45 UTC 2026 round 8 SoccerTrack + clicks
+fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x1.zip Sun Sep 27 22:36:29 UTC 2026 round 9 clicks + Vasalund labels Daniel checked 19/20 (Daniel: do it)
