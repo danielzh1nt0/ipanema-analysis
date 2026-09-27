@@ -1606,6 +1606,17 @@ def ball_pick_test(match_id: str = "SFKBP1109_s1200"):
             except Exception as e: out[f"{name}/{picker}"] = {"error": repr(e)[:200]}
     return {"results": out, "gt": os.path.exists(gt)}
 
+@app.function(gpu="L4", timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def wasb_regen(match_id: str = "SFKBP1109_s1200", thr: float = 0.05):
+    """WASB guesses for a clip at a relaxed cut-off, cached on the volume (GPU, ~5 min for a 5-min clip)"""
+    import time
+    S = _setup(); from ipanema import wasb as WB, video as V
+    video = f"/tmp/work/{match_id}/video.mp4"
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    t0 = time.time(); lines = []
+    c = WB.candidates(video, ROOT, f"{ROOT}/cache/{match_id}/ball_cands_wasb.pkl", log=lines.append, thr=thr, train=False); vol.commit()
+    return {"frames": len(c), "peaks_per_frame": round(sum(len(v) for v in c.values()) / max(1, len(c)), 2), "minutes": round((time.time() - t0) / 60, 1), "log": lines[-5:]}
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j

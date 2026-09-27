@@ -83,7 +83,7 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None
             for c in [cache] + [p for p in os.listdir(os.path.dirname(cache)) if False]: pass
     except Exception as e: log(f"wasb fine-tune skipped: {e!r}")
     ft = os.path.join(root, "models", "wasb_finetuned.pth"); tag = str(int(os.path.getmtime(ft))) if os.path.exists(ft) else "pre"
-    cache = cache.replace(".pkl", f"_{tag}_{TAG}.pkl")
+    cache = cache.replace(".pkl", f"_{tag}_{TAG}" + ("" if abs(thr - 0.25) < 1e-9 else f"_thr{thr:.2f}") + ".pkl")   # a different cut-off is a different cache
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
     device = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, device); log(f"wasb: using {'fine-tuned' if tag != 'pre' else 'pretrained'} weights, {TILES[0]}x{TILES[1]} tiles")
     cap = cv2.VideoCapture(video); W, H = int(cap.get(3)), int(cap.get(4)); fx, fy = W / BASE[0], H / BASE[1]

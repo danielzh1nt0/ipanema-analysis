@@ -232,3 +232,17 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
         if s < 0: break
     log(f"ball v2: {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")
     return ball
+
+
+def fuse_candidates(clicks, wasb, wy=1.5, wb=1.0, bonus=0.8, px=12):
+    """one guess list per frame from both detectors (27 Sep, graded on the clip's 34 checked moments: 26/34 with the v2
+    picker vs 21 WASB-only / 20 click-only). A guess both detectors agree on (within px) gets both scores plus a bonus."""
+    out = {}
+    for k in set(clicks) | set(wasb):
+        cands = [[x, y, wy * c] for x, y, c in clicks.get(k, [])]
+        for x, y, s in wasb.get(k, []):
+            j = next((i for i, q in enumerate(cands) if np.hypot(q[0] - x, q[1] - y) <= px), None)
+            if j is not None: cands[j][2] += wb * s + bonus
+            else: cands.append([x, y, wb * s])
+        out[k] = [(x, y, min(0.99, sc / 2.0)) for x, y, sc in cands]
+    return out
