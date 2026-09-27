@@ -1435,8 +1435,19 @@ def soccertrack_check(n_clips: int = 6):
     (zoomed crop beside the frame). CPU, cents."""
     import glob, base64, cv2, numpy as np, pandas as pd
     _setup()
-    root = f"{ROOT}/datasets/soccertrack/wide_view"; vids = sorted(glob.glob(f"{root}/videos/*.mp4")); out = {"clips": len(vids)}; tiles = []
-    if not vids: return {"error": "no wide-view videos on the volume"}
+    import zipfile, shutil
+    base_ = f"{ROOT}/datasets/soccertrack"; root = f"{base_}/wide_view"; os.makedirs(f"{root}/videos", exist_ok=True); os.makedirs(f"{root}/annotations", exist_ok=True)
+    for z in glob.glob(f"{base_}/*.mp4.zip"):                                   # Kaggle delivered flat files, videos zipped: tidy once
+        with zipfile.ZipFile(z) as zf:
+            for nm in zf.namelist():
+                if nm.endswith(".mp4") and not os.path.exists(f"{root}/videos/{os.path.basename(nm)}"): zf.extract(nm, f"{root}/videos"); 
+        os.remove(z)
+    for c in glob.glob(f"{base_}/*.csv"): shutil.move(c, f"{root}/annotations/{os.path.basename(c)}")
+    for p in glob.glob(f"{root}/videos/**/*.mp4", recursive=True):
+        if os.path.dirname(p) != f"{root}/videos": shutil.move(p, f"{root}/videos/{os.path.basename(p)}")
+    vol.commit()
+    vids = sorted(glob.glob(f"{root}/videos/*.mp4")); out = {"clips": len(vids), "csvs": len(glob.glob(f"{root}/annotations/*.csv"))}; tiles = []
+    if not vids: return {"error": "no wide-view videos on the volume", "have": sorted(os.listdir(base_))[:20]}
     for v in vids[:: max(1, len(vids) // n_clips)][:n_clips]:
         name = os.path.basename(v)[:-4]; csv = f"{root}/annotations/{name}.csv"
         if not os.path.exists(csv): out.setdefault("missing_csv", []).append(name); continue
