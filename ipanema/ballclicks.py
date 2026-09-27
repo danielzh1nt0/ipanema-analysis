@@ -153,7 +153,7 @@ def candidates(video, weights, cache, conf=0.05, log=print, batch=8, imgsz=1920,
     return out
 
 
-def add_auto_crops(auto_json, video, ds, n_auto=4000, crop=640, box=18, negatives_per=1, seed=1, log=print, exclude_seconds=()):
+def add_auto_crops(auto_json, video, ds, n_auto=4000, crop=640, box=18, negatives_per=1, seed=1, log=print, exclude_seconds=(), prefix="auto"):
     """append crops around auto-labels (autolabel.py: ball tracks on the pitch) to an existing crop dataset; one sequential
     pass over the video (frames sorted, grab() to skip). Never a second Daniel clicked (the exam stays clean)."""
     import random
@@ -176,7 +176,7 @@ def add_auto_crops(auto_json, video, ds, n_auto=4000, crop=640, box=18, negative
                         nx, ny = rng.randint(0, w - crop), rng.randint(0, h - crop)
                         if not (nx - 40 <= x <= nx + crop + 40 and ny - 40 <= y <= ny + crop + 40): crops.append((nx, ny, False)); break
                 for i, (cx, cy, has) in enumerate(crops):
-                    cn = f"auto_f{k:06d}_{j}_{i}"; cv2.imwrite(f"{ds}/images/train/{cn}.jpg", f[cy:cy + crop, cx:cx + crop], [cv2.IMWRITE_JPEG_QUALITY, 90])
+                    cn = f"{prefix}_f{k:06d}_{j}_{i}"; cv2.imwrite(f"{ds}/images/train/{cn}.jpg", f[cy:cy + crop, cx:cx + crop], [cv2.IMWRITE_JPEG_QUALITY, 90])
                     with open(f"{ds}/labels/train/{cn}.txt", "w") as fh:
                         if has: b = box * (0.6 if y < h * 0.4 else 1.0); fh.write(f"0 {(x - cx) / crop:.6f} {(y - cy) / crop:.6f} {b / crop:.6f} {b / crop:.6f}\n")
                     n += 1

@@ -114,9 +114,9 @@ jobs:
         run: |
           python - <<'PY'
           import modal, os, re, json
-          h = re.search(r"\[balldata:(\d+)(?::st(\d+))?\]", os.environ["MSG"]); n = int(h.group(1)); st = int(h.group(2) or 0)
-          out = modal.Function.from_name("ipanema", "ball_dataset").remote("SFKBP1109", n, st); print(json.dumps(out, indent=1))
-          os.makedirs("results/ball", exist_ok=True); json.dump(out, open(f"results/ball/dataset_auto{n}_st{st}.json", "w"), indent=1)
+          h = re.search(r"\[balldata:(\d+)(?::st(\d+))?(?::x=([A-Za-z0-9_.,-]+))?\]", os.environ["MSG"]); n = int(h.group(1)); st = int(h.group(2) or 0); xs = h.group(3) or ""
+          out = modal.Function.from_name("ipanema", "ball_dataset").remote("SFKBP1109", n, st, xs); print(json.dumps(out, indent=1))
+          os.makedirs("results/ball", exist_ok=True); json.dump(out, open(f"results/ball/dataset_auto{n}_st{st}" + (f"_x{len(xs.split(','))}" if xs else "") + ".json", "w"), indent=1)
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/ball && git commit -qm "ball dataset built" && git push
