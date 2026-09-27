@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: read
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -687,3 +688,13 @@ jobs:
         run: |
           git pull -q origin main || true
           python scripts_notify.py && gh issue create --title "$(cat /tmp/issue_title)" --body-file /tmp/issue_body.md
+      - name: on failure, save this job's log into the repo (results/ci/failure_<run>.txt) so it can be read without GitHub access
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          JOB=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --jq '.jobs[] | select(.name=="run") | .id')
+          mkdir -p results/ci && (gh api "repos/${{ github.repository }}/actions/jobs/$JOB/logs" > results/ci/failure_${{ github.run_number }}.txt 2>&1 || echo "log fetch failed" > results/ci/failure_${{ github.run_number }}.txt)
+          tail -c 200000 results/ci/failure_${{ github.run_number }}.txt > results/ci/tmp && mv results/ci/tmp results/ci/failure_${{ github.run_number }}.txt
+          git config user.name ci-bot && git config user.email ci@ipanema && git pull -q --rebase origin main || true
+          git add results/ci && git commit -qm "ci: failure log ${{ github.run_number }}" && git push
