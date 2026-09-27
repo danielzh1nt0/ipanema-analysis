@@ -1,0 +1,20 @@
+{
+ "clicks": {
+  "train": 576,
+  "val": 108,
+  "at_feet": 0
+ },
+ "auto_crops": 0,
+ "soccertrack_crops": 0,
+ "other_match_crops": 2016,
+ "zip": "/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x1.zip",
+ "minutes": 3.2,
+ "log": [
+  "  crop dataset: 576 training crops (640 px), 108 full-frame exam frames; 0 at-feet balls x3",
+  "click crops done in 0.8 min",
+  "auto crops done in 0.0 min",
+  "  auto-label crops: 2016 added from 1008 labels (1008 available)",
+  "p15u-vs-vasalund-2026-09-20: crops done in 1.9 min",
+  "dataset zipped: 312 MB, total 3.2 min"
+ ]
+}
