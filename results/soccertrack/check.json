@@ -1,3 +1,36 @@
 {
- "error": "no wide-view videos on the volume"
+ "clips": 66,
+ "csvs": 66,
+ "csv_header": [
+  "('0', '0', 'bb_height')",
+  "('0', '0', 'bb_left')",
+  "('0', '0', 'bb_top')",
+  "('0', '0', 'bb_width')",
+  "('0', '1', 'bb_height')",
+  "('0', '1', 'bb_left')",
+  "('0', '1', 'bb_top')",
+  "('0', '1', 'bb_width')",
+  "('0', '10', 'bb_height')",
+  "('0', '10', 'bb_left')",
+  "('0', '10', 'bb_top')",
+  "('0', '10', 'bb_width')"
+ ],
+ "csv_rows": 750,
+ "teams": [
+  "0",
+  "1",
+  "BALL"
+ ],
+ "ball_cols_example": [
+  "('BALL', 'BALL', 'bb_height')",
+  "('BALL', 'BALL', 'bb_left')",
+  "('BALL', 'BALL', 'bb_top')",
+  "('BALL', 'BALL', 'bb_width')"
+ ],
+ "video": {
+  "w": 6500,
+  "h": 1000,
+  "fps": 25.0,
+  "frames": 750
+ }
 }
