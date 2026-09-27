@@ -1697,6 +1697,40 @@ def ball_measure(match_id: str, start_s: int = 1200, dur_s: int = 120, stride: i
     res["minutes"]["total"] = round((time.time() - t0) / 60, 2); save(); res["log"] = lines[-12:]
     return res
 
+@app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384, max_containers=10, retries=1)
+def ball_piece(match_id: str, start_s: int, dur_s: int = 300):
+    """one piece of a training match: both ball finders (click model every 3rd frame, no far zoom; WASB every frame),
+    cached under cache/<match>_s<start>_d<dur>/. Measured 27 Sep: 5 min of video ~ 17 GPU-minutes."""
+    import subprocess, time, json as _j
+    S = _setup(); from ipanema import ballclicks as BC, wasb as WB
+    full = f"{ROOT}/videos/{match_id}/full.mp4"; seg_id = f"{match_id}_s{start_s}_d{dur_s}"; cache = f"{ROOT}/cache/{seg_id}"
+    done_p = f"{cache}/ball_piece_done.json"
+    if os.path.exists(done_p): return _j.load(open(done_p))
+    os.makedirs(cache, exist_ok=True); seg = f"/tmp/{seg_id}.mp4"; t0 = time.time(); log, _ = _logger(f"{seg_id}/ball_piece.log")
+    subprocess.run(["ffmpeg", "-y", "-ss", str(start_s), "-i", full, "-t", str(dur_s), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", seg], check=True, capture_output=True)
+    clk = BC.candidates(seg, f"{ROOT}/models/ball/clicks_latest.pt", f"{cache}/ball_cands_clicks_st3_fz0.pkl", 0.05, log=log, stride=3, far_zoom=False)
+    wb = WB.candidates(seg, ROOT, f"{cache}/ball_cands_wasb.pkl", log=log, thr=0.05, train=False)
+    res = {"match": match_id, "start_s": start_s, "dur_s": dur_s, "frames": len(wb), "click_frames": len(clk), "minutes": round((time.time() - t0) / 60, 1)}
+    _j.dump(res, open(done_p, "w")); vol.commit(); return res
+
+@app.function(timeout=8 * 60 * 60, volumes={"/data": vol}, cpu=1.0)
+def ball_match(match_id: str, piece_s: int = 300, max_pieces: int = 0):
+    """a whole training match in pieces, 10 at a time; progress in logs/ballmatch/<match>.json after every piece"""
+    import json as _j, time, cv2
+    full = f"{ROOT}/videos/{match_id}/full.mp4"
+    if not os.path.exists(full): return {"error": "match not on the volume"}
+    cap = cv2.VideoCapture(full); dur = cap.get(cv2.CAP_PROP_FRAME_COUNT) / (cap.get(cv2.CAP_PROP_FPS) or 29.97); cap.release()
+    starts = list(range(0, int(dur), piece_s)); starts = starts[:max_pieces] if max_pieces else starts
+    prog = {"match": match_id, "pieces": len(starts), "done": 0, "failed": [], "results": [], "started": time.strftime("%H:%M:%S")}
+    pp = f"{ROOT}/logs/ballmatch/{match_id}.json"; os.makedirs(os.path.dirname(pp), exist_ok=True)
+    def save(): _j.dump(prog, open(pp, "w"), indent=1); vol.commit()
+    save(); t0 = time.time()
+    for s, r in zip(starts, ball_piece.map([match_id] * len(starts), starts, [piece_s] * len(starts), return_exceptions=True)):
+        if isinstance(r, Exception): prog["failed"].append({"start_s": s, "error": repr(r)[:300]})
+        else: prog["done"] += 1; prog["results"].append(r)
+        prog["elapsed_min"] = round((time.time() - t0) / 60, 1); save()
+    prog["finished"] = time.strftime("%H:%M:%S"); save(); return prog
+
 def _venue_solution(match_id):
     """the camera base for this venue: solved from lines (volume) if present, else Edsberg's"""
     import json as _j
