@@ -201,21 +201,7 @@ jobs:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
           MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
           MSG: ${{ github.event.head_commit.message }}
-        run: |
-          mkdir -p results/ball
-          python - > results/ball/pick_stdout.txt 2> results/ball/pick_stderr.txt <<'PY' || echo "step failed, see results/ball/pick_stderr.txt"
-          import modal, os, json, traceback
-          os.makedirs("results/ball", exist_ok=True)
-          try:
-              if "[ballpick:regen]" in os.environ.get("MSG", ""):
-                  r = modal.Function.from_name("ipanema", "wasb_regen").remote("SFKBP1109_s1200", 0.05); print(r); json.dump(r, open("results/ball/wasb_regen.json", "w"), indent=1)
-              out = modal.Function.from_name("ipanema", "ball_pick_test").remote("SFKBP1109_s1200")
-              json.dump(out, open("results/ball/pick_test.json", "w"), indent=1); print(json.dumps(out, indent=1))
-          except Exception:
-              open("results/ball/pick_error.txt", "w").write(traceback.format_exc()[-6000:]); print(traceback.format_exc()[-3000:])
-          PY
-          git config user.name modal-bot && git config user.email modal@ipanema
-          git add results/ball && git commit -qm "ball pick test" && git push
+        run: python scripts_ballpick.py
       - name: prepare a new match (commit tagged prepare:<match_id>)
         if: contains(github.event.head_commit.message, '[prepare:')
         env:
