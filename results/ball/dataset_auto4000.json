@@ -1,0 +1,17 @@
+{
+ "clicks": {
+  "train": 576,
+  "val": 108,
+  "at_feet": 0
+ },
+ "auto_crops": 8000,
+ "zip": "/data/match_analysis/labels/SFKBP1109_ball_ds_auto4000.zip",
+ "minutes": 4.9,
+ "log": [
+  "  crop dataset: 576 training crops (640 px), 108 full-frame exam frames; 0 at-feet balls x3",
+  "click crops done in 0.7 min",
+  "  auto-label crops: 8000 added from 4000 labels (27898 available)",
+  "auto crops done in 3.1 min",
+  "dataset zipped: 941 MB, total 4.9 min"
+ ]
+}
