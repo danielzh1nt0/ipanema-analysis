@@ -1,0 +1,47 @@
+15:19:17 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+15:19:26 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+15:19:53 kits: learned from 179 people, group sizes [74, 47, 42, 16]
+15:19:58   tracking frame 0
+15:21:14   tracking frame 50 (0.6 frames/s)
+15:22:30   tracking frame 100 (0.6 frames/s)
+15:23:46   tracking frame 150 (0.7 frames/s)
+15:25:03   tracking frame 200 (0.7 frames/s)
+15:26:19   tracking frame 250 (0.7 frames/s)
+15:27:35   tracking frame 300 (0.7 frames/s)
+15:28:51   tracking frame 350 (0.7 frames/s)
+15:30:07   tracking frame 400 (0.7 frames/s)
+15:31:23   tracking frame 450 (0.7 frames/s)
+15:32:39   tracking frame 500 (0.7 frames/s)
+15:33:55   tracking frame 550 (0.7 frames/s)
+15:35:08 clean: keeper (right) from a non-team kit: track 73, 56 frames
+15:35:08 clean: removed 1289 rows of non-team kits (referee / staff)
+15:35:08 clean: dropped 0 off-pitch, merged 2 duplicates, stitched 15 ids, keepers [74, 76, 77] -> B defends left
+15:35:08 clean: players per frame median A 6 / B 4, max A 14 / B 8
+15:35:08 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 60, 'median_track_s': {'dark': 1.79, 'light': 2.54}, 'minutes': 15.7, 'filled_rows': 49}
+20:46:07 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+20:49:01 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+20:49:33 kits: learned from 233 people, group sizes [109, 72, 39, 13]
+20:49:40   tracking frame 0
+20:50:00   tracking frame 500 (23.9 frames/s)
+20:50:23   tracking frame 1000 (23.0 frames/s)
+20:50:47   tracking frame 1500 (22.1 frames/s)
+20:51:13   tracking frame 2000 (21.5 frames/s)
+20:51:39   tracking frame 2500 (21.0 frames/s)
+20:52:03   tracking frame 3000 (20.8 frames/s)
+20:52:28   tracking frame 3500 (20.8 frames/s)
+20:52:53   tracking frame 4000 (20.6 frames/s)
+20:53:18   tracking frame 4500 (20.6 frames/s)
+20:53:42   tracking frame 5000 (20.6 frames/s)
+20:54:05   tracking frame 5500 (20.7 frames/s)
+20:54:30   tracking frame 6000 (20.7 frames/s)
+20:54:55   tracking frame 6500 (20.6 frames/s)
+20:55:20   tracking frame 7000 (20.6 frames/s)
+20:55:45   tracking frame 7500 (20.5 frames/s)
+20:56:11   tracking frame 8000 (20.4 frames/s)
+20:56:36   tracking frame 8500 (20.4 frames/s)
+20:57:03 clean: keeper (left) from a non-team kit: track 157, 165 frames
+20:57:03 clean: keeper (right) from a non-team kit: track 647, 347 frames
+20:57:03 clean: removed 33804 rows of non-team kits (referee / staff)
+20:57:03 clean: dropped 0 off-pitch, merged 747 duplicates, stitched 280 ids, keepers [74, 77, 125, 126, 128, 129, 132, 133, 138, 159, 160, 179, 180, 198, 204, 236, 259, 331, 334, 354, 360, 362, 365, 398, 453, 482, 511, 518, 564, 567, 574, 575, 601, 604, 616, 685, 701, 715] -> B defends left
+20:57:03 clean: players per frame median A 4 / B 10, max A 15 / B 17
+20:57:05 new, RF-DETR: {'observed_per_frame': {'dark': 4.0, 'light': 10.0}, 'shown_per_frame': {'dark': 4.0, 'light': 10.0}, 'tracks': 554, 'median_track_s': {'dark': 2.3, 'light': 4.6}, 'minutes': 8.1, 'filled_rows': 1585}
