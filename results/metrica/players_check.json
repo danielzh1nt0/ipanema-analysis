@@ -1,0 +1,39 @@
+{
+ "method": "8 saved clip frames, found players drawn, visible players counted by eye (Claude)",
+ "frames": {
+  "0": [
+   12,
+   19
+  ],
+  "1153": [
+   10,
+   18
+  ],
+  "2305": [
+   11,
+   16
+  ],
+  "3458": [
+   13,
+   16
+  ],
+  "4611": [
+   14,
+   20
+  ],
+  "5763": [
+   15,
+   22
+  ],
+  "6916": [
+   13,
+   20
+  ],
+  "8069": [
+   11,
+   16
+  ]
+ },
+ "found_share": 0.67,
+ "pattern": "dark-shirted team missed far more often than the light team"
+}
