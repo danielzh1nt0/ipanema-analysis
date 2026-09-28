@@ -50,9 +50,9 @@ def truth(ev, frames):
                     "possession_pct": {t: round(100 * v / tot) for t, v in share.items()}, "dead_pct": round(100 * dead.mean())}
     return out
 
-def ours(frames, per, noisy=False, seed=0):
+def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True):
     rng = random.Random(seed); ks = sorted(k for k in frames if frames[k][0] == per); k0 = ks[0]
-    perd = {}; ballm = {}; H = {}
+    perd = {}; ballm = {}; H = {}; run = [0, "ok", None]
     for i, k in enumerate(ks):
         _, ps, b = frames[k]
         rows = [[pid, "A" if pid < 200 else "B", np.array([x, y]), None, None, False] for pid, x, y in ps]
@@ -60,9 +60,18 @@ def ours(frames, per, noisy=False, seed=0):
             rows = [r for r in rows if rng.random() < 0.65]                     # ~7 of 11 per team visible
             for r in rows: r[2] = r[2] + np.array([rng.gauss(0, 0.8), rng.gauss(0, 0.8)])
         perd[i] = rows; H[i] = np.eye(3)
+        if noisy == "streak":                                                  # errors come in runs, like real tracking
+            if run[0] <= 0:
+                u = rng.random(); run[1] = "miss" if u < 0.25 else "wrong" if u < 0.35 else "ok"
+                run[0] = int(rng.expovariate(1 / ({"miss": 0.6, "wrong": 0.4, "ok": 1.2}[run[1]] * FPS))) + 1
+                run[2] = np.array([rng.uniform(-25, 25), rng.uniform(-15, 15)])
+            run[0] -= 1
         if b is not None:
             bm = np.array(b)
-            if noisy:
+            if noisy == "streak":
+                if run[1] == "miss": continue
+                bm = bm + (run[2] if run[1] == "wrong" else np.array([rng.gauss(0, 0.7), rng.gauss(0, 0.7)]))
+            elif noisy:
                 u = rng.random()
                 if u < 0.25: continue                                           # ball not found
                 if u < 0.35: bm = bm + np.array([rng.uniform(-25, 25), rng.uniform(-15, 15)])   # wrong pick
@@ -74,7 +83,7 @@ def ours(frames, per, noisy=False, seed=0):
     ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or {"A": True, "B": False}
     rst = P.restarts(state, bm, FPS, L, W)
     tvs = P.turnovers(perd, frames_, state, bm, FPS, ar)
-    ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS)
+    ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich)
     st = np.asarray(state)
     live = np.isin(st, [0, 1]).sum()
     return {"set_pieces": len(rst), "set_piece_frames": [k0 + int(r["t"] * FPS) for r in rst],

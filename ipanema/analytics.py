@@ -24,7 +24,7 @@ def lanes(per, frames_, attack_right, lane_half=1.5, max_lane=45.0, fwd_m=3.0):
         out[k] = res
     return out
 
-def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5):
+def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True):
     tracks = defaultdict(dict)
     for k in range(len(per)):
         for r in per[k]: tracks[r[0]][k] = r[2]
@@ -39,6 +39,28 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
             if cur: episodes.append(cur)
             cur = [k, k, c, f["team"]]
     if cur: episodes.append(cur)
+    # 28 Sep: a wrong ball pick for a few frames next to another player looks like a touch; on Metrica pro data with
+    # our tracking noise this counted 2-3x too many passes. A touch must last min_touch_s; touches by the same player
+    # separated only by flicker are one touch.
+    mt = max(1, int(round(min_touch_s * fps))); floor = max(1, int(round(floor_s * fps)))
+    def merge(eps):
+        out_ = []
+        for e in eps:
+            if out_ and out_[-1][2] == e[2] and e[0] - out_[-1][1] <= int(1.0 * fps): out_[-1][1] = e[1]
+            else: out_.append(list(e))
+        return out_
+    episodes = merge([e for e in episodes if e[1] - e[0] + 1 >= floor])
+    if sandwich:                                                                # A, short X, A = flicker, not two passes
+        changed = True
+        while changed:
+            changed = False; keep = []
+            for i, e in enumerate(episodes):
+                short = e[1] - e[0] + 1 < mt
+                if short and 0 < i < len(episodes) - 1 and episodes[i - 1][2] == episodes[i + 1][2]: changed = True; continue
+                keep.append(e)
+            episodes = merge(keep)
+    else:
+        episodes = merge([e for e in episodes if e[1] - e[0] + 1 >= mt])
     out = []
     for a, b in zip(episodes, episodes[1:]):
         if b[0] - a[1] > int(4 * fps): continue

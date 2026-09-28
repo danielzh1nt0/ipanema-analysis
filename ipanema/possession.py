@@ -214,3 +214,31 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
             out.append(tv)
         last = cur
     return out
+
+def team_speed(per, fps, window_s=1.0):
+    """28 Sep: median player speed (m/s) per frame, from each player's displacement over window_s (robust to jitter and
+    to players dropping in and out of view). During a stoppage nearly everyone walks or stands."""
+    n = len(per); w = max(1, int(round(window_s * fps))); pos = {}
+    for k in range(n):
+        for r in per[k]: pos.setdefault(r[0], {})[k] = r[2]
+    sp = np.full(n, np.nan)
+    for k in range(w, n):
+        v = [np.linalg.norm(tr[k] - tr[k - w]) / window_s for tr in (pos.get(r[0]) for r in per[k]) if k - w in tr]
+        if len(v) >= 4: sp[k] = float(np.median(v))
+    return sp
+
+def stoppages_from_motion(per, fps, thr=1.4, min_s=4.0, smooth_s=1.0, join_gap_s=2.0):
+    """play stopped = the median player speed stays below thr m/s for min_s seconds (gaps up to join_gap_s joined).
+    -> list of (start_frame, end_frame). Tested on Metrica's hand-labelled stoppages (tools/metricalab.py)."""
+    sp = team_speed(per, fps); n = len(sp); h = max(1, int(smooth_s * fps / 2))
+    sm = np.array([np.nanmean(sp[max(0, k - h):k + h + 1]) if np.isfinite(sp[max(0, k - h):k + h + 1]).any() else np.nan for k in range(n)])
+    slow = np.nan_to_num(sm, nan=99.0) < thr; runs = []; k = 0
+    while k < n:
+        if slow[k]:
+            j = k
+            while j + 1 < n and slow[j + 1]: j += 1
+            if runs and k - runs[-1][1] <= join_gap_s * fps: runs[-1][1] = j
+            else: runs.append([k, j])
+            k = j + 1
+        else: k += 1
+    return [(a, b) for a, b in runs if (b - a + 1) / fps >= min_s]
