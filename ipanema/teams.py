@@ -1,5 +1,5 @@
 """Team assignment by visual embedding. The pipeline names teams A (light? no: A/B are arbitrary) — A = the cluster with MORE dark shirt pixels."""
-import sys, cv2, numpy as np, logging
+import os, sys, cv2, numpy as np, logging
 
 def shirt(frame, xyxy):
     x1, y1, x2, y2 = [int(v) for v in xyxy]; h = y2 - y1
@@ -60,7 +60,7 @@ class TeamModel:
                 cls = res.names[int(det.class_id[j])].lower() if det.class_id is not None else "player"
                 if "goalkeeper" in cls: continue                                 # 28 Sep: "referee" boxes are mostly our black-shirted players
                 c = shirt(f, det.xyxy[j])
-                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8 and not _is_referee_bib(c) and not referee_kit(f, det.xyxy[j]): crops.append(c)
+                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8 and not _is_referee_bib(c): crops.append(c)
             if len(crops) >= max_crops: break
         import random, torch; random.seed(0); np.random.seed(0); torch.manual_seed(0)
         self.clf.fit(crops); labels = np.array(self.clf.predict(crops))
@@ -90,7 +90,7 @@ class TeamModel:
         for j, b in enumerate(xyxys):
             c = shirt(frame, b)
             if c.size and c.shape[0] >= 12 and c.shape[1] >= 8:
-                if _is_referee_bib(c) or referee_kit(frame, b): labs[j] = "R"; continue
+                if _is_referee_bib(c) or (os.environ.get("IPANEMA_REFEREE_KIT", "0") == "1" and referee_kit(frame, b)): labs[j] = "R"; continue   # 28 Sep: kit rule OFF - built on SFK-BP only; on 6 other matches it caught orange, red, striped and dark players
                 idx.append(j); cs.append(c)
         if cs:
             if getattr(self, "_brightness_split", None) is not None:

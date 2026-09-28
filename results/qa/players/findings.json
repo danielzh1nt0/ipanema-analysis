@@ -1,0 +1,8 @@
+{
+ "date": "2026-09-28",
+ "how": "GitHub free runner, real player detector, 10 frames x 8 matches, graded by Claude by eye",
+ "finding_1": "detector labels black/dark-shirted players 'referee' (pro-football habit); tracking deleted them: model-referee boxes per 10 frames SFK-BP 33, Solheim 44, Spanga 18, Vasalund 18, others 7-9. FIXED: no longer deleted.",
+ "finding_2": "Claude's orange-top referee rule caught players on 6 other matches (orange Solberga, red Djursholm, striped Spanga under floodlight, dark Solheim). SWITCHED OFF.",
+ "finding_3": "the real referee kit differs per match (orange SFK-BP, light blue AIK, orange/red Reymersholm): referee must be learned per match as 'the kit that is neither team'",
+ "finding_4": "lowering the bar to 0.15 adds mostly real far/partly hidden players (Reymersholm +53 in 10 frames), plus bench people that the pitch filter removes"
+}
