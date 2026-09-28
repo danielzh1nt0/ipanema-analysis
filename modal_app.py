@@ -490,6 +490,23 @@ def stat_review(match_id: str = "SFKBP1109_s1200", n_poss: int = 40):
     items = SR.pictures(get, md, stops, poss, fps); cap.release()
     return {"match": match_id, "teams": md.get("teams"), "restarts": len(stops), "possession_moments": len(poss), "items": items}
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, secrets=[modal.Secret.from_name("ipanema-storage")])
+def copy_to_r2(match_id: str):
+    """28 Sep: one-time copy of a training match from the Modal volume to R2 (<match>/video.mp4), so free checks read R2
+    instead of Google Drive (Drive blocked repeated downloads). Skips if R2 already has the same size. CPU only."""
+    import boto3, time
+    src = next((p for p in (f"{ROOT}/videos/{match_id}/full.mp4", f"{ROOT}/videos/{match_id}.mp4") if os.path.exists(p)), None)
+    if src is None: return {"match": match_id, "error": "not on the volume"}
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    key = f"{match_id}/video.mp4"; size = os.path.getsize(src)
+    try:
+        if r2.head_object(Bucket=c["R2_BUCKET"], Key=key)["ContentLength"] == size: return {"match": match_id, "skipped": "already on R2", "GB": round(size / 1e9, 2)}
+    except Exception: pass
+    t0 = time.time(); r2.upload_file(src, c["R2_BUCKET"], key, ExtraArgs={"ContentType": "video/mp4"})
+    ok = r2.head_object(Bucket=c["R2_BUCKET"], Key=key)["ContentLength"] == size
+    return {"match": match_id, "GB": round(size / 1e9, 2), "minutes": round((time.time() - t0) / 60, 1), "verified_same_size": ok, "url": f"{c['R2_PUBLIC_URL'].rstrip('/')}/{key}"}
+
 @app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
 def player_bench(match_id: str, n: int = 10):
     """28 Sep: player detection on n frames spread over a whole match, drawn by threshold level (playerbench.py). CPU only."""

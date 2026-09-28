@@ -9,7 +9,7 @@ def log(m): s = f"{time.strftime('%H:%M:%S')} {m}"; print(s, flush=True); LOG.ap
 R2 = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
 MATCHES = [{"id": "SFKBP1109", "r2": ["p15u-vs-bp-2026-09-22-2000/video.mp4", "SFKBP1109/video.mp4"]},
            {"id": "p15u-vs-aik-2026-09-21-bd09", "r2": ["p15u-vs-aik-2026-09-21-bd09/video.mp4"]}]
-MATCHES += [{"id": m["id"], "drive": m["drive_id"]} for m in json.load(open("reference/training_matches.json"))["matches"]]
+MATCHES += [{"id": m["id"], "r2": [f"{m['id']}/video.mp4"], "drive": m["drive_id"]} for m in json.load(open("reference/training_matches.json"))["matches"]]   # 28 Sep: R2 first (Drive blocks repeat downloads)
 if os.environ.get("ONLY"): MATCHES = [m for m in MATCHES if m["id"] in os.environ["ONLY"].split(",")]
 if len(sys.argv) > 1: MATCHES = [m for m in MATCHES if m["id"] in sys.argv[1].split(",")] or [{"id": "local", "path": sys.argv[1]}]
 
