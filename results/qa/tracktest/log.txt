@@ -6,3 +6,13 @@
 11:12:21 kits: learned from 223 people, group sizes [90, 72, 41, 20]
 11:21:30   tracking frame 0
 14:07:26 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
+14:07:38 calibration: from the line model, 85% of frames trusted (lines drawn); 90 frames bridged or borrowed, no drawn lines
+14:07:39 before: {'observed_per_frame': {'dark': 9.0, 'light': 5.0}, 'shown_per_frame': {'dark': 9.0, 'light': 5.0}, 'tracks': 91, 'median_track_s': {'dark': 2.2, 'light': 0.48}}
+14:08:02 kits: learned from 291 people, group sizes [99, 80, 61, 51]
+14:08:06   tracking frame 0
+14:08:54   tracking frame 50 (1.0 frames/s)
+14:09:43   tracking frame 100 (1.0 frames/s)
+14:10:30   tracking frame 150 (1.0 frames/s)
+14:11:18   tracking frame 200 (1.0 frames/s)
+14:12:05   tracking frame 250 (1.0 frames/s)
+14:12:52   tracking frame 300 (1.0 frames/s)
