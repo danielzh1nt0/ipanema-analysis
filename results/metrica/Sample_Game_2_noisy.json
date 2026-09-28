@@ -1,0 +1,74 @@
+{
+ "1": {
+  "truth": {
+   "set_pieces": 40,
+   "passes": {
+    "Home": 295,
+    "Away": 243
+   },
+   "balls_lost": {
+    "Home": 67,
+    "Away": 61
+   },
+   "possession_pct": {
+    "Home": 51,
+    "Away": 49
+   },
+   "dead_pct": 14
+  },
+  "ours": {
+   "set_pieces": 68,
+   "passes": {
+    "Home": 607,
+    "Away": 565
+   },
+   "balls_lost": {
+    "Home": 4,
+    "Away": 1
+   },
+   "possession_pct": {
+    "Home": 51,
+    "Away": 49
+   },
+   "dead_pct": 14
+  },
+  "set_pieces_found": "9/40",
+  "set_pieces_extra": 59
+ },
+ "2": {
+  "truth": {
+   "set_pieces": 52,
+   "passes": {
+    "Home": 248,
+    "Away": 178
+   },
+   "balls_lost": {
+    "Home": 53,
+    "Away": 52
+   },
+   "possession_pct": {
+    "Home": 54,
+    "Away": 46
+   },
+   "dead_pct": 14
+  },
+  "ours": {
+   "set_pieces": 57,
+   "passes": {
+    "Home": 496,
+    "Away": 323
+   },
+   "balls_lost": {
+    "Home": 4,
+    "Away": 2
+   },
+   "possession_pct": {
+    "Home": 55,
+    "Away": 45
+   },
+   "dead_pct": 20
+  },
+  "set_pieces_found": "16/52",
+  "set_pieces_extra": 41
+ }
+}
