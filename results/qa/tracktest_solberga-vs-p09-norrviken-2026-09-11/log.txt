@@ -1,0 +1,19 @@
+16:20:38 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+16:20:48 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+16:21:20 kits: learned from 365 people, group sizes [119, 112, 97, 37]
+16:21:25   tracking frame 0
+16:22:44   tracking frame 50 (0.6 frames/s)
+16:24:03   tracking frame 100 (0.6 frames/s)
+16:25:22   tracking frame 150 (0.6 frames/s)
+16:26:41   tracking frame 200 (0.6 frames/s)
+16:28:00   tracking frame 250 (0.6 frames/s)
+16:29:18   tracking frame 300 (0.6 frames/s)
+16:30:37   tracking frame 350 (0.6 frames/s)
+16:31:55   tracking frame 400 (0.6 frames/s)
+16:33:16   tracking frame 450 (0.6 frames/s)
+16:34:34   tracking frame 500 (0.6 frames/s)
+16:35:53   tracking frame 550 (0.6 frames/s)
+16:37:08 clean: removed 4588 rows of non-team kits (referee / staff)
+16:37:10 clean: dropped 0 off-pitch, merged 227 duplicates, stitched 49 ids, keepers [68] -> A defends left
+16:37:10 clean: players per frame median A 10 / B 9, max A 14 / B 13
+16:37:10 new, RF-DETR: {'observed_per_frame': {'dark': 10.0, 'light': 9.0}, 'shown_per_frame': {'dark': 10.0, 'light': 10.0}, 'tracks': 71, 'median_track_s': {'dark': 2.87, 'light': 1.99}, 'minutes': 16.4, 'filled_rows': 130}

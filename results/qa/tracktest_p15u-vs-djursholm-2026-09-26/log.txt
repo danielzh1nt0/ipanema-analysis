@@ -1,0 +1,19 @@
+16:20:27 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
+16:20:36 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+16:21:06 kits: learned from 344 people, group sizes [123, 111, 97, 13]
+16:21:11   tracking frame 0
+16:22:28   tracking frame 50 (0.6 frames/s)
+16:23:45   tracking frame 100 (0.6 frames/s)
+16:25:02   tracking frame 150 (0.6 frames/s)
+16:26:19   tracking frame 200 (0.6 frames/s)
+16:27:36   tracking frame 250 (0.6 frames/s)
+16:28:53   tracking frame 300 (0.6 frames/s)
+16:30:09   tracking frame 350 (0.6 frames/s)
+16:31:25   tracking frame 400 (0.7 frames/s)
+16:32:41   tracking frame 450 (0.7 frames/s)
+16:33:58   tracking frame 500 (0.7 frames/s)
+16:35:14   tracking frame 550 (0.7 frames/s)
+16:36:27 clean: removed 5698 rows of non-team kits (referee / staff)
+16:36:28 clean: dropped 0 off-pitch, merged 317 duplicates, stitched 50 ids, keepers [66, 65, 86, 89, 90, 91, 100, 101, 102, 104, 116, 125, 126, 127] -> A defends left
+16:36:28 clean: players per frame median A 6 / B 8, max A 12 / B 14
+16:36:28 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 72, 'median_track_s': {'dark': 1.62, 'light': 2.4}, 'minutes': 15.9, 'filled_rows': 497}
