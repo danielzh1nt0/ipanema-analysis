@@ -29,7 +29,7 @@ d = f"/tmp/kaggle_{name}"; shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
 code = open(script).read().replace("{{R2}}", os.environ.get("R2_PUBLIC_URL", "").rstrip("/"))
 open(f"{d}/{name}.py", "w").write(code)
 json.dump({"id": kid, "title": slug, "code_file": f"{name}.py", "language": "python", "kernel_type": "script", "is_private": True,
-           "enable_gpu": True, "enable_internet": True, "dataset_sources": [], "competition_sources": [], "kernel_sources": []},
+           "enable_gpu": True, "enable_internet": True, "machine_shape": os.environ.get("KAGGLE_GPU", "NvidiaTeslaT4"), "dataset_sources": [], "competition_sources": [], "kernel_sources": []},
           open(f"{d}/kernel-metadata.json", "w"), indent=1)
 print(sh(f"kaggle kernels push -p {d}", check=True), flush=True)
 t0 = time.time(); last = ""
