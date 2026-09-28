@@ -1,1 +1,1 @@
-fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x1.zip Mon Sep 28 00:38:58 UTC 2026 round 9 again (first try sat in the GPU queue until GitHub's 2 h limit)
+fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x4.zip Mon Sep 28 06:51:25 UTC 2026 round 10: clicks + 4 matches' checked labels, from the best finder (70/108) (Daniel: go)
