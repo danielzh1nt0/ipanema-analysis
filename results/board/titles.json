@@ -28,5 +28,6 @@
  "A1": "Prepare the one paid run that puts the new version in the app",
  "N1": "Every morning: react to the nightly scorecard",
  "P5": "Night games: white players read as the green team",
- "P6": "Night games: find why whites turn green during tracking"
+ "P6": "Night games: find why whites turn green during tracking",
+ "P7": "Night games: ignore people standing off the pitch"
 }
