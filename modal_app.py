@@ -477,6 +477,19 @@ def export_frames(match_id: str, items: list):
                     "jpg": base64.b64encode(cv2.imencode(".jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 95])[1].tobytes()).decode()})
     return out
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=2.0, memory=8192)
+def stat_review(match_id: str = "SFKBP1109_s1200", n_poss: int = 40):
+    """28 Sep: pictures for Daniel's stat answer key (stoppages + who has the ball) from the latest app run (CPU)"""
+    import json, cv2
+    _setup(); from ipanema import statreview as SR
+    md = json.load(open(f"{ROOT}/runs/matches/{match_id}/match_data.json"))
+    vid = next((p for p in (f"{ROOT}/runs/matches/{match_id}/video.mp4", f"{ROOT}/videos/{match_id}.mp4") if os.path.exists(p)), None)
+    if vid is None: return {"error": "clip video not on the volume"}
+    stops, poss, dur = SR.plan(md, n_poss); fps = md["fps"]; cap = cv2.VideoCapture(vid)
+    def get(k): cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read(); return f if ok else None
+    items = SR.pictures(get, md, stops, poss, fps); cap.release()
+    return {"match": match_id, "teams": md.get("teams"), "restarts": len(stops), "possession_moments": len(poss), "items": items}
+
 @app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
 def export_events(match_id: str, types: list):
     """events of the given types from a match's exported data (reads the volume only)"""
