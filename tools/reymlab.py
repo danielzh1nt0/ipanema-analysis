@@ -11,7 +11,7 @@ def load(f):
     o = pickle.load(open(f, "rb")); o = o[0] if isinstance(o, tuple) else o
     return {int(k): [(float(a), float(b), float(c)) for a, b, c in v] for k, v in o.items()}
 clk = load(C + "ball_cands_clicks_st3_fz0.pkl"); wasb = load(sorted(glob.glob(C + "ball_cands_wasb_*_t2x2_thr0.05.pkl"))[-1])
-R = json.load(gzip.open(f"results/qa/tracktest_gpu_{MATCH}/rows_all.json.gz", "rt")); fps = float(R["fps"])
+R = json.load(gzip.open(os.environ.get("ROWS", "results/kaggle/track_reym/rows_all.json.gz"), "rt")); fps = float(R["fps"])
 rows = R["rows"]["new, RF-DETR"]; bh = R.get("box_h", {}).get("new, RF-DETR", {})
 L, W = 106.0, 64.0; S_ = np.array([[1920 / L, 0, 0], [0, 1080 / W, 0], [0, 0, 1.0]]); n = max(int(k) for k in rows) + 1
 n = max(n, max(clk) + 1, max(wasb) + 1); H = {k: S_ for k in range(n)}
@@ -23,7 +23,7 @@ print(f"{n} frames, ball on {len(ball)}, guesses from clicks {len(clk)} frames /
 if sys.argv[1] == "strips":
     mom = []; t = 3.0
     while t < 297 and len(mom) < 60: mom.append({"t": round(t, 2), "frame": int(round(t * fps)), "ours": None}); t += 4.9
-    json.dump({"out": "results/qa/who_reym", "src_key": f"{MATCH}/video.mp4", "offset_frames": int(round(START * fps)), "moments": mom,
+    json.dump({"out": "results/qa/who_reym2", "src_key": f"{MATCH}/video.mp4", "offset_frames": int(round(START * fps)), "moments": mom,
                "players": {str(m["frame"] + d): rows.get(str(m["frame"] + d), []) for m in mom for d in range(-24, 25, 6)},
                "ball": {str(m["frame"] + d): [round(v, 1) for v in ball[m["frame"] + d]] for m in mom for d in range(-24, 25, 6) if m["frame"] + d in ball}},
               open("results/review/who_moments_reym.json", "w"))
