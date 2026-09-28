@@ -1,19 +1,46 @@
 {
- "started": {
-  "p15u-vs-vasalund-2026-09-20": "fc-01M3JDEB86NKDKJBH43XHHR2GF",
-  "p15u-vs-spanga-2026-09-25": "fc-01M3JDEBA96YAG65RTKHDBC0TK",
-  "p15u-vs-djursholm-2026-09-26": "fc-01M3JDEBC4QX8WS7GH06AXAB46",
-  "solberga-vs-p09-norrviken-2026-09-11": "fc-01M3JDEBE4WW2SZD2H2FNNYDJV",
-  "p15u-vs-reymersholm-2026-09-18": "fc-01M3JDEBG515ABG4HTZNWCRT7W",
-  "p09-norrviken-vs-solheim-2026-08-30": "fc-01M3JDEBHS89NZPMW8YDKBKTSR"
- },
  "status": {
   "p15u-vs-vasalund-2026-09-20": {
-   "pieces": 2,
-   "done": 2,
+   "pieces": 19,
+   "done": 19,
    "failed": [],
-   "elapsed_min": 18.5,
-   "finished": "21:42:35"
+   "elapsed_min": 241.5,
+   "finished": "01:50:00"
+  },
+  "p15u-vs-spanga-2026-09-25": {
+   "pieces": 19,
+   "done": 19,
+   "failed": [],
+   "elapsed_min": 2.4,
+   "finished": "02:00:28"
+  },
+  "p15u-vs-djursholm-2026-09-26": {
+   "pieces": 24,
+   "done": 24,
+   "failed": [],
+   "elapsed_min": 243.8,
+   "finished": "01:52:18"
+  },
+  "solberga-vs-p09-norrviken-2026-09-11": {
+   "pieces": 25,
+   "done": 25,
+   "failed": [],
+   "elapsed_min": 141.3,
+   "finished": "00:09:48"
+  },
+  "p15u-vs-reymersholm-2026-09-18": {
+   "pieces": 20,
+   "done": 20,
+   "failed": [],
+   "elapsed_min": 249.3,
+   "finished": "01:57:50"
+  },
+  "p09-norrviken-vs-solheim-2026-08-30": {
+   "pieces": 22,
+   "done": 22,
+   "failed": [],
+   "elapsed_min": 12.3,
+   "finished": "02:10:22"
   }
  }
 }
