@@ -19,7 +19,10 @@ def carriers(per, ball, H, carrier_r=2.5, near_r=5.0):
         frames_.append(rec)
     return frames_, ballm
 
-def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0):
+def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_s=None):
+    """speed_win_s (28 Sep, S1b): measure ball speed as displacement over +-speed_win_s/2 instead of frame to frame.
+    Frame-to-frame speed turns 0.7 m of position wobble into ~20 m/s, so the ball always looked 'in flight' and nobody
+    had it (87% 'loose' on Metrica with realistic noise). None = old behaviour."""
     n = len(per)
     # 1) impossible jumps are ball-pick errors: drop those frames from the observations
     bad = set()
@@ -29,8 +32,25 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0):
     raw = {k: float(np.linalg.norm(ballm[k] - ballm[k - 1]) * fps) for k in ballm if k - 1 in ballm}
     # smoothed speed (median over ~0.2 s) so pick jitter does not look like flight
     w = max(1, int(0.1 * fps)); bspeed = {}
-    for k in raw:
-        win = [raw[j] for j in range(k - w, k + w + 1) if j in raw]; bspeed[k] = float(np.median(win))
+    if speed_win_s and speed_win_s < 0:                           # robust: median-smoothed positions, then displacement over the window
+        h = max(1, int(round(-speed_win_s * fps / 2))); ks = sorted(ballm)
+        sm = {}
+        for k in ks:
+            win = [ballm[j] for j in range(k - h, k + h + 1) if j in ballm]
+            if len(win) >= 3: sm[k] = np.median(np.array(win), axis=0)
+        for k in sm:
+            a = next((j for j in range(k - h, k) if j in sm), None); b = next((j for j in range(k + h, k, -1) if j in sm), None)
+            if a is not None and b is not None and b - a >= h: bspeed[k] = float(np.linalg.norm(sm[b] - sm[a]) * fps / (b - a))
+            elif k in raw: bspeed[k] = raw[k]
+    elif speed_win_s:
+        h = max(1, int(round(speed_win_s * fps / 2)))
+        for k in ballm:
+            a = next((j for j in range(k - h, k) if j in ballm), None); b = next((j for j in range(k + h, k, -1) if j in ballm), None)
+            if a is not None and b is not None and b - a >= h: bspeed[k] = float(np.linalg.norm(ballm[b] - ballm[a]) * fps / (b - a))
+            elif k in raw: bspeed[k] = raw[k]
+    else:
+        for k in raw:
+            win = [raw[j] for j in range(k - w, k + w + 1) if j in raw]; bspeed[k] = float(np.median(win))
     E = np.zeros((n, 4))
     for k in range(n):
         if k not in ballm: continue
@@ -152,7 +172,7 @@ def restarts(state, ballm, fps, L, W, min_s=2.0, join_gap_s=1.5):
         else: k += 1
     return out
 
-def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0):
+def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
     n = len(per); poss = [STATES[s] if s < 2 else None for s in state]; out = []; last = None
     for k in range(1, n):
         cur = poss[k]
@@ -160,15 +180,15 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
         if last is not None and cur != last:
             loser, winner = last, cur; k0 = k
             hold = 0
-            for j in range(k0, min(n, k0 + int(3.0 * fps))):
+            for j in range(k0, min(n, k0 + int(max(3.0, min_after_s) * fps))):
                 if poss[j] == winner: hold += 1
                 elif poss[j] == loser: break
             prev_ctrl = 0
-            for j in range(k0 - 1, max(-1, k0 - int(6.0 * fps)), -1):
+            for j in range(k0 - 1, max(-1, k0 - int(max(6.0, 2 * min_before_s) * fps)), -1):
                 if poss[j] == loser: prev_ctrl += 1
                 elif poss[j] == winner: break
-            # 3) two real possessions: loser had it >= 3 s, winner keeps it >= 3 s
-            if hold < int(3.0 * fps) or prev_ctrl < int(3.0 * fps): last = cur; continue
+            # 3) two real possessions: loser had it >= min_before_s, winner keeps it >= min_after_s (both 3 s by default)
+            if hold < int(min_after_s * fps) or prev_ctrl < int(min_before_s * fps): last = cur; continue
             # 4) time the turnover at the first frame the winner controls a slow ball (not while it is still travelling)
             for j in range(k0, min(n, k0 + int(3.0 * fps))):
                 f0 = frames_[j]
