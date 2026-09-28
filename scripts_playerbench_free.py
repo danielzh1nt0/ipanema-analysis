@@ -42,6 +42,7 @@ def main(weights):
                 det, names = TR.detect_tiled_batch(model, [f], 0.10, TR.FOLLOW_TILES, imgsz=960, half=False)[0]
                 boxes = PB.classify(det, names, f, T.referee_kit)
                 cv2.imwrite(f"{d}/f{k:07d}.jpg", PB.draw(f, boxes, f"{m['id'][:28]} f{k}"), [cv2.IMWRITE_JPEG_QUALITY, 85])
+                cv2.imwrite(f"{d}/raw_f{k:07d}.jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 92])          # unmarked full-size frame for colour checks
                 items.append({"frame": k, "size": [f.shape[1], f.shape[0]], "boxes": boxes})
             cap.release(); json.dump(items, open(f"{d}/boxes.json", "w"))
             if tmp: os.remove(tmp)
