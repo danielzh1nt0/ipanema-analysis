@@ -1,0 +1,17 @@
+{
+ "nvidia_smi": "/bin/sh: 1: nvidia-smi: not found\n",
+ "torch": "2.10.0+cpu",
+ "cuda": false,
+ "gpus": 0,
+ "git_clone_wasb": "fatal: unable to access 'https://github.com/nttcom/WASB-SBDT.git/': Could not resolve host: github.com\n",
+ "clone_s": 32.3,
+ "r2_video": {
+  "frames": 0,
+  "fps": 0.0,
+  "seek_read_ok": false,
+  "shape": null,
+  "s": 32.1
+ },
+ "pip_ultralytics": "ics/\nWARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7863b3f52180>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/ultralytics/\nWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7863b3f52930>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/ultralytics/\nERROR: Could not find a version that satisfies the requirement ultralytics (from versions: none)\nERROR: No matching distribution found for ultralytics\n",
+ "disk": "/dev/loop2       20G  104K   20G   1% /kaggle/working\n"
+}

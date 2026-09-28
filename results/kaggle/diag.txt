@@ -1,0 +1,1 @@
+token length 37 | old-style 32-hex key: False | KGAT prefix: True | username set: False

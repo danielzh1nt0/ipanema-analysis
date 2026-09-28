@@ -1,0 +1,25 @@
+[{"stream_name":"stderr","time":72.970476733,"data":"[tcp @ 0x2e3f8dc0] Failed to resolve hostname pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev: Temporary failure in name resolution\n"}
+,{"stream_name":"stdout","time":276.214670792,"data":"{\n"}
+,{"stream_name":"stdout","time":276.214749794,"data":" \"nvidia_smi\": \"/bin/sh: 1: nvidia-smi: not found\\n\",\n"}
+,{"stream_name":"stdout","time":276.214757534,"data":" \"torch\": \"2.10.0+cpu\",\n"}
+,{"stream_name":"stdout","time":276.214763126,"data":" \"cuda\": false,\n"}
+,{"stream_name":"stdout","time":276.214768244,"data":" \"gpus\": 0,\n"}
+,{"stream_name":"stdout","time":276.214773614,"data":" \"git_clone_wasb\": \"fatal: unable to access 'https://github.com/nttcom/WASB-SBDT.git/': Could not resolve host: github.com\\n\",\n"}
+,{"stream_name":"stdout","time":276.214787198,"data":" \"clone_s\": 32.3,\n"}
+,{"stream_name":"stdout","time":276.214791978,"data":" \"r2_video\": {\n"}
+,{"stream_name":"stdout","time":276.214813466,"data":"  \"frames\": 0,\n"}
+,{"stream_name":"stdout","time":276.2148197,"data":"  \"fps\": 0.0,\n"}
+,{"stream_name":"stdout","time":276.214825488,"data":"  \"seek_read_ok\": false,\n"}
+,{"stream_name":"stdout","time":276.214831814,"data":"  \"shape\": null,\n"}
+,{"stream_name":"stdout","time":276.214837691,"data":"  \"s\": 32.1\n"}
+,{"stream_name":"stdout","time":276.214842801,"data":" },\n"}
+,{"stream_name":"stdout","time":276.214851466,"data":" \"pip_ultralytics\": \"ics/\\nWARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('\u003cpip._vendor.urllib3.connection.HTTPSConnection object at 0x7863b3f52180\u003e: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/ultralytics/\\nWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('\u003cpip._vendor.urllib3.connection.HTTPSConnection object at 0x7863b3f52930\u003e: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/ultralytics/\\nERROR: Could not find a version that satisfies the requirement ultralytics (from versions: none)\\nERROR: No matching distribution found for ultralytics\\n\",\n"}
+,{"stream_name":"stdout","time":276.214862934,"data":" \"disk\": \"/dev/loop2       20G  104K   20G   1% /kaggle/working\\n\"\n"}
+,{"stream_name":"stdout","time":276.21486841,"data":"}\n"}
+,{"stream_name":"stderr","time":279.94230687,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":279.942357911,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":280.457960599,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":280.458000093,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":281.435964575,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":283.486121283,"data":"[NbConvertApp] Writing 281434 bytes to __results__.html\n"}
+]

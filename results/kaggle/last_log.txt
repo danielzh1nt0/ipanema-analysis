@@ -1,0 +1,11 @@
+kernel danielmatros/ipanema-smoke
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-smoke
+  0.5 min: danielmatros/ipanema-smoke has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-smoke has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-smoke has status "KernelWorkerStatus.RUNNING"
+  5.1 min: danielmatros/ipanema-smoke has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/smoke/result.json
+Kernel log downloaded to results/kaggle/smoke/ipanema-smoke.log
+  ipanema-smoke.log 3296
+  result.json 1252
+  run.json 144
