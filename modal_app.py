@@ -1634,6 +1634,68 @@ def wasb_ceiling(match_id: str = "SFKBP1109", thr: float = 0.05):
          "no_ball_frames_with_peak_over_0.25": sum(1 for r in rows if not r["has_ball"] and any(c[2] >= 0.25 for c in r["cands"]))}
     return {"summary": s, "rows": rows}
 
+@app.function(gpu="L4", timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_probe(clip_id: str = "SFKBP1109_s1200", match_id: str = "SFKBP1109", conf: float = 0.005, wasb_thr: float = 0.01):
+    """B2 (28 Sep, Daniel: go): at the 34 checked clip moments and the 108 exam frames, run every ball finder variant at a
+    very low cut-off (click finder: normal / low / mirrored / 2x2 tiles; WASB: low / mirrored) and record whether the
+    true ball is among the guesses at all. Answers: do the finders see the missed balls weakly? Nothing trained."""
+    import json as _j, cv2, numpy as np, torch, time
+    from ultralytics import YOLO
+    S = _setup(); from ipanema import ballclicks as BC, ballprobe as BP, wasb as WB, video as V
+    t0 = time.time(); logs = []; L = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    model = YOLO(f"{ROOT}/models/ball/clicks_latest.pt")
+    WB.ensure(ROOT, log=L); net = WB._model(ROOT, "cuda"); boxes = WB.tile_boxes(); nt = len(boxes)
+    def clk(img, c, fz=True, sz=1920): return BC.detect(model, img, conf=c, imgsz=sz, far_zoom=fz)
+    def wasb(f3, thr):
+        base = [WB.to_base(f) for f in f3]; h, w = f3[1].shape[:2]; fx, fy = w / WB.BASE[0], h / WB.BASE[1]
+        x = torch.from_numpy(np.stack([WB.crop_stack(base, b) for b in boxes])).to("cuda")
+        with torch.no_grad():
+            pred = net(x); pred = list(pred.values())[0] if isinstance(pred, dict) else (pred[0] if isinstance(pred, (list, tuple)) else pred)
+            hms = torch.sigmoid(pred).float().cpu().numpy()
+        out = []
+        for t, (bx, by, tw, th) in enumerate(boxes):
+            out += [((bx + px * tw / WB.NET[0]) * fx, (by + py * th / WB.NET[1]) * fy, sc) for px, py, sc in BP.local_peaks(hms[t, 1], wasb_thr)]
+        return out
+    variants = {
+        "clicks_normal (0.05, as in the app)": lambda f3: clk(f3[1], 0.05),
+        "clicks_low": lambda f3: clk(f3[1], conf),
+        "clicks_low_mirrored": lambda f3: BP.flip_back(clk(cv2.flip(f3[1], 1), conf), f3[1].shape[1]),
+        "clicks_low_2x2_tiles": lambda f3: BP.detect_tiled(lambda im: clk(im, conf, fz=False), f3[1]),
+        "wasb_normal (0.05)": lambda f3: [d for d in wasb(f3, wasb_thr) if d[2] >= 0.05],
+        "wasb_low": lambda f3: wasb(f3, wasb_thr),
+        "wasb_low_mirrored": lambda f3: BP.flip_back(wasb([cv2.flip(f, 1) for f in f3], wasb_thr), f3[1].shape[1]),
+    }
+    def reader(path):
+        cap = cv2.VideoCapture(path)
+        def read3(k):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, k - 1)); fr = []
+            for _ in range(3):
+                ok, f = cap.read()
+                if ok: fr.append(f)
+            if len(fr) < 2: return None
+            while len(fr) < 3: fr.append(fr[-1])
+            return tuple(fr) if k > 0 else (fr[0], fr[0], fr[1])
+        return cap, read3
+    out = {"settings": {"conf": conf, "wasb_thr": wasb_thr, "hit_px": BP.HIT_PX}}
+    # the 34 clip moments (same video and frame numbers as the picker tests)
+    video = f"/tmp/work/{clip_id}/video.mp4"
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{clip_id}.mp4", video)
+    mom = _j.load(open("/content/ipanema-analysis/results/picker/moments34.json"))
+    moments = [{"id": int(k), "frame": int(k), "truth": v["truth"]} for k, v in sorted(mom.items(), key=lambda z: int(z[0]))]
+    cap, read3 = reader(video); L(f"clip: {len(moments)} moments"); rows = BP.run(moments, read3, variants, log=L); cap.release()
+    out["clip34"] = {"summary": BP.summarise(rows, list(variants)), "rows": rows}; L(_j.dumps(out["clip34"]["summary"])[:600])
+    # the 108 exam frames of the full match
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full:
+        exam = [r for r in _j.load(open(f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"))["frames"] if r["split"] == "exam"]
+        cap, read3 = reader(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
+        moments = [{"id": r["file"], "frame": int(round(r["t"] * fps)), "group": r.get("group"), "truth": (r["x"], r["y"]) if r["x"] is not None else None} for r in exam]
+        L(f"exam: {len(moments)} frames"); rows = BP.run(moments, read3, variants, log=L); cap.release()
+        out["exam108"] = {"summary": BP.summarise(rows, list(variants)), "rows": rows}
+    else: out["exam108"] = {"error": "full match video not on the volume"}
+    out["minutes"] = round((time.time() - t0) / 60, 1); out["log"] = logs[-40:]
+    return out
+
 @app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
 def ball_pick_test(match_id: str = "SFKBP1109_s1200"):
     """STEP 2 (CPU, cents): on the clip, from CACHED candidates (WASB + click model) and cached player tracks, run the
