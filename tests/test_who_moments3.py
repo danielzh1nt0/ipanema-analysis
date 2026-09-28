@@ -15,3 +15,12 @@ def test_committed_batch_does_not_overlap_earlier_keys():
     new = [m["frame"] for m in json.load(open(p))["moments"]]
     old = [m["frame"] for f in ("who_moments.json", "who_moments2.json") for m in json.load(open("results/review/" + f))["moments"]]
     assert all(abs(a - b) >= 36 for a in new for b in old)
+
+def test_answer_key_third_batch_matches_strips():
+    A = json.load(open("results/review/who_answers.json"))["moments"]
+    third = [a for a in A if a["n"] >= 200]
+    M = json.load(open("results/review/who_moments3.json"))["moments"]
+    assert [a["frame"] for a in third] == [m["frame"] for m in M]
+    assert all(a["truth"] in ("dark", "white", "loose", "unsure") for a in A)
+    assert sum(a["truth"] != "unsure" for a in A) >= 99
+    assert len({a["n"] for a in A}) == len(A)

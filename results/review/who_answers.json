@@ -1,5 +1,5 @@
 {
- "graded_by": "Claude by eye from 5-frame strips (results/qa/who), 28 Sep; A=dark kit in the new pipeline; +60 moments (results/qa/who2, n = 100+strip number)",
+ "graded_by": "Claude by eye from 5-frame strips (results/qa/who), 28 Sep; A=dark kit in the new pipeline; +60 moments (results/qa/who2, n = 100+strip number); third batch n=200-259 (results/qa/who3, frames chosen blind) graded by Claude by eye 28 Sep, without seeing any model output",
  "moments": [
   {
    "n": 0,
@@ -600,6 +600,366 @@
    "frame": 7121,
    "t": 237.6,
    "truth": "loose"
+  },
+  {
+   "n": 200,
+   "frame": 30,
+   "t": 1.0,
+   "truth": "loose"
+  },
+  {
+   "n": 201,
+   "frame": 191,
+   "t": 6.4,
+   "truth": "white"
+  },
+  {
+   "n": 202,
+   "frame": 559,
+   "t": 18.7,
+   "truth": "unsure"
+  },
+  {
+   "n": 203,
+   "frame": 651,
+   "t": 21.7,
+   "truth": "white"
+  },
+  {
+   "n": 204,
+   "frame": 697,
+   "t": 23.3,
+   "truth": "unsure"
+  },
+  {
+   "n": 205,
+   "frame": 812,
+   "t": 27.1,
+   "truth": "dark"
+  },
+  {
+   "n": 206,
+   "frame": 1088,
+   "t": 36.3,
+   "truth": "white"
+  },
+  {
+   "n": 207,
+   "frame": 1180,
+   "t": 39.4,
+   "truth": "loose"
+  },
+  {
+   "n": 208,
+   "frame": 1272,
+   "t": 42.4,
+   "truth": "white"
+  },
+  {
+   "n": 209,
+   "frame": 1318,
+   "t": 44.0,
+   "truth": "white"
+  },
+  {
+   "n": 210,
+   "frame": 1410,
+   "t": 47.0,
+   "truth": "white"
+  },
+  {
+   "n": 211,
+   "frame": 1663,
+   "t": 55.5,
+   "truth": "white"
+  },
+  {
+   "n": 212,
+   "frame": 1709,
+   "t": 57.0,
+   "truth": "loose"
+  },
+  {
+   "n": 213,
+   "frame": 1824,
+   "t": 60.9,
+   "truth": "white"
+  },
+  {
+   "n": 214,
+   "frame": 2560,
+   "t": 85.4,
+   "truth": "loose"
+  },
+  {
+   "n": 215,
+   "frame": 2652,
+   "t": 88.5,
+   "truth": "loose"
+  },
+  {
+   "n": 216,
+   "frame": 2974,
+   "t": 99.2,
+   "truth": "white"
+  },
+  {
+   "n": 217,
+   "frame": 3066,
+   "t": 102.3,
+   "truth": "white"
+  },
+  {
+   "n": 218,
+   "frame": 3917,
+   "t": 130.7,
+   "truth": "unsure"
+  },
+  {
+   "n": 219,
+   "frame": 4032,
+   "t": 134.5,
+   "truth": "unsure"
+  },
+  {
+   "n": 220,
+   "frame": 4193,
+   "t": 139.9,
+   "truth": "loose"
+  },
+  {
+   "n": 221,
+   "frame": 4308,
+   "t": 143.7,
+   "truth": "unsure"
+  },
+  {
+   "n": 222,
+   "frame": 4400,
+   "t": 146.8,
+   "truth": "unsure"
+  },
+  {
+   "n": 223,
+   "frame": 5504,
+   "t": 183.7,
+   "truth": "white"
+  },
+  {
+   "n": 224,
+   "frame": 5642,
+   "t": 188.3,
+   "truth": "loose"
+  },
+  {
+   "n": 225,
+   "frame": 5780,
+   "t": 192.9,
+   "truth": "loose"
+  },
+  {
+   "n": 226,
+   "frame": 5895,
+   "t": 196.7,
+   "truth": "dark"
+  },
+  {
+   "n": 227,
+   "frame": 5987,
+   "t": 199.8,
+   "truth": "unsure"
+  },
+  {
+   "n": 228,
+   "frame": 6401,
+   "t": 213.6,
+   "truth": "loose"
+  },
+  {
+   "n": 229,
+   "frame": 6539,
+   "t": 218.2,
+   "truth": "white"
+  },
+  {
+   "n": 230,
+   "frame": 6953,
+   "t": 232.0,
+   "truth": "unsure"
+  },
+  {
+   "n": 231,
+   "frame": 7160,
+   "t": 238.9,
+   "truth": "unsure"
+  },
+  {
+   "n": 232,
+   "frame": 7206,
+   "t": 240.4,
+   "truth": "white"
+  },
+  {
+   "n": 233,
+   "frame": 7252,
+   "t": 242.0,
+   "truth": "unsure"
+  },
+  {
+   "n": 234,
+   "frame": 7367,
+   "t": 245.8,
+   "truth": "unsure"
+  },
+  {
+   "n": 235,
+   "frame": 7413,
+   "t": 247.3,
+   "truth": "dark"
+  },
+  {
+   "n": 236,
+   "frame": 7528,
+   "t": 251.2,
+   "truth": "unsure"
+  },
+  {
+   "n": 237,
+   "frame": 7574,
+   "t": 252.7,
+   "truth": "unsure"
+  },
+  {
+   "n": 238,
+   "frame": 7620,
+   "t": 254.3,
+   "truth": "unsure"
+  },
+  {
+   "n": 239,
+   "frame": 7712,
+   "t": 257.3,
+   "truth": "unsure"
+  },
+  {
+   "n": 240,
+   "frame": 7758,
+   "t": 258.9,
+   "truth": "unsure"
+  },
+  {
+   "n": 241,
+   "frame": 7873,
+   "t": 262.7,
+   "truth": "loose"
+  },
+  {
+   "n": 242,
+   "frame": 7919,
+   "t": 264.2,
+   "truth": "dark"
+  },
+  {
+   "n": 243,
+   "frame": 7965,
+   "t": 265.8,
+   "truth": "loose"
+  },
+  {
+   "n": 244,
+   "frame": 8011,
+   "t": 267.3,
+   "truth": "unsure"
+  },
+  {
+   "n": 245,
+   "frame": 8149,
+   "t": 271.9,
+   "truth": "unsure"
+  },
+  {
+   "n": 246,
+   "frame": 8195,
+   "t": 273.4,
+   "truth": "unsure"
+  },
+  {
+   "n": 247,
+   "frame": 8241,
+   "t": 275.0,
+   "truth": "unsure"
+  },
+  {
+   "n": 248,
+   "frame": 8287,
+   "t": 276.5,
+   "truth": "loose"
+  },
+  {
+   "n": 249,
+   "frame": 8333,
+   "t": 278.0,
+   "truth": "loose"
+  },
+  {
+   "n": 250,
+   "frame": 8425,
+   "t": 281.1,
+   "truth": "dark"
+  },
+  {
+   "n": 251,
+   "frame": 8471,
+   "t": 282.6,
+   "truth": "loose"
+  },
+  {
+   "n": 252,
+   "frame": 8563,
+   "t": 285.7,
+   "truth": "unsure"
+  },
+  {
+   "n": 253,
+   "frame": 8609,
+   "t": 287.3,
+   "truth": "dark"
+  },
+  {
+   "n": 254,
+   "frame": 8655,
+   "t": 288.8,
+   "truth": "dark"
+  },
+  {
+   "n": 255,
+   "frame": 8701,
+   "t": 290.3,
+   "truth": "dark"
+  },
+  {
+   "n": 256,
+   "frame": 8747,
+   "t": 291.9,
+   "truth": "white"
+  },
+  {
+   "n": 257,
+   "frame": 8862,
+   "t": 295.7,
+   "truth": "dark"
+  },
+  {
+   "n": 258,
+   "frame": 8908,
+   "t": 297.2,
+   "truth": "unsure"
+  },
+  {
+   "n": 259,
+   "frame": 8954,
+   "t": 298.8,
+   "truth": "white"
   }
  ]
 }
