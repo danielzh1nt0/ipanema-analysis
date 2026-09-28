@@ -27,7 +27,26 @@ def sample_frames(detect, m=12):
         c.set(cv2.CAP_PROP_POS_FRAMES, int(j)); ok, f = c.read()
         if ok: out.append((f, detect(f)))
     return out
-rep = {}
+rep = {}; ROWS = {}
+KEYS = [0, n // 3, 2 * n // 3, n - 1]
+def metrics(rows_by_k, dark_label):
+    """rows_by_k: {k: [(id, team, px, filled)]} -> per-frame medians by kit (dark/light), tracks, median track length"""
+    lab = lambda t: "dark" if t == dark_label else "light"
+    obs = {t: float(np.median([sum(1 for r in rows_by_k.get(k, []) if lab(r[1]) == t and not r[3]) for k in range(n)])) for t in ("dark", "light")}
+    allr = {t: float(np.median([sum(1 for r in rows_by_k.get(k, []) if lab(r[1]) == t) for k in range(n)])) for t in ("dark", "light")}
+    ids = {}
+    for k in range(n):
+        for r in rows_by_k.get(k, []):
+            if not r[3]: ids.setdefault((r[0], lab(r[1])), []).append(k)
+    tl = {t: [len(v) / fps for (i, tt), v in ids.items() if tt == t] for t in ("dark", "light")}
+    return {"observed_per_frame": obs, "shown_per_frame": allr, "tracks": len(ids), "median_track_s": {t: round(float(np.median(v)), 2) if v else None for t, v in tl.items()}}
+md = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/match_data.json")); prior_dark = md["teams"]["dark"]
+ROWS["before (app, 27 Sep)"] = ({k - k0: [(p["id"], p["team"], p["px"], False) for p in md["frames"][k]["players"]] for k in range(k0, k0 + n)}, prior_dark)
+rep["before (app, 27 Sep)"] = metrics(*ROWS["before (app, 27 Sep)"]); log(f"before: {rep['before (app, 27 Sep)']}")
+c = cv2.VideoCapture(piece)
+for j in KEYS:
+    c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
+    if ok: cv2.imwrite(f"{OUT}/raw_{j:04d}.jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 92])
 for name in ("yolo", "rfdetr"):
     os.environ["IPANEMA_DETECTOR"] = name; t0 = time.time()
     if name == "rfdetr": det = TR.RFDetrPerson("medium"); detect = lambda f: [b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy]
@@ -44,21 +63,32 @@ for name in ("yolo", "rfdetr"):
     for k, rs in per.items():
         for r in rs:
             if len(r) <= 6: ids.setdefault(r[0], []).append(k)
-    tl = [len(v) / fps for v in ids.values()]
-    med = {t: float(np.median([sum(1 for r in per[k] if r[1] == t and len(r) <= 6) for k in per])) for t in "AB"}
-    medf = {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in per])) for t in "AB"}
-    rep[name] = {"minutes": round((time.time() - t0) / 60, 1), "observed_per_frame": med, "with_filled_per_frame": medf, "tracks": len(ids), "median_track_s": round(float(np.median(tl)), 2), "filled_rows": nf}
+    label = {"yolo": "new, old detector", "rfdetr": "new, RF-DETR"}[name]
+    ROWS[label] = ({k: [(r[0], r[1], None if r[3] is None else [float(r[3][0]), float(r[3][1])], len(r) > 6) for r in per.get(k, [])] for k in range(n)}, "A")   # new: A = darker kit
+    rep[label] = dict(metrics(*ROWS[label]), minutes=round((time.time() - t0) / 60, 1), filled_rows=nf); name = label
     log(f"{name}: {rep[name]}")
-    c = cv2.VideoCapture(piece)
-    for j in (0, n // 3, 2 * n // 3, n - 1):
-        c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
-        if not ok: continue
-        for r in per.get(j, []):
-            if r[3] is None: continue
-            x, y_ = int(r[3][0]), int(r[3][1]); col = (0, 255, 255) if len(r) > 6 else ((0, 0, 255) if r[1] == "A" else (255, 128, 0))
-            cv2.circle(f, (x, y_), 16, col, 3); cv2.putText(f, str(r[0]), (x + 12, y_ + 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, col, 2)
-        t = f"{name} f{j}: A {sum(r[1]=='A' for r in per.get(j, []))} B {sum(r[1]=='B' for r in per.get(j, []))}"
-        cv2.putText(f, t, (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1.6, (0, 0, 0), 8); cv2.putText(f, t, (20, 60), cv2.FONT_HERSHEY_SIMPLEX, 1.6, (255, 255, 255), 3)
-        cv2.imwrite(f"{OUT}/{name}_f{j:04d}.jpg", cv2.resize(f, (1280, 720)), [cv2.IMWRITE_JPEG_QUALITY, 85])
-    for t in ("A", "B"): cv2.imwrite(f"{OUT}/{name}_kit_{t}.png", tm.strips[t])
+    for t in ("A", "B"): cv2.imwrite(f"{OUT}/{name.replace(',', '').replace(' ', '_')}_kit_{t}.png", tm.strips[t])
     json.dump(rep, open(f"{OUT}/summary.json", "w"), indent=1)
+
+json.dump({v: {str(k): r for k, r in rows.items() if k in KEYS} for v, (rows, _) in ROWS.items()}, open(f"{OUT}/rows_keyframes.json", "w"))
+for j in KEYS:
+    f0 = cv2.imread(f"{OUT}/raw_{j:04d}.jpg")
+    if f0 is None: continue
+    panels = []
+    for v, (rows, dark) in ROWS.items():
+        f = f0.copy(); nd = nl = 0
+        for pid, team, px, filled in rows.get(j, []):
+            if px is None: continue
+            d = team == dark; nd += d; nl += not d; col = (0, 255, 255) if filled else ((0, 0, 255) if d else (255, 128, 0))
+            cv2.circle(f, (int(px[0]), int(px[1])), 18, col, 4)
+        t = f"{v}: dark {nd}  light {nl}"
+        cv2.putText(f, t, (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 2.0, (0, 0, 0), 10); cv2.putText(f, t, (20, 70), cv2.FONT_HERSHEY_SIMPLEX, 2.0, (255, 255, 255), 4)
+        panels.append(cv2.resize(f, (1280, 720)))
+    cv2.imwrite(f"{OUT}/compare_{j:04d}.jpg", np.vstack(panels), [cv2.IMWRITE_JPEG_QUALITY, 85])
+lines = ["| | " + " | ".join(rep) + " |", "|---" * (len(rep) + 1) + "|"]
+for key, f in (("dark players per frame (seen)", lambda r: r["observed_per_frame"]["dark"]), ("light players per frame (seen)", lambda r: r["observed_per_frame"]["light"]),
+               ("dark per frame incl. filled", lambda r: r["shown_per_frame"]["dark"]), ("light per frame incl. filled", lambda r: r["shown_per_frame"]["light"]),
+               ("dark: median time a player stays tracked (s)", lambda r: r["median_track_s"]["dark"]), ("light: median time tracked (s)", lambda r: r["median_track_s"]["light"]), ("track ids in 20 s", lambda r: r["tracks"])):
+    lines.append(f"| {key} | " + " | ".join(str(f(r)) for r in rep.values()) + " |")
+open(f"{OUT}/comparison.md", "w").write("\n".join(lines) + "\n"); print("\n".join(lines))
+json.dump(rep, open(f"{OUT}/summary.json", "w"), indent=1)
