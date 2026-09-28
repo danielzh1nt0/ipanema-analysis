@@ -107,7 +107,9 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     cands = None
     if ball_backend == "clicks":
         from . import ballclicks as BC
-        clicks = BC.candidates(video, _clicks_w, f"{cache}/ball_cands_clicks.pkl", S.conf_ball, log=log)
+        _bj = os.path.join(S.root, "models", "ball", "best.json")                # 28 Sep: cache per model version, or a promoted model reuses old guesses
+        _ver = json.load(open(_bj)).get("weights", "v")[:-3] if os.path.exists(_bj) else f"{int(os.path.getmtime(_clicks_w))}"
+        clicks = BC.candidates(video, _clicks_w, f"{cache}/ball_cands_clicks_{_ver}.pkl", S.conf_ball, log=log)
         log(f"ball: click-trained model ({os.path.basename(_clicks_w)}), {sum(len(v) for v in clicks.values())/max(1,len(clicks)):.1f} candidates/frame")
         try:                                                                   # 27 Sep: fused guesses (tested on the clip: 26/34 vs 22/34, ceiling 27)
             from . import wasb
