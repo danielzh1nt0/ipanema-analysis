@@ -1,0 +1,60 @@
+name: Nightly check (free)
+on:
+  schedule: [{cron: "7 0 * * *"}]
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ["triggers/nightly.txt"]
+permissions:
+  contents: write
+concurrency: nightly
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless scipy pandas pytest supervision
+      - run: python tools/nightly_quick.py
+      - uses: actions/upload-artifact@v4
+        with: { name: quick, path: results/nightly/quick.json }
+  players:
+    runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        g: [["SFKBP1109_s1200", "60"], ["p15u-vs-spanga-2026-09-25", "1500"], ["p15u-vs-reymersholm-2026-09-18", "1500"], ["p15u-vs-djursholm-2026-09-26", "1500"], ["solberga-vs-p09-norrviken-2026-09-11", "1500"]]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless scipy supervision && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q rfdetr
+      - env:
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          MATCH: ${{ matrix.g[0] }}
+          START_S: ${{ matrix.g[1] }}
+          DUR_S: "20"
+          SKIP_INSTALL: "1"
+        run: python tools/tracktest.py
+      - uses: actions/upload-artifact@v4
+        with: { name: "players-${{ matrix.g[0] }}", path: "results/qa/tracktest*" }
+  scorecard:
+    needs: [quick, players]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: /tmp/art }
+      - run: |
+          mkdir -p results/nightly results/qa
+          cp /tmp/art/quick/quick.json results/nightly/ 2>/dev/null || true
+          for d in /tmp/art/players-*; do cp -r $d/* results/qa/ 2>/dev/null || true; done
+          python tools/nightly_scorecard.py
+          git config user.name nightly-bot && git config user.email bot@ipanema
+          git add results/nightly results/qa && git commit -qm "nightly check $(date -u +%F)" || echo nothing
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done

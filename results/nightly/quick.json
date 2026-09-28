@@ -1,0 +1,74 @@
+{
+ "date": "2026-09-28",
+ "tests": {
+  "total": 43,
+  "failed": []
+ },
+ "ball_34_moments": {
+  "right": 21,
+  "of": 34,
+  "best_possible": 25
+ },
+ "stats_pro_data": {
+  "worst_pass_err_pct": 17,
+  "worst_poss_err_pts": 13,
+  "rows": [
+   {
+    "game": "1",
+    "half": 1,
+    "noise": "False",
+    "pass_err_pct": 11,
+    "poss_err_pts": 7
+   },
+   {
+    "game": "1",
+    "half": 1,
+    "noise": "streak",
+    "pass_err_pct": 13,
+    "poss_err_pts": 1
+   },
+   {
+    "game": "1",
+    "half": 2,
+    "noise": "False",
+    "pass_err_pct": 3,
+    "poss_err_pts": 0
+   },
+   {
+    "game": "1",
+    "half": 2,
+    "noise": "streak",
+    "pass_err_pct": 15,
+    "poss_err_pts": 12
+   },
+   {
+    "game": "2",
+    "half": 1,
+    "noise": "False",
+    "pass_err_pct": 9,
+    "poss_err_pts": 2
+   },
+   {
+    "game": "2",
+    "half": 1,
+    "noise": "streak",
+    "pass_err_pct": 11,
+    "poss_err_pts": 3
+   },
+   {
+    "game": "2",
+    "half": 2,
+    "noise": "False",
+    "pass_err_pct": 17,
+    "poss_err_pts": 5
+   },
+   {
+    "game": "2",
+    "half": 2,
+    "noise": "streak",
+    "pass_err_pct": 15,
+    "poss_err_pts": 13
+   }
+  ]
+ }
+}
