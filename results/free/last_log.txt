@@ -1,109 +1,216 @@
-=== running tools/tracktest_grounds.py
-15:03:18 clip 0c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4: 168597 frames @ 29.97
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:03:28 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-[2026-09-28 15:03:33] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
-/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   1%|          | 4.37M/386M [00:00<00:08, 45.8MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   3%|▎         | 10.0M/386M [00:00<00:10, 37.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   6%|▌         | 22.8M/386M [00:00<00:05, 72.8MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   9%|▉         | 35.8M/386M [00:00<00:03, 94.7MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 48.0M/386M [00:00<00:03, 105MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  15%|█▌        | 58.7M/386M [00:00<00:03, 104MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  18%|█▊        | 71.4M/386M [00:00<00:02, 113MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 84.5M/386M [00:00<00:02, 120MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  25%|██▌       | 97.6M/386M [00:00<00:02, 125MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  29%|██▊       | 111M/386M [00:01<00:02, 129MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  32%|███▏      | 124M/386M [00:01<00:02, 132MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  35%|███▌      | 137M/386M [00:01<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  39%|███▉      | 150M/386M [00:01<00:01, 133MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  42%|████▏     | 163M/386M [00:01<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  46%|████▌     | 176M/386M [00:01<00:01, 136MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  49%|████▉     | 189M/386M [00:01<00:01, 126MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 202M/386M [00:01<00:01, 130MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  56%|█████▌    | 215M/386M [00:01<00:01, 132MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  59%|█████▉    | 229M/386M [00:02<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  63%|██████▎   | 242M/386M [00:02<00:01, 136MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  66%|██████▌   | 255M/386M [00:02<00:01, 77.9MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  69%|██████▉   | 268M/386M [00:02<00:01, 89.4MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  72%|███████▏  | 280M/386M [00:02<00:01, 97.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  76%|███████▌  | 293M/386M [00:02<00:00, 107MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  79%|███████▉  | 306M/386M [00:02<00:00, 114MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  83%|████████▎ | 319M/386M [00:02<00:00, 120MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  86%|████████▌ | 331M/386M [00:03<00:00, 123MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  89%|████████▉ | 344M/386M [00:03<00:00, 127MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  93%|█████████▎| 357M/386M [00:03<00:00, 130MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  96%|█████████▌| 371M/386M [00:03<00:00, 133MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  99%|█████████▉| 384M/386M [00:03<00:00, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 116MiB/s]
-[2026-09-28 15:03:37] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
-[2026-09-28 15:03:37] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:03:37] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:03:38] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 15:03:40] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-15:03:59 kits: learned from 225 people, group sizes [96, 61, 37, 31]
-[2026-09-28 15:04:00] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 15:04:00] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:04:00] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:04:01] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-/home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:146: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
-  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-[2026-09-28 15:04:02] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-15:04:04   tracking frame 0
-15:05:21   tracking frame 50 (0.6 frames/s)
-15:06:37   tracking frame 100 (0.6 frames/s)
-15:07:54   tracking frame 150 (0.6 frames/s)
-15:09:10   tracking frame 200 (0.6 frames/s)
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:10:27   tracking frame 250 (0.7 frames/s)
-15:11:43   tracking frame 300 (0.7 frames/s)
-15:12:59   tracking frame 350 (0.7 frames/s)
-15:14:15   tracking frame 400 (0.7 frames/s)
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:15:31   tracking frame 450 (0.7 frames/s)
-15:16:47   tracking frame 500 (0.7 frames/s)
-15:18:03   tracking frame 550 (0.7 frames/s)
-15:19:15 clean: keeper (left) from a non-team kit: track 5, 232 frames
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:19:15 clean: removed 2343 rows of non-team kits (referee / staff)
-15:19:15 clean: dropped 0 off-pitch, merged 10 duplicates, stitched 21 ids, keepers [] -> A defends left
-15:19:15 clean: players per frame median A 7 / B 6, max A 10 / B 11
-15:19:15 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 6.0}, 'shown_per_frame': {'dark': 7.0, 'light': 6.0}, 'tracks': 64, 'median_track_s': {'dark': 2.44, 'light': 2.54}, 'minutes': 15.8, 'filled_rows': 148}
-| | new, RF-DETR |
-|---|---|
-| dark players per frame (seen) | 7.0 |
-| light players per frame (seen) | 6.0 |
-| dark per frame incl. filled | 7.0 |
-| light per frame incl. filled | 6.0 |
-| dark: median time a player stays tracked (s) | 2.44 |
-| light: median time tracked (s) | 2.54 |
-| track ids in 20 s | 64 |
-15:19:17 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:19:26 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-[2026-09-28 15:19:31] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 15:19:31] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:19:31] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:19:33] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 15:19:34] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-15:19:53 kits: learned from 179 people, group sizes [74, 47, 42, 16]
-[2026-09-28 15:19:54] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 15:19:54] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:19:54] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 15:19:55] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-/home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:146: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
-  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-[2026-09-28 15:19:56] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-15:19:58   tracking frame 0
-15:21:14   tracking frame 50 (0.6 frames/s)
-15:22:30   tracking frame 100 (0.6 frames/s)
-15:23:46   tracking frame 150 (0.7 frames/s)
-15:25:03   tracking frame 200 (0.7 frames/s)
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:26:19   tracking frame 250 (0.7 frames/s)
-15:27:35   tracking frame 300 (0.7 frames/s)
-15:28:51   tracking frame 350 (0.7 frames/s)
-15:30:07   tracking frame 400 (0.7 frames/s)
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:31:23   tracking frame 450 (0.7 frames/s)
-15:32:39   tracking frame 500 (0.7 frames/s)
-15:33:55   tracking frame 550 (0.7 frames/s)
-15:35:08 clean: keeper (right) from a non-team kit: track 73, 56 frames
-error: cannot pull with rebase: You have unstaged changes.
-error: Please commit or stash them.
-15:35:08 clean: removed 1289 rows of non-team kits (referee / staff)
-15:35:08 clean: dropped 0 off-pitch, merged 2 duplicates, stitched 15 ids, keepers [74, 76, 77] -> B defends left
-15:35:08 clean: players per frame median A 6 / B 4, max A 14 / B 8
-15:35:08 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 60, 'median_track_s': {'dark': 1.79, 'light': 2.54}, 'minutes': 15.7, 'filled_rows': 49}
-| | new, RF-DETR |
-|---|---|
-| dark players per frame (seen) | 6.0 |
-| light players per frame (seen) | 4.0 |
-| dark per frame incl. filled | 6.0 |
-| light per frame incl. filled | 4.0 |
-| dark: median time a player stays tracked (s) | 1.79 |
-| light: median time tracked (s) | 2.54 |
-| track ids in 20 s | 60 |
+=== running tools/probe_soccertrack.py
+{
+ "folders": {
+  ".gitattributes": {
+   "files": 1,
+   "GB": 0.0
+  },
+  "CHANGES_v1_1.md": {
+   "files": 1,
+   "GB": 0.0
+  },
+  "CHANGES_v1_2.md": {
+   "files": 1,
+   "GB": 0.0
+  },
+  "README.md": {
+   "files": 1,
+   "GB": 0.0
+  },
+  "ball": {
+   "files": 20,
+   "GB": 0.0
+  },
+  "bas": {
+   "files": 10,
+   "GB": 0.0
+  },
+  "gsr": {
+   "files": 20,
+   "GB": 55.95
+  },
+  "mot": {
+   "files": 21,
+   "GB": 3.59
+  },
+  "raw": {
+   "files": 102,
+   "GB": 2.61
+  },
+  "videos": {
+   "files": 20,
+   "GB": 82.68
+  }
+ },
+ "mot_files": [
+  [
+   "mot/117092.txt",
+   6.2
+  ],
+  [
+   "mot/117093.txt",
+   6.2
+  ],
+  [
+   "mot/118575.txt",
+   6.1
+  ],
+  [
+   "mot/118576.txt",
+   6.2
+  ],
+  [
+   "mot/118577.txt",
+   6.3
+  ],
+  [
+   "mot/118578.txt",
+   4.5
+  ],
+  [
+   "mot/128057.txt",
+   6.2
+  ],
+  [
+   "mot/128058.txt",
+   6.2
+  ],
+  [
+   "mot/132831.txt",
+   6.2
+  ],
+  [
+   "mot/132877.txt",
+   6.2
+  ],
+  [
+   "mot/README.md",
+   0.0
+  ],
+  [
+   "mot/clips/117092.mp4",
+   587.9
+  ],
+  [
+   "mot/clips/117093.mp4",
+   305.0
+  ],
+  [
+   "mot/clips/118575.mp4",
+   287.0
+  ],
+  [
+   "mot/clips/118576.mp4",
+   298.4
+  ],
+  [
+   "mot/clips/118577.mp4",
+   270.2
+  ],
+  [
+   "mot/clips/118578.mp4",
+   294.4
+  ],
+  [
+   "mot/clips/128057.mp4",
+   291.1
+  ],
+  [
+   "mot/clips/128058.mp4",
+   291.4
+  ],
+  [
+   "mot/clips/132831.mp4",
+   604.3
+  ],
+  [
+   "mot/clips/132877.mp4",
+   302.4
+  ]
+ ],
+ "video_files": [
+  [
+   "videos/117092/117092_panorama_1st_half.mp4",
+   6.69
+  ],
+  [
+   "videos/117092/117092_panorama_2nd_half.mp4",
+   6.69
+  ],
+  [
+   "videos/117093/117093_panorama_1st_half.mp4",
+   3.35
+  ],
+  [
+   "videos/117093/117093_panorama_2nd_half.mp4",
+   3.48
+  ],
+  [
+   "videos/118575/118575_panorama_1st_half.mp4",
+   3.55
+  ],
+  [
+   "videos/118575/118575_panorama_2nd_half.mp4",
+   3.64
+  ],
+  [
+   "videos/118576/118576_panorama_1st_half.mp4",
+   3.6
+  ],
+  [
+   "videos/118576/118576_panorama_2nd_half.mp4",
+   3.59
+  ],
+  [
+   "videos/118577/118577_panorama_1st_half.mp4",
+   3.58
+  ],
+  [
+   "videos/118577/118577_panorama_2nd_half.mp4",
+   3.59
+  ],
+  [
+   "videos/118578/118578_panorama_1st_half.mp4",
+   3.47
+  ],
+  [
+   "videos/118578/118578_panorama_2nd_half.mp4",
+   3.5
+  ],
+  [
+   "videos/128057/128057_panorama_1st_half.mp4",
+   3.31
+  ],
+  [
+   "videos/128057/128057_panorama_2nd_half.mp4",
+   3.45
+  ],
+  [
+   "videos/128058/128058_panorama_1st_half.mp4",
+   3.42
+  ],
+  [
+   "videos/128058/128058_panorama_2nd_half.mp4",
+   3.32
+  ],
+  [
+   "videos/132831/132831_panorama_1st_half.mp4",
+   6.83
+  ],
+  [
+   "videos/132831/132831_panorama_2nd_half.mp4",
+   6.89
+  ],
+  [
+   "videos/132877/132877_panorama_1st_half.mp4",
+   3.32
+  ],
+  [
+   "videos/132877/132877_panorama_2nd_half.mp4",
+   3.42
+  ]
+ ],
+ "mot_samples": {
+  "mot/118578.txt": "0,1,1192,257,26,56,-1,-1,-1,-1\n0,2,1341,288,34,63,-1,-1,-1,-1\n0,3,1464,355,38,90,-1,-1,-1,-1\n0,4,1612,187,13,48,-1,-1,-1,-1\n0,5,1691,266,32,77,-1,-1,-1,-1\n0,6,1882,147,13,39,-1,-1,-1,-1\n0,7,1865,170,17,44,-1,-1,-1,-1\n0,8,1980,202,19,55,-1,-1,-1,-1\n0,9,1904,220,22,62,-1,-1,-1,-1\n0,10,2146,187,16,51,-1,-1,-1,-1\n0,11,2183,128,14,32,-1,-1,-1,-1\n0,12,2254,156,12,40,-1,-1,-1,-1\n0,13,2320,180,19,48,-1,-1,-1,-1\n0,14,2242,245,34,59,-1,-1,-1,-1\n0,15,2191,334,36,87,-1,-1,-1,-1\n0,16,2174,453,60,111,-1,-1,-1,-1\n0,17,2428,248,29,45,-1,-1,-1,-1\n0,18,2462,230,22,41,-1,-1,-1,-1\n0,19,2515,209,24,56,-1,-1,-1,-1\n0,20,2541,287,21,69,-1,-1,-1,-1\n0,21,2656,266,35,60,-1,-1,-1,-1\n0,22,3059,252,19,42,-1,-1,-1,-1\n1,1,1192,257,26,55,-1,-1,-1,-1\n1,2,1342,289,33,63,-1,-1,-1,-1\n1,3,1463,355,40,90,-1,-1,-1,-1\n1,4,1612,187,13,48,-1,-1,-1,-1\n1,5,1688,266,34,77,-1,-1,-1,-1\n1,6,1882,147,13,39,-1,-1,-1,-1\n1,7,1864,170,17,44,-1,-1,-1,-1\n1,8,1975,202,24,55,-1,-1,-1,-1\n1,9,1905,220,20,63,-1,-1,-1,-1\n1,10,2145,187,14,51,-1,-1,-1,-1\n1,11,2183,128,14,32,-1,-1,-1,-1\n1,12,2252,156,13,40,-1,-1,-1,-1\n1,13,2320,180,18,48,-1,-1,-1,-1\n1,14,2241,245,34,59,-1,-1,-1,-1\n1,15,2183,334,41,87,-1,-1,-1,-1\n1,16,2174,455,64,112,-1,-1,-1,-1\n1,17,2428,246,28,46,-1,-1,-1,-1\n1,18,2462,229,23,43,-1,-1,-1,-1\n1,19,2514,209,23,55,-1,-1,-1,-1\n1,20,2537,286,24,69,-1,-1,-1,-1\n1,21,2654,266,32,60,-1,-1,-1,-1\n1,22,3058,252,19,42,-1,-1,-1,-1\n2,1,1192,257,25,55,-1,-1,-1,-1\n2,2,1343,289,32,63,-1,-1,-1,-1\n2,3,1463,355,42,89,-1,-1,-1,-1\n2,4,1612,187,14",
+  "mot/118575.txt": "0,1,2327.0,266.00,42.00,63.00,-1,-1,-1,-1\n0,2,2014.0,268.00,31.00,77.00,-1,-1,-1,-1\n0,3,1823.0,150.00,22.00,41.00,-1,-1,-1,-1\n0,4,1646.0,209.00,25.00,53.00,-1,-1,-1,-1\n0,5,2317.0,175.00,18.00,44.00,-1,-1,-1,-1\n0,6,2140.0,134.00,19.00,32.00,-1,-1,-1,-1\n0,7,2711.0,237.00,28.00,54.00,-1,-1,-1,-1\n0,8,1959.0,186.00,20.00,49.00,-1,-1,-1,-1\n0,9,2312.0,154.00,23.00,33.00,-1,-1,-1,-1\n0,10,2106.0,172.00,27.00,49.00,-1,-1,-1,-1\n0,11,2653.0,171.00,17.00,41.00,-1,-1,-1,-1\n0,12,2628.0,167.00,18.00,38.00,-1,-1,-1,-1\n0,13,2603.0,163.00,20.00,33.00,-1,-1,-1,-1\n0,14,2427.0,138.00,20.00,29.00,-1,-1,-1,-1\n0,15,2707.0,208.00,34.00,39.00,-1,-1,-1,-1\n0,16,2126.0,148.00,14.00,38.00,-1,-1,-1,-1\n0,17,1957.0,145.00,13.00,38.00,-1,-1,-1,-1\n0,18,2744.0,231.00,36.00,25.00,-1,-1,-1,-1\n0,19,2547.0,184.00,28.00,41.00,-1,-1,-1,-1\n0,20,1264.0,227.00,13.00,45.00,-1,-1,-1,-1\n0,21,3065.0,244.00,15.00,40.00,-1,-1,-1,-1\n0,22,2050.0,125.00,16.00,33.00,-1,-1,-1,-1\n1,1,2328.0,266.00,41.00,63.00,-1,-1,-1,-1\n1,2,2014.0,268.00,31.00,77.00,-1,-1,-1,-1\n1,3,1824.0,150.00,21.00,41.00,-1,-1,-1,-1\n1,4,1650.0,210.00,26.00,53.00,-1,-1,-1,-1\n1,5,2318.0,175.00,17.00,45.00,-1,-1,-1,-1\n1,6,2139.0,135.00,20.00,31.00,-1,-1,-1,-1\n1,7,2712.0,237.00,27.00,54.00,-1,-1,-1,-1\n1,8,1958.0,187.00,21.00,49.00,-1,-1,-1,-1\n1,9,2314.0,154.00,22.00,33.00,-1,-1,-1,-1\n1,10,2108.0,173.00,26.00,48.00,-1,-1,-1,-1\n1,11,2654.0,171.00,17.00,41.00,-1,-1,-1,-1\n1,12,2628.0,167.00,18.00,38.00,-1,-1,-1,-1\n1,13,2603.0,163.00,19.00,32.00,-1,-1,-1,-1\n1,14,2429.0,1",
+  "mot/132877.txt": "0,1,1370.30,214.40,17.50,46.50,-1,-1,-1,-1\n0,2,1359.09,243.89,28.61,58.41,-1,-1,-1,-1\n0,3,1576.75,
