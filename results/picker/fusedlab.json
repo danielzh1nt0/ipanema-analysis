@@ -1,0 +1,102 @@
+{
+ "wasb 0.05 only | new players": {
+  "right": 21,
+  "of": 34,
+  "guess_on_ball": 26
+ },
+ "wasb 0.05 only | old players": {
+  "right": 19,
+  "of": 34,
+  "guess_on_ball": 26
+ },
+ "wasb 0.05 only | new players | ball-with-player cost 2.0": {
+  "right": 21,
+  "of": 34,
+  "guess_on_ball": 26
+ },
+ "wasb 0.05 only | new players | ball-with-player cost 2.5": {
+  "right": 21,
+  "of": 34,
+  "guess_on_ball": 26
+ },
+ "old clicks only | new players": {
+  "right": 19,
+  "of": 34,
+  "guess_on_ball": 19
+ },
+ "old clicks only | old players": {
+  "right": 20,
+  "of": 34,
+  "guess_on_ball": 19
+ },
+ "old clicks only | new players | ball-with-player cost 2.0": {
+  "right": 22,
+  "of": 34,
+  "guess_on_ball": 19
+ },
+ "old clicks only | new players | ball-with-player cost 2.5": {
+  "right": 20,
+  "of": 34,
+  "guess_on_ball": 19
+ },
+ "new clicks only | new players": {
+  "right": 17,
+  "of": 34,
+  "guess_on_ball": 17
+ },
+ "new clicks only | old players": {
+  "right": 18,
+  "of": 34,
+  "guess_on_ball": 17
+ },
+ "new clicks only | new players | ball-with-player cost 2.0": {
+  "right": 21,
+  "of": 34,
+  "guess_on_ball": 17
+ },
+ "new clicks only | new players | ball-with-player cost 2.5": {
+  "right": 21,
+  "of": 34,
+  "guess_on_ball": 17
+ },
+ "fused: old clicks + wasb (27 Sep test) | new players": {
+  "right": 24,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: old clicks + wasb (27 Sep test) | old players": {
+  "right": 23,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: old clicks + wasb (27 Sep test) | new players | ball-with-player cost 2.0": {
+  "right": 26,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: old clicks + wasb (27 Sep test) | new players | ball-with-player cost 2.5": {
+  "right": 24,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: new clicks + wasb (app now) | new players": {
+  "right": 23,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: new clicks + wasb (app now) | old players": {
+  "right": 22,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: new clicks + wasb (app now) | new players | ball-with-player cost 2.0": {
+  "right": 23,
+  "of": 34,
+  "guess_on_ball": 27
+ },
+ "fused: new clicks + wasb (app now) | new players | ball-with-player cost 2.5": {
+  "right": 24,
+  "of": 34,
+  "guess_on_ball": 27
+ }
+}

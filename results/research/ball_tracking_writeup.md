@@ -219,3 +219,12 @@ Better players did **not** change the ball picker's score. This is not in the ap
 - `results/ball/*/summary.json` (exam rounds)
 - `results/ball/pick_test.json` (fused test)
 - `results/research/ball_2026-09-28.md` (research)
+
+---
+## Update, 28 Sep evening: GPU probe results (supersedes parts of §6–§8 and §12)
+- **Probe (B2):** all finder variants run at a very low cut-off on the 34 clip moments and the 81 exam frames with a ball.
+  - WASB has a guess on the true ball in **31/34** clip moments and **79/81** exam frames at its normal 0.05 cut-off. Our app threw most of those away by keeping only the **6 strongest WASB peaks per frame**. The "7 of 34 never seen" was caused by our own code.
+  - WASB's **top** guess is the ball in 26/34 (clip) and 56/81 (exam). When it isn't, the ball is often far down a list of ~40 guesses. On the exam it is in the top 10 in 76/81.
+  - Going below 0.05 adds almost nothing.
+- **B8:** the app's 22/34 = the round-10 click finder + WASB + old player tracks. The round-10 click finder won the exam (70 vs 66/108) but is worse on the clip (ball among its guesses 17 vs 19/34).
+- **Conclusion:** the core problem is **scoring/choosing among WASB's guesses**, not detection. The next step is a second-opinion scorer (a small ball-vs-not crop classifier on WASB's guesses, trained on the 436 clicks + WASB's false peaks), plus keeping ~30 WASB peaks per frame instead of 6.
