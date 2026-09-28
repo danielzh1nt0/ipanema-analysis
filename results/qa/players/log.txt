@@ -1,0 +1,44 @@
+08:58:18 SFKBP1109: 10 frames in 110 s
+09:00:06 p15u-vs-aik-2026-09-21-bd09: 10 frames in 108 s
+09:00:06   p15u-vs-vasalund-2026-09-20: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
+09:00:06   p15u-vs-spanga-2026-09-25: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
+09:00:07   p15u-vs-djursholm-2026-09-26: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
+09:00:07   solberga-vs-p09-norrviken-2026-09-11: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
+09:00:07   p15u-vs-reymersholm-2026-09-18: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
+09:00:07   p09-norrviken-vs-solheim-2026-08-30: Drive download failed: s FILE] [--cookies-from-browser BROWSER] [--no-cookies]
+             [--no-check-certificate] [--continue] [--retries N] [--folder]
+             [--json] [--format FORMAT] [--user-agent USER_AGENT]
+             [--timeout SECONDS]
+             url_or_id
+gdown: error: unrecognized arguments: --fuzzy
+
