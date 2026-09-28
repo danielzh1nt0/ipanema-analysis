@@ -1,0 +1,26 @@
+{
+ "clicks": {
+  "train": 576,
+  "val": 108,
+  "at_feet": 0
+ },
+ "auto_crops": 0,
+ "soccertrack_crops": 0,
+ "other_match_crops": 19242,
+ "zip": "/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x4.zip",
+ "minutes": 11.3,
+ "log": [
+  "  crop dataset: 576 training crops (640 px), 108 full-frame exam frames; 0 at-feet balls x3",
+  "click crops done in 0.7 min",
+  "auto crops done in 0.0 min",
+  "  auto-label crops: 2016 added from 1008 labels (1008 available)",
+  "p15u-vs-vasalund-2026-09-20: crops done in 1.7 min",
+  "  auto-label crops: 6000 added from 3000 labels (23000 available)",
+  "p09-norrviken-vs-solheim-2026-08-30: crops done in 2.7 min",
+  "  auto-label crops: 6000 added from 3000 labels (43560 available)",
+  "p15u-vs-djursholm-2026-09-26: crops done in 2.8 min",
+  "  auto-label crops: 5226 added from 2613 labels (2613 available)",
+  "p15u-vs-spanga-2026-09-25: crops done in 2.4 min",
+  "dataset zipped: 1535 MB, total 11.3 min"
+ ]
+}
