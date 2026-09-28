@@ -37,6 +37,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - [ ] N1. Every morning: read results/nightly/<date>.md, and if anything got worse than the day before, put it at the top of this queue.
 
 ## Waiting for Daniel
+- Kaggle token: the GitHub secret KAGGLE_API_TOKEN is missing or no longer valid (Kaggle says 'authentication required'). Needs a new token from kaggle.com/settings/api saved as secret KAGGLE_API_TOKEN in the GitHub environment MODAL_TOKEN_ID, plus variable KAGGLE_USERNAME. Kaggle account must be phone-verified for GPU + internet. Then re-run: triggers/kaggle.txt = kaggle/smoke.py.
 - WASB re-run on the SFK-BP clip keeping ~30 peaks per frame (GPU ~5 min) so T0 and the picker can use the buried guesses.
 
 ## Done
