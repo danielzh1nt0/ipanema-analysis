@@ -1,0 +1,27 @@
+name: Player check (free runner)
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/playerbench.txt"]
+permissions:
+  contents: write
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless scipy gdown supervision && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q ultralytics
+      - name: check (runs on GitHub's machine, no Modal)
+        env:
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+        run: python scripts_playerbench_free.py
+      - name: commit pictures
+        if: always()
+        run: |
+          git config user.name "bench-bot" && git config user.email "bot@ipanema"
+          git add results/qa/players && git commit -qm "player check pictures (free runner)" || echo "nothing"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
