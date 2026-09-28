@@ -78,7 +78,7 @@ def classify(model, f, other_factor=2.0):
 class KitTeamModel:
     """drop-in for teams.TeamModel (predict_batch, dark_share, strips): kits learned from THIS match's frames.
     'A' = the darker team (pipeline convention), 'B' = the lighter, 'K' = neither (referee / keepers / staff)."""
-    def fit_frames(self, frames_boxes, log=print, pitch_only=False, green_kit=False):
+    def fit_frames(self, frames_boxes, log=print, pitch_only=True, green_kit=False):   # pitch_only default since 28 Sep (P4: cleaner on Reymersholm, Spånga, SFK)
         feats = []; self.samples = []; self.green_kit = green_kit; dropped = 0
         for f, boxes in frames_boxes:
             g = grass_lab(f)
