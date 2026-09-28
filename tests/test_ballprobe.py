@@ -40,3 +40,12 @@ def test_run_with_stand_in_finders():
     read3 = lambda k: None if k == 7 else (frame, frame, frame)
     rows = BP.run(moments, read3, {"low": lambda f3: [(101, 99, 0.01), (500, 500, 0.4)], "bad": lambda f3: 1 / 0}, log=lambda *a: None)
     assert len(rows) == 2 and rows[0]["low"]["rank"] == 1 and "error" in rows[0]["bad"] and rows[1]["low"]["has_ball"] is False
+
+
+def test_wasb_local_peaks_keep_more_than_six():
+    from ipanema import wasb as WB
+    hm = np.zeros((288, 512), np.float32)
+    for i in range(10): hm[20 + 25 * i, 100] = 0.1 + 0.05 * i
+    z = hm * 0; b = WB.tile_boxes()
+    assert len(WB.tiled_local_peaks([hm, z, z, z], b, 0.05, 30)) == 10
+    assert len(WB.tiled_heatmaps_to_peaks([hm, z, z, z], b, 0.05)) == 6

@@ -43,6 +43,14 @@ def tiled_heatmaps_to_peaks(hms_for_tiles, boxes, thr=0.25):
             peaks.append((x + px * tw / NET[0], y + py * th / NET[1], sc))
     return merge_peaks(peaks)
 
+def tiled_local_peaks(hms_for_tiles, boxes, thr=0.05, max_n=30):
+    """like tiled_heatmaps_to_peaks but local maxima (no blob merging) and up to max_n per frame"""
+    from .ballprobe import local_peaks
+    pk = []
+    for hm, (x, y, tw, th) in zip(hms_for_tiles, boxes):
+        pk += [(x + px * tw / NET[0], y + py * th / NET[1], sc) for px, py, sc in local_peaks(hm, thr, max_n)]
+    return merge_peaks(pk, max_n=max_n)
+
 def ensure(root, log=print):
     """clone the repo and fetch the pretrained soccer weight if missing"""
     import subprocess
@@ -74,7 +82,9 @@ def _peaks(hm, thr=0.25, max_n=6):
         ys, xs = np.where(lab == m); w = hm[ys, xs]; out.append((float((xs * w).sum() / w.sum()), float((ys * w).sum() / w.sum()), float(w.max())))
     return sorted(out, key=lambda z: -z[2])[:max_n]
 
-def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None, train=True):
+def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None, train=True, peaks="blobs", max_n=6):
+    """peaks='local', max_n=30 (28 Sep, B2 probe): local maxima, up to 30 per frame; blob centroids capped at 6 dropped the
+    ball in 5 of 34 checked moments. Default unchanged until it scores better."""
     import torch
     ensure(root, log=log)
     try:
@@ -83,7 +93,7 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None
             for c in [cache] + [p for p in os.listdir(os.path.dirname(cache)) if False]: pass
     except Exception as e: log(f"wasb fine-tune skipped: {e!r}")
     ft = os.path.join(root, "models", "wasb_finetuned.pth"); tag = str(int(os.path.getmtime(ft))) if os.path.exists(ft) else "pre"
-    cache = cache.replace(".pkl", f"_{tag}_{TAG}" + ("" if abs(thr - 0.25) < 1e-9 else f"_thr{thr:.2f}") + ".pkl")   # a different cut-off is a different cache
+    cache = cache.replace(".pkl", f"_{tag}_{TAG}" + ("" if abs(thr - 0.25) < 1e-9 else f"_thr{thr:.2f}") + ("" if peaks == "blobs" else f"_lp{max_n}") + ".pkl")   # a different cut-off is a different cache
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
     device = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, device); log(f"wasb: using {'fine-tuned' if tag != 'pre' else 'pretrained'} weights, {TILES[0]}x{TILES[1]} tiles")
     cap = cv2.VideoCapture(video); W, H = int(cap.get(3)), int(cap.get(4)); fx, fy = W / BASE[0], H / BASE[1]
@@ -102,8 +112,9 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None
             block = hms[g * nt:(g + 1) * nt]
             for j in range(3):
                 stats.append(float(block[:, j].max()))
-                peaks = tiled_heatmaps_to_peaks([block[t, j] for t in range(nt)], boxes, thr)
-                out[fr[j]] = [(px * fx, py * fy, sc) for px, py, sc in peaks]
+                if peaks == "blobs": pk = tiled_heatmaps_to_peaks([block[t, j] for t in range(nt)], boxes, thr)
+                else: pk = tiled_local_peaks([block[t, j] for t in range(nt)], boxes, thr, max_n)
+                out[fr[j]] = [(px * fx, py * fy, sc) for px, py, sc in pk]
         pend_x, pend_meta = [], []
     def push_triple(frames_base, ids):
         for box in boxes: pend_x.append(crop_stack(frames_base, box))
