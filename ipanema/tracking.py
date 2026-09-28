@@ -56,6 +56,7 @@ def kit_labels(f, boxes, min_gap=18.0, dark_fallback=105.0):
         if hi - lo >= min_gap: cut = (lo + hi) / 2
     return [("K" if k else (None if x is None else ("A" if x < cut else "B"))) for x, k in zip(vals, keeper)]
 
+K_SHARE = float(os.environ.get("IPANEMA_K_SHARE", "0.6"))
 FOLLOW_TILES = ((0.0, 0.0, 1.0, 1.0), (0.0, 0.2, 0.55, 0.65), (0.45, 0.2, 1.0, 0.65))   # whole frame + the far band in two halves (far players are 15 px tall at 640)
 
 def detect_tiled_batch(model, fs, conf, tiles, imgsz=None, half=True):
@@ -191,7 +192,10 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 tid = tids[j]; v = votes.setdefault(tid, [])
                 if labs[j] is not None: v.append(labs[j]); del v[:-25]
                 if not v: continue
-                team = max(set(v), key=v.count)
+                # 28 Sep (Spånga, striped kits under floodlights): a player's shirt reads 'neither team' in a third of the checks;
+                # only a track that reads 'neither' most of the time (referee, staff) is 'K', otherwise the majority of its team reads
+                ab = [x for x in v if x in ("A", "B")]
+                team = "K" if (v.count("K") >= K_SHARE * len(v) or not ab) and "K" in v else (max(set(ab), key=ab.count) if ab else max(set(v), key=v.count))
                 if (labs[j] if labs[j] is not None else team) == "R": continue      # referee / bib: not a player
                 if v.count("R") >= 0.3 * len(v) and len(v) >= 3: continue           # 28 Sep: a track that is often the referee is the referee
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
