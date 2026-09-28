@@ -1,8 +1,8 @@
 """free runner: 20 s of live play from the SFK-BP clip, tracked with the old detector (YOLO football, AGPL) and RF-DETR
 (Apache), SAME per-match kit step, SAME clean-up + gap filling. Counts, track lengths and pictures -> results/qa/tracktest/"""
 import os, sys, json, time, subprocess
-if not os.environ.get("LOCAL_CLIP"): subprocess.run("pip install -q ultralytics rfdetr torch torchvision --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple", shell=True)
-if not os.path.exists("player.pt") and not os.environ.get("LOCAL_CLIP"): subprocess.run(["gdown", "-q", "-O", "player.pt", "https://drive.google.com/uc?id=17PXFNlx-jI7VjVo_vQnB1sONjRyvoB-q"])
+if not os.environ.get("LOCAL_CLIP") and not os.environ.get("SKIP_INSTALL"): subprocess.run("pip install -q ultralytics rfdetr torch torchvision --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple", shell=True)
+if not os.path.exists("player.pt") and not os.environ.get("LOCAL_CLIP") and not os.environ.get("SKIP_INSTALL"): subprocess.run(["gdown", "-q", "-O", "player.pt", "https://drive.google.com/uc?id=17PXFNlx-jI7VjVo_vQnB1sONjRyvoB-q"])
 sys.path.insert(0, os.getcwd())
 import cv2, numpy as np
 from ipanema import tracking as TR, kits as K, linecal as LC
@@ -76,6 +76,9 @@ for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
     json.dump(rep, open(f"{OUT}/summary.json", "w"), indent=1)
 
 json.dump({v: {str(k): r for k, r in rows.items() if k in KEYS} for v, (rows, _) in ROWS.items()}, open(f"{OUT}/rows_keyframes.json", "w"))
+import gzip
+if os.environ.get("SAVE_ALL_ROWS"):
+    with gzip.open(f"{OUT}/rows_all.json.gz", "wt") as fh: json.dump({"k0": k0, "fps": fps, "rows": {v: {str(k): r for k, r in rows.items()} for v, (rows, _) in ROWS.items()}}, fh)
 for j in KEYS:
     f0 = cv2.imread(f"{OUT}/raw_{j:04d}.jpg")
     if f0 is None: continue

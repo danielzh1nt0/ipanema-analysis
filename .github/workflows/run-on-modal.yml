@@ -241,6 +241,16 @@ jobs:
           python scripts_ballmatch.py
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/datasets && git commit -qm "ball match status" && git pull -q --rebase origin main && git push
+      - name: tracking comparison on a GPU (commit tagged [tracktest-rf:<start_s>:<dur_s>])
+        if: contains(github.event.head_commit.message, '[tracktest-rf:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python scripts_tracktest_rf.py
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/qa && git commit -qm "tracktest gpu" && git pull -q --rebase origin main && git push
       - name: copy training matches to R2 (commit tagged [r2copy:<ids>]) - CPU
         if: contains(github.event.head_commit.message, '[r2copy:')
         env:
