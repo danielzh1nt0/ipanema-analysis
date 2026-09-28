@@ -1,0 +1,29 @@
+name: Free job (GitHub runner, no Modal)
+on:
+  push:
+    branches: [main]
+    paths: ["triggers/free.txt"]
+permissions:
+  contents: write
+jobs:
+  free:
+    runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q "numpy<2" opencv-python-headless scipy gdown supervision huggingface_hub pandas
+      - name: run the script named on the first line of triggers/free.txt
+        env:
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+        run: |
+          mkdir -p results/free
+          set -o pipefail; python $(head -1 triggers/free.txt) 2>&1 | tail -400 > results/free/last_log.txt || echo "FAILED" >> results/free/last_log.txt
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "free-bot" && git config user.email "bot@ipanema"
+          git add results/free results/qa 2>/dev/null; git commit -qm "free job results" || echo "nothing"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
