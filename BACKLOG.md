@@ -10,6 +10,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - Plain, short language in anything Daniel reads.
 
 ## Queue (priority order)
+- [ ] E2. Possession on our footage is right in only 9/24 clear moments (results/review/who_2026-09-28.md). Fix, graded on who_answers.json: (a) dead-ball wrongly called during play (5/24): don't trust off-pitch projections of single ball picks; (b) carrier not found for a player on the ball (7/24): link in pixels (ball near feet) not only metres. Grow the key to 100+ moments (more strips, Reymersholm/Spånga) first so fixes aren't tuned to 24.
 - [ ] K1. Kaggle free GPU (about 30 h/week): a notebook pushed by the Kaggle API from the free runner that reads matches from R2, runs WASB (30 peaks) + the click finder, and cuts ball/not-ball crops at the checked labels of Vasalund, Solheim, Spånga, Djursholm (thousands of balls). Then retrain the scorer (T0) and grade on exam + clip. No Modal.
 - [ ] K2. Same Kaggle route for training runs (ball finder on RF-DETR, B7) so training stops costing money.
 - [ ] H1. Check martinjolif/football-ball-detection (HF, CC BY 4.0, 1,237 images) as extra ball pictures: look at a sample sheet, see if it is broadcast-only; use only if it helps the exam.
