@@ -1904,7 +1904,7 @@ def ball_hard_frames(match_id: str = "SFKBP1109", n: int = 200, fps: float = 1.0
     return {"frames": out, "counts": {g_: sum(1 for r in recs if r["group"] == g_) for g_ in quota}, "sampled": len(recs)}
 
 @app.function(timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
-def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000, soccertrack_every: int = 0, extra: str = ""):
+def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000, soccertrack_every: int = 0, extra: str = "", per_match: int = 3000):
     """CPU: build the crop dataset (Daniel's clicks + n_auto auto-labels, exam full frames) ONCE and keep it on the volume
     as a zip. Logs progress to the volume. Measured 27 Sep; round 6 died at 60 min because this and training shared one cap."""
     import shutil, time, zipfile, json as _jj
@@ -1925,7 +1925,7 @@ def ball_dataset(match_id: str = "SFKBP1109", n_auto: int = 4000, soccertrack_ev
         lj = f"{ROOT}/labels/{xm}_trainset_clicks.json"; xv = f"{ROOT}/videos/{xm}/full.mp4"
         if not (os.path.exists(lj) and os.path.exists(xv)): _log(f"{xm}: labels or video missing, skipped"); continue
         labs = [[l["frame"], l["x"], l["y"], l["conf"]] for l in _jj.load(open(lj))["labels"]]; tj = f"/tmp/{xm}_labs.json"; _jj.dump({"labels": labs}, open(tj, "w"))
-        t3 = time.time(); n4 += BC.add_auto_crops(tj, xv, ds, n_auto=len(labs), log=_log, prefix="x_" + xm.replace("-", "_")[:40]); _log(f"{xm}: crops done in {(time.time() - t3) / 60:.1f} min")
+        t3 = time.time(); n4 += BC.add_auto_crops(tj, xv, ds, n_auto=min(len(labs), per_match), log=_log, prefix="x_" + xm.replace("-", "_")[:40]); _log(f"{xm}: crops done in {(time.time() - t3) / 60:.1f} min")
     out = f"{ROOT}/labels/{match_id}_ball_ds_auto{n_auto}" + (f"_st{soccertrack_every}" if soccertrack_every else "") + (f"_x{len(xs)}" if xs else "") + ".zip"; os.makedirs(os.path.dirname(out), exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_STORED) as z:
         for root, _, files in os.walk(ds):

@@ -26,5 +26,18 @@
  },
  "yes": 12,
  "total": 20,
- "passes": false
+ "passes": false,
+ "spare_ball": [
+  "sp02",
+  "sp03",
+  "sp04",
+  "sp05",
+  "sp07",
+  "sp08",
+  "sp10"
+ ],
+ "not_a_ball": [],
+ "is_a_ball": 19,
+ "passes_as_ball_finder_labels": true,
+ "note": "spare balls: used to teach the finder what a ball looks like, never counted as the match ball"
 }

@@ -17,5 +17,15 @@
  },
  "yes": 7,
  "total": 11,
- "passes": false
+ "passes": false,
+ "spare_ball": [],
+ "not_a_ball": [
+  "so06",
+  "so08",
+  "so09",
+  "so10"
+ ],
+ "is_a_ball": 7,
+ "passes_as_ball_finder_labels": false,
+ "note": "spare balls: used to teach the finder what a ball looks like, never counted as the match ball"
 }

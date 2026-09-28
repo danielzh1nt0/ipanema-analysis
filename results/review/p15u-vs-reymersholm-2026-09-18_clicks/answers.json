@@ -40,5 +40,23 @@
  },
  "yes": 23,
  "total": 34,
- "passes": false
+ "passes": false,
+ "spare_ball": [
+  "re01",
+  "re33"
+ ],
+ "not_a_ball": [
+  "re06",
+  "re07",
+  "re08",
+  "re09",
+  "re10",
+  "re27",
+  "re28",
+  "re30",
+  "re32"
+ ],
+ "is_a_ball": 25,
+ "passes_as_ball_finder_labels": false,
+ "note": "spare balls: used to teach the finder what a ball looks like, never counted as the match ball"
 }

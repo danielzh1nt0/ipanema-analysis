@@ -26,5 +26,17 @@
  },
  "yes": 14,
  "total": 20,
- "passes": false
+ "passes": false,
+ "spare_ball": [
+  "dj01",
+  "dj02",
+  "dj03",
+  "dj04",
+  "dj05",
+  "dj15"
+ ],
+ "not_a_ball": [],
+ "is_a_ball": 20,
+ "passes_as_ball_finder_labels": true,
+ "note": "spare balls: used to teach the finder what a ball looks like, never counted as the match ball"
 }
