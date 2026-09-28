@@ -31,7 +31,7 @@ if SFK:
 else:                                                                           # ground not calibrated yet: pixels scaled to a pitch-sized box
     L, W = 106.0, 64.0; S_ = np.array([[1920 / L, 0, 0], [0, 1080 / W, 0], [0, 0, 1.0]]); H = {k: S_ for k in range(n)}
     log("no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)")
-def sample_frames(detect, m=12):
+def sample_frames(detect, m=int(os.environ.get("KIT_FRAMES", "36"))):   # P6 29 Sep: 12 frames gave 33-62/71 right at night, 24 gave a steady 62
     c = cv2.VideoCapture(piece); out = []
     for j in np.linspace(0, n - 1, m).astype(int):
         c.set(cv2.CAP_PROP_POS_FRAMES, int(j)); ok, f = c.read()
