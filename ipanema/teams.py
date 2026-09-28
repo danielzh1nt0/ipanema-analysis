@@ -90,7 +90,7 @@ class TeamModel:
         for j, b in enumerate(xyxys):
             c = shirt(frame, b)
             if c.size and c.shape[0] >= 12 and c.shape[1] >= 8:
-                if _is_referee_bib(c) or (os.environ.get("IPANEMA_REFEREE_KIT", "0") == "1" and referee_kit(frame, b)): labs[j] = "R"; continue   # 28 Sep: kit rule OFF - built on SFK-BP only; on 6 other matches it caught orange, red, striped and dark players
+                if os.environ.get("IPANEMA_REFEREE_KIT", "0") == "1" and (_is_referee_bib(c) or referee_kit(frame, b)): labs[j] = "R"; continue   # 28 Sep: both orange rules OFF - on other matches they caught orange/red/striped players, and 38% of players under Spanga floodlights   # 28 Sep: kit rule OFF - built on SFK-BP only; on 6 other matches it caught orange, red, striped and dark players
                 idx.append(j); cs.append(c)
         if cs:
             if getattr(self, "_brightness_split", None) is not None:

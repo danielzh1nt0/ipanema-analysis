@@ -19,5 +19,5 @@ assert len(hr) == 23 and not bad, bad
 print("held-out OK 23/23")
 # 28 Sep all-footage check: the kit rule is SFK-BP-specific (caught players on 6 other matches) -> must stay OFF by default
 src = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ipanema", "teams.py")).read()
-assert 'os.environ.get("IPANEMA_REFEREE_KIT", "0") == "1" and referee_kit' in src
+assert "IPANEMA_REFEREE_KIT\", \"0\") == \"1\" and (_is_referee_bib(c) or referee_kit" in src
 print("kit rule off by default: OK")
