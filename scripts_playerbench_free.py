@@ -10,6 +10,7 @@ R2 = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
 MATCHES = [{"id": "SFKBP1109", "r2": ["p15u-vs-bp-2026-09-22-2000/video.mp4", "SFKBP1109/video.mp4"]},
            {"id": "p15u-vs-aik-2026-09-21-bd09", "r2": ["p15u-vs-aik-2026-09-21-bd09/video.mp4"]}]
 MATCHES += [{"id": m["id"], "drive": m["drive_id"]} for m in json.load(open("reference/training_matches.json"))["matches"]]
+if os.environ.get("ONLY"): MATCHES = [m for m in MATCHES if m["id"] in os.environ["ONLY"].split(",")]
 if len(sys.argv) > 1: MATCHES = [m for m in MATCHES if m["id"] in sys.argv[1].split(",")] or [{"id": "local", "path": sys.argv[1]}]
 
 def open_video(m):
@@ -21,7 +22,7 @@ def open_video(m):
         cap.release(); log(f"  {m['id']}: not at {key}")
     if m.get("drive"):
         dst = f"/tmp/{m['id']}.mp4"; t0 = time.time()
-        r = subprocess.run(["gdown", "-q", "--fuzzy", f"https://drive.google.com/file/d/{m['drive']}/view", "-O", dst], capture_output=True, text=True)
+        r = subprocess.run(["gdown", "-q", m["drive"], "-O", dst], capture_output=True, text=True)       # file id works on every gdown version (--fuzzy was removed)
         if r.returncode == 0 and os.path.exists(dst): log(f"  {m['id']}: downloaded {os.path.getsize(dst) / 1e9:.1f} GB in {time.time() - t0:.0f} s"); return dst, dst
         log(f"  {m['id']}: Drive download failed: {r.stderr[-300:]}")
     return None, None

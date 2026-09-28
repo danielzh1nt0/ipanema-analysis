@@ -18,10 +18,11 @@ jobs:
       - name: check (runs on GitHub's machine, no Modal)
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          ONLY: p15u-vs-vasalund-2026-09-20,p15u-vs-spanga-2026-09-25,p15u-vs-djursholm-2026-09-26,solberga-vs-p09-norrviken-2026-09-11,p15u-vs-reymersholm-2026-09-18,p09-norrviken-vs-solheim-2026-08-30
         run: python scripts_playerbench_free.py
       - name: commit pictures
         if: always()
         run: |
           git config user.name "bench-bot" && git config user.email "bot@ipanema"
-          git add results/qa/players && git commit -qm "player check pictures (free runner)" || echo "nothing"
+          mkdir -p results/qa/players_run2 && cp -r results/qa/players/* results/qa/players_run2/ 2>/dev/null; git add results/qa && git commit -qm "player check pictures (free runner)" || echo "nothing"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
