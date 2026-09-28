@@ -1,169 +1,2 @@
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-[2026-09-28 21:05:07] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
-/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   1%|          | 2.95M/386M [00:00<00:12, 31.0MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   4%|▎         | 13.7M/386M [00:00<00:04, 79.3MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   6%|▌         | 21.3M/386M [00:00<00:05, 64.3MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   8%|▊         | 30.0M/386M [00:00<00:05, 69.7MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  11%|█         | 42.5M/386M [00:00<00:04, 89.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  14%|█▍        | 53.6M/386M [00:00<00:03, 97.7MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 64.0M/386M [00:00<00:03, 98.8MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  19%|█▉        | 74.4M/386M [00:00<00:03, 102MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 86.6M/386M [00:00<00:02, 110MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 102M/386M [00:01<00:02, 127MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  30%|███       | 118M/386M [00:01<00:02, 137MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  34%|███▍      | 132M/386M [00:01<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 148M/386M [00:01<00:01, 139MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  42%|████▏     | 164M/386M [00:01<00:01, 145MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  46%|████▌     | 178M/386M [00:01<00:01, 143MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  50%|█████     | 193M/386M [00:01<00:01, 148MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  54%|█████▍    | 210M/386M [00:01<00:01, 155MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  59%|█████▊    | 226M/386M [00:01<00:01, 161MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  63%|██████▎   | 243M/386M [00:02<00:00, 164MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  67%|██████▋   | 259M/386M [00:02<00:00, 149MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  71%|███████   | 275M/386M [00:02<00:00, 156MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  75%|███████▌  | 292M/386M [00:02<00:00, 161MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  80%|███████▉  | 308M/386M [00:02<00:00, 164MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  84%|████████▍ | 325M/386M [00:02<00:00, 167MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  88%|████████▊ | 341M/386M [00:02<00:00, 169MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  93%|█████████▎| 358M/386M [00:02<00:00, 171MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 375M/386M [00:02<00:00, 172MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:02<00:00, 139MiB/s]
-[2026-09-28 21:05:11] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
-[2026-09-28 21:05:11] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 21:05:11] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-28 21:05:12] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-28 21:05:15] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-p15u-vs-reymersholm-2026-09-18 0 17
-p15u-vs-reymersholm-2026-09-18 1 13
-p15u-vs-reymersholm-2026-09-18 2 21
-p15u-vs-reymersholm-2026-09-18 3 21
-p15u-vs-reymersholm-2026-09-18 4 16
-p15u-vs-reymersholm-2026-09-18 5 22
-p15u-vs-reymersholm-2026-09-18 6 26
-p15u-vs-reymersholm-2026-09-18 7 16
-p15u-vs-reymersholm-2026-09-18 8 21
-p15u-vs-reymersholm-2026-09-18 9 8
-p15u-vs-reymersholm-2026-09-18 10 14
-p15u-vs-reymersholm-2026-09-18 11 14
-p15u-vs-reymersholm-2026-09-18 12 11
-p15u-vs-reymersholm-2026-09-18 13 16
-p15u-vs-reymersholm-2026-09-18 14 10
-p15u-vs-reymersholm-2026-09-18 15 8
-p15u-vs-reymersholm-2026-09-18 16 22
-p15u-vs-reymersholm-2026-09-18 17 18
-p15u-vs-reymersholm-2026-09-18 18 15
-p15u-vs-reymersholm-2026-09-18 19 26
-p15u-vs-reymersholm-2026-09-18 20 19
-p15u-vs-reymersholm-2026-09-18 21 21
-p15u-vs-reymersholm-2026-09-18 22 25
-p15u-vs-reymersholm-2026-09-18 23 14
-kits: learned from 414 people (0 off the pitch left out), group sizes [195, 103, 83, 33]
-kits: learned from 89 people (325 off the pitch left out), group sizes [40, 26, 18, 5]
-kits: learned from 414 people (0 off the pitch left out), group sizes [195, 103, 83, 33]
-kits: learned from 89 people (325 off the pitch left out), group sizes [40, 26, 18, 5]
-p15u-vs-spanga-2026-09-25 0 23
-p15u-vs-spanga-2026-09-25 1 22
-p15u-vs-spanga-2026-09-25 2 16
-p15u-vs-spanga-2026-09-25 3 19
-p15u-vs-spanga-2026-09-25 4 13
-p15u-vs-spanga-2026-09-25 5 21
-p15u-vs-spanga-2026-09-25 6 14
-p15u-vs-spanga-2026-09-25 7 16
-p15u-vs-spanga-2026-09-25 8 14
-p15u-vs-spanga-2026-09-25 9 21
-p15u-vs-spanga-2026-09-25 10 17
-p15u-vs-spanga-2026-09-25 11 15
-p15u-vs-spanga-2026-09-25 12 19
-p15u-vs-spanga-2026-09-25 13 19
-p15u-vs-spanga-2026-09-25 14 17
-p15u-vs-spanga-2026-09-25 15 19
-p15u-vs-spanga-2026-09-25 16 16
-p15u-vs-spanga-2026-09-25 17 19
-p15u-vs-spanga-2026-09-25 18 12
-p15u-vs-spanga-2026-09-25 19 17
-p15u-vs-spanga-2026-09-25 20 18
-p15u-vs-spanga-2026-09-25 21 21
-p15u-vs-spanga-2026-09-25 22 21
-p15u-vs-spanga-2026-09-25 23 21
-kits: learned from 430 people (0 off the pitch left out), group sizes [184, 114, 66, 66]
-kits: learned from 218 people (212 off the pitch left out), group sizes [94, 52, 41, 31]
-kits: learned from 430 people (0 off the pitch left out), group sizes [184, 113, 67, 66]
-kits: learned from 218 people (212 off the pitch left out), group sizes [94, 52, 39, 33]
-SFKBP1109_s1200 0 25
-SFKBP1109_s1200 1 24
-SFKBP1109_s1200 2 25
-SFKBP1109_s1200 3 17
-SFKBP1109_s1200 4 25
-SFKBP1109_s1200 5 26
-SFKBP1109_s1200 6 20
-SFKBP1109_s1200 7 21
-SFKBP1109_s1200 8 20
-SFKBP1109_s1200 9 16
-SFKBP1109_s1200 10 22
-SFKBP1109_s1200 11 16
-SFKBP1109_s1200 12 24
-SFKBP1109_s1200 13 24
-SFKBP1109_s1200 14 25
-SFKBP1109_s1200 15 23
-SFKBP1109_s1200 16 22
-SFKBP1109_s1200 17 21
-SFKBP1109_s1200 18 22
-SFKBP1109_s1200 19 23
-SFKBP1109_s1200 20 11
-SFKBP1109_s1200 21 22
-SFKBP1109_s1200 22 27
-SFKBP1109_s1200 23 15
-kits: learned from 514 people (0 off the pitch left out), group sizes [181, 167, 109, 57]
-kits: learned from 285 people (229 off the pitch left out), group sizes [119, 110, 43, 13]
-kits: learned from 514 people (0 off the pitch left out), group sizes [181, 167, 109, 57]
-kits: learned from 285 people (229 off the pitch left out), group sizes [119, 110, 43, 13]
-{
- "p15u-vs-reymersholm-2026-09-18 current": {
-  "A": 112,
-  "B": 222,
-  "K": 80,
-  "none": 0
- },
- "p15u-vs-reymersholm-2026-09-18 pitch_only": {
-  "A": 236,
-  "B": 72,
-  "K": 106,
-  "none": 0
- },
- "p15u-vs-reymersholm-2026-09-18 green_kit": {
-  "A": 112,
-  "B": 222,
-  "K": 80,
-  "none": 0
- },
- "p15u-vs-reymersholm-2026-09-18 both": {
-  "A": 236,
-  "B": 72,
-  "K": 106,
-  "none": 0
- },
- "p15u-vs-spanga-2026-09-25 current": {
-  "A": 184,
-  "B": 139,
-  "K": 107,
-  "none": 0
- },
- "p15u-vs-spanga-2026-09-25 pitch_only": {
-  "A": 214,
-  "B": 122,
-  "K": 94,
-  "none": 0
- },
- "p15u-vs-spanga-2026-09-25 green_kit": {
-  "A": 184,
-  "B": 138,
-  "K": 108,
-  "none": 0
- },
- "p15u-vs-spanga-2026-09-25 both": {
-  "A": 215,
-  "B": 121,
-  "K": 94,
-  "none": 0
- },
- "SFKBP1109_s1200 current": {
-  "A": 201,
-  "B": 173,
-  "K": 142,
-  "none": 0
- },
- "SFKBP1109_s1200 pitch_only": {
-  "A": 193,
-  "B": 173,
-  "K": 150,
-  "none": 0
- },
- "SFKBP1109_s1200 green_kit": {
-  "A": 201,
-  "B": 173,
-  "K": 142,
-  "none": 0
- },
- "SFKBP1109_s1200 both": {
-  "A": 193,
-  "B": 173,
-  "K": 150,
-  "none": 0
- }
-}
+frames 178424
+sheets 15
