@@ -1,2 +1,2 @@
-tools/free_batch.py tools/tracktest_grounds.py
-# Mon Sep 28 15:54:17 UTC 2026
+tools/free_batch.py tools/probe_soccertrack.py
+# Mon Sep 28 15:55:30 UTC 2026
