@@ -1,0 +1,30 @@
+{
+ "match": "p15u-vs-djursholm-2026-09-26",
+ "source": "clicks",
+ "checked_by": "Daniel",
+ "answers": {
+  "dj03": "no",
+  "dj00": "yes",
+  "dj06": "yes",
+  "dj07": "yes",
+  "dj18": "yes",
+  "dj04": "no",
+  "dj19": "yes",
+  "dj10": "yes",
+  "dj01": "no",
+  "dj11": "yes",
+  "dj05": "no",
+  "dj02": "no",
+  "dj14": "yes",
+  "dj16": "yes",
+  "dj09": "yes",
+  "dj08": "yes",
+  "dj17": "yes",
+  "dj13": "yes",
+  "dj15": "no",
+  "dj12": "yes"
+ },
+ "yes": 14,
+ "total": 20,
+ "passes": false
+}

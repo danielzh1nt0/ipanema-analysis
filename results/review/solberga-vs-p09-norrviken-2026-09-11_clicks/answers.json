@@ -1,0 +1,21 @@
+{
+ "match": "solberga-vs-p09-norrviken-2026-09-11",
+ "source": "clicks",
+ "checked_by": "Daniel",
+ "answers": {
+  "so06": "no",
+  "so05": "yes",
+  "so00": "yes",
+  "so02": "yes",
+  "so03": "yes",
+  "so09": "no",
+  "so04": "yes",
+  "so07": "yes",
+  "so08": "no",
+  "so01": "yes",
+  "so10": "no"
+ },
+ "yes": 7,
+ "total": 11,
+ "passes": false
+}

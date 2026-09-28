@@ -1,0 +1,30 @@
+{
+ "match": "p09-norrviken-vs-solheim-2026-08-30",
+ "source": "clicks",
+ "checked_by": "Daniel",
+ "answers": {
+  "sh01": "yes",
+  "sh13": "yes",
+  "sh14": "yes",
+  "sh07": "yes",
+  "sh00": "yes",
+  "sh18": "yes",
+  "sh10": "yes",
+  "sh09": "yes",
+  "sh06": "yes",
+  "sh19": "yes",
+  "sh05": "yes",
+  "sh02": "yes",
+  "sh15": "yes",
+  "sh11": "yes",
+  "sh04": "yes",
+  "sh16": "yes",
+  "sh12": "yes",
+  "sh17": "yes",
+  "sh03": "yes",
+  "sh08": "yes"
+ },
+ "yes": 20,
+ "total": 20,
+ "passes": true
+}

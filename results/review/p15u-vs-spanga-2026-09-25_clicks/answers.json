@@ -1,0 +1,30 @@
+{
+ "match": "p15u-vs-spanga-2026-09-25",
+ "source": "clicks",
+ "checked_by": "Daniel",
+ "answers": {
+  "sp15": "yes",
+  "sp01": "yes",
+  "sp09": "yes",
+  "sp14": "yes",
+  "sp08": "no",
+  "sp12": "yes",
+  "sp18": "yes",
+  "sp06": "yes",
+  "sp03": "no",
+  "sp17": "yes",
+  "sp00": "yes",
+  "sp04": "no",
+  "sp02": "no",
+  "sp07": "no",
+  "sp13": "yes",
+  "sp16": "yes",
+  "sp05": "no",
+  "sp11": "no",
+  "sp19": "yes",
+  "sp10": "no"
+ },
+ "yes": 12,
+ "total": 20,
+ "passes": false
+}
