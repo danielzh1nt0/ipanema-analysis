@@ -1,0 +1,242 @@
+[
+ {
+  "frame": "SFKBP1109_f0006615.jpg",
+  "current_kept": 17,
+  "current_referee": 4,
+  "rfdetr": 22,
+  "sec_current": 9.9,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0011171.jpg",
+  "current_kept": 15,
+  "current_referee": 1,
+  "rfdetr": 22,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.8
+ },
+ {
+  "frame": "SFKBP1109_f0015726.jpg",
+  "current_kept": 11,
+  "current_referee": 3,
+  "rfdetr": 19,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0020281.jpg",
+  "current_kept": 19,
+  "current_referee": 3,
+  "rfdetr": 20,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0024836.jpg",
+  "current_kept": 16,
+  "current_referee": 1,
+  "rfdetr": 24,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0029392.jpg",
+  "current_kept": 11,
+  "current_referee": 0,
+  "rfdetr": 19,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0033947.jpg",
+  "current_kept": 20,
+  "current_referee": 4,
+  "rfdetr": 28,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0038502.jpg",
+  "current_kept": 14,
+  "current_referee": 1,
+  "rfdetr": 20,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0043057.jpg",
+  "current_kept": 21,
+  "current_referee": 1,
+  "rfdetr": 18,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "SFKBP1109_f0047613.jpg",
+  "current_kept": 15,
+  "current_referee": 3,
+  "rfdetr": 22,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0025224.jpg",
+  "current_kept": 21,
+  "current_referee": 0,
+  "rfdetr": 21,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0042591.jpg",
+  "current_kept": 9,
+  "current_referee": 1,
+  "rfdetr": 10,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0059959.jpg",
+  "current_kept": 18,
+  "current_referee": 1,
+  "rfdetr": 16,
+  "sec_current": 9.1,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0077326.jpg",
+  "current_kept": 13,
+  "current_referee": 2,
+  "rfdetr": 17,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.8
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0094694.jpg",
+  "current_kept": 6,
+  "current_referee": 0,
+  "rfdetr": 11,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0112061.jpg",
+  "current_kept": 3,
+  "current_referee": 1,
+  "rfdetr": 14,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0129429.jpg",
+  "current_kept": 8,
+  "current_referee": 1,
+  "rfdetr": 19,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0146796.jpg",
+  "current_kept": 15,
+  "current_referee": 1,
+  "rfdetr": 18,
+  "sec_current": 9.1,
+  "sec_rfdetr": 1.5
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0164164.jpg",
+  "current_kept": 21,
+  "current_referee": 1,
+  "rfdetr": 22,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-aik-2026-09-21-bd09_f0181531.jpg",
+  "current_kept": 18,
+  "current_referee": 0,
+  "rfdetr": 17,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0020661.jpg",
+  "current_kept": 4,
+  "current_referee": 0,
+  "rfdetr": 6,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0034886.jpg",
+  "current_kept": 15,
+  "current_referee": 2,
+  "rfdetr": 25,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.1
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0049112.jpg",
+  "current_kept": 10,
+  "current_referee": 2,
+  "rfdetr": 16,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0063338.jpg",
+  "current_kept": 7,
+  "current_referee": 1,
+  "rfdetr": 17,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0077564.jpg",
+  "current_kept": 9,
+  "current_referee": 1,
+  "rfdetr": 19,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0091789.jpg",
+  "current_kept": 14,
+  "current_referee": 1,
+  "rfdetr": 16,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0106015.jpg",
+  "current_kept": 3,
+  "current_referee": 0,
+  "rfdetr": 14,
+  "sec_current": 9.0,
+  "sec_rfdetr": 1.6
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0120241.jpg",
+  "current_kept": 17,
+  "current_referee": 1,
+  "rfdetr": 21,
+  "sec_current": 9.1,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0134467.jpg",
+  "current_kept": 10,
+  "current_referee": 2,
+  "rfdetr": 19,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ },
+ {
+  "frame": "p15u-vs-vasalund-2026-09-20_f0148692.jpg",
+  "current_kept": 16,
+  "current_referee": 0,
+  "rfdetr": 21,
+  "sec_current": 9.0,
+  "sec_rfdetr": 2.3
+ }
+]
