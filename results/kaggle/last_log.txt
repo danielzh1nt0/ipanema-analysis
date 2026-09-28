@@ -1,0 +1,93 @@
+kernel danielmatros/ipanema-track-reym
+Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-track-reym
+  0.5 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+  2.1 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+  6.2 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 12.3 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 16.4 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 18.4 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 20.5 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.RUNNING"
+ 21.5 min: danielmatros/ipanema-track-reym has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/track_reym/compare_0000.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0085.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0170.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0256.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0341.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0427.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0512.jpg
+Output file downloaded to results/kaggle/track_reym/compare_0598.jpg
+Output file downloaded to results/kaggle/track_reym/compare_1284.jpg
+Output file downloaded to results/kaggle/track_reym/compare_2568.jpg
+Output file downloaded to results/kaggle/track_reym/compare_3852.jpg
+Output file downloaded to results/kaggle/track_reym/compare_5137.jpg
+Output file downloaded to results/kaggle/track_reym/compare_6421.jpg
+Output file downloaded to results/kaggle/track_reym/compare_7705.jpg
+Output file downloaded to results/kaggle/track_reym/compare_8990.jpg
+Output file downloaded to results/kaggle/track_reym/comparison.md
+Output file downloaded to results/kaggle/track_reym/log.txt
+Output file downloaded to results/kaggle/track_reym/new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/track_reym/new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/track_reym/raw_0000.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0085.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0170.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0256.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0341.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0427.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0512.jpg
+Output file downloaded to results/kaggle/track_reym/raw_0598.jpg
+Output file downloaded to results/kaggle/track_reym/raw_1284.jpg
+Output file downloaded to results/kaggle/track_reym/raw_2568.jpg
+Output file downloaded to results/kaggle/track_reym/raw_3852.jpg
+Output file downloaded to results/kaggle/track_reym/raw_5137.jpg
+Output file downloaded to results/kaggle/track_reym/raw_6421.jpg
+Output file downloaded to results/kaggle/track_reym/raw_7705.jpg
+Output file downloaded to results/kaggle/track_reym/raw_8990.jpg
+Output file downloaded to results/kaggle/track_reym/rows_all.json.gz
+Output file downloaded to results/kaggle/track_reym/rows_keyframes.json
+Output file downloaded to results/kaggle/track_reym/run_info.json
+Output file downloaded to results/kaggle/track_reym/summary.json
+Kernel log downloaded to results/kaggle/track_reym/ipanema-track-reym.log
+  compare_0000.jpg 152764
+  compare_0085.jpg 170657
+  compare_0170.jpg 190477
+  compare_0256.jpg 187462
+  compare_0341.jpg 191097
+  compare_0427.jpg 193955
+  compare_0512.jpg 196062
+  compare_0598.jpg 209011
+  compare_1284.jpg 154295
+  compare_2568.jpg 163740
+  compare_3852.jpg 171851
+  compare_5137.jpg 164754
+  compare_6421.jpg 225247
+  compare_7705.jpg 159572
+  compare_8990.jpg 200143
+  comparison.md 315
+  ipanema-track-reym.log 3794
+  log.txt 3233
+  new_RF-DETR_kit_A.png 172946
+  new_RF-DETR_kit_B.png 178649
+  raw_0000.jpg 237090
+  raw_0085.jpg 414455
+  raw_0170.jpg 471872
+  raw_0256.jpg 448000
+  raw_0341.jpg 454021
+  raw_0427.jpg 465393
+  raw_0512.jpg 479206
+  raw_0598.jpg 495590
+  raw_1284.jpg 301350
+  raw_2568.jpg 317727
+  raw_3852.jpg 353350
+  raw_5137.jpg 375884
+  raw_6421.jpg 576286
+  raw_7705.jpg 377089
+  raw_8990.jpg 497584
+  rows_all.json.gz 1976153
+  rows_keyframes.json 6257
+  run.json 155
+  run_info.json 34
+  summary.json 268

@@ -5,15 +5,15 @@
    "light": 3.0
   },
   "shown_per_frame": {
-   "dark": 11.0,
+   "dark": 10.0,
    "light": 3.0
   },
-  "tracks": 456,
+  "tracks": 405,
   "median_track_s": {
-   "dark": 3.94,
-   "light": 5.06
+   "dark": 4.77,
+   "light": 5.51
   },
-  "minutes": 18.2,
-  "filled_rows": 962
+  "minutes": 17.3,
+  "filled_rows": 934
  }
 }
