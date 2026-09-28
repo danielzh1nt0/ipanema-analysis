@@ -7,7 +7,11 @@ sys.path.insert(0, os.getcwd())
 import cv2, numpy as np
 from ipanema import tracking as TR, kits as K, linecal as LC
 OUT = "results/qa/tracktest"; os.makedirs(OUT, exist_ok=True); START_S, DUR_S = float(os.environ.get("START_S", "60")), float(os.environ.get("DUR_S", "20"))
-def log(m): print(time.strftime("%H:%M:%S"), m, flush=True); open(f"{OUT}/log.txt", "a").write(f"{time.strftime('%H:%M:%S')} {m}\n")
+_last = [0.0]
+def log(m):
+    print(time.strftime("%H:%M:%S"), m, flush=True); open(f"{OUT}/log.txt", "a").write(f"{time.strftime('%H:%M:%S')} {m}\n")
+    if os.environ.get("GITHUB_ACTIONS") and time.time() - _last[0] > 300:                  # 28 Sep: progress visible while it runs
+        _last[0] = time.time(); subprocess.run(f"git add {OUT}/log.txt && git -c user.name=free-bot -c user.email=bot@ipanema commit -qm 'tracktest progress' && git pull -q --rebase origin main && git push -q origin main", shell=True)
 src = os.environ.get("LOCAL_CLIP") or (os.environ.get("R2_PUBLIC_URL", "").rstrip("/") + "/SFKBP1109_s1200/video.mp4")
 cap = cv2.VideoCapture(src); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_all = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); log(f"clip {src[-45:]}: {n_all} frames @ {fps:.2f}")
 if n_all < 100: log("clip not reachable on R2"); sys.exit(1)
@@ -47,7 +51,7 @@ c = cv2.VideoCapture(piece)
 for j in KEYS:
     c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
     if ok: cv2.imwrite(f"{OUT}/raw_{j:04d}.jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 92])
-for name in ("yolo", "rfdetr"):
+for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
     os.environ["IPANEMA_DETECTOR"] = name; t0 = time.time()
     if name == "rfdetr": det = TR.RFDetrPerson("medium"); detect = lambda f: [b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy]
     else:
