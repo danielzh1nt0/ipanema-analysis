@@ -5,16 +5,46 @@
   "other": 48,
   "unreadable": 0
  },
+ "p09-norrviken-vs-solheim-2026-08-30": {
+  "A": 77,
+  "B": 67,
+  "other": 31,
+  "unreadable": 0
+ },
  "p15u-vs-aik-2026-09-21-bd09": {
   "A": 54,
   "B": 66,
   "other": 35,
   "unreadable": 0
  },
+ "p15u-vs-djursholm-2026-09-26": {
+  "A": 65,
+  "B": 63,
+  "other": 26,
+  "unreadable": 0
+ },
+ "p15u-vs-reymersholm-2026-09-18": {
+  "A": 64,
+  "B": 89,
+  "other": 29,
+  "unreadable": 2
+ },
+ "p15u-vs-spanga-2026-09-25": {
+  "A": 43,
+  "B": 48,
+  "other": 18,
+  "unreadable": 0
+ },
  "p15u-vs-vasalund-2026-09-20": {
   "A": 51,
   "B": 55,
   "other": 20,
+  "unreadable": 0
+ },
+ "solberga-vs-p09-norrviken-2026-09-11": {
+  "A": 64,
+  "B": 81,
+  "other": 19,
   "unreadable": 0
  }
 }
