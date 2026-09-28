@@ -46,14 +46,30 @@
 14:43:32 clean: dropped 1785 off-pitch, merged 33 duplicates, stitched 13 ids, keepers [] -> A defends left
 14:43:32 clean: players per frame median A 8 / B 7, max A 11 / B 10
 14:43:32 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 7.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 35, 'median_track_s': {'dark': 7.81, 'light': 9.78}, 'minutes': 15.6, 'filled_rows': 123}
-14:56:16 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
-14:56:27 calibration: from the line model, 85% of frames trusted (lines drawn); 90 frames bridged or borrowed, no drawn lines
-14:56:28 before: {'observed_per_frame': {'dark': 9.0, 'light': 5.0}, 'shown_per_frame': {'dark': 9.0, 'light': 5.0}, 'tracks': 91, 'median_track_s': {'dark': 2.2, 'light': 0.48}}
-14:57:01 kits: learned from 270 people, group sizes [93, 79, 51, 47]
-14:57:06   tracking frame 0
-14:57:27   tracking frame 500 (24.1 frames/s)
-14:57:31 clean: keeper (left) from a non-team kit: track 57, 213 frames
-14:57:31 clean: removed 2424 rows of non-team kits (referee / staff)
-14:57:31 clean: dropped 1787 off-pitch, merged 31 duplicates, stitched 12 ids, keepers [] -> A defends left
-14:57:31 clean: players per frame median A 8 / B 7, max A 11 / B 10
-14:57:31 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 7.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 38, 'median_track_s': {'dark': 7.27, 'light': 9.88}, 'minutes': 1.0, 'filled_rows': 90}
+15:07:40 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
+15:11:11 calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
+15:11:13 before: {'observed_per_frame': {'dark': 8.0, 'light': 6.0}, 'shown_per_frame': {'dark': 8.0, 'light': 6.0}, 'tracks': 931, 'median_track_s': {'dark': 1.47, 'light': 0.65}}
+15:11:48 kits: learned from 272 people, group sizes [91, 85, 58, 38]
+15:11:55   tracking frame 0
+15:12:18   tracking frame 500 (21.6 frames/s)
+15:12:41   tracking frame 1000 (21.4 frames/s)
+15:13:05   tracking frame 1500 (21.4 frames/s)
+15:13:28   tracking frame 2000 (21.4 frames/s)
+15:13:51   tracking frame 2500 (21.5 frames/s)
+15:14:14   tracking frame 3000 (21.6 frames/s)
+15:14:35   tracking frame 3500 (21.8 frames/s)
+15:14:58   tracking frame 4000 (21.8 frames/s)
+15:15:21   tracking frame 4500 (21.8 frames/s)
+15:15:44   tracking frame 5000 (21.8 frames/s)
+15:16:08   tracking frame 5500 (21.7 frames/s)
+15:16:32   tracking frame 6000 (21.6 frames/s)
+15:16:55   tracking frame 6500 (21.6 frames/s)
+15:17:19   tracking frame 7000 (21.6 frames/s)
+15:17:42   tracking frame 7500 (21.6 frames/s)
+15:18:04   tracking frame 8000 (21.7 frames/s)
+15:18:28   tracking frame 8500 (21.6 frames/s)
+15:18:53 clean: keeper (left) from a non-team kit: track 296, 220 frames
+15:18:53 clean: removed 23735 rows of non-team kits (referee / staff)
+15:18:53 clean: dropped 21132 off-pitch, merged 958 duplicates, stitched 276 ids, keepers [148, 363, 472, 486, 538, 544, 564, 618, 746, 764, 768, 793, 955] -> A defends left
+15:18:54 clean: players per frame median A 9 / B 8, max A 14 / B 12
+15:18:55 new, RF-DETR: {'observed_per_frame': {'dark': 9.0, 'light': 8.0}, 'shown_per_frame': {'dark': 9.0, 'light': 8.0}, 'tracks': 471, 'median_track_s': {'dark': 4.07, 'light': 6.97}, 'minutes': 7.7, 'filled_rows': 1386}

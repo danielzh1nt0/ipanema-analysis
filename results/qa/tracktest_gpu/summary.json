@@ -1,34 +1,34 @@
 {
  "before (app, 27 Sep)": {
   "observed_per_frame": {
-   "dark": 9.0,
-   "light": 5.0
+   "dark": 8.0,
+   "light": 6.0
   },
   "shown_per_frame": {
-   "dark": 9.0,
-   "light": 5.0
+   "dark": 8.0,
+   "light": 6.0
   },
-  "tracks": 91,
+  "tracks": 931,
   "median_track_s": {
-   "dark": 2.2,
-   "light": 0.48
+   "dark": 1.47,
+   "light": 0.65
   }
  },
  "new, RF-DETR": {
   "observed_per_frame": {
-   "dark": 8.0,
-   "light": 7.0
-  },
-  "shown_per_frame": {
-   "dark": 8.0,
+   "dark": 9.0,
    "light": 8.0
   },
-  "tracks": 38,
-  "median_track_s": {
-   "dark": 7.27,
-   "light": 9.88
+  "shown_per_frame": {
+   "dark": 9.0,
+   "light": 8.0
   },
-  "minutes": 1.0,
-  "filled_rows": 90
+  "tracks": 471,
+  "median_track_s": {
+   "dark": 4.07,
+   "light": 6.97
+  },
+  "minutes": 7.7,
+  "filled_rows": 1386
  }
 }
