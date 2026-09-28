@@ -1,0 +1,9 @@
+{
+ "match": "SFKBP1109_s1200",
+ "teams": {
+  "light": "A",
+  "dark": "B"
+ },
+ "restarts": 14,
+ "possession_moments": 40
+}
