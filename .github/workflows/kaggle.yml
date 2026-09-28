@@ -22,6 +22,8 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
         run: |
           mkdir -p results/kaggle
+          python -c "import os,re; t=os.environ.get('KAGGLE_API_TOKEN',''); u=os.environ.get('KAGGLE_USERNAME',''); print('token length', len(t), '| old-style 32-hex key:', bool(re.fullmatch(r'[0-9a-f]{32}', t)), '| KGAT prefix:', t.startswith('KGAT'), '| username set:', bool(u))" | tee results/kaggle/diag.txt
+          if python -c "import os,re,sys; sys.exit(0 if re.fullmatch(r'[0-9a-f]{32}', os.environ.get('KAGGLE_API_TOKEN','')) else 1)"; then export KAGGLE_KEY="$KAGGLE_API_TOKEN"; unset KAGGLE_API_TOKEN; echo "using old-style key + username"; fi
           set -o pipefail; python tools/kaggle_run.py $(head -1 triggers/kaggle.txt) 2>&1 | tail -300 > results/kaggle/last_log.txt || echo "FAILED" >> results/kaggle/last_log.txt
           cat results/kaggle/last_log.txt
       - name: commit
