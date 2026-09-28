@@ -1,0 +1,14 @@
+06:51:51 submitted to Modal (fc-01M3KCHGEKTA9CBN3PC9PKA9CW); waiting (a queue for GPUs costs nothing)
+06:56:51 still waiting or running, 5 min
+07:01:52 still waiting or running, 10 min
+07:06:52 still waiting or running, 15 min
+07:11:52 still waiting or running, 20 min
+07:16:52 still waiting or running, 25 min
+07:21:23 06:52:26 dataset from the volume: 19818 training crops, 108 exam frames
+07:21:23 06:52:26 training from clicks_latest.pt for 40 epochs (crops, 640 px)
+07:21:23 07:18:10 training took 25.7 min
+07:21:23 07:20:20   grade new: {'correct': 67, 'of': 108, 'ball_found': 44, 'ball_frames': 81, 'no_ball_right': 23, 'no_ball_frames': 27}  new+far zoom: {'correct': 66, 'of': 108, 'ball_found': 44, 'ball_frames': 81, 'no_ball_right': 22, 'no_ball_frames': 27}  old: {'correct': 48, 'of': 108, 'ball_found': 26, 'ball_frames': 81, 'no_ball_right': 22, 'no_ball_frames': 27}
+07:21:23 07:21:17   grade new: {'correct': 66, 'of': 108, 'ball_found': 42, 'ball_frames': 81, 'no_ball_right': 24, 'no_ball_frames': 27}  new+far zoom: {'correct': 65, 'of': 108, 'ball_found': 42, 'ball_frames': 81, 'no_ball_right': 23, 'no_ball_frames': 27}  old: None
+07:21:23 07:21:17   grade round-1 detector on this exam: {'correct': 66, 'of': 108, 'ball_found': 42, 'ball_frames': 81, 'no_ball_right': 24, 'no_ball_frames': 27}
+07:21:23 07:21:18   not promoted: 67/108 vs current best {'correct': 70, 'of': 108, 'weights': 'round_20260928_0108.pt'}
+07:21:23 ball exam (40 frames Daniel clicked, never trained on): NEW 67/108 correct (ball found 44/81, no-ball right 23/27); NEW + far zoom 66/108 (ball found 44/81); OLD 48/108 (ball found 26/81); ROUND-1 detector 66/108
