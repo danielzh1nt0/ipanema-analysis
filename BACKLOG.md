@@ -28,7 +28,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - [ ] Z1. Picker: "ball in the air" flag, so a ball off the pitch plane isn't punished by pitch-metre rules; grade on the 34 moments.
 - [ ] PF1. Particle filter picker (ground / air / with player) vs the current Viterbi, same 34 moments + exam. Only replaces Viterbi if it scores better.
 - [ ] PC1. Passes/possession from player movement only (PathCRF, MPL-2.0) on the free Metrica data; compare with our ball-based stats.
-- [ ] B5. Why the finders miss: for each of the 13 missed moments on SFK-BP, crop the frame and sort into: ball in the air / at feet / in a crowd / far away / blurred / off-pitch confusion. Picture sheet + counts in results/picker/misses.md. Decides where training labels must come from.
+- [x] B5 (28 Sep: 8/13 at feet or crowd, 4/13 in the air, 1 open; results/picker/misses.md). Why the finders miss: for each of the 13 missed moments on SFK-BP, crop the frame and sort into: ball in the air / at feet / in a crowd / far away / blurred / off-pitch confusion. Picture sheet + counts in results/picker/misses.md. Decides where training labels must come from.
 - [ ] B6. Second ball answer key on another ground (Vasalund or Reymersholm): 30+ moments from Daniel's earlier clicks (results/review/*) so ball numbers are not judged on one clip only. No new clicking.
 - [ ] B7. Ball finder on RF-DETR (Apache): write the training script + dataset format (from click labels + B3), dry-run 1 epoch on CPU with 50 images. Real training waits for Daniel's go.
 - [ ] P2. Players on all 6 training matches with the free runner (20 s each, 3 spots per match): table of tracked seconds, missed players, referee counted, per ground. Fix the worst ground.
