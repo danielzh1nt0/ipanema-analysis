@@ -57,6 +57,7 @@ def kit_labels(f, boxes, min_gap=18.0, dark_fallback=105.0):
     return [("K" if k else (None if x is None else ("A" if x < cut else "B"))) for x, k in zip(vals, keeper)]
 
 K_SHARE = float(os.environ.get("IPANEMA_K_SHARE", "0.6"))
+RAW_TEAM = {}   # P6 (29 Sep): (frame, track id) -> this frame's own colour reading, for checking the per-track vote
 FOLLOW_TILES = ((0.0, 0.0, 1.0, 1.0), (0.0, 0.2, 0.55, 0.65), (0.45, 0.2, 1.0, 0.65))   # whole frame + the far band in two halves (far players are 15 px tall at 640)
 
 def detect_tiled_batch(model, fs, conf, tiles, imgsz=None, half=True):
@@ -190,7 +191,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
             prof["team"] += _time.time() - _t4
             for j in range(len(det)):
                 tid = tids[j]; v = votes.setdefault(tid, [])
-                if labs[j] is not None: v.append(labs[j]); del v[:-25]
+                if labs[j] is not None: v.append(labs[j]); del v[:-25]; RAW_TEAM[(k, tid)] = labs[j]
                 if not v: continue
                 # 28 Sep (Spånga, striped kits under floodlights): a player's shirt reads 'neither team' in a third of the checks;
                 # only a track that reads 'neither' most of the time (referee, staff) is 'K', otherwise the majority of its team reads
