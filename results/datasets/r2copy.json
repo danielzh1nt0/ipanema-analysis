@@ -1,0 +1,44 @@
+{
+ "p15u-vs-vasalund-2026-09-20": {
+  "match": "p15u-vs-vasalund-2026-09-20",
+  "GB": 3.29,
+  "minutes": 0.8,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-vasalund-2026-09-20/video.mp4"
+ },
+ "p15u-vs-spanga-2026-09-25": {
+  "match": "p15u-vs-spanga-2026-09-25",
+  "GB": 3.28,
+  "minutes": 0.8,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4"
+ },
+ "p15u-vs-djursholm-2026-09-26": {
+  "match": "p15u-vs-djursholm-2026-09-26",
+  "GB": 4.09,
+  "minutes": 1.5,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4"
+ },
+ "solberga-vs-p09-norrviken-2026-09-11": {
+  "match": "solberga-vs-p09-norrviken-2026-09-11",
+  "GB": 4.25,
+  "minutes": 1.4,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/solberga-vs-p09-norrviken-2026-09-11/video.mp4"
+ },
+ "p15u-vs-reymersholm-2026-09-18": {
+  "match": "p15u-vs-reymersholm-2026-09-18",
+  "GB": 3.47,
+  "minutes": 1.1,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-reymersholm-2026-09-18/video.mp4"
+ },
+ "p09-norrviken-vs-solheim-2026-08-30": {
+  "match": "p09-norrviken-vs-solheim-2026-08-30",
+  "GB": 3.73,
+  "minutes": 0.7,
+  "verified_same_size": true,
+  "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p09-norrviken-vs-solheim-2026-08-30/video.mp4"
+ }
+}
