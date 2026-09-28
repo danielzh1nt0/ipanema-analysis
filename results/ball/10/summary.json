@@ -1,0 +1,2309 @@
+{
+ "new": {
+  "correct": 70,
+  "of": 108,
+  "ball_found": 47,
+  "ball_frames": 81,
+  "no_ball_right": 23,
+  "no_ball_frames": 27
+ },
+ "new_farzoom": {
+  "correct": 70,
+  "of": 108,
+  "ball_found": 47,
+  "ball_frames": 81,
+  "no_ball_right": 23,
+  "no_ball_frames": 27
+ },
+ "old": {
+  "correct": 48,
+  "of": 108,
+  "ball_found": 26,
+  "ball_frames": 81,
+  "no_ball_right": 22,
+  "no_ball_frames": 27
+ },
+ "frames": [
+  {
+   "file": "t00085.1.jpg",
+   "t": 85.085,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00226.2.jpg",
+   "t": 226.226,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00404.4.jpg",
+   "t": 404.404,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.780089259147644
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.780089259147644
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.7,
+    "conf": 0.4612175524234772
+   }
+  },
+  {
+   "file": "t00560.6.jpg",
+   "t": 560.56,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00710.7.jpg",
+   "t": 710.71,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 0.7,
+    "conf": 0.8281781077384949
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 0.7,
+    "conf": 0.8281781077384949
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00867.9.jpg",
+   "t": 867.867,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01035.0.jpg",
+   "t": 1035.034,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 6.3,
+    "conf": 0.7401914596557617
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 6.3,
+    "conf": 0.7401914596557617
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.34398213028907776
+   }
+  },
+  {
+   "file": "t01166.2.jpg",
+   "t": 1166.165,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": 462.3,
+    "conf": 0.44606730341911316
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01337.3.jpg",
+   "t": 1337.336,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": 514.1,
+    "conf": 0.3434038758277893
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": 514.1,
+    "conf": 0.3434038758277893
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01512.5.jpg",
+   "t": 1512.511,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 2.0,
+    "conf": 0.7912470102310181
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.0,
+    "conf": 0.7912470102310181
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.5820157527923584
+   }
+  },
+  {
+   "file": "t01661.7.jpg",
+   "t": 1661.66,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01821.8.jpg",
+   "t": 1821.82,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01980.0.jpg",
+   "t": 1979.978,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02156.2.jpg",
+   "t": 2156.154,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.5,
+    "conf": 0.6474871039390564
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.5,
+    "conf": 0.6474871039390564
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.4599701464176178
+   }
+  },
+  {
+   "file": "t02286.3.jpg",
+   "t": 2286.284,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02463.5.jpg",
+   "t": 2463.461,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.7162377238273621
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.7162377238273621
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.5,
+    "conf": 0.4622625410556793
+   }
+  },
+  {
+   "file": "t02605.6.jpg",
+   "t": 2605.603,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.27308210730552673
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.27308210730552673
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.3,
+    "conf": 0.28546762466430664
+   }
+  },
+  {
+   "file": "t02748.7.jpg",
+   "t": 2748.746,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 1.8,
+    "conf": 0.7716953754425049
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.8,
+    "conf": 0.7716953754425049
+   },
+   "old": {
+    "correct": true,
+    "dist": 1.2,
+    "conf": 0.5264065265655518
+   }
+  },
+  {
+   "file": "t02904.9.jpg",
+   "t": 2904.902,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.8482739925384521
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.8482739925384521
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.8,
+    "conf": 0.5224910378456116
+   }
+  },
+  {
+   "file": "t03061.1.jpg",
+   "t": 3061.058,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 3.7,
+    "conf": 0.8353159427642822
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.7,
+    "conf": 0.8353159427642822
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.1,
+    "conf": 0.47573092579841614
+   }
+  },
+  {
+   "file": "t03214.2.jpg",
+   "t": 3214.211,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 6.5,
+    "conf": 0.7303811311721802
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 6.5,
+    "conf": 0.7303811311721802
+   },
+   "old": {
+    "correct": true,
+    "dist": 7.1,
+    "conf": 0.4662947952747345
+   }
+  },
+  {
+   "file": "t03341.3.jpg",
+   "t": 3341.338,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.766387939453125
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.766387939453125
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.0,
+    "conf": 0.5018472671508789
+   }
+  },
+  {
+   "file": "t03502.5.jpg",
+   "t": 3502.499,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03662.7.jpg",
+   "t": 3662.659,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.29107728600502014
+   }
+  },
+  {
+   "file": "t03816.8.jpg",
+   "t": 3816.813,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": 641.1,
+    "conf": 0.7788374423980713
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": 641.1,
+    "conf": 0.7788374423980713
+   },
+   "old": {
+    "correct": false,
+    "dist": 641.5,
+    "conf": 0.46773961186408997
+   }
+  },
+  {
+   "file": "t03956.0.jpg",
+   "t": 3955.952,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 7.6,
+    "conf": 0.639746367931366
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 7.6,
+    "conf": 0.639746367931366
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04125.1.jpg",
+   "t": 4125.121,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.1,
+    "conf": 0.7745179533958435
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.1,
+    "conf": 0.7745179533958435
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.8,
+    "conf": 0.34291312098503113
+   }
+  },
+  {
+   "file": "t04219.2.jpg",
+   "t": 4219.215,
+   "has_ball": true,
+   "group": "far",
+   "new": {
+    "correct": true,
+    "dist": 2.9,
+    "conf": 0.7979605197906494
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.9,
+    "conf": 0.7979605197906494
+   },
+   "old": {
+    "correct": true,
+    "dist": 0.9,
+    "conf": 0.5062861442565918
+   }
+  },
+  {
+   "file": "t04389.4.jpg",
+   "t": 4389.385,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04542.5.jpg",
+   "t": 4542.538,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.6487501859664917
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.6487501859664917
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04694.7.jpg",
+   "t": 4694.69,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04865.9.jpg",
+   "t": 4865.861,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 3.5,
+    "conf": 0.8122659921646118
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.5,
+    "conf": 0.8122659921646118
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.6,
+    "conf": 0.578767716884613
+   }
+  },
+  {
+   "file": "t05035.0.jpg",
+   "t": 5035.03,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 3.1,
+    "conf": 0.8326489925384521
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.1,
+    "conf": 0.8326489925384521
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.9,
+    "conf": 0.2728061378002167
+   }
+  },
+  {
+   "file": "t05205.2.jpg",
+   "t": 5205.2,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 3.9,
+    "conf": 0.8185921311378479
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.9,
+    "conf": 0.8185921311378479
+   },
+   "old": {
+    "correct": true,
+    "dist": 1.8,
+    "conf": 0.5439068078994751
+   }
+  },
+  {
+   "file": "t05307.3.jpg",
+   "t": 5307.302,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05495.5.jpg",
+   "t": 5495.49,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 0.9,
+    "conf": 0.8059672117233276
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 0.9,
+    "conf": 0.8059672117233276
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05652.6.jpg",
+   "t": 5652.647,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05798.8.jpg",
+   "t": 5798.793,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.1,
+    "conf": 0.7804034352302551
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.1,
+    "conf": 0.7804034352302551
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.0,
+    "conf": 0.40170818567276
+   }
+  },
+  {
+   "file": "t05962.0.jpg",
+   "t": 5961.956,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.47071245312690735
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.47071245312690735
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.25090041756629944
+   }
+  },
+  {
+   "file": "t06162.2.jpg",
+   "t": 6162.156,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.28573161363601685
+   }
+  },
+  {
+   "file": "t00094.1.jpg",
+   "t": 94.094,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00327.3.jpg",
+   "t": 327.327,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00597.6.jpg",
+   "t": 597.597,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00831.8.jpg",
+   "t": 831.831,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00983.0.jpg",
+   "t": 982.982,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.4,
+    "conf": 0.7454979419708252
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.4,
+    "conf": 0.7454979419708252
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01202.2.jpg",
+   "t": 1202.201,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 4.5,
+    "conf": 0.7997589707374573
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 4.5,
+    "conf": 0.7997589707374573
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01410.4.jpg",
+   "t": 1410.409,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01609.6.jpg",
+   "t": 1609.608,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01836.8.jpg",
+   "t": 1836.835,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02056.1.jpg",
+   "t": 2056.054,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": 9.2,
+    "conf": 0.3303876519203186
+   }
+  },
+  {
+   "file": "t02238.2.jpg",
+   "t": 2238.236,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02438.4.jpg",
+   "t": 2438.436,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.615966260433197
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.615966260433197
+   },
+   "old": {
+    "correct": true,
+    "dist": 3.0,
+    "conf": 0.346238374710083
+   }
+  },
+  {
+   "file": "t02656.7.jpg",
+   "t": 2656.654,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.7604596018791199
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.7604596018791199
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02856.9.jpg",
+   "t": 2856.854,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 3.4,
+    "conf": 0.7112557888031006
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.4,
+    "conf": 0.7112557888031006
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.2,
+    "conf": 0.42635273933410645
+   }
+  },
+  {
+   "file": "t03104.1.jpg",
+   "t": 3104.101,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.7201004028320312
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.7,
+    "conf": 0.7201004028320312
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.3,
+    "conf": 0.5388474464416504
+   }
+  },
+  {
+   "file": "t03271.3.jpg",
+   "t": 3271.268,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 3.2,
+    "conf": 0.7484021782875061
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.2,
+    "conf": 0.7484021782875061
+   },
+   "old": {
+    "correct": true,
+    "dist": 1.4,
+    "conf": 0.5649593472480774
+   }
+  },
+  {
+   "file": "t03378.4.jpg",
+   "t": 3378.375,
+   "has_ball": true,
+   "group": "far",
+   "new": {
+    "correct": true,
+    "dist": 2.2,
+    "conf": 0.744086503982544
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.2,
+    "conf": 0.744086503982544
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03518.5.jpg",
+   "t": 3518.515,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 8.8,
+    "conf": 0.547086238861084
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 8.8,
+    "conf": 0.547086238861084
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03683.7.jpg",
+   "t": 3683.68,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 1.6,
+    "conf": 0.79453444480896
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.6,
+    "conf": 0.79453444480896
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.3,
+    "conf": 0.3437228202819824
+   }
+  },
+  {
+   "file": "t03852.8.jpg",
+   "t": 3852.849,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 9.0,
+    "conf": 0.8463461995124817
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 9.0,
+    "conf": 0.8463461995124817
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04103.1.jpg",
+   "t": 4103.099,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.7935437560081482
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.7935437560081482
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04256.3.jpg",
+   "t": 4256.252,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 5.2,
+    "conf": 0.5055336952209473
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.2,
+    "conf": 0.5055336952209473
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04497.5.jpg",
+   "t": 4497.493,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04741.7.jpg",
+   "t": 4741.737,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04885.9.jpg",
+   "t": 4885.881,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.6222018599510193
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.6222018599510193
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.7,
+    "conf": 0.2824668288230896
+   }
+  },
+  {
+   "file": "t05121.1.jpg",
+   "t": 5121.116,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05328.3.jpg",
+   "t": 5328.323,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05532.5.jpg",
+   "t": 5532.527,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 5.1,
+    "conf": 0.5030577182769775
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.1,
+    "conf": 0.5030577182769775
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05692.7.jpg",
+   "t": 5692.687,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05930.9.jpg",
+   "t": 5930.925,
+   "has_ball": true,
+   "group": "easy",
+   "new": {
+    "correct": true,
+    "dist": 7.1,
+    "conf": 0.741519570350647
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 7.1,
+    "conf": 0.741519570350647
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t06155.1.jpg",
+   "t": 6155.149,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00081.1.jpg",
+   "t": 81.081,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00224.2.jpg",
+   "t": 224.224,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.38950276374816895
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.38950276374816895
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.338606595993042
+   }
+  },
+  {
+   "file": "t00420.4.jpg",
+   "t": 420.42,
+   "has_ball": false,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.8217536807060242
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.8217536807060242
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.5637984275817871
+   }
+  },
+  {
+   "file": "t00563.6.jpg",
+   "t": 563.563,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": 930.1,
+    "conf": 0.2740844190120697
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00768.8.jpg",
+   "t": 768.768,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t00879.9.jpg",
+   "t": 879.879,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01029.0.jpg",
+   "t": 1029.028,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01215.2.jpg",
+   "t": 1215.214,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01374.4.jpg",
+   "t": 1374.373,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.2,
+    "conf": 0.3102640211582184
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.2,
+    "conf": 0.3102640211582184
+   },
+   "old": {
+    "correct": false,
+    "dist": 1041.8,
+    "conf": 0.3943517208099365
+   }
+  },
+  {
+   "file": "t01530.5.jpg",
+   "t": 1530.529,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 3.0,
+    "conf": 0.7649545669555664
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 3.0,
+    "conf": 0.7649545669555664
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01710.7.jpg",
+   "t": 1710.709,
+   "has_ball": false,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t01879.9.jpg",
+   "t": 1879.878,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02032.0.jpg",
+   "t": 2032.03,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02231.2.jpg",
+   "t": 2231.229,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02354.4.jpg",
+   "t": 2354.352,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 2.1,
+    "conf": 0.2942042648792267
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.1,
+    "conf": 0.2942042648792267
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02559.6.jpg",
+   "t": 2559.557,
+   "has_ball": false,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02702.7.jpg",
+   "t": 2702.7,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t02873.9.jpg",
+   "t": 2873.871,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03069.1.jpg",
+   "t": 3069.066,
+   "has_ball": false,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.6547536253929138
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.6547536253929138
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03325.3.jpg",
+   "t": 3325.322,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 2.5,
+    "conf": 0.6295250654220581
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.5,
+    "conf": 0.6295250654220581
+   },
+   "old": {
+    "correct": true,
+    "dist": 2.3,
+    "conf": 0.3814130425453186
+   }
+  },
+  {
+   "file": "t03555.6.jpg",
+   "t": 3555.552,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03687.7.jpg",
+   "t": 3687.684,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t03865.9.jpg",
+   "t": 3865.862,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": 707.5,
+    "conf": 0.40955793857574463
+   }
+  },
+  {
+   "file": "t04000.0.jpg",
+   "t": 3999.996,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04164.2.jpg",
+   "t": 4164.16,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.7118802070617676
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.4,
+    "conf": 0.7118802070617676
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04307.3.jpg",
+   "t": 4307.303,
+   "has_ball": true,
+   "group": "unsure",
+   "new": {
+    "correct": true,
+    "dist": 1.3,
+    "conf": 0.6362502574920654
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 1.3,
+    "conf": 0.6362502574920654
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04492.5.jpg",
+   "t": 4492.488,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.6177096962928772
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 4.4,
+    "conf": 0.6177096962928772
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04640.6.jpg",
+   "t": 4640.636,
+   "has_ball": false,
+   "group": "absent",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04834.8.jpg",
+   "t": 4834.83,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 2.5,
+    "conf": 0.3658008575439453
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.5,
+    "conf": 0.3658008575439453
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t04975.0.jpg",
+   "t": 4974.97,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05138.1.jpg",
+   "t": 5138.133,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05311.3.jpg",
+   "t": 5311.306,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05476.5.jpg",
+   "t": 5476.471,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 5.8,
+    "conf": 0.68204265832901
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 5.8,
+    "conf": 0.68204265832901
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05626.6.jpg",
+   "t": 5626.621,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05793.8.jpg",
+   "t": 5793.788,
+   "has_ball": true,
+   "group": "absent",
+   "new": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": false,
+    "dist": null,
+    "conf": 0.0
+   }
+  },
+  {
+   "file": "t05929.9.jpg",
+   "t": 5929.924,
+   "has_ball": true,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": 2.6,
+    "conf": 0.8079556822776794
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": 2.6,
+    "conf": 0.8079556822776794
+   },
+   "old": {
+    "correct": true,
+    "dist": 4.3,
+    "conf": 0.4517974257469177
+   }
+  },
+  {
+   "file": "t06137.1.jpg",
+   "t": 6137.131,
+   "has_ball": false,
+   "group": "feet",
+   "new": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "new_farzoom": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   },
+   "old": {
+    "correct": true,
+    "dist": null,
+    "conf": 0.0
+   }
+  }
+ ],
+ "round1": {
+  "correct": 66,
+  "of": 108,
+  "ball_found": 42,
+  "ball_frames": 81,
+  "no_ball_right": 24,
+  "no_ball_frames": 27
+ },
+ "current_best": {
+  "correct": 70,
+  "of": 108,
+  "weights": "round_20260928_0108.pt"
+ }
+}
