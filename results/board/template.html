@@ -1,0 +1,135 @@
+<title>Ipanema Work Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: scoreboard header, then two tabs - Progress (bars toward the 90% goal) and Tasks (kanban from the work queue) */
+:root {
+  --bg: #f3f5f2; --panel: #ffffff; --ink: #17211c; --muted: #5d6b63; --line: #d9e0db;
+  --turf: #1f7a4d; --turf-soft: #e1f0e7; --warn: #b7791f; --warn-soft: #fbf0dc; --bad: #b3413a; --bad-soft: #f8e3e1;
+  --you: #2c5aa0; --you-soft: #e3ebf7;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif; --body: "IBM Plex Sans", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111714; --panel: #18201c; --ink: #e6ece8; --muted: #9aa9a1; --line: #2a352f;
+  --turf: #4fbf86; --turf-soft: #1c3328; --warn: #e0a84a; --warn-soft: #33291a; --bad: #e27a72; --bad-soft: #3a2220;
+  --you: #7ea6e8; --you-soft: #1d2a40; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111714; --panel: #18201c; --ink: #e6ece8; --muted: #9aa9a1; --line: #2a352f;
+  --turf: #4fbf86; --turf-soft: #1c3328; --warn: #e0a84a; --warn-soft: #33291a; --bad: #e27a72; --bad-soft: #3a2220;
+  --you: #7ea6e8; --you-soft: #1d2a40; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 20px 16px 48px; display: grid; gap: 20px; }
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+h1 { font-family: var(--display); font-weight: 700; font-size: 2.4rem; letter-spacing: .01em; margin: 0; line-height: 1; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .9rem; }
+.sub a { color: var(--turf); }
+nav { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+nav button { font: 600 .95rem var(--body); color: var(--muted); background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 14px; cursor: pointer; }
+nav button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--turf); }
+nav button:focus-visible, summary:focus-visible, .more:focus-visible { outline: 2px solid var(--you); outline-offset: 2px; }
+.label { font: 500 .72rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+/* progress */
+.pillars { display: grid; gap: 10px; }
+.pillar { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: grid; grid-template-columns: minmax(150px, 220px) 1fr 64px; gap: 6px 18px; align-items: center; }
+.pillar h3 { font: 700 1.25rem var(--display); margin: 0; letter-spacing: .01em; }
+.pillar .note { grid-column: 1 / -1; color: var(--muted); font-size: .88rem; min-width: 0; }
+.bar { position: relative; height: 14px; background: var(--line); border-radius: 3px; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; border-radius: 3px; }
+.bar .goal { position: absolute; top: -5px; bottom: -5px; width: 2px; background: var(--ink); }
+.bar .goal::after { content: "90% goal"; position: absolute; top: -17px; left: -22px; font: 500 .66rem var(--mono); color: var(--muted); white-space: nowrap; }
+.num { font: 700 1.6rem var(--display); text-align: right; font-variant-numeric: tabular-nums; }
+.ok { --c: var(--turf); } .warn { --c: var(--warn); } .bad { --c: var(--bad); }
+.fill { background: var(--c); } .num { color: var(--c); }
+.measured { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+td { padding: 9px 14px; border-top: 1px solid var(--line); vertical-align: top; }
+tr:first-child td { border-top: 0; }
+td:last-child { font-family: var(--mono); font-size: .84rem; font-variant-numeric: tabular-nums; }
+/* kanban */
+.summary { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 .78rem var(--mono); padding: 3px 9px; border-radius: 99px; background: var(--panel); border: 1px solid var(--line); color: var(--muted); }
+.board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.col { display: grid; gap: 8px; min-width: 0; }
+.col > h2 { font: 700 1.1rem var(--display); letter-spacing: .03em; text-transform: uppercase; margin: 0; display: flex; justify-content: space-between; padding: 4px 2px; border-bottom: 3px solid var(--c, var(--line)); }
+.col > h2 span { font-family: var(--mono); font-size: .8rem; color: var(--muted); font-weight: 500; }
+.c-you { --c: var(--you); } .c-next { --c: var(--turf); } .c-queue { --c: var(--muted); } .c-blocked { --c: var(--warn); } .c-done { --c: var(--turf); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; min-width: 0; }
+.c-you .card { background: var(--you-soft); border-color: transparent; }
+.c-done .card { opacity: .85; }
+.card .top { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.tag { font: 500 .68rem var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; background: var(--turf-soft); color: var(--turf); }
+.tag.Ball { background: var(--warn-soft); color: var(--warn); } .tag.Players { background: var(--you-soft); color: var(--you); }
+.tag.Stats { background: var(--turf-soft); color: var(--turf); } .tag.Setup { background: var(--line); color: var(--muted); }
+.id { font: 500 .72rem var(--mono); color: var(--muted); }
+.card .t { font-weight: 600; font-size: .92rem; overflow-wrap: anywhere; }
+details { font-size: .82rem; color: var(--muted); }
+summary { cursor: pointer; font-size: .78rem; }
+details p { margin: 6px 0 0; overflow-wrap: anywhere; }
+.more { font: 500 .8rem var(--body); color: var(--turf); background: none; border: 1px dashed var(--line); border-radius: 6px; padding: 6px; cursor: pointer; }
+@media (max-width: 1000px) { .board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .board { grid-template-columns: minmax(0, 1fr); } .pillar { grid-template-columns: 1fr 56px; } .pillar .bar { grid-column: 1 / -1; grid-row: 2; } h1 { font-size: 2rem; } }
+@media (prefers-reduced-motion: no-preference) { .fill { transition: width .6s ease; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="label">Sollentuna FK · Veo follow-cam analysis</div>
+      <h1>Ipanema Work Board</h1>
+    </div>
+    <div class="sub" id="updated"></div>
+  </header>
+  <nav role="tablist">
+    <button role="tab" id="tab-progress" aria-selected="true" data-tab="progress">Progress</button>
+    <button role="tab" id="tab-tasks" aria-selected="false" data-tab="tasks">Tasks</button>
+  </nav>
+  <section id="progress" role="tabpanel" aria-labelledby="tab-progress" style="display:grid;gap:20px">
+    <div class="pillars" id="pillars"></div>
+    <div class="label">Measured numbers</div>
+    <div class="measured"><table id="measured"></table></div>
+  </section>
+  <section id="tasks" role="tabpanel" aria-labelledby="tab-tasks" hidden style="display:grid;gap:14px">
+    <div class="summary" id="summary"></div>
+    <div class="board" id="board"></div>
+  </section>
+</div>
+
+<script>
+const DATA = /*DATA*/null/*END*/;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+function render(D) {
+  $("#updated").innerHTML = `Updated ${esc(D.updated)} · <a href="${esc(D.release_board)}" target="_blank" rel="noopener">Release history</a>`;
+  const goal = D.progress.goal;
+  $("#pillars").innerHTML = D.progress.pillars.map(p => {
+    const v = p.value == null ? 0 : p.value;
+    return `<div class="pillar ${p.status}"><h3>${esc(p.label)}</h3>
+      <div class="bar" role="img" aria-label="${esc(p.label)}: ${v}% of ${goal}% goal"><div class="fill" style="width:${v}%"></div><div class="goal" style="left:${goal}%"></div></div>
+      <div class="num">${p.value == null ? "–" : v + "%"}</div><div class="note">${esc(p.note)}</div></div>`;
+  }).join("");
+  $("#measured").innerHTML = D.progress.measured.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("");
+  const cols = [["you", "Waiting for you"], ["next", "Up next"], ["queue", "Queue"], ["blocked", "Blocked"], ["done", "Done"]];
+  const by = Object.fromEntries(cols.map(([k]) => [k, D.tasks.filter(t => t.col === k)]));
+  $("#summary").innerHTML = cols.map(([k, n]) => `<span class="chip">${n}: ${by[k].length}</span>`).join("");
+  const card = t => `<div class="card"><div class="top">${t.area ? `<span class="tag ${esc(t.area)}">${esc(t.area)}</span>` : ""}${t.id ? `<span class="id">${esc(t.id)}</span>` : ""}</div>
+      <div class="t">${esc(t.title)}</div>${t.detail ? `<details><summary>Details</summary><p>${esc(t.detail)}</p></details>` : ""}</div>`;
+  $("#board").innerHTML = cols.map(([k, n]) => {
+    const list = by[k], limit = k === "done" ? 8 : 99, shown = list.slice(0, limit);
+    return `<div class="col c-${k}" data-col="${k}"><h2>${n}<span>${list.length}</span></h2>${shown.map(card).join("")}
+      ${list.length > limit ? `<button class="more" data-more="${k}">Show all ${list.length}</button>` : ""}</div>`;
+  }).join("");
+  document.querySelectorAll("[data-more]").forEach(b => b.onclick = () => {
+    const k = b.dataset.more; b.insertAdjacentHTML("beforebegin", by[k].slice(8).map(card).join("")); b.remove();
+  });
+}
+function show(tab) {
+  document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+  $("#progress").hidden = tab !== "progress"; $("#tasks").hidden = tab !== "tasks";
+  try { localStorage.setItem("tab", tab); } catch (e) {}
+}
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => show(b.dataset.tab));
+render(DATA);
+let start = location.hash.replace("#", "");
+if (!["progress", "tasks"].includes(start)) { try { start = localStorage.getItem("tab") || "progress"; } catch (e) { start = "progress"; } }
+show(start);
+</script>

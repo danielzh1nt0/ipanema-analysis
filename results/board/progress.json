@@ -1,0 +1,19 @@
+{
+ "goal": 90,
+ "pillars": [
+  {"label": "Pitch lines", "value": 87, "status": "warn", "note": "SFK-BP test clip: share of time with a trusted camera. Other grounds not calibrated yet."},
+  {"label": "Players found", "value": 85, "status": "warn", "note": "New pipeline, by eye on SFK-BP: 0-1 players missed per frame (was 2-4). Team colours fixed at night on 28 Sep. Not in the app yet."},
+  {"label": "Who has the ball", "value": 83, "status": "warn", "note": "New rule: 82 of 99 graded moments right (current app method: 43 of 99). One ground only; not in the app yet."},
+  {"label": "Ball dot", "value": 65, "status": "bad", "note": "22 of 34 checked moments in the app. The finders see the ball; picking the right guess is the problem."},
+  {"label": "Set pieces", "value": 60, "status": "warn", "note": "Estimate only: 10 found on the clip, Veo lists 6. Not checked to the second."},
+  {"label": "Full match in the app", "value": 0, "status": "bad", "note": "Only the 5-minute test clip runs on the new pipeline so far."}
+ ],
+ "measured": [
+  ["Players tracked (median, SFK-BP clip)", "dark 1.5 -> 4.1 s, light 0.7 -> 7.0 s"],
+  ["Who has the ball, 99 graded moments", "current 43 -> new rule 82"],
+  ["Ball: finder has a guess on the ball", "31 of 34 moments (WASB), 79 of 81 exam frames"],
+  ["Ball: right guess picked", "22-23 of 34"],
+  ["Passes on pro data (Metrica)", "3-15% off per half"],
+  ["Lost balls on pro data", "20% found with the current rule, 37% with 1 s limits"]
+ ]
+}
