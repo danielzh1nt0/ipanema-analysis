@@ -136,7 +136,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
     import time as _time
     prof = {"read": 0.0, "detect": 0.0, "tracker": 0.0, "team": 0.0, "rest": 0.0}; t_mark = _time.time(); t_start = t_mark
     max_frames = int(os.environ.get("IPANEMA_MAX_FRAMES", "0") or 0)
-    src = _batched_frames(video, model, conf, tiles, imgsz) if (tiles and not pano) else ((k, f, None, None) for k, f in frames(video))
+    src = _batched_frames(video, model, conf, tiles, imgsz, batch=int(os.environ.get("IPANEMA_DET_BATCH", "8"))) if (tiles and not pano) else ((k, f, None, None) for k, f in frames(video))
     for k, f, det, names in src:
         _t = _time.time(); prof["read"] += _t - t_mark
         if det is not None: pass                                               # follow-cam: detected in batches already
@@ -185,7 +185,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
         per[k] = rows
         t_mark = _time.time(); prof["rest"] += t_mark - _t3
-        if k % 500 == 0: log(f"  tracking frame {k}" + (f" ({k / max(1e-6, _time.time() - t_start):.1f} frames/s)" if k else ""))
+        if k % int(os.environ.get("IPANEMA_LOG_EVERY", "500")) == 0: log(f"  tracking frame {k}" + (f" ({k / max(1e-6, _time.time() - t_start):.1f} frames/s)" if k else ""))
         if k == 1500 and not max_frames:                                   # watchdog: stop a run that cannot finish in time
             sp = k / max(1e-6, _time.time() - t_start); floor = float(os.environ.get("IPANEMA_MIN_FPS", "4.0"))   # 9000 frames must fit well inside the 60-min watchdog
             if sp < floor: raise RuntimeError(f"tracking too slow: {sp:.1f} frames/s after {k} frames (needs at least {floor:.1f}); stopping instead of burning the time limit")

@@ -31,6 +31,7 @@ def sample_frames(detect, m=12):
         c.set(cv2.CAP_PROP_POS_FRAMES, int(j)); ok, f = c.read()
         if ok: out.append((f, detect(f)))
     return out
+os.environ.setdefault("IPANEMA_DET_BATCH", "1"); os.environ.setdefault("IPANEMA_LOG_EVERY", "50")
 rep = {}; ROWS = {}
 KEYS = [0, n // 3, 2 * n // 3, n - 1]
 def metrics(rows_by_k, dark_label):
