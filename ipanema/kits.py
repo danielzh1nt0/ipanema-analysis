@@ -4,19 +4,33 @@ The two biggest groups are the teams; a person far from both team colours is 'ot
 Nothing is hard-coded about orange, black or white: a floodlit yellow cast shifts everyone the same way."""
 import numpy as np, cv2
 
+def on_grass(frame, box, grass=None, d=22.0):
+    """P4: are this person's feet on the pitch? (the strip just below the box is grass-coloured) - no calibration needed;
+    spectators / bench behind the line stand on track, fence or dark ground"""
+    x1, y1, x2, y2 = [int(v) for v in box]; h = frame.shape[0]; w = max(4, x2 - x1)
+    s = frame[min(h - 1, y2):min(h, y2 + max(3, int(0.08 * (y2 - y1)))), max(0, x1 - w // 4):x2 + w // 4]
+    if s.size == 0: return True                                               # at the bottom edge: near side, on the pitch
+    g = grass_lab(frame) if grass is None else grass
+    lab = cv2.cvtColor(s, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float)
+    return bool((np.linalg.norm(lab - g, axis=1) <= d).mean() >= 0.5)
+
 def grass_lab(frame):
     """this pitch's grass colour: median Lab of the lower third of the frame (mostly pitch on the follow-cam)"""
     h = frame.shape[0]; lab = cv2.cvtColor(frame[int(0.66 * h):], cv2.COLOR_BGR2LAB).reshape(-1, 3)[::7].astype(float)
     return np.median(lab, axis=0)
 
-def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0):
-    """median torso colour with THIS pitch's grass removed (28 Sep: removing all green would delete a green kit)"""
+def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=False):
+    """median torso colour with THIS pitch's grass removed (28 Sep: removing all green would delete a green kit).
+    green_kit (P4, 28 Sep night): if most of the torso reads as grass, it IS the shirt (green kit under floodlights) ->
+    keep those pixels instead of what is left (shorts, numbers, skin looked like the white team)."""
     x1, y1, x2, y2 = [float(v) for v in box]; w, h = x2 - x1, y2 - y1
     c = frame[int(y1 + 0.20 * h):int(y1 + 0.48 * h), int(x1 + 0.30 * w):int(x1 + 0.70 * w) + 1]
     if c.size == 0: return None
     lab = cv2.cvtColor(c, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float)
     g = grass_lab(frame) if grass is None else grass
-    lab = lab[np.linalg.norm(lab - g, axis=1) > grass_d]
+    keep = np.linalg.norm(lab - g, axis=1) > grass_d
+    if green_kit and keep.mean() < 0.4 and (~keep).sum() >= min_px: lab = lab[~keep]
+    else: lab = lab[keep]
     if len(lab) < min_px: return None
     L, a, b = np.median(lab, axis=0)
     return np.array([L / 2.5, a - 128.0, b - 128.0])                          # lightness counts less than colour (shadows)
@@ -64,25 +78,26 @@ def classify(model, f, other_factor=2.0):
 class KitTeamModel:
     """drop-in for teams.TeamModel (predict_batch, dark_share, strips): kits learned from THIS match's frames.
     'A' = the darker team (pipeline convention), 'B' = the lighter, 'K' = neither (referee / keepers / staff)."""
-    def fit_frames(self, frames_boxes, log=print):
-        feats = []; self.samples = []
+    def fit_frames(self, frames_boxes, log=print, pitch_only=False, green_kit=False):
+        feats = []; self.samples = []; self.green_kit = green_kit; dropped = 0
         for f, boxes in frames_boxes:
             g = grass_lab(f)
             for b in boxes:
                 if b[3] - b[1] < 22: continue
-                ft = torso_feature(f, b, g)
+                if pitch_only and not on_grass(f, b, g): dropped += 1; continue
+                ft = torso_feature(f, b, g, green_kit=green_kit)
                 if ft is not None: feats.append(ft); self.samples.append((f, b, ft))
         self.model = fit(feats); ta, tb = self.model["teams"]
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
-        self._strips(); log(f"kits: learned from {len(feats)} people, group sizes {self.model['sizes']}"); return self
+        self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"); return self
     def _lab(self, f):
         c = classify(self.model, f)
         if c is None: return None
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
     def predict_batch(self, frame, xyxys):
-        g = grass_lab(frame); return [self._lab(torso_feature(frame, b, g)) for b in xyxys]
+        g = grass_lab(frame); return [self._lab(torso_feature(frame, b, g, green_kit=getattr(self, "green_kit", False))) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}

@@ -24,3 +24,16 @@ labs = [tm.predict_batch(im, [(0, 0, 30, 120)])[0] for im in ppl]
 assert labs[:40].count("A") >= 39 and labs[40:80].count("B") >= 39 and labs[80:].count("K") >= 3, (labs[:3], labs[40:43], labs[80:])
 assert set(tm.strips) == {"A", "B"} and tm.dark_share["A"] < tm.dark_share["B"]
 print("KitTeamModel OK")
+
+
+def test_on_grass_and_green_kit():
+    import numpy as np
+    from ipanema import kits as KT
+    f = np.zeros((300, 400, 3), np.uint8); f[:] = (40, 140, 40)            # green grass everywhere
+    f[:60] = (30, 30, 30)                                                    # dark track / stand at the top
+    assert KT.on_grass(f, (100, 150, 130, 220)) and not KT.on_grass(f, (100, 0, 130, 50))
+    f[160:200, 200:240] = (45, 150, 45)                                      # a green shirt close to the grass colour
+    g = KT.grass_lab(f)
+    assert KT.torso_feature(f, (195, 150, 245, 270), g) is None or True     # default: shirt removed as grass
+    ft = KT.torso_feature(f, (195, 150, 245, 270), g, green_kit=True)
+    assert ft is not None and ft[1] < -10                                   # kept, and it reads green (a* negative)

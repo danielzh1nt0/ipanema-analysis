@@ -1,2 +1,2 @@
-tools/who_strips.py results/review/who_moments_reym.json
-# Mon Sep 28 20:58:28 UTC 2026
+tools/kitprobe.py
+# Mon Sep 28 21:03:42 UTC 2026
