@@ -17,3 +17,13 @@ def test_default_unchanged_and_window_ignores_wobble():
     assert np.median(list(sp_old.values())) > 10            # wobble looks like flight frame to frame
     assert np.median(list(sp_new.values())) < 5 and np.median(list(sp_med.values())) < 5
     assert (np.asarray(s_new) == 0).mean() > (np.asarray(s_old) == 0).mean()
+
+
+def test_possession_simple_uses_picture_distance():
+    H = {k: np.eye(3) for k in range(30)}                                    # 1 px = 1 m side to side
+    per = {k: [[1, "A", None, np.array([100.0, 100.0]), None, False], [2, "B", None, np.array([140.0, 100.0]), None, False]] for k in range(30)}
+    ball = {k: (101.0, 100.5) for k in range(10)}                            # at A's feet
+    ball.update({k: (139.0, 100.0) for k in range(10, 20)})                  # at B's feet
+    ball.update({k: (120.0, 100.0) for k in range(20, 30)})                  # between: loose
+    st = P.possession_simple(per, ball, H, 30, near_m=1.5, smooth=2)
+    assert list(st[:8]) == [0] * 8 and list(st[12:18]) == [1] * 6 and list(st[22:]) == [2] * 8

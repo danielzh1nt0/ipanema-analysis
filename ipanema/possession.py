@@ -19,7 +19,7 @@ def carriers(per, ball, H, carrier_r=2.5, near_r=5.0):
         frames_.append(rec)
     return frames_, ballm
 
-def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_s=None):
+def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_s=None, dist=None):
     """speed_win_s (28 Sep, S1b): measure ball speed as displacement over +-speed_win_s/2 instead of frame to frame.
     Frame-to-frame speed turns 0.7 m of position wobble into ~20 m/s, so the ball always looked 'in flight' and nobody
     had it (87% 'loose' on Metrica with realistic noise). None = old behaviour."""
@@ -56,6 +56,7 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_
         if k not in ballm: continue
         bm = ballm[k]; onpitch = (-1 <= bm[0] <= L + 1) and (-1 <= bm[1] <= W + 1); d = {}
         for tm in ("A", "B"):
+            if dist is not None and k in dist: d[tm] = dist[k].get(tm, 30.0); continue
             ds = [np.linalg.norm(r[2] - bm) for r in per[k] if r[1] == tm]; d[tm] = min(ds) if ds else 30.0
         s = bspeed.get(k, 0.0); flight = 1.0 if s > flight_speed else 0.0
         # 2) a ball in flight belongs to nobody: control is (almost) forbidden while it travels
@@ -83,6 +84,45 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_
             if prev_s == next_s and prev_s in (0, 1): state[i:j + 1] = prev_s
         i = j + 1
     return state, bspeed
+
+def pixel_dist(per, ball_px, H, max_m=30.0):
+    """28 Sep (E2): ball-to-nearest-player distance per team measured in the PICTURE (ball vs feet pixels), turned into
+    metres with the side-to-side scale at the ball only. Pitch-metre distances blow up with depth on the far side (one
+    pixel up/down = metres), so a ball at a player's feet looked metres away. On 34 graded moments the nearest team in
+    pixels was right 32 times. -> {frame: {"A": m, "B": m}} for viterbi(dist=...)."""
+    out = {}
+    for k, b in ball_px.items():
+        Hk = H.get(k) if isinstance(H, dict) else H[k]
+        if Hk is None or k not in per: continue
+        try:
+            inv = np.linalg.inv(Hk); p = [inv @ np.array([b[0] + dx, b[1], 1.0]) for dx in (0.0, 1.0)]
+            s_h = float(np.linalg.norm(p[1][:2] / p[1][2] - p[0][:2] / p[0][2]))
+        except Exception: continue
+        d = {}
+        for tm in ("A", "B"):
+            ds = [np.hypot(r[3][0] - b[0], r[3][1] - b[1]) for r in per[k] if r[1] == tm and r[3] is not None]
+            d[tm] = min(max_m, min(ds) * s_h) if ds else max_m
+        out[k] = d
+    return out
+
+def possession_simple(per, ball_px, H, n, near_m=1.5, smooth=6):
+    """28 Sep (E2): who has the ball = the team whose nearest player's feet are closest to the ball IN THE PICTURE,
+    if within near_m (pixel distance x side-to-side scale), else loose (2); majority over +-smooth frames.
+    On 61 graded moments of our SFK-BP clip: 51/61 right (the viterbi model: 27/61); held on both halves of the key
+    (22-23/24 and 28-29/37). No ball-speed rule: our speed estimate is too noisy (it cost 9-10 moments).
+    Frames without a ball pick keep the previous state. Not yet checked on other grounds (no answer key there)."""
+    D = pixel_dist(per, ball_px, H); raw = np.full(n, -1)
+    for k, d in D.items():
+        if 0 <= k < n: t = min(d, key=d.get); raw[k] = 2 if d[t] > near_m else (0 if t == "A" else 1)
+    last = 2
+    for k in range(n):
+        if raw[k] < 0: raw[k] = last
+        last = raw[k]
+    out = raw.copy()
+    if smooth:
+        for k in range(n):
+            w = raw[max(0, k - smooth):k + smooth + 1]; out[k] = int(np.bincount(w, minlength=3).argmax())
+    return out
 
 def direction(state, ballm, log=print):
     net, gross = {"A": 0.0, "B": 0.0}, {"A": 0.0, "B": 0.0}

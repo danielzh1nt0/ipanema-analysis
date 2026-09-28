@@ -10,6 +10,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - Plain, short language in anything Daniel reads.
 
 ## Queue (priority order)
+- [ ] E3. possession_simple (51/61 vs 27/61 on SFK-BP) needs a second ground before it becomes the default: who-has-the-ball strips + answers on Reymersholm or Vasalund. Needs ball picks there (GPU: Kaggle once the token works, or a small Modal run with Daniel's go). Then: passes/turnovers/possession computed from possession_simple, graded on the same keys.
 - [ ] E2. Possession on our footage is right in only 9/24 clear moments (results/review/who_2026-09-28.md). Fix, graded on who_answers.json: (a) dead-ball wrongly called during play (5/24): don't trust off-pitch projections of single ball picks; (b) carrier not found for a player on the ball (7/24): link in pixels (ball near feet) not only metres. Grow the key to 100+ moments (more strips, Reymersholm/Spånga) first so fixes aren't tuned to 24.
 - [ ] K1. Kaggle free GPU (about 30 h/week): a notebook pushed by the Kaggle API from the free runner that reads matches from R2, runs WASB (30 peaks) + the click finder, and cuts ball/not-ball crops at the checked labels of Vasalund, Solheim, Spånga, Djursholm (thousands of balls). Then retrain the scorer (T0) and grade on exam + clip. No Modal.
 - [ ] K2. Same Kaggle route for training runs (ball finder on RF-DETR, B7) so training stops costing money.
@@ -42,6 +43,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - WASB re-run on the SFK-BP clip keeping ~30 peaks per frame (GPU ~5 min) so T0 and the picker can use the buried guesses.
 
 ## Done
+- [x] 28 Sep: E1/E2 who-has-the-ball key grown to 61 clear moments (Claude by eye); possession_simple 51/61 vs viterbi 27/61, both key halves agree. Option only. results/review/who_2026-09-28.md
 - [x] 28 Sep: S1b turnovers/possession on Metrica: 3 s rule finds 20% of losses; frame-to-frame ball speed made the possession model say 'nobody has it' 76-87% of the time under noise; windowed speed fixes it on pro data but not proven on our clip (no answer key). Options added, defaults unchanged. results/metrica/turnovers_2026-09-28.md
 - [x] 28 Sep: T0 first scorer (small 3-frame CNN, 260 ball pictures from the SFK-BP clicks, CPU): exam 61 -> 63-68/81 when blended with the finder score (3 seeds); clip 25 -> 24-25/34 = no gain. Not promoted. Too few ball pictures; next: thousands from the checked labels of 4 matches (needs GPU crops -> Kaggle free GPU, K1). results/ball/scorer/
 - [x] 28 Sep: B2 probe (GPU 7.5 min): WASB sees the ball in 31/34 and 79/81, but ranks it first in only 26 and 56; the app kept only 6 WASB peaks. Problem = choosing, not seeing. results/ball/probe.md

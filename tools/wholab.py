@@ -14,7 +14,7 @@ Hd = {k: H[k] for k in range(n)}
 frames_, bm = P.carriers(per, ball, Hd)
 jit = [np.linalg.norm(bm[k] - bm[k - 1]) for k in bm if k - 1 in bm]
 print("real clip: frame-to-frame ball step median m", round(float(np.median(jit)), 2), "-> x fps =", round(float(np.median(jit)) * fps, 1), "m/s")
-for sw in ():
+for sw in (None,):
     st, _ = P.viterbi(per, P.clean_ball(dict(bm), L, W), fps, L, W, speed_win_s=sw); st = np.asarray(st)
     live = np.isin(st, [0, 1]).sum()
     ar = P.direction_from_keepers(per, L, log=q) or {"A": True, "B": False}
@@ -23,19 +23,22 @@ for sw in ():
     print(f"speed window {sw}: states {dict(sorted(collections.Counter(st.tolist()).items()))} share loose {100*(st==2).mean():.0f}%, possession A {100*(st==0).sum()/max(1,live):.0f}%, turnovers (3 s rule) {len(tv3)}, (1 s rule) {len(tv)}")
 A = json.load(open("results/review/who_answers.json"))["moments"]
 new_team_dark = "A"
-for sw in ():
-    st, _ = P.viterbi(per, P.clean_ball(dict(bm), L, W), fps, L, W, speed_win_s=sw); st = np.asarray(st)
-    tm = ok_t = lo = ok_l = 0
+PD = P.pixel_dist(per, ball, Hd)
+for sw, dd in ((None, None), (0.6, None), (None, PD), (0.6, PD), (-0.6, PD)):
+    st, _ = P.viterbi(per, P.clean_ball(dict(bm), L, W), fps, L, W, speed_win_s=sw, dist=dd); st = np.asarray(st)
+    tm = ok_t = lo = ok_l = 0; half = {1: [0, 0], 2: [0, 0]}
     for a in A:
         s = int(st[a["frame"]]) if a["frame"] < len(st) else None
         if a["truth"] in ("white", "dark"):
-            tm += 1; want = 0 if a["truth"] == "dark" else 1; ok_t += (s == want)
-        elif a["truth"] == "loose": lo += 1; ok_l += (s == 2)
-    print(f"speed window {sw}: team moments right {ok_t}/{tm}, loose moments right {ok_l}/{lo}")
-st, _ = P.viterbi(per, P.clean_ball(dict(bm), L, W), fps, L, W); st = np.asarray(st)
-from collections import Counter
-print("team per kit check: rows at frame 0", Counter(r[1] for r in per[0]))
+            tm += 1; want = 0 if a["truth"] == "dark" else 1; ok_t += (s == want); r = s == want
+        elif a["truth"] == "loose": lo += 1; ok_l += (s == 2); r = s == 2
+        else: continue
+        h = half[1 if a["n"] < 100 else 2]; h[0] += r; h[1] += 1
+    print(f"speed window {sw}, {'pixel' if dd else 'metre'} distances: team moments right {ok_t}/{tm}, loose moments right {ok_l}/{lo} | all {ok_t + ok_l}/{tm + lo} (first key {half[1][0]}/{half[1][1]}, second key {half[2][0]}/{half[2][1]})")
+st = P.possession_simple(per, ball, Hd, n)
+r = {"team": [0, 0], "loose": [0, 0]}
 for a in A:
     if a["truth"] == "unsure": continue
-    k = a["frame"]; s = int(st[k]); f = frames_[k]
-    print(a["n"], a["truth"], "state", P.STATES[s], "| carrier team", f.get("team"), "| ball seen", k in bm, "| states +-0.5s", "".join(P.STATES[x][0] for x in st[k-15:k+16:5]))
+    want = {"dark": 0, "white": 1, "loose": 2}[a["truth"]]; key = "loose" if want == 2 else "team"
+    r[key][0] += int(st[a["frame"]] == want); r[key][1] += 1
+print(f"possession_simple: team moments right {r['team'][0]}/{r['team'][1]}, loose moments right {r['loose'][0]}/{r['loose'][1]}; possession dark {100 * (st == 0).sum() / max(1, np.isin(st, [0, 1]).sum()):.0f}%, loose {100 * (st == 2).mean():.0f}% of the clip")
