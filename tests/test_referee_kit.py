@@ -15,5 +15,5 @@ print("OK", f"referees {sum(refs)}/{len(refs)}, keepers and players never")
 # held-out crops from 6 other frames, never used to set the thresholds: 22/22 on 28 Sep
 hr = {os.path.basename(f): T.referee_kit(cv2.imread(f), (0, 0, cv2.imread(f).shape[1], cv2.imread(f).shape[0])) for f in sorted(glob.glob(f"{HELD}/*.png"))}
 bad = [n for n, v in hr.items() if v != (n.startswith("ref"))]
-assert len(hr) == 22 and not bad, bad
-print("held-out OK 22/22")
+assert len(hr) == 23 and not bad, bad
+print("held-out OK 23/23")

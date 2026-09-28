@@ -14,7 +14,7 @@ def _is_referee_bib(c):
     orange = ((h >= 5) & (h <= 28) & (s > 140) & (v > 120)).mean()
     return orange > 0.35
 
-def referee_kit(frame, xyxy, torso_min=0.2, shorts_max=0.2):
+def referee_kit(frame, xyxy, torso_min=0.2, shorts_max=0.2, shorts_bright_max=130.0):
     """28 Sep: the SFK-BP referee wears an orange/yellow top with dark shorts; the keepers wear orange tops AND orange
     shorts. Measured on crops (tests/data/kits): orange torso >= 0.25 for referees and keepers, <= 0.06 for players;
     shorts orange 0.00 for referees (one crop overlapped a player), 0.27-0.83 for keepers. The old rule
@@ -22,11 +22,14 @@ def referee_kit(frame, xyxy, torso_min=0.2, shorts_max=0.2):
     x1, y1, x2, y2 = [float(v) for v in xyxy]; h, w = y2 - y1, x2 - x1
     def frac(a, b):
         c = frame[max(0, int(y1 + a * h)):max(0, int(y1 + b * h)), max(0, int(x1 + 0.2 * w)):max(0, int(x1 + 0.8 * w))]
-        if c.size == 0: return None
+        if c.size == 0: return None, None
         p = cv2.cvtColor(c, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(int); p = p[~((p[:, 0] > 30) & (p[:, 0] < 95) & (p[:, 1] > 60))]
-        return None if len(p) < 3 else float(((p[:, 0] >= 5) & (p[:, 0] <= 35) & (p[:, 1] > 100) & (p[:, 2] > 100)).mean())
-    t, sh = frac(0.18, 0.5), frac(0.5, 0.68)
-    return t is not None and t >= torso_min and (sh is None or sh < shorts_max)
+        if len(p) < 3: return None, None
+        return float(((p[:, 0] >= 5) & (p[:, 0] <= 35) & (p[:, 1] > 100) & (p[:, 2] > 100)).mean()), float(np.median(p[:, 2]))
+    (t, _), (sh, sv_) = frac(0.18, 0.5), frac(0.5, 0.68)
+    # 28 Sep (2nd check, other detector boxes): a keeper's shorts were only 17% orange but BRIGHT (197); the referee's are
+    # dark (37-86). So: orange top AND shorts neither orange nor bright.
+    return t is not None and t >= torso_min and (sh is None or (sh < shorts_max and sv_ < shorts_bright_max))
 
 def _dark_frac(c):
     hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV); grass = (hsv[..., 0] > 30) & (hsv[..., 0] < 95) & (hsv[..., 1] > 80)

@@ -490,6 +490,25 @@ def stat_review(match_id: str = "SFKBP1109_s1200", n_poss: int = 40):
     items = SR.pictures(get, md, stops, poss, fps); cap.release()
     return {"match": match_id, "teams": md.get("teams"), "restarts": len(stops), "possession_moments": len(poss), "items": items}
 
+@app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
+def player_bench(match_id: str, n: int = 10):
+    """28 Sep: player detection on n frames spread over a whole match, drawn by threshold level (playerbench.py). CPU only."""
+    import cv2, time
+    S = _setup(); from ipanema import playerbench as PB, tracking as TR, teams as T
+    from ultralytics import YOLO
+    video = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if video is None: return {"match": match_id, "error": "video not on the volume"}
+    t0 = time.time(); cap = cv2.VideoCapture(video); nf = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); frames = []
+    for k in PB.pick_frames(nf, n):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+        if ok: frames.append((k, f))
+    cap.release(); model = YOLO(S.weights["player"]); out = []
+    for k, f in frames:
+        det, names = TR.detect_tiled_batch(model, [f], 0.10, TR.FOLLOW_TILES, imgsz=960, half=False)[0]
+        boxes = PB.classify(det, names, f, T.referee_kit)
+        out.append({"frame": k, "size": [f.shape[1], f.shape[0]], "boxes": boxes, "img": PB.jpg(PB.draw(f, boxes, f"{match_id[:28]} f{k}"))})
+    return {"match": match_id, "frames": len(out), "seconds": round(time.time() - t0), "items": out}
+
 @app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
 def export_events(match_id: str, types: list):
     """events of the given types from a match's exported data (reads the volume only)"""

@@ -241,6 +241,16 @@ jobs:
           python scripts_ballmatch.py
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/datasets && git commit -qm "ball match status" && git pull -q --rebase origin main && git push
+      - name: player detection pictures on all footage (commit tagged [playerbench:<ids>]) - CPU
+        if: contains(github.event.head_commit.message, '[playerbench:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          mkdir -p results/qa/players && python scripts_playerbench.py
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/qa && git commit -qm "player bench pictures" && git pull -q --rebase origin main && git push
       - name: stat answer-key pictures (commit tagged [statreview:<match>]) - CPU
         if: contains(github.event.head_commit.message, '[statreview:')
         env:
