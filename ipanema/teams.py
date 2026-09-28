@@ -58,9 +58,9 @@ class TeamModel:
             res = model(f, conf=conf, verbose=False)[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True)
             for j in range(len(det)):
                 cls = res.names[int(det.class_id[j])].lower() if det.class_id is not None else "player"
-                if "referee" in cls or "goalkeeper" in cls: continue
+                if "goalkeeper" in cls: continue                                 # 28 Sep: "referee" boxes are mostly our black-shirted players
                 c = shirt(f, det.xyxy[j])
-                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8 and not _is_referee_bib(c): crops.append(c)
+                if c.size and c.shape[0] >= 12 and c.shape[1] >= 8 and not _is_referee_bib(c) and not referee_kit(f, det.xyxy[j]): crops.append(c)
             if len(crops) >= max_crops: break
         import random, torch; random.seed(0); np.random.seed(0); torch.manual_seed(0)
         self.clf.fit(crops); labels = np.array(self.clf.predict(crops))

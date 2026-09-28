@@ -119,8 +119,12 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
         else:
             res = model(f, conf=conf, verbose=False, **({"imgsz": imgsz} if imgsz else {}))[0]; det = sv.Detections.from_ultralytics(res).with_nms(0.5, class_agnostic=True); names = res.names
         _t2 = _time.time(); prof["detect"] += _t2 - _t
-        ref_id = next((i for i, nm in names.items() if "referee" in nm.lower()), None)
-        if ref_id is not None: det = det[det.class_id != ref_id]
+        # 28 Sep: NOT dropped any more. The detector was trained on pro football where referees wear black, so on our
+        # footage it labels black-shirted players "referee" (player check on all footage: up to 5 per frame; the real
+        # referee in light blue was labelled player). Referees are removed by their kit in the team check instead.
+        if os.environ.get("IPANEMA_DROP_MODEL_REFEREE", "0") == "1":
+            ref_id = next((i for i, nm in names.items() if "referee" in nm.lower()), None)
+            if ref_id is not None: det = det[det.class_id != ref_id]
         if hasattr(tracker, "update_with_detections"): det = tracker.update_with_detections(det)
         else:
             import numpy as _np
