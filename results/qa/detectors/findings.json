@@ -1,0 +1,23 @@
+{
+ "date": "2026-09-28",
+ "how": "30 clean frames (SFK-BP panorama recording, SFK-AIK, Vasalund), same 3 tiles as tracking, free GitHub runner, CPU",
+ "counts": {
+  "current_kept": 396,
+  "current_deleted_as_referee": 39,
+  "rfdetr_medium_coco_person": 553
+ },
+ "graded_by_eye": {
+  "Vasalund f63338": "on-pitch players 14: current 7, RF-DETR 14 (+3 off pitch)",
+  "Vasalund f134467": "12: current 10 (#28 deleted as referee), RF-DETR 12 (+bench people)",
+  "AIK f77326": "about 16: current 13 kept, RF-DETR 16-17"
+ },
+ "speed_cpu_sec_per_frame": {
+  "current": 9.0,
+  "rfdetr": 2.3
+ },
+ "licence": {
+  "ultralytics": "AGPL-3.0 (checked pip metadata)",
+  "rfdetr": "Apache 2.0 (checked)"
+ },
+ "conclusion": "off-the-shelf RF-DETR person detection (no football training, no black-referee bias) finds clearly more of our players than the football model; extras are people off the pitch, which the pitch filter removes"
+}
