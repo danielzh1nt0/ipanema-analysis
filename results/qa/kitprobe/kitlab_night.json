@@ -1,0 +1,128 @@
+{
+ "L/2.5 grass_d 16.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "62/71",
+   "wrong team": 8,
+   "other kept out": "13/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 214,
+    "B": 117,
+    "K": 99,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 206,
+    "B": 169,
+    "K": 141,
+    "null": 0
+   }
+  }
+ },
+ "L/2.5 grass_d 24.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "61/71",
+   "wrong team": 9,
+   "other kept out": "13/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 258,
+    "B": 101,
+    "K": 71,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 189,
+    "B": 175,
+    "K": 152,
+    "null": 0
+   }
+  }
+ },
+ "L/1.5 grass_d 16.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "60/71",
+   "wrong team": 8,
+   "other kept out": "12/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 174,
+    "B": 98,
+    "K": 158,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 171,
+    "B": 133,
+    "K": 212,
+    "null": 0
+   }
+  }
+ },
+ "L/1.5 grass_d 24.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "59/71",
+   "wrong team": 9,
+   "other kept out": "12/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 258,
+    "B": 117,
+    "K": 55,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 179,
+    "B": 164,
+    "K": 173,
+    "null": 0
+   }
+  }
+ },
+ "L/1.0 grass_d 16.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "54/71",
+   "wrong team": 6,
+   "other kept out": "8/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 178,
+    "B": 95,
+    "K": 157,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 166,
+    "B": 135,
+    "K": 215,
+    "null": 0
+   }
+  }
+ },
+ "L/1.0 grass_d 24.0": {
+  "reymersholm (93 labelled)": {
+   "team right": "56/71",
+   "wrong team": 8,
+   "other kept out": "8/14"
+  },
+  "team balance spanga / sfk": {
+   "p15u-vs-spanga-2026-09-25": {
+    "A": 254,
+    "B": 109,
+    "K": 67,
+    "null": 0
+   },
+   "SFKBP1109_s1200": {
+    "A": 163,
+    "B": 133,
+    "K": 220,
+    "null": 0
+   }
+  }
+ }
+}
