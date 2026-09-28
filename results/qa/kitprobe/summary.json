@@ -1,0 +1,74 @@
+{
+ "p15u-vs-reymersholm-2026-09-18 current": {
+  "A": 112,
+  "B": 222,
+  "K": 80,
+  "none": 0
+ },
+ "p15u-vs-reymersholm-2026-09-18 pitch_only": {
+  "A": 236,
+  "B": 72,
+  "K": 106,
+  "none": 0
+ },
+ "p15u-vs-reymersholm-2026-09-18 green_kit": {
+  "A": 112,
+  "B": 222,
+  "K": 80,
+  "none": 0
+ },
+ "p15u-vs-reymersholm-2026-09-18 both": {
+  "A": 236,
+  "B": 72,
+  "K": 106,
+  "none": 0
+ },
+ "p15u-vs-spanga-2026-09-25 current": {
+  "A": 184,
+  "B": 139,
+  "K": 107,
+  "none": 0
+ },
+ "p15u-vs-spanga-2026-09-25 pitch_only": {
+  "A": 214,
+  "B": 122,
+  "K": 94,
+  "none": 0
+ },
+ "p15u-vs-spanga-2026-09-25 green_kit": {
+  "A": 184,
+  "B": 138,
+  "K": 108,
+  "none": 0
+ },
+ "p15u-vs-spanga-2026-09-25 both": {
+  "A": 215,
+  "B": 121,
+  "K": 94,
+  "none": 0
+ },
+ "SFKBP1109_s1200 current": {
+  "A": 201,
+  "B": 173,
+  "K": 142,
+  "none": 0
+ },
+ "SFKBP1109_s1200 pitch_only": {
+  "A": 193,
+  "B": 173,
+  "K": 150,
+  "none": 0
+ },
+ "SFKBP1109_s1200 green_kit": {
+  "A": 201,
+  "B": 173,
+  "K": 142,
+  "none": 0
+ },
+ "SFKBP1109_s1200 both": {
+  "A": 193,
+  "B": 173,
+  "K": 150,
+  "none": 0
+ }
+}
