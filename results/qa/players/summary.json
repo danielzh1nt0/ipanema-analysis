@@ -1,26 +1,14 @@
 {
+ "SFKBP1109": {
+  "frames": 10,
+  "seconds": 104
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "frames": 10,
+  "seconds": 97
+ },
  "p15u-vs-vasalund-2026-09-20": {
   "frames": 10,
-  "seconds": 148
- },
- "p15u-vs-spanga-2026-09-25": {
-  "frames": 10,
-  "seconds": 154
- },
- "p15u-vs-djursholm-2026-09-26": {
-  "frames": 10,
-  "seconds": 208
- },
- "solberga-vs-p09-norrviken-2026-09-11": {
-  "frames": 10,
-  "seconds": 176
- },
- "p15u-vs-reymersholm-2026-09-18": {
-  "frames": 10,
-  "seconds": 156
- },
- "p09-norrviken-vs-solheim-2026-08-30": {
-  "frames": 10,
-  "seconds": 162
+  "seconds": 135
  }
 }
