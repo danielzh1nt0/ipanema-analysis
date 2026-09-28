@@ -177,7 +177,7 @@ jobs:
               print(rel, out["bytes"], "bytes in", out["parts"], "parts")
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
-          git add -f results/volume && git commit -qm "fetched from the volume" && git push
+          git add -f results/volume && git commit -qm "fetched from the volume" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: WASB on the clip keeping 30 local peaks per frame, then copy the cache into the repo (commit tagged [wasb30]) - GPU about 5 min, approved by Daniel 28 Sep
         if: contains(github.event.head_commit.message, '[wasb30]')
         env:
