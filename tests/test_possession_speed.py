@@ -27,3 +27,9 @@ def test_possession_simple_uses_picture_distance():
     ball.update({k: (120.0, 100.0) for k in range(20, 30)})                  # between: loose
     st = P.possession_simple(per, ball, H, 30, near_m=1.5, smooth=2)
     assert list(st[:8]) == [0] * 8 and list(st[12:18]) == [1] * 6 and list(st[22:]) == [2] * 8
+
+
+def test_pixel_dist_with_player_height_ruler():
+    per = {0: [[1, "A", None, np.array([100.0, 100.0]), None, False], [2, "B", None, np.array([300.0, 100.0]), None, False]]}
+    d = P.pixel_dist(per, {0: (110.0, 100.0)}, None, boxh={0: [175.0, 175.0]})     # 175 px tall = 1.75 m -> 1 px = 1 cm
+    assert abs(d[0]["A"] - 0.1) < 1e-6 and abs(d[0]["B"] - 1.9) < 1e-6

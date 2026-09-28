@@ -495,17 +495,17 @@ image_rf = (modal.Image.debian_slim(python_version="3.11")
             .pip_install("rfdetr==1.11.0", "supervision", "opencv-python-headless", "scipy", "requests"))
 
 @app.function(gpu="L4", image=image_rf, timeout=90 * 60, secrets=[modal.Secret.from_name("ipanema-storage")])
-def tracktest_rf(start_s: float = 60.0, dur_s: float = 20.0, batch: int = 8):
+def tracktest_rf(start_s: float = 60.0, dur_s: float = 20.0, batch: int = 8, match: str = "SFKBP1109_s1200"):
     """28 Sep: tools/tracktest.py (before vs new pipeline with RF-DETR) on a GPU, in its OWN image so the main pipeline image
     is untouched. Returns the result files (pictures, table, all rows) + timing."""
     import subprocess, time, base64, glob, torch
     subprocess.run(f"rm -rf /content/ia && git clone -q --depth 1 {REPO} /content/ia", shell=True, check=True)
-    env = dict(os.environ, START_S=str(start_s), DUR_S=str(dur_s), SKIP_INSTALL="1", SAVE_ALL_ROWS="1", DETECTORS="rfdetr",
+    env = dict(os.environ, MATCH=match, START_S=str(start_s), DUR_S=str(dur_s), SKIP_INSTALL="1", SAVE_ALL_ROWS="1", DETECTORS="rfdetr",
                IPANEMA_DET_BATCH=str(batch), IPANEMA_LOG_EVERY="500"); env.pop("GITHUB_ACTIONS", None)
     t0 = time.time(); r = subprocess.run(["python", "tools/tracktest.py"], cwd="/content/ia", env=env, capture_output=True, text=True)
     out = {"gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "none", "minutes": round((time.time() - t0) / 60, 1),
            "returncode": r.returncode, "log_tail": (r.stdout + r.stderr)[-4000:], "files": {}}
-    for f in glob.glob("/content/ia/results/qa/tracktest/*"):
+    for f in glob.glob("/content/ia/results/qa/tracktest/*" if match == "SFKBP1109_s1200" else f"/content/ia/results/qa/tracktest_{match}/*"):
         out["files"][os.path.basename(f)] = base64.b64encode(open(f, "rb").read()).decode()
     return out
 

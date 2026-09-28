@@ -85,12 +85,21 @@ def viterbi(per, ballm, fps, L, W, max_speed=35.0, flight_speed=10.0, speed_win_
         i = j + 1
     return state, bspeed
 
-def pixel_dist(per, ball_px, H, max_m=30.0):
+def pixel_dist(per, ball_px, H, max_m=30.0, boxh=None, body_m=1.75):
     """28 Sep (E2): ball-to-nearest-player distance per team measured in the PICTURE (ball vs feet pixels), turned into
     metres with the side-to-side scale at the ball only. Pitch-metre distances blow up with depth on the far side (one
     pixel up/down = metres), so a ball at a player's feet looked metres away. On 34 graded moments the nearest team in
     pixels was right 32 times. -> {frame: {"A": m, "B": m}} for viterbi(dist=...)."""
     out = {}
+    if boxh is not None:                      # no pitch calibration: the nearest player's height in the picture is the ruler
+        for k, b in ball_px.items():
+            if k not in per: continue
+            hs = boxh.get(k) or [None] * len(per[k]); d = {}
+            for tm in ("A", "B"):
+                c = [(np.hypot(r[3][0] - b[0], r[3][1] - b[1]), h) for r, h in zip(per[k], hs) if r[1] == tm and r[3] is not None and h]
+                d[tm] = min(max_m, min(dd * body_m / h for dd, h in c)) if c else max_m
+            out[k] = d
+        return out
     for k, b in ball_px.items():
         Hk = H.get(k) if isinstance(H, dict) else H[k]
         if Hk is None or k not in per: continue
@@ -105,13 +114,13 @@ def pixel_dist(per, ball_px, H, max_m=30.0):
         out[k] = d
     return out
 
-def possession_simple(per, ball_px, H, n, near_m=1.5, smooth=6):
+def possession_simple(per, ball_px, H, n, near_m=1.5, smooth=6, boxh=None):
     """28 Sep (E2): who has the ball = the team whose nearest player's feet are closest to the ball IN THE PICTURE,
     if within near_m (pixel distance x side-to-side scale), else loose (2); majority over +-smooth frames.
     On 61 graded moments of our SFK-BP clip: 51/61 right (the viterbi model: 27/61); held on both halves of the key
     (22-23/24 and 28-29/37). No ball-speed rule: our speed estimate is too noisy (it cost 9-10 moments).
     Frames without a ball pick keep the previous state. Not yet checked on other grounds (no answer key there)."""
-    D = pixel_dist(per, ball_px, H); raw = np.full(n, -1)
+    D = pixel_dist(per, ball_px, H, boxh=boxh); raw = np.full(n, -1)
     for k, d in D.items():
         if 0 <= k < n: t = min(d, key=d.get); raw[k] = 2 if d[t] > near_m else (0 if t == "A" else 1)
     last = 2

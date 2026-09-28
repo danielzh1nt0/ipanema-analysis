@@ -59,6 +59,7 @@ c = cv2.VideoCapture(piece)
 for j in KEYS:
     c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
     if ok: cv2.imwrite(f"{OUT}/raw_{j:04d}.jpg", f, [cv2.IMWRITE_JPEG_QUALITY, 92])
+BOXH = {}
 for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
     os.environ["IPANEMA_DETECTOR"] = name; t0 = time.time()
     if name == "rfdetr": det = TR.RFDetrPerson("medium"); detect = lambda f: [b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy]
@@ -77,6 +78,7 @@ for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
             if len(r) <= 6: ids.setdefault(r[0], []).append(k)
     label = {"yolo": "new, old detector", "rfdetr": "new, RF-DETR"}[name]
     ROWS[label] = ({k: [(r[0], r[1], None if r[3] is None else [float(r[3][0]), float(r[3][1])], len(r) > 6) for r in per.get(k, [])] for k in range(n)}, "A")   # new: A = darker kit
+    BOXH[label] = {k: [None if r[4] is None else round(float(r[4][3] - r[4][1]), 1) for r in per.get(k, [])] for k in range(n)}   # box heights (px), same order
     rep[label] = dict(metrics(*ROWS[label]), minutes=round((time.time() - t0) / 60, 1), filled_rows=nf); name = label
     log(f"{name}: {rep[name]}")
     for t in ("A", "B"): cv2.imwrite(f"{OUT}/{name.replace(',', '').replace(' ', '_')}_kit_{t}.png", tm.strips[t])
@@ -85,7 +87,8 @@ for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
 json.dump({v: {str(k): r for k, r in rows.items() if k in KEYS} for v, (rows, _) in ROWS.items()}, open(f"{OUT}/rows_keyframes.json", "w"))
 import gzip
 if os.environ.get("SAVE_ALL_ROWS"):
-    with gzip.open(f"{OUT}/rows_all.json.gz", "wt") as fh: json.dump({"k0": k0, "fps": fps, "rows": {v: {str(k): r for k, r in rows.items()} for v, (rows, _) in ROWS.items()}}, fh)
+    with gzip.open(f"{OUT}/rows_all.json.gz", "wt") as fh: json.dump({"k0": k0, "fps": fps, "rows": {v: {str(k): r for k, r in rows.items()} for v, (rows, _) in ROWS.items()},
+                   "box_h": {v: {str(k): h for k, h in hh.items()} for v, hh in BOXH.items()}}, fh)
 for j in KEYS:
     f0 = cv2.imread(f"{OUT}/raw_{j:04d}.jpg")
     if f0 is None: continue
