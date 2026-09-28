@@ -12,7 +12,9 @@ def log(m):
     print(time.strftime("%H:%M:%S"), m, flush=True); open(f"{OUT}/log.txt", "a").write(f"{time.strftime('%H:%M:%S')} {m}\n")
     if os.environ.get("GITHUB_ACTIONS") and time.time() - _last[0] > 300:                  # 28 Sep: progress visible while it runs
         _last[0] = time.time(); subprocess.run(f"git add {OUT}/log.txt && git -c user.name=free-bot -c user.email=bot@ipanema commit -qm 'tracktest progress' && git pull -q --rebase origin main && git push -q origin main", shell=True)
-src = os.environ.get("LOCAL_CLIP") or (os.environ.get("R2_PUBLIC_URL", "").rstrip("/") + "/SFKBP1109_s1200/video.mp4")
+MATCH = os.environ.get("MATCH", "SFKBP1109_s1200"); SFK = MATCH == "SFKBP1109_s1200"
+if not SFK: OUT = f"results/qa/tracktest_{MATCH}"; os.makedirs(OUT, exist_ok=True)
+src = os.environ.get("LOCAL_CLIP") or (os.environ.get("R2_PUBLIC_URL", "").rstrip("/") + f"/{MATCH}/video.mp4")
 cap = cv2.VideoCapture(src); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n_all = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); log(f"clip {src[-45:]}: {n_all} frames @ {fps:.2f}")
 if n_all < 100: log("clip not reachable on R2"); sys.exit(1)
 k0 = int(START_S * fps); n = int(DUR_S * fps); cap.set(cv2.CAP_PROP_POS_FRAMES, k0); piece = "/tmp/piece.mp4"
@@ -23,8 +25,12 @@ for i in range(n):
     if w is None: w = cv2.VideoWriter(piece, cv2.VideoWriter_fourcc(*"mp4v"), fps, (f.shape[1], f.shape[0]))
     w.write(f)
 w.release(); cap.release()
-rows = LC.find_rows(os.getcwd(), "SFKBP1109_s1200")
-cal = LC.calibration_for_clip(rows[2], n, fps, 1920, 1080, offset_s=1200 + START_S, log=log); H = cal["H"]; L, W = cal["L"], cal["W"]
+if SFK:
+    rows = LC.find_rows(os.getcwd(), "SFKBP1109_s1200")
+    cal = LC.calibration_for_clip(rows[2], n, fps, 1920, 1080, offset_s=1200 + START_S, log=log); H = cal["H"]; L, W = cal["L"], cal["W"]
+else:                                                                           # ground not calibrated yet: pixels scaled to a pitch-sized box
+    L, W = 106.0, 64.0; S_ = np.array([[1920 / L, 0, 0], [0, 1080 / W, 0], [0, 0, 1.0]]); H = {k: S_ for k in range(n)}
+    log("no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)")
 def sample_frames(detect, m=12):
     c = cv2.VideoCapture(piece); out = []
     for j in np.linspace(0, n - 1, m).astype(int):
@@ -45,9 +51,10 @@ def metrics(rows_by_k, dark_label):
             if not r[3]: ids.setdefault((r[0], lab(r[1])), []).append(k)
     tl = {t: [len(v) / fps for (i, tt), v in ids.items() if tt == t] for t in ("dark", "light")}
     return {"observed_per_frame": obs, "shown_per_frame": allr, "tracks": len(ids), "median_track_s": {t: round(float(np.median(v)), 2) if v else None for t, v in tl.items()}}
-md = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/match_data.json")); prior_dark = md["teams"]["dark"]
-ROWS["before (app, 27 Sep)"] = ({k - k0: [(p["id"], p["team"], p["px"], False) for p in md["frames"][k]["players"]] for k in range(k0, k0 + n)}, prior_dark)
-rep["before (app, 27 Sep)"] = metrics(*ROWS["before (app, 27 Sep)"]); log(f"before: {rep['before (app, 27 Sep)']}")
+if SFK:
+    md = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/match_data.json")); prior_dark = md["teams"]["dark"]
+    ROWS["before (app, 27 Sep)"] = ({k - k0: [(p["id"], p["team"], p["px"], False) for p in md["frames"][k]["players"]] for k in range(k0, k0 + n)}, prior_dark)
+    rep["before (app, 27 Sep)"] = metrics(*ROWS["before (app, 27 Sep)"]); log(f"before: {rep['before (app, 27 Sep)']}")
 c = cv2.VideoCapture(piece)
 for j in KEYS:
     c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
