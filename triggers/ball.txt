@@ -1,1 +1,1 @@
-fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x1.zip Sun Sep 27 22:36:29 UTC 2026 round 9 clicks + Vasalund labels Daniel checked 19/20 (Daniel: do it)
+fast auto=0 ds=/data/match_analysis/labels/SFKBP1109_ball_ds_auto0_x1.zip Mon Sep 28 00:38:58 UTC 2026 round 9 again (first try sat in the GPU queue until GitHub's 2 h limit)

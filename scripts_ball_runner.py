@@ -6,7 +6,12 @@ try:
     trig = open("triggers/ball.txt").read().lower(); fast = "fast" in trig
     trig = open("triggers/ball.txt").read(); n_auto = int(next((w[5:] for w in trig.split() if w.startswith("auto=")), "0"))
     dz = next((w[3:] for w in trig.split() if w.startswith("ds=")), "")
-    res = modal.Function.from_name("ipanema", "ball_round").remote("SFKBP1109", 40 if fast else 60, fast, "/data/match_analysis/models/ball/clicks_v1.pt" if fast else "", n_auto, 25.0, dz)
+    call = modal.Function.from_name("ipanema", "ball_round").spawn("SFKBP1109", 40 if fast else 60, fast, "/data/match_analysis/models/ball/clicks_v1.pt" if fast else "", n_auto, 25.0, dz)
+    log(f"submitted to Modal ({call.object_id}); waiting (a queue for GPUs costs nothing)"); t0 = time.time()
+    while True:                                                            # 28 Sep: round 9 sat 2 h in the GPU queue behind ball_match with no trace
+        try: res = call.get(timeout=300); break
+        except modal.exception.FunctionTimeoutError: raise                 # the round itself ran out of time: a real failure
+        except (TimeoutError, modal.exception.TimeoutError): log(f"still waiting or running, {(time.time() - t0) / 60:.0f} min")
     if "error" in res: log(res["error"]); sys.exit(1)
     for l in res["log"]: log(l)
     for k, v in res["pictures"].items(): open(f"{OUT}/exam/{k}", "wb").write(base64.b64decode(v))
