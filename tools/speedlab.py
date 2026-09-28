@@ -4,7 +4,7 @@ import tools.metricalab as ML, tools.turnoverlab as TL
 from ipanema import possession as P, analytics as AN
 out = []
 for g in ("Sample_Game_1", "Sample_Game_2"):
-    d = ff"{sys.argv[1]}/{g}"
+    d = f"{sys.argv[1]}/{g}"
     home = ML.load_tracking(f"{d}/{g}_RawTrackingData_Home_Team.csv", 100); away = ML.load_tracking(f"{d}/{g}_RawTrackingData_Away_Team.csv", 200)
     frames = {k: (home[k][0], home[k][1] + away[k][1], home[k][2]) for k in home}
     ev = ML.load_events(f"{d}/{g}_RawEventsData.csv"); byper = {}
