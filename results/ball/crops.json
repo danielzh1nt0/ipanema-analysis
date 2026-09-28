@@ -1,0 +1,20 @@
+{
+ "file": "cache/ballcrops/SFKBP1109_crops.npz",
+ "crops": 6020,
+ "ball": 381,
+ "not_ball": 5639,
+ "MB": 41.4,
+ "minutes": 6.6,
+ "log": [
+  "    42s match: 50/436 frames, 635 crops",
+  "    73s match: 100/436 frames, 1280 crops",
+  "   104s match: 150/436 frames, 1925 crops",
+  "   136s match: 200/436 frames, 2554 crops",
+  "   168s match: 250/436 frames, 3200 crops",
+  "   199s match: 300/436 frames, 3828 crops",
+  "   231s match: 350/436 frames, 4471 crops",
+  "   262s match: 400/436 frames, 5114 crops",
+  "   285s match: 5574 crops",
+  "   391s clip: 446 crops"
+ ]
+}
