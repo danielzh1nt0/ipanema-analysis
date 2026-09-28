@@ -2,8 +2,10 @@
 Per moment: 5 frames (-0.8 s .. +0.8 s), a 480x270 native-resolution crop around our ball pick (2x zoom), players marked
 (A = red dot, B = blue dot), our ball pick = yellow ring. Free runner (clip from R2). -> results/qa/who/strip_*.jpg"""
 import os, json, cv2, numpy as np
-D = json.load(open(os.environ.get("WHO", "results/review/who_moments.json"))); OUT = os.environ.get("WHO_OUT", "results/qa/who"); os.makedirs(OUT, exist_ok=True)
-src = os.environ.get("LOCAL_CLIP") or os.environ["R2_PUBLIC_URL"].rstrip("/") + "/SFKBP1109_s1200/video.mp4"
+import sys
+D = json.load(open(sys.argv[1] if len(sys.argv) > 1 else os.environ.get("WHO", "results/review/who_moments.json")))
+OUT = D.get("out") or os.environ.get("WHO_OUT", "results/qa/who"); OFF = int(D.get("offset_frames", 0)); os.makedirs(OUT, exist_ok=True)
+src = os.environ.get("LOCAL_CLIP") or os.environ["R2_PUBLIC_URL"].rstrip("/") + "/" + D.get("src_key", "SFKBP1109_s1200/video.mp4")
 cap = cv2.VideoCapture(src); print("frames", int(cap.get(cv2.CAP_PROP_FRAME_COUNT)), flush=True)
 tiles_all = []
 for j, m in enumerate(D["moments"]):
@@ -12,7 +14,7 @@ for j, m in enumerate(D["moments"]):
         pts = [r[2] for r in D["players"].get(str(k), []) if r[2]]; c = np.mean(pts, 0).tolist() if pts else [960, 540]
     x0 = int(min(max(c[0] - 240, 0), 1920 - 480)); y0 = int(min(max(c[1] - 135, 0), 1080 - 270)); row = []
     for d in range(-24, 25, 12):
-        cap.set(cv2.CAP_PROP_POS_FRAMES, k + d); ok, f = cap.read()
+        cap.set(cv2.CAP_PROP_POS_FRAMES, OFF + k + d); ok, f = cap.read()
         if not ok: f = np.zeros((1080, 1920, 3), np.uint8)
         for pid, tm, px, fl in D["players"].get(str(k + d), []):
             if px: cv2.circle(f, (int(px[0]), int(px[1]) + 6), 5, (0, 0, 255) if tm == "A" else (255, 0, 0) if tm == "B" else (200, 200, 200), -1)
