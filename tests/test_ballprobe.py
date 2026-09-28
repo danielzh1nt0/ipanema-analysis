@@ -49,3 +49,13 @@ def test_wasb_local_peaks_keep_more_than_six():
     z = hm * 0; b = WB.tile_boxes()
     assert len(WB.tiled_local_peaks([hm, z, z, z], b, 0.05, 30)) == 10
     assert len(WB.tiled_heatmaps_to_peaks([hm, z, z, z], b, 0.05)) == 6
+
+
+def test_crop3_edges_and_labels():
+    f = np.zeros((100, 200, 3), np.uint8); f[50, 100] = 200
+    c = BP.crop3((f, f, f), 100, 50, 32); assert c.shape == (3, 32, 32, 3) and c[1, 16, 16, 0] == 200
+    e = BP.crop3((f, f, f), 2, 2, 32); assert e.shape == (3, 32, 32, 3)
+    lab = BP.label_guesses([(10, 10, 0.9), (52, 50, 0.5), (70, 50, 0.4), (500, 500, 0.3)], (50, 50))
+    assert [l[3] for l in lab] == [1, 0, 0] and lab[0][:2] == (52, 50)       # 70,50 is 20 px away: left out
+    lab = BP.label_guesses([(10, 10, 0.9)], (50, 50)); assert lab[0] == (50.0, 50.0, -1.0, 1) and lab[1][3] == 0
+    assert all(l[3] == 0 for l in BP.label_guesses([(1, 1, 0.2), (5, 5, 0.1)], None))

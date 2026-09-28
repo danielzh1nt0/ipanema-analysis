@@ -1696,6 +1696,65 @@ def ball_probe(clip_id: str = "SFKBP1109_s1200", match_id: str = "SFKBP1109", co
     out["minutes"] = round((time.time() - t0) / 60, 1); out["log"] = logs[-40:]
     return out
 
+@app.function(gpu="L4", timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_crops(match_id: str = "SFKBP1109", clip_id: str = "SFKBP1109_s1200", size: int = 32, n_neg: int = 12, dry: bool = False):
+    """T0 (28 Sep): training pictures for a ball-vs-not scorer. At every frame Daniel clicked (436, split train/exam) and
+    the 34 clip moments: WASB's up to 30 local peaks (>= 0.05) + the click finder's guesses (>= 0.01); a 3-frame crop
+    around each, labelled 1 = on the click (<= 10 px), 0 = > 30 px away or no ball in the frame. -> cache/ballcrops/*.npz"""
+    import json as _j, cv2, numpy as np, torch, time
+    S = _setup(); from ipanema import ballclicks as BC, ballprobe as BP, wasb as WB, video as V
+    t0 = time.time(); logs = []; L = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    if dry:                                                                    # offline test: stand-in finders
+        clk = lambda img, c: [(100.0, 100.0, 0.5)]; wasb = lambda f3: [(100.0, 100.0, 0.7), (300.0, 300.0, 0.2)]
+    else:
+        from ultralytics import YOLO
+        model = YOLO(f"{ROOT}/models/ball/clicks_latest.pt"); clk = lambda img, c: BC.detect(model, img, conf=c, imgsz=1920, far_zoom=True)
+        WB.ensure(ROOT, log=L); net = WB._model(ROOT, "cuda"); boxes = WB.tile_boxes()
+        def wasb(f3):
+            base = [WB.to_base(f) for f in f3]; h, w = f3[1].shape[:2]; fx, fy = w / WB.BASE[0], h / WB.BASE[1]
+            x = torch.from_numpy(np.stack([WB.crop_stack(base, b) for b in boxes])).to("cuda")
+            with torch.no_grad():
+                pred = net(x); pred = list(pred.values())[0] if isinstance(pred, dict) else (pred[0] if isinstance(pred, (list, tuple)) else pred)
+                hms = torch.sigmoid(pred).float().cpu().numpy()
+            return [(px * fx, py * fy, sc) for px, py, sc in WB.tiled_local_peaks([hms[t, 1] for t in range(len(boxes))], boxes, 0.05, 30)]
+    def read3_for(cap):
+        def read3(k):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, k - 1)); fr = []
+            for _ in range(3):
+                ok, f = cap.read()
+                if ok: fr.append(f)
+            if len(fr) < 2: return None
+            while len(fr) < 3: fr.append(fr[-1])
+            return tuple(fr)
+        return read3
+    X, meta = [], []
+    def do(video, moments, tag):
+        cap = cv2.VideoCapture(video); read3 = read3_for(cap); n0 = len(X)
+        for i, m in enumerate(moments):
+            f3 = read3(m["frame"])
+            if f3 is None: continue
+            cands = [(x, y, s) for x, y, s in wasb(f3)] + [(x, y, s) for x, y, s in clk(f3[1], 0.01)]
+            for x, y, s, lab in BP.label_guesses(BP.merge(cands, 6.0), m["truth"], n_neg=n_neg):
+                X.append(BP.crop3(f3, x, y, size)); meta.append([m["id"], m["split"], m["frame"], round(x, 1), round(y, 1), round(s, 4), lab])
+            if (i + 1) % 50 == 0: L(f"{tag}: {i + 1}/{len(moments)} frames, {len(X) - n0} crops")
+        cap.release(); L(f"{tag}: {len(X) - n0} crops")
+    full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+    if full is None: return {"error": "full match video not on the volume"}
+    cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; cap.release()
+    fr = _j.load(open(f"/content/ipanema-analysis/results/labels/{match_id}_ball_clicks.json"))["frames"]
+    if dry: fr = fr[:3]
+    do(full, [{"id": r["file"], "split": r["split"], "frame": int(round(r["t"] * fps)), "truth": (r["x"], r["y"]) if r["x"] is not None else None} for r in fr], "match")
+    video = f"/tmp/work/{clip_id}/video.mp4"
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{clip_id}.mp4", video)
+    mom = _j.load(open("/content/ipanema-analysis/results/picker/moments34.json"))
+    mm = [{"id": str(k), "split": "clip34", "frame": int(k), "truth": v["truth"]} for k, v in sorted(mom.items(), key=lambda z: int(z[0]))]
+    do(video, mm[:2] if dry else mm, "clip")
+    os.makedirs(f"{ROOT}/cache/ballcrops", exist_ok=True); out = f"{ROOT}/cache/ballcrops/{match_id}_crops{'_dry' if dry else ''}.npz"
+    np.savez_compressed(out, X=np.stack(X), meta=np.array(meta, dtype=object)); vol.commit()
+    lab = [m[6] for m in meta]
+    return {"file": os.path.relpath(out, ROOT), "crops": len(X), "ball": lab.count(1), "not_ball": lab.count(0), "MB": round(os.path.getsize(out) / 1e6, 1),
+            "minutes": round((time.time() - t0) / 60, 1), "log": logs[-10:]}
+
 @app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
 def ball_pick_test(match_id: str = "SFKBP1109_s1200"):
     """STEP 2 (CPU, cents): on the clip, from CACHED candidates (WASB + click model) and cached player tracks, run the

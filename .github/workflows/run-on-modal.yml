@@ -197,6 +197,25 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add -f results/volume && git commit -qm "WASB 30 peaks on the clip" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: ball-vs-not training crops (commit tagged [ballcrops]) - GPU, needs Daniel's go
+        if: contains(github.event.head_commit.message, '[ballcrops]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, json, base64
+          out = modal.Function.from_name("ipanema", "ball_crops").remote(); print(json.dumps(out, indent=1))
+          if "error" in out: raise SystemExit(1)
+          f = modal.Function.from_name("ipanema", "fetch_file"); r = f.remote(out["file"], 0)
+          dst = f"results/volume/{r['rel']}"; os.makedirs(os.path.dirname(dst), exist_ok=True)
+          with open(dst, "wb") as fh:
+              fh.write(base64.b64decode(r["b64"]))
+              for part in range(1, r["parts"]): fh.write(base64.b64decode(f.remote(r["rel"], part)["b64"]))
+          os.makedirs("results/ball", exist_ok=True); json.dump(out, open("results/ball/crops.json", "w"), indent=1)
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add -f results/volume results/ball && git commit -qm "ball crops" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: ball probe below the cut-off (commit tagged [ballprobe]) - GPU, a few minutes, approved by Daniel 28 Sep
         if: contains(github.event.head_commit.message, '[ballprobe]')
         env:

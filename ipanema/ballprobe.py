@@ -83,3 +83,27 @@ def run(moments, read3, variants, log=print, keep=30):
         rows.append(r)
         if (i + 1) % 20 == 0: log(f"{i + 1}/{len(moments)} moments")
     return rows
+
+
+def crop3(f3, x, y, size=32):
+    """size x size crop centred on (x, y) from each of the 3 frames, zero-padded at the edges -> (3, size, size, 3) uint8"""
+    h, w = f3[1].shape[:2]; r = size // 2; out = np.zeros((3, size, size, 3), np.uint8)
+    x0, y0 = int(round(x)) - r, int(round(y)) - r
+    sx0, sy0, sx1, sy1 = max(0, x0), max(0, y0), min(w, x0 + size), min(h, y0 + size)
+    if sx1 <= sx0 or sy1 <= sy0: return out
+    for i, f in enumerate(f3): out[i, sy0 - y0:sy1 - y0, sx0 - x0:sx1 - x0] = f[sy0:sy1, sx0:sx1]
+    return out
+
+
+def label_guesses(cands, truth, pos_px=10.0, neg_px=30.0, n_neg=12):
+    """guesses -> [(x, y, score, label)]: 1 = the ball (within pos_px of the click), 0 = not the ball (> neg_px, or no
+    ball in the frame), in-between left out. Keeps every positive and the n_neg strongest negatives. If no guess is on
+    the ball, the click itself is added as a positive (score -1), so the scorer still sees what the ball looks like."""
+    out = []; negs = []
+    for x, y, s in sorted(cands, key=lambda z: -z[2]):
+        if truth is None: negs.append((x, y, s, 0)); continue
+        d = float(np.hypot(x - truth[0], y - truth[1]))
+        if d <= pos_px: out.append((x, y, s, 1))
+        elif d > neg_px: negs.append((x, y, s, 0))
+    if truth is not None and not out: out.append((float(truth[0]), float(truth[1]), -1.0, 1))
+    return out + negs[:n_neg]
