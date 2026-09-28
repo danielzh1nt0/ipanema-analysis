@@ -1,0 +1,29 @@
+[{"stream_name":"stdout","time":0.799293963,"data":"+ nvidia-smi --query-gpu=name --format=csv; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":8.603742869,"data":"name\n"}
+,{"stream_name":"stdout","time":8.603784704,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":8.603791452,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":8.60379652,"data":"2.10.0+cu128 True\n"}
+,{"stream_name":"stdout","time":8.603802013,"data":"\n"}
+,{"stream_name":"stdout","time":8.603806912,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":38.690326674,"data":"\n"}
+,{"stream_name":"stdout","time":38.690375327,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":59.697060069,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 3.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697108881,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 21.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697127479,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.6/391.6 kB 18.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697134151,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 53.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697140197,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697146125,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 100.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697151795,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 20.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697157106,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 71.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":59.697162307,"data":"\n"}
+,{"stream_name":"stdout","time":59.697166823,"data":"+ python -c 'import torch;print(\"after install\", torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":62.566348008,"data":"after install 2.10.0+cu128 True\n"}
+,{"stream_name":"stdout","time":62.56638844,"data":"\n"}
+,{"stream_name":"stdout","time":1255.901204921,"data":"done 0 20.9 min\n"}
+,{"stream_name":"stderr","time":1257.984732907,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1257.984815444,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1258.219520482,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1258.219554746,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1258.878431636,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1260.08237057,"data":"[NbConvertApp] Writing 280622 bytes to __results__.html\n"}
+]
