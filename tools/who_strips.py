@@ -2,7 +2,7 @@
 Per moment: 5 frames (-0.8 s .. +0.8 s), a 480x270 native-resolution crop around our ball pick (2x zoom), players marked
 (A = red dot, B = blue dot), our ball pick = yellow ring. Free runner (clip from R2). -> results/qa/who/strip_*.jpg"""
 import os, json, cv2, numpy as np
-D = json.load(open("results/review/who_moments.json")); OUT = "results/qa/who"; os.makedirs(OUT, exist_ok=True)
+D = json.load(open(os.environ.get("WHO", "results/review/who_moments.json"))); OUT = os.environ.get("WHO_OUT", "results/qa/who"); os.makedirs(OUT, exist_ok=True)
 src = os.environ.get("LOCAL_CLIP") or os.environ["R2_PUBLIC_URL"].rstrip("/") + "/SFKBP1109_s1200/video.mp4"
 cap = cv2.VideoCapture(src); print("frames", int(cap.get(cv2.CAP_PROP_FRAME_COUNT)), flush=True)
 tiles_all = []

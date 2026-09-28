@@ -20,6 +20,8 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           MATCHES: ${{ vars.MATCHES }}
+          WHO: ${{ contains(github.event.head_commit.message, '[who2]') && 'results/review/who_moments2.json' || 'results/review/who_moments.json' }}
+          WHO_OUT: ${{ contains(github.event.head_commit.message, '[who2]') && 'results/qa/who2' || 'results/qa/who' }}
         run: |
           mkdir -p results/free
           set -o pipefail; python $(head -1 triggers/free.txt) 2>&1 | tail -400 > results/free/last_log.txt || echo "FAILED" >> results/free/last_log.txt
