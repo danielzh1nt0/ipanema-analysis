@@ -60,3 +60,34 @@ def classify(model, f, other_factor=2.0):
     ta, tb = model["teams"]; da, db = np.linalg.norm(f - ta), np.linalg.norm(f - tb)
     if min(da, db) > max(8.0, other_factor * model["spread"]): return "other"
     return "A" if da <= db else "B"
+
+class KitTeamModel:
+    """drop-in for teams.TeamModel (predict_batch, dark_share, strips): kits learned from THIS match's frames.
+    'A' = the darker team (pipeline convention), 'B' = the lighter, 'K' = neither (referee / keepers / staff)."""
+    def fit_frames(self, frames_boxes, log=print):
+        feats = []; self.samples = []
+        for f, boxes in frames_boxes:
+            g = grass_lab(f)
+            for b in boxes:
+                if b[3] - b[1] < 22: continue
+                ft = torso_feature(f, b, g)
+                if ft is not None: feats.append(ft); self.samples.append((f, b, ft))
+        self.model = fit(feats); ta, tb = self.model["teams"]
+        self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
+        self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
+        self._strips(); log(f"kits: learned from {len(feats)} people, group sizes {self.model['sizes']}"); return self
+    def _lab(self, f):
+        c = classify(self.model, f)
+        if c is None: return None
+        if c == "other": return "K"
+        return {"A": "B", "B": "A"}[c] if self.swap else c
+    def predict_batch(self, frame, xyxys):
+        g = grass_lab(frame); return [self._lab(torso_feature(frame, b, g)) for b in xyxys]
+    def _strips(self):
+        import cv2
+        self.strips = {}
+        for t in ("A", "B"):
+            cs = [cv2.resize(f[int(b[1]):int(b[3]), int(b[0]):int(b[2])], (48, 72)) for f, b, ft in self.samples if self._lab(ft) == t and b[3] - b[1] > 30][:24]
+            cs = cs or [np.zeros((72, 48, 3), np.uint8)]
+            while len(cs) % 12: cs.append(np.zeros_like(cs[0]))
+            self.strips[t] = np.vstack([np.hstack(cs[r:r + 12]) for r in range(0, len(cs), 12)])

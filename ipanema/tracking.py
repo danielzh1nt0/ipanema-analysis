@@ -76,12 +76,37 @@ def detect_tiled_batch(model, fs, conf, tiles, imgsz=None, half=True):
         out.append((det, names))
     return out
 
+
+class RFDetrPerson:
+    """28 Sep: RF-DETR (Apache-2.0) COCO 'person' detector. On 30 clean frames of 3 matches it found 553 people vs 396 kept by
+    the football YOLO model (AGPL, labels black shirts 'referee'). Output mimics detect_tiled_batch: class 0 = person."""
+    def __init__(self, size="medium"):
+        import rfdetr
+        self.m = {"small": rfdetr.RFDETRSmall, "medium": rfdetr.RFDETRMedium, "base": getattr(rfdetr, "RFDETRBase", rfdetr.RFDETRMedium)}[size]()
+    def detect_batch(self, fs, conf, tiles):
+        import supervision as sv, cv2
+        h, w = fs[0].shape[:2]; rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
+        crops = [cv2.cvtColor(f[b:d, a:c], cv2.COLOR_BGR2RGB) for f in fs for a, b, c, d in rects]
+        res = self.m.predict(crops, threshold=conf)
+        if not isinstance(res, list): res = [res]
+        out = []
+        for i in range(len(fs)):
+            boxes, confs = [], []
+            for (a, b, c, d), det in zip(rects, res[i * len(rects):(i + 1) * len(rects)]):
+                keep = det.class_id == 1                                        # COCO person
+                if keep.any():
+                    xy = det.xyxy[keep].copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b; boxes.append(xy); confs.append(det.confidence[keep])
+            if not boxes: out.append((sv.Detections.empty(), {0: "person"})); continue
+            d_ = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.zeros(sum(len(x) for x in boxes), int)).with_nms(0.5, class_agnostic=True)
+            out.append((d_, {0: "person"}))
+        return out
+
 def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
     """yields (k, frame, detections, names) with detection done in batches"""
     buf = []
     def flush():
         if not buf: return                                                     # 26 Sep: a clip of exactly N x batch frames crashed on the empty last flush
-        dets = detect_tiled_batch(model, [f for _, f in buf], conf, tiles, imgsz)
+        dets = model.detect_batch([f for _, f in buf], conf, tiles) if hasattr(model, "detect_batch") else detect_tiled_batch(model, [f for _, f in buf], conf, tiles, imgsz)
         for (k, f), (det, names) in zip(buf, dets): yield k, f, det, names
         buf.clear()
     for k, f in frames(video):
@@ -92,9 +117,10 @@ def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
 def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None, pano=None):
     pano = (tiles is not None or imgsz is not None) if pano is None else pano       # panorama clips: kit colours, team check every 5th frame
     import supervision as sv
-    from ultralytics import YOLO
     from .video import info
-    fps = info(video)["fps"]; model = YOLO(weights_player)
+    if os.environ.get("IPANEMA_DETECTOR", "yolo") != "rfdetr": from ultralytics import YOLO     # AGPL library only when the old detector is asked for
+    fps = info(video)["fps"]
+    model = RFDetrPerson(os.environ.get("IPANEMA_RFDETR_SIZE", "medium")) if os.environ.get("IPANEMA_DETECTOR", "yolo") == "rfdetr" else YOLO(weights_player)
     use_bot = os.environ.get("IPANEMA_TRACKER", "bytetrack") == "botsort"
     tracker = None
     if use_bot:
@@ -210,6 +236,11 @@ def clean(per, L, W, fps, log=print):
     for k in range(n):
         for r in per[k]:
             if r[0] in keepers: r[1] = left_team if keepers[r[0]] == "left" else right_team; r[5] = True
+    # 28 Sep: a track whose kit is neither team ("K": referee, staff, a keeper outside the goal zone) is not an outfield player
+    other = 0
+    for k in range(n):
+        keep = [r for r in per[k] if r[1] in ("A", "B")]; other += len(per[k]) - len(keep); per[k] = keep
+    if other: log(f"clean: removed {other} rows of non-team kits (referee / staff)")
     log(f"clean: dropped {dropped} off-pitch, merged {merged} duplicates, stitched {len(remap)} ids, keepers {list(keepers)} -> {left_team} defends left")
     counts = [sum(1 for r in per[k] if r[1] == "A") for k in range(n)], [sum(1 for r in per[k] if r[1] == "B") for k in range(n)]
     log(f"clean: players per frame median A {np.median(counts[0]):.0f} / B {np.median(counts[1]):.0f}, max A {max(counts[0])} / B {max(counts[1])}")

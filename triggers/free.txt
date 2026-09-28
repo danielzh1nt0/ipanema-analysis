@@ -1,1 +1,1 @@
-tools/free_batch.py tools/probe_soccertrack.py tools/compare_detectors.py
+tools/free_batch.py tools/probe_soccertrack.py tools/tracktest.py

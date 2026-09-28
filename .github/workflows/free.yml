@@ -18,6 +18,7 @@ jobs:
       - name: run the script named on the first line of triggers/free.txt
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           mkdir -p results/free
           set -o pipefail; python $(head -1 triggers/free.txt) 2>&1 | tail -400 > results/free/last_log.txt || echo "FAILED" >> results/free/last_log.txt

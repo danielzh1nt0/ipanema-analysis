@@ -17,3 +17,10 @@ for name, A, B, REF, cast in (("orange vs white, blue ref", (40, 120, 240), (235
     ok = sum((w == "A" and g == a_lab) or (w == "B" and g == b_lab) or (w == "other" and g == "other") for (w, _), g in zip(ppl, got))
     print(f"{name}: {ok}/{len(ppl)}"); assert ok >= len(ppl) - 2, name
 print("OK")
+# KitTeamModel: A = darker team, B = lighter, K = neither
+ppl = [person((30, 30, 30)) for _ in range(40)] + [person((230, 230, 230)) for _ in range(40)] + [person((220, 160, 60)) for _ in range(4)]
+tm = K.KitTeamModel().fit_frames([(im, [(0, 0, 30, 120)]) for im in ppl], log=lambda *a: None)
+labs = [tm.predict_batch(im, [(0, 0, 30, 120)])[0] for im in ppl]
+assert labs[:40].count("A") >= 39 and labs[40:80].count("B") >= 39 and labs[80:].count("K") >= 3, (labs[:3], labs[40:43], labs[80:])
+assert set(tm.strips) == {"A", "B"} and tm.dark_share["A"] < tm.dark_share["B"]
+print("KitTeamModel OK")
