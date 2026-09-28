@@ -77,6 +77,18 @@ def detect_tiled_batch(model, fs, conf, tiles, imgsz=None, half=True):
     return out
 
 
+def drop_contained(xyxy, frac=0.7):
+    """28 Sep: keep-mask; a box whose area lies >= frac inside a bigger box is the same person (tracking test: two circles
+    on one player, NMS keeps them because a small box inside a big one has a low overlap ratio)"""
+    B = np.asarray(xyxy, float); n = len(B); keep = np.ones(n, bool)
+    area = (B[:, 2] - B[:, 0]) * (B[:, 3] - B[:, 1])
+    for i in np.argsort(area):
+        for j in range(n):
+            if j == i or not keep[j] or area[j] <= area[i]: continue
+            iw = min(B[i, 2], B[j, 2]) - max(B[i, 0], B[j, 0]); ih = min(B[i, 3], B[j, 3]) - max(B[i, 1], B[j, 1])
+            if iw > 0 and ih > 0 and iw * ih >= frac * area[i]: keep[i] = False; break
+    return keep
+
 class RFDetrPerson:
     """28 Sep: RF-DETR (Apache-2.0) COCO 'person' detector. On 30 clean frames of 3 matches it found 553 people vs 396 kept by
     the football YOLO model (AGPL, labels black shirts 'referee'). Output mimics detect_tiled_batch: class 0 = person."""
@@ -98,7 +110,7 @@ class RFDetrPerson:
                     xy = det.xyxy[keep].copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b; boxes.append(xy); confs.append(det.confidence[keep])
             if not boxes: out.append((sv.Detections.empty(), {0: "person"})); continue
             d_ = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.zeros(sum(len(x) for x in boxes), int)).with_nms(0.5, class_agnostic=True)
-            out.append((d_, {0: "person"}))
+            out.append((d_[drop_contained(d_.xyxy)], {0: "person"}))
         return out
 
 def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
@@ -236,7 +248,23 @@ def clean(per, L, W, fps, log=print):
     for k in range(n):
         for r in per[k]:
             if r[0] in keepers: r[1] = left_team if keepers[r[0]] == "left" else right_team; r[5] = True
-    # 28 Sep: a track whose kit is neither team ("K": referee, staff, a keeper outside the goal zone) is not an outfield player
+    # 28 Sep: a "neither team" track that lives in a penalty area is the keeper of that end (tracking test: keepers were removed
+    # as staff); at most one per end, the one seen there most. The referee rarely stays in a box.
+    kz = defaultdict(lambda: [0, 0, 0])
+    for k in range(n):
+        for r in per[k]:
+            if r[1] != "K": continue
+            z = kz[r[0]]; z[0] += 1
+            if abs(r[2][1] - W / 2) < 20.2: z[1] += r[2][0] < 16.5; z[2] += r[2][0] > L - 16.5
+    for end, idx in (("left", 1), ("right", 2)):
+        cand = [(z[idx], tid) for tid, z in kz.items() if z[0] >= int(fps) and z[idx] >= 0.7 * z[0]]
+        if cand:
+            tid = max(cand)[1]; team = left_team if end == "left" else right_team
+            for k in range(n):
+                for r in per[k]:
+                    if r[0] == tid: r[1] = team; r[5] = True
+            log(f"clean: keeper ({end}) from a non-team kit: track {tid}, {kz[tid][0]} frames")
+    # 28 Sep: a track whose kit is neither team ("K": referee, staff) is not an outfield player
     other = 0
     for k in range(n):
         keep = [r for r in per[k] if r[1] in ("A", "B")]; other += len(per[k]) - len(keep); per[k] = keep

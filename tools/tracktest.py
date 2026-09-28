@@ -33,7 +33,7 @@ def sample_frames(detect, m=12):
     return out
 os.environ.setdefault("IPANEMA_DET_BATCH", "1"); os.environ.setdefault("IPANEMA_LOG_EVERY", "50")
 rep = {}; ROWS = {}
-KEYS = [0, n // 3, 2 * n // 3, n - 1]
+KEYS = [int(x) for x in np.linspace(0, n - 1, 8)]
 def metrics(rows_by_k, dark_label):
     """rows_by_k: {k: [(id, team, px, filled)]} -> per-frame medians by kit (dark/light), tracks, median track length"""
     lab = lambda t: "dark" if t == dark_label else "light"
