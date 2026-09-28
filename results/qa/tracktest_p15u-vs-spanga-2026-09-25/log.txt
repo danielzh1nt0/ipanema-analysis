@@ -10,3 +10,7 @@
 15:11:43   tracking frame 300 (0.7 frames/s)
 15:12:59   tracking frame 350 (0.7 frames/s)
 15:14:15   tracking frame 400 (0.7 frames/s)
+15:15:31   tracking frame 450 (0.7 frames/s)
+15:16:47   tracking frame 500 (0.7 frames/s)
+15:18:03   tracking frame 550 (0.7 frames/s)
+15:19:15 clean: keeper (left) from a non-team kit: track 5, 232 frames
