@@ -14,7 +14,7 @@ clk = load(C + "ball_cands_clicks_st3_fz0.pkl"); wasb = load(sorted(glob.glob(C 
 R = json.load(gzip.open(f"results/qa/tracktest_gpu_{MATCH}/rows_all.json.gz", "rt")); fps = float(R["fps"])
 rows = R["rows"]["new, RF-DETR"]; bh = R.get("box_h", {}).get("new, RF-DETR", {})
 L, W = 106.0, 64.0; S_ = np.array([[1920 / L, 0, 0], [0, 1080 / W, 0], [0, 0, 1.0]]); n = max(int(k) for k in rows) + 1
-H = {k: S_ for k in range(n)}
+n = max(n, max(clk) + 1, max(wasb) + 1); H = {k: S_ for k in range(n)}
 per = {int(k): [[pid, t, np.array([px[0] * L / 1920, px[1] * W / 1080]), np.array(px), None, fl] for pid, t, px, fl in v if px is not None] for k, v in rows.items()}
 boxh = {int(k): [h for (pid, t, px, fl), h in zip(rows[k], v) if px is not None] for k, v in bh.items()}
 cands = BL.fuse_candidates(clk, wasb)
