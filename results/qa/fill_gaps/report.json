@@ -27,5 +27,19 @@
   "v1: interpolated pixels + no duplicate check: many doubles",
   "v2: metres-only duplicate check: far players doubled (a few pixels = several metres)"
  ],
- "known_gap": "referee tracks that were sometimes labelled as a team get filled too; fix in tracking (drop a track whose shirt checks say referee >= 30%) needs a tracking re-run"
+ "known_gap": "referee tracks that were sometimes labelled as a team get filled too; fix in tracking (drop a track whose shirt checks say referee >= 30%) needs a tracking re-run",
+ "v3_28sep": {
+  "changes": [
+   "referee_kit: orange torso + non-orange shorts = referee (keepers have orange shorts); 17 tuning crops 4/5 refs, held-out 22/22",
+   "tracks with >=30% referee checks dropped",
+   "fill only if the gap implies <= 8 m/s (24% of short gaps were an id jumping to another person)"
+  ],
+  "graded_by_eye_8_frames": {
+   "fills": 15,
+   "on_missed_player": 11,
+   "about_2m_off": 1,
+   "referee_or_staff": 3
+  },
+  "note": "the 3 referee fills come from referee tracks the new referee rule removes; that part needs a tracking re-run to show"
+ }
 }

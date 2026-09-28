@@ -151,6 +151,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 if not v: continue
                 team = max(set(v), key=v.count)
                 if (labs[j] if labs[j] is not None else team) == "R": continue      # referee / bib: not a player
+                if v.count("R") >= 0.3 * len(v) and len(v) >= 3: continue           # 28 Sep: a track that is often the referee is the referee
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
         per[k] = rows
         t_mark = _time.time(); prof["rest"] += t_mark - _t3
@@ -252,7 +253,7 @@ def reposition(per, H):
         out[k] = [[r[0], r[1], m[j].astype(float), r[3], r[4], r[5]] for j, r in enumerate(rows)]
     return out
 
-def fill_gaps(per, fps, max_gap_s=1.0, dup_m=2.5, dup_any_m=1.5, H=None, dup_px=35.0, dup_up_px=140.0):
+def fill_gaps(per, fps, max_gap_s=1.0, dup_m=2.5, dup_any_m=1.5, H=None, dup_px=35.0, dup_up_px=140.0, max_speed=8.0):
     """28 Sep: a player the detector loses for a few frames (dark kits on grass: median track 0.8 s vs 2.0 s for the light
     kit on the SFK-BP clip) is still there. Within one track id, gaps up to max_gap_s are filled by straight-line
     interpolation in metres; pixels through each frame's camera H (metres -> pixels) when given. Filled rows are marked so the export can say 'filled', not 'observed'.
@@ -263,7 +264,8 @@ def fill_gaps(per, fps, max_gap_s=1.0, dup_m=2.5, dup_any_m=1.5, H=None, dup_px=
             tid = r[0]
             if tid in last:
                 k0, r0 = last[tid]; g = k - k0 - 1
-                if 0 < g <= mg and r0[1] == r[1]:
+                # 28 Sep: 24% of short gaps imply > 8 m/s: the id jumped to another person, not a player who blinked
+                if 0 < g <= mg and r0[1] == r[1] and np.linalg.norm(np.asarray(r[2], float) - np.asarray(r0[2], float)) / ((k - k0) / fps) <= max_speed:
                     for j in range(k0 + 1, k):
                         u = (j - k0) / (k - k0); m = (1 - u) * np.asarray(r0[2], float) + u * np.asarray(r[2], float)
                         if H is not None and H.get(j) is not None:                  # pixels from the metres through THIS frame's camera (the camera pans during the gap)

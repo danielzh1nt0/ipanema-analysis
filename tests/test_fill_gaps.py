@@ -20,3 +20,10 @@ assert not any(r[0] == 2 for k in range(10, 100) for r in per[k]), "90-frame gap
 assert not any(r[0] == 3 for k in range(40, 50) for r in per[k]), "no fill on top of the same player under a new id"
 assert n == 10, n
 print("OK")
+# an id that jumps 20 m in 10 frames is two people: never filled
+per2 = {k: [] for k in range(40)}
+for k in range(0, 10): per2[k].append(row(5, "A", [10, 10], [100, 100]))
+for k in range(20, 30): per2[k].append(row(5, "A", [30, 10], [300, 100]))
+per2, n2 = TR.fill_gaps(per2, fps, 1.0)
+assert n2 == 0, n2
+print("OK speed guard")
