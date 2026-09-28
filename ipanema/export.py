@@ -47,7 +47,7 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
     for k in range(0, n, max(1, int(frame_stride))):
         f = frames_[k]; sh = shapes_[k]
         frames_out.append({"t": round(k / fps, 3),
-            "players": [{"id": int(r[0]), "team": r[1], "gk": bool(r[5]), "state": "observed", "conf": 1.0, "px": [round(float(r[3][0]), 1), round(float(r[3][1]), 1)], "m": [round(float(r[2][0]), 2), round(float(r[2][1]), 2)]} for r in per[k]],
+            "players": [{"id": int(r[0]), "team": r[1], "gk": bool(r[5]), "state": (r[6] if len(r) > 6 else "observed"), "conf": (0.5 if len(r) > 6 else 1.0), "px": [round(float(r[3][0]), 1), round(float(r[3][1]), 1)], "m": [round(float(r[2][0]), 2), round(float(r[2][1]), 2)]} for r in per[k]],
             "ball": ({"px": [round(ball[k][0], 1), round(ball[k][1], 1)], "m": [round(float(ballm[k][0]), 2), round(float(ballm[k][1]), 2)] if k in ballm else None,
                       "state": "observed" if _ball_seen(ball, k, bridged) else "bridged", "conf": round(_ball_conf(ball, k, cands_conf, bridged), 2)} if k in ball else None),
             "possession": STATES[state[k]] if state[k] < 2 else None, "phase": "control" if state[k] < 2 else STATES[state[k]],

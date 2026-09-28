@@ -1,0 +1,31 @@
+{
+ "what": "tracking.fill_gaps on the SFK-BP clip (saved positions, local)",
+ "sheets": "results/qa/fill_gaps/fill0-3.jpg (yellow = filled, numbered)",
+ "graded_by_eye": {
+  "fills": 17,
+  "on_a_missed_player": 13,
+  "on_referee_or_staff": 3,
+  "on_empty_grass": 1,
+  "duplicates": 0
+ },
+ "players_found_8_frames": {
+  "before": "99/147 (67%)",
+  "after": "112/147 (76%)"
+ },
+ "median_players_per_frame": {
+  "before": {
+   "A": 6,
+   "B": 8
+  },
+  "after": {
+   "A": 7,
+   "B": 8
+  }
+ },
+ "stats_effect": "passes 123 -> 128, possession 45/55 -> 44/56, movement stoppages 8 -> 7: small",
+ "rejected_versions": [
+  "v1: interpolated pixels + no duplicate check: many doubles",
+  "v2: metres-only duplicate check: far players doubled (a few pixels = several metres)"
+ ],
+ "known_gap": "referee tracks that were sometimes labelled as a team get filled too; fix in tracking (drop a track whose shirt checks say referee >= 30%) needs a tracking re-run"
+}

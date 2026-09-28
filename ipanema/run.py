@@ -158,6 +158,8 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     """from raw tracks + ball candidates to stats, events and the exported match (CPU)"""
     match_id, video, vi, H, L, W, cal, tm, per, fps, cands, t0 = (ctx[k] for k in ("match_id", "video", "vi", "H", "L", "W", "cal", "tm", "per", "fps", "cands", "t0"))
     per, cl = TR.clean(per, L, W, fps, log=log)
+    per, _nf = TR.fill_gaps(per, fps, 1.0, H=H)                              # 28 Sep: players the detector drops for < 1 s (dark kits blink: median track 0.8 s)
+    log(f"players: {_nf} short gaps filled (marked 'filled' in the export)")
     def _v1():
         g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
         if len(g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); g = BL.pick(cands, H, L, W, per=per, log=log)

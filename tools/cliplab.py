@@ -5,8 +5,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))));
 import eventlab as EL
 from ipanema import possession as P, analytics as AN
 
-def run(path="results/volume/runs/matches/SFKBP1109_s1200/match_data.json", t0=1200, t1=1500):
+def run(path="results/volume/runs/matches/SFKBP1109_s1200/match_data.json", t0=1200, t1=1500, fill=False):
     d, per, ballm, conf, seen, fps, L, W = EL.load(path)
+    if fill:
+        from ipanema import tracking as TR
+        Hs = {k: (np.array(f["pitch_lines"]).reshape(3, 3) if f.get("pitch_lines") else None) for k, f in enumerate(d["frames"])}
+        per, _ = TR.fill_gaps(per, fps, 1.0, H=Hs)
     H = {k: np.eye(3) for k in per}
     frames_, bm = P.carriers(per, {k: v for k, v in ballm.items()}, H)
     state, bspeed = P.viterbi(per, P.clean_ball(bm, L, W), fps, L, W)
@@ -32,4 +36,5 @@ def run(path="results/volume/runs/matches/SFKBP1109_s1200/match_data.json", t0=1
     return rep
 
 if __name__ == "__main__":
-    r = run(); print(json.dumps(r, indent=1)); os.makedirs("results/metrica", exist_ok=True); json.dump(r, open("results/metrica/clip_offline.json", "w"), indent=1)
+    fill = "--fill" in sys.argv; r = run(fill=fill); print(json.dumps({k: v for k, v in r.items() if k != "veo_by_minute"}, indent=1))
+    os.makedirs("results/metrica", exist_ok=True); json.dump(r, open(f"results/metrica/clip_offline{'_filled' if fill else ''}.json", "w"), indent=1)

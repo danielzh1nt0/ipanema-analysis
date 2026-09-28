@@ -251,3 +251,37 @@ def reposition(per, H):
         m = to_m(H[k], np.array([r[3] for r in rows], np.float32))
         out[k] = [[r[0], r[1], m[j].astype(float), r[3], r[4], r[5]] for j, r in enumerate(rows)]
     return out
+
+def fill_gaps(per, fps, max_gap_s=1.0, dup_m=2.5, dup_any_m=1.5, H=None, dup_px=35.0, dup_up_px=140.0):
+    """28 Sep: a player the detector loses for a few frames (dark kits on grass: median track 0.8 s vs 2.0 s for the light
+    kit on the SFK-BP clip) is still there. Within one track id, gaps up to max_gap_s are filled by straight-line
+    interpolation in metres; pixels through each frame's camera H (metres -> pixels) when given. Filled rows are marked so the export can say 'filled', not 'observed'.
+    per[k] rows: [id, team, m, px, box, gk(, ...)] -> returns (per, n_filled)"""
+    n = len(per); last = {}; add = {}; mg = int(round(max_gap_s * fps))
+    for k in range(n):
+        for r in per.get(k, []):
+            tid = r[0]
+            if tid in last:
+                k0, r0 = last[tid]; g = k - k0 - 1
+                if 0 < g <= mg and r0[1] == r[1]:
+                    for j in range(k0 + 1, k):
+                        u = (j - k0) / (k - k0); m = (1 - u) * np.asarray(r0[2], float) + u * np.asarray(r[2], float)
+                        if H is not None and H.get(j) is not None:                  # pixels from the metres through THIS frame's camera (the camera pans during the gap)
+                            v = np.asarray(H[j], float) @ np.array([m[0], m[1], 1.0]); px = v[:2] / v[2]
+                        else: px = None if r0[3] is None or r[3] is None else (1 - u) * np.asarray(r0[3], float) + u * np.asarray(r[3], float)
+                        add.setdefault(j, []).append([tid, r[1], m, px, None, r0[5] if len(r0) > 5 else False, "filled"])
+            last[tid] = (k, r)
+    nf = 0; dup = 0
+    for j, rows in add.items():
+        obs = per.get(j, []); have = {r[0] for r in obs}; keep = []
+        for r in rows:
+            if r[0] in have: continue
+            # the same person often carries on under a NEW track id: a filled row near an observed player of the same team is that player
+            # (any team within dup_any_m: a track that flipped team is still the same person)
+            if any(np.linalg.norm(np.asarray(q[2], float) - r[2]) < (dup_m if q[1] == r[1] else dup_any_m) for q in obs + keep): dup += 1; continue
+            # on screen: far away a few pixels are several metres, so also skip a fill that lands on a player already drawn
+            # (same column, between his feet and roughly his head)
+            if r[3] is not None and any(q[3] is not None and abs(q[3][0] - r[3][0]) < dup_px and -dup_up_px < (r[3][1] - q[3][1]) < dup_px for q in obs + keep): dup += 1; continue
+            keep.append(r)
+        per.setdefault(j, []).extend(keep); nf += len(keep)
+    return per, nf

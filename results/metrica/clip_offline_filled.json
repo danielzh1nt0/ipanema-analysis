@@ -1,0 +1,84 @@
+{
+ "frames": 8992,
+ "players_per_frame_median": 16.0,
+ "ball_known_pct": 74,
+ "passes_old": {
+  "A": 103,
+  "B": 140
+ },
+ "passes_new": {
+  "A": 53,
+  "B": 75
+ },
+ "possession_pct": {
+  "A": 44,
+  "B": 56
+ },
+ "veo_restarts": 6,
+ "veo_by_minute": [
+  [
+   21,
+   "throw-in"
+  ],
+  [
+   22,
+   "throw-in"
+  ],
+  [
+   22,
+   "throw-in"
+  ],
+  [
+   23,
+   "throw-in"
+  ],
+  [
+   24,
+   "corner"
+  ],
+  [
+   25,
+   "free kick"
+  ]
+ ],
+ "ball_rule": {
+  "stoppages": 10,
+  "dead_pct": 19,
+  "veo_minutes_covered": 4
+ },
+ "movement_rule": {
+  "stoppages": 7,
+  "dead_pct": 29,
+  "veo_minutes_covered": 6,
+  "intervals_s": [
+   [
+    0.5,
+    20.1
+   ],
+   [
+    68.2,
+    72.3
+   ],
+   [
+    92.4,
+    98.2
+   ],
+   [
+    150.9,
+    175.9
+   ],
+   [
+    183.2,
+    190.1
+   ],
+   [
+    229.5,
+    249.7
+   ],
+   [
+    259.8,
+    266.3
+   ]
+  ]
+ }
+}
