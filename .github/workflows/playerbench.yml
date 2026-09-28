@@ -18,6 +18,7 @@ jobs:
       - name: check (runs on GitHub's machine, no Modal)
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          ONLY: p15u-vs-spanga-2026-09-25,p15u-vs-djursholm-2026-09-26,solberga-vs-p09-norrviken-2026-09-11,p15u-vs-reymersholm-2026-09-18,p09-norrviken-vs-solheim-2026-08-30
         run: python scripts_playerbench_free.py
       - name: commit pictures
         if: always()
