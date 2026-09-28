@@ -143,7 +143,9 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
     # static clutter: a candidate that sits at the same pitch position for seconds with nobody near it is a cone / spare ball / mark, not the ball
     win = int(3 * fps); grid = {}
     for i in range(n):
-        for r in C[i]: grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), []).append(i)
+        for r in C[i]:
+            if r[2] < 0: continue
+            grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), []).append(i)
     dropped = 0
     for i in range(n):
         keep = []
@@ -185,7 +187,10 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
 
 # ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
 def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=1.5, near_w=1.0, air_w=0.6,
-            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, log=print):
+            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
+            poss_only_empty=False, log=print):
+    """poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
+    for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default."""
     n = len(cands); C = []
     ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
     inv = {}
@@ -200,22 +205,30 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
                     on = bool(-margin < mx < L + margin and -margin < my < W + margin)
                     near = float(np.linalg.norm(ppos[i] - np.array([mx, my]), axis=1).min() < 4.0) if (on and i in ppos) else 0.0
                     rows.append((float(mx), float(my), float(cf), float(x), float(y), near, on))
+        if poss_cost is not None and per and per.get(i) and not (poss_only_empty and rows):
+            for r in per[i]:
+                if r[3] is None: continue
+                mx, my = float(r[2][0]), float(r[2][1])
+                rows.append((mx, my, -1.0, float(r[3][0]) + poss_px[0], float(r[3][1]) + poss_px[1], 1.0, True))
         C.append(rows)
     # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
     win = int(3 * fps); grid = {}
     for i in range(n):
-        for r in C[i]: grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), set()).add(i)
+        for r in C[i]:
+            if r[2] < 0: continue
+            grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), set()).add(i)
     dropped = 0
     for i in range(n):
         keep = []
         for r in C[i]:
+            if r[2] < 0: keep.append(r); continue
             if r[5] == 0.0 and len(grid.get((i // win, round(r[0] * 2), round(r[1] * 2)), ())) > 0.6 * win: dropped += 1; continue
             keep.append(r)
         C[i] = keep
     INF = 1e18; back = []; prev_cost = None
     for i in range(n):
         rows = C[i]; k = len(rows)
-        emit = np.array([conf_w * (1 - r[2]) + (near_w * (1 - r[5]) if r[6] else air_w) for r in rows] + [miss_cost])
+        emit = np.array([poss_cost if r[2] < 0 else conf_w * (1 - r[2]) + (near_w * (1 - r[5]) if r[6] else air_w) for r in rows] + [miss_cost])
         if prev_cost is None:
             cur = emit.copy(); bk = np.full(k + 1, -1, int)
         else:
