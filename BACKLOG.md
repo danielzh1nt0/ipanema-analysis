@@ -10,6 +10,9 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - Plain, short language in anything Daniel reads.
 
 ## Queue (priority order)
+- [ ] K1. Kaggle free GPU (about 30 h/week): a notebook pushed by the Kaggle API from the free runner that reads matches from R2, runs WASB (30 peaks) + the click finder, and cuts ball/not-ball crops at the checked labels of Vasalund, Solheim, Spånga, Djursholm (thousands of balls). Then retrain the scorer (T0) and grade on exam + clip. No Modal.
+- [ ] K2. Same Kaggle route for training runs (ball finder on RF-DETR, B7) so training stops costing money.
+- [ ] H1. Check martinjolif/football-ball-detection (HF, CC BY 4.0, 1,237 images) as extra ball pictures: look at a sample sheet, see if it is broadcast-only; use only if it helps the exam.
 - [ ] T0. TOP: second-opinion scorer on WASB guesses. WASB sees the ball in 31/34 clip moments and 79/81 exam frames but ranks it first only 26 and 56 times (results/ball/probe.md). Train a small crop classifier (ball vs not) on CPU: positives = Daniel's 436 clicks, negatives = WASB's other peaks in the same frames (probe.json has the guesses for 142 frames; more from the WASB cache). Re-rank, then picker. Grade: exam 81 + clip 34, cross-validated by frame. Also: stop capping WASB at 6 peaks (keep ~30, local maxima) - needs a WASB re-run on the clip (GPU ~5 min, ask Daniel).
 - [x] B1b. Re-run B1 and the miss count on FUSED guesses (both finders), not WASB-only: picklab only had WASB guesses locally. Needs the click-finder guess cache for the clip (see Waiting for Daniel).
 - [x] B8. Why the app clip scored 22/34 when the offline fused test scored 25-26/34: compare finder version, stride, far-zoom, cache.
@@ -37,6 +40,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - WASB re-run on the SFK-BP clip keeping ~30 peaks per frame (GPU ~5 min) so T0 and the picker can use the buried guesses.
 
 ## Done
+- [x] 28 Sep: T0 first scorer (small 3-frame CNN, 260 ball pictures from the SFK-BP clicks, CPU): exam 61 -> 63-68/81 when blended with the finder score (3 seeds); clip 25 -> 24-25/34 = no gain. Not promoted. Too few ball pictures; next: thousands from the checked labels of 4 matches (needs GPU crops -> Kaggle free GPU, K1). results/ball/scorer/
 - [x] 28 Sep: B2 probe (GPU 7.5 min): WASB sees the ball in 31/34 and 79/81, but ranks it first in only 26 and 56; the app kept only 6 WASB peaks. Problem = choosing, not seeing. results/ball/probe.md
 - [x] 28 Sep: B8: app 22/34 = round-10 click finder (better on the exam, worse on the clip) + old players. tools/fusedlab.py
 - [x] 28 Sep: B1 "ball with this player" option in the picker. No gain: 21/34 at best (tools/posslab.py, results/picker/posslab.json). Of the 9 moments with no finder guess, a player's feet are on the ball in only 3, so the ball is mostly in the air / far / not near a detected player. Option kept, off by default. -> the finder is the limit; B5 and B7 next.
