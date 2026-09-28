@@ -1,0 +1,27 @@
+httpx2.HTTPStatusError: Client error '401 Unauthorized' for url 'https://huggingface.co/datasets/atomscott/soccertrack-v2/resolve/main/mot/118578.txt'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/probe_soccertrack.py", line 14, in <module>
+    p = hf_hub_download("atomscott/soccertrack-v2", f, repo_type="dataset"); out["mot_samples"][f] = open(p, errors="replace").read()[:1500]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1194, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/huggingface_hub/file_download.py", line 1953, in _raise_on_head_call_error
+    raise head_call_error
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-6aba439c-119a0713041e3f1f6ef85ef0;f56685d1-072e-4558-855a-eca47dd12b6b)
+
+Cannot access gated repo for url https://huggingface.co/datasets/atomscott/soccertrack-v2/resolve/main/mot/118578.txt.
+Access to dataset atomscott/soccertrack-v2 is restricted. You must have access to it and be authenticated to access it. Please log in.
+FAILED
