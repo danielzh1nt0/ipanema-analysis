@@ -12,7 +12,6 @@ image = (modal.Image.debian_slim(python_version="3.11")
          .run_commands("git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /content/WASB-SBDT",
                        "git clone -q --depth 1 https://github.com/mguti97/PnLCalib.git /content/PnLCalib")
          .pip_install("lsq-ellipse==2.2.1", "shapely")
-         .pip_install("rfdetr==1.11.0", "supervision>=0.29.0", "transformers>=5.1.0,<6")   # 29 Sep: new player detector (Apache); transformers only fed the old team model
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
                        "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)
@@ -494,6 +493,45 @@ def stat_review(match_id: str = "SFKBP1109_s1200", n_poss: int = 40):
 image_rf = (modal.Image.debian_slim(python_version="3.11")
             .apt_install("ffmpeg", "git", "libgl1", "libglib2.0-0")
             .pip_install("rfdetr==1.11.0", "supervision", "opencv-python-headless", "scipy", "requests"))
+
+@app.function(gpu="L4", image=image_rf, timeout=90 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def players_rf(match_id: str = "SFKBP1109_s1200", smoke_frames: int = 0):
+    """29 Sep: new players (RF-DETR + per-match kits from 36 frames + off-pitch drop) in the RF-DETR image, saved to the
+    volume cache (tracks_rfdetr_v1.pkl + kits_rfdetr_v1.pkl) for the main pipeline to pick up (it re-positions them with its
+    own calibration). The main image keeps torch 2.4 (rfdetr needs a newer torch/transformers). smoke_frames>0: short test."""
+    import subprocess, sys, pickle, time, numpy as np, cv2, traceback
+    t0 = time.time(); logs = []; L_ = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    try:
+        subprocess.run(f"rm -rf /content/ia && git clone -q --depth 1 {REPO} /content/ia", shell=True, check=True); sys.path.insert(0, "/content/ia")
+        os.environ["IPANEMA_DETECTOR"] = "rfdetr"; os.environ.setdefault("IPANEMA_DET_BATCH", "8"); os.environ.setdefault("IPANEMA_LOG_EVERY", "1000")
+        from ipanema import tracking as TR, kits as KT, video as V
+        video = f"/tmp/work/{match_id}/video.mp4"
+        if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+        if smoke_frames:
+            seg = f"/tmp/{match_id}_smoke.mp4"; cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS); w = None
+            for _ in range(smoke_frames):
+                ok, f = cap.read()
+                if not ok: break
+                if w is None: w = cv2.VideoWriter(seg, cv2.VideoWriter_fourcc(*"mp4v"), fps, (f.shape[1], f.shape[0]))
+                w.write(f)
+            w.release(); video = seg
+        cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); det = TR.RFDetrPerson("medium"); fb = []
+        for j in np.linspace(0, n - 1, 36).astype(int):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, int(j)); ok, f = cap.read()
+            if ok: fb.append((f, np.array([b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy])))
+        cap.release(); del det
+        tm = KT.KitTeamModel().fit_frames(fb, log=L_)
+        tm.offpitch = os.environ.get("IPANEMA_OFFPITCH", "0") == "1"          # calibrated grounds: pitch metres do the off-pitch job
+        S_ = np.array([[1920 / 106, 0, 0], [0, 1080 / 64, 0], [0, 0, 1.0]]); H = {k: S_ for k in range(n)}   # placeholder; main pipeline re-positions
+        per, fps = TR.track(video, None, H, tm, 0.3, log=L_, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False)
+        rows = sum(len(v) for v in per.values())
+        if not smoke_frames:
+            cache = f"{ROOT}/cache/{match_id}"; os.makedirs(cache, exist_ok=True)
+            pickle.dump((per, fps), open(f"{cache}/tracks_rfdetr_v1.pkl", "wb")); pickle.dump(tm, open(f"{cache}/kits_rfdetr_v1.pkl", "wb")); vol.commit()
+        return {"ok": True, "frames": len(per), "rows_per_frame": round(rows / max(1, len(per)), 1), "kit_groups": [int(x) for x in tm.model["sizes"]],
+                "dark_share": {k: float(v) for k, v in tm.dark_share.items()}, "saved": not smoke_frames, "minutes": round((time.time() - t0) / 60, 1), "log": logs[-15:]}
+    except BaseException:
+        return {"ok": False, "error": traceback.format_exc()[-5000:], "log": logs[-15:]}
 
 @app.function(gpu="L4", image=image_rf, timeout=90 * 60, secrets=[modal.Secret.from_name("ipanema-storage")])
 def tracktest_rf(start_s: float = 60.0, dur_s: float = 20.0, batch: int = 8, match: str = "SFKBP1109_s1200"):
