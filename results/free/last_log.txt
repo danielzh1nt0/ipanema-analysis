@@ -1,9 +1,9 @@
      63s p15u-vs-vasalund-2026-09-20: 19 checked balls, video 169354 frames at 29.97 fps, 3.3 GB
-     67s p15u-vs-vasalund-2026-09-20: {'checked_balls': 19, 'wasb_peak_on_checked_spot': 3, 'frames_followed_mean': 12.1, 'crops': 680, 'ball': 118, 'not_ball': 562}
+     67s p15u-vs-vasalund-2026-09-20: {'checked_balls': 19, 'wasb_peak_on_checked_spot': 3, 'frames_followed_mean': 8.1, 'crops': 499, 'ball': 80, 'not_ball': 419}
     139s p09-norrviken-vs-solheim-2026-08-30: 20 checked balls, video 191778 frames at 29.97 fps, 3.7 GB
-    143s p09-norrviken-vs-solheim-2026-08-30: {'checked_balls': 20, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 15.3, 'crops': 937, 'ball': 158, 'not_ball': 779}
-    207s p15u-vs-spanga-2026-09-25: 12 checked balls, video 168597 frames at 29.97 fps, 3.3 GB
-    209s p15u-vs-spanga-2026-09-25: {'checked_balls': 12, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 17.2, 'crops': 605, 'ball': 107, 'not_ball': 498}
-    310s p15u-vs-djursholm-2026-09-26: 14 checked balls, video 214108 frames at 29.97 fps, 4.1 GB
-    313s p15u-vs-djursholm-2026-09-26: {'checked_balls': 14, 'wasb_peak_on_checked_spot': 5, 'frames_followed_mean': 17.1, 'crops': 651, 'ball': 123, 'not_ball': 528}
-    314s done: 2873 crops, 506 ball
+    143s p09-norrviken-vs-solheim-2026-08-30: {'checked_balls': 20, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 15.5, 'crops': 947, 'ball': 160, 'not_ball': 787}
+    210s p15u-vs-spanga-2026-09-25: 12 checked balls, video 168597 frames at 29.97 fps, 3.3 GB
+    213s p15u-vs-spanga-2026-09-25: {'checked_balls': 12, 'wasb_peak_on_checked_spot': 5, 'frames_followed_mean': 16.1, 'crops': 575, 'ball': 101, 'not_ball': 474}
+    292s p15u-vs-djursholm-2026-09-26: 14 checked balls, video 214108 frames at 29.97 fps, 4.1 GB
+    295s p15u-vs-djursholm-2026-09-26: {'checked_balls': 14, 'wasb_peak_on_checked_spot': 8, 'frames_followed_mean': 18.2, 'crops': 702, 'ball': 132, 'not_ball': 570}
+    296s done: 2723 crops, 473 ball
