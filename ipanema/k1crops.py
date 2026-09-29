@@ -47,6 +47,35 @@ def follow(peaks, start_xy, window, step_px=20.0, min_score=0.1, amb_px=5.0, max
     return out
 
 
+def _patch(img, xy, half):
+    x, y = int(round(xy[0])), int(round(xy[1])); h, w = img.shape[:2]
+    if x - half < 0 or y - half < 0 or x + half >= w or y + half >= h: return None
+    return img[y - half:y + half, x - half:x + half]
+
+
+def follow_template(frames, start_xy, window, half=8, search=20, min_ncc=0.7, min_ncc_start=0.5):
+    """29 Sep (the pretrained WASB misses the ball at 47 of the 65 checked spots, so following WASB peaks stops at once):
+    follow the checked ball by picture matching, frame by frame: the best match of the last ball patch within `search` px;
+    stops when the match is weak (< min_ncc) or no longer looks like the checked ball (< min_ncc_start). -> {dk: (x, y)}"""
+    import cv2
+    T0 = _patch(frames[0], start_xy, half); out = {0: (float(start_xy[0]), float(start_xy[1]))}
+    if T0 is None: return out
+    for sgn in (1, -1):
+        last, T = out[0], T0
+        for step in range(1, window + 1):
+            f = frames.get(sgn * step)
+            if f is None: break
+            x0, y0 = int(round(last[0])) - half - search, int(round(last[1])) - half - search
+            if x0 < 0 or y0 < 0 or x0 + 2 * (half + search) > f.shape[1] or y0 + 2 * (half + search) > f.shape[0]: break
+            r = cv2.matchTemplate(f[y0:y0 + 2 * (half + search), x0:x0 + 2 * (half + search)], T, cv2.TM_CCOEFF_NORMED)
+            _, mx, _, loc = cv2.minMaxLoc(r)
+            if not mx >= min_ncc: break
+            new = (float(x0 + loc[0] + half), float(y0 + loc[1] + half)); P = _patch(f, new, half)
+            if P is None or not cv2.matchTemplate(P, T0, cv2.TM_CCOEFF_NORMED)[0, 0] >= min_ncc_start: break
+            out[sgn * step] = new; last, T = new, P
+    return out
+
+
 def frame_labels(peaks_k, ball, n_neg, pos_px=10.0, neg_px=30.0):
     """[(x, y, s, label)] for one frame: the followed ball = 1, peaks > neg_px from it = 0 (strongest n_neg), others out"""
     negs = [(float(x), float(y), float(s), 0) for x, y, s in sorted(peaks_k, key=lambda z: -z[2])
@@ -54,10 +83,18 @@ def frame_labels(peaks_k, ball, n_neg, pos_px=10.0, neg_px=30.0):
     return [(ball[0], ball[1], ball[2], 1)] + negs[:n_neg]
 
 
-def crops_for_check(frames, peaks, check, match, window, n_neg_check=12, n_neg_follow=6, every=2, size=32):
+def crops_for_check(frames, peaks, check, match, window, n_neg_check=12, n_neg_follow=6, every=2, size=32, how="wasb", snap_px=6.0):
     """frames: {dk: image} for dk in -window-1..window+1; peaks: {dk: [(x, y, s)]}. -> (X list, meta list).
+    how="wasb": follow the ball through WASB peaks; "template": by picture matching (a WASB peak within snap_px is used
+    instead when there is one; else the matched spot, finder score -1).
     meta = [frame id, "train", frame, x, y, finder score, label, match, dk] (same first 7 columns as the SFK-BP crops)"""
-    fol = follow(peaks, check["xy"], window); X, meta = [], []
+    if how == "template":
+        fol = {}
+        for dk, (x, y) in follow_template(frames, check["xy"], window).items():
+            near = [p for p in peaks.get(dk, []) if np.hypot(p[0] - x, p[1] - y) <= snap_px]
+            fol[dk] = tuple(map(float, max(near, key=lambda p: p[2]))) if near else (x, y, -1.0)
+    else: fol = follow(peaks, check["xy"], window)
+    X, meta = [], []
     for dk, ball in sorted(fol.items()):
         if dk % every: continue
         f3 = (frames.get(dk - 1), frames.get(dk), frames.get(dk + 1))

@@ -10,7 +10,7 @@ from ipanema import k1crops as K, wasb as WB
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "results/ball/k1"; os.makedirs(OUT, exist_ok=True)
 DRY = os.environ.get("DRY") == "1"; WINDOW = int(os.environ.get("K1_WINDOW", "12")); ROOT = os.environ.get("WROOT", "/kaggle/temp/wroot")
-TMP = os.environ.get("K1_TMP", "/kaggle/temp"); R2 = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
+TMP = os.environ.get("K1_TMP", "/kaggle/temp"); HOW = os.environ.get("K1_HOW", "wasb"); R2 = os.environ.get("R2_PUBLIC_URL", "").rstrip("/")
 t0 = time.time(); LOG = []
 def log(m): LOG.append(f"{time.time() - t0:7.0f}s {m}"); print(LOG[-1], flush=True)
 
@@ -36,7 +36,7 @@ def wasb_peaks(f3):
     if DRY:                                                     # random weights give flat maps: stand-in peaks = bright blobs + one fixed decoy
         assert hms.shape[0] == len(boxes)
         n, _, st, cen = cv2.connectedComponentsWithStats((f3[1].min(2) > 240).astype(np.uint8))
-        return [(float(cen[i][0]), float(cen[i][1]), 0.6) for i in range(1, n) if st[i][4] < 200] + [(1500.0, 300.0, 0.3)]
+        return [(float(cen[i][0]), float(cen[i][1]), 0.6) for i in range(1, n) if 5 <= st[i][4] < 200] + [(1500.0, 300.0, 0.3)]
     return [(px * fx, py * fy, sc) for px, py, sc in WB.tiled_local_peaks([hms[t, 1] for t in range(len(boxes))], boxes, 0.05, 30)]
 
 def read_window(cap, k0, W):
@@ -47,7 +47,7 @@ def read_window(cap, k0, W):
         fr[k - k0] = f
     return fr
 
-X, META, PEAKS, SUM = [], [], {}, {"window": WINDOW, "weights": weights, "matches": {}}
+X, META, PEAKS, SUM = [], [], {}, {"how": HOW, "window": WINDOW, "weights": weights, "matches": {}}
 for m in K.GOOD:
     checks = K.checked_balls("results/review", m)
     if DRY: video = os.environ["LOCAL_VIDEO"]
@@ -58,12 +58,12 @@ for m in K.GOOD:
             if r.returncode: log(f"{m}: download failed {r.stderr[-300:]}"); SUM["matches"][m] = {"error": "download"}; continue
     cap = cv2.VideoCapture(video); nfr = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS)
     log(f"{m}: {len(checks)} checked balls, video {nfr} frames at {fps:.2f} fps, {os.path.getsize(video) / 1e9:.1f} GB")
-    if DRY: checks = [dict(c, frame=30 + 40 * i, xy=(300.0 + 5 * (30 + 40 * i), 500.0)) for i, c in enumerate(checks[:2])]   # the stand-in video's ball
+    if DRY: checks = [dict(c, frame=30 + 40 * i, xy=(300.0 + 5 * (30 + 40 * i), 500.0)) for i, c in enumerate(checks[:int(os.environ.get("DRY_N", "2"))])]   # the stand-in video's ball
     n0 = len(X); on_spot = 0; lens = []; PEAKS[m] = {}
     for c in checks:
         fr = read_window(cap, c["frame"], WINDOW)
         pk = {dk: wasb_peaks((fr[dk - 1], fr[dk], fr[dk + 1])) for dk in range(-WINDOW, WINDOW + 1) if all(j in fr for j in (dk - 1, dk, dk + 1))}
-        x, meta, fol = K.crops_for_check(fr, pk, c, m, WINDOW)
+        x, meta, fol = K.crops_for_check(fr, pk, c, m, WINDOW, n_neg_follow=int(os.environ.get("K1_NEG", "6")), how=HOW)
         X += x; META += meta; on_spot += fol[0][2] >= 0; lens.append(len(fol))
         PEAKS[m][c["frame"]] = {"check": c, "followed": {str(k): [round(v, 2) for v in p] for k, p in fol.items()},
                                 "peaks": {str(k): [[round(a, 1), round(b, 1), round(s, 3)] for a, b, s in v] for k, v in pk.items()}}
