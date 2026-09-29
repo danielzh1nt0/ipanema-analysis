@@ -1,31 +1,5 @@
-kernel danielmatros/ipanema-ballcrops-k1
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ballcrops-k1
-  0.5 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
- 12.3 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.RUNNING"
- 13.8 min: danielmatros/ipanema-ballcrops-k1 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/ballcrops_k1/k1_crops.npz
-Output file downloaded to results/kaggle/ballcrops_k1/k1_peaks.json.gz
-Output file downloaded to results/kaggle/ballcrops_k1/k1_summary.json
-Output file downloaded to results/kaggle/ballcrops_k1/log.txt
-Output file downloaded to results/kaggle/ballcrops_k1/run_info.json
-Output file downloaded to results/kaggle/ballcrops_k1/sheet_p09-norrviken-vs-solheim-2026-08-30.jpg
-Output file downloaded to results/kaggle/ballcrops_k1/sheet_p15u-vs-djursholm-2026-09-26.jpg
-Output file downloaded to results/kaggle/ballcrops_k1/sheet_p15u-vs-spanga-2026-09-25.jpg
-Output file downloaded to results/kaggle/ballcrops_k1/sheet_p15u-vs-vasalund-2026-09-20.jpg
-Kernel log downloaded to results/kaggle/ballcrops_k1/ipanema-ballcrops-k1.log
-  ipanema-ballcrops-k1.log 4055
-  k1_crops.npz 7800173
-  k1_peaks.json.gz 189671
-  k1_summary.json 2132
-  log.txt 1203
-  run.json 159
-  run_info.json 34
-  sheet_p09-norrviken-vs-solheim-2026-08-30.jpg 50614
-  sheet_p15u-vs-djursholm-2026-09-26.jpg 128700
-  sheet_p15u-vs-spanga-2026-09-25.jpg 106662
-  sheet_p15u-vs-vasalund-2026-09-20.jpg 44695
+kernel danielmatros/ipanema-ballcrops-k1b
+Kernel push error: Maximum batch GPU session count of 2 reached.
+  0.5 min: 404 Client Error: Not Found for url: https://api.kaggle.com/v1/kernels.KernelsApiService/GetKernelSessionStatus
+404 Client Error: Not Found for url: https://api.kaggle.com/v1/kernels.KernelsApiService/ListKernelSessionOutput
+  run.json 194
