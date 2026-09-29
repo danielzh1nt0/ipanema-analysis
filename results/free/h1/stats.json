@@ -1,0 +1,39 @@
+{
+ "images": 1237,
+ "by_split": {
+  "test": 125,
+  "train": 989,
+  "valid": 123
+ },
+ "images_with_ball": 1237,
+ "balls": 1237,
+ "image_sizes_top": {
+  "1920x1080": 1237
+ },
+ "ball_px": {
+  "p10": 8.656,
+  "median": 12.21,
+  "p90": 17.7
+ },
+ "ball_share_of_width": {
+  "p10": 0.0045,
+  "median": 0.0064,
+  "p90": 0.0092
+ },
+ "veo_ball_share_of_width": [
+  0.0073,
+  0.0094
+ ],
+ "share_as_small_as_veo": 0.994,
+ "layout": "yolo",
+ "class_names": {
+  "0": "ball"
+ },
+ "sheets": [
+  "results/free/h1/sheet_00.jpg",
+  "results/free/h1/sheet_01.jpg",
+  "results/free/h1/sheet_02.jpg",
+  "results/free/h1/sheet_03.jpg"
+ ],
+ "veo_reference": "results/free/h1/veo_reference.jpg"
+}
