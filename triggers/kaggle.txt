@@ -1,2 +1,2 @@
-kaggle/players_p1.py 30 fetch
-# Tue Sep 29 07:30:47 UTC 2026 P1: fetch the finished Spånga/Reymersholm/SFK output again (results commit lost to a last_log.txt clash)
+kaggle/players_all.py 30 fetch
+# Tue Sep 29 07:46:11 UTC 2026 P2: fetch the finished all-matches output (results commit lost to a last_log.txt clash)
