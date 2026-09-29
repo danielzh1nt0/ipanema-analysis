@@ -17,7 +17,7 @@
    "label": "Who has the ball",
    "value": 83,
    "status": "warn",
-   "note": "New rule: 82/99 on SFK-BP and 27/32 on Reymersholm (night, no calibration). Current app method: 43/99. Not in the app yet."
+   "note": "New rule: 82/99 on SFK-BP and 27/32 on Reymersholm (night, no calibration). Old method: 43/99. Now the default in the pipeline (29 Sep); reaches the app at the next paid run."
   },
   {
    "label": "Ball dot",
