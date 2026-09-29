@@ -1,249 +1,81 @@
-kernel danielmatros/ipanema-reym-blind
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-reym-blind
-  0.5 min: danielmatros/ipanema-reym-blind has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-reym-blind has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/reym_blind/m00.jpg
-Output file downloaded to results/kaggle/reym_blind/m00b.jpg
-Output file downloaded to results/kaggle/reym_blind/m01.jpg
-Output file downloaded to results/kaggle/reym_blind/m01b.jpg
-Output file downloaded to results/kaggle/reym_blind/m02.jpg
-Output file downloaded to results/kaggle/reym_blind/m02b.jpg
-Output file downloaded to results/kaggle/reym_blind/m03.jpg
-Output file downloaded to results/kaggle/reym_blind/m03b.jpg
-Output file downloaded to results/kaggle/reym_blind/m04.jpg
-Output file downloaded to results/kaggle/reym_blind/m04b.jpg
-Output file downloaded to results/kaggle/reym_blind/m05.jpg
-Output file downloaded to results/kaggle/reym_blind/m05b.jpg
-Output file downloaded to results/kaggle/reym_blind/m06.jpg
-Output file downloaded to results/kaggle/reym_blind/m06b.jpg
-Output file downloaded to results/kaggle/reym_blind/m07.jpg
-Output file downloaded to results/kaggle/reym_blind/m07b.jpg
-Output file downloaded to results/kaggle/reym_blind/m08.jpg
-Output file downloaded to results/kaggle/reym_blind/m08b.jpg
-Output file downloaded to results/kaggle/reym_blind/m09.jpg
-Output file downloaded to results/kaggle/reym_blind/m09b.jpg
-Output file downloaded to results/kaggle/reym_blind/m10.jpg
-Output file downloaded to results/kaggle/reym_blind/m10b.jpg
-Output file downloaded to results/kaggle/reym_blind/m11.jpg
-Output file downloaded to results/kaggle/reym_blind/m11b.jpg
-Output file downloaded to results/kaggle/reym_blind/m12.jpg
-Output file downloaded to results/kaggle/reym_blind/m12b.jpg
-Output file downloaded to results/kaggle/reym_blind/m13.jpg
-Output file downloaded to results/kaggle/reym_blind/m13b.jpg
-Output file downloaded to results/kaggle/reym_blind/m14.jpg
-Output file downloaded to results/kaggle/reym_blind/m14b.jpg
-Output file downloaded to results/kaggle/reym_blind/m15.jpg
-Output file downloaded to results/kaggle/reym_blind/m15b.jpg
-Output file downloaded to results/kaggle/reym_blind/m16.jpg
-Output file downloaded to results/kaggle/reym_blind/m16b.jpg
-Output file downloaded to results/kaggle/reym_blind/m17.jpg
-Output file downloaded to results/kaggle/reym_blind/m17b.jpg
-Output file downloaded to results/kaggle/reym_blind/m18.jpg
-Output file downloaded to results/kaggle/reym_blind/m18b.jpg
-Output file downloaded to results/kaggle/reym_blind/m19.jpg
-Output file downloaded to results/kaggle/reym_blind/m19b.jpg
-Output file downloaded to results/kaggle/reym_blind/m20.jpg
-Output file downloaded to results/kaggle/reym_blind/m20b.jpg
-Output file downloaded to results/kaggle/reym_blind/m21.jpg
-Output file downloaded to results/kaggle/reym_blind/m21b.jpg
-Output file downloaded to results/kaggle/reym_blind/m22.jpg
-Output file downloaded to results/kaggle/reym_blind/m22b.jpg
-Output file downloaded to results/kaggle/reym_blind/m23.jpg
-Output file downloaded to results/kaggle/reym_blind/m23b.jpg
-Output file downloaded to results/kaggle/reym_blind/m24.jpg
-Output file downloaded to results/kaggle/reym_blind/m24b.jpg
-Output file downloaded to results/kaggle/reym_blind/m25.jpg
-Output file downloaded to results/kaggle/reym_blind/m25b.jpg
-Output file downloaded to results/kaggle/reym_blind/m26.jpg
-Output file downloaded to results/kaggle/reym_blind/m26b.jpg
-Output file downloaded to results/kaggle/reym_blind/m27.jpg
-Output file downloaded to results/kaggle/reym_blind/m27b.jpg
-Output file downloaded to results/kaggle/reym_blind/m28.jpg
-Output file downloaded to results/kaggle/reym_blind/m28b.jpg
-Output file downloaded to results/kaggle/reym_blind/m29.jpg
-Output file downloaded to results/kaggle/reym_blind/m29b.jpg
-Output file downloaded to results/kaggle/reym_blind/m30.jpg
-Output file downloaded to results/kaggle/reym_blind/m30b.jpg
-Output file downloaded to results/kaggle/reym_blind/m31.jpg
-Output file downloaded to results/kaggle/reym_blind/m31b.jpg
-Output file downloaded to results/kaggle/reym_blind/m32.jpg
-Output file downloaded to results/kaggle/reym_blind/m32b.jpg
-Output file downloaded to results/kaggle/reym_blind/m33.jpg
-Output file downloaded to results/kaggle/reym_blind/m33b.jpg
-Output file downloaded to results/kaggle/reym_blind/m34.jpg
-Output file downloaded to results/kaggle/reym_blind/m34b.jpg
-Output file downloaded to results/kaggle/reym_blind/m35.jpg
-Output file downloaded to results/kaggle/reym_blind/m35b.jpg
-Output file downloaded to results/kaggle/reym_blind/m36.jpg
-Output file downloaded to results/kaggle/reym_blind/m36b.jpg
-Output file downloaded to results/kaggle/reym_blind/m37.jpg
-Output file downloaded to results/kaggle/reym_blind/m37b.jpg
-Output file downloaded to results/kaggle/reym_blind/m38.jpg
-Output file downloaded to results/kaggle/reym_blind/m38b.jpg
-Output file downloaded to results/kaggle/reym_blind/m39.jpg
-Output file downloaded to results/kaggle/reym_blind/m39b.jpg
-Output file downloaded to results/kaggle/reym_blind/m40.jpg
-Output file downloaded to results/kaggle/reym_blind/m40b.jpg
-Output file downloaded to results/kaggle/reym_blind/m41.jpg
-Output file downloaded to results/kaggle/reym_blind/m41b.jpg
-Output file downloaded to results/kaggle/reym_blind/m42.jpg
-Output file downloaded to results/kaggle/reym_blind/m42b.jpg
-Output file downloaded to results/kaggle/reym_blind/m43.jpg
-Output file downloaded to results/kaggle/reym_blind/m43b.jpg
-Output file downloaded to results/kaggle/reym_blind/m44.jpg
-Output file downloaded to results/kaggle/reym_blind/m44b.jpg
-Output file downloaded to results/kaggle/reym_blind/m45.jpg
-Output file downloaded to results/kaggle/reym_blind/m45b.jpg
-Output file downloaded to results/kaggle/reym_blind/m46.jpg
-Output file downloaded to results/kaggle/reym_blind/m46b.jpg
-Output file downloaded to results/kaggle/reym_blind/m47.jpg
-Output file downloaded to results/kaggle/reym_blind/m47b.jpg
-Output file downloaded to results/kaggle/reym_blind/m48.jpg
-Output file downloaded to results/kaggle/reym_blind/m48b.jpg
-Output file downloaded to results/kaggle/reym_blind/m49.jpg
-Output file downloaded to results/kaggle/reym_blind/m49b.jpg
-Output file downloaded to results/kaggle/reym_blind/m50.jpg
-Output file downloaded to results/kaggle/reym_blind/m50b.jpg
-Output file downloaded to results/kaggle/reym_blind/m51.jpg
-Output file downloaded to results/kaggle/reym_blind/m51b.jpg
-Output file downloaded to results/kaggle/reym_blind/m52.jpg
-Output file downloaded to results/kaggle/reym_blind/m52b.jpg
-Output file downloaded to results/kaggle/reym_blind/m53.jpg
-Output file downloaded to results/kaggle/reym_blind/m53b.jpg
-Output file downloaded to results/kaggle/reym_blind/m54.jpg
-Output file downloaded to results/kaggle/reym_blind/m54b.jpg
-Output file downloaded to results/kaggle/reym_blind/m55.jpg
-Output file downloaded to results/kaggle/reym_blind/m55b.jpg
-Output file downloaded to results/kaggle/reym_blind/m56.jpg
-Output file downloaded to results/kaggle/reym_blind/m56b.jpg
-Output file downloaded to results/kaggle/reym_blind/m57.jpg
-Output file downloaded to results/kaggle/reym_blind/m57b.jpg
-Output file downloaded to results/kaggle/reym_blind/m58.jpg
-Output file downloaded to results/kaggle/reym_blind/m58b.jpg
-Output file downloaded to results/kaggle/reym_blind/m59.jpg
-Output file downloaded to results/kaggle/reym_blind/m59b.jpg
-Output file downloaded to results/kaggle/reym_blind/result.json
-Kernel log downloaded to results/kaggle/reym_blind/ipanema-reym-blind.log
-  ipanema-reym-blind.log 803
-  m00.jpg 307801
-  m00b.jpg 321661
-  m01.jpg 322156
-  m01b.jpg 318339
-  m02.jpg 323343
-  m02b.jpg 325480
-  m03.jpg 335597
-  m03b.jpg 352340
-  m04.jpg 338218
-  m04b.jpg 334358
-  m05.jpg 242368
-  m05b.jpg 245984
-  m06.jpg 250160
-  m06b.jpg 248922
-  m07.jpg 247626
-  m07b.jpg 246447
-  m08.jpg 239691
-  m08b.jpg 235783
-  m09.jpg 242772
-  m09b.jpg 239842
-  m10.jpg 247425
-  m10b.jpg 241883
-  m11.jpg 241151
-  m11b.jpg 228355
-  m12.jpg 244259
-  m12b.jpg 244723
-  m13.jpg 260148
-  m13b.jpg 258307
-  m14.jpg 256357
-  m14b.jpg 250695
-  m15.jpg 249112
-  m15b.jpg 250110
-  m16.jpg 238485
-  m16b.jpg 254272
-  m17.jpg 268770
-  m17b.jpg 277986
-  m18.jpg 266977
-  m18b.jpg 272654
-  m19.jpg 305627
-  m19b.jpg 298987
-  m20.jpg 269834
-  m20b.jpg 262932
-  m21.jpg 263952
-  m21b.jpg 263383
-  m22.jpg 257298
-  m22b.jpg 245761
-  m23.jpg 309393
-  m23b.jpg 309658
-  m24.jpg 280447
-  m24b.jpg 278816
-  m25.jpg 283561
-  m25b.jpg 280122
-  m26.jpg 336097
-  m26b.jpg 342925
-  m27.jpg 380926
-  m27b.jpg 374715
-  m28.jpg 317611
-  m28b.jpg 316924
-  m29.jpg 335392
-  m29b.jpg 333589
-  m30.jpg 286051
-  m30b.jpg 275478
-  m31.jpg 247608
-  m31b.jpg 243059
-  m32.jpg 239689
-  m32b.jpg 242161
-  m33.jpg 283871
-  m33b.jpg 283652
-  m34.jpg 276632
-  m34b.jpg 274446
-  m35.jpg 306846
-  m35b.jpg 309517
-  m36.jpg 313345
-  m36b.jpg 310969
-  m37.jpg 317974
-  m37b.jpg 316207
-  m38.jpg 419618
-  m38b.jpg 307036
-  m39.jpg 293419
-  m39b.jpg 289313
-  m40.jpg 287376
-  m40b.jpg 317359
-  m41.jpg 366958
-  m41b.jpg 384424
-  m42.jpg 382272
-  m42b.jpg 389952
-  m43.jpg 388490
-  m43b.jpg 390433
-  m44.jpg 303489
-  m44b.jpg 296105
-  m45.jpg 267644
-  m45b.jpg 265449
-  m46.jpg 347083
-  m46b.jpg 347690
-  m47.jpg 311597
-  m47b.jpg 308582
-  m48.jpg 303336
-  m48b.jpg 302512
-  m49.jpg 261737
-  m49b.jpg 254791
-  m50.jpg 259156
-  m50b.jpg 259781
-  m51.jpg 269496
-  m51b.jpg 267002
-  m52.jpg 249303
-  m52b.jpg 246988
-  m53.jpg 238756
-  m53b.jpg 235124
-  m54.jpg 232767
-  m54b.jpg 239495
-  m55.jpg 244734
-  m55b.jpg 246320
-  m56.jpg 258382
-  m56b.jpg 254005
-  m57.jpg 237016
-  m57b.jpg 242278
-  m58.jpg 272300
-  m58b.jpg 270540
-  m59.jpg 349846
-  m59b.jpg 347135
-  result.json 29
-  run.json 154
+kernel danielmatros/ipanema-kitcrops-p1
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-kitcrops-p1
+  0.5 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+ 12.3 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
+ 12.8 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_1279.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_2431.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_4607.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_1428.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_2714.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_5143.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_1190.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_2262.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_4286.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050_frame01.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050_frame18.jpg
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_1130.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_2147.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_4068.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/run_info.json
+Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_1456.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_2766.pkl.gz
+Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_5242.pkl.gz
+Kernel log downloaded to results/kaggle/kitcrops_p1/ipanema-kitcrops-p1.log
+  SFKBP1109_s1200_120.pkl.gz 5462608
+  SFKBP1109_s1200_120_frame01.jpg 407976
+  SFKBP1109_s1200_120_frame18.jpg 318568
+  SFKBP1109_s1200_20.pkl.gz 6208592
+  SFKBP1109_s1200_20_frame01.jpg 339782
+  SFKBP1109_s1200_20_frame18.jpg 456559
+  SFKBP1109_s1200_220.pkl.gz 5128831
+  SFKBP1109_s1200_220_frame01.jpg 305501
+  SFKBP1109_s1200_220_frame18.jpg 311964
+  ipanema-kitcrops-p1.log 17618
+  p09-norrviken-vs-solheim-2026-08-30_1279.pkl.gz 7147096
+  p09-norrviken-vs-solheim-2026-08-30_2431.pkl.gz 7156752
+  p09-norrviken-vs-solheim-2026-08-30_4607.pkl.gz 5113013
+  p15u-vs-djursholm-2026-09-26_1428.pkl.gz 5494185
+  p15u-vs-djursholm-2026-09-26_2714.pkl.gz 7284376
+  p15u-vs-djursholm-2026-09-26_5143.pkl.gz 5887182
+  p15u-vs-reymersholm-2026-09-18_1190.pkl.gz 6030788
+  p15u-vs-reymersholm-2026-09-18_2262.pkl.gz 8290362
+  p15u-vs-reymersholm-2026-09-18_4286.pkl.gz 5347992
+  p15u-vs-spanga-2026-09-25_1125.pkl.gz 7436843
+  p15u-vs-spanga-2026-09-25_1125_frame01.jpg 290451
+  p15u-vs-spanga-2026-09-25_1125_frame18.jpg 312754
+  p15u-vs-spanga-2026-09-25_2137.pkl.gz 5237746
+  p15u-vs-spanga-2026-09-25_2137_frame01.jpg 222858
+  p15u-vs-spanga-2026-09-25_2137_frame18.jpg 227321
+  p15u-vs-spanga-2026-09-25_4050.pkl.gz 5575089
+  p15u-vs-spanga-2026-09-25_4050_frame01.jpg 246761
+  p15u-vs-spanga-2026-09-25_4050_frame18.jpg 258455
+  p15u-vs-vasalund-2026-09-20_1130.pkl.gz 6382366
+  p15u-vs-vasalund-2026-09-20_2147.pkl.gz 5774436
+  p15u-vs-vasalund-2026-09-20_4068.pkl.gz 5783611
+  run.json 157
+  run_info.json 7563
+  solberga-vs-p09-norrviken-2026-09-11_1456.pkl.gz 4673962
+  solberga-vs-p09-norrviken-2026-09-11_2766.pkl.gz 7521315
+  solberga-vs-p09-norrviken-2026-09-11_5242.pkl.gz 7527981

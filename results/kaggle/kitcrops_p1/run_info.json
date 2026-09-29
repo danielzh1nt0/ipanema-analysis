@@ -1,0 +1,194 @@
+{
+ "pieces": {
+  "p15u-vs-spanga-2026-09-25_1125": {
+   "frames": 36,
+   "people": 696,
+   "fit": [
+    "kits: per-player classifier from 534 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 435 people (261 off the pitch left out), group sizes [143, 103, 103, 86], default fit leaves out a group at 0.47 x the team gap"
+   ],
+   "minutes": 0.5
+  },
+  "p15u-vs-spanga-2026-09-25_2137": {
+   "frames": 36,
+   "people": 609,
+   "fit": [
+    "kits: per-player classifier from 405 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 267 people (342 off the pitch left out), group sizes [90, 70, 59, 48], default fit leaves out a group at 0.54 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p15u-vs-spanga-2026-09-25_4050": {
+   "frames": 36,
+   "people": 651,
+   "fit": [
+    "kits: per-player classifier from 506 on-pitch people, 12 of 15 runs kept",
+    "kits: learned from 397 people (254 off the pitch left out), group sizes [185, 96, 75, 41], default fit leaves out a group at 0.52 x the team gap"
+   ],
+   "minutes": 0.6
+  },
+  "p15u-vs-reymersholm-2026-09-18_1190": {
+   "frames": 36,
+   "people": 618,
+   "fit": [
+    "kits: per-player classifier from 375 on-pitch people, 15 of 15 runs kept",
+    "kits: learned from 218 people (400 off the pitch left out), group sizes [74, 61, 54, 29], default fit leaves out a group at 0.53 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p15u-vs-reymersholm-2026-09-18_2262": {
+   "frames": 36,
+   "people": 710,
+   "fit": [
+    "kits: per-player classifier from 517 on-pitch people, 15 of 15 runs kept",
+    "kits: learned from 155 people (555 off the pitch left out), group sizes [65, 58, 27, 5], default fit leaves out a group at 0.67 x the team gap"
+   ],
+   "minutes": 0.5
+  },
+  "p15u-vs-reymersholm-2026-09-18_4286": {
+   "frames": 36,
+   "people": 553,
+   "fit": [
+    "kits: per-player classifier from 374 on-pitch people, 11 of 15 runs kept",
+    "kits: learned from 226 people (327 off the pitch left out), group sizes [78, 64, 55, 29], default fit leaves out a group at 0.54 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p15u-vs-vasalund-2026-09-20_1130": {
+   "frames": 36,
+   "people": 775,
+   "fit": [
+    "kits: per-player classifier from 451 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 478 people (297 off the pitch left out), group sizes [224, 175, 49, 30], default fit leaves out a group at 0.00 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p15u-vs-vasalund-2026-09-20_2147": {
+   "frames": 36,
+   "people": 538,
+   "fit": [
+    "kits: per-player classifier from 319 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 259 people (279 off the pitch left out), group sizes [124, 69, 42, 24], default fit leaves out a group at 0.40 x the team gap"
+   ],
+   "minutes": 0.3
+  },
+  "p15u-vs-vasalund-2026-09-20_4068": {
+   "frames": 36,
+   "people": 796,
+   "fit": [
+    "kits: per-player classifier from 427 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 391 people (405 off the pitch left out), group sizes [174, 119, 70, 28], default fit leaves out a group at 0.71 x the team gap"
+   ],
+   "minutes": 0.3
+  },
+  "p15u-vs-djursholm-2026-09-26_1428": {
+   "frames": 36,
+   "people": 965,
+   "fit": [
+    "kits: per-player classifier from 628 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 755 people (210 off the pitch left out), group sizes [306, 269, 143, 37], default fit leaves out a group at 0.77 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p15u-vs-djursholm-2026-09-26_2714": {
+   "frames": 36,
+   "people": 948,
+   "fit": [
+    "kits: per-player classifier from 649 on-pitch people, 15 of 15 runs kept",
+    "kits: learned from 622 people (326 off the pitch left out), group sizes [214, 189, 189, 30], default fit leaves out a group at 0.90 x the team gap"
+   ],
+   "minutes": 0.7
+  },
+  "p15u-vs-djursholm-2026-09-26_5143": {
+   "frames": 36,
+   "people": 953,
+   "fit": [
+    "kits: per-player classifier from 588 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 728 people (225 off the pitch left out), group sizes [279, 254, 165, 30], default fit leaves out a group at 0.74 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_1456": {
+   "frames": 36,
+   "people": 998,
+   "fit": [
+    "kits: per-player classifier from 506 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 511 people (487 off the pitch left out), group sizes [215, 140, 125, 31], default fit leaves out a group at 0.57 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_2766": {
+   "frames": 36,
+   "people": 801,
+   "fit": [
+    "kits: per-player classifier from 447 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 462 people (338 off the pitch left out), group sizes [182, 174, 87, 19], default fit leaves out a group at 0.51 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_5242": {
+   "frames": 36,
+   "people": 680,
+   "fit": [
+    "kits: per-player classifier from 382 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 296 people (384 off the pitch left out), group sizes [119, 78, 55, 44], default fit leaves out a group at 0.62 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_1279": {
+   "frames": 36,
+   "people": 750,
+   "fit": [
+    "kits: per-player classifier from 567 on-pitch people, 2 of 15 runs kept",
+    "kits: learned from 380 people (370 off the pitch left out), group sizes [154, 152, 55, 19], default fit leaves out a group at 0.45 x the team gap"
+   ],
+   "minutes": 0.6
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_2431": {
+   "frames": 36,
+   "people": 780,
+   "fit": [
+    "kits: per-player classifier from 564 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 438 people (342 off the pitch left out), group sizes [173, 162, 72, 31], default fit leaves out a group at 0.55 x the team gap"
+   ],
+   "minutes": 0.5
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_4607": {
+   "frames": 36,
+   "people": 672,
+   "fit": [
+    "kits: per-player classifier from 514 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 524 people (148 off the pitch left out), group sizes [233, 181, 91, 19], default fit leaves out a group at 0.46 x the team gap"
+   ],
+   "minutes": 0.4
+  },
+  "SFKBP1109_s1200_20": {
+   "frames": 36,
+   "people": 842,
+   "fit": [
+    "kits: per-player classifier from 427 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 377 people (465 off the pitch left out), group sizes [140, 138, 84, 15], default fit leaves out a group at 0.44 x the team gap"
+   ],
+   "minutes": 0.9
+  },
+  "SFKBP1109_s1200_120": {
+   "frames": 36,
+   "people": 748,
+   "fit": [
+    "kits: per-player classifier from 401 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 426 people (322 off the pitch left out), group sizes [164, 155, 77, 30], default fit leaves out a group at 0.51 x the team gap"
+   ],
+   "minutes": 0.8
+  },
+  "SFKBP1109_s1200_220": {
+   "frames": 36,
+   "people": 702,
+   "fit": [
+    "kits: per-player classifier from 407 on-pitch people, 0 of 15 runs kept -> colour only",
+    "kits: learned from 471 people (230 off the pitch left out), group sizes [192, 176, 67, 36], default fit leaves out a group at 0.50 x the team gap"
+   ],
+   "minutes": 0.8
+  }
+ },
+ "minutes": 12.2
+}
