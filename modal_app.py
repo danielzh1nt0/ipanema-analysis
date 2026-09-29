@@ -533,6 +533,29 @@ def players_rf(match_id: str = "SFKBP1109_s1200", smoke_frames: int = 0):
     except BaseException:
         return {"ok": False, "error": traceback.format_exc()[-5000:], "log": logs[-15:]}
 
+@app.function(gpu="L4", image=image_rf, timeout=90 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def ball_rf(match_id: str = "SFKBP1109_s1200", smoke_frames: int = 0):
+    """29 Sep: ball guesses from the new RF-DETR ball finder (ipanema/ballrf.py, exam 84/108) for every frame, in the RF-DETR
+    image; saved to the volume cache (cache/<match>/ball_cands_<VERSION>.pkl) for the main pipeline. Also returns the top 10
+    guesses per frame so the picker can be tested for free on this machine. smoke_frames>0: short test, nothing saved."""
+    import subprocess, sys, pickle, time, traceback
+    t0 = time.time(); logs = []; L_ = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    try:
+        subprocess.run(f"rm -rf /content/ia && git clone -q --depth 1 {REPO} /content/ia", shell=True, check=True); sys.path.insert(0, "/content/ia")
+        from ipanema import ballrf as BR, video as V
+        video = f"/tmp/work/{match_id}/video.mp4"
+        if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+        cache = f"{ROOT}/cache/{match_id}"; os.makedirs(cache, exist_ok=True)
+        out = BR.candidates(video, f"/content/ia/{BR.WEIGHTS}", f"{cache}/ball_cands_{BR.VERSION}.pkl", log=L_, max_frames=smoke_frames, batch=4)
+        if not smoke_frames: vol.commit()
+        n = len(out); per = sum(len(v) for v in out.values()) / max(1, n)
+        rows = [[int(k), round(x, 1), round(y, 1), round(c, 4)] for k, v in sorted(out.items()) for x, y, c in v[:10]]
+        return {"ok": True, "frames": n, "guesses_per_frame": round(per, 1), "saved": not smoke_frames, "minutes": round((time.time() - t0) / 60, 1),
+                "frames_per_s": round(n / max(1, time.time() - t0), 1), "log": logs[-10:], "rows": rows}
+    except BaseException:
+        return {"ok": False, "error": traceback.format_exc()[-5000:], "log": logs[-15:]}
+
+
 @app.function(gpu="L4", image=image_rf, timeout=90 * 60, secrets=[modal.Secret.from_name("ipanema-storage")])
 def tracktest_rf(start_s: float = 60.0, dur_s: float = 20.0, batch: int = 8, match: str = "SFKBP1109_s1200"):
     """28 Sep: tools/tracktest.py (before vs new pipeline with RF-DETR) on a GPU, in its OWN image so the main pipeline image

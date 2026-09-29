@@ -111,7 +111,18 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     ball_backend = os.environ.get("IPANEMA_BALL", "wasb")
     _clicks_w = os.path.join(S.root, "models", "ball", "clicks_latest.pt")     # the click-trained ball model (26 Sep: 52/71 vs 38/71 old)
     if "IPANEMA_BALL" not in os.environ and os.path.exists(_clicks_w): ball_backend = "clicks"
+    from . import ballrf as BRF                                                # 29 Sep: RF-DETR ball finder (exam 84/108 vs 70), guesses made by ball_rf in the RF-DETR image
+    _rf_ball = f"{cache}/ball_cands_{BRF.VERSION}.pkl"
+    if os.environ.get("IPANEMA_BALL", "rfdetr") == "rfdetr" and os.path.exists(_rf_ball): ball_backend = "rfdetr"
     cands = None
+    if ball_backend == "rfdetr":
+        cands = pickle.load(open(_rf_ball, "rb")); log(f"ball: RF-DETR ball finder ({BRF.VERSION}), {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f} candidates/frame")
+        if os.environ.get("IPANEMA_BALL_FUSE", BRF.FUSE_WASB) == "1":
+            try:
+                from . import wasb
+                wb = wasb.candidates(video, S.root, f"{cache}/ball_cands_wasb.pkl", log=log, train=train_ball, thr=float(os.environ.get("IPANEMA_WASB_THR", "0.05")))
+                cands = BL.fuse_candidates(cands, wb); log(f"ball: RF-DETR + WASB guesses fused, {sum(len(v) for v in cands.values())/max(1,len(cands)):.1f}/frame")
+            except Exception as e: log(f"ball: WASB merge skipped ({e!r})")
     if ball_backend == "clicks":
         from . import ballclicks as BC
         _bj = os.path.join(S.root, "models", "ball", "best.json")                # 28 Sep: cache per model version, or a promoted model reuses old guesses

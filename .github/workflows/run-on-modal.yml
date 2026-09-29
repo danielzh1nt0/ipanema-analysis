@@ -67,6 +67,29 @@ jobs:
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/ci && git commit -qm "players (RF-DETR) for the app run" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
           test "$(cat /tmp/players_ok)" = "1"
+      - name: new ball finder guesses in the RF-DETR image (commit tagged [ball-rf:<match>]) - GPU; stops the job if it fails
+        if: contains(github.event.head_commit.message, '[ball-rf:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, gzip
+          m = re.search(r"\[ball-rf:([A-Za-z0-9_.-]+)\]", os.environ["MSG"]).group(1)
+          f = modal.Function.from_name("ipanema", "ball_rf"); out = {}
+          s = f.remote(m, 120); s.pop("rows", None); out["smoke_120_frames"] = s; print(json.dumps(s, indent=1)[:3000], flush=True)
+          if s.get("ok"):
+              full = f.remote(m, 0); rows = full.pop("rows", None); out["full"] = full; print(json.dumps(full, indent=1)[:3000], flush=True)
+              if rows:
+                  os.makedirs("results/picker", exist_ok=True)
+                  json.dump(rows, gzip.open(f"results/picker/ball_cands_rfdetr_{m}.json.gz", "wt"))
+          os.makedirs("results/ci", exist_ok=True); json.dump(out, open(f"results/ci/ball_rf_{m}.json", "w"), indent=1)
+          open("/tmp/ball_ok", "w").write("1" if out.get("full", {}).get("ok") else "0")
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/ci results/picker && git commit -qm "ball guesses (RF-DETR) for the app run" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+          test "$(cat /tmp/ball_ok)" = "1"
       - name: run a match (only when the commit is tagged run) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[run') || github.event_name == 'workflow_dispatch'
         env:
