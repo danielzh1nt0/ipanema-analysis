@@ -7,7 +7,7 @@ import os, time, pickle, numpy as np
 
 WEIGHTS = "results/kaggle/ballfinder_rfdetr/rfdetr_ball_small_20260929_fp16.pth"
 VERSION = "rfdetr_ball_20260929"
-FUSE_WASB = "0"          # set after the free picker test on the 34 app moments (RF-DETR alone vs fused with WASB)
+FUSE_WASB = "1"          # 29 Sep free picker test, 34 app moments: RF-DETR + WASB 26, RF-DETR alone 25, old app setup 23
 CROP, TX, TY = 640, [0, 427, 853, 1280], [0, 440]
 
 

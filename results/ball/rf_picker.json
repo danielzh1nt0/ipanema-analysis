@@ -1,0 +1,22 @@
+{
+ "today: WASB + click model": {
+  "right": 23,
+  "of": 34,
+  "ceiling": 31
+ },
+ "RF-DETR alone": {
+  "right": 25,
+  "of": 34,
+  "ceiling": 32
+ },
+ "RF-DETR + WASB": {
+  "right": 26,
+  "of": 34,
+  "ceiling": 33
+ },
+ "RF-DETR (x2) + WASB": {
+  "right": 25,
+  "of": 34,
+  "ceiling": 33
+ }
+}
