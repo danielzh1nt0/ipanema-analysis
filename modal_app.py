@@ -2174,13 +2174,18 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
 
 @app.function(gpu="L4", timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
 def pipeline_smoke(match_id: str = "SFKBP1109_s1200"):
+    import traceback as _tb, json as _js
+    try: return _js.loads(_js.dumps(_pipeline_smoke(match_id), default=str))     # plain types only: torch objects can't travel back
+    except BaseException: return {"all_ok": False, "remote_error": _tb.format_exc()[-6000:]}
+
+def _pipeline_smoke(match_id):
     """29 Sep: after the image upgrade (rfdetr, supervision 0.29, transformers 5): every pipeline import + RF-DETR kits on
     36 real frames + WASB model build + click-finder load + 300 frames of tracking. Minutes of GPU, no upload."""
     import time, traceback, importlib, numpy as np, cv2
     out = {"steps": []}; t0 = time.time()
     def step(name, fn):
-        try: r = fn(); out["steps"].append({"step": name, "ok": True, "info": str(r)[:300], "s": round(time.time() - t0, 1)})
-        except Exception: out["steps"].append({"step": name, "ok": False, "error": traceback.format_exc()[-1500:]})
+        try: r = fn(); r = str(r); out["steps"].append({"step": name, "ok": True, "info": str(r)[:300], "s": round(time.time() - t0, 1)})
+        except BaseException: out["steps"].append({"step": name, "ok": False, "error": traceback.format_exc()[-1500:]})
     S = _setup()
     import torch, supervision, transformers
     out["versions"] = {"torch": torch.__version__, "supervision": supervision.__version__, "transformers": transformers.__version__}
