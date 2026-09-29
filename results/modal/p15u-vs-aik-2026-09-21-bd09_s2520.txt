@@ -1,64 +1,30 @@
-=== p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.20.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+=== p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
 calibration: from panorama, 8992/8992 frames registered
   debug overlays -> /content/ipanema-analysis/results/debug
-teams: 602 crops, clusters [293, 309], dark share A 0.47 / B 0.21 (A = darker kit)
-tracking: cached
-clean: dropped 1216 off-pitch, merged 798 duplicates, stitched 1211 ids, keepers [1522, 1535, 1745] -> B defends left
-clean: players per frame median A 4 / B 5, max A 13 / B 14
-wasb train: SFKBP1109_s1200 held out as a test set
-wasb train: labels SFKBP1109b -> video of SFKBP1109
-wasb train: bundesliga1 held out as a test set
-wasb train: bundesliga2 held out as a test set
-wasb train: 417 samples (274 with a visible ball)
-wasb train: before fine-tune, held-out hit rate 1/57
-  wasb epoch 2: loss 0.000204, held-out hit rate 14/57
-  wasb epoch 4: loss 0.000147, held-out hit rate 27/57
-  wasb epoch 6: loss 0.000121, held-out hit rate 28/57
-  wasb epoch 8: loss 0.000096, held-out hit rate 26/57
-  wasb epoch 10: loss 0.000077, held-out hit rate 24/57
-  wasb epoch 12: loss 0.000066, held-out hit rate 23/57
-  wasb epoch 14: loss 0.000056, held-out hit rate 25/57
-  wasb epoch 16: loss 0.000047, held-out hit rate 24/57
-  wasb early stop at epoch 16 (best 28/57)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 28/57)
-wasb seed 0: held-out 28
-wasb train: before fine-tune, held-out hit rate 1/57
-  wasb epoch 2: loss 0.000204, held-out hit rate 15/57
-  wasb epoch 4: loss 0.000148, held-out hit rate 27/57
-  wasb epoch 6: loss 0.000122, held-out hit rate 27/57
-  wasb epoch 8: loss 0.000097, held-out hit rate 25/57
-  wasb epoch 10: loss 0.000078, held-out hit rate 25/57
-  wasb epoch 12: loss 0.000064, held-out hit rate 25/57
-  wasb epoch 14: loss 0.000056, held-out hit rate 24/57
-  wasb early stop at epoch 14 (best 27/57)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 27/57)
-wasb seed 1: held-out 27
-wasb train: before fine-tune, held-out hit rate 1/57
-  wasb epoch 2: loss 0.000204, held-out hit rate 15/57
-  wasb epoch 4: loss 0.000148, held-out hit rate 27/57
-  wasb epoch 6: loss 0.000122, held-out hit rate 27/57
-  wasb epoch 8: loss 0.000097, held-out hit rate 25/57
-  wasb epoch 10: loss 0.000076, held-out hit rate 23/57
-  wasb epoch 12: loss 0.000064, held-out hit rate 24/57
-  wasb epoch 14: loss 0.000056, held-out hit rate 23/57
-  wasb early stop at epoch 14 (best 27/57)
-wasb train: saved /data/match_analysis/models/wasb_finetuned.pth (best held-out 27/57)
-wasb seed 2: held-out 27
-wasb: kept best seed, held-out 28
-wasb: using fine-tuned weights
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
+wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 1500
   wasb frame 3000
   wasb frame 4500
   wasb frame 6000
   wasb frame 7500
-wasb: 3932/8992 frames with a ball peak, 0.9 peaks/frame; heatmap max p50/p90/p99 = 0.22/0.43/0.65
-ball: WASB-only candidates, 0.9/frame
-ball (global path): 1670/8992 frames on the chosen path
-ball: global path too sparse, falling back to trajectory picker
-ball: 0.9 candidates/frame, 1658 trajectories, top (score,len,conf,speed) [(40.9, 330, 0.37, 4.03), (23.6, 244, 0.37, 4.73), (21.5, 164, 0.35, 3.54), (18.4, 154, 0.37, 9.09), (15.2, 54, 0.51, 3.76)], picks 2441/8992
-direction: A →  B ←  confidence A 0.62 / B 0.18
+wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.47/0.67/0.76
+ball: RF-DETR + WASB guesses fused, 14.3/frame
+clean: keeper (right) from a non-team kit: track 164, 571 frames
+clean: removed 9086 rows of non-team kits (referee / staff)
+clean: dropped 19855 off-pitch, merged 1531 duplicates, stitched 314 ids, keepers [23, 142, 147, 149, 424] -> B defends left
+clean: players per frame median A 7 / B 7, max A 15 / B 16
+players: 2595 short gaps filled (marked 'filled' in the export)
+ball v2: 8626/8992 frames on the path, 551 static-clutter candidates dropped
+ball: dropped 432 static-clutter candidates
+ball (global path): 7722/8992 frames on the chosen path
+possession: simple model (nearest feet in the picture); 28% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.04 / B 0.05  WARNING low confidence
+direction (from keepers): A ←  B →
   step: sequences
   step: turnovers
   step: lanes
@@ -66,38 +32,41 @@ direction: A →  B ←  confidence A 0.62 / B 0.18
   step: shapes
   step: stats
   step: metrics
-ball grade: accuracy None, near-player 0.26, possession withheld, events withheld
-ball reliability: 40% frames, 26% near a player, 0 jumps -> UNRELIABLE (stats withheld in app)
+ball grade: accuracy None, near-player 0.6, possession withheld, events withheld
+ball reliability: 100% frames, 60% near a player, 2181 jumps -> UNRELIABLE (stats withheld in app)
   step: export
-  wrote match_data.json (15.0 MB)
-export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520 (64 events) · library.json updated · zip /data/match_analysis/runs/p15u-vs-aik-2026-09-21-bd09_s2520_lovable.zip
+  wrote match_data.json (22.2 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520 (187 events) · library.json updated · zip /data/match_analysis/runs/p15u-vs-aik-2026-09-21-bd09_s2520_lovable.zip
 upload: p15u-vs-aik-2026-09-21-bd09_s2520 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
 
 --- SUMMARY ---
   match_id                   p15u-vs-aik-2026-09-21-bd09_s2520
   ball_reliable              False
-  ball_grade                 {'accuracy': None, 'near_player_pct': 0.26, 'frames_pct': 0.4, 'possession_ok': False, 'events_ok': False}
+  ball_grade                 {'accuracy': None, 'near_player_pct': 0.6, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}
   duration_s                 300.0
   calibration_coverage       1.0
   calibration_frozen         0
-  team_dark_share            {'A': 0.47, 'B': 0.21}
-  players_per_frame_median   {'A': 4.0, 'B': 5.0}
-  ball_frames_pct            60
+  team_dark_share            {'A': 0.25, 'B': 0.92}
+  players_per_frame_median   {'A': 7.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              300.0
+  periods                    None
   ball_check                 None
-  possession_pct             {'A': 17, 'B': 83}
-  loose_pct                  78
-  dead_pct                   2
-  attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.62, 'B': 0.18}
-  turnovers                  0
-  passes                     340
-  restarts                   5
-  sequences                  14
+  possession_pct             {'A': 41, 'B': 59}
+  loose_pct                  28
+  dead_pct                   5
+  possession_model           simple
+  attack_right               {'A': False, 'B': True}
+  direction_confidence       {'A': 0.04, 'B': 0.05}
+  turnovers                  19
+  passes                     132
+  restarts                   3
+  sequences                  88
   shots                      {'A': 0, 'B': 0}
   goals                      {'A': 0, 'B': 0}
-  high_turnovers             {'A': 0, 'B': 0}
-  field_tilt                 {'A': 0, 'B': 13}
-  runtime_min                27.6
+  high_turnovers             {'A': 4, 'B': 2}
+  field_tilt                 {'A': 27, 'B': 23}
+  runtime_min                20.4
 publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
 
-SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09_s2520", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.26, "frames_pct": 0.4, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.47, "B": 0.21}, "players_per_frame_median": {"A": 4.0, "B": 5.0}, "ball_frames_pct": 60, "ball_check": null, "possession_pct": {"A": 17, "B": 83}, "loose_pct": 78, "dead_pct": 2, "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.62, "B": 0.18}, "turnovers": 0, "passes": 340, "restarts": 5, "sequences": 14, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 0, "B": 0}, "field_tilt": {"A": 0, "B": 13}, "runtime_min": 27.6}
+SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09_s2520", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.6, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "duration_s": 300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.25, "B": 0.92}, "players_per_frame_median": {"A": 7.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 300.0, "periods": null, "ball_check": null, "possession_pct": {"A": 41, "B": 59}, "loose_pct": 28, "dead_pct": 5, "possession_model": "simple", "attack_right": {"A": false, "B": true}, "direction_confidence": {"A": 0.04, "B": 0.05}, "turnovers": 19, "passes": 132, "restarts": 3, "sequences": 88, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 4, "B": 2}, "field_tilt": {"A": 27, "B": 23}, "runtime_min": 20.4}

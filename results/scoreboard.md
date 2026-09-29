@@ -18,3 +18,4 @@ Ball check = correct picks on held-out labelled frames; ceiling = frames where t
 | 2026-09-28 06:04 | 96de549 | SFKBP1109_s1200 | 0.27.0 | 22/34 | 27 | — | OK | withheld | {'A': 6.0, 'B': 8.0} |  · with YOLO: 15/34, ceiling 30 · other picker v1: 16/34 |
 | 2026-09-29 10:52 | b87b48a | SFKBP1109_s1200 | 0.27.0 | 22/34 | 27 | — | OK | withheld | {'A': 8.0, 'B': 7.0} |  · with YOLO: 15/34, ceiling 30 · other picker v1: 17/34 |
 | 2026-09-29 16:26 | b0fc4df | SFKBP1109_s1200 | 0.27.0 | 29/34 | 34 | — | OK | withheld | {'A': 8.0, 'B': 7.0} |  · with YOLO: 14/34, ceiling 34 · other picker v1: 16/34 |
+| 2026-09-29 21:31 | 0f9e463 | p15u-vs-aik-2026-09-21-bd09_s2520 | 0.27.0 | —/— | — | — | withheld | withheld | {'A': 7.0, 'B': 7.0} |  |
