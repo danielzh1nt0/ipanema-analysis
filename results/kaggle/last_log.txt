@@ -1,5 +1,296 @@
-kernel danielmatros/ipanema-ballcrops-k1b
-Kernel push error: Maximum batch GPU session count of 2 reached.
-  0.5 min: 404 Client Error: Not Found for url: https://api.kaggle.com/v1/kernels.KernelsApiService/GetKernelSessionStatus
-404 Client Error: Not Found for url: https://api.kaggle.com/v1/kernels.KernelsApiService/ListKernelSessionOutput
-  run.json 194
+kernel danielmatros/ipanema-players-p1
+fetch only: no new version pushed
+  0.5 min: danielmatros/ipanema-players-p1 has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_comparison.md
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_log.txt
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_120_summary.json
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_comparison.md
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_log.txt
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_20_summary.json
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_comparison.md
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_log.txt
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/SFKBP1109_s1200_220_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_1190_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_2262_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-reymersholm-2026-09-18_4286_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_1125_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_2137_summary.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_comparison.md
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_log.txt
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1/p15u-vs-spanga-2026-09-25_4050_summary.json
+Output file downloaded to results/kaggle/players_p1/run_info.json
+Kernel log downloaded to results/kaggle/players_p1/ipanema-players-p1.log
+  SFKBP1109_s1200_120_compare_0000.jpg 369949
+  SFKBP1109_s1200_120_compare_0256.jpg 318679
+  SFKBP1109_s1200_120_compare_0513.jpg 312941
+  SFKBP1109_s1200_120_compare_0770.jpg 326942
+  SFKBP1109_s1200_120_compare_1026.jpg 322613
+  SFKBP1109_s1200_120_compare_1283.jpg 327760
+  SFKBP1109_s1200_120_compare_1540.jpg 328892
+  SFKBP1109_s1200_120_compare_1797.jpg 305749
+  SFKBP1109_s1200_120_comparison.md 386
+  SFKBP1109_s1200_120_log.txt 3831
+  SFKBP1109_s1200_120_new_RF-DETR_kit_A.png 174966
+  SFKBP1109_s1200_120_new_RF-DETR_kit_B.png 179220
+  SFKBP1109_s1200_120_raw_0000.jpg 356215
+  SFKBP1109_s1200_120_rows_all.json.gz 617321
+  SFKBP1109_s1200_120_rows_keyframes.json 11925
+  SFKBP1109_s1200_120_summary.json 498
+  SFKBP1109_s1200_20_compare_0000.jpg 333059
+  SFKBP1109_s1200_20_compare_0256.jpg 341837
+  SFKBP1109_s1200_20_compare_0513.jpg 398009
+  SFKBP1109_s1200_20_compare_0770.jpg 400912
+  SFKBP1109_s1200_20_compare_1026.jpg 342778
+  SFKBP1109_s1200_20_compare_1283.jpg 337095
+  SFKBP1109_s1200_20_compare_1540.jpg 341989
+  SFKBP1109_s1200_20_compare_1797.jpg 345526
+  SFKBP1109_s1200_20_comparison.md 383
+  SFKBP1109_s1200_20_log.txt 3877
+  SFKBP1109_s1200_20_new_RF-DETR_kit_A.png 177581
+  SFKBP1109_s1200_20_new_RF-DETR_kit_B.png 181899
+  SFKBP1109_s1200_20_raw_0000.jpg 253430
+  SFKBP1109_s1200_20_rows_all.json.gz 677517
+  SFKBP1109_s1200_20_rows_keyframes.json 12299
+  SFKBP1109_s1200_20_summary.json 495
+  SFKBP1109_s1200_220_compare_0000.jpg 304521
+  SFKBP1109_s1200_220_compare_0256.jpg 319502
+  SFKBP1109_s1200_220_compare_0513.jpg 318416
+  SFKBP1109_s1200_220_compare_0770.jpg 304595
+  SFKBP1109_s1200_220_compare_1026.jpg 312624
+  SFKBP1109_s1200_220_compare_1283.jpg 310563
+  SFKBP1109_s1200_220_compare_1540.jpg 307307
+  SFKBP1109_s1200_220_compare_1797.jpg 307083
+  SFKBP1109_s1200_220_comparison.md 383
+  SFKBP1109_s1200_220_log.txt 3818
+  SFKBP1109_s1200_220_new_RF-DETR_kit_A.png 170196
+  SFKBP1109_s1200_220_new_RF-DETR_kit_B.png 175718
+  SFKBP1109_s1200_220_raw_0000.jpg 238610
+  SFKBP1109_s1200_220_rows_all.json.gz 579747
+  SFKBP1109_s1200_220_rows_keyframes.json 11777
+  SFKBP1109_s1200_220_summary.json 495
+  ipanema-players-p1.log 4777
+  p15u-vs-reymersholm-2026-09-18_1190_compare_0000.jpg 160567
+  p15u-vs-reymersholm-2026-09-18_1190_compare_0256.jpg 156562
+  p15u-vs-reymersholm-2026-09-18_1190_compare_0513.jpg 116633
+  p15u-vs-reymersholm-2026-09-18_1190_compare_0770.jpg 120947
+  p15u-vs-reymersholm-2026-09-18_1190_compare_1026.jpg 135453
+  p15u-vs-reymersholm-2026-09-18_1190_compare_1283.jpg 132411
+  p15u-vs-reymersholm-2026-09-18_1190_compare_1540.jpg 132855
+  p15u-vs-reymersholm-2026-09-18_1190_compare_1797.jpg 128016
+  p15u-vs-reymersholm-2026-09-18_1190_comparison.md 310
+  p15u-vs-reymersholm-2026-09-18_1190_log.txt 3522
+  p15u-vs-reymersholm-2026-09-18_1190_new_RF-DETR_kit_A.png 178163
+  p15u-vs-reymersholm-2026-09-18_1190_new_RF-DETR_kit_B.png 179292
+  p15u-vs-reymersholm-2026-09-18_1190_raw_0000.jpg 275921
+  p15u-vs-reymersholm-2026-09-18_1190_rows_all.json.gz 334963
+  p15u-vs-reymersholm-2026-09-18_1190_rows_keyframes.json 5176
+  p15u-vs-reymersholm-2026-09-18_1190_summary.json 262
+  p15u-vs-reymersholm-2026-09-18_2262_compare_0000.jpg 135989
+  p15u-vs-reymersholm-2026-09-18_2262_compare_0256.jpg 122123
+  p15u-vs-reymersholm-2026-09-18_2262_compare_0513.jpg 131183
+  p15u-vs-reymersholm-2026-09-18_2262_compare_0770.jpg 164118
+  p15u-vs-reymersholm-2026-09-18_2262_compare_1026.jpg 152668
+  p15u-vs-reymersholm-2026-09-18_2262_compare_1283.jpg 155922
+  p15u-vs-reymersholm-2026-09-18_2262_compare_1540.jpg 151946
+  p15u-vs-reymersholm-2026-09-18_2262_compare_1797.jpg 123480
+  p15u-vs-reymersholm-2026-09-18_2262_comparison.md 313
+  p15u-vs-reymersholm-2026-09-18_2262_log.txt 3591
+  p15u-vs-reymersholm-2026-09-18_2262_new_RF-DETR_kit_A.png 175883
+  p15u-vs-reymersholm-2026-09-18_2262_new_RF-DETR_kit_B.png 183990
+  p15u-vs-reymersholm-2026-09-18_2262_raw_0000.jpg 218894
+  p15u-vs-reymersholm-2026-09-18_2262_rows_all.json.gz 434554
+  p15u-vs-reymersholm-2026-09-18_2262_rows_keyframes.json 6433
+  p15u-vs-reymersholm-2026-09-18_2262_summary.json 265
+  p15u-vs-reymersholm-2026-09-18_4286_compare_0000.jpg 135564
+  p15u-vs-reymersholm-2026-09-18_4286_compare_0256.jpg 142362
+  p15u-vs-reymersholm-2026-09-18_4286_compare_0513.jpg 145157
+  p15u-vs-reymersholm-2026-09-18_4286_compare_0770.jpg 144832
+  p15u-vs-reymersholm-2026-09-18_4286_compare_1026.jpg 147674
+  p15u-vs-reymersholm-2026-09-18_4286_compare_1283.jpg 152418
+  p15u-vs-reymersholm-2026-09-18_4286_compare_1540.jpg 156975
+  p15u-vs-reymersholm-2026-09-18_4286_compare_1797.jpg 148303
+  p15u-vs-reymersholm-2026-09-18_4286_comparison.md 311
+  p15u-vs-reymersholm-2026-09-18_4286_log.txt 3515
+  p15u-vs-reymersholm-2026-09-18_4286_new_RF-DETR_kit_A.png 169856
+  p15u-vs-reymersholm-2026-09-18_4286_new_RF-DETR_kit_B.png 184413
+  p15u-vs-reymersholm-2026-09-18_4286_raw_0000.jpg 215110
+  p15u-vs-reymersholm-2026-09-18_4286_rows_all.json.gz 326810
+  p15u-vs-reymersholm-2026-09-18_4286_rows_keyframes.json 5614
+  p15u-vs-reymersholm-2026-09-18_4286_summary.json 263
+  p15u-vs-spanga-2026-09-25_1125_compare_0000.jpg 135979
+  p15u-vs-spanga-2026-09-25_1125_compare_0256.jpg 134371
+  p15u-vs-spanga-2026-09-25_1125_compare_0513.jpg 135758
+  p15u-vs-spanga-2026-09-25_1125_compare_0770.jpg 138906
+  p15u-vs-spanga-2026-09-25_1125_compare_1026.jpg 129550
+  p15u-vs-spanga-2026-09-25_1125_compare_1283.jpg 108625
+  p15u-vs-spanga-2026-09-25_1125_compare_1540.jpg 108127
+  p15u-vs-spanga-2026-09-25_1125_compare_1797.jpg 115895
+  p15u-vs-spanga-2026-09-25_1125_comparison.md 315
+  p15u-vs-spanga-2026-09-25_1125_log.txt 6462
+  p15u-vs-spanga-2026-09-25_1125_new_RF-DETR_kit_A.png 160874
+  p15u-vs-spanga-2026-09-25_1125_new_RF-DETR_kit_B.png 175948
+  p15u-vs-spanga-2026-09-25_1125_raw_0000.jpg 235758
+  p15u-vs-spanga-2026-09-25_1125_rows_all.json.gz 503266
+  p15u-vs-spanga-2026-09-25_1125_rows_keyframes.json 7812
+  p15u-vs-spanga-2026-09-25_1125_summary.json 267
+  p15u-vs-spanga-2026-09-25_2137_compare_0000.jpg 105640
+  p15u-vs-spanga-2026-09-25_2137_compare_0256.jpg 109119
+  p15u-vs-spanga-2026-09-25_2137_compare_0513.jpg 119693
+  p15u-vs-spanga-2026-09-25_2137_compare_0770.jpg 139262
+  p15u-vs-spanga-2026-09-25_2137_compare_1026.jpg 104650
+  p15u-vs-spanga-2026-09-25_2137_compare_1283.jpg 112001
+  p15u-vs-spanga-2026-09-25_2137_compare_1540.jpg 130224
+  p15u-vs-spanga-2026-09-25_2137_compare_1797.jpg 139791
+  p15u-vs-spanga-2026-09-25_2137_comparison.md 311
+  p15u-vs-spanga-2026-09-25_2137_log.txt 3470
+  p15u-vs-spanga-2026-09-25_2137_new_RF-DETR_kit_A.png 155498
+  p15u-vs-spanga-2026-09-25_2137_new_RF-DETR_kit_B.png 168926
+  p15u-vs-spanga-2026-09-25_2137_raw_0000.jpg 176525
+  p15u-vs-spanga-2026-09-25_2137_rows_all.json.gz 367064
+  p15u-vs-spanga-2026-09-25_2137_rows_keyframes.json 6014
+  p15u-vs-spanga-2026-09-25_2137_summary.json 263
+  p15u-vs-spanga-2026-09-25_4050_compare_0000.jpg 120016
+  p15u-vs-spanga-2026-09-25_4050_compare_0256.jpg 121415
+  p15u-vs-spanga-2026-09-25_4050_compare_0513.jpg 128233
+  p15u-vs-spanga-2026-09-25_4050_compare_0770.jpg 130382
+  p15u-vs-spanga-2026-09-25_4050_compare_1026.jpg 131428
+  p15u-vs-spanga-2026-09-25_4050_compare_1283.jpg 130139
+  p15u-vs-spanga-2026-09-25_4050_compare_1540.jpg 130660
+  p15u-vs-spanga-2026-09-25_4050_compare_1797.jpg 128748
+  p15u-vs-spanga-2026-09-25_4050_comparison.md 311
+  p15u-vs-spanga-2026-09-25_4050_log.txt 3539
+  p15u-vs-spanga-2026-09-25_4050_new_RF-DETR_kit_A.png 159458
+  p15u-vs-spanga-2026-09-25_4050_new_RF-DETR_kit_B.png 175396
+  p15u-vs-spanga-2026-09-25_4050_raw_0000.jpg 192847
+  p15u-vs-spanga-2026-09-25_4050_rows_all.json.gz 440890
+  p15u-vs-spanga-2026-09-25_4050_rows_keyframes.json 7410
+  p15u-vs-spanga-2026-09-25_4050_summary.json 263
+  run.json 154
+  run_info.json 746

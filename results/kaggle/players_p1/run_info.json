@@ -1,0 +1,41 @@
+{
+ "pieces": {
+  "p15u-vs-spanga-2026-09-25_1125": {
+   "returncode": 0,
+   "minutes": 5.5
+  },
+  "p15u-vs-spanga-2026-09-25_2137": {
+   "returncode": 0,
+   "minutes": 4.9
+  },
+  "p15u-vs-spanga-2026-09-25_4050": {
+   "returncode": 0,
+   "minutes": 6.4
+  },
+  "p15u-vs-reymersholm-2026-09-18_1190": {
+   "returncode": 0,
+   "minutes": 6.0
+  },
+  "p15u-vs-reymersholm-2026-09-18_2262": {
+   "returncode": 0,
+   "minutes": 6.3
+  },
+  "p15u-vs-reymersholm-2026-09-18_4286": {
+   "returncode": 0,
+   "minutes": 6.0
+  },
+  "SFKBP1109_s1200_20": {
+   "returncode": 0,
+   "minutes": 5.0
+  },
+  "SFKBP1109_s1200_120": {
+   "returncode": 0,
+   "minutes": 4.9
+  },
+  "SFKBP1109_s1200_220": {
+   "returncode": 0,
+   "minutes": 4.8
+  }
+ },
+ "minutes": 51.1
+}

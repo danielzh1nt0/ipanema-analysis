@@ -1,0 +1,37 @@
+[{"stream_name":"stdout","time":1.6653637460000001,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":1.704675106,"data":"name\n"}
+,{"stream_name":"stdout","time":1.704735187,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.704741726,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.704746468,"data":"\n"}
+,{"stream_name":"stdout","time":1.704750453,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":51.872671696,"data":"\n"}
+,{"stream_name":"stdout","time":51.872732353,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":76.93181669,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931864058,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 16.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931875114,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.6/391.6 kB 19.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931879454,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 55.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931883639,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931887606,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 88.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931891496,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 23.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931895434,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 67.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":76.931899332,"data":"\n"}
+,{"stream_name":"stdout","time":76.931902849,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":76.936644322,"data":"repo at 8d5ceb1 P1: Kaggle job - Spånga, Reymersholm, SFK tracking after the striped-kit fix (free)\n"}
+,{"stream_name":"stdout","time":76.936664382,"data":"\n"}
+,{"stream_name":"stdout","time":408.279982311,"data":"p15u-vs-spanga-2026-09-25_1125 {'returncode': 0, 'minutes': 5.5}\n"}
+,{"stream_name":"stdout","time":704.977937744,"data":"p15u-vs-spanga-2026-09-25_2137 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":1091.87628802,"data":"p15u-vs-spanga-2026-09-25_4050 {'returncode': 0, 'minutes': 6.4}\n"}
+,{"stream_name":"stdout","time":1451.781193292,"data":"p15u-vs-reymersholm-2026-09-18_1190 {'returncode': 0, 'minutes': 6.0}\n"}
+,{"stream_name":"stdout","time":1827.833106912,"data":"p15u-vs-reymersholm-2026-09-18_2262 {'returncode': 0, 'minutes': 6.3}\n"}
+,{"stream_name":"stdout","time":2189.01143037,"data":"p15u-vs-reymersholm-2026-09-18_4286 {'returncode': 0, 'minutes': 6.0}\n"}
+,{"stream_name":"stdout","time":2489.962522068,"data":"SFKBP1109_s1200_20 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":2780.99800048,"data":"SFKBP1109_s1200_120 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":3068.64751098,"data":"SFKBP1109_s1200_220 {'returncode': 0, 'minutes': 4.8}\n"}
+,{"stream_name":"stdout","time":3068.647769991,"data":"done 51.1 min\n"}
+,{"stream_name":"stderr","time":3070.856020876,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3070.856066364,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3071.146316171,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3071.146346075,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3071.868547902,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3073.198947203,"data":"[NbConvertApp] Writing 290835 bytes to __results__.html\n"}
+]
