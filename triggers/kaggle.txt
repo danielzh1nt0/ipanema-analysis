@@ -1,2 +1,2 @@
-kaggle/ballcrops_k1.py 150
-# Tue Sep 29 06:11:38 UTC 2026 K1: ball crops at Daniel's checked balls, 4 good matches
+kaggle/players_p1.py 200
+# Tue Sep 29 06:32:43 UTC 2026 P1: Spånga/Reymersholm/SFK tracking again after the striped-kit fix
