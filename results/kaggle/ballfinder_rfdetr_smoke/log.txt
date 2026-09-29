@@ -1,0 +1,26 @@
+   0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -> 0 Tesla T4, 15360 MiB
+Tesla T4, 15360 MiB
+   0.5 min  $ rm -rf /kaggle/temp/ia && git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -> 0 
+   1.1 min  $ pip install -q "rfdetr[train]==1.11.0" -> 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 51.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 85.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 21.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 74.8 MB/s eta 0:00:00
+   2.0 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}
+   2.0 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s
+   3.1 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 64 s
+   3.2 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 12 frames -> {'train_ball': 12, 'train_empty': 0, 'valid_ball': 0, 'valid_empty': 0} in 11s
+   3.2 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s
+   3.3 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 12 frames -> {'train_ball': 12, 'train_empty': 2, 'valid_ball': 0, 'valid_empty': 0} in 6s
+   3.3 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s
+   3.6 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 12 frames -> {'train_ball': 12, 'train_empty': 4, 'valid_ball': 0, 'valid_empty': 0} in 15s
+   3.6 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s
+   3.7 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 12 frames -> {'train_ball': 12, 'train_empty': 5, 'valid_ball': 0, 'valid_empty': 0} in 6s
+   3.8 min  dataset: {'train_ball': 54, 'train_empty': 11, 'valid_ball': 3, 'valid_empty': 0, 'train_total_after_cut': 50}
+   4.0 min  training RF-DETR small at 640 px, 1 epochs, batch 8, cap 0.25 h
+   4.6 min  training done in 0.6 min; outputs ['checkpoint_best_ema.pth', 'checkpoint_best_total.pth', 'last.ckpt', 'last_ema.pth', 'metrics.csv', 'training_config.json']
+   4.6 min  loaded /kaggle/temp/rf_out/checkpoint_best_total.pth: resolution 640
+   4.6 min  weights {'file': 'rfdetr_ball_small_20260929_fp16.pth', 'MB': 64.2, 'full_checkpoint_MB': 128.4}
+   4.7 min  exam: 3 frames graded in 4s
+   4.7 min  exam: {"at_0.25_as_click_finder": {"correct": 2, "of": 3, "ball_found": 0, "ball_frames": 1, "no_ball_right": 2, "no_ball_frames": 2}, "ball_among_guesses_0.05": 0, "top_guess_is_ball": 0, "ball_frames": 1, "current_click_finder": {"correct": 70, "ball_found": 47, "among_guesses": 54, "top_guess": 51}, "wasb": {"among_guesses": 79, "top_guess": 56}}
+   4.8 min  clip34: {"moments": 3, "ball_among_guesses_0.05": 0, "ball_among_top6": 0, "top_guess_is_ball": 0, "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
+   4.8 min  done

@@ -1,31 +1,15 @@
-kernel danielmatros/ipanema-scorer-big
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-scorer-big
-  0.5 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.QUEUED"
-  2.0 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.QUEUED"
-  2.5 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 14.2 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 18.3 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 20.3 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 24.4 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 26.4 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 28.5 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 30.5 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 32.0 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 34.1 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.RUNNING"
- 35.6 min: danielmatros/ipanema-scorer-big has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/scorer_big/log.txt
-Output file downloaded to results/kaggle/scorer_big/result.json
-Output file downloaded to results/kaggle/scorer_big/scorer_all_seed0.pt
-Kernel log downloaded to results/kaggle/scorer_big/ipanema-scorer-big.log
-  ipanema-scorer-big.log 9644
-  log.txt 4154
-  result.json 1904
-  run.json 155
-  scorer_all_seed0.pt 282317
+kernel danielmatros/ipanema-ballfinder-rfdetr-smoke
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ballfinder-rfdetr-smoke
+  0.5 min: danielmatros/ipanema-ballfinder-rfdetr-smoke has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-ballfinder-rfdetr-smoke has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-ballfinder-rfdetr-smoke has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-ballfinder-rfdetr-smoke has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/ballfinder_rfdetr_smoke/log.txt
+Output file downloaded to results/kaggle/ballfinder_rfdetr_smoke/result.json
+Output file downloaded to results/kaggle/ballfinder_rfdetr_smoke/rfdetr_ball_small_20260929_fp16.pth
+Kernel log downloaded to results/kaggle/ballfinder_rfdetr_smoke/ipanema-ballfinder-rfdetr-smoke.log
+  ipanema-ballfinder-rfdetr-smoke.log 22512
+  log.txt 3294
+  result.json 9296
+  rfdetr_ball_small_20260929_fp16.pth 64197183
+  run.json 180
