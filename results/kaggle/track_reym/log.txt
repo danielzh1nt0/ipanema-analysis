@@ -18,30 +18,32 @@
 15:35:08 clean: dropped 0 off-pitch, merged 2 duplicates, stitched 15 ids, keepers [74, 76, 77] -> B defends left
 15:35:08 clean: players per frame median A 6 / B 4, max A 14 / B 8
 15:35:08 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 60, 'median_track_s': {'dark': 1.79, 'light': 2.54}, 'minutes': 15.7, 'filled_rows': 49}
-22:35:46 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
-22:38:35 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
-22:39:21 kits: learned from 140 people (534 off the pitch left out), group sizes [62, 42, 28, 8]
-22:39:26   tracking frame 0
-22:40:13   tracking frame 500 (10.4 frames/s)
-22:41:04   tracking frame 1000 (10.2 frames/s)
-22:41:55   tracking frame 1500 (10.0 frames/s)
-22:42:48   tracking frame 2000 (9.9 frames/s)
-22:43:43   tracking frame 2500 (9.7 frames/s)
-22:44:38   tracking frame 3000 (9.6 frames/s)
-22:45:33   tracking frame 3500 (9.5 frames/s)
-22:46:29   tracking frame 4000 (9.4 frames/s)
-22:47:24   tracking frame 4500 (9.4 frames/s)
-22:48:21   tracking frame 5000 (9.3 frames/s)
-22:49:16   tracking frame 5500 (9.3 frames/s)
-22:50:12   tracking frame 6000 (9.3 frames/s)
-22:51:08   tracking frame 6500 (9.3 frames/s)
-22:52:05   tracking frame 7000 (9.2 frames/s)
-22:53:01   tracking frame 7500 (9.2 frames/s)
-22:53:58   tracking frame 8000 (9.2 frames/s)
-22:54:54   tracking frame 8500 (9.2 frames/s)
-22:55:51 clean: keeper (left) from a non-team kit: track 746, 166 frames
-22:55:51 clean: keeper (right) from a non-team kit: track 435, 156 frames
-22:55:51 clean: removed 33823 rows of non-team kits (referee / staff)
-22:55:51 clean: dropped 0 off-pitch, merged 834 duplicates, stitched 284 ids, keepers [74, 77, 124, 125, 127, 128, 132, 137, 158, 159, 177, 196, 203, 235, 259, 308, 336, 357, 362, 364, 367, 397, 455, 483, 511, 520, 567, 570, 577, 578, 594, 605, 608, 619, 691, 704, 706] -> B defends left
-22:55:51 clean: players per frame median A 10 / B 3, max A 17 / B 9
-22:55:52 new, RF-DETR: {'observed_per_frame': {'dark': 10.0, 'light': 3.0}, 'shown_per_frame': {'dark': 10.0, 'light': 3.0}, 'tracks': 405, 'median_track_s': {'dark': 4.77, 'light': 5.51}, 'minutes': 17.3, 'filled_rows': 934}
+05:04:34 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+05:07:30 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+05:08:25 kits: per-player classifier from 434 on-pitch people, 15 of 15 runs kept
+05:08:28 kits: learned from 140 people (534 off the pitch left out), group sizes [62, 42, 28, 8]
+05:08:28 off-pitch people dropped by the pitch-edge test: yes
+05:08:34   tracking frame 0
+05:09:39   tracking frame 500 (7.5 frames/s)
+05:10:56   tracking frame 1000 (7.0 frames/s)
+05:12:10   tracking frame 1500 (6.9 frames/s)
+05:13:23   tracking frame 2000 (6.9 frames/s)
+05:14:40   tracking frame 2500 (6.8 frames/s)
+05:15:52   tracking frame 3000 (6.8 frames/s)
+05:17:04   tracking frame 3500 (6.8 frames/s)
+05:18:18   tracking frame 4000 (6.8 frames/s)
+05:19:31   tracking frame 4500 (6.8 frames/s)
+05:20:44   tracking frame 5000 (6.8 frames/s)
+05:21:53   tracking frame 5500 (6.9 frames/s)
+05:23:02   tracking frame 6000 (6.9 frames/s)
+05:24:17   tracking frame 6500 (6.9 frames/s)
+05:25:33   tracking frame 7000 (6.9 frames/s)
+05:26:47   tracking frame 7500 (6.9 frames/s)
+05:28:04   tracking frame 8000 (6.8 frames/s)
+05:29:20   tracking frame 8500 (6.8 frames/s)
+05:30:38 clean: keeper (left) from a non-team kit: track 746, 166 frames
+05:30:38 clean: keeper (right) from a non-team kit: track 227, 72 frames
+05:30:38 clean: removed 12212 rows of non-team kits (referee / staff)
+05:30:38 clean: dropped 0 off-pitch, merged 180 duplicates, stitched 100 ids, keepers [74, 77, 124, 125, 127, 158, 203, 259, 308, 328, 362, 364, 367, 397, 455, 483, 511, 567, 577, 578, 594, 619, 691] -> B defends left
+05:30:38 clean: players per frame median A 7 / B 5, max A 14 / B 12
+05:30:39 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 5.0}, 'shown_per_frame': {'dark': 7.0, 'light': 5.0}, 'tracks': 374, 'median_track_s': {'dark': 5.44, 'light': 5.07}, 'minutes': 23.1, 'filled_rows': 1062}
