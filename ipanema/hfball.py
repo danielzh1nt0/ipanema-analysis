@@ -179,9 +179,8 @@ def sheets(tiles, out_dir, prefix="sheet", per=12, cols=2):
 def veo_strip(exam_dir, rows, n=8, H=270):
     """Our own Veo balls at the same zoom (exam jpgs are half size of 1920; truth is in 1920 px)."""
     ts = []
-    for r in [r for r in rows if r.get("truth")][:n]:
+    for r in [r for r in rows if r.get("truth") and os.path.exists(f"{exam_dir}/{r['file']}")][:n]:
         p = f"{exam_dir}/{r['file']}"
-        if not os.path.exists(p): continue
         im = cv2.resize(cv2.imread(p), (VEO_W, 1080), interpolation=cv2.INTER_CUBIC)
         c = crop_zoom(im, r["truth"][0], r["truth"][1], 40, H); cv2.putText(c, "Veo", (4, 18), 0, 0.5, (255, 255, 255), 1); ts.append(c)
     return np.hstack(ts) if ts else None

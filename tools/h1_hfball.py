@@ -31,5 +31,5 @@ for readme in ("README.md", "data.yaml", "README.dataset.txt", "README.roboflow.
     if os.path.exists(p): open(f"{OUT}/{readme.replace('/', '_')}", "w").write(open(p, errors="replace").read()[:20000])
 rf = "results/kaggle/ballfinder_rfdetr/result.json"
 exam_rows = json.load(open(rf)).get("exam_rows") if os.path.exists(rf) else None
-st = H.run(root, OUT, exam_dir="results/ballclicks/3", exam_rows=exam_rows)
+st = H.run(root, OUT, exam_dir="results/ball/11/exam", exam_rows=exam_rows)
 print(json.dumps({k: v for k, v in st.items() if k != "sheets"}, indent=1)); print("sheets", len(st["sheets"]))

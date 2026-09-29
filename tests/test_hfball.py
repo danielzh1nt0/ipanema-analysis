@@ -59,7 +59,8 @@ def test_stats_compare_with_veo():
 def test_run_writes_sheets_and_veo_strip(tmp_path):
     root = str(tmp_path / "y"); os.makedirs(root); make_yolo(root)
     ex = tmp_path / "exam"; ex.mkdir(); cv2.imwrite(str(ex / "t1.jpg"), _img(960, 540, (300, 250, 6)))
-    st = H.run(root, str(tmp_path / "out"), exam_dir=str(ex), exam_rows=[{"file": "t1.jpg", "truth": [600, 500]}, {"file": "t2.jpg", "truth": None}])
+    st = H.run(root, str(tmp_path / "out"), exam_dir=str(ex), exam_rows=[{"file": "gone.jpg", "truth": [1, 1]}, {"file": "t1.jpg", "truth": [600, 500]}, {"file": "t2.jpg", "truth": None}])
     assert st["images"] == 6 and st["balls"] == 6 and st["layout"] == "yolo"
     assert all(os.path.exists(f) for f in st["sheets"]) and os.path.exists(st["veo_reference"])
     assert cv2.imread(st["sheets"][0]).shape[1] == 2 * (480 + 270)
+    assert cv2.imread(st["veo_reference"]).shape[1] == 270                     # the missing exam file is skipped, not counted
