@@ -32,7 +32,11 @@ def fetch(key, dst):
     os.makedirs(os.path.dirname(dst) or ".", exist_ok=True); t1 = time.time()
     try:
         if R2.startswith("http"):
-            with urllib.request.urlopen(f"{R2.rstrip('/')}/{key}", timeout=120) as r, open(dst + ".part", "wb") as f: shutil.copyfileobj(r, f, 16 << 20)
+            url = f"{R2.rstrip('/')}/{key}"                                  # r2.dev answers 403 to Python-urllib's user agent (29 Sep)
+            try:
+                with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (ipanema-kaggle)"}), timeout=120) as r, open(dst + ".part", "wb") as f: shutil.copyfileobj(r, f, 16 << 20)
+            except Exception as e1:
+                if subprocess.run(["curl", "-fsSL", "--retry", "3", "-o", dst + ".part", url]).returncode: raise RuntimeError(f"urllib {e1!r}; curl failed too")
             os.replace(dst + ".part", dst)
         else: shutil.copy(os.path.join(R2, key), dst)
     except Exception as e:
