@@ -224,7 +224,9 @@ jobs:
         run: |
           python - <<'PY'
           import modal, os, json
-          out = modal.Function.from_name("ipanema", "pipeline_smoke").remote()
+          import traceback
+          try: out = modal.Function.from_name("ipanema", "pipeline_smoke").remote()
+          except Exception: out = {"all_ok": False, "remote_error": traceback.format_exc()[-6000:]}
           os.makedirs("results/ci", exist_ok=True); json.dump(out, open("results/ci/smoke.json", "w"), indent=1); print(json.dumps(out, indent=1)[:6000])
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
