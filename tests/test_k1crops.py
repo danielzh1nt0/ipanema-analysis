@@ -40,7 +40,20 @@ def test_follow_template_follows_moving_ball_and_stops_when_it_vanishes():
         if dk <= 3: cv2.circle(f, (200 + 6 * dk, 150), 5, (240, 240, 240), -1); cv2.circle(f, (200 + 6 * dk, 153), 2, (40, 40, 40), -1)
         fr[dk] = f
     out = K.follow_template(fr, (200, 150), 6)
-    assert all(abs(out[dk][0] - (200 + 6 * dk)) <= 1 and abs(out[dk][1] - 150) <= 1 for dk in range(-6, 4))
+    assert all(abs(out[dk][0] - (200 + 6 * dk)) <= 1 and abs(out[dk][1] - 150) <= 2.5 for dk in range(-6, 4))   # centre pulled 2 px off the dark patch
     assert 4 not in out                                                                                         # ball gone: stop
     X, meta, fol = K.crops_for_check(fr, {0: [(201, 151, 0.7), (350, 250, 0.4)]}, {"frame": 50, "xy": (200, 150)}, "m", 6, how="template")
     assert fol[0] == (201.0, 151.0, 0.7) and fol[2][2] == -1.0 and sum(m[6] for m in meta) == len([d for d in fol if d % 2 == 0 and abs(d) <= 5])
+
+
+def test_follow_template_moves_start_onto_ball_and_does_not_ride_a_line():
+    import cv2
+    rng = np.random.default_rng(1); fr = {}
+    for dk in range(-4, 5):
+        f = rng.integers(60, 90, (300, 400, 3)).astype(np.uint8); cv2.line(f, (0, 160), (399, 160), (235, 235, 235), 3)
+        if dk <= 0: cv2.circle(f, (200 + 15 * dk, 166), 5, (240, 240, 240), -1)       # ball on the line, then kicked out of view
+        fr[dk] = f
+    out = K.follow_template(fr, (200, 160), 4)                                       # check 6 px above the ball
+    assert abs(out[0][0] - 200) <= 1 and abs(out[0][1] - 166) <= 1
+    assert -2 in out and 1 not in out                                                # no ball after dk 0: stop, don't slide along the line
+    assert K.blobness(fr[0], (200, 166)) > 2 * K.blobness(fr[0], (300, 160))

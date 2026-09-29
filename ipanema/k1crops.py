@@ -53,13 +53,31 @@ def _patch(img, xy, half):
     return img[y - half:y + half, x - half:x + half]
 
 
-def follow_template(frames, start_xy, window, half=8, search=20, min_ncc=0.7, min_ncc_start=0.5):
-    """29 Sep (the pretrained WASB misses the ball at 47 of the 65 checked spots, so following WASB peaks stops at once):
-    follow the checked ball by picture matching, frame by frame: the best match of the last ball patch within `search` px;
-    stops when the match is weak (< min_ncc) or no longer looks like the checked ball (< min_ncc_start). -> {dk: (x, y)}"""
+def blobness(img, xy, r=0, sigma=3.0):
+    """bright-blob response (determinant of the Hessian of the ball-size-blurred picture, bright blobs only) at xy, or
+    (best xy, response) within r px of it. A ball scores high; a pitch line scores ~0 (it only curves one way)."""
     import cv2
-    T0 = _patch(frames[0], start_xy, half); out = {0: (float(start_xy[0]), float(start_xy[1]))}
-    if T0 is None: return out
+    x, y = int(round(xy[0])), int(round(xy[1])); m = r + int(4 * sigma) + 2; h, w = img.shape[:2]
+    x0, y0, x1, y1 = max(0, x - m), max(0, y - m), min(w, x + m + 1), min(h, y + m + 1)
+    g = cv2.cvtColor(img[y0:y1, x0:x1], cv2.COLOR_BGR2GRAY).astype(np.float32)
+    b = cv2.GaussianBlur(g, (0, 0), sigma)
+    xx_, yy_, xy_ = (cv2.Sobel(b, cv2.CV_32F, dx, dy, ksize=3) for dx, dy in ((2, 0), (0, 2), (1, 1)))
+    L = np.where(xx_ + yy_ < 0, np.sqrt(np.maximum(xx_ * yy_ - xy_ ** 2, 0)), 0) * sigma ** 2
+    if r == 0: return float(L[y - y0, x - x0])
+    yy, xx = np.mgrid[y0:y1, x0:x1]; L = np.where((xx - x) ** 2 + (yy - y) ** 2 <= r * r, L, -np.inf)
+    j = np.unravel_index(int(np.argmax(L)), L.shape); return (float(x0 + j[1]), float(y0 + j[0])), float(L[j])
+
+
+def follow_template(frames, start_xy, window, half=8, search=20, min_ncc=0.7, min_ncc_start=0.5, refine_px=10, min_blob=0.5):
+    """29 Sep (the pretrained WASB misses the ball at 47 of the 65 checked spots, so following WASB peaks stops at once):
+    follow the checked ball by picture matching, frame by frame. The start is moved onto the ball (the brightest ball-sized
+    blob within refine_px of the check; the checks sit ~5 px above the ball's centre). Each step = the best match of the
+    last ball patch within `search` px; stops when the match is weak (< min_ncc), no longer looks like the checked ball
+    (< min_ncc_start), or is no longer a ball-like blob (< min_blob x the start's; e.g. stuck on a pitch line). -> {dk: (x, y)}"""
+    import cv2
+    start, b0 = blobness(frames[0], start_xy, refine_px) if refine_px else ((float(start_xy[0]), float(start_xy[1])), blobness(frames[0], start_xy))
+    T0 = _patch(frames[0], start, half); out = {0: start}
+    if T0 is None or not b0 > 0: return out
     for sgn in (1, -1):
         last, T = out[0], T0
         for step in range(1, window + 1):
@@ -72,6 +90,7 @@ def follow_template(frames, start_xy, window, half=8, search=20, min_ncc=0.7, mi
             if not mx >= min_ncc: break
             new = (float(x0 + loc[0] + half), float(y0 + loc[1] + half)); P = _patch(f, new, half)
             if P is None or not cv2.matchTemplate(P, T0, cv2.TM_CCOEFF_NORMED)[0, 0] >= min_ncc_start: break
+            if blobness(f, new) < min_blob * b0: break
             out[sgn * step] = new; last, T = new, P
     return out
 
