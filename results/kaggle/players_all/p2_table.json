@@ -1,0 +1,373 @@
+{
+ "SFKBP1109_s1200": {
+  "120": {
+   "dark": 10.0,
+   "light": 7.0,
+   "dark_s": 5.11,
+   "light_s": 6.24,
+   "tracks": 93,
+   "minutes": 4.2,
+   "frames": 1798,
+   "too_many": 0.107,
+   "total_p10_p90": [
+    9,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 93.0,
+   "kit reading": "default"
+  },
+  "20": {
+   "dark": 8.0,
+   "light": 8.0,
+   "dark_s": 3.94,
+   "light_s": 7.04,
+   "tracks": 108,
+   "minutes": 4.3,
+   "frames": 1798,
+   "too_many": 0.011,
+   "total_p10_p90": [
+    12,
+    19
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 108.0,
+   "kit reading": "default"
+  },
+  "220": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 3.34,
+   "light_s": 5.07,
+   "tracks": 99,
+   "minutes": 4.2,
+   "frames": 1798,
+   "too_many": 0.016,
+   "total_p10_p90": [
+    8,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 99.0,
+   "kit reading": "default"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30": {
+  "1279": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 3.9,
+   "light_s": 2.4,
+   "tracks": 136,
+   "minutes": 5.8,
+   "frames": 1798,
+   "too_many": 0.092,
+   "total_p10_p90": [
+    13,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 136.0,
+   "kit reading": "default"
+  },
+  "2431": {
+   "dark": 8.0,
+   "light": 8.0,
+   "dark_s": 2.37,
+   "light_s": 6.44,
+   "tracks": 135,
+   "minutes": 4.5,
+   "frames": 1798,
+   "too_many": 0.076,
+   "total_p10_p90": [
+    10,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 135.0,
+   "kit reading": "default"
+  },
+  "4607": {
+   "dark": 7.0,
+   "light": 7.0,
+   "dark_s": 2.07,
+   "light_s": 3.44,
+   "tracks": 119,
+   "minutes": 4.4,
+   "frames": 1798,
+   "too_many": 0.008,
+   "total_p10_p90": [
+    10,
+    19
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 119.0,
+   "kit reading": "default"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26": {
+  "1428": {
+   "dark": 10.0,
+   "light": 9.0,
+   "dark_s": 8.69,
+   "light_s": 5.54,
+   "tracks": 111,
+   "minutes": 4.6,
+   "frames": 1798,
+   "too_many": 0.328,
+   "total_p10_p90": [
+    16,
+    22
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 111.0,
+   "kit reading": "default"
+  },
+  "2714": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 5.94,
+   "light_s": 0.5,
+   "tracks": 118,
+   "minutes": 4.6,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    10,
+    18
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 118.0,
+   "kit reading": "default"
+  },
+  "5143": {
+   "dark": 9.0,
+   "light": 8.0,
+   "dark_s": 8.81,
+   "light_s": 7.86,
+   "tracks": 83,
+   "minutes": 4.5,
+   "frames": 1798,
+   "too_many": 0.058,
+   "total_p10_p90": [
+    15,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 83.0,
+   "kit reading": "default"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18": {
+  "1190": {
+   "dark": 5.0,
+   "light": 5.0,
+   "dark_s": 3.44,
+   "light_s": 7.07,
+   "tracks": 80,
+   "minutes": 5.4,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    8,
+    16
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 80.0,
+   "kit reading": "default"
+  },
+  "2262": {
+   "dark": 9.0,
+   "light": 6.0,
+   "dark_s": 3.94,
+   "light_s": 3.04,
+   "tracks": 108,
+   "minutes": 5.6,
+   "frames": 1798,
+   "too_many": 0.038,
+   "total_p10_p90": [
+    10,
+    17
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 108.0,
+   "kit reading": "default"
+  },
+  "4286": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 5.02,
+   "light_s": 2.8,
+   "tracks": 86,
+   "minutes": 5.4,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    8,
+    15
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 86.0,
+   "kit reading": "default"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25": {
+  "1125": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 5.19,
+   "light_s": 2.74,
+   "tracks": 116,
+   "minutes": 4.8,
+   "frames": 1798,
+   "too_many": 0.184,
+   "total_p10_p90": [
+    10,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 116.0,
+   "kit reading": "default"
+  },
+  "2137": {
+   "dark": 5.0,
+   "light": 4.0,
+   "dark_s": 4.35,
+   "light_s": 4.4,
+   "tracks": 101,
+   "minutes": 5.4,
+   "frames": 1798,
+   "too_many": 0.095,
+   "total_p10_p90": [
+    6,
+    16
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 101.0,
+   "kit reading": "default"
+  },
+  "4050": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 4.34,
+   "light_s": 3.44,
+   "tracks": 127,
+   "minutes": 5.9,
+   "frames": 1798,
+   "too_many": 0.048,
+   "total_p10_p90": [
+    12,
+    17
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 127.0,
+   "kit reading": "default"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20": {
+  "1130": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 2.8,
+   "light_s": 7.94,
+   "tracks": 76,
+   "minutes": 4.4,
+   "frames": 1798,
+   "too_many": 0.001,
+   "total_p10_p90": [
+    9,
+    15
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 76.0,
+   "kit reading": "default"
+  },
+  "2147": {
+   "dark": 4.0,
+   "light": 5.0,
+   "dark_s": 5.54,
+   "light_s": 5.47,
+   "tracks": 59,
+   "minutes": 4.3,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    4,
+    15
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 59.0,
+   "kit reading": "default"
+  },
+  "4068": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 6.67,
+   "light_s": 5.99,
+   "tracks": 81,
+   "minutes": 4.4,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    10,
+    15
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 81.0,
+   "kit reading": "default"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11": {
+  "1456": {
+   "dark": 3.0,
+   "light": 4.0,
+   "dark_s": 1.33,
+   "light_s": 3.45,
+   "tracks": 75,
+   "minutes": 4.5,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    6,
+    10
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 75.0,
+   "kit reading": "default"
+  },
+  "2766": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 5.34,
+   "light_s": 3.89,
+   "tracks": 107,
+   "minutes": 4.5,
+   "frames": 1798,
+   "too_many": 0.004,
+   "total_p10_p90": [
+    8,
+    17
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 107.0,
+   "kit reading": "default"
+  },
+  "5242": {
+   "dark": 5.0,
+   "light": 7.0,
+   "dark_s": 4.69,
+   "light_s": 6.79,
+   "tracks": 80,
+   "minutes": 4.4,
+   "frames": 1798,
+   "too_many": 0.043,
+   "total_p10_p90": [
+    8,
+    16
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 80.0,
+   "kit reading": "default"
+  }
+ }
+}
