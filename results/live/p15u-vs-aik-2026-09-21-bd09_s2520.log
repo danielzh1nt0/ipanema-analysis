@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 21:23:11 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 21:24:44 UTC
 
 
-## run_match.log (12 lines, last 60)
+## run_match.log (13 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
@@ -14,3 +14,4 @@ wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 1500
   wasb frame 3000
   wasb frame 4500
+  wasb frame 6000
