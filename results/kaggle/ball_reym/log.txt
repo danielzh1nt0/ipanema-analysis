@@ -1,0 +1,10 @@
+  1.4 min  model loaded
+  4.1 min  frame 1000/8992
+  6.8 min  frame 2000/8992
+  9.5 min  frame 3000/8992
+ 12.2 min  frame 4000/8992
+ 15.0 min  frame 5000/8992
+ 17.7 min  frame 6000/8992
+ 20.4 min  frame 7000/8992
+ 23.2 min  frame 8000/8992
+ 25.9 min  done

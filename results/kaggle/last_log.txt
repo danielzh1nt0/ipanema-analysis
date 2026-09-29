@@ -1,16 +1,25 @@
-kernel danielmatros/ipanema-ballcheck-grounds
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ballcheck-grounds
-  0.5 min: danielmatros/ipanema-ballcheck-grounds has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-ballcheck-grounds has status "KernelWorkerStatus.RUNNING"
-  3.1 min: danielmatros/ipanema-ballcheck-grounds has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/ballcheck_grounds/log.txt
-Output file downloaded to results/kaggle/ballcheck_grounds/result.json
-Output file downloaded to results/kaggle/ballcheck_grounds/sheet_p15u-vs-reymersholm-.jpg
-Output file downloaded to results/kaggle/ballcheck_grounds/sheet_solberga-vs-p09-norr.jpg
-Kernel log downloaded to results/kaggle/ballcheck_grounds/ipanema-ballcheck-grounds.log
-  ipanema-ballcheck-grounds.log 2891
-  log.txt 797
-  result.json 23036
-  run.json 168
-  sheet_p15u-vs-reymersholm-.jpg 427418
-  sheet_solberga-vs-p09-norr.jpg 110089
+kernel danielmatros/ipanema-ball-reym
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ball-reym
+  0.5 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 12.3 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 16.4 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 18.4 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 20.5 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 24.0 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 26.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
+ 26.6 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/ball_reym/ball_cands_rfdetr_reym.json.gz
+Output file downloaded to results/kaggle/ball_reym/log.txt
+Output file downloaded to results/kaggle/ball_reym/result.json
+Kernel log downloaded to results/kaggle/ball_reym/ipanema-ball-reym.log
+  ball_cands_rfdetr_reym.json.gz 384042
+  ipanema-ball-reym.log 4201
+  log.txt 256
+  result.json 118
+  run.json 153

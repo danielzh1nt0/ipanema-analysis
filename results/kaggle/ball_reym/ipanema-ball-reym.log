@@ -1,0 +1,28 @@
+[{"stream_name":"stdout","time":36.404910529,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 3.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":37.642954481,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 24.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":37.672753405,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":37.707005162,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.5/395.5 kB 18.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":37.820928284,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 104.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.284598551,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 45.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.311250343,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 26.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.358008626,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 85.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":86.860848611,"data":"[2026-09-29 19:26:00] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":86.860902938,"data":"[2026-09-29 19:26:00] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":87.639348316,"data":"  1.4 min  model loaded\n"}
+,{"stream_name":"stderr","time":89.070780067,"data":"[2026-09-29 19:26:02] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":244.571648954,"data":"  4.1 min  frame 1000/8992\n"}
+,{"stream_name":"stdout","time":407.430177764,"data":"  6.8 min  frame 2000/8992\n"}
+,{"stream_name":"stdout","time":571.35987936,"data":"  9.5 min  frame 3000/8992\n"}
+,{"stream_name":"stdout","time":735.10260111,"data":" 12.2 min  frame 4000/8992\n"}
+,{"stream_name":"stdout","time":899.251352539,"data":" 15.0 min  frame 5000/8992\n"}
+,{"stream_name":"stdout","time":1062.620145644,"data":" 17.7 min  frame 6000/8992\n"}
+,{"stream_name":"stdout","time":1226.154525918,"data":" 20.4 min  frame 7000/8992\n"}
+,{"stream_name":"stdout","time":1389.848738587,"data":" 23.2 min  frame 8000/8992\n"}
+,{"stream_name":"stdout","time":1552.296735174,"data":" 25.9 min  done\n"}
+,{"stream_name":"stderr","time":1557.278686386,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1557.278722375,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1557.503424345,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1557.503465407,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1558.10849627,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1559.253695117,"data":"[NbConvertApp] Writing 290860 bytes to __results__.html\n"}
+]
