@@ -1,0 +1,37 @@
+[{"stream_name":"stdout","time":1.719952167,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":1.7579651360000002,"data":"name\n"}
+,{"stream_name":"stdout","time":1.757997246,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.758000747,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.7580035189999998,"data":"\n"}
+,{"stream_name":"stdout","time":1.758005995,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":26.688261331,"data":"\n"}
+,{"stream_name":"stdout","time":26.688300042,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":50.033454796,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.033492082,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 16.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.03349743,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.6/391.6 kB 18.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.03350159,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 52.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.033505357,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.033509238,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 79.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.03351294,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 19.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.033516839,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 78.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":50.033520527,"data":"\n"}
+,{"stream_name":"stdout","time":50.033523789,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":50.038308371,"data":"repo at e29324f P1 v2: switch kit reading only when the default fit leaves out a whole colour group (Spånga 1.26x, Reymersholm 0.74x, SFK 0.36x the team gap). Spånga 233/279, Reymersholm and SFK unchanged. v1 made SFK worse on Kaggle. Kaggle re-run (free)\n"}
+,{"stream_name":"stdout","time":50.038334994,"data":"\n"}
+,{"stream_name":"stdout","time":366.380211143,"data":"p15u-vs-spanga-2026-09-25_1125 {'returncode': 0, 'minutes': 5.3}\n"}
+,{"stream_name":"stdout","time":712.713991946,"data":"p15u-vs-spanga-2026-09-25_2137 {'returncode': 0, 'minutes': 5.8}\n"}
+,{"stream_name":"stdout","time":1087.211069587,"data":"p15u-vs-spanga-2026-09-25_4050 {'returncode': 0, 'minutes': 6.2}\n"}
+,{"stream_name":"stdout","time":1428.633796921,"data":"p15u-vs-reymersholm-2026-09-18_1190 {'returncode': 0, 'minutes': 5.7}\n"}
+,{"stream_name":"stdout","time":1788.985937512,"data":"p15u-vs-reymersholm-2026-09-18_2262 {'returncode': 0, 'minutes': 6.0}\n"}
+,{"stream_name":"stdout","time":2133.316592457,"data":"p15u-vs-reymersholm-2026-09-18_4286 {'returncode': 0, 'minutes': 5.7}\n"}
+,{"stream_name":"stdout","time":2416.554635221,"data":"SFKBP1109_s1200_20 {'returncode': 0, 'minutes': 4.7}\n"}
+,{"stream_name":"stdout","time":2695.79881714,"data":"SFKBP1109_s1200_120 {'returncode': 0, 'minutes': 4.7}\n"}
+,{"stream_name":"stdout","time":2972.831687966,"data":"SFKBP1109_s1200_220 {'returncode': 0, 'minutes': 4.6}\n"}
+,{"stream_name":"stdout","time":2972.832087584,"data":"done 49.5 min\n"}
+,{"stream_name":"stderr","time":2975.027651817,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2975.027697719,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2975.315957763,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2975.315984739,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2975.994703622,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2977.353673198,"data":"[NbConvertApp] Writing 290849 bytes to __results__.html\n"}
+]

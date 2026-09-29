@@ -1,0 +1,34 @@
+{
+ "before (app, 27 Sep)": {
+  "observed_per_frame": {
+   "dark": 8.0,
+   "light": 5.0
+  },
+  "shown_per_frame": {
+   "dark": 8.0,
+   "light": 5.0
+  },
+  "tracks": 201,
+  "median_track_s": {
+   "dark": 1.5,
+   "light": 0.73
+  }
+ },
+ "new, RF-DETR": {
+  "observed_per_frame": {
+   "dark": 8.0,
+   "light": 7.0
+  },
+  "shown_per_frame": {
+   "dark": 8.0,
+   "light": 7.0
+  },
+  "tracks": 99,
+  "median_track_s": {
+   "dark": 3.34,
+   "light": 5.07
+  },
+  "minutes": 3.9,
+  "filled_rows": 181
+ }
+}

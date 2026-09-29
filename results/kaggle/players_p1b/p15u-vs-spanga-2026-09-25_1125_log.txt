@@ -1,0 +1,62 @@
+ 600 (9.1 frames/s)
+08:09:12   tracking frame 1200 (8.7 frames/s)
+08:10:22 clean: removed 1813 rows of non-team kits (referee / staff)
+08:10:22 clean: dropped 0 off-pitch, merged 51 duplicates, stitched 43 ids, keepers [38, 53, 55, 162] -> A defends left
+08:10:22 clean: players per frame median A 9 / B 7, max A 16 / B 11
+08:10:22 new, RF-DETR: {'observed_per_frame': {'dark': 9.0, 'light': 7.0}, 'shown_per_frame': {'dark': 9.0, 'light': 7.0}, 'tracks': 116, 'median_track_s': {'dark': 5.19, 'light': 2.74}, 'minutes': 4.5, 'filled_rows': 245}
+| | new, RF-DETR |
+|---|---|
+| dark players per frame (seen) | 9.0 |
+| light players per frame (seen) | 7.0 |
+| dark per frame incl. filled | 9.0 |
+| light per frame incl. filled | 7.0 |
+| dark: median time a player stays tracked (s) | 5.19 |
+| light: median time tracked (s) | 2.74 |
+| track ids in 20 s | 116 |
+
+/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 8.09M/386M [00:00<00:04, 84.8MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   5%|▍         | 18.7M/386M [00:00<00:03, 101MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:   8%|▊         | 29.4M/386M [00:00<00:03, 106MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  10%|█         | 39.9M/386M [00:00<00:03, 108MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  13%|█▎        | 50.7M/386M [00:00<00:03, 109MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  16%|█▌        | 61.4M/386M [00:00<00:03, 110MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  19%|█▊        | 71.9M/386M [00:00<00:02, 110MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  21%|██▏       | 82.4M/386M [00:00<00:03, 81.9MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  24%|██▍       | 93.1M/386M [00:01<00:03, 89.5MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 103M/386M [00:01<00:03, 94.6MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:  30%|██▉       | 114M/386M [00:01<00:02, 100MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:  32%|███▏      | 125M/386M [00:01<00:02, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  35%|███▌      | 136M/386M [00:01<00:02, 105MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 146M/386M [00:01<00:02, 108MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  41%|████      | 157M/386M [00:01<00:02, 109MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 168M/386M [00:01<00:02, 110MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  46%|████▋     | 179M/386M [00:01<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  49%|████▉     | 190M/386M [00:01<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 201M/386M [00:02<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  55%|█████▍    | 211M/386M [00:02<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  58%|█████▊    | 222M/386M [00:02<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  60%|██████    | 233M/386M [00:02<00:01, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  63%|██████▎   | 244M/386M [00:02<00:01, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  66%|██████▌   | 255M/386M [00:02<00:01, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  69%|██████▊   | 265M/386M [00:02<00:01, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  72%|███████▏  | 276M/386M [00:02<00:01, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  74%|███████▍  | 287M/386M [00:02<00:00, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  77%|███████▋  | 298M/386M [00:02<00:00, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  80%|███████▉  | 309M/386M [00:03<00:00, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  83%|████████▎ | 319M/386M [00:03<00:00, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  85%|████████▌ | 330M/386M [00:03<00:00, 111MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  88%|████████▊ | 341M/386M [00:03<00:00, 112MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  91%|█████████ | 352M/386M [00:03<00:00, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  94%|█████████▍| 363M/386M [00:03<00:00, 113MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 374M/386M [00:03<00:00, 114MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth: 100%|█████████▉| 385M/386M [00:03<00:00, 114MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 108MiB/s]
+[2026-09-29 08:06:29] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 08:06:29] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 08:06:33] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+[2026-09-29 08:06:50] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 08:06:50] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+/kaggle/temp/ia/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
+  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+[2026-09-29 08:06:54] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
