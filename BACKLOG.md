@@ -51,10 +51,12 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - [ ] N1. Every morning: read results/nightly/<date>.md, and if anything got worse than the day before, put it at the top of this queue.
 
 ## Waiting for Daniel
+- AIK clip: stats are hidden in the app until we have a ball answer key there. A blind A/B check like Reymersholm (free) can give one.
 - H1: the outside ball set (1,237 Bundesliga TV pictures) seems to be frames of the Kaggle DFL competition videos, so its CC BY 4.0 label is doubtful. OK to (a) test it in one free Kaggle training run (current set + these, graded on exam + clip), and (b) keep it only for testing unless the licence is cleared? My guess: small gain at most (easy TV balls, not our hard cases). results/ball/h1_hfball.md
 - K1/T0: the full checked ball label sets (Vasalund, Solheim, Spånga, Djursholm: thousands per match) and the fine-tuned WASB are only on the Modal volume. Copying those files out (a download, no GPU) needs your OK to touch Modal; then the scorer can get a fair test on Kaggle for free.
 
 ## Done
+- [x] 29 Sep: AIK clip (p15u-vs-aik-2026-09-21-bd09_s2520) in the app with new players + new ball: ball on 100% of frames (was 60%), near a player 60% (was 26%), possession 41/59 (was 17/83), passes 132 (was 340). No ball answer key for AIK, so the app still withholds possession/events there. ~EUR 1 Modal.
 - [x] 29 Sep: Reymersholm who-has-the-ball with the new ball: 23/32 vs 27/32 old, but in 2 of the 4 flipped moments the real ball is at the new pick; the key was graded looking at the old ball's circle -> can't judge. results/possession/reym_newball_2026-09-29.md
 - [x] 29 Sep: B6-lite new ball finder on unseen grounds (Daniel's old yes/no checks, free Kaggle): Reymersholm night 21/23, Solberga 6/7 top guess on the ball; fooled 0/13 by not-a-ball. Leans easy (moments came from old finder). results/ball/grounds_2026-09-29.md
 - [x] 29 Sep: B7 new ball finder (RF-DETR small, trained free on Kaggle on ~5,000 approved balls): exam 84/108 vs 70, ball found 74/81 vs 47/81. In the app (fused with WASB): SFK-BP clip 29/34 vs 22/34. Passes 160 -> 87 (unchecked). ipanema/ballrf.py, ball_rf on Modal.
