@@ -34,7 +34,7 @@ def test_env_switch_back_to_viterbi(monkeypatch):
     per, ball, ballm, H = clip()
     st, bspeed, dead, info = P.pipeline_state(per, ball, ballm, H, FPS, L, W, log=lambda *a: None)
     old, _ = P.viterbi(per, P.clean_ball(dict(ballm), L, W), FPS, L, W)
-    assert info == {"mode": "viterbi", "turnover_s": 3.0}
+    assert info == {"mode": "viterbi", "turnover_s": 3.0, "seq": {"take_s": 0.0, "join_s": 1.0}}   # E5: old sequence rule too
     assert np.array_equal(st, old) and np.array_equal(dead, old)
 
 

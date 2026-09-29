@@ -60,7 +60,7 @@ def stats(c, mode):
     state, bspeed, dstate, info = P.pipeline_state(per, ball, ballm, H, fps, L, W, mode=mode, boxh=c["boxh"], log=q)
     attack_right, conf = P.direction(state, ballm, log=q)
     if min(conf.values()) < 0.15: attack_right = P.direction_from_keepers(per, L, log=q) or P.direction_fallback(per, L, log=q)
-    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right); rst = P.restarts(dstate, ballm, fps, L, W)
+    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right, **info["seq"]); rst = P.restarts(dstate, ballm, fps, L, W)
     tvs = P.turnovers(per, frames_, state, ballm, fps, attack_right, PRESS_R, NEAR_R, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
     ln = AN.lanes(per, frames_, attack_right, LANE_HALF, MAX_LANE)
     ps, tracks = AN.passes(per, frames_, tvs, ln, attack_right, fps)

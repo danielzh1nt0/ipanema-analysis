@@ -145,14 +145,14 @@ def pipeline_state(per, ball_px, ballm, H, fps, L, W, mode=None, boxh=None, log=
     'viterbi' = the old 4-state model for everything (the switch back).
     -> (state, bspeed, dead_state, info); info['turnover_s'] = the before/after hold rule turnovers() should use
     (S1 on Metrica: with possession_simple the 3 s rule finds almost no lost balls, 1 s finds about as many right ones
-    as the old model)."""
+    as the old model); info['seq'] = the sequences() rule for this state (E5)."""
     mode = (mode or os.environ.get(MODE_ENV, "simple")).strip().lower()
     if mode not in ("simple", "viterbi"): raise ValueError(f"{MODE_ENV}={mode!r}: use 'simple' or 'viterbi'")
     v, bspeed = viterbi(per, clean_ball(dict(ballm), L, W), fps, L, W); v = np.asarray(v)
-    if mode == "viterbi": return v, bspeed, v, {"mode": mode, "turnover_s": 3.0}
+    if mode == "viterbi": return v, bspeed, v, {"mode": mode, "turnover_s": 3.0, "seq": {"take_s": 0.0, "join_s": 1.0}}
     st = np.asarray(possession_simple(per, ball_px, H, len(per), boxh=boxh))
     log(f"possession: simple model (nearest feet in the picture); {100 * (st == 2).mean():.0f}% loose; restarts from the old model's dead runs ({MODE_ENV}=viterbi for the old model)")
-    return st, bspeed, v, {"mode": mode, "turnover_s": 1.0}
+    return st, bspeed, v, {"mode": mode, "turnover_s": 1.0, "seq": {"take_s": SEQ_TAKE_S, "join_s": SEQ_JOIN_S}}
 
 def direction(state, ballm, log=print):
     net, gross = {"A": 0.0, "B": 0.0}, {"A": 0.0, "B": 0.0}
@@ -192,16 +192,36 @@ def direction_fallback(per, L, log=print):
     log(f"direction (fallback from player positions): A {'→' if right['A'] else '←'}  B {'→' if right['B'] else '←'}  median x A {med['A']:.0f} / B {med['B']:.0f}")
     return right
 
-def sequences(state, ballm, bspeed, fps, L, attack_right):
-    n = len(state); seqs = []; cur = None
-    for k in range(n):
-        st = STATES[state[k]]
-        if st in ("A", "B"):
-            if cur and cur["team"] == st and k - cur["end"] <= int(fps): cur["end"] = k
-            else:
-                if cur: seqs.append(cur)
-                cur = {"team": st, "start": k, "end": k}
-    if cur: seqs.append(cur)
+SEQ_TAKE_S, SEQ_JOIN_S = 0.5, 3.0   # E5 (29 Sep), possession_simple; the old model keeps (0, 1.0): see sequences()
+
+def sequence_spans(state, fps, take_s=0.0, join_s=1.0):
+    """[{team, start, end}]: one team in control. The other team takes over only once its control frames outnumber the
+    owner's by take_s (counted from its first frame, which becomes the new sequence's start); a team's sequence carries
+    on across loose (or dead) gaps up to join_s. take_s=0, join_s=1.0 = the rule before E5."""
+    m = max(1, int(round(take_s * fps))); J = int(join_s * fps); out = []; cur = None; lead = 0; cst = None
+    for k in range(len(state)):
+        t = STATES[state[k]]
+        if t not in ("A", "B"): continue
+        if cur is not None and k - cur["end"] > J: out.append(cur); cur = None; lead = 0; cst = None
+        if cur is None: cur = {"team": t, "start": k, "end": k}; continue
+        if t == cur["team"]:
+            cur["end"] = k; lead = max(0, lead - 1)
+            if lead == 0: cst = None
+            continue
+        if cst is None: cst = k
+        lead += 1
+        if lead >= m:
+            cur["end"] = min(cur["end"], cst - 1); out.append(cur); cur = {"team": t, "start": cst, "end": k}; lead = 0; cst = None
+    if cur is not None: out.append(cur)
+    return out
+
+def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S):
+    """E5 (29 Sep): possession_simple flips to the other team ~190 times per 5 min when the ball sits between two
+    players, which cut sequences into 3x as many pieces (SFK-BP 64 -> 210, median 0.6 s). The state is untouched
+    (deflickering it cost who-has-the-ball moments); sequence_spans() now ignores short takeovers (take_s) and joins a
+    team's control across loose gaps up to join_s. Metrica 4 halves, clean: 563 sequences vs 694 true (was 1562), 72%
+    of ours real (was 34%). results/possession/e5_2026-09-29.md"""
+    n = len(state); seqs = sequence_spans(state, fps, take_s, join_s)
     for i, sq in enumerate(seqs):
         nxt = seqs[i + 1] if i + 1 < len(seqs) else None; after = STATES[state[min(n - 1, sq["end"] + 1)]]
         sp = max((bspeed.get(j, 0.0) for j in range(sq["end"], min(n, sq["end"] + int(0.4 * fps)))), default=0.0)

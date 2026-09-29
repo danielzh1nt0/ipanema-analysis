@@ -50,7 +50,26 @@ def truth(ev, frames):
                     "possession_pct": {t: round(100 * v / tot) for t, v in share.items()}, "dead_pct": round(100 * dead.mean())}
     return out
 
-def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True):
+def truth_sequences(ev, per):
+    """E5: chains of on-ball events (PASS, CARRY, SHOT, SET PIECE, RECOVERY, BALL LOST) by one team; a chain ends when
+    the other team acts or the ball goes out -> [{team A/B, start, end}] in Metrica frame numbers"""
+    E = sorted([e for e in ev if e["period"] == per], key=lambda e: (e["f0"], e["f1"])); out = []; cur = None
+    for e in E:
+        if e["type"] == "BALL OUT":
+            if cur: out.append(cur); cur = None
+            continue
+        if e["type"] not in ("PASS", "CARRY", "SHOT", "SET PIECE", "RECOVERY", "BALL LOST") or e["team"] not in ("Home", "Away"): continue
+        tm = "A" if e["team"] == "Home" else "B"
+        if cur and cur["team"] == tm: cur["end"] = max(cur["end"], e["f1"] or e["f0"]); continue
+        if cur: out.append(cur)
+        cur = {"team": tm, "start": e["f0"], "end": max(e["f0"], e["f1"] or e["f0"])}
+    if cur: out.append(cur)
+    return out
+
+def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True, mode=None):
+    """E5 (29 Sep): the possession state comes from P.pipeline_state, as in ipanema/run.py (default possession_simple,
+    'feet' = metres because H = identity; mode='viterbi' or IPANEMA_POSSESSION=viterbi = the old model, which the
+    nightly scored until 29 Sep). Set pieces and dead time come from the old model's dead runs, as in the pipeline."""
     rng = random.Random(seed); ks = sorted(k for k in frames if frames[k][0] == per); k0 = ks[0]
     perd = {}; ballm = {}; H = {}; run = [0, "ok", None]
     for i, k in enumerate(ks):
@@ -59,6 +78,7 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
         if noisy:                                                              # what our Veo follow-cam delivers (measured 27-28 Sep)
             rows = [r for r in rows if rng.random() < 0.65]                     # ~7 of 11 per team visible
             for r in rows: r[2] = r[2] + np.array([rng.gauss(0, 0.8), rng.gauss(0, 0.8)])
+        for r in rows: r[3] = r[2]                                             # 'pixel' feet = metres (H = identity)
         perd[i] = rows; H[i] = np.eye(3)
         if noisy == "streak":                                                  # errors come in runs, like real tracking
             if run[0] <= 0:
@@ -79,10 +99,11 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
             ballm[i] = bm
     ball_px = {k: v for k, v in ballm.items()}                                 # H = identity: "pixels" are metres
     frames_, bm = P.carriers(perd, ball_px, H)
-    state, bspeed = P.viterbi(perd, P.clean_ball(bm, L, W), FPS, L, W)
+    state, bspeed, dstate, info = P.pipeline_state(perd, {k: tuple(v) for k, v in ball_px.items()}, bm, H, FPS, L, W, mode=mode, log=lambda *a: None)
     ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or {"A": True, "B": False}
-    rst = P.restarts(state, bm, FPS, L, W)
-    tvs = P.turnovers(perd, frames_, state, bm, FPS, ar)
+    rst = P.restarts(dstate, bm, FPS, L, W)
+    tvs = P.turnovers(perd, frames_, state, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
+    seqs = P.sequences(state, bm, bspeed, FPS, L, ar, **info["seq"])
     ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich)
     st = np.asarray(state)
     live = np.isin(st, [0, 1]).sum()
@@ -90,7 +111,17 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
             "passes": {"Home": sum(p["completed"] for p in ps if p["team"] == "A"), "Away": sum(p["completed"] for p in ps if p["team"] == "B")},
             "balls_lost": {"Home": sum(t["lost_by"] == "A" for t in tvs), "Away": sum(t["lost_by"] == "B" for t in tvs)},
             "possession_pct": {"Home": round(100 * (st == 0).sum() / max(1, live)), "Away": round(100 * (st == 1).sum() / max(1, live))},
-            "dead_pct": round(100 * (st == 3).mean())}
+            "dead_pct": round(100 * (np.asarray(dstate) == 3).mean()), "mode": info["mode"],
+            "sequences": len(seqs), "sequence_starts": [(k0 + s["start"], s["team"]) for s in seqs]}
+
+def seq_found(truth, ours_starts, tol=2 * FPS):
+    """E5: true sequences whose start has one of ours (same team) within +-2 s -> (found, ours that are real)"""
+    pairs = sorted((abs(o - t["start"]), i, j) for i, t in enumerate(truth) for j, (o, tm) in enumerate(ours_starts) if tm == t["team"] and abs(o - t["start"]) <= tol)
+    ut, uo = set(), set()
+    for _, i, j in pairs:
+        if i in ut or j in uo: continue
+        ut.add(i); uo.add(j)
+    return len(ut), len(uo)
 
 def match_frames(a, b, tol=5 * FPS):
     used = set(); hit = 0

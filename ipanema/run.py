@@ -203,7 +203,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     elif min(conf.values()) < 0.15:
         attack_right = P.direction_from_keepers(per, L, log=log) or P.direction_fallback(per, L, log=log)
     log("  step: sequences"); t_ = time.time()
-    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right); rst = P.restarts(dstate, ballm, fps, L, W)
+    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right, **pinfo["seq"]); rst = P.restarts(dstate, ballm, fps, L, W)
     log("  step: turnovers"); t_ = time.time()
     tvs = P.turnovers(per, frames_, state, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
     log("  step: lanes"); t_ = time.time()
