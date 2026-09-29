@@ -1,2 +1,2 @@
-tools/ballkey_sheets.py
-# Tue Sep 29 14:40:30 UTC 2026
+tools/h1_hfball.py
+# Tue Sep 29 16:33:55 UTC 2026 H1: look at martinjolif/football-ball-detection
