@@ -186,7 +186,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
             if alt_check: log(f"ball check (alternative: WASB + YOLO candidates): {alt_check['correct']}/{alt_check['total']} correct, ceiling {alt_check['ceiling']}/{alt_check['total']}")
         except Exception as e: log(f"alternative ball check failed: {e!r}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
-    state, bspeed = P.viterbi(per, P.clean_ball(ballm, L, W), fps, L, W)
+    state, bspeed, dstate, pinfo = P.pipeline_state(per, ball, ballm, H, fps, L, W, log=log)   # E4 (29 Sep): possession_simple by default; IPANEMA_POSSESSION=viterbi = old model
     attack_right, conf = P.direction(state, ballm, log=log)
     import glob as _g
     ref = next(iter(_g.glob(os.path.join(S.root, "reference", f"events_gt_{match_id}.json")) + _g.glob(os.path.join(S.root, "reference", match_id, "events_gt*.json"))), None)
@@ -196,9 +196,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     elif min(conf.values()) < 0.15:
         attack_right = P.direction_from_keepers(per, L, log=log) or P.direction_fallback(per, L, log=log)
     log("  step: sequences"); t_ = time.time()
-    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right); rst = P.restarts(state, ballm, fps, L, W)
+    seqs = P.sequences(state, ballm, bspeed, fps, L, attack_right); rst = P.restarts(dstate, ballm, fps, L, W)
     log("  step: turnovers"); t_ = time.time()
-    tvs = P.turnovers(per, frames_, state, ballm, fps, attack_right, S.press_r, S.near_r)
+    tvs = P.turnovers(per, frames_, state, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
     log("  step: lanes"); t_ = time.time()
     ln = AN.lanes(per, frames_, attack_right, S.lane_half, S.max_lane)
     log("  step: passes"); t_ = time.time()
@@ -246,7 +246,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in play_ks] or [0])) for t in ("A", "B")},
                "ball_frames_pct": round(100 * len(ball) / max(1, n_play)), "match_seconds": round(n_play / fps, 1), "periods": ctx.get("periods"), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
-               "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((state == 3).sum()) / n), "attack_right": attack_right, "direction_confidence": conf,
+               "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((np.asarray(dstate) == 3).sum()) / n), "possession_model": pinfo["mode"], "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     log("  step: export"); t_ = time.time()
     root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), unsure=cal.get("unsure", frozenset()), cands_conf=BL.pick_confidence(ball, cands), bridged=bridged, **(export_kw or {}))

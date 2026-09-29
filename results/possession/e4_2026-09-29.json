@@ -1,0 +1,142 @@
+{
+ "SFK-BP (calibrated)": {
+  "viterbi": {
+   "who_has_ball_right": [
+    43,
+    99
+   ],
+   "possession_pct_dark_A": 61,
+   "loose_pct": 25,
+   "dead_pct": 21,
+   "restarts": 13,
+   "sequences": 64,
+   "sequence_median_s": 1.6,
+   "turnovers": 3,
+   "turnover_rule_s": 3.0,
+   "passes": 146,
+   "passes_completed": 110,
+   "shots_detected": {
+    "A": 0,
+    "B": 0
+   },
+   "field_tilt": {
+    "A": 9,
+    "B": 41
+   },
+   "high_turnovers": {
+    "A": 0,
+    "B": 0
+   },
+   "state_counts": {
+    "0": 2926,
+    "1": 1871,
+    "2": 2266,
+    "3": 1929
+   }
+  },
+  "simple": {
+   "who_has_ball_right": [
+    82,
+    99
+   ],
+   "possession_pct_dark_A": 51,
+   "loose_pct": 34,
+   "dead_pct": 21,
+   "restarts": 13,
+   "sequences": 210,
+   "sequence_median_s": 0.6,
+   "turnovers": 19,
+   "turnover_rule_s": 1.0,
+   "passes": 146,
+   "passes_completed": 110,
+   "shots_detected": {
+    "A": 0,
+    "B": 1
+   },
+   "field_tilt": {
+    "A": 6,
+    "B": 43
+   },
+   "high_turnovers": {
+    "A": 0,
+    "B": 3
+   },
+   "state_counts": {
+    "0": 3020,
+    "1": 2884,
+    "2": 3088
+   },
+   "turnovers_with_3s_rule": 0
+  }
+ },
+ "Reymersholm (no calibration, night)": {
+  "viterbi": {
+   "who_has_ball_right": [
+    23,
+    32
+   ],
+   "possession_pct_dark_A": 79,
+   "loose_pct": 18,
+   "dead_pct": 12,
+   "restarts": 4,
+   "sequences": 80,
+   "sequence_median_s": 1.6,
+   "turnovers": 0,
+   "turnover_rule_s": 3.0,
+   "passes": 293,
+   "passes_completed": 231,
+   "shots_detected": {
+    "A": 0,
+    "B": 0
+   },
+   "field_tilt": {
+    "A": 16,
+    "B": 8
+   },
+   "high_turnovers": {
+    "A": 0,
+    "B": 0
+   },
+   "state_counts": {
+    "0": 5034,
+    "1": 1324,
+    "2": 1593,
+    "3": 1041
+   }
+  },
+  "simple": {
+   "who_has_ball_right": [
+    27,
+    32
+   ],
+   "possession_pct_dark_A": 73,
+   "loose_pct": 19,
+   "dead_pct": 12,
+   "restarts": 4,
+   "sequences": 205,
+   "sequence_median_s": 0.7,
+   "turnovers": 18,
+   "turnover_rule_s": 1.0,
+   "passes": 293,
+   "passes_completed": 231,
+   "shots_detected": {
+    "A": 0,
+    "B": 0
+   },
+   "field_tilt": {
+    "A": 16,
+    "B": 10
+   },
+   "high_turnovers": {
+    "A": 0,
+    "B": 1
+   },
+   "state_counts": {
+    "0": 5280,
+    "1": 1985,
+    "2": 1727
+   },
+   "turnovers_with_3s_rule": 0
+  }
+ }
+}

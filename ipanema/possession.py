@@ -1,4 +1,5 @@
 """Possession as a 4-state HMM over the whole clip, plus everything that follows from it."""
+import os
 import numpy as np
 from .calibration import to_m
 
@@ -91,6 +92,7 @@ def pixel_dist(per, ball_px, H, max_m=30.0, boxh=None, body_m=1.75):
     pixel up/down = metres), so a ball at a player's feet looked metres away. On 34 graded moments the nearest team in
     pixels was right 32 times. -> {frame: {"A": m, "B": m}} for viterbi(dist=...)."""
     out = {}
+    if not isinstance(per, dict): per = dict(enumerate(per))   # E4 (29 Sep): a plain list of frames also works ('k in list' would test values, not frame numbers)
     if boxh is not None:                      # no pitch calibration: the nearest player's height in the picture is the ruler
         for k, b in ball_px.items():
             if k not in per: continue
@@ -132,6 +134,25 @@ def possession_simple(per, ball_px, H, n, near_m=1.5, smooth=6, boxh=None):
         for k in range(n):
             w = raw[max(0, k - smooth):k + smooth + 1]; out[k] = int(np.bincount(w, minlength=3).argmax())
     return out
+
+MODE_ENV = "IPANEMA_POSSESSION"
+
+def pipeline_state(per, ball_px, ballm, H, fps, L, W, mode=None, boxh=None, log=print):
+    """E4 (29 Sep): the possession state the pipeline uses. mode (default from env IPANEMA_POSSESSION):
+    'simple' (default) = possession_simple: nearest feet to the ball in the picture (SFK-BP 82/99, Reymersholm 27/32 on
+    the who-has-the-ball keys; the old model 43/99). It has no 'dead' state: the old model's dead runs sat on 13 of the
+    99 in-play key moments, so they are NOT copied in; restarts keep coming from the old model's state (dead_state).
+    'viterbi' = the old 4-state model for everything (the switch back).
+    -> (state, bspeed, dead_state, info); info['turnover_s'] = the before/after hold rule turnovers() should use
+    (S1 on Metrica: with possession_simple the 3 s rule finds almost no lost balls, 1 s finds about as many right ones
+    as the old model)."""
+    mode = (mode or os.environ.get(MODE_ENV, "simple")).strip().lower()
+    if mode not in ("simple", "viterbi"): raise ValueError(f"{MODE_ENV}={mode!r}: use 'simple' or 'viterbi'")
+    v, bspeed = viterbi(per, clean_ball(dict(ballm), L, W), fps, L, W); v = np.asarray(v)
+    if mode == "viterbi": return v, bspeed, v, {"mode": mode, "turnover_s": 3.0}
+    st = np.asarray(possession_simple(per, ball_px, H, len(per), boxh=boxh))
+    log(f"possession: simple model (nearest feet in the picture); {100 * (st == 2).mean():.0f}% loose; restarts from the old model's dead runs ({MODE_ENV}=viterbi for the old model)")
+    return st, bspeed, v, {"mode": mode, "turnover_s": 1.0}
 
 def direction(state, ballm, log=print):
     net, gross = {"A": 0.0, "B": 0.0}, {"A": 0.0, "B": 0.0}
