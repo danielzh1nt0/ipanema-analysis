@@ -1,0 +1,89 @@
+{
+ "pieces": {
+  "p15u-vs-spanga-2026-09-25_1125": {
+   "returncode": 0,
+   "minutes": 5.5
+  },
+  "p15u-vs-spanga-2026-09-25_2137": {
+   "returncode": 0,
+   "minutes": 6.1
+  },
+  "p15u-vs-spanga-2026-09-25_4050": {
+   "returncode": 0,
+   "minutes": 6.5
+  },
+  "p15u-vs-reymersholm-2026-09-18_1190": {
+   "returncode": 0,
+   "minutes": 6.0
+  },
+  "p15u-vs-reymersholm-2026-09-18_2262": {
+   "returncode": 0,
+   "minutes": 6.3
+  },
+  "p15u-vs-reymersholm-2026-09-18_4286": {
+   "returncode": 0,
+   "minutes": 6.1
+  },
+  "p15u-vs-vasalund-2026-09-20_1130": {
+   "returncode": 0,
+   "minutes": 5.0
+  },
+  "p15u-vs-vasalund-2026-09-20_2147": {
+   "returncode": 0,
+   "minutes": 5.0
+  },
+  "p15u-vs-vasalund-2026-09-20_4068": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "p15u-vs-djursholm-2026-09-26_1428": {
+   "returncode": 0,
+   "minutes": 5.2
+  },
+  "p15u-vs-djursholm-2026-09-26_2714": {
+   "returncode": 0,
+   "minutes": 5.2
+  },
+  "p15u-vs-djursholm-2026-09-26_5143": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_1456": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_2766": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_5242": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_1279": {
+   "returncode": 0,
+   "minutes": 6.4
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_2431": {
+   "returncode": 0,
+   "minutes": 5.1
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_4607": {
+   "returncode": 0,
+   "minutes": 5.0
+  },
+  "SFKBP1109_s1200_20": {
+   "returncode": 0,
+   "minutes": 5.0
+  },
+  "SFKBP1109_s1200_120": {
+   "returncode": 0,
+   "minutes": 4.9
+  },
+  "SFKBP1109_s1200_220": {
+   "returncode": 0,
+   "minutes": 4.9
+  }
+ },
+ "minutes": 114.7
+}

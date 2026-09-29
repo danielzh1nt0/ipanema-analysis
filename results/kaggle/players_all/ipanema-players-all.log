@@ -1,0 +1,49 @@
+[{"stream_name":"stdout","time":1.6219966019999998,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":1.659694548,"data":"name\n"}
+,{"stream_name":"stdout","time":1.6597322220000001,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.659736492,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.6597389900000001,"data":"\n"}
+,{"stream_name":"stdout","time":1.659741511,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":31.739531394,"data":"\n"}
+,{"stream_name":"stdout","time":31.739574462,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":53.859261811,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859317034,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 18.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859325394,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.6/391.6 kB 18.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859331358,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 56.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859336983,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859341977,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 100.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859346895,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 23.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859351839,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 82.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":53.859356865,"data":"\n"}
+,{"stream_name":"stdout","time":53.859366004,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":53.863776412,"data":"repo at bd4ddb3 P2: Kaggle job - player tracking on 3 x 60 s of all 6 matches + SFK (free)\n"}
+,{"stream_name":"stdout","time":53.863800743,"data":"\n"}
+,{"stream_name":"stdout","time":386.4402979,"data":"p15u-vs-spanga-2026-09-25_1125 {'returncode': 0, 'minutes': 5.5}\n"}
+,{"stream_name":"stdout","time":751.161596776,"data":"p15u-vs-spanga-2026-09-25_2137 {'returncode': 0, 'minutes': 6.1}\n"}
+,{"stream_name":"stdout","time":1143.019197919,"data":"p15u-vs-spanga-2026-09-25_4050 {'returncode': 0, 'minutes': 6.5}\n"}
+,{"stream_name":"stdout","time":1504.953331827,"data":"p15u-vs-reymersholm-2026-09-18_1190 {'returncode': 0, 'minutes': 6.0}\n"}
+,{"stream_name":"stdout","time":1883.132123563,"data":"p15u-vs-reymersholm-2026-09-18_2262 {'returncode': 0, 'minutes': 6.3}\n"}
+,{"stream_name":"stdout","time":2246.651115904,"data":"p15u-vs-reymersholm-2026-09-18_4286 {'returncode': 0, 'minutes': 6.1}\n"}
+,{"stream_name":"stdout","time":2549.076148977,"data":"p15u-vs-vasalund-2026-09-20_1130 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":2849.255132491,"data":"p15u-vs-vasalund-2026-09-20_2147 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":3152.559067242,"data":"p15u-vs-vasalund-2026-09-20_4068 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":3462.4436001,"data":"p15u-vs-djursholm-2026-09-26_1428 {'returncode': 0, 'minutes': 5.2}\n"}
+,{"stream_name":"stdout","time":3776.283288113,"data":"p15u-vs-djursholm-2026-09-26_2714 {'returncode': 0, 'minutes': 5.2}\n"}
+,{"stream_name":"stdout","time":4083.171171232,"data":"p15u-vs-djursholm-2026-09-26_5143 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":4391.003565682,"data":"solberga-vs-p09-norrviken-2026-09-11_1456 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":4695.193720133,"data":"solberga-vs-p09-norrviken-2026-09-11_2766 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":4999.038004447,"data":"solberga-vs-p09-norrviken-2026-09-11_5242 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":5385.568637015,"data":"p09-norrviken-vs-solheim-2026-08-30_1279 {'returncode': 0, 'minutes': 6.4}\n"}
+,{"stream_name":"stdout","time":5693.155641804,"data":"p09-norrviken-vs-solheim-2026-08-30_2431 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":5993.426307339,"data":"p09-norrviken-vs-solheim-2026-08-30_4607 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":6294.55316391,"data":"SFKBP1109_s1200_20 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":6590.673387116,"data":"SFKBP1109_s1200_120 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":6885.803519084,"data":"SFKBP1109_s1200_220 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":6885.803911134,"data":"done 114.7 min\n"}
+,{"stream_name":"stderr","time":6887.942099184,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6887.942125976,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6888.214291337,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6888.21432258,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6888.89743272,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6890.215050431,"data":"[NbConvertApp] Writing 290993 bytes to __results__.html\n"}
+]

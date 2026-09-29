@@ -1,0 +1,35 @@
+06:39:46 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
+06:40:18 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+[2026-09-29 06:40:31] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 06:40:33] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+06:40:51 kits: per-player classifier from 625 on-pitch people, 0 of 15 runs kept -> colour only
+06:40:51 kits: learned from 769 people (187 off the pitch left out), group sizes [306, 272, 153, 38]
+06:40:51 off-pitch people dropped by the pitch-edge test: yes
+[2026-09-29 06:40:52] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 06:40:54] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+06:40:57   tracking frame 0
+06:42:15   tracking frame 600 (7.6 frames/s)
+06:43:34   tracking frame 1200 (7.6 frames/s)
+06:44:52 clean: keeper (left) from a non-team kit: track 97, 574 frames
+06:44:52 clean: keeper (right) from a non-team kit: track 64, 212 frames
+06:44:52 clean: removed 10237 rows of non-team kits (referee / staff)
+06:44:52 clean: dropped 0 off-pitch, merged 374 duplicates, stitched 142 ids, keepers [38, 62, 65, 67, 72, 73, 77, 83, 90, 96, 105, 124, 131, 132, 168, 170, 171] -> A defends left
+06:44:52 clean: players per frame median A 10 / B 9, max A 15 / B 12
+06:44:52 new, RF-DETR: {'observed_per_frame': {'dark': 10.0, 'light': 9.0}, 'shown_per_frame': {'dark': 10.0, 'light': 9.0}, 'tracks': 111, 'median_track_s': {'dark': 8.69, 'light': 5.54}, 'minutes': 4.6, 'filled_rows': 211}
+| | new, RF-DETR |
+|---|---|
+| dark players per frame (seen) | 10.0 |
+| light players per frame (seen) | 9.0 |
+| dark per frame incl. filled | 10.0 |
+| light per frame incl. filled | 9.0 |
+| dark: median time a player stays tracked (s) | 8.69 |
+| light: median time tracked (s) | 5.54 |
+| track ids in 20 s | 111 |
+[2026-09-29 06:40:31] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 06:40:31] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 06:40:35] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+[2026-09-29 06:40:52] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 06:40:52] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+/kaggle/temp/ia/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
+  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+[2026-09-29 06:40:56] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
