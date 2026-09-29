@@ -1,0 +1,80 @@
+      0s Tesla T4
+Tesla T4
+     28s 
+     29s 
+     35s ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 168.8/168.8 kB 3.9 MB/s eta 0:00:00
+     42s WASB fine-tuned weights loaded on cuda
+     43s p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, using 500
+     91s p15u-vs-vasa: 100/500 frames, 1301 crops, 48s
+    139s p15u-vs-vasa: 200/500 frames, 2601 crops, 96s
+    185s p15u-vs-vasa: 300/500 frames, 3901 crops, 141s
+    233s p15u-vs-vasa: 400/500 frames, 5201 crops, 190s
+    279s p15u-vs-vasa: 500/500 frames, 6501 crops, 236s
+    279s p15u-vs-vasa: 6501 crops (501 ball)
+    280s p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, using 500
+    339s p09-norrvike: 100/500 frames, 1275 crops, 58s
+    398s p09-norrvike: 200/500 frames, 2566 crops, 117s
+    449s p09-norrvike: 300/500 frames, 3484 crops, 169s
+    510s p09-norrvike: 400/500 frames, 4659 crops, 229s
+    567s p09-norrvike: 500/500 frames, 5879 crops, 286s
+    567s p09-norrvike: 5879 crops (500 ball)
+    567s p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, using 500
+    621s p15u-vs-span: 100/500 frames, 1300 crops, 54s
+    674s p15u-vs-span: 200/500 frames, 2600 crops, 106s
+    722s p15u-vs-span: 300/500 frames, 3900 crops, 155s
+    773s p15u-vs-span: 400/500 frames, 5200 crops, 206s
+    823s p15u-vs-span: 500/500 frames, 6495 crops, 256s
+    823s p15u-vs-span: 6495 crops (500 ball)
+    825s p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, using 500
+    873s p15u-vs-djur: 100/500 frames, 640 crops, 48s
+    922s p15u-vs-djur: 200/500 frames, 1230 crops, 97s
+    986s p15u-vs-djur: 300/500 frames, 2131 crops, 161s
+   1046s p15u-vs-djur: 400/500 frames, 3064 crops, 220s
+   1107s p15u-vs-djur: 500/500 frames, 3964 crops, 282s
+   1107s p15u-vs-djur: 3964 crops (500 ball)
+   1107s SFK-BP full video: 184725 frames
+   1173s sfk: 100/436 frames, 1262 crops, 65s
+   1240s sfk: 200/436 frames, 2540 crops, 132s
+   1308s sfk: 300/436 frames, 3829 crops, 200s
+   1375s sfk: 400/436 frames, 5115 crops, 267s
+   1400s sfk: 5562 crops (330 ball)
+   1447s clip: 443 crops (35 ball)
+   1447s crops 28844: train 27024 (2250 ball), exam 1377, clip 443
+   1486s   epoch 5: loss 0.762
+   1517s   epoch 10: loss 0.521
+   1547s   epoch 15: loss 0.397
+   1577s   epoch 20: loss 0.332
+   1621s   epoch 5: loss 0.735
+   1650s   epoch 10: loss 0.527
+   1680s   epoch 15: loss 0.410
+   1710s   epoch 20: loss 0.339
+   1754s   epoch 5: loss 0.733
+   1784s   epoch 10: loss 0.513
+   1813s   epoch 15: loss 0.399
+   1843s   epoch 20: loss 0.333
+   1860s   epoch 5: loss 1.107
+   1864s   epoch 10: loss 0.868
+   1869s   epoch 15: loss 0.679
+   1874s   epoch 20: loss 0.592
+   1890s   epoch 5: loss 1.064
+   1895s   epoch 10: loss 0.816
+   1900s   epoch 15: loss 0.655
+   1904s   epoch 20: loss 0.563
+   1921s   epoch 5: loss 1.109
+   1926s   epoch 10: loss 0.904
+   1930s   epoch 15: loss 0.696
+   1935s   epoch 20: loss 0.583
+   1947s all matches | exam | scorer + 0.0 x finder              56/81  57/81  57/81
+   1947s all matches | exam | scorer + 0.5 x finder              64/81  60/81  61/81
+   1947s all matches | exam | scorer + 1.0 x finder              64/81  61/81  62/81
+   1947s all matches | clip34 | scorer + 0.0 x finder            23/34  21/34  22/34
+   1947s all matches | clip34 | scorer + 0.5 x finder            23/34  21/34  24/34
+   1947s all matches | clip34 | scorer + 1.0 x finder            24/34  24/34  23/34
+   1947s SFK-BP only (as 28 Sep) | exam | scorer + 0.0 x finder  56/81  56/81  52/81
+   1947s SFK-BP only (as 28 Sep) | exam | scorer + 0.5 x finder  61/81  59/81  60/81
+   1947s SFK-BP only (as 28 Sep) | exam | scorer + 1.0 x finder  61/81  63/81  66/81
+   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 0.0 x finder 15/34  18/34  15/34
+   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 0.5 x finder 24/34  22/34  24/34
+   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 1.0 x finder 25/34  23/34  25/34
+   1947s baseline | exam | finder score only                     54/81
+   1947s baseline | clip34 | finder score only                   24/34

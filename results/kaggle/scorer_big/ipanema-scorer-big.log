@@ -1,0 +1,87 @@
+[{"stream_name":"stdout","time":1.453541727,"data":"      0s Tesla T4\n"}
+,{"stream_name":"stdout","time":1.454484247,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":29.85018184,"data":"     28s \n"}
+,{"stream_name":"stdout","time":30.359045677,"data":"     29s \n"}
+,{"stream_name":"stdout","time":36.121264835,"data":"     35s ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 168.8/168.8 kB 3.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":43.550145484,"data":"     42s WASB fine-tuned weights loaded on cuda\n"}
+,{"stream_name":"stdout","time":43.962223422,"data":"     43s p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, using 500\n"}
+,{"stream_name":"stdout","time":92.279646504,"data":"     91s p15u-vs-vasa: 100/500 frames, 1301 crops, 48s\n"}
+,{"stream_name":"stdout","time":140.04733037,"data":"    139s p15u-vs-vasa: 200/500 frames, 2601 crops, 96s\n"}
+,{"stream_name":"stdout","time":185.924740511,"data":"    185s p15u-vs-vasa: 300/500 frames, 3901 crops, 141s\n"}
+,{"stream_name":"stdout","time":234.419276988,"data":"    233s p15u-vs-vasa: 400/500 frames, 5201 crops, 190s\n"}
+,{"stream_name":"stdout","time":280.844585416,"data":"    279s p15u-vs-vasa: 500/500 frames, 6501 crops, 236s\n"}
+,{"stream_name":"stdout","time":280.848781187,"data":"    279s p15u-vs-vasa: 6501 crops (501 ball)\n"}
+,{"stream_name":"stdout","time":281.30948142,"data":"    280s p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, using 500\n"}
+,{"stream_name":"stdout","time":340.234007115,"data":"    339s p09-norrvike: 100/500 frames, 1275 crops, 58s\n"}
+,{"stream_name":"stdout","time":398.994061586,"data":"    398s p09-norrvike: 200/500 frames, 2566 crops, 117s\n"}
+,{"stream_name":"stdout","time":450.67420946,"data":"    449s p09-norrvike: 300/500 frames, 3484 crops, 169s\n"}
+,{"stream_name":"stdout","time":511.044450119,"data":"    510s p09-norrvike: 400/500 frames, 4659 crops, 229s\n"}
+,{"stream_name":"stdout","time":568.053330175,"data":"    567s p09-norrvike: 500/500 frames, 5879 crops, 286s\n"}
+,{"stream_name":"stdout","time":568.055370154,"data":"    567s p09-norrvike: 5879 crops (500 ball)\n"}
+,{"stream_name":"stdout","time":568.460996464,"data":"    567s p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, using 500\n"}
+,{"stream_name":"stdout","time":622.728412002,"data":"    621s p15u-vs-span: 100/500 frames, 1300 crops, 54s\n"}
+,{"stream_name":"stdout","time":675.37776307,"data":"    674s p15u-vs-span: 200/500 frames, 2600 crops, 106s\n"}
+,{"stream_name":"stdout","time":723.478804487,"data":"    722s p15u-vs-span: 300/500 frames, 3900 crops, 155s\n"}
+,{"stream_name":"stdout","time":774.866568205,"data":"    773s p15u-vs-span: 400/500 frames, 5200 crops, 206s\n"}
+,{"stream_name":"stdout","time":824.894531469,"data":"    823s p15u-vs-span: 500/500 frames, 6495 crops, 256s\n"}
+,{"stream_name":"stdout","time":824.896346621,"data":"    823s p15u-vs-span: 6495 crops (500 ball)\n"}
+,{"stream_name":"stdout","time":825.931446185,"data":"    825s p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, using 500\n"}
+,{"stream_name":"stdout","time":874.517089889,"data":"    873s p15u-vs-djur: 100/500 frames, 640 crops, 48s\n"}
+,{"stream_name":"stdout","time":923.808150378,"data":"    922s p15u-vs-djur: 200/500 frames, 1230 crops, 97s\n"}
+,{"stream_name":"stdout","time":987.296408133,"data":"    986s p15u-vs-djur: 300/500 frames, 2131 crops, 161s\n"}
+,{"stream_name":"stdout","time":1047.033010778,"data":"   1046s p15u-vs-djur: 400/500 frames, 3064 crops, 220s\n"}
+,{"stream_name":"stdout","time":1108.28200072,"data":"   1107s p15u-vs-djur: 500/500 frames, 3964 crops, 282s\n"}
+,{"stream_name":"stdout","time":1108.283798234,"data":"   1107s p15u-vs-djur: 3964 crops (500 ball)\n"}
+,{"stream_name":"stdout","time":1108.904128424,"data":"   1107s SFK-BP full video: 184725 frames\n"}
+,{"stream_name":"stdout","time":1174.364911661,"data":"   1173s sfk: 100/436 frames, 1262 crops, 65s\n"}
+,{"stream_name":"stdout","time":1241.906531029,"data":"   1240s sfk: 200/436 frames, 2540 crops, 132s\n"}
+,{"stream_name":"stdout","time":1309.785372146,"data":"   1308s sfk: 300/436 frames, 3829 crops, 200s\n"}
+,{"stream_name":"stdout","time":1376.564586927,"data":"   1375s sfk: 400/436 frames, 5115 crops, 267s\n"}
+,{"stream_name":"stdout","time":1401.101002923,"data":"   1400s sfk: 5562 crops (330 ball)\n"}
+,{"stream_name":"stdout","time":1448.341424849,"data":"   1447s clip: 443 crops (35 ball)\n"}
+,{"stream_name":"stdout","time":1448.477209585,"data":"   1447s crops 28844: train 27024 (2250 ball), exam 1377, clip 443\n"}
+,{"stream_name":"stdout","time":1487.797460576,"data":"   1486s   epoch 5: loss 0.762\n"}
+,{"stream_name":"stdout","time":1518.317324312,"data":"   1517s   epoch 10: loss 0.521\n"}
+,{"stream_name":"stdout","time":1548.196216036,"data":"   1547s   epoch 15: loss 0.397\n"}
+,{"stream_name":"stdout","time":1578.152710788,"data":"   1577s   epoch 20: loss 0.332\n"}
+,{"stream_name":"stdout","time":1621.978518439,"data":"   1621s   epoch 5: loss 0.735\n"}
+,{"stream_name":"stdout","time":1651.779196963,"data":"   1650s   epoch 10: loss 0.527\n"}
+,{"stream_name":"stdout","time":1681.469824635,"data":"   1680s   epoch 15: loss 0.410\n"}
+,{"stream_name":"stdout","time":1711.370372156,"data":"   1710s   epoch 20: loss 0.339\n"}
+,{"stream_name":"stdout","time":1755.252762815,"data":"   1754s   epoch 5: loss 0.733\n"}
+,{"stream_name":"stdout","time":1785.180902013,"data":"   1784s   epoch 10: loss 0.513\n"}
+,{"stream_name":"stdout","time":1814.881314296,"data":"   1813s   epoch 15: loss 0.399\n"}
+,{"stream_name":"stdout","time":1844.571291579,"data":"   1843s   epoch 20: loss 0.333\n"}
+,{"stream_name":"stdout","time":1861.155450471,"data":"   1860s   epoch 5: loss 1.107\n"}
+,{"stream_name":"stdout","time":1865.727938725,"data":"   1864s   epoch 10: loss 0.868\n"}
+,{"stream_name":"stdout","time":1870.325309031,"data":"   1869s   epoch 15: loss 0.679\n"}
+,{"stream_name":"stdout","time":1874.946228038,"data":"   1874s   epoch 20: loss 0.592\n"}
+,{"stream_name":"stdout","time":1891.763001668,"data":"   1890s   epoch 5: loss 1.064\n"}
+,{"stream_name":"stdout","time":1896.386041902,"data":"   1895s   epoch 10: loss 0.816\n"}
+,{"stream_name":"stdout","time":1901.066313357,"data":"   1900s   epoch 15: loss 0.655\n"}
+,{"stream_name":"stdout","time":1905.676585828,"data":"   1904s   epoch 20: loss 0.563\n"}
+,{"stream_name":"stdout","time":1922.490803665,"data":"   1921s   epoch 5: loss 1.109\n"}
+,{"stream_name":"stdout","time":1927.063919177,"data":"   1926s   epoch 10: loss 0.904\n"}
+,{"stream_name":"stdout","time":1931.696071568,"data":"   1930s   epoch 15: loss 0.696\n"}
+,{"stream_name":"stdout","time":1936.252437261,"data":"   1935s   epoch 20: loss 0.583\n"}
+,{"stream_name":"stdout","time":1948.206787764,"data":"   1947s all matches | exam | scorer + 0.0 x finder              56/81  57/81  57/81\n"}
+,{"stream_name":"stdout","time":1948.207132391,"data":"   1947s all matches | exam | scorer + 0.5 x finder              64/81  60/81  61/81\n"}
+,{"stream_name":"stdout","time":1948.207300404,"data":"   1947s all matches | exam | scorer + 1.0 x finder              64/81  61/81  62/81\n"}
+,{"stream_name":"stdout","time":1948.207435511,"data":"   1947s all matches | clip34 | scorer + 0.0 x finder            23/34  21/34  22/34\n"}
+,{"stream_name":"stdout","time":1948.207620581,"data":"   1947s all matches | clip34 | scorer + 0.5 x finder            23/34  21/34  24/34\n"}
+,{"stream_name":"stdout","time":1948.207775696,"data":"   1947s all matches | clip34 | scorer + 1.0 x finder            24/34  24/34  23/34\n"}
+,{"stream_name":"stdout","time":1948.207907699,"data":"   1947s SFK-BP only (as 28 Sep) | exam | scorer + 0.0 x finder  56/81  56/81  52/81\n"}
+,{"stream_name":"stdout","time":1948.208056955,"data":"   1947s SFK-BP only (as 28 Sep) | exam | scorer + 0.5 x finder  61/81  59/81  60/81\n"}
+,{"stream_name":"stdout","time":1948.208181797,"data":"   1947s SFK-BP only (as 28 Sep) | exam | scorer + 1.0 x finder  61/81  63/81  66/81\n"}
+,{"stream_name":"stdout","time":1948.208322598,"data":"   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 0.0 x finder 15/34  18/34  15/34\n"}
+,{"stream_name":"stdout","time":1948.208447319,"data":"   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 0.5 x finder 24/34  22/34  24/34\n"}
+,{"stream_name":"stdout","time":1948.208617813,"data":"   1947s SFK-BP only (as 28 Sep) | clip34 | scorer + 1.0 x finder 25/34  23/34  25/34\n"}
+,{"stream_name":"stdout","time":1948.208760571,"data":"   1947s baseline | exam | finder score only                     54/81\n"}
+,{"stream_name":"stdout","time":1948.208935409,"data":"   1947s baseline | clip34 | finder score only                   24/34\n"}
+,{"stream_name":"stderr","time":1953.743103258,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1953.743158692,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1954.074858931,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1954.074887944,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1954.732880258,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1956.054430481,"data":"[NbConvertApp] Writing 333028 bytes to __results__.html\n"}
+]
