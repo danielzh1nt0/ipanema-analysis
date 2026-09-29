@@ -34,18 +34,19 @@ def augment(x, rng):
 def train(X, y, epochs=15, lr=2e-3, seed=0, batch=128, log=print):
     import torch
     torch.manual_seed(seed); rng = np.random.default_rng(seed)
-    net = model(); opt = torch.optim.AdamW(net.parameters(), lr=lr, weight_decay=1e-4)
+    dev = "cuda" if torch.cuda.is_available() else "cpu"
+    net = model().to(dev); opt = torch.optim.AdamW(net.parameters(), lr=lr, weight_decay=1e-4)
     xt = to_tensor(X); yt = torch.tensor(y, dtype=torch.float32)
     pw = torch.tensor([(yt == 0).sum().item() / max(1, (yt == 1).sum().item())])                   # balance ball vs not
-    lossf = torch.nn.BCEWithLogitsLoss(pos_weight=pw)
+    lossf = torch.nn.BCEWithLogitsLoss(pos_weight=pw.to(dev))
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=epochs * ((len(yt) + batch - 1) // batch))
     for ep in range(epochs):
         net.train(); perm = torch.randperm(len(yt)); tot = 0.0
         for i in range(0, len(yt), batch):
             b = perm[i:i + batch]; xb = torch.stack([augment(xt[j:j + 1], rng)[0] for j in b.tolist()])
-            loss = lossf(net(xb).squeeze(1), yt[b]); opt.zero_grad(); loss.backward(); opt.step(); sched.step(); tot += loss.item() * len(b)
+            loss = lossf(net(xb.to(dev)).squeeze(1), yt[b].to(dev)); opt.zero_grad(); loss.backward(); opt.step(); sched.step(); tot += loss.item() * len(b)
         if ep % 5 == 4 or ep == epochs - 1: log(f"  epoch {ep + 1}: loss {tot / len(yt):.3f}")
-    return net.eval()
+    return net.eval().cpu()
 
 
 def score(net, X, batch=512):

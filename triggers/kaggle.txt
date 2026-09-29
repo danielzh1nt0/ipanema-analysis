@@ -1,2 +1,2 @@
-kaggle/ballfinder_train.py 330
-# Tue Sep 29 09:05:15 UTC 2026 K1/T0 step 2 retry 2: R2 answered 403 to Python-urllib; fetch now sends a browser user agent, curl fallback
+kaggle/scorer_big.py 240
+# Tue Sep 29 11:12:54 UTC 2026
