@@ -1,0 +1,486 @@
+{
+ "runs": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "clean",
+   "variant": "now",
+   "truth": 369,
+   "ours": 358,
+   "matched": 220,
+   "err_pct": -3.0,
+   "missed": 149,
+   "extra": 138,
+   "missed_by_kind": {
+    "set piece": "17/44",
+    "short (<0.6 s)": "9/13",
+    "one-touch": "34/67",
+    "medium": "110/294",
+    "header": "7/15",
+    "after duel/loose": "27/67",
+    "long (>2 s)": "30/62"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 61,
+    "other (carry/dribble)": 18,
+    "near a real pass (split/double)": 32,
+    "during a pass (ball passed a teammate)": 20,
+    "dead ball": 7
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "clean",
+   "variant": "new",
+   "truth": 369,
+   "ours": 395,
+   "matched": 274,
+   "err_pct": 7.0,
+   "missed": 95,
+   "extra": 121,
+   "missed_by_kind": {
+    "set piece": "14/44",
+    "short (<0.6 s)": "7/13",
+    "one-touch": "29/67",
+    "medium": "71/294",
+    "header": "9/15",
+    "after duel/loose": "27/67",
+    "long (>2 s)": "17/62"
+   },
+   "extra_by_kind": {
+    "near a real pass (split/double)": 29,
+    "duel/loose ball": 62,
+    "other (carry/dribble)": 9,
+    "during a pass (ball passed a teammate)": 14,
+    "dead ball": 7
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "variant": "now",
+   "truth": 369,
+   "ours": 369,
+   "matched": 202,
+   "err_pct": 0.0,
+   "missed": 167,
+   "extra": 167,
+   "missed_by_kind": {
+    "set piece": "24/44",
+    "short (<0.6 s)": "8/13",
+    "one-touch": "35/67",
+    "medium": "124/294",
+    "header": "9/15",
+    "after duel/loose": "32/67",
+    "long (>2 s)": "35/62"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 67,
+    "near a real pass (split/double)": 51,
+    "other (carry/dribble)": 27,
+    "dead ball": 11,
+    "during a pass (ball passed a teammate)": 11
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "variant": "new",
+   "truth": 369,
+   "ours": 375,
+   "matched": 239,
+   "err_pct": 1.6,
+   "missed": 130,
+   "extra": 136,
+   "missed_by_kind": {
+    "set piece": "24/44",
+    "short (<0.6 s)": "9/13",
+    "one-touch": "33/67",
+    "medium": "92/294",
+    "header": "9/15",
+    "after duel/loose": "36/67",
+    "long (>2 s)": "29/62"
+   },
+   "extra_by_kind": {
+    "near a real pass (split/double)": 44,
+    "duel/loose ball": 63,
+    "dead ball": 8,
+    "during a pass (ball passed a teammate)": 12,
+    "other (carry/dribble)": 9
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "clean",
+   "variant": "now",
+   "truth": 430,
+   "ours": 420,
+   "matched": 292,
+   "err_pct": -2.3,
+   "missed": 138,
+   "extra": 128,
+   "missed_by_kind": {
+    "set piece": "6/25",
+    "medium": "103/345",
+    "one-touch": "21/69",
+    "after duel/loose": "21/44",
+    "long (>2 s)": "27/58",
+    "short (<0.6 s)": "8/27",
+    "header": "5/7"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 66,
+    "dead ball": 10,
+    "near a real pass (split/double)": 26,
+    "other (carry/dribble)": 14,
+    "during a pass (ball passed a teammate)": 12
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "clean",
+   "variant": "new",
+   "truth": 430,
+   "ours": 462,
+   "matched": 354,
+   "err_pct": 7.4,
+   "missed": 76,
+   "extra": 108,
+   "missed_by_kind": {
+    "set piece": "3/25",
+    "medium": "47/345",
+    "one-touch": "14/69",
+    "after duel/loose": "21/44",
+    "long (>2 s)": "23/58",
+    "short (<0.6 s)": "6/27",
+    "header": "5/7"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 54,
+    "dead ball": 11,
+    "near a real pass (split/double)": 27,
+    "during a pass (ball passed a teammate)": 10,
+    "other (carry/dribble)": 6
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "variant": "now",
+   "truth": 430,
+   "ours": 448,
+   "matched": 260,
+   "err_pct": 4.2,
+   "missed": 170,
+   "extra": 188,
+   "missed_by_kind": {
+    "set piece": "11/25",
+    "medium": "125/345",
+    "one-touch": "28/69",
+    "after duel/loose": "19/44",
+    "long (>2 s)": "33/58",
+    "short (<0.6 s)": "12/27",
+    "header": "4/7"
+   },
+   "extra_by_kind": {
+    "near a real pass (split/double)": 65,
+    "duel/loose ball": 60,
+    "dead ball": 10,
+    "other (carry/dribble)": 34,
+    "during a pass (ball passed a teammate)": 19
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "variant": "new",
+   "truth": 430,
+   "ours": 453,
+   "matched": 311,
+   "err_pct": 5.3,
+   "missed": 119,
+   "extra": 142,
+   "missed_by_kind": {
+    "set piece": "6/25",
+    "medium": "80/345",
+    "one-touch": "22/69",
+    "after duel/loose": "21/44",
+    "long (>2 s)": "26/58",
+    "short (<0.6 s)": "13/27",
+    "header": "5/7"
+   },
+   "extra_by_kind": {
+    "near a real pass (split/double)": 55,
+    "duel/loose ball": 53,
+    "other (carry/dribble)": 11,
+    "during a pass (ball passed a teammate)": 14,
+    "dead ball": 9
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "clean",
+   "variant": "now",
+   "truth": 538,
+   "ours": 499,
+   "matched": 356,
+   "err_pct": -7.2,
+   "missed": 182,
+   "extra": 143,
+   "missed_by_kind": {
+    "set piece": "2/29",
+    "medium": "142/447",
+    "long (>2 s)": "31/73",
+    "one-touch": "48/123",
+    "header": "8/16",
+    "after duel/loose": "29/73",
+    "short (<0.6 s)": "9/18"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 66,
+    "near a real pass (split/double)": 28,
+    "during a pass (ball passed a teammate)": 22,
+    "other (carry/dribble)": 16,
+    "dead ball": 11
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "clean",
+   "variant": "new",
+   "truth": 538,
+   "ours": 537,
+   "matched": 422,
+   "err_pct": -0.2,
+   "missed": 116,
+   "extra": 115,
+   "missed_by_kind": {
+    "set piece": "2/29",
+    "medium": "83/447",
+    "long (>2 s)": "24/73",
+    "one-touch": "44/123",
+    "header": "6/16",
+    "after duel/loose": "32/73",
+    "short (<0.6 s)": "9/18"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 57,
+    "near a real pass (split/double)": 29,
+    "during a pass (ball passed a teammate)": 13,
+    "other (carry/dribble)": 10,
+    "dead ball": 6
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "variant": "now",
+   "truth": 538,
+   "ours": 485,
+   "matched": 315,
+   "err_pct": -9.9,
+   "missed": 223,
+   "extra": 170,
+   "missed_by_kind": {
+    "set piece": "7/29",
+    "medium": "184/447",
+    "long (>2 s)": "31/73",
+    "one-touch": "60/123",
+    "header": "9/16",
+    "after duel/loose": "41/73",
+    "short (<0.6 s)": "8/18"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 59,
+    "during a pass (ball passed a teammate)": 18,
+    "near a real pass (split/double)": 59,
+    "other (carry/dribble)": 27,
+    "dead ball": 7
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "variant": "new",
+   "truth": 538,
+   "ours": 492,
+   "matched": 372,
+   "err_pct": -8.6,
+   "missed": 166,
+   "extra": 120,
+   "missed_by_kind": {
+    "set piece": "6/29",
+    "medium": "135/447",
+    "long (>2 s)": "22/73",
+    "one-touch": "55/123",
+    "header": "10/16",
+    "after duel/loose": "39/73",
+    "short (<0.6 s)": "9/18"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 46,
+    "during a pass (ball passed a teammate)": 13,
+    "near a real pass (split/double)": 38,
+    "other (carry/dribble)": 16,
+    "dead ball": 7
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "clean",
+   "variant": "now",
+   "truth": 426,
+   "ours": 370,
+   "matched": 265,
+   "err_pct": -13.1,
+   "missed": 161,
+   "extra": 105,
+   "missed_by_kind": {
+    "set piece": "9/42",
+    "medium": "115/323",
+    "long (>2 s)": "27/59",
+    "one-touch": "42/95",
+    "after duel/loose": "24/58",
+    "header": "5/12",
+    "short (<0.6 s)": "19/44"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 52,
+    "other (carry/dribble)": 11,
+    "dead ball": 9,
+    "near a real pass (split/double)": 11,
+    "during a pass (ball passed a teammate)": 22
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "clean",
+   "variant": "new",
+   "truth": 426,
+   "ours": 412,
+   "matched": 322,
+   "err_pct": -3.3,
+   "missed": 104,
+   "extra": 90,
+   "missed_by_kind": {
+    "set piece": "7/42",
+    "medium": "63/323",
+    "long (>2 s)": "22/59",
+    "one-touch": "36/95",
+    "after duel/loose": "23/58",
+    "header": "7/12",
+    "short (<0.6 s)": "19/44"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 51,
+    "other (carry/dribble)": 6,
+    "during a pass (ball passed a teammate)": 18,
+    "dead ball": 4,
+    "near a real pass (split/double)": 11
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "variant": "now",
+   "truth": 426,
+   "ours": 375,
+   "matched": 236,
+   "err_pct": -12.0,
+   "missed": 190,
+   "extra": 139,
+   "missed_by_kind": {
+    "set piece": "23/42",
+    "medium": "145/323",
+    "long (>2 s)": "29/59",
+    "one-touch": "53/95",
+    "after duel/loose": "25/58",
+    "header": "4/12",
+    "short (<0.6 s)": "16/44"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 56,
+    "dead ball": 7,
+    "other (carry/dribble)": 17,
+    "near a real pass (split/double)": 35,
+    "during a pass (ball passed a teammate)": 24
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "variant": "new",
+   "truth": 426,
+   "ours": 403,
+   "matched": 279,
+   "err_pct": -5.4,
+   "missed": 147,
+   "extra": 124,
+   "missed_by_kind": {
+    "set piece": "22/42",
+    "medium": "99/323",
+    "long (>2 s)": "24/59",
+    "one-touch": "43/95",
+    "after duel/loose": "23/58",
+    "header": "6/12",
+    "short (<0.6 s)": "24/44"
+   },
+   "extra_by_kind": {
+    "duel/loose ball": 49,
+    "other (carry/dribble)": 13,
+    "near a real pass (split/double)": 34,
+    "during a pass (ball passed a teammate)": 23,
+    "dead ball": 5
+   }
+  }
+ ],
+ "summary": [
+  {
+   "variant": "new",
+   "max_abs_err_pct": 8.6,
+   "errs": [
+    7.0,
+    1.6,
+    7.4,
+    5.3,
+    -0.2,
+    -8.6,
+    -3.3,
+    -5.4
+   ],
+   "recall": 0.73,
+   "precision": 0.729
+  },
+  {
+   "variant": "now",
+   "max_abs_err_pct": 13.1,
+   "errs": [
+    -3.0,
+    0.0,
+    -2.3,
+    4.2,
+    -7.2,
+    -9.9,
+    -13.1,
+    -12.0
+   ],
+   "recall": 0.609,
+   "precision": 0.646
+  }
+ ]
+}

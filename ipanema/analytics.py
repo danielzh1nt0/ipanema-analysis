@@ -24,13 +24,54 @@ def lanes(per, frames_, attack_right, lane_half=1.5, max_lane=45.0, fwd_m=3.0):
         out[k] = res
     return out
 
-def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True):
+def carriers_from_state(per, ballm, state, max_m=2.5):
+    """S1 (29 Sep): carrier records built from a possession state (e.g. possession.possession_simple): while the state
+    says team A (0) or B (1) has the ball, the carrier is that team's player nearest the ball (if within max_m);
+    loose/dead frames have no carrier. Same record shape as possession.carriers, so passes() can use it."""
+    out = []
+    for k in range(len(per)):
+        rec = {"frame": k, "carrier": None, "team": None, "pressure_m": None, "near_opps": None, "pos": None}
+        s = int(state[k]) if k < len(state) else 2; b = ballm.get(k)
+        if s in (0, 1) and b is not None:
+            tm = "A" if s == 0 else "B"; rows = [r for r in per[k] if r[1] == tm]
+            if rows:
+                d = [float(np.linalg.norm(r[2] - b)) for r in rows]; i = int(np.argmin(d))
+                if d[i] <= max_m: rec.update({"carrier": rows[i][0], "team": tm, "pos": rows[i][2].tolist()})
+        out.append(rec)
+    return out
+
+def _ball_vel(ballm, ks, fps, out_m=2.0):
+    """robust straight-line fit of ball positions over frames ks -> velocity (m/s) or None (too few picks)"""
+    pts = [(k, ballm[k]) for k in ks if k in ballm]
+    if len(pts) < 4: return None
+    t = np.array([q[0] for q in pts], float); X = np.array([q[1] for q in pts], float)
+    for _ in range(2):                                                         # drop wrong picks, refit
+        A = np.c_[t, np.ones_like(t)]; co = np.linalg.lstsq(A, X, rcond=None)[0]; res = np.linalg.norm(A @ co - X, axis=1)
+        keep = res < max(out_m, 3 * float(np.median(res)))
+        if keep.sum() < 4: return None
+        t, X = t[keep], X[keep]
+    A = np.c_[t, np.ones_like(t)]; return np.linalg.lstsq(A, X, rcond=None)[0][0] * fps
+
+def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
+           team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
+    """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
+    found 73% of the real passes (was 61%) with 73% of ours real (was 65%) and put counts within 9% on all 4 halves,
+    clean and noisy (was 13%). 0 turns each rule off (old behaviour).
+    team_sandwich_s: a short contact (< team_sandwich_s) by the OTHER team between two contacts of one team is
+    the ball running past an opponent (or a wrong ball pick), not two turnovers; it is dropped so the pass between
+    the two teammates is counted. mate_sandwich_s: same for a short contact by a TEAMMATE (the ball running past him).
+    min_pass_m: ball moves between two contacts shorter than this are not passes.
+    pass_by_mps (with ballm {frame: metres}): a short contact only counts as 'ball ran past' (and is dropped) if the ball's
+    velocity (robust line fit over pass_by_win_s before and after) changes by less than this; a real touch deflects it.
+    state: optional possession state per frame (0 A, 1 B, 2 loose, 3 dead); a carrier
+    frame whose team disagrees with a team state is ignored."""
     tracks = defaultdict(dict)
     for k in range(len(per)):
         for r in per[k]: tracks[r[0]][k] = r[2]
     episodes = []; cur = None
     for k, f in enumerate(frames_):
         c = f["carrier"]
+        if c is not None and state is not None and k < len(state) and int(state[k]) in (0, 1) and f["team"] != ("A" if int(state[k]) == 0 else "B"): c = None
         if c is None:
             if cur and k - cur[1] > int(0.4 * fps): episodes.append(cur); cur = None
             continue
@@ -61,16 +102,32 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
             episodes = merge(keep)
     else:
         episodes = merge([e for e in episodes if e[1] - e[0] + 1 >= mt])
+    if team_sandwich_s or mate_sandwich_s:
+        ts = int(round(team_sandwich_s * fps)); ms = int(round(mate_sandwich_s * fps)); i = 1; keep = episodes[:1]
+        wn = max(4, int(round(pass_by_win_s * fps)))
+        def brief(e, tm):
+            if e[1] - e[0] + 1 >= (ts if e[3] != tm else ms): return False
+            if not (pass_by_mps and ballm): return True
+            va, vb = _ball_vel(ballm, range(e[0] - wn, e[0]), fps), _ball_vel(ballm, range(e[1] + 1, e[1] + 1 + wn), fps)
+            return va is None or vb is None or float(np.linalg.norm(vb - va)) < pass_by_mps
+        while i < len(episodes):
+            j = i
+            while j < len(episodes) and brief(episodes[j], keep[-1][3]): j += 1
+            if j > i and j < len(episodes) and episodes[j][3] == keep[-1][3] and episodes[j][0] - keep[-1][1] <= int(4 * fps): i = j; continue
+            keep.append(episodes[i]); i += 1
+        episodes = merge(keep)
     out = []
     for a, b in zip(episodes, episodes[1:]):
         if b[0] - a[1] > int(4 * fps): continue
         pa, pb = tracks[a[2]].get(a[1]), tracks[b[2]].get(b[0])
         if pa is None or pb is None: continue
+        if min_pass_m and float(np.linalg.norm(pb - pa)) < min_pass_m: continue
         sgn = 1 if attack_right[a[3]] else -1; gain = float((pb[0] - pa[0]) * sgn)
         kind = "forward" if gain > 3 else "backward" if gain < -3 else "sideways"
         p = {"t": round(a[1] / fps, 2), "from": int(a[2]), "to": int(b[2]), "team": a[3], "completed": b[3] == a[3], "from_m": [round(float(pa[0]), 1), round(float(pa[1]), 1)],
              "to_m": [round(float(pb[0]), 1), round(float(pb[1]), 1)], "gain_m": round(gain, 1), "length_m": round(float(np.linalg.norm(pb - pa)), 1), "kind": kind, "progressive": gain >= prog_m and b[3] == a[3],
              "lane_open": None, "quality": "unknown", "missed_open_forward": None, "better_option": False}
+        if debug: p["_eps"] = (a[0], a[1], b[0], b[1])                              # frames of the passer's and receiver's contact
         k_rel = a[1]; win = [j for j in range(k_rel - 3, k_rel + 1) if j in lanes_]
         if win:
             j = win[-1]; ln = {l["to"]: l for l in lanes_[j]}
