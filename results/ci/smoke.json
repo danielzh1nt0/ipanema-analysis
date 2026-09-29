@@ -1,4 +1,111 @@
 {
+ "steps": [
+  {
+   "step": "import run",
+   "ok": true,
+   "info": "ok",
+   "s": 36.9
+  },
+  {
+   "step": "import tracking",
+   "ok": true,
+   "info": "ok",
+   "s": 36.9
+  },
+  {
+   "step": "import kits",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import ball",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import ballclicks",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import wasb",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import possession",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import analytics",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import export",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import calibration",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import linecal",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import upload",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "import teams",
+   "ok": true,
+   "info": "ok",
+   "s": 37.0
+  },
+  {
+   "step": "RF-DETR + kits on 36 frames",
+   "ok": false,
+   "error": "11/site-packages/rfdetr/detr.py\", line 31, in <module>\n    from rfdetr._namespace import _namespace_from_configs\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/_namespace.py\", line 16, in <module>\n    from rfdetr.models._defaults import MODEL_DEFAULTS, ModelDefaults\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/__init__.py\", line 19, in <module>\n    from rfdetr.models.lwdetr import build_criterion_from_config, build_model, build_model_from_config\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/lwdetr.py\", line 34, in <module>\n    from rfdetr.models.backbone import Joiner, build_backbone\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/__init__.py\", line 14, in <module>\n    from rfdetr.models.backbone.backbone import Backbone\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/backbone.py\", line 26, in <module>\n    from rfdetr.models.backbone.dinov2 import DinoV2\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/dinov2.py\", line 20, in <module>\n    from rfdetr.models.backbone.dinov2_with_windowed_attn import (\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 43, in <module>\n    from transformers import (  # type: ignore[attr-defined] # public API; stable across all transformers v5.x\nImportError: cannot import name 'BackboneConfigMixin' from 'transformers' (/usr/local/lib/python3.11/site-packages/transformers/__init__.py)\n"
+  },
+  {
+   "step": "WASB model",
+   "ok": true,
+   "info": "('/data/match_analysis/models/wasb_soccer_best.pth.tar', 'HRNet')",
+   "s": 111.0
+  },
+  {
+   "step": "click ball finder",
+   "ok": true,
+   "info": "1",
+   "s": 115.3
+  },
+  {
+   "step": "tracking 300 frames",
+   "ok": false,
+   "error": "thon3.11/site-packages/rfdetr/detr.py\", line 43, in <module>\n    from rfdetr.inference import ModelContext, _build_model_context\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/inference.py\", line 18, in <module>\n    from rfdetr.models import PostProcess, build_model\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/__init__.py\", line 19, in <module>\n    from rfdetr.models.lwdetr import build_criterion_from_config, build_model, build_model_from_config\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/lwdetr.py\", line 34, in <module>\n    from rfdetr.models.backbone import Joiner, build_backbone\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/__init__.py\", line 14, in <module>\n    from rfdetr.models.backbone.backbone import Backbone\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/backbone.py\", line 26, in <module>\n    from rfdetr.models.backbone.dinov2 import DinoV2\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/dinov2.py\", line 20, in <module>\n    from rfdetr.models.backbone.dinov2_with_windowed_attn import (\n  File \"/usr/local/lib/python3.11/site-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 43, in <module>\n    from transformers import (  # type: ignore[attr-defined] # public API; stable across all transformers v5.x\nImportError: cannot import name 'BackboneConfigMixin' from 'transformers' (/usr/local/lib/python3.11/site-packages/transformers/__init__.py)\n"
+  }
+ ],
+ "versions": {
+  "torch": "2.4.1+cu121",
+  "supervision": "0.30.5",
+  "transformers": "5.17.0"
+ },
  "all_ok": false,
- "remote_error": "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_serialization.py\", line 117, in deserialize\n    return Unpickler(client, io.BytesIO(s)).load()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'torch'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"<stdin>\", line 3, in <module>\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_object.py\", line 45, in wrapped\n    return await method(self, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 2067, in remote\n    return await self._call_function(args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 2004, in _call_function\n    return await invocation.run_function()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_functions.py\", line 496, in run_function\n    return await _process_result(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_utils/function_utils.py\", line 577, in _process_result\n    return deserialize_data_format(data, data_format, client)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_serialization.py\", line 397, in deserialize_data_format\n    return deserialize(s, client)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/modal/_serialization.py\", line 134, in deserialize\n    raise DeserializationError(\nmodal.exception.DeserializationError: Deserialization failed because the 'torch' module is not available in the local environment.\n"
+ "minutes": 2.0
 }
