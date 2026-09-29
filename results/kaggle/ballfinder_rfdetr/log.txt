@@ -1,117 +1,31 @@
    0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -> 0 Tesla T4, 15360 MiB
 Tesla T4, 15360 MiB
    0.5 min  $ rm -rf /kaggle/temp/ia && git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -> 0 
-   0.9 min  $ pip install -q "rfdetr[train]==1.11.0" -> 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 59.4 MB/s eta 0:00:00
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 96.4 MB/s eta 0:00:00
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 26.2 MB/s eta 0:00:00
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 88.8 MB/s eta 0:00:00
-   1.5 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}
-   1.5 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s
-   2.6 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 63 s
-   3.1 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -> {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 35s
-   3.2 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s
-   4.8 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 98 s
-   9.5 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 281s
-   9.5 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s
-  13.6 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 251 s
-  14.6 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 61s
-  14.7 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s
-  16.0 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 79 s
-  20.8 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 291s
-  20.9 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 7 s
-  22.2 min  downloaded SFKBP1109/video.mp4: 3589 MB in 75 s
-  23.4 min  dataset: {'train_ball': 4983, 'train_empty': 1240, 'valid_ball': 178, 'valid_empty': 44}
-  23.6 min  training RF-DETR small at 640 px, 12 epochs, batch 8, cap 2.6 h
-  24.3 min  Traceback (most recent call last):
-  File "/kaggle/src/script.py", line 156, in <module>
-    model.train(**kw)
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/detr.py", line 1220, in train
-    trainer.fit(module, datamodule, ckpt_path=config.resume or None)
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py", line 584, in fit
-    call._call_and_handle_interrupt(
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/call.py", line 49, in _call_and_handle_interrupt
-    return trainer_fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py", line 630, in _fit_impl
-    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py", line 1079, in _run
-    results = self._run_stage()
-              ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py", line 1123, in _run_stage
-    self.fit_loop.run()
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/fit_loop.py", line 217, in run
-    self.advance()
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/fit_loop.py", line 469, in advance
-    self.epoch_loop.run(self._data_fetcher)
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/training_epoch_loop.py", line 153, in run
-    self.advance(data_fetcher)
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/training_epoch_loop.py", line 352, in advance
-    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py", line 185, in run
-    closure()
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py", line 146, in __call__
-    self._result = self.closure(*args, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py", line 131, in closure
-    step_output = self._step_fn()
-                  ^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py", line 319, in _training_step
-    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/call.py", line 329, in _call_strategy_hook
-    output = fn(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/pytorch_lightning/strategies/strategy.py", line 391, in training_step
-    return self.lightning_module.training_step(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/training/module_model.py", line 796, in training_step
-    else self.model(samples, targets)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/models/lwdetr.py", line 505, in forward
-    transformer_outputs = self.transformer(
-                          ^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py", line 878, in forward
-    decoder_outputs = self.decoder(
-                      ^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py", line 1127, in forward
-    output = layer(
-             ^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1787, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py", line 1472, in forward
-    return self.forward_post(
-           ^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py", line 1348, in forward_post
-    tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt))))
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/dist-packages/torch/nn/functional.py", line 1721, in relu
-    result = torch.relu(input)
-             ^^^^^^^^^^^^^^^^^
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 122.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 66.81 MiB is free. Including non-PyTorch memory, this process has 14.49 GiB memory in use. Of the allocated memory 13.93 GiB is allocated by PyTorch, and 439.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-
+   0.9 min  $ pip install -q "rfdetr[train]==1.11.0" -> 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 55.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 83.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 23.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 77.7 MB/s eta 0:00:00
+   1.4 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}
+   1.4 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s
+   2.5 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 63 s
+   3.1 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -> {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 38s
+   3.1 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s
+   4.3 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 72 s
+   9.1 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 290s
+   9.1 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s
+  10.3 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 72 s
+  11.3 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 60s
+  11.3 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s
+  12.8 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 86 s
+  17.6 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 291s
+  17.7 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 6 s
+  19.3 min  downloaded SFKBP1109/video.mp4: 3589 MB in 97 s
+  20.6 min  dataset: {'train_ball': 4983, 'train_empty': 1240, 'valid_ball': 178, 'valid_empty': 44}
+  20.8 min  training RF-DETR small at 640 px, 12 epochs, batch 4, cap 2.6 h
+ 125.3 min  training done in 104.6 min; outputs ['checkpoint_best_ema.pth', 'checkpoint_best_total.pth', 'last.ckpt', 'last_ema.pth', 'metrics.csv', 'training_config.json']
+ 125.4 min  loaded /kaggle/temp/rf_out/checkpoint_best_total.pth: resolution 640
+ 125.4 min  weights {'file': 'rfdetr_ball_small_20260929_fp16.pth', 'MB': 64.2, 'full_checkpoint_MB': 128.4}
+ 126.3 min  exam: 108 frames graded in 57s
+ 126.3 min  exam: {"at_0.25_as_click_finder": {"correct": 84, "of": 108, "ball_found": 74, "ball_frames": 81, "no_ball_right": 10, "no_ball_frames": 27}, "ball_among_guesses_0.05": 81, "top_guess_is_ball": 70, "ball_frames": 81, "current_click_finder": {"correct": 70, "ball_found": 47, "among_guesses": 54, "top_guess": 51}, "wasb": {"among_guesses": 79, "top_guess": 56}}
+ 127.2 min  clip34: {"moments": 34, "ball_among_guesses_0.05": 34, "ball_among_top6": 32, "top_guess_is_ball": 26, "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
+ 127.2 min  done

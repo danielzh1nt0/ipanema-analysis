@@ -1,169 +1,200 @@
-[{"stream_name":"stdout","time":1.400167197,"data":"   0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -\u003e 0 Tesla T4, 15360 MiB\n"}
-,{"stream_name":"stdout","time":1.400876843,"data":"Tesla T4, 15360 MiB\n"}
-,{"stream_name":"stdout","time":28.557380756,"data":"   0.5 min  $ rm -rf /kaggle/temp/ia \u0026\u0026 git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -\u003e 0 \n"}
-,{"stream_name":"stdout","time":57.941561958,"data":"   0.9 min  $ pip install -q \"rfdetr[train]==1.11.0\" -\u003e 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 59.4 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":57.941613422,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 96.4 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":57.941618206,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 26.2 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":57.941621864,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 88.8 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":91.89242763,"data":"   1.5 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}\n"}
-,{"stream_name":"stdout","time":92.183033072,"data":"   1.5 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s\n"}
-,{"stream_name":"stdout","time":155.264351055,"data":"   2.6 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 63 s\n"}
-,{"stream_name":"stdout","time":190.10862872,"data":"   3.1 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -\u003e {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 35s\n"}
-,{"stream_name":"stdout","time":190.443786363,"data":"   3.2 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s\n"}
-,{"stream_name":"stdout","time":288.038624276,"data":"   4.8 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 98 s\n"}
-,{"stream_name":"stdout","time":568.744619947,"data":"   9.5 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 281s\n"}
-,{"stream_name":"stdout","time":569.057519827,"data":"   9.5 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s\n"}
-,{"stream_name":"stdout","time":819.665809876,"data":"  13.6 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 251 s\n"}
-,{"stream_name":"stdout","time":880.19945295,"data":"  14.6 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 61s\n"}
-,{"stream_name":"stdout","time":880.575225001,"data":"  14.7 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s\n"}
-,{"stream_name":"stdout","time":959.213780491,"data":"  16.0 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 79 s\n"}
-,{"stream_name":"stdout","time":1250.491245284,"data":"  20.8 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 291s\n"}
-,{"stream_name":"stdout","time":1257.026487279,"data":"  20.9 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 7 s\n"}
-,{"stream_name":"stdout","time":1331.733280625,"data":"  22.2 min  downloaded SFKBP1109/video.mp4: 3589 MB in 75 s\n"}
-,{"stream_name":"stdout","time":1406.253634541,"data":"  23.4 min  dataset: {'train_ball': 4983, 'train_empty': 1240, 'valid_ball': 178, 'valid_empty': 44}\n"}
-,{"stream_name":"stdout","time":1408.221402631,"data":"[2026-09-29 12:58:16] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-small.pth\n"}
-,{"stream_name":"stderr","time":1412.204450082,"data":"\r/root/.roboflow/models/rf-detr-small.pth:   0%|          | 0.00/368M [00:00\u003c?, ?iB/s]\r/root/.roboflow/models/rf-detr-small.pth:   1%|          | 4.00M/368M [00:00\u003c00:09, 38.4MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:   4%|▍         | 14.4M/368M [00:00\u003c00:04, 78.7MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:   7%|▋         | 25.2M/368M [00:00\u003c00:03, 93.9MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  10%|▉         | 35.9M/368M [00:00\u003c00:03, 101MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  13%|█▎        | 46.8M/368M [00:00\u003c00:03, 106MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  16%|█▌        | 57.3M/368M [00:00\u003c00:03, 107MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  18%|█▊        | 67.6M/368M [00:00\u003c00:02, 107MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  21%|██        | 77.9M/368M [00:00\u003c00:02, 107MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  24%|██▍       | 88.4M/368M [00:00\u003c00:02, 108MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  27%|██▋       | 99.1M/368M [00:01\u003c00:02, 110MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  30%|██▉       | 110M/368M [00:01\u003c00:02, 110MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  33%|███▎      | 120M/368M [00:01\u003c00:02, 111MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  36%|███▌      | 131M/368M [00:01\u003c00:02, 111MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  39%|███▊      | 142M/368M [00:01\u003c00:02, 108MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  41%|████▏     | 152M/368M [00:01\u003c00:02, 106MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  44%|████▍     | 162M/368M [00:01\u003c00:02, 105MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  47%|████▋     | 172M/368M [00:01\u003c00:01, 104MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  50%|████▉     | 182M/368M [00:01\u003c00:01, 104MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  52%|█████▏    | 192M/368M [00:01\u003c00:01, 103MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  55%|█████▍    | 202M/368M [00:02\u003c00:01, 104MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  58%|█████▊    | 212M/368M [00:02\u003c00:01, 103MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  60%|██████    | 222M/368M [00:02\u003c00:01, 103MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  63%|██████▎   | 232M/368M [00:02\u003c00:01, 103MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  66%|██████▌   | 241M/368M [00:02\u003c00:01, 101MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  68%|██████▊   | 251M/368M [00:02\u003c00:01, 84.0MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  70%|███████   | 260M/368M [00:02\u003c00:01, 82.7MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  73%|███████▎  | 269M/368M [00:02\u003c00:01, 87.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  76%|███████▌  | 279M/368M [00:02\u003c00:01, 90.5MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  78%|███████▊  | 288M/368M [00:03\u003c00:00, 94.2MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  81%|████████  | 298M/368M [00:03\u003c00:00, 96.6MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  84%|████████▎ | 308M/368M [00:03\u003c00:00, 98.4MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  86%|████████▋ | 318M/368M [00:03\u003c00:00, 99.6MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  89%|████████▉ | 327M/368M [00:03\u003c00:00, 100MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  92%|█████████▏| 337M/368M [00:03\u003c00:00, 101MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  94%|█████████▍| 347M/368M [00:03\u003c00:00, 101MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  97%|█████████▋| 357M/368M [00:03\u003c00:00, 101MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  99%|█████████▉| 366M/368M [00:03\u003c00:00, 101MiB/s]\r/root/.roboflow/models/rf-detr-small.pth: 100%|██████████| 368M/368M [00:03\u003c00:00, 100MiB/s]\n"}
-,{"stream_name":"stdout","time":1413.066263222,"data":"[2026-09-29 12:58:21] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-small.pth\n"}
-,{"stream_name":"stderr","time":1413.067588227,"data":"[2026-09-29 12:58:21] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stderr","time":1413.067821232,"data":"[2026-09-29 12:58:21] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stdout","time":1414.557227632,"data":"[2026-09-29 12:58:22] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-small.pth already exists with correct MD5 hash.\n"}
-,{"stream_name":"stdout","time":1416.202629187,"data":"  23.6 min  training RF-DETR small at 640 px, 12 epochs, batch 8, cap 2.6 h\n"}
-,{"stream_name":"stderr","time":1416.207708927,"data":"[2026-09-29 12:58:24] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stderr","time":1416.207742096,"data":"[2026-09-29 12:58:24] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stdout","time":1417.444984163,"data":"[2026-09-29 12:58:25] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-small.pth already exists with correct MD5 hash.\n"}
-,{"stream_name":"stderr","time":1418.917409522,"data":"[2026-09-29 12:58:27] [WARNING] rf-detr - Checkpoint has 90 classes but model is configured for 1. The detection head will be re-initialized to 1 classes.\n"}
-,{"stream_name":"stderr","time":1420.119833755,"data":"Using bfloat16 Automatic Mixed Precision (AMP)\n"}
-,{"stream_name":"stderr","time":1420.178507115,"data":"GPU available: True (cuda), used: True\n"}
-,{"stream_name":"stderr","time":1420.178535386,"data":"TPU available: False, using: 0 TPU cores\n"}
-,{"stream_name":"stderr","time":1420.178553731,"data":"💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.\n"}
-,{"stream_name":"stderr","time":1420.180274105,"data":"/usr/local/lib/python3.12/dist-packages/lightning_fabric/loggers/csv_logs.py:268: Experiment logs directory /kaggle/temp/rf_out/ exists and is not empty. Previous log files in this directory will be deleted when the new ones are saved!\n"}
-,{"stream_name":"stdout","time":1420.181671803,"data":"[2026-09-29 12:58:28] [INFO] rf-detr - Using multi-scale training with square resize and scales: [768]\n"}
-,{"stream_name":"stdout","time":1420.185363336,"data":"[2026-09-29 12:58:28] [INFO] rf-detr - Built 1 Albumentations transforms from config\n"}
-,{"stream_name":"stdout","time":1420.185976692,"data":"[2026-09-29 12:58:28] [INFO] rf-detr - Built 1 Albumentations transforms from config\n"}
-,{"stream_name":"stdout","time":1421.335903846,"data":"creating index...\n"}
-,{"stream_name":"stdout","time":1421.338980197,"data":"index created!\n"}
-,{"stream_name":"stdout","time":1421.340093315,"data":"[2026-09-29 12:58:29] [INFO] rf-detr - Using multi-scale training with square resize and scales: [768]\n"}
-,{"stream_name":"stdout","time":1421.379084596,"data":"creating index...\n"}
-,{"stream_name":"stdout","time":1421.379120089,"data":"index created!\n"}
-,{"stream_name":"stderr","time":1422.071509722,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /kaggle/temp/rf_out exists and is not empty.\n"}
-,{"stream_name":"stderr","time":1422.072056061,"data":"LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]\n"}
-,{"stream_name":"stderr","time":1422.13694464,"data":"Loading `train_dataloader` to estimate number of stepping batches.\n"}
-,{"stream_name":"stderr","time":1422.137709997,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.\n"}
-,{"stream_name":"stderr","time":1422.425513346,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision bf16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.\n"}
-,{"stream_name":"stdout","time":1422.44611297,"data":"┏━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓\n"}
-,{"stream_name":"stdout","time":1422.446134245,"data":"┃   ┃ Name        ┃ Type         ┃ Params ┃ Mode  ┃ FLOPs ┃\n"}
-,{"stream_name":"stdout","time":1422.446137426,"data":"┡━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩\n"}
-,{"stream_name":"stdout","time":1422.446140379,"data":"│ 0 │ model       │ LWDETR       │ 32.0 M │ train │     0 │\n"}
-,{"stream_name":"stdout","time":1422.446142906,"data":"│ 1 │ criterion   │ SetCriterion │      0 │ train │     0 │\n"}
-,{"stream_name":"stdout","time":1422.446145283,"data":"│ 2 │ postprocess │ PostProcess  │      0 │ train │     0 │\n"}
-,{"stream_name":"stdout","time":1422.446147975,"data":"└───┴─────────────┴──────────────┴────────┴───────┴───────┘\n"}
-,{"stream_name":"stdout","time":1422.449065336,"data":"Trainable params: 32.0 M                                                        \n"}
-,{"stream_name":"stdout","time":1422.44908892,"data":"Non-trainable params: 0                                                         \n"}
-,{"stream_name":"stdout","time":1422.449094535,"data":"Total params: 32.0 M                                                            \n"}
-,{"stream_name":"stdout","time":1422.449099049,"data":"Total estimated model params size (MB): 128.049                                 \n"}
-,{"stream_name":"stdout","time":1422.449103231,"data":"Modules in train mode: 466                                                      \n"}
-,{"stream_name":"stdout","time":1422.449107572,"data":"Modules in eval mode: 0                                                         \n"}
-,{"stream_name":"stdout","time":1422.449112007,"data":"Total FLOPs: 0                                                                  \n"}
-,{"stream_name":"stderr","time":1422.451086367,"data":"Seed set to 0\n"}
-,{"stream_name":"stderr","time":1426.849996295,"data":"/usr/local/lib/python3.12/dist-packages/rfdetr/models/_assignment.py:76: RuntimeWarning: Triton linear-assignment support is unavailable for this CUDA input; using SciPy on CPU.\n"}
-,{"stream_name":"stderr","time":1426.850051833,"data":"  assignment = torch_linear_assignment.batch_linear_assignment(stacked)\n"}
-,{"stream_name":"stdout","time":1461.626328718,"data":"  24.3 min  Traceback (most recent call last):\n"}
-,{"stream_name":"stdout","time":1461.626380361,"data":"  File \"/kaggle/src/script.py\", line 156, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":1461.626387838,"data":"    model.train(**kw)\n"}
-,{"stream_name":"stdout","time":1461.626393183,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/detr.py\", line 1220, in train\n"}
-,{"stream_name":"stdout","time":1461.626398453,"data":"    trainer.fit(module, datamodule, ckpt_path=config.resume or None)\n"}
-,{"stream_name":"stdout","time":1461.62640362,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py\", line 584, in fit\n"}
-,{"stream_name":"stdout","time":1461.626408585,"data":"    call._call_and_handle_interrupt(\n"}
-,{"stream_name":"stdout","time":1461.626413095,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/call.py\", line 49, in _call_and_handle_interrupt\n"}
-,{"stream_name":"stdout","time":1461.626417831,"data":"    return trainer_fn(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626422149,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626428136,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py\", line 630, in _fit_impl\n"}
-,{"stream_name":"stdout","time":1461.626435438,"data":"    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)\n"}
-,{"stream_name":"stdout","time":1461.626438585,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py\", line 1079, in _run\n"}
-,{"stream_name":"stdout","time":1461.626441691,"data":"    results = self._run_stage()\n"}
-,{"stream_name":"stdout","time":1461.626444724,"data":"              ^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626447736,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/trainer.py\", line 1123, in _run_stage\n"}
-,{"stream_name":"stdout","time":1461.626450847,"data":"    self.fit_loop.run()\n"}
-,{"stream_name":"stdout","time":1461.626453805,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/fit_loop.py\", line 217, in run\n"}
-,{"stream_name":"stdout","time":1461.626456977,"data":"    self.advance()\n"}
-,{"stream_name":"stdout","time":1461.626459977,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/fit_loop.py\", line 469, in advance\n"}
-,{"stream_name":"stdout","time":1461.626463824,"data":"    self.epoch_loop.run(self._data_fetcher)\n"}
-,{"stream_name":"stdout","time":1461.626489094,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/training_epoch_loop.py\", line 153, in run\n"}
-,{"stream_name":"stdout","time":1461.626495547,"data":"    self.advance(data_fetcher)\n"}
-,{"stream_name":"stdout","time":1461.626500536,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/training_epoch_loop.py\", line 352, in advance\n"}
-,{"stream_name":"stdout","time":1461.626505191,"data":"    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626509646,"data":"                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626514029,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py\", line 185, in run\n"}
-,{"stream_name":"stdout","time":1461.626528587,"data":"    closure()\n"}
-,{"stream_name":"stdout","time":1461.626533561,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py\", line 146, in __call__\n"}
-,{"stream_name":"stdout","time":1461.6265395,"data":"    self._result = self.closure(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626544611,"data":"                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.62655153,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n"}
-,{"stream_name":"stdout","time":1461.626554146,"data":"    return func(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626556429,"data":"           ^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626558782,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py\", line 131, in closure\n"}
-,{"stream_name":"stdout","time":1461.626561166,"data":"    step_output = self._step_fn()\n"}
-,{"stream_name":"stdout","time":1461.626564213,"data":"                  ^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626578875,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/loops/optimization/automatic.py\", line 319, in _training_step\n"}
-,{"stream_name":"stdout","time":1461.626583237,"data":"    training_step_output = call._call_strategy_hook(trainer, \"training_step\", *kwargs.values())\n"}
-,{"stream_name":"stdout","time":1461.626587384,"data":"                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626591667,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/trainer/call.py\", line 329, in _call_strategy_hook\n"}
-,{"stream_name":"stdout","time":1461.626595808,"data":"    output = fn(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626599131,"data":"             ^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626602384,"data":"  File \"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/strategies/strategy.py\", line 391, in training_step\n"}
-,{"stream_name":"stdout","time":1461.626606044,"data":"    return self.lightning_module.training_step(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626609534,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626612903,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/training/module_model.py\", line 796, in training_step\n"}
-,{"stream_name":"stdout","time":1461.626616479,"data":"    else self.model(samples, targets)\n"}
-,{"stream_name":"stdout","time":1461.626619714,"data":"         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626623049,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
-,{"stream_name":"stdout","time":1461.626626594,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626629897,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626633259,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
-,{"stream_name":"stdout","time":1461.626636798,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626640109,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626643441,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/lwdetr.py\", line 505, in forward\n"}
-,{"stream_name":"stdout","time":1461.62665583,"data":"    transformer_outputs = self.transformer(\n"}
-,{"stream_name":"stdout","time":1461.626659192,"data":"                          ^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626674414,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
-,{"stream_name":"stdout","time":1461.626678832,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626682799,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626686635,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
-,{"stream_name":"stdout","time":1461.626690509,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626693817,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626697157,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 878, in forward\n"}
-,{"stream_name":"stdout","time":1461.626700729,"data":"    decoder_outputs = self.decoder(\n"}
-,{"stream_name":"stdout","time":1461.626703986,"data":"                      ^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.62670776,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
-,{"stream_name":"stdout","time":1461.626711324,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626714738,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626718119,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
-,{"stream_name":"stdout","time":1461.626721702,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626725004,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626728296,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1127, in forward\n"}
-,{"stream_name":"stdout","time":1461.62673193,"data":"    output = layer(\n"}
-,{"stream_name":"stdout","time":1461.626735141,"data":"             ^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626758309,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n"}
-,{"stream_name":"stdout","time":1461.626762146,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626765484,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626768786,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n"}
-,{"stream_name":"stdout","time":1461.626772324,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stdout","time":1461.626775548,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626778838,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1472, in forward\n"}
-,{"stream_name":"stdout","time":1461.62678244,"data":"    return self.forward_post(\n"}
-,{"stream_name":"stdout","time":1461.626785752,"data":"           ^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626789012,"data":"  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1348, in forward_post\n"}
-,{"stream_name":"stdout","time":1461.626792633,"data":"    tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt))))\n"}
-,{"stream_name":"stdout","time":1461.626800391,"data":"                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.626803938,"data":"  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/functional.py\", line 1721, in relu\n"}
-,{"stream_name":"stdout","time":1461.626807438,"data":"    result = torch.relu(input)\n"}
-,{"stream_name":"stdout","time":1461.626810748,"data":"             ^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stdout","time":1461.62681917,"data":"torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 122.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 66.81 MiB is free. Including non-PyTorch memory, this process has 14.49 GiB memory in use. Of the allocated memory 13.93 GiB is allocated by PyTorch, and 439.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"}
-,{"stream_name":"stdout","time":1461.626823534,"data":"\n"}
-,{"stream_name":"stderr","time":1467.388458502,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":1467.388518037,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":1467.644058664,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":1467.64407899,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":1468.286045932,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":1469.140571483,"data":"[NbConvertApp] Writing 398063 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":1.232709478,"data":"   0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -\u003e 0 Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":1.232906554,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":29.296310656,"data":"   0.5 min  $ rm -rf /kaggle/temp/ia \u0026\u0026 git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -\u003e 0 \n"}
+,{"stream_name":"stdout","time":55.694310831,"data":"   0.9 min  $ pip install -q \"rfdetr[train]==1.11.0\" -\u003e 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 55.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":55.694355785,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 83.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":55.694364305,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 23.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":55.694371283,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 77.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.606727026,"data":"   1.4 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}\n"}
+,{"stream_name":"stdout","time":85.797622699,"data":"   1.4 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s\n"}
+,{"stream_name":"stdout","time":148.936500946,"data":"   2.5 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 63 s\n"}
+,{"stream_name":"stdout","time":186.611697418,"data":"   3.1 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -\u003e {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 38s\n"}
+,{"stream_name":"stdout","time":186.839142431,"data":"   3.1 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s\n"}
+,{"stream_name":"stdout","time":258.492959232,"data":"   4.3 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 72 s\n"}
+,{"stream_name":"stdout","time":548.050274346,"data":"   9.1 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 290s\n"}
+,{"stream_name":"stdout","time":548.280338391,"data":"   9.1 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s\n"}
+,{"stream_name":"stdout","time":620.706003512,"data":"  10.3 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 72 s\n"}
+,{"stream_name":"stdout","time":680.218100907,"data":"  11.3 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 60s\n"}
+,{"stream_name":"stdout","time":680.705819588,"data":"  11.3 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s\n"}
+,{"stream_name":"stdout","time":766.347893747,"data":"  12.8 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 86 s\n"}
+,{"stream_name":"stdout","time":1057.521583781,"data":"  17.6 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -\u003e {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 291s\n"}
+,{"stream_name":"stdout","time":1063.517684787,"data":"  17.7 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 6 s\n"}
+,{"stream_name":"stdout","time":1160.376748392,"data":"  19.3 min  downloaded SFKBP1109/video.mp4: 3589 MB in 97 s\n"}
+,{"stream_name":"stdout","time":1237.327460911,"data":"  20.6 min  dataset: {'train_ball': 4983, 'train_empty': 1240, 'valid_ball': 178, 'valid_empty': 44}\n"}
+,{"stream_name":"stdout","time":1238.815330233,"data":"[2026-09-29 13:53:06] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-small.pth\n"}
+,{"stream_name":"stderr","time":1243.108048958,"data":"\r/root/.roboflow/models/rf-detr-small.pth:   0%|          | 0.00/368M [00:00\u003c?, ?iB/s]\r/root/.roboflow/models/rf-detr-small.pth:   1%|          | 4.00M/368M [00:00\u003c00:17, 21.6MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:   4%|▎         | 13.3M/368M [00:00\u003c00:06, 53.7MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:   6%|▌         | 22.6M/368M [00:00\u003c00:05, 70.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:   9%|▊         | 32.0M/368M [00:00\u003c00:04, 80.2MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  11%|█         | 41.3M/368M [00:00\u003c00:03, 86.0MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  14%|█▍        | 50.7M/368M [00:00\u003c00:03, 90.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  16%|█▋        | 60.2M/368M [00:00\u003c00:03, 93.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  19%|█▉        | 69.4M/368M [00:00\u003c00:03, 93.8MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  21%|██▏       | 78.5M/368M [00:01\u003c00:03, 92.0MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  24%|██▍       | 88.0M/368M [00:01\u003c00:03, 94.3MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  26%|██▋       | 97.4M/368M [00:01\u003c00:02, 95.8MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  29%|██▉       | 107M/368M [00:01\u003c00:02, 95.6MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  31%|███▏      | 116M/368M [00:01\u003c00:02, 96.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  34%|███▍      | 125M/368M [00:01\u003c00:02, 89.0MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  36%|███▋      | 134M/368M [00:01\u003c00:04, 59.3MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  39%|███▉      | 144M/368M [00:01\u003c00:03, 69.4MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  42%|████▏     | 154M/368M [00:02\u003c00:02, 77.6MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  44%|████▍     | 163M/368M [00:02\u003c00:02, 83.3MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  47%|████▋     | 173M/368M [00:02\u003c00:02, 88.5MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  50%|████▉     | 183M/368M [00:02\u003c00:02, 92.9MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  52%|█████▏    | 193M/368M [00:02\u003c00:02, 90.1MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  55%|█████▍    | 202M/368M [00:02\u003c00:01, 92.3MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  58%|█████▊    | 212M/368M [00:02\u003c00:01, 96.7MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  60%|██████    | 223M/368M [00:02\u003c00:01, 99.6MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  63%|██████▎   | 233M/368M [00:02\u003c00:01, 102MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  66%|██████▌   | 243M/368M [00:02\u003c00:01, 104MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  69%|██████▉   | 254M/368M [00:03\u003c00:01, 105MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  72%|███████▏  | 264M/368M [00:03\u003c00:01, 107MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  74%|███████▍  | 274M/368M [00:03\u003c00:00, 100MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  77%|███████▋  | 284M/368M [00:03\u003c00:00, 102MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  80%|███████▉  | 294M/368M [00:03\u003c00:00, 102MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  83%|████████▎ | 304M/368M [00:03\u003c00:00, 95.8MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  85%|████████▌ | 314M/368M [00:03\u003c00:00, 98.3MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  88%|████████▊ | 324M/368M [00:03\u003c00:00, 101MiB/s] \r/root/.roboflow/models/rf-detr-small.pth:  91%|█████████ | 334M/368M [00:03\u003c00:00, 102MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  94%|█████████▎| 344M/368M [00:03\u003c00:00, 103MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  96%|█████████▋| 354M/368M [00:04\u003c00:00, 104MiB/s]\r/root/.roboflow/models/rf-detr-small.pth:  99%|█████████▉| 365M/368M [00:04\u003c00:00, 106MiB/s]\r/root/.roboflow/models/rf-detr-small.pth: 100%|██████████| 368M/368M [00:04\u003c00:00, 91.8MiB/s]\n"}
+,{"stream_name":"stdout","time":1243.963675749,"data":"[2026-09-29 13:53:11] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-small.pth\n"}
+,{"stream_name":"stderr","time":1243.965043606,"data":"[2026-09-29 13:53:11] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":1243.965073644,"data":"[2026-09-29 13:53:11] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":1245.565739981,"data":"[2026-09-29 13:53:13] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-small.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stdout","time":1247.18178325,"data":"  20.8 min  training RF-DETR small at 640 px, 12 epochs, batch 4, cap 2.6 h\n"}
+,{"stream_name":"stderr","time":1247.186957575,"data":"[2026-09-29 13:53:15] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":1247.186978443,"data":"[2026-09-29 13:53:15] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":1248.427815668,"data":"[2026-09-29 13:53:16] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-small.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stderr","time":1249.912079272,"data":"[2026-09-29 13:53:17] [WARNING] rf-detr - Checkpoint has 90 classes but model is configured for 1. The detection head will be re-initialized to 1 classes.\n"}
+,{"stream_name":"stderr","time":1250.678075454,"data":"Using 16bit Automatic Mixed Precision (AMP)\n"}
+,{"stream_name":"stderr","time":1250.734080203,"data":"GPU available: True (cuda), used: True\n"}
+,{"stream_name":"stderr","time":1250.734118818,"data":"TPU available: False, using: 0 TPU cores\n"}
+,{"stream_name":"stderr","time":1250.734269782,"data":"💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.\n"}
+,{"stream_name":"stderr","time":1250.983825166,"data":"/usr/local/lib/python3.12/dist-packages/lightning_fabric/loggers/csv_logs.py:268: Experiment logs directory /kaggle/temp/rf_out/ exists and is not empty. Previous log files in this directory will be deleted when the new ones are saved!\n"}
+,{"stream_name":"stdout","time":1250.985266696,"data":"[2026-09-29 13:53:18] [INFO] rf-detr - Using multi-scale training with square resize and scales: [768]\n"}
+,{"stream_name":"stdout","time":1250.989327222,"data":"[2026-09-29 13:53:18] [INFO] rf-detr - Built 1 Albumentations transforms from config\n"}
+,{"stream_name":"stdout","time":1250.989741707,"data":"[2026-09-29 13:53:18] [INFO] rf-detr - Built 1 Albumentations transforms from config\n"}
+,{"stream_name":"stdout","time":1252.112051142,"data":"creating index...\n"}
+,{"stream_name":"stdout","time":1252.114556284,"data":"index created!\n"}
+,{"stream_name":"stdout","time":1252.115671122,"data":"[2026-09-29 13:53:20] [INFO] rf-detr - Using multi-scale training with square resize and scales: [768]\n"}
+,{"stream_name":"stdout","time":1252.155376289,"data":"creating index...\n"}
+,{"stream_name":"stdout","time":1252.155412086,"data":"index created!\n"}
+,{"stream_name":"stderr","time":1252.72775304,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory /kaggle/temp/rf_out exists and is not empty.\n"}
+,{"stream_name":"stderr","time":1252.728282335,"data":"LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]\n"}
+,{"stream_name":"stderr","time":1252.80035219,"data":"Loading `train_dataloader` to estimate number of stepping batches.\n"}
+,{"stream_name":"stderr","time":1252.801132594,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.\n"}
+,{"stream_name":"stderr","time":1253.094324573,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/utilities/model_summary/model_summary.py:242: Precision 16-mixed is not supported by the model summary.  Estimated model size in MB will not be accurate. Using 32 bits instead.\n"}
+,{"stream_name":"stdout","time":1253.12564861,"data":"┏━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":1253.125686493,"data":"┃   ┃ Name        ┃ Type         ┃ Params ┃ Mode  ┃ FLOPs ┃\n"}
+,{"stream_name":"stdout","time":1253.125691839,"data":"┡━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":1253.125697078,"data":"│ 0 │ model       │ LWDETR       │ 32.0 M │ train │     0 │\n"}
+,{"stream_name":"stdout","time":1253.125701769,"data":"│ 1 │ criterion   │ SetCriterion │      0 │ train │     0 │\n"}
+,{"stream_name":"stdout","time":1253.12570669,"data":"│ 2 │ postprocess │ PostProcess  │      0 │ train │     0 │\n"}
+,{"stream_name":"stdout","time":1253.125710834,"data":"└───┴─────────────┴──────────────┴────────┴───────┴───────┘\n"}
+,{"stream_name":"stdout","time":1253.129921408,"data":"Trainable params: 32.0 M                                                        \n"}
+,{"stream_name":"stdout","time":1253.129952949,"data":"Non-trainable params: 0                                                         \n"}
+,{"stream_name":"stdout","time":1253.129958574,"data":"Total params: 32.0 M                                                            \n"}
+,{"stream_name":"stdout","time":1253.129963891,"data":"Total estimated model params size (MB): 128.049                                 \n"}
+,{"stream_name":"stdout","time":1253.129968617,"data":"Modules in train mode: 466                                                      \n"}
+,{"stream_name":"stdout","time":1253.129972868,"data":"Modules in eval mode: 0                                                         \n"}
+,{"stream_name":"stdout","time":1253.129977146,"data":"Total FLOPs: 0                                                                  \n"}
+,{"stream_name":"stderr","time":1253.130584097,"data":"Seed set to 0\n"}
+,{"stream_name":"stderr","time":1256.337606756,"data":"/usr/local/lib/python3.12/dist-packages/rfdetr/models/_assignment.py:76: RuntimeWarning: Triton linear-assignment support is unavailable for this CUDA input; using SciPy on CPU.\n"}
+,{"stream_name":"stderr","time":1256.337659289,"data":"  assignment = torch_linear_assignment.batch_linear_assignment(stacked)\n"}
+,{"stream_name":"stderr","time":1258.032054608,"data":"/usr/local/lib/python3.12/dist-packages/pytorch_lightning/core/module.py:1333: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stdout","time":1761.752407193,"data":"[2026-09-29 14:01:49] [INFO] rf-detr - Skipping validation-loss computation: compute_val_loss='auto' found no scheduler or callback monitoring 'val/loss', so no 'val/loss' metric is logged this run. Set compute_val_loss=True to log it every validation epoch (for example to read the curve from metrics.csv, TensorBoard, or Weights \u0026 Biases).\n"}
+,{"stream_name":"stdout","time":1765.964452268,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m1\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":1765.964508998,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":1765.96451984,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":1765.964525315,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":1765.964530389,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":1765.964535892,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":1765.96454094,"data":"│ \u001b[1;36m0.5962\u001b[0m │ \u001b[1;36m0.9740\u001b[0m │ \u001b[1;36m0.6638\u001b[0m │ \u001b[1;36m0.7292\u001b[0m │ \u001b[1;36m0.9256\u001b[0m │ \u001b[1;36m0.9081\u001b[0m │ \u001b[1;36m0.9438\u001b[0m │\n"}
+,{"stream_name":"stdout","time":1765.964546494,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":1766.153919099,"data":"[2026-09-29 14:01:54] [INFO] rf-detr - Best EMA metric improved to 0.5962 (epoch 0)\n"}
+,{"stream_name":"stdout","time":2289.111967215,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m2\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":2289.112017946,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":2289.112027117,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":2289.112048037,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":2289.11205311,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":2289.112057574,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":2289.112062768,"data":"│ \u001b[1;36m0.6076\u001b[0m │ \u001b[1;36m0.9753\u001b[0m │ \u001b[1;36m0.7077\u001b[0m │ \u001b[1;36m0.7365\u001b[0m │ \u001b[1;36m0.9370\u001b[0m │ \u001b[1;36m0.9144\u001b[0m │ \u001b[1;36m0.9607\u001b[0m │\n"}
+,{"stream_name":"stdout","time":2289.112068204,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":2289.348582084,"data":"[2026-09-29 14:10:37] [INFO] rf-detr - Best EMA metric improved to 0.6076 (epoch 1)\n"}
+,{"stream_name":"stdout","time":2813.656955252,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m3\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":2813.657009889,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":2813.65702038,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":2813.657027116,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":2813.657034324,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":2813.657041552,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":2813.657047716,"data":"│ \u001b[1;36m0.6178\u001b[0m │ \u001b[1;36m0.9777\u001b[0m │ \u001b[1;36m0.7136\u001b[0m │ \u001b[1;36m0.7427\u001b[0m │ \u001b[1;36m0.9451\u001b[0m │ \u001b[1;36m0.9247\u001b[0m │ \u001b[1;36m0.9663\u001b[0m │\n"}
+,{"stream_name":"stdout","time":2813.657055193,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":2813.925847851,"data":"[2026-09-29 14:19:21] [INFO] rf-detr - Best EMA metric improved to 0.6178 (epoch 2)\n"}
+,{"stream_name":"stdout","time":3341.738952248,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m4\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":3341.739002663,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":3341.739021146,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":3341.739024042,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":3341.739026789,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":3341.739029861,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":3341.739032416,"data":"│ \u001b[1;36m0.6140\u001b[0m │ \u001b[1;36m0.9808\u001b[0m │ \u001b[1;36m0.6756\u001b[0m │ \u001b[1;36m0.7404\u001b[0m │ \u001b[1;36m0.9425\u001b[0m │ \u001b[1;36m0.9647\u001b[0m │ \u001b[1;36m0.9213\u001b[0m │\n"}
+,{"stream_name":"stdout","time":3341.739035269,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":3866.530177484,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m5\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":3866.53026924,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":3866.530282953,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":3866.530288444,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":3866.530294044,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":3866.530299753,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":3866.53030488,"data":"│ \u001b[1;36m0.6217\u001b[0m │ \u001b[1;36m0.9811\u001b[0m │ \u001b[1;36m0.7076\u001b[0m │ \u001b[1;36m0.7545\u001b[0m │ \u001b[1;36m0.9363\u001b[0m │ \u001b[1;36m0.9235\u001b[0m │ \u001b[1;36m0.9494\u001b[0m │\n"}
+,{"stream_name":"stdout","time":3866.53031126,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":3866.788085308,"data":"[2026-09-29 14:36:54] [INFO] rf-detr - Best EMA metric improved to 0.6217 (epoch 4)\n"}
+,{"stream_name":"stdout","time":4385.330406817,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m6\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":4385.330458419,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":4385.330480104,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":4385.330483077,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":4385.330485946,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":4385.330488855,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":4385.330491406,"data":"│ \u001b[1;36m0.6272\u001b[0m │ \u001b[1;36m0.9784\u001b[0m │ \u001b[1;36m0.7518\u001b[0m │ \u001b[1;36m0.7522\u001b[0m │ \u001b[1;36m0.9348\u001b[0m │ \u001b[1;36m0.9053\u001b[0m │ \u001b[1;36m0.9663\u001b[0m │\n"}
+,{"stream_name":"stdout","time":4385.330494323,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":4385.567917778,"data":"[2026-09-29 14:45:33] [INFO] rf-detr - Best EMA metric improved to 0.6272 (epoch 5)\n"}
+,{"stream_name":"stdout","time":4912.613919563,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m7\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":4912.61399081,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":4912.613997102,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":4912.614000572,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":4912.614003993,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":4912.614007791,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":4912.61401113,"data":"│ \u001b[1;36m0.6287\u001b[0m │ \u001b[1;36m0.9765\u001b[0m │ \u001b[1;36m0.7550\u001b[0m │ \u001b[1;36m0.7388\u001b[0m │ \u001b[1;36m0.9344\u001b[0m │ \u001b[1;36m0.9096\u001b[0m │ \u001b[1;36m0.9607\u001b[0m │\n"}
+,{"stream_name":"stdout","time":4912.614014728,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":4912.868277824,"data":"[2026-09-29 14:54:20] [INFO] rf-detr - Best EMA metric improved to 0.6287 (epoch 6)\n"}
+,{"stream_name":"stdout","time":5431.710004096,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m8\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":5431.71006612,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":5431.710071483,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":5431.710074075,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":5431.710076873,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":5431.710079744,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":5431.71008255,"data":"│ \u001b[1;36m0.6328\u001b[0m │ \u001b[1;36m0.9767\u001b[0m │ \u001b[1;36m0.7392\u001b[0m │ \u001b[1;36m0.7545\u001b[0m │ \u001b[1;36m0.9322\u001b[0m │ \u001b[1;36m0.9814\u001b[0m │ \u001b[1;36m0.8876\u001b[0m │\n"}
+,{"stream_name":"stdout","time":5431.710085397,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":5431.950002682,"data":"[2026-09-29 15:02:59] [INFO] rf-detr - Best EMA metric improved to 0.6328 (epoch 7)\n"}
+,{"stream_name":"stdout","time":5953.359719005,"data":"            Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m9\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":5953.359792667,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":5953.359950079,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":5953.359962348,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":5953.359968468,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":5953.359974963,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":5953.359981264,"data":"│ \u001b[1;36m0.6299\u001b[0m │ \u001b[1;36m0.9764\u001b[0m │ \u001b[1;36m0.7432\u001b[0m │ \u001b[1;36m0.7500\u001b[0m │ \u001b[1;36m0.9322\u001b[0m │ \u001b[1;36m0.9814\u001b[0m │ \u001b[1;36m0.8876\u001b[0m │\n"}
+,{"stream_name":"stdout","time":5953.359987396,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":6472.95425842,"data":"           Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m10\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":6472.954324495,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":6472.95433379,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":6472.954338372,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":6472.954343153,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":6472.954348126,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":6472.954352153,"data":"│ \u001b[1;36m0.6399\u001b[0m │ \u001b[1;36m0.9755\u001b[0m │ \u001b[1;36m0.7731\u001b[0m │ \u001b[1;36m0.7562\u001b[0m │ \u001b[1;36m0.9290\u001b[0m │ \u001b[1;36m0.9812\u001b[0m │ \u001b[1;36m0.8820\u001b[0m │\n"}
+,{"stream_name":"stdout","time":6472.954356542,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":6473.222631893,"data":"[2026-09-29 15:20:21] [INFO] rf-detr - Best EMA metric improved to 0.6399 (epoch 9)\n"}
+,{"stream_name":"stdout","time":6996.657427394,"data":"           Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m11\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":6996.657485919,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":6996.657497212,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":6996.657502252,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":6996.657507314,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":6996.657512593,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":6996.65751752,"data":"│ \u001b[1;36m0.6347\u001b[0m │ \u001b[1;36m0.9751\u001b[0m │ \u001b[1;36m0.7658\u001b[0m │ \u001b[1;36m0.7567\u001b[0m │ \u001b[1;36m0.9267\u001b[0m │ \u001b[1;36m0.9693\u001b[0m │ \u001b[1;36m0.8876\u001b[0m │\n"}
+,{"stream_name":"stdout","time":6996.657527905,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stdout","time":7516.71824928,"data":"           Val \u001b[1m(\u001b[0mema\u001b[1m)\u001b[0m \u001b[1m(\u001b[0mEpoch \u001b[1;36m12\u001b[0m/\u001b[1;36m12\u001b[0m\u001b[1m)\u001b[0m — Overall Metrics            \n"}
+,{"stream_name":"stdout","time":7516.718315157,"data":"┏━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"}
+,{"stream_name":"stdout","time":7516.718325395,"data":"┃           mAP            ┃  mAR   ┃         F1 sweep         ┃\n"}
+,{"stream_name":"stdout","time":7516.718329838,"data":"┡━━━━━━━━┯━━━━━━━━┯━━━━━━━━╇━━━━━━━━╇━━━━━━━━┯━━━━━━━━┯━━━━━━━━┩\n"}
+,{"stream_name":"stdout","time":7516.718334545,"data":"│ \u001b[1;92m50:95\u001b[0m  │   \u001b[1;36m50\u001b[0m   │   \u001b[1;36m75\u001b[0m   │  @\u001b[1;36m500\u001b[0m  │   F1   │  Prec  │ Recall │\n"}
+,{"stream_name":"stdout","time":7516.718355877,"data":"├────────┼────────┼────────┼────────┼────────┼────────┼────────┤\n"}
+,{"stream_name":"stdout","time":7516.718361083,"data":"│ \u001b[1;36m0.6367\u001b[0m │ \u001b[1;36m0.9751\u001b[0m │ \u001b[1;36m0.7677\u001b[0m │ \u001b[1;36m0.7590\u001b[0m │ \u001b[1;36m0.9275\u001b[0m │ \u001b[1;36m0.9581\u001b[0m │ \u001b[1;36m0.8989\u001b[0m │\n"}
+,{"stream_name":"stdout","time":7516.718366031,"data":"└────────┴────────┴────────┴────────┴────────┴────────┴────────┘\n"}
+,{"stream_name":"stderr","time":7518.149706688,"data":"`Trainer.fit` stopped: `max_epochs=12` reached.\n"}
+,{"stream_name":"stdout","time":7521.27633999,"data":"[2026-09-29 15:37:49] [INFO] rf-detr - Best total checkpoint saved from EMA (regular=0.0000, ema=0.6399)\n"}
+,{"stream_name":"stdout","time":7521.508813315,"data":" 125.3 min  training done in 104.6 min; outputs ['checkpoint_best_ema.pth', 'checkpoint_best_total.pth', 'last.ckpt', 'last_ema.pth', 'metrics.csv', 'training_config.json']\n"}
+,{"stream_name":"stderr","time":7521.634839962,"data":"/usr/local/lib/python3.12/dist-packages/rfdetr/detr.py:704: FutureWarning: The `RFDETRBase` was deprecated since v1.7.0. It will be removed in v2.0.0.\n"}
+,{"stream_name":"stderr","time":7521.634874759,"data":"  getattr(variant_obj, \"__name__\", symbol): variant_obj\n"}
+,{"stream_name":"stderr","time":7521.634880792,"data":"/usr/local/lib/python3.12/dist-packages/rfdetr/detr.py:704: FutureWarning: The `RFDETRLargeDeprecated` was deprecated since v1.7.0. It will be removed in v2.0.0.\n"}
+,{"stream_name":"stderr","time":7521.634885297,"data":"  getattr(variant_obj, \"__name__\", symbol): variant_obj\n"}
+,{"stream_name":"stderr","time":7521.634898154,"data":"/usr/local/lib/python3.12/dist-packages/rfdetr/detr.py:704: FutureWarning: The `RFDETRSegPreview` was deprecated since v1.7.0. It will be removed in v2.0.0.\n"}
+,{"stream_name":"stderr","time":7521.634902504,"data":"  getattr(variant_obj, \"__name__\", symbol): variant_obj\n"}
+,{"stream_name":"stderr","time":7521.636671961,"data":"[2026-09-29 15:37:49] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":7521.636689874,"data":"[2026-09-29 15:37:49] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":7522.290274936,"data":" 125.4 min  loaded /kaggle/temp/rf_out/checkpoint_best_total.pth: resolution 640\n"}
+,{"stream_name":"stdout","time":7522.695164752,"data":" 125.4 min  weights {'file': 'rfdetr_ball_small_20260929_fp16.pth', 'MB': 64.2, 'full_checkpoint_MB': 128.4}\n"}
+,{"stream_name":"stderr","time":7523.054691404,"data":"[2026-09-29 15:37:50] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":7579.983253144,"data":" 126.3 min  exam: 108 frames graded in 57s\n"}
+,{"stream_name":"stdout","time":7579.986540258,"data":" 126.3 min  exam: {\"at_0.25_as_click_finder\": {\"correct\": 84, \"of\": 108, \"ball_found\": 74, \"ball_frames\": 81, \"no_ball_right\": 10, \"no_ball_frames\": 27}, \"ball_among_guesses_0.05\": 81, \"top_guess_is_ball\": 70, \"ball_frames\": 81, \"current_click_finder\": {\"correct\": 70, \"ball_found\": 47, \"among_guesses\": 54, \"top_guess\": 51}, \"wasb\": {\"among_guesses\": 79, \"top_guess\": 56}}\n"}
+,{"stream_name":"stdout","time":7633.672026496,"data":" 127.2 min  clip34: {\"moments\": 34, \"ball_among_guesses_0.05\": 34, \"ball_among_top6\": 32, \"top_guess_is_ball\": 26, \"current_click_finder\": {\"among_guesses\": 18, \"top_guess\": 16}, \"wasb\": {\"among_guesses\": 31, \"top_guess\": 26}}\n"}
+,{"stream_name":"stdout","time":7633.679912992,"data":" 127.2 min  done\n"}
+,{"stream_name":"stderr","time":7638.835767617,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":7638.835795706,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":7639.037933195,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":7639.037964232,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":7639.642483302,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":7640.487427755,"data":"[NbConvertApp] Writing 398879 bytes to __results__.html\n"}
 ]
