@@ -1,0 +1,10 @@
+{
+ "wasb30, judge weight 0.0": 19,
+ "wasb30 + clicks, judge weight 0.0": 22,
+ "wasb30, judge weight 0.5": 19,
+ "wasb30 + clicks, judge weight 0.5": 22,
+ "wasb30, judge weight 1.0": 20,
+ "wasb30 + clicks, judge weight 1.0": 22,
+ "wasb30, judge weight 2.0": 20,
+ "wasb30 + clicks, judge weight 2.0": 20
+}
