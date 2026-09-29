@@ -1,1 +1,8 @@
 04:53:07 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+04:53:18 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+04:54:27 kits: learned from 87 people (446 off the pitch left out), group sizes [41, 24, 16, 6]
+04:54:27 off-pitch people dropped by the pitch-edge test: yes
+04:54:32   tracking frame 0
+04:55:48   tracking frame 50 (0.6 frames/s)
+04:57:05   tracking frame 100 (0.6 frames/s)
+04:58:22   tracking frame 150 (0.6 frames/s)
