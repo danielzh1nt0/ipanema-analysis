@@ -1,2 +1,2 @@
-kaggle/ballfinder_rfdetr_smoke.py 45
-# Tue Sep 29 12:16:48 UTC 2026
+kaggle/ballfinder_rfdetr.py 330
+# Tue Sep 29 12:33:46 UTC 2026

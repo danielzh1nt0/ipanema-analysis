@@ -17,7 +17,7 @@ SMOKE = MODE == "smoke"
 SIZE = os.environ.get("SIZE", "small")                                          # small | medium | base
 PER_MATCH = int(os.environ.get("PER_MATCH", "12" if SMOKE else "1150"))        # ball crops per training match
 SFK_COPIES = int(os.environ.get("SFK_COPIES", "1" if SMOKE else "3"))           # SFK-BP is the exam ground: 3 crops per click
-EPOCHS = int(os.environ.get("EPOCHS", "1" if SMOKE else "14")); BATCH = int(os.environ.get("BATCH", "2" if LOCAL else "8"))
+EPOCHS = int(os.environ.get("EPOCHS", "1" if SMOKE else "12")); BATCH = int(os.environ.get("BATCH", "2" if LOCAL else "8"))
 MAX_TRAIN_H = float(os.environ.get("MAX_TRAIN_H", "0.25" if SMOKE else "2.6"))   # hard stop for training (PTL max_time)
 RES = int(os.environ.get("RES", "640")); CROP = 640; NEG_FRAC = 0.25            # 1 ball-free crop per 4 ball crops = 20% of all
 MATCHES = ["p15u-vs-vasalund-2026-09-20", "p09-norrviken-vs-solheim-2026-08-30", "p15u-vs-spanga-2026-09-25", "p15u-vs-djursholm-2026-09-26"]
@@ -151,11 +151,13 @@ try:
     Model = {"small": rfdetr.RFDETRSmall, "medium": rfdetr.RFDETRMedium, "base": rfdetr.RFDETRBase}[SIZE]
     model = Model(pretrain_weights=None) if os.environ.get("PRETRAIN") == "none" else Model(); OUTD = f"{TMP}/rf_out"; t1 = time.time(); log(f"training RF-DETR {SIZE} at {RES} px, {EPOCHS} epochs, batch {BATCH}, cap {MAX_TRAIN_H} h")
     kw = dict(dataset_dir=DS, dataset_file="yolo", epochs=EPOCHS, batch_size=BATCH, grad_accum_steps=max(1, 16 // BATCH), resolution=RES, output_dir=OUTD,
-              num_workers=0 if LOCAL else 4, expanded_scales=False, tensorboard=False, progress_bar=None, checkpoint_interval=100, seed=0)
+              num_workers=0 if LOCAL else 4, expanded_scales=False, tensorboard=False, progress_bar=None, checkpoint_interval=100, seed=0, lr_scheduler=os.environ.get("SCHED", "cosine"))
     if LOCAL: kw["device"] = "cpu"
     model.train(**kw)
     REPORT["train_min"] = round((time.time() - t1) / 60, 1); REPORT["train_images"] = len(os.listdir(f"{DS}/train/images")); REPORT["train_img_per_s"] = round(EPOCHS * REPORT["train_images"] / max(1, time.time() - t1), 2)
     log(f"training done in {REPORT['train_min']} min; outputs {sorted(os.listdir(OUTD))}"); save()
+    for fn in ("metrics.csv", "training_config.json"):
+        if os.path.exists(f"{OUTD}/{fn}"): shutil.copy(f"{OUTD}/{fn}", f"{WORK}/{fn}")
     ck = next((f"{OUTD}/{c}" for c in ("checkpoint_best_total.pth", "checkpoint_best_ema.pth", "checkpoint_best_regular.pth") if os.path.exists(f"{OUTD}/{c}")), None)
     if ck:
         model = Model.from_checkpoint(ck, resolution=RES); REPORT["checkpoint"] = os.path.basename(ck); log(f"loaded {ck}: resolution {getattr(getattr(model, 'model_config', None), 'resolution', '?')}")
