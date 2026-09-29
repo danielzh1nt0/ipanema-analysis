@@ -1,0 +1,422 @@
+{
+ "SFKBP1109_s1200_120": {
+  "before": {
+   "dark": 8.0,
+   "light": 6.0,
+   "dark_s": 0.77,
+   "light_s": 0.93,
+   "tracks": 180,
+   "neither_rows": 4194,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 6.0,
+   "dark_s": 0.77,
+   "light_s": 0.93,
+   "tracks": 180,
+   "neither_rows": 4194,
+   "reading": "default"
+  }
+ },
+ "SFKBP1109_s1200_20": {
+  "before": {
+   "dark": 8.0,
+   "light": 6.0,
+   "dark_s": 1.67,
+   "light_s": 0.73,
+   "tracks": 210,
+   "neither_rows": 6690,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 6.0,
+   "dark_s": 1.67,
+   "light_s": 0.73,
+   "tracks": 210,
+   "neither_rows": 6690,
+   "reading": "default"
+  }
+ },
+ "SFKBP1109_s1200_220": {
+  "before": {
+   "dark": 8.0,
+   "light": 5.0,
+   "dark_s": 1.5,
+   "light_s": 0.73,
+   "tracks": 201,
+   "neither_rows": 4951,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 5.0,
+   "dark_s": 1.5,
+   "light_s": 0.73,
+   "tracks": 201,
+   "neither_rows": 4951,
+   "reading": "default"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_1279": {
+  "before": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 3.9,
+   "light_s": 2.4,
+   "tracks": 136,
+   "neither_rows": 5414,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 3.72,
+   "light_s": 2.44,
+   "tracks": 135,
+   "neither_rows": 5414,
+   "reading": "default"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_2431": {
+  "before": {
+   "dark": 8.0,
+   "light": 8.0,
+   "dark_s": 2.37,
+   "light_s": 6.44,
+   "tracks": 135,
+   "neither_rows": 4749,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 8.0,
+   "dark_s": 2.37,
+   "light_s": 6.44,
+   "tracks": 135,
+   "neither_rows": 4749,
+   "reading": "default"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_4607": {
+  "before": {
+   "dark": 7.0,
+   "light": 7.0,
+   "dark_s": 2.07,
+   "light_s": 3.44,
+   "tracks": 119,
+   "neither_rows": 3081,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 7.0,
+   "light": 7.0,
+   "dark_s": 2.07,
+   "light_s": 3.44,
+   "tracks": 119,
+   "neither_rows": 3081,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_1428": {
+  "before": {
+   "dark": 10.0,
+   "light": 9.0,
+   "dark_s": 8.69,
+   "light_s": 5.54,
+   "tracks": 111,
+   "neither_rows": 10237,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 10.0,
+   "light": 9.0,
+   "dark_s": 8.69,
+   "light_s": 5.54,
+   "tracks": 111,
+   "neither_rows": 10237,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_2714": {
+  "before": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 5.94,
+   "light_s": 0.5,
+   "tracks": 118,
+   "neither_rows": 16394,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 5.94,
+   "light_s": 0.5,
+   "tracks": 118,
+   "neither_rows": 16394,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_5143": {
+  "before": {
+   "dark": 9.0,
+   "light": 8.0,
+   "dark_s": 8.81,
+   "light_s": 7.86,
+   "tracks": 83,
+   "neither_rows": 12423,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 9.0,
+   "light": 8.0,
+   "dark_s": 8.81,
+   "light_s": 8.11,
+   "tracks": 82,
+   "neither_rows": 12423,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_1190": {
+  "before": {
+   "dark": 5.0,
+   "light": 5.0,
+   "dark_s": 3.44,
+   "light_s": 7.07,
+   "tracks": 80,
+   "neither_rows": 2232,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 5.0,
+   "light": 5.0,
+   "dark_s": 3.47,
+   "light_s": 6.97,
+   "tracks": 81,
+   "neither_rows": 2232,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_2262": {
+  "before": {
+   "dark": 9.0,
+   "light": 6.0,
+   "dark_s": 3.94,
+   "light_s": 3.04,
+   "tracks": 108,
+   "neither_rows": 1818,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 9.0,
+   "light": 6.0,
+   "dark_s": 3.94,
+   "light_s": 3.04,
+   "tracks": 108,
+   "neither_rows": 1818,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_4286": {
+  "before": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 5.02,
+   "light_s": 2.8,
+   "tracks": 86,
+   "neither_rows": 1925,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 4.64,
+   "light_s": 2.89,
+   "tracks": 86,
+   "neither_rows": 1925,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_1125": {
+  "before": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 5.19,
+   "light_s": 2.74,
+   "tracks": 116,
+   "neither_rows": null,
+   "reading": "?"
+  },
+  "after": {
+   "dark": 9.0,
+   "light": 7.0,
+   "dark_s": 5.19,
+   "light_s": 2.74,
+   "tracks": 116,
+   "neither_rows": 1813,
+   "reading": "?"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_2137": {
+  "before": {
+   "dark": 5.0,
+   "light": 4.0,
+   "dark_s": 4.35,
+   "light_s": 4.4,
+   "tracks": 101,
+   "neither_rows": 1914,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 5.0,
+   "light": 4.0,
+   "dark_s": 4.35,
+   "light_s": 4.4,
+   "tracks": 101,
+   "neither_rows": 1914,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_4050": {
+  "before": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 4.34,
+   "light_s": 3.44,
+   "tracks": 127,
+   "neither_rows": 2639,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 8.0,
+   "light": 7.0,
+   "dark_s": 3.97,
+   "light_s": 3.52,
+   "tracks": 129,
+   "neither_rows": 2639,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_1130": {
+  "before": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 2.8,
+   "light_s": 7.94,
+   "tracks": 76,
+   "neither_rows": 2468,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 2.8,
+   "light_s": 7.94,
+   "tracks": 76,
+   "neither_rows": 2468,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_2147": {
+  "before": {
+   "dark": 4.0,
+   "light": 5.0,
+   "dark_s": 5.54,
+   "light_s": 5.47,
+   "tracks": 59,
+   "neither_rows": 3397,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 4.0,
+   "light": 5.0,
+   "dark_s": 5.54,
+   "light_s": 5.47,
+   "tracks": 59,
+   "neither_rows": 3397,
+   "reading": "default"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_4068": {
+  "before": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 6.67,
+   "light_s": 5.99,
+   "tracks": 81,
+   "neither_rows": 2297,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 6.26,
+   "light_s": 6.31,
+   "tracks": 79,
+   "neither_rows": 2297,
+   "reading": "default"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_1456": {
+  "before": {
+   "dark": 3.0,
+   "light": 4.0,
+   "dark_s": 1.33,
+   "light_s": 3.45,
+   "tracks": 75,
+   "neither_rows": 12352,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 7.0,
+   "light": 7.0,
+   "dark_s": 3.2,
+   "light_s": 3.5,
+   "tracks": 99,
+   "neither_rows": 1543,
+   "reading": "?"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_2766": {
+  "before": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 5.34,
+   "light_s": 3.89,
+   "tracks": 107,
+   "neither_rows": 5070,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 6.0,
+   "light": 7.0,
+   "dark_s": 5.34,
+   "light_s": 3.74,
+   "tracks": 108,
+   "neither_rows": 5070,
+   "reading": "default"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_5242": {
+  "before": {
+   "dark": 5.0,
+   "light": 7.0,
+   "dark_s": 4.69,
+   "light_s": 6.79,
+   "tracks": 80,
+   "neither_rows": 6624,
+   "reading": "default"
+  },
+  "after": {
+   "dark": 5.0,
+   "light": 7.0,
+   "dark_s": 4.69,
+   "light_s": 6.79,
+   "tracks": 80,
+   "neither_rows": 6624,
+   "reading": "default"
+  }
+ }
+}

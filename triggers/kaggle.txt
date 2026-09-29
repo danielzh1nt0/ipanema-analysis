@@ -1,2 +1,2 @@
-kaggle/reym_blind.py 20
-# Tue Sep 29 19:58:53 UTC 2026
+kaggle/kitcrops_p1.py 120
+# Tue Sep 29 20:27:19 UTC 2026
