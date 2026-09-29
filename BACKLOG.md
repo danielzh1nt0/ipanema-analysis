@@ -53,6 +53,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - K1/T0: the full checked ball label sets (Vasalund, Solheim, Spånga, Djursholm: thousands per match) and the fine-tuned WASB are only on the Modal volume. Copying those files out (a download, no GPU) needs your OK to touch Modal; then the scorer can get a fair test on Kaggle for free.
 
 ## Done
+- [x] 29 Sep: B7 new ball finder (RF-DETR small, trained free on Kaggle on ~5,000 approved balls): exam 84/108 vs 70, ball found 74/81 vs 47/81. In the app (fused with WASB): SFK-BP clip 29/34 vs 22/34. Passes 160 -> 87 (unchecked). ipanema/ballrf.py, ball_rf on Modal.
 - [x] 28 Sep: Kaggle works (free Tesla T4, internet): tools/kaggle_run.py + triggers/kaggle.txt; Reymersholm tracking in 21 min, $0.
 - [x] 28 Sep: E1/E2 who-has-the-ball key grown to 61 clear moments (Claude by eye); possession_simple 51/61 vs viterbi 27/61, both key halves agree. Option only. results/review/who_2026-09-28.md
 - [x] 28 Sep: S1b turnovers/possession on Metrica: 3 s rule finds 20% of losses; frame-to-frame ball speed made the possession model say 'nobody has it' 76-87% of the time under noise; windowed speed fixes it on pro data but not proven on our clip (no answer key). Options added, defaults unchanged. results/metrica/turnovers_2026-09-28.md
