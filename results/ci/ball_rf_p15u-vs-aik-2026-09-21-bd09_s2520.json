@@ -1,0 +1,29 @@
+{
+ "smoke_120_frames": {
+  "ok": true,
+  "frames": 120,
+  "guesses_per_frame": 12.7,
+  "saved": false,
+  "minutes": 2.4,
+  "frames_per_s": 0.8,
+  "log": []
+ },
+ "full": {
+  "ok": true,
+  "frames": 8992,
+  "guesses_per_frame": 9.8,
+  "saved": true,
+  "minutes": 20.0,
+  "frames_per_s": 7.5,
+  "log": [
+   "   179s   ball (RF-DETR): frame 1000, 7.9 frames/s",
+   "   307s   ball (RF-DETR): frame 2000, 7.9 frames/s",
+   "   436s   ball (RF-DETR): frame 3000, 7.8 frames/s",
+   "   564s   ball (RF-DETR): frame 4000, 7.8 frames/s",
+   "   693s   ball (RF-DETR): frame 5000, 7.8 frames/s",
+   "   821s   ball (RF-DETR): frame 6000, 7.8 frames/s",
+   "   949s   ball (RF-DETR): frame 7000, 7.8 frames/s",
+   "  1076s   ball (RF-DETR): frame 8000, 7.8 frames/s"
+  ]
+ }
+}
