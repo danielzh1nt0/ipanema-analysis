@@ -24,4 +24,4 @@ pictures results/qa/ball_ab_reym/):
 
 Verdict: on Reymersholm (night, never trained on) the new ball is right far more often where the two differ. The 23/32 vs 27/32
 possession score came from the biased key. The possession key itself should be re-graded from blind pictures before it is used again.
-Old pick errors seen: a floodlight is not in this set; the NEW finder's wrong picks included a floodlight (m22) and leaves (m26).
+Where the new finder was wrong it picked a floodlight (m22) or leaves on the grass (m26).
