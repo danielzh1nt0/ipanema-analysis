@@ -34,11 +34,20 @@ json.dump({"id": kid, "title": slug, "code_file": f"{name}.py", "language": "pyt
            "enable_gpu": True, "enable_internet": True, "machine_shape": os.environ.get("KAGGLE_GPU", "NvidiaTeslaT4"), "dataset_sources": [], "competition_sources": [], "kernel_sources": []},
           open(f"{d}/kernel-metadata.json", "w"), indent=1)
 if "fetch" in sys.argv[3:]: print("fetch only: no new version pushed", flush=True)
-else: print(sh(f"kaggle kernels push -p {d}", check=True), flush=True)
+else:
+    # 29 Sep: Kaggle allows 2 GPU batch sessions at once; a refused push used to look like a finished job. Wait for a slot.
+    tw = time.time()
+    while True:
+        out = sh(f"kaggle kernels push -p {d}", check=True); print(out, flush=True)
+        if "push error" not in out.lower(): break
+        if "session count" not in out.lower() or time.time() - tw > float(os.environ.get("KAGGLE_SLOT_WAIT_MIN", "120")) * 60:
+            json.dump({"kernel": kid, "status": "push refused: " + out[-300:], "minutes": 0}, open(f"{OUT}/run.json", "w"), indent=1); sys.exit("push refused")
+        print(f"{(time.time() - tw) / 60:5.1f} min: both Kaggle GPU slots busy, retrying in 3 min", flush=True); time.sleep(180)
 t0 = time.time(); last = ""
 while True:
     time.sleep(30); st = sh(f"kaggle kernels status {kid}"); low = st.lower()
     if st != last or int(time.time() - t0) % 120 < 30: print(f"{(time.time() - t0) / 60:5.1f} min: {st[-200:]}", flush=True); last = st
+    if "404" in low and time.time() - t0 < 600: continue                      # a just-pushed kernel can 404 for a while
     if any(w in low for w in ("complete", "error", "cancel")): break
     if time.time() - t0 > max_min * 60: print("gave up waiting (the kernel may still be running on Kaggle)"); break
 print(sh(f"kaggle kernels output {kid} -p {OUT}"), flush=True)

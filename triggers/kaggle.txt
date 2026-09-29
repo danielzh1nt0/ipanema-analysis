@@ -1,2 +1,2 @@
 kaggle/ballfinder_train.py 330
-# Tue Sep 29 08:39:15 UTC 2026 K1/T0 step 2: ball finder fine-tune on 4 matches' full label sets (agree / all), graded on the 108 SFK-BP exam frames vs 70/108
+# Tue Sep 29 08:57:30 UTC 2026 K1/T0 step 2 retry: first push was refused (Kaggle 2-GPU-session limit); runner now waits for a free slot
