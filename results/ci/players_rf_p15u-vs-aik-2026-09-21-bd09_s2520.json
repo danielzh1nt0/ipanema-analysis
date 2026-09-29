@@ -1,0 +1,54 @@
+{
+ "smoke_300_frames": {
+  "ok": true,
+  "frames": 300,
+  "rows_per_frame": 21.7,
+  "kit_groups": [
+   22,
+   20,
+   6,
+   2
+  ],
+  "dark_share": {
+   "A": 0.29,
+   "B": 0.9
+  },
+  "saved": false,
+  "minutes": 2.6,
+  "log": [
+   "   137s kits: per-player classifier from 143 on-pitch people, 0 of 15 runs kept -> colour only",
+   "   137s kits: learned from 50 people (869 off the pitch left out), group sizes [22, 20, 6, 2], default fit leaves out a group at 0.54 x the team gap",
+   "   143s   tracking frame 0"
+  ]
+ },
+ "full": {
+  "ok": true,
+  "frames": 8992,
+  "rows_per_frame": 17.0,
+  "kit_groups": [
+   53,
+   44,
+   27,
+   9
+  ],
+  "dark_share": {
+   "A": 0.25,
+   "B": 0.92
+  },
+  "saved": true,
+  "minutes": 7.8,
+  "log": [
+   "    61s kits: per-player classifier from 347 on-pitch people, 0 of 15 runs kept -> colour only",
+   "    61s kits: learned from 133 people (577 off the pitch left out), group sizes [53, 44, 27, 9], default fit leaves out a group at 0.49 x the team gap",
+   "    67s   tracking frame 0",
+   "   110s   tracking frame 1000 (22.9 frames/s)",
+   "   154s   tracking frame 2000 (22.9 frames/s)",
+   "   197s   tracking frame 3000 (22.9 frames/s)",
+   "   239s   tracking frame 4000 (23.2 frames/s)",
+   "   282s   tracking frame 5000 (23.3 frames/s)",
+   "   327s   tracking frame 6000 (23.1 frames/s)",
+   "   370s   tracking frame 7000 (23.0 frames/s)",
+   "   414s   tracking frame 8000 (23.0 frames/s)"
+  ]
+ }
+}
