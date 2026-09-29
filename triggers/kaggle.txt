@@ -1,2 +1,2 @@
-kaggle/players_p1b.py 200
-# Tue Sep 29 08:03:35 UTC 2026 P1 v2: Spånga/Reymersholm/SFK tracking after the narrowed striped-kit fix
+kaggle/players_p1c.py 200
+# Tue Sep 29 08:05:13 UTC 2026 P1 v2 check on the other 4 matches
