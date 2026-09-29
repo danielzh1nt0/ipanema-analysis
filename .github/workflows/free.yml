@@ -29,5 +29,5 @@ jobs:
         if: always()
         run: |
           git config user.name "free-bot" && git config user.email "bot@ipanema"
-          git add results/free results/qa 2>/dev/null; git commit -qm "free job results" || echo "nothing"
+          git add results/free results/qa results/ball/scorer 2>/dev/null; git commit -qm "free job results" || echo "nothing"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
