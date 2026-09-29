@@ -1,0 +1,34 @@
+[{"stream_name":"stdout","time":0.948422659,"data":"+ nvidia-smi --query-gpu=name --format=csv; df -h /kaggle/temp /kaggle/working | tail -2\n"}
+,{"stream_name":"stdout","time":1.000356426,"data":"name\n"}
+,{"stream_name":"stdout","time":1.000384177,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.000389794,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.000393937,"data":"Filesystem      Size  Used Avail Use% Mounted on\n"}
+,{"stream_name":"stdout","time":1.000398431,"data":"/dev/loop2       20G  104K   20G   1% /kaggle/working\n"}
+,{"stream_name":"stdout","time":1.00040264,"data":"df: /kaggle/temp: No such file or directory\n"}
+,{"stream_name":"stdout","time":1.000406648,"data":"\n"}
+,{"stream_name":"stdout","time":1.000410495,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":29.90212569,"data":"\n"}
+,{"stream_name":"stdout","time":29.90215917,"data":"+ git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /kaggle/temp/WASB-SBDT\n"}
+,{"stream_name":"stdout","time":30.45548082,"data":"\n"}
+,{"stream_name":"stdout","time":30.455505783,"data":"+ pip install -q gdown omegaconf pyyaml\n"}
+,{"stream_name":"stdout","time":35.934405802,"data":"\n"}
+,{"stream_name":"stdout","time":814.481268598,"data":"      6s device cuda\n"}
+,{"stream_name":"stdout","time":814.48132404,"data":"      8s wasb: downloaded weights -\u003e /kaggle/temp/wroot/models/wasb_soccer_best.pth.tar\n"}
+,{"stream_name":"stdout","time":814.481330569,"data":"     89s p15u-vs-vasalund-2026-09-20: 19 checked balls, video 169354 frames at 29.97 fps, 3.3 GB\n"}
+,{"stream_name":"stdout","time":814.481336046,"data":"    209s p15u-vs-vasalund-2026-09-20: {'checked_balls': 19, 'wasb_peak_on_checked_spot': 3, 'frames_followed_mean': 1.3, 'crops': 234, 'ball': 21, 'not_ball': 213}\n"}
+,{"stream_name":"stdout","time":814.481341811,"data":"    286s p09-norrviken-vs-solheim-2026-08-30: 20 checked balls, video 191778 frames at 29.97 fps, 3.7 GB\n"}
+,{"stream_name":"stdout","time":814.481346761,"data":"    417s p09-norrviken-vs-solheim-2026-08-30: {'checked_balls': 20, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 1.8, 'crops': 301, 'ball': 27, 'not_ball': 274}\n"}
+,{"stream_name":"stdout","time":814.481352066,"data":"    493s p15u-vs-spanga-2026-09-25: 12 checked balls, video 168597 frames at 29.97 fps, 3.3 GB\n"}
+,{"stream_name":"stdout","time":814.481356948,"data":"    570s p15u-vs-spanga-2026-09-25: {'checked_balls': 12, 'wasb_peak_on_checked_spot': 5, 'frames_followed_mean': 6.0, 'crops': 350, 'ball': 43, 'not_ball': 307}\n"}
+,{"stream_name":"stdout","time":814.48136162,"data":"    683s p15u-vs-djursholm-2026-09-26: 14 checked balls, video 214108 frames at 29.97 fps, 4.1 GB\n"}
+,{"stream_name":"stdout","time":814.481366202,"data":"    773s p15u-vs-djursholm-2026-09-26: {'checked_balls': 14, 'wasb_peak_on_checked_spot': 8, 'frames_followed_mean': 8.9, 'crops': 451, 'ball': 69, 'not_ball': 382}\n"}
+,{"stream_name":"stdout","time":814.48137128,"data":"    775s done: 1336 crops, 160 ball\n"}
+,{"stream_name":"stdout","time":814.481376056,"data":"\n"}
+,{"stream_name":"stdout","time":814.481380739,"data":"done 0 13.6 min\n"}
+,{"stream_name":"stderr","time":816.582579717,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":816.58265641,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":816.924861094,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":816.924890165,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":817.575649878,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":818.907692729,"data":"[NbConvertApp] Writing 279688 bytes to __results__.html\n"}
+]
