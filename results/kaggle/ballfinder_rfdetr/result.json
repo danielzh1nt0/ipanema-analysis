@@ -1,0 +1,87 @@
+{
+ "started": "2026-09-29 12:34",
+ "mode": "full",
+ "size": "small",
+ "res": 640,
+ "epochs": 12,
+ "batch": 8,
+ "versions": {
+  "torch": "2.10.0+cu128",
+  "rfdetr": "?",
+  "cuda": true
+ },
+ "matches": {
+  "p15u-vs-vasalund-2026-09-20": {
+   "labels": 1008,
+   "usable": 1008,
+   "frames_used": 1008,
+   "crops": {
+    "train_ball": 963,
+    "train_empty": 240,
+    "valid_ball": 40,
+    "valid_empty": 13
+   },
+   "sec": 35
+  },
+  "p09-norrviken-vs-solheim-2026-08-30": {
+   "labels": 23000,
+   "usable": 23000,
+   "frames_used": 1150,
+   "crops": {
+    "train_ball": 1104,
+    "train_empty": 296,
+    "valid_ball": 46,
+    "valid_empty": 11
+   },
+   "sec": 281
+  },
+  "p15u-vs-spanga-2026-09-25": {
+   "labels": 2613,
+   "usable": 2613,
+   "frames_used": 1150,
+   "crops": {
+    "train_ball": 1104,
+    "train_empty": 277,
+    "valid_ball": 46,
+    "valid_empty": 7
+   },
+   "sec": 61
+  },
+  "p15u-vs-djursholm-2026-09-26": {
+   "labels": 43560,
+   "usable": 43560,
+   "frames_used": 1150,
+   "crops": {
+    "train_ball": 1104,
+    "train_empty": 285,
+    "valid_ball": 46,
+    "valid_empty": 13
+   },
+   "sec": 291
+  }
+ },
+ "minutes": 24.3,
+ "sfk": {
+  "train_clicks": 328,
+  "used": 312,
+  "clip_window_s": [
+   1195,
+   1505
+  ],
+  "exam": 108,
+  "crops": {
+   "train_ball": 708,
+   "train_empty": 142,
+   "valid_ball": 0,
+   "valid_empty": 0
+  }
+ },
+ "crops": {
+  "train_ball": 4983,
+  "train_empty": 1240,
+  "valid_ball": 178,
+  "valid_empty": 44
+ },
+ "ok": false,
+ "error": "        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/lwdetr.py\", line 505, in forward\n    transformer_outputs = self.transformer(\n                          ^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 878, in forward\n    decoder_outputs = self.decoder(\n                      ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1127, in forward\n    output = layer(\n             ^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1776, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py\", line 1787, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1472, in forward\n    return self.forward_post(\n           ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/rfdetr/models/transformer.py\", line 1348, in forward_post\n    tgt2 = self.linear2(self.dropout(self.activation(self.linear1(tgt))))\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/nn/functional.py\", line 1721, in relu\n    result = torch.relu(input)\n             ^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 122.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 66.81 MiB is free. Including non-PyTorch memory, this process has 14.49 GiB memory in use. Of the allocated memory 13.93 GiB is allocated by PyTorch, and 439.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+}
