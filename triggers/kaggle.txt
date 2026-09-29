@@ -1,2 +1,2 @@
-kaggle/players_all.py 330
-# Tue Sep 29 05:46:12 UTC 2026 P2: players on all 6 matches + SFK, 3x60 s each
+kaggle/ballcrops_k1.py 150
+# Tue Sep 29 06:11:38 UTC 2026 K1: ball crops at Daniel's checked balls, 4 good matches
