@@ -2,7 +2,7 @@
 Every person's torso colour (grass removed, in Lab so light and colour are separate) is clustered within ONE match.
 The two biggest groups are the teams; a person far from both team colours is 'other' (referee, keepers, staff).
 Nothing is hard-coded about orange, black or white: a floodlit yellow cast shifts everyone the same way."""
-import numpy as np, cv2
+import os, numpy as np, cv2
 
 def on_grass(frame, box, grass=None, d=22.0):
     """P4: are this person's feet on the pitch? (the strip just below the box is grass-coloured) - no calibration needed;
@@ -58,6 +58,61 @@ def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=Fals
     if len(lab) < min_px: return None
     L, a, b = np.median(lab, axis=0)
     return np.array([L / 2.5, a - 128.0, b - 128.0])                          # lightness counts less than colour (shadows)
+
+def body_hist(frame, box, bins=5):
+    """P8 (29 Sep): colour histogram of the upper body (shirt area incl. its edges), lightness scaled by this frame's grass,
+    square-rooted. A blurred floodlit white shirt has a torso MEDIAN between the kits, but still many bright pixels -
+    the histogram keeps that. 5x5x5 bins (L, a, b)."""
+    x1, y1, x2, y2 = [float(v) for v in box]; w, h = x2 - x1, y2 - y1
+    c = frame[int(max(0, y1 + 0.12 * h)):int(max(0, y1 + 0.55 * h)), int(max(0, x1 + 0.15 * w)):int(max(0, x1 + 0.85 * w)) + 1]
+    if c.size == 0: return None
+    lab = cv2.cvtColor(c, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float); gL = grass_lab(frame)[0]
+    Ln = np.clip(lab[:, 0] / (2 * gL + 1e-6), 0, 0.999); a = np.clip((lab[:, 1] - 88) / 80, 0, 0.999); b = np.clip((lab[:, 2] - 88) / 80, 0, 0.999)
+    idx = (Ln * bins).astype(int) * bins * bins + (a * bins).astype(int) * bins + (b * bins).astype(int)
+    return np.sqrt(np.bincount(idx, minlength=bins ** 3) / len(idx))
+
+def _logreg(X, y, C=10.0, iters=30):
+    """small L2 logistic regression (Newton steps), classes weighted equally; -> (w, b)"""
+    Xb = np.c_[X, np.ones(len(X))]; wt = np.where(y == 1, len(y) / (2 * max(1, y.sum())), len(y) / (2 * max(1, (1 - y).sum())))
+    th = np.zeros(Xb.shape[1]); reg = np.eye(Xb.shape[1]) / C; reg[-1, -1] = 1e-8
+    for _ in range(iters):
+        p = 1 / (1 + np.exp(-np.clip(Xb @ th, -30, 30))); g = Xb.T @ (wt * (p - y)) + reg @ th
+        Hm = (Xb * (wt * p * (1 - p))[:, None]).T @ Xb + reg; step = np.linalg.solve(Hm, g); th -= step
+        if np.abs(step).max() < 1e-6: break
+    return th[:-1], th[-1]
+
+def fit_player_cls(H, lab, ks=(4, 5, 6, 7, 8), seeds=(0, 1, 2), gain=0.05, max_off=0.15):
+    """P8 (29 Sep): per-match team classifier on body_hist, no labels needed. For each k-means run on the histograms of
+    the on-pitch people the colour model reads as a team: team A seed = the biggest group it mostly calls A, team B seed =
+    the biggest group it mostly calls B; a logistic regression is trained on those two groups.
+    Check (both teams have about as many players on the pitch): a run is kept only if its A/B split of these people is
+    nearer 50/50 than the colour model's (by >= 5 points) and within 15 points of 50/50. No run kept -> colour stays.
+    Graded by eye (results/qa/p8): Reymersholm night 239/252 players right vs 195 with colour alone; Spånga unchanged
+    (without the check it got worse, 177 vs 181/279). H: histograms (n, d); lab: 'A'/'B' per person. -> list of (w, b)"""
+    H = np.asarray(H, float); lab = np.asarray(lab); models = []
+    if len(H) < 30 or not ((lab == "A").any() and (lab == "B").any()): return models
+    colour_off = abs((lab == "B").mean() - 0.5)
+    for k in ks:
+        if len(H) < 3 * k: continue
+        for s in seeds:
+            best = None
+            for r in range(4):                                                  # a few restarts, keep the tightest
+                C, cl = _kmeans(H, k, 100 * s + r); cost = ((H - C[cl]) ** 2).sum()
+                if best is None or cost < best[0]: best = (cost, cl)
+            cl = best[1]; sz = np.bincount(cl, minlength=k); order = np.argsort(-sz); vote = {}
+            for c in order:
+                v = lab[cl == c]
+                if len(v): vote[c] = "B" if (v == "B").sum() > (v == "A").sum() else "A"
+            ca = [c for c in order if vote.get(c) == "A"]; cb = [c for c in order if vote.get(c) == "B"]
+            if not ca or not cb: continue
+            idx = np.isin(cl, [ca[0], cb[0]]); w, b = _logreg(H[idx], (cl[idx] == cb[0]).astype(float))
+            off = abs((H @ w + b > 0).mean() - 0.5)
+            if off <= colour_off - gain and off <= max_off: models.append((w, b))
+    return models
+
+def player_cls_prob(models, h):
+    """mean probability (over the voting runs) that this person is team B"""
+    return float(np.mean([1 / (1 + np.exp(-np.clip(h @ w + b, -30, 30))) for w, b in models]))
 
 def _kmeans(X, k, seed=0, iters=40):
     rng = np.random.default_rng(seed); C = X[rng.choice(len(X), k, replace=False)]
@@ -124,7 +179,7 @@ class KitTeamModel:
     """drop-in for teams.TeamModel (predict_batch, dark_share, strips): kits learned from THIS match's frames.
     'A' = the darker team (pipeline convention), 'B' = the lighter, 'K' = neither (referee / keepers / staff)."""
     offpitch = False    # P7: True on grounds with no calibration -> people whose feet are off the pitch read "O" (not counted)
-    def fit_frames(self, frames_boxes, log=print, pitch_only=True, green_kit=False, pitch_test=None):   # pitch_only default since 28 Sep (P4)
+    def fit_frames(self, frames_boxes, log=print, pitch_only=True, green_kit=False, pitch_test=None, player_cls=None):   # pitch_only default since 28 Sep (P4)
         """pitch_test: "edge" (P7, pitch_top/feet_on_pitch) or "grass" (P4 on_grass, wrong at night: dropped 321/414 people
         at Reymersholm, most of them players on the floodlit pitch). Default "grass": kits learned from the people it keeps
         still grade better (195/252 labelled night players vs 149 with "edge", results/qa/p7). Env IPANEMA_PITCH_TEST."""
@@ -141,20 +196,39 @@ class KitTeamModel:
         self.model = fit(feats); ta, tb = self.model["teams"]
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
+        self.cls = []
+        if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
         self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"); return self
-    def _lab(self, f):
+    def _fit_cls(self, frames_boxes, log=print):
+        """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
+        Hs, labs = [], []
+        for f, boxes in frames_boxes:
+            g = grass_lab(f); top = pitch_top(f)
+            for b in boxes:
+                if b[3] - b[1] < 22 or not feet_on_pitch(f, b, top): continue
+                h, c = body_hist(f, b), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit))
+                if h is not None and c in ("A", "B"): Hs.append(h); labs.append(c)
+        self.cls = fit_player_cls(Hs, labs)
+        log(f"kits: per-player classifier from {len(Hs)} on-pitch people, {len(self.cls)} of 15 runs kept" + ("" if self.cls else " -> colour only"))
+    def _colour_lab(self, f):
         c = classify(self.model, f)
         if c is None: return None
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
+    def _lab(self, f, h=None):
+        """colour reading; with the P8 classifier the team (A/B) comes from the body histogram, 'other' still from colour"""
+        c = self._colour_lab(f)
+        if c in ("A", "B") and h is not None and getattr(self, "cls", None): return "B" if player_cls_prob(self.cls, h) > 0.5 else "A"
+        return c
     def predict_batch(self, frame, xyxys):
-        g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None
-        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=getattr(self, "green_kit", False))) for b in xyxys]
+        g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
+        cls = getattr(self, "cls", None)
+        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk), body_hist(frame, b) if cls else None) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}
         for t in ("A", "B"):
-            cs = [cv2.resize(f[int(b[1]):int(b[3]), int(b[0]):int(b[2])], (48, 72)) for f, b, ft in self.samples if self._lab(ft) == t and b[3] - b[1] > 30][:24]
+            cs = [cv2.resize(f[int(b[1]):int(b[3]), int(b[0]):int(b[2])], (48, 72)) for f, b, ft in self.samples if self._lab(ft, body_hist(f, b) if self.cls else None) == t and b[3] - b[1] > 30][:24]
             cs = cs or [np.zeros((72, 48, 3), np.uint8)]
             while len(cs) % 12: cs.append(np.zeros_like(cs[0]))
             self.strips[t] = np.vstack([np.hstack(cs[r:r + 12]) for r in range(0, len(cs), 12)])

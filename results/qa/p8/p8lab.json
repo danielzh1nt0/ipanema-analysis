@@ -1,0 +1,146 @@
+{
+ "grass | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "A/B/K colour only": [
+   237,
+   71,
+   106
+  ],
+  "A/B/K with classifier": [
+   161,
+   147,
+   106
+  ],
+  "team changed": 84,
+  "voting runs": 7,
+  "seconds (both fits)": 5.7,
+  "colour only": {
+   "team right": "195/252",
+   "W read as G": "51/115",
+   "G read as W": "4/137",
+   "others kept out": "29/39"
+  },
+  "with classifier": {
+   "team right": "239/252",
+   "W read as G": "7/115",
+   "G read as W": "4/137",
+   "others kept out": "29/39"
+  }
+ },
+ "edge | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "A/B/K colour only": [
+   158,
+   131,
+   125
+  ],
+  "A/B/K with classifier": [
+   158,
+   131,
+   125
+  ],
+  "team changed": 0,
+  "voting runs": 0,
+  "seconds (both fits)": 4.7,
+  "colour only": {
+   "team right": "149/252",
+   "W read as G": "7/115",
+   "G read as W": "48/137",
+   "others kept out": "25/39"
+  },
+  "with classifier": {
+   "team right": "149/252",
+   "W read as G": "7/115",
+   "G read as W": "48/137",
+   "others kept out": "25/39"
+  }
+ },
+ "grass | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "A/B/K colour only": [
+   214,
+   117,
+   99
+  ],
+  "A/B/K with classifier": [
+   214,
+   117,
+   99
+  ],
+  "team changed": 0,
+  "voting runs": 0,
+  "seconds (both fits)": 4.9,
+  "colour only": {
+   "team right": "181/279",
+   "S read as D": "4/142",
+   "D read as S": "15/137",
+   "others kept out": "15/32"
+  },
+  "with classifier": {
+   "team right": "181/279",
+   "S read as D": "4/142",
+   "D read as S": "15/137",
+   "others kept out": "15/32"
+  }
+ },
+ "edge | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "A/B/K colour only": [
+   196,
+   123,
+   111
+  ],
+  "A/B/K with classifier": [
+   196,
+   123,
+   111
+  ],
+  "team changed": 0,
+  "voting runs": 0,
+  "seconds (both fits)": 5.8,
+  "colour only": {
+   "team right": "156/279",
+   "S read as D": "4/142",
+   "D read as S": "29/137",
+   "others kept out": "15/32"
+  },
+  "with classifier": {
+   "team right": "156/279",
+   "S read as D": "4/142",
+   "D read as S": "29/137",
+   "others kept out": "15/32"
+  }
+ },
+ "grass | SFKBP1109_s1200": {
+  "people": 516,
+  "A/B/K colour only": [
+   206,
+   169,
+   141
+  ],
+  "A/B/K with classifier": [
+   206,
+   169,
+   141
+  ],
+  "team changed": 0,
+  "voting runs": 0,
+  "seconds (both fits)": 4.2
+ },
+ "edge | SFKBP1109_s1200": {
+  "people": 516,
+  "A/B/K colour only": [
+   185,
+   170,
+   161
+  ],
+  "A/B/K with classifier": [
+   185,
+   170,
+   161
+  ],
+  "team changed": 0,
+  "voting runs": 0,
+  "seconds (both fits)": 5.0
+ }
+}
