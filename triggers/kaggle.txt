@@ -1,2 +1,2 @@
-kaggle/scorer_big.py 240
-# Tue Sep 29 11:12:54 UTC 2026
+kaggle/ballfinder_rfdetr_smoke.py 45
+# Tue Sep 29 12:16:48 UTC 2026
