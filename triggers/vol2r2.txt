@@ -1,0 +1,12 @@
+# volume paths copied to R2 (vol/<path>) for free Kaggle jobs - 29 Sep, Daniel: go
+labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json
+labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json
+labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json
+labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json
+labels/SFKBP1109_ball_auto.json
+models/ball/clicks_latest.pt
+models/ball/best.json
+models/wasb_finetuned.pth
+models/wasb_soccer_best.pth.tar
+videos/SFKBP1109/full.mp4
+videos/SFKBP1109.mp4

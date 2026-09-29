@@ -2265,3 +2265,26 @@ def _pipeline_smoke(match_id):
     step("tracking 300 frames", track300)
     out["all_ok"] = all(s["ok"] for s in out["steps"]); out["minutes"] = round((time.time() - t0) / 60, 1)
     return out
+
+
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, secrets=[modal.Secret.from_name("ipanema-storage")])
+def volume_to_r2(paths: list):
+    """29 Sep (Daniel: go): copy files from the Modal volume to R2 under vol/<path> so free Kaggle jobs can use them.
+    Glob patterns allowed. CPU only. Skips files already on R2 with the same size."""
+    import boto3, glob as _g
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    out = {"copied": [], "skipped": [], "missing": []}
+    for p in paths:
+        hits = sorted(_g.glob(f"{ROOT}/{p}")) if any(ch in p for ch in "*?[") else ([f"{ROOT}/{p}"] if os.path.exists(f"{ROOT}/{p}") else [])
+        if not hits: out["missing"].append(p); continue
+        for h in hits:
+            rel = os.path.relpath(h, ROOT); key = f"vol/{rel}"; size = os.path.getsize(h)
+            try:
+                if r2.head_object(Bucket=c["R2_BUCKET"], Key=key)["ContentLength"] == size: out["skipped"].append({"key": key, "MB": round(size / 1e6, 1)}); continue
+            except Exception: pass
+            r2.upload_file(h, c["R2_BUCKET"], key); out["copied"].append({"key": key, "MB": round(size / 1e6, 1)})
+    out["listing_labels"] = sorted(os.path.relpath(x, ROOT) for x in _g.glob(f"{ROOT}/labels/*"))[:200]
+    out["listing_models"] = sorted(os.path.relpath(x, ROOT) for x in _g.glob(f"{ROOT}/models/**", recursive=True) if os.path.isfile(x))[:200]
+    out["public_base"] = c["R2_PUBLIC_URL"].rstrip("/") + "/vol/"
+    return out
