@@ -1,0 +1,18 @@
+[{"stream_name":"stdout","time":37.367347227,"data":"  0.6 min  $ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -\u003e 0 \n"}
+,{"stream_name":"stdout","time":63.75861366,"data":"  1.0 min  $ pip install -q \"rfdetr==1.11.0\" -\u003e 0 ━━━━━━ 35.0/35.0 MB 55.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.758661059,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 23.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.758667661,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 79.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":98.652643933,"data":"[2026-09-29 19:00:18] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":98.652713278,"data":"[2026-09-29 19:00:18] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":99.407016275,"data":"  1.6 min  new ball finder loaded\n"}
+,{"stream_name":"stderr","time":101.114326214,"data":"[2026-09-29 19:00:20] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":129.583311291,"data":"  2.1 min  p15u-vs-reymersholm-2026-09-18: ball 21/23 top guess, 23/23 in top 3; fooled by not-a-ball 0/9\n"}
+,{"stream_name":"stdout","time":139.119394418,"data":"  2.3 min  solberga-vs-p09-norrviken-2026-09-11: ball 6/7 top guess, 6/7 in top 3; fooled by not-a-ball 0/4\n"}
+,{"stream_name":"stdout","time":139.128313019,"data":"  2.3 min  done\n"}
+,{"stream_name":"stderr","time":144.457943624,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":144.457965864,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":144.72220342,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":144.722231262,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":145.361294325,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":146.669445459,"data":"[NbConvertApp] Writing 309463 bytes to __results__.html\n"}
+]
