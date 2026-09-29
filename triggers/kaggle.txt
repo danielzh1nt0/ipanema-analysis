@@ -1,2 +1,2 @@
-kaggle/track_reym.py 120
-# Tue Sep 29 05:02:45 UTC 2026
+kaggle/players_all.py 330
+# Tue Sep 29 05:46:12 UTC 2026 P2: players on all 6 matches + SFK, 3x60 s each
