@@ -11,13 +11,14 @@
 # MODE=smoke: 50 crops, 1 epoch, 3 exam frames.  MODE=full: the real run.
 # LOCAL=1: offline dry run with stand-in files (R2_BASE = a local folder, REPO_DIR = this repo).
 import os, sys, json, time, shutil, subprocess, random, urllib.request, numpy as np
+os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
 R2 = os.environ.get("R2_BASE", "{{R2}}").rstrip("/"); LOCAL = os.environ.get("LOCAL") == "1"; MODE = os.environ.get("MODE", "full")
 WORK = os.environ.get("WORK", "/kaggle/working"); TMP = os.environ.get("TMPD", "/kaggle/temp"); os.makedirs(WORK, exist_ok=True); os.makedirs(TMP, exist_ok=True)
 SMOKE = MODE == "smoke"
 SIZE = os.environ.get("SIZE", "small")                                          # small | medium | base
 PER_MATCH = int(os.environ.get("PER_MATCH", "12" if SMOKE else "1150"))        # ball crops per training match
 SFK_COPIES = int(os.environ.get("SFK_COPIES", "1" if SMOKE else "3"))           # SFK-BP is the exam ground: 3 crops per click
-EPOCHS = int(os.environ.get("EPOCHS", "1" if SMOKE else "12")); BATCH = int(os.environ.get("BATCH", "2" if LOCAL else "8"))
+EPOCHS = int(os.environ.get("EPOCHS", "1" if SMOKE else "12")); BATCH = int(os.environ.get("BATCH", "2" if LOCAL else "4"))   # 8 ran out of T4 memory (29 Sep)
 MAX_TRAIN_H = float(os.environ.get("MAX_TRAIN_H", "0.25" if SMOKE else "2.6"))   # hard stop for training (PTL max_time)
 RES = int(os.environ.get("RES", "640")); CROP = 640; NEG_FRAC = 0.25            # 1 ball-free crop per 4 ball crops = 20% of all
 MATCHES = ["p15u-vs-vasalund-2026-09-20", "p09-norrviken-vs-solheim-2026-08-30", "p15u-vs-spanga-2026-09-25", "p15u-vs-djursholm-2026-09-26"]
@@ -152,6 +153,7 @@ try:
     model = Model(pretrain_weights=None) if os.environ.get("PRETRAIN") == "none" else Model(); OUTD = f"{TMP}/rf_out"; t1 = time.time(); log(f"training RF-DETR {SIZE} at {RES} px, {EPOCHS} epochs, batch {BATCH}, cap {MAX_TRAIN_H} h")
     kw = dict(dataset_dir=DS, dataset_file="yolo", epochs=EPOCHS, batch_size=BATCH, grad_accum_steps=max(1, 16 // BATCH), resolution=RES, output_dir=OUTD,
               num_workers=0 if LOCAL else 4, expanded_scales=False, tensorboard=False, progress_bar=None, checkpoint_interval=100, seed=0, lr_scheduler=os.environ.get("SCHED", "cosine"))
+    if not LOCAL: kw["amp_dtype"] = "fp16"                                       # T4 has no real bf16 ("auto" picked bf16 = slow + more memory)
     if LOCAL: kw["device"] = "cpu"
     model.train(**kw)
     REPORT["train_min"] = round((time.time() - t1) / 60, 1); REPORT["train_images"] = len(os.listdir(f"{DS}/train/images")); REPORT["train_img_per_s"] = round(EPOCHS * REPORT["train_images"] / max(1, time.time() - t1), 2)
