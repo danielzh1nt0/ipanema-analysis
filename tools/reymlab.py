@@ -18,6 +18,10 @@ n = max(n, max(clk) + 1, max(wasb) + 1); H = {k: S_ for k in range(n)}
 per = {int(k): [[pid, t, np.array([px[0] * L / 1920, px[1] * W / 1080]), np.array(px), None, fl] for pid, t, px, fl in v if px is not None] for k, v in rows.items()}
 boxh = {int(k): [h for (pid, t, px, fl), h in zip(rows[k], v) if px is not None] for k, v in bh.items()}
 cands = BL.fuse_candidates(clk, wasb)
+if os.environ.get("BALL") == "rf":                                          # 29 Sep: new RF-DETR ball finder (kaggle/ball_reym.py) fused with WASB, as in the app
+    rf = {}
+    for k, x, y, c in json.load(gzip.open("results/kaggle/ball_reym/ball_cands_rfdetr_reym.json.gz", "rt")): rf.setdefault(int(k), []).append((x, y, c))
+    cands = BL.fuse_candidates(rf, wasb) if os.environ.get("FUSE", "1") == "1" else rf; print(f"ball: RF-DETR guesses on {len(rf)} frames" + (" + WASB" if os.environ.get("FUSE", "1") == "1" else ""))
 ball = BL.bridge(BL.pick_v2(cands, H, L, W, per=per, fps=fps, log=lambda *a: None), fps)
 print(f"{n} frames, ball on {len(ball)}, guesses from clicks {len(clk)} frames / wasb {len(wasb)} frames, box heights {'yes' if boxh else 'NO'}")
 if sys.argv[1] == "strips":
