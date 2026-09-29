@@ -30,6 +30,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - [x] B1b. Re-run B1 and the miss count on FUSED guesses (both finders), not WASB-only: picklab only had WASB guesses locally. Needs the click-finder guess cache for the clip (see Waiting for Daniel).
 - [x] B8. Why the app clip scored 22/34 when the offline fused test scored 25-26/34: compare finder version, stride, far-zoom, cache.
 - [x] B2. Look below the cut-off: at the 8 moments with no guess on the ball, do the finders see the ball weakly? Needs raw heatmaps (only on Modal) -> write what is needed under "Waiting for Daniel".
+- [ ] E6. Re-grade the Reymersholm who-has-the-ball key BLIND (strips without any ball marker), then score old vs new ball. The old key leans to the old ball (results/possession/reym_newball_2026-09-29.md).
 - [ ] P1. Spånga striped kits (P8 found: 79 of 279 Spånga players read as 'neither team', mostly striped ones; key in results/qa/kitprobe/spanga_labels_p8.json): check the re-run (results/qa/tracktest_p15u-vs-spanga-2026-09-25) after the track-vote change; if players are still missing, find out why and fix, re-test on all grounds.
 - [ ] B3. (LOW, after S3; round 8 collapsed on SoccerTrack and Gemini agrees the fisheye view is too different) Prepare SoccerTrack v2 ball labels in pixels (repo script scripts/calibration/project_tracking_to_image.py, ground balls only, check the known y-flip problems). Free runner, HF_TOKEN secret. Output: crops + labels ready for training, plus a picture sheet to check projection.
 - [ ] B4. Grow the ball answer key from 34 to 300+ moments without Daniel clicking: frames where both finders AND the picker agree with high confidence, plus a check sheet Claude grades by eye.
@@ -54,6 +55,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - K1/T0: the full checked ball label sets (Vasalund, Solheim, Spånga, Djursholm: thousands per match) and the fine-tuned WASB are only on the Modal volume. Copying those files out (a download, no GPU) needs your OK to touch Modal; then the scorer can get a fair test on Kaggle for free.
 
 ## Done
+- [x] 29 Sep: Reymersholm who-has-the-ball with the new ball: 23/32 vs 27/32 old, but in 2 of the 4 flipped moments the real ball is at the new pick; the key was graded looking at the old ball's circle -> can't judge. results/possession/reym_newball_2026-09-29.md
 - [x] 29 Sep: B6-lite new ball finder on unseen grounds (Daniel's old yes/no checks, free Kaggle): Reymersholm night 21/23, Solberga 6/7 top guess on the ball; fooled 0/13 by not-a-ball. Leans easy (moments came from old finder). results/ball/grounds_2026-09-29.md
 - [x] 29 Sep: B7 new ball finder (RF-DETR small, trained free on Kaggle on ~5,000 approved balls): exam 84/108 vs 70, ball found 74/81 vs 47/81. In the app (fused with WASB): SFK-BP clip 29/34 vs 22/34. Passes 160 -> 87 (unchecked). ipanema/ballrf.py, ball_rf on Modal.
 - [x] 28 Sep: Kaggle works (free Tesla T4, internet): tools/kaggle_run.py + triggers/kaggle.txt; Reymersholm tracking in 21 min, $0.
