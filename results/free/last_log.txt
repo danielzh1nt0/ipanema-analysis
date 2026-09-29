@@ -1,107 +1,111 @@
-00:45:36 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+04:53:07 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-00:45:47 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+04:53:18 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
 /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
 /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
-[2026-09-29 00:45:52] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
-/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 338k/386M [00:00<01:57, 3.44MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 1.78M/386M [00:00<00:39, 10.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 9.58M/386M [00:00<00:09, 42.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   5%|▍         | 18.0M/386M [00:00<00:07, 54.4MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 26.0M/386M [00:00<00:08, 43.3MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  10%|▉         | 38.0M/386M [00:00<00:05, 62.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 46.0M/386M [00:00<00:06, 58.8MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  15%|█▌        | 58.0M/386M [00:01<00:04, 72.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  18%|█▊        | 68.0M/386M [00:01<00:04, 78.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  20%|█▉        | 76.0M/386M [00:01<00:04, 71.5MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  23%|██▎       | 88.0M/386M [00:01<00:03, 83.4MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  26%|██▋       | 102M/386M [00:01<00:03, 98.5MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  31%|███       | 118M/386M [00:01<00:02, 118MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  35%|███▍      | 134M/386M [00:01<00:02, 131MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  39%|███▉      | 150M/386M [00:01<00:01, 142MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 168M/386M [00:01<00:01, 154MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 185M/386M [00:02<00:01, 162MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 201M/386M [00:02<00:01, 130MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  56%|█████▋    | 218M/386M [00:02<00:01, 142MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  61%|██████    | 235M/386M [00:02<00:01, 152MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  65%|██████▌   | 252M/386M [00:02<00:00, 160MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  70%|██████▉   | 270M/386M [00:02<00:00, 166MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  74%|███████▍  | 287M/386M [00:02<00:00, 170MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  79%|███████▉  | 304M/386M [00:02<00:00, 174MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  83%|████████▎ | 322M/386M [00:02<00:00, 176MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  88%|████████▊ | 339M/386M [00:03<00:00, 179MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 357M/386M [00:03<00:00, 180MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 374M/386M [00:03<00:00, 181MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 123MiB/s]
-[2026-09-29 00:45:56] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
-[2026-09-29 00:45:56] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:45:56] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:45:57] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-29 00:45:59] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-00:46:38 kits: learned from 87 people (446 off the pitch left out), group sizes [41, 24, 16, 6]
-00:46:38 off-pitch people dropped by the pitch-edge test: no
-[2026-09-29 00:46:39] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-29 00:46:39] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:46:39] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:46:40] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 04:53:23] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
+/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 1.31M/386M [00:00<00:29, 13.7MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 8.00M/386M [00:00<00:10, 37.9MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   4%|▍         | 16.0M/386M [00:00<00:08, 44.9MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   6%|▌         | 21.3M/386M [00:00<00:07, 48.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   8%|▊         | 30.0M/386M [00:00<00:06, 59.6MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  10%|█         | 38.9M/386M [00:00<00:05, 69.6MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  13%|█▎        | 49.9M/386M [00:00<00:04, 83.3MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  15%|█▌        | 58.0M/386M [00:01<00:06, 56.0MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 66.0M/386M [00:01<00:05, 59.4MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  20%|██        | 78.4M/386M [00:01<00:04, 75.9MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  24%|██▎       | 91.7M/386M [00:01<00:03, 91.6MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 105M/386M [00:01<00:02, 104MiB/s]  /home/runner/.roboflow/models/rf-detr-medium.pth:  31%|███       | 118M/386M [00:01<00:02, 114MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  34%|███▍      | 132M/386M [00:01<00:02, 122MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 145M/386M [00:01<00:01, 127MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  41%|████      | 158M/386M [00:01<00:01, 131MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  45%|████▍     | 172M/386M [00:02<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 186M/386M [00:02<00:01, 136MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 199M/386M [00:02<00:01, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  55%|█████▌    | 213M/386M [00:02<00:01, 139MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  59%|█████▊    | 226M/386M [00:02<00:01, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 240M/386M [00:02<00:01, 84.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  65%|██████▌   | 253M/386M [00:02<00:01, 95.4MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  69%|██████▊   | 265M/386M [00:02<00:01, 104MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  72%|███████▏  | 279M/386M [00:03<00:01, 112MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  76%|███████▌  | 292M/386M [00:03<00:00, 119MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  79%|███████▉  | 305M/386M [00:03<00:00, 125MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  82%|████████▏ | 318M/386M [00:03<00:00, 120MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  85%|████████▌ | 330M/386M [00:03<00:00, 120MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  89%|████████▊ | 342M/386M [00:03<00:00, 82.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 355M/386M [00:03<00:00, 93.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  95%|█████████▌| 368M/386M [00:03<00:00, 104MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  98%|█████████▊| 380M/386M [00:04<00:00, 102MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:04<00:00, 98.7MiB/s]
+[2026-09-29 04:53:28] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
+[2026-09-29 04:53:28] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 04:53:28] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 04:53:29] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 04:53:30] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+04:54:27 kits: learned from 87 people (446 off the pitch left out), group sizes [41, 24, 16, 6]
+04:54:27 off-pitch people dropped by the pitch-edge test: yes
+[2026-09-29 04:54:28] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 04:54:28] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 04:54:28] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 04:54:29] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
 /home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
   tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-[2026-09-29 00:46:41] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-00:46:42   tracking frame 0
-00:47:34   tracking frame 50 (1.0 frames/s)
-00:48:25   tracking frame 100 (1.0 frames/s)
-00:49:17   tracking frame 150 (1.0 frames/s)
-00:50:08   tracking frame 200 (1.0 frames/s)
-00:51:00   tracking frame 250 (1.0 frames/s)
+[2026-09-29 04:54:30] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+04:54:32   tracking frame 0
+04:55:48   tracking frame 50 (0.6 frames/s)
+04:57:05   tracking frame 100 (0.6 frames/s)
+04:58:22   tracking frame 150 (0.6 frames/s)
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-00:51:51   tracking frame 300 (1.0 frames/s)
-00:52:42   tracking frame 350 (1.0 frames/s)
-00:53:34   tracking frame 400 (1.0 frames/s)
-00:54:25   tracking frame 450 (1.0 frames/s)
-00:55:17   tracking frame 500 (1.0 frames/s)
-00:56:08   tracking frame 550 (1.0 frames/s)
+04:59:38   tracking frame 200 (0.6 frames/s)
+05:00:55   tracking frame 250 (0.7 frames/s)
+05:02:11   tracking frame 300 (0.7 frames/s)
+05:03:27   tracking frame 350 (0.7 frames/s)
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-00:56:58 clean: keeper (right) from a non-team kit: track 73, 56 frames
-00:56:58 clean: removed 1646 rows of non-team kits (referee / staff)
-00:56:58 clean: dropped 0 off-pitch, merged 2 duplicates, stitched 15 ids, keepers [74, 76, 77] -> B defends left
-00:56:58 clean: players per frame median A 6 / B 4, max A 12 / B 8
-00:56:58 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 52, 'median_track_s': {'dark': 2.0, 'light': 2.54}, 'minutes': 11.2, 'filled_rows': 32}
+05:04:43   tracking frame 400 (0.7 frames/s)
+05:05:59   tracking frame 450 (0.7 frames/s)
+05:07:15   tracking frame 500 (0.7 frames/s)
+05:08:31   tracking frame 550 (0.7 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+05:09:44 clean: removed 914 rows of non-team kits (referee / staff)
+05:09:44 clean: dropped 0 off-pitch, merged 0 duplicates, stitched 1 ids, keepers [74, 76, 77] -> B defends left
+05:09:44 clean: players per frame median A 6 / B 3, max A 12 / B 8
+05:09:44 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 3.0}, 'shown_per_frame': {'dark': 6.0, 'light': 3.0}, 'tracks': 48, 'median_track_s': {'dark': 2.17, 'light': 2.97}, 'minutes': 16.4, 'filled_rows': 29}
 | | new, RF-DETR |
 |---|---|
 | dark players per frame (seen) | 6.0 |
-| light players per frame (seen) | 4.0 |
+| light players per frame (seen) | 3.0 |
 | dark per frame incl. filled | 6.0 |
-| light per frame incl. filled | 4.0 |
-| dark: median time a player stays tracked (s) | 2.0 |
-| light: median time tracked (s) | 2.54 |
-| track ids in 20 s | 52 |
+| light per frame incl. filled | 3.0 |
+| dark: median time a player stays tracked (s) | 2.17 |
+| light: median time tracked (s) | 2.97 |
+| track ids in 20 s | 48 |
 pass 0 returncode 0
-00:57:00 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+05:09:45 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-00:57:09 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+05:09:54 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
 /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
 /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
-[2026-09-29 00:57:14] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-29 00:57:14] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:57:14] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:57:15] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-29 00:57:17] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-00:57:55 kits: learned from 87 people (446 off the pitch left out), group sizes [41, 24, 16, 6]
-00:57:55 off-pitch people dropped by the pitch-edge test: yes
-[2026-09-29 00:57:55] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-09-29 00:57:55] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:57:55] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-09-29 00:57:56] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 05:09:59] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 05:09:59] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 05:09:59] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 05:10:00] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 05:10:02] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+05:11:01 kits: per-player classifier from 367 on-pitch people, 12 of 15 runs kept
+05:11:02 kits: learned from 87 people (446 off the pitch left out), group sizes [41, 24, 16, 6]
+05:11:02 off-pitch people dropped by the pitch-edge test: yes
+[2026-09-29 05:11:03] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-09-29 05:11:03] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 05:11:03] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-09-29 05:11:04] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
 /home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
   tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-[2026-09-29 00:57:58] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-00:57:59   tracking frame 0
-00:58:49   tracking frame 50 (1.0 frames/s)
-00:59:40   tracking frame 100 (1.0 frames/s)
-01:00:31   tracking frame 150 (1.0 frames/s)
-01:01:23   tracking frame 200 (1.0 frames/s)
-01:02:14   tracking frame 250 (1.0 frames/s)
+[2026-09-29 05:11:06] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+05:11:07   tracking frame 0
+05:12:24   tracking frame 50 (0.6 frames/s)
+05:13:41   tracking frame 100 (0.6 frames/s)
+05:14:57   tracking frame 150 (0.6 frames/s)
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-01:03:06   tracking frame 300 (1.0 frames/s)
-01:03:58   tracking frame 350 (1.0 frames/s)
-01:04:50   tracking frame 400 (1.0 frames/s)
-01:05:42   tracking frame 450 (1.0 frames/s)
-01:06:34   tracking frame 500 (1.0 frames/s)
-01:07:26   tracking frame 550 (1.0 frames/s)
+05:16:14   tracking frame 200 (0.6 frames/s)
+05:17:30   tracking frame 250 (0.7 frames/s)
+05:18:46   tracking frame 300 (0.7 frames/s)
+05:20:03   tracking frame 350 (0.7 frames/s)
 error: cannot pull with rebase: You have unstaged changes.
 error: Please commit or stash them.
-01:08:17 clean: removed 914 rows of non-team kits (referee / staff)
-01:08:17 clean: dropped 0 off-pitch, merged 0 duplicates, stitched 1 ids, keepers [74, 76, 77] -> B defends left
-01:08:17 clean: players per frame median A 6 / B 4, max A 12 / B 8
-01:08:17 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 51, 'median_track_s': {'dark': 2.04, 'light': 2.54}, 'minutes': 11.1, 'filled_rows': 29}
+05:21:19   tracking frame 400 (0.7 frames/s)
+05:22:35   tracking frame 450 (0.7 frames/s)
+05:23:52   tracking frame 500 (0.7 frames/s)
+05:25:08   tracking frame 550 (0.7 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+05:26:22 clean: removed 914 rows of non-team kits (referee / staff)
+05:26:22 clean: dropped 0 off-pitch, merged 0 duplicates, stitched 4 ids, keepers [74, 76, 77] -> B defends left
+05:26:22 clean: players per frame median A 5 / B 4, max A 10 / B 8
+05:26:22 new, RF-DETR: {'observed_per_frame': {'dark': 5.0, 'light': 4.0}, 'shown_per_frame': {'dark': 5.0, 'light': 4.0}, 'tracks': 40, 'median_track_s': {'dark': 2.84, 'light': 2.97}, 'minutes': 16.5, 'filled_rows': 29}
 | | new, RF-DETR |
 |---|---|
-| dark players per frame (seen) | 6.0 |
+| dark players per frame (seen) | 5.0 |
 | light players per frame (seen) | 4.0 |
-| dark per frame incl. filled | 6.0 |
+| dark per frame incl. filled | 5.0 |
 | light per frame incl. filled | 4.0 |
-| dark: median time a player stays tracked (s) | 2.04 |
-| light: median time tracked (s) | 2.54 |
-| track ids in 20 s | 51 |
+| dark: median time a player stays tracked (s) | 2.84 |
+| light: median time tracked (s) | 2.97 |
+| track ids in 20 s | 40 |
 pass 1 returncode 0
