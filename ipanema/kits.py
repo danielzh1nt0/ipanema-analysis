@@ -170,8 +170,10 @@ def fit(features, k=4, seeds=8, merge_d=18.0, pair=None):
     order = [j for j, t in team_of.items() if t in (0, 1)]
     d = np.minimum(np.linalg.norm(X - ta, axis=1), np.linalg.norm(X - tb, axis=1))
     near = d[np.isin(lab, order)]
+    sep = np.linalg.norm(ta - tb); big = [j for j in range(k) if sizes[j] >= 0.25 * sizes.max()]
+    missed = max([min(np.linalg.norm(C[j] - ta), np.linalg.norm(C[j] - tb)) / max(sep, 1e-6) for j in big] + [0.0])
     return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0,
-            "spreads": _team_spreads(X, lab, team_of, ta, tb)}
+            "spreads": _team_spreads(X, lab, team_of, ta, tb), "missed": float(missed)}
 
 def _team_spreads(X, lab, team_of, ta, tb):
     """P1 (29 Sep): each team's own spread (80th percentile distance of its members to its centre): a striped kit
@@ -201,10 +203,13 @@ class KitTeamModel:
         """pitch_test: "edge" (P7, pitch_top/feet_on_pitch) or "grass" (P4 on_grass, wrong at night: dropped 321/414 people
         at Reymersholm, most of them players on the floodlit pitch). Default "grass": kits learned from the people it keeps
         still grade better (195/252 labelled night players vs 149 with "edge", results/qa/p7). Env IPANEMA_PITCH_TEST."""
-        """P1 (29 Sep): also tries the far-pair rule and a MEAN torso colour (a striped shirt's median jumps between its
-        stripes, so many striped players read as 'neither team'); keeps the one that leaves the fewest of the fitting
-        people as 'neither', only if it beats the default by auto_gain (3 points). Env IPANEMA_KIT_AUTO=0 turns it off."""
-        auto_gain = 0.03
+        """P1 (29 Sep): striped kits. When the default kit fit leaves out a big colour group that is further from both
+        team colours than the two teams are from each other (model["missed"] >= 1: at Spånga the bright striped team was
+        not one of the two teams; SFK 0.36, Reymersholm 0.74), it tries the far-pair rule with the median and with a MEAN
+        torso colour (a striped shirt's median jumps between its stripes) and keeps the one leaving the fewest of the
+        fitting people as 'neither' (must beat the default by 3 points). Env IPANEMA_KIT_AUTO=0 turns it off.
+        A first version that tried the alternatives on every match made SFK and one Reymersholm piece worse on Kaggle."""
+        auto_gain = 0.03; missed_max = 1.0
         pitch_test = pitch_test or os.environ.get("IPANEMA_PITCH_TEST", "grass")
         self.green_kit = green_kit; dropped = 0; kept = []
         for f, boxes in frames_boxes:
@@ -214,12 +219,15 @@ class KitTeamModel:
                 if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
                 kept.append((f, b, g))
         auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
-        combos = [(None, None)] + ([("far", "median"), ("big", "mean"), ("far", "mean")] if auto else [])
-        best = None; self.choice = {}
+        combos = [(None, None), ("far", "median"), ("far", "mean")] if auto else [(None, None)]
+        best = None; self.choice = {}; self.choice_missed = 0.0
         for pair, stat in combos:
+            if self.choice and self.choice_missed < missed_max: break              # default teams look right: keep them
             smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat)) for f, b, g in kept]; smp = [x for x in smp if x[2] is not None]
             if len(smp) < 8: continue
-            m = fit([x[2] for x in smp], pair=pair); other = float(np.mean([classify(m, x[2]) == "other" for x in smp]))
+            m = fit([x[2] for x in smp], pair=pair)
+            if not self.choice: self.choice_missed = m.get("missed", 0.0)
+            other = float(np.mean([classify(m, x[2]) == "other" for x in smp]))
             self.choice[f"{pair or 'default'}/{stat or 'default'}"] = round(other, 3)
             if best is None or other < best[0] - auto_gain: best = (other, m, smp, stat, pair)
         _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]
@@ -228,7 +236,7 @@ class KitTeamModel:
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
         self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"
-                             + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
+                             + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
         """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
         Hs, labs = [], []

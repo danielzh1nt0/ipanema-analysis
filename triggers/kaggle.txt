@@ -1,2 +1,2 @@
-kaggle/players_all.py 30 fetch
-# Tue Sep 29 07:46:11 UTC 2026 P2: fetch the finished all-matches output (results commit lost to a last_log.txt clash)
+kaggle/players_p1b.py 200
+# Tue Sep 29 08:03:35 UTC 2026 P1 v2: Spånga/Reymersholm/SFK tracking after the narrowed striped-kit fix

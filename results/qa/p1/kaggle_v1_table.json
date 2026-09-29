@@ -1,0 +1,161 @@
+{
+ "SFKBP1109_s1200": {
+  "120": {
+   "dark": 11.0,
+   "light": 7.0,
+   "dark_s": 4.64,
+   "light_s": 7.34,
+   "tracks": 102,
+   "minutes": 4.1,
+   "frames": 1798,
+   "too_many": 0.283,
+   "total_p10_p90": [
+    11,
+    21
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 102.0,
+   "kit reading": "far/median"
+  },
+  "20": {
+   "dark": 9.0,
+   "light": 9.0,
+   "dark_s": 3.8,
+   "light_s": 5.27,
+   "tracks": 136,
+   "minutes": 4.1,
+   "frames": 1798,
+   "too_many": 0.154,
+   "total_p10_p90": [
+    15,
+    21
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 136.0,
+   "kit reading": "far/median"
+  },
+  "220": {
+   "dark": 7.0,
+   "light": 9.0,
+   "dark_s": 2.95,
+   "light_s": 6.61,
+   "tracks": 111,
+   "minutes": 4.1,
+   "frames": 1798,
+   "too_many": 0.326,
+   "total_p10_p90": [
+    9,
+    20
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 111.0,
+   "kit reading": "far/mean"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18": {
+  "1190": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 4.4,
+   "light_s": 2.4,
+   "tracks": 80,
+   "minutes": 5.3,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    9,
+    16
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 80.0,
+   "kit reading": "far/median"
+  },
+  "2262": {
+   "dark": 9.0,
+   "light": 6.0,
+   "dark_s": 3.94,
+   "light_s": 3.04,
+   "tracks": 108,
+   "minutes": 5.6,
+   "frames": 1798,
+   "too_many": 0.038,
+   "total_p10_p90": [
+    10,
+    17
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 108.0,
+   "kit reading": "None/None"
+  },
+  "4286": {
+   "dark": 6.0,
+   "light": 5.0,
+   "dark_s": 5.02,
+   "light_s": 2.8,
+   "tracks": 86,
+   "minutes": 5.3,
+   "frames": 1798,
+   "too_many": 0.0,
+   "total_p10_p90": [
+    8,
+    15
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 86.0,
+   "kit reading": "None/None"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25": {
+  "1125": {
+   "dark": 10.0,
+   "light": 8.0,
+   "dark_s": 4.55,
+   "light_s": 4.04,
+   "tracks": 124,
+   "minutes": 4.8,
+   "frames": 1798,
+   "too_many": 0.249,
+   "total_p10_p90": [
+    11,
+    21
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 124.0,
+   "kit reading": "default"
+  },
+  "2137": {
+   "dark": 5.0,
+   "light": 6.0,
+   "dark_s": 3.3,
+   "light_s": 5.82,
+   "tracks": 95,
+   "minutes": 4.3,
+   "frames": 1798,
+   "too_many": 0.021,
+   "total_p10_p90": [
+    7,
+    17
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 95.0,
+   "kit reading": "far/mean"
+  },
+  "4050": {
+   "dark": 9.0,
+   "light": 6.0,
+   "dark_s": 4.1,
+   "light_s": 3.4,
+   "tracks": 125,
+   "minutes": 5.8,
+   "frames": 1798,
+   "too_many": 0.126,
+   "total_p10_p90": [
+    12,
+    18
+   ],
+   "seconds": 60.0,
+   "tracks_per_min": 125.0,
+   "kit reading": "far/median"
+  }
+ }
+}

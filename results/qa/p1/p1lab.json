@@ -61,7 +61,6 @@
    "neither-share tried": {
     "default/default": 0.259,
     "far/median": 0.199,
-    "big/mean": 0.218,
     "far/mean": 0.144
    },
    "right": 233,
@@ -81,10 +80,7 @@
    "classifier runs": 7,
    "reading": "None/None",
    "neither-share tried": {
-    "default/default": 0.161,
-    "far/median": 0.161,
-    "big/mean": 0.161,
-    "far/mean": 0.161
+    "default/default": 0.161
    },
    "right": 239,
    "of": 252,
@@ -96,19 +92,16 @@
   },
   "SFKBP1109_s120": {
    "A/B/neither": [
-    229,
     206,
-    81
+    169,
+    141
    ],
    "classifier runs": 0,
-   "reading": "far/median",
+   "reading": "None/None",
    "neither-share tried": {
-    "default/default": 0.144,
-    "far/median": 0.067,
-    "big/mean": 0.151,
-    "far/mean": 0.07
+    "default/default": 0.144
    },
-   "changed vs now": 60
+   "changed vs now": 0
   }
  },
  "mean": {
