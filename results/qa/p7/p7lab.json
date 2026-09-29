@@ -1,0 +1,178 @@
+{
+ "grass | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "on pitch (kept)": 93,
+  "A/B/K/O": [
+   208,
+   70,
+   27,
+   109
+  ],
+  "old 93 (P5 set)": {
+   "team right": "62/71",
+   "whites read green": "7/31",
+   "greens read white": "1/40",
+   "players read 'neither'": 1,
+   "others kept out": "13/14"
+  },
+  "all 315 labelled": {
+   "team right": "195/252",
+   "whites read green": "51/115",
+   "greens read white": "4/137",
+   "players read 'neither'": 2,
+   "others kept out": "29/39"
+  }
+ },
+ "grass | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "on pitch (kept)": 216,
+  "A/B/K/O": [
+   160,
+   103,
+   99,
+   68
+  ]
+ },
+ "grass | SFKBP1109_s1200": {
+  "people": 516,
+  "on pitch (kept)": 285,
+  "A/B/K/O": [
+   142,
+   135,
+   46,
+   193
+  ]
+ },
+ "grass green_kit | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "on pitch (kept)": 93,
+  "A/B/K/O": [
+   208,
+   70,
+   27,
+   109
+  ],
+  "old 93 (P5 set)": {
+   "team right": "62/71",
+   "whites read green": "7/31",
+   "greens read white": "1/40",
+   "players read 'neither'": 1,
+   "others kept out": "13/14"
+  },
+  "all 315 labelled": {
+   "team right": "195/252",
+   "whites read green": "51/115",
+   "greens read white": "4/137",
+   "players read 'neither'": 2,
+   "others kept out": "29/39"
+  }
+ },
+ "grass green_kit | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "on pitch (kept)": 216,
+  "A/B/K/O": [
+   160,
+   106,
+   96,
+   68
+  ]
+ },
+ "grass green_kit | SFKBP1109_s1200": {
+  "people": 516,
+  "on pitch (kept)": 285,
+  "A/B/K/O": [
+   142,
+   135,
+   46,
+   193
+  ]
+ },
+ "edge | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "on pitch (kept)": 305,
+  "A/B/K/O": [
+   110,
+   124,
+   71,
+   109
+  ],
+  "old 93 (P5 set)": {
+   "team right": "30/71",
+   "whites read green": "3/31",
+   "greens read white": "18/40",
+   "players read 'neither'": 20,
+   "others kept out": "10/14"
+  },
+  "all 315 labelled": {
+   "team right": "149/252",
+   "whites read green": "7/115",
+   "greens read white": "48/137",
+   "players read 'neither'": 48,
+   "others kept out": "25/39"
+  }
+ },
+ "edge | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "on pitch (kept)": 362,
+  "A/B/K/O": [
+   144,
+   108,
+   110,
+   68
+  ]
+ },
+ "edge | SFKBP1109_s1200": {
+  "people": 516,
+  "on pitch (kept)": 323,
+  "A/B/K/O": [
+   131,
+   135,
+   57,
+   193
+  ]
+ },
+ "edge green_kit | p15u-vs-reymersholm-2026-09-18": {
+  "people": 414,
+  "on pitch (kept)": 305,
+  "A/B/K/O": [
+   110,
+   124,
+   71,
+   109
+  ],
+  "old 93 (P5 set)": {
+   "team right": "30/71",
+   "whites read green": "3/31",
+   "greens read white": "18/40",
+   "players read 'neither'": 20,
+   "others kept out": "10/14"
+  },
+  "all 315 labelled": {
+   "team right": "149/252",
+   "whites read green": "7/115",
+   "greens read white": "48/137",
+   "players read 'neither'": 48,
+   "others kept out": "25/39"
+  }
+ },
+ "edge green_kit | p15u-vs-spanga-2026-09-25": {
+  "people": 430,
+  "on pitch (kept)": 362,
+  "A/B/K/O": [
+   144,
+   108,
+   110,
+   68
+  ]
+ },
+ "edge green_kit | SFKBP1109_s1200": {
+  "people": 516,
+  "on pitch (kept)": 323,
+  "A/B/K/O": [
+   131,
+   135,
+   57,
+   193
+  ]
+ }
+}

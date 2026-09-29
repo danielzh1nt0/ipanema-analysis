@@ -14,6 +14,30 @@ def on_grass(frame, box, grass=None, d=22.0):
     lab = cv2.cvtColor(s, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float)
     return bool((np.linalg.norm(lab - g, axis=1) <= d).mean() >= 0.5)
 
+def pitch_top(frame, s=4, chroma_d=14.0, dark=0.45):
+    """P7 (29 Sep): per image column, the row where the pitch's grass ends at the top (far touchline / run-off edge).
+    Grass = colour close to this pitch's grass in a*b* (lightness mostly ignored: floodlit grass mid-pitch is much brighter
+    than the reference, which made on_grass drop almost every on-pitch player at night) and not too dark (fence, hedges,
+    dark ground behind the line). The grass area touching the bottom of the frame is the pitch. No calibration needed."""
+    H, W = frame.shape[:2]; small = cv2.resize(frame, (max(8, W // s), max(8, H // s)), interpolation=cv2.INTER_AREA)
+    lab = cv2.cvtColor(small, cv2.COLOR_BGR2LAB).astype(float); g = grass_lab(frame)
+    m = ((np.hypot(lab[..., 1] - g[1], lab[..., 2] - g[2]) <= chroma_d) & (lab[..., 0] >= dark * g[0])).astype(np.uint8)
+    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8)); m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+    n, lb, st, _ = cv2.connectedComponentsWithStats(m); h, w = m.shape
+    bottom = [i for i in set(lb[h - 1].tolist()) if i > 0]
+    if not bottom: return np.zeros(W)                                          # no grass at the bottom: don't drop anyone
+    comp = lb == max(bottom, key=lambda i: st[i, cv2.CC_STAT_AREA])
+    top = np.where(comp.any(0), comp.argmax(0), h).astype(np.float32)
+    top = cv2.medianBlur(top.reshape(1, -1), 5).ravel()
+    return np.interp(np.arange(W), np.arange(w) * s + s / 2, top * s)
+
+def feet_on_pitch(frame, box, top=None, margin=0.011):
+    """P7: feet at least ~1% of the frame height below the pitch's top edge. Graded by eye on the 24 Reymersholm frames
+    (night): people behind the far line are at or above the edge (median -5 px), players on the pitch well below."""
+    t = pitch_top(frame) if top is None else top
+    x = int(min(len(t) - 1, max(0, (box[0] + box[2]) / 2)))
+    return bool(box[3] - t[x] >= margin * frame.shape[0])
+
 def grass_lab(frame):
     """this pitch's grass colour: median Lab of the lower third of the frame (mostly pitch on the follow-cam)"""
     h = frame.shape[0]; lab = cv2.cvtColor(frame[int(0.66 * h):], cv2.COLOR_BGR2LAB).reshape(-1, 3)[::7].astype(float)
@@ -44,14 +68,35 @@ def _kmeans(X, k, seed=0, iters=40):
         C = C2
     return C, lab
 
-def fit(features, k=4, seeds=8, merge_d=18.0):
-    """-> {"teams": [centre A, centre B], "spread": typical distance of a team member to its centre}"""
+def _fit_far(X, C, lab, sizes, order, merge_d, min_share=0.25, l_weight=0.5):
+    """P7 (29 Sep): team A = biggest colour group; team B = the big group (>= 25% of A's size) LEAST like A. Other groups join
+    the nearer team if close, lightness counting half (sun/shade, floodlit/dark splits of one kit differ mainly in
+    lightness), else they are 'other'. The old rule took the two biggest groups as the teams; at night on Reymersholm
+    those were dark-green and floodlit-green players (same kit) and the whites were pushed out."""
+    a = order[0]; big = [j for j in order[1:] if sizes[j] >= min_share * sizes[a]] or order[1:2]
+    b = max(big, key=lambda j: np.linalg.norm(C[j] - C[a])); team_of = {a: 0, b: 1}
+    w = np.array([l_weight, 1.0, 1.0] + [1.0] * (C.shape[1] - 3))
+    for j in order:
+        if j in team_of or sizes[j] == 0: continue
+        da, db = np.linalg.norm((C[j] - C[a]) * w), np.linalg.norm((C[j] - C[b]) * w)
+        if min(da, db) <= merge_d: team_of[j] = 0 if da <= db else 1
+    ta = X[np.isin(lab, [j for j, t in team_of.items() if t == 0])].mean(0); tb = X[np.isin(lab, [j for j, t in team_of.items() if t == 1])].mean(0)
+    d = np.minimum(np.linalg.norm(X - ta, axis=1), np.linalg.norm(X - tb, axis=1)); near = d[np.isin(lab, list(team_of))]
+    return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0}
+
+def fit(features, k=4, seeds=8, merge_d=18.0, pair=None):
+    """-> {"teams": [centre A, centre B], "spread": typical distance of a team member to its centre}
+    pair: "big" (the two biggest groups, default) or "far" (P7 option: 200 vs 195/252 night players right on Reymersholm,
+    not enough to change the default without a check on the day grounds). Default from IPANEMA_KIT_PAIR."""
+    import os
+    pair = pair or os.environ.get("IPANEMA_KIT_PAIR", "big")
     X = np.array([f for f in features if f is not None], float)
     best = None
     for s in range(seeds):
         C, lab = _kmeans(X, k, s); cost = ((X - C[lab]) ** 2).sum()
         if best is None or cost < best[0]: best = (cost, C, lab)
     _, C, lab = best; sizes = np.bincount(lab, minlength=k); order = list(np.argsort(-sizes))
+    if pair == "far": return _fit_far(X, C, lab, sizes, order, merge_d)
     # a team often splits into two groups (sun/shade, near/far): merge any group whose colour is close to a team's
     team_of = {order[0]: 0}
     for j in order[1:]:
@@ -78,13 +123,19 @@ def classify(model, f, other_factor=2.0):
 class KitTeamModel:
     """drop-in for teams.TeamModel (predict_batch, dark_share, strips): kits learned from THIS match's frames.
     'A' = the darker team (pipeline convention), 'B' = the lighter, 'K' = neither (referee / keepers / staff)."""
-    def fit_frames(self, frames_boxes, log=print, pitch_only=True, green_kit=False):   # pitch_only default since 28 Sep (P4: cleaner on Reymersholm, Spånga, SFK)
+    offpitch = False    # P7: True on grounds with no calibration -> people whose feet are off the pitch read "O" (not counted)
+    def fit_frames(self, frames_boxes, log=print, pitch_only=True, green_kit=False, pitch_test=None):   # pitch_only default since 28 Sep (P4)
+        """pitch_test: "edge" (P7, pitch_top/feet_on_pitch) or "grass" (P4 on_grass, wrong at night: dropped 321/414 people
+        at Reymersholm, most of them players on the floodlit pitch). Default "grass": kits learned from the people it keeps
+        still grade better (195/252 labelled night players vs 149 with "edge", results/qa/p7). Env IPANEMA_PITCH_TEST."""
+        import os
+        pitch_test = pitch_test or os.environ.get("IPANEMA_PITCH_TEST", "grass")
         feats = []; self.samples = []; self.green_kit = green_kit; dropped = 0
         for f, boxes in frames_boxes:
-            g = grass_lab(f)
+            g = grass_lab(f); top = pitch_top(f) if (pitch_only and pitch_test == "edge") else None
             for b in boxes:
                 if b[3] - b[1] < 22: continue
-                if pitch_only and not on_grass(f, b, g): dropped += 1; continue
+                if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
                 ft = torso_feature(f, b, g, green_kit=green_kit)
                 if ft is not None: feats.append(ft); self.samples.append((f, b, ft))
         self.model = fit(feats); ta, tb = self.model["teams"]
@@ -97,7 +148,8 @@ class KitTeamModel:
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
     def predict_batch(self, frame, xyxys):
-        g = grass_lab(frame); return [self._lab(torso_feature(frame, b, g, green_kit=getattr(self, "green_kit", False))) for b in xyxys]
+        g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None
+        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=getattr(self, "green_kit", False))) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}

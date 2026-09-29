@@ -193,6 +193,11 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 tid = tids[j]; v = votes.setdefault(tid, [])
                 if labs[j] is not None: v.append(labs[j]); del v[:-25]; RAW_TEAM[(k, tid)] = labs[j]
                 if not v: continue
+                # P7 (29 Sep): "O" = feet off the pitch (only on grounds without calibration). Not a player this frame;
+                # a track that is mostly off the pitch (bench, parents, coaches along the fence) is dropped altogether
+                if labs[j] == "O" or (v.count("O") >= 0.5 * len(v) and len(v) >= 3): continue
+                v = [x for x in v if x != "O"]
+                if not v: continue
                 # 28 Sep (Spånga, striped kits under floodlights): a player's shirt reads 'neither team' in a third of the checks;
                 # only a track that reads 'neither' most of the time (referee, staff) is 'K', otherwise the majority of its team reads
                 ab = [x for x in v if x in ("A", "B")]

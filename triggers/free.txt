@@ -1,2 +1,2 @@
-tools/who_strips.py results/review/who_moments_reym.json
-# Mon Sep 28 21:52:14 UTC 2026
+tools/p7_track.py
+# Tue Sep 29 00:43:43 UTC 2026
