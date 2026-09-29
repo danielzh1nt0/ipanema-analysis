@@ -23,7 +23,7 @@ print(f"{n} frames, ball on {len(ball)}, guesses from clicks {len(clk)} frames /
 if sys.argv[1] == "strips":
     mom = []; t = 3.0
     while t < 297 and len(mom) < 60: mom.append({"t": round(t, 2), "frame": int(round(t * fps)), "ours": None}); t += 4.9
-    json.dump({"out": "results/qa/who_reym2", "src_key": f"{MATCH}/video.mp4", "offset_frames": int(round(START * fps)), "moments": mom,
+    json.dump({"out": "results/qa/who_reym3", "src_key": f"{MATCH}/video.mp4", "offset_frames": int(round(START * fps)), "moments": mom,
                "players": {str(m["frame"] + d): rows.get(str(m["frame"] + d), []) for m in mom for d in range(-24, 25, 6)},
                "ball": {str(m["frame"] + d): [round(v, 1) for v in ball[m["frame"] + d]] for m in mom for d in range(-24, 25, 6) if m["frame"] + d in ball}},
               open("results/review/who_moments_reym.json", "w"))
