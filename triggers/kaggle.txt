@@ -1,2 +1,2 @@
-kaggle/ballcrops_k1b.py 150
-# Tue Sep 29 06:36:09 UTC 2026 K1b: ball crops, ball followed by picture matching
+kaggle/players_p1.py 30 fetch
+# Tue Sep 29 07:30:47 UTC 2026 P1: fetch the finished Spånga/Reymersholm/SFK output again (results commit lost to a last_log.txt clash)

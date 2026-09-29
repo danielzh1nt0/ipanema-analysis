@@ -1,5 +1,7 @@
 """Run a script on Kaggle's free GPU from the free GitHub runner (28 Sep). No Modal.
-    python tools/kaggle_run.py kaggle/<script>.py [max_minutes]
+    python tools/kaggle_run.py kaggle/<script>.py [max_minutes] [fetch]
+fetch (29 Sep): don't push a new version, only wait for / download the output of the kernel already there
+(a finished job whose results commit was lost).
 Pushes a private GPU+internet script kernel, waits (log every 2 min), downloads its output to results/kaggle/<name>/.
 '{{R2}}' in the script is replaced by the R2 public URL (a public bucket; the kernel is private)."""
 import os, sys, json, time, subprocess, shutil, re
@@ -31,7 +33,8 @@ open(f"{d}/{name}.py", "w").write(code)
 json.dump({"id": kid, "title": slug, "code_file": f"{name}.py", "language": "python", "kernel_type": "script", "is_private": True,
            "enable_gpu": True, "enable_internet": True, "machine_shape": os.environ.get("KAGGLE_GPU", "NvidiaTeslaT4"), "dataset_sources": [], "competition_sources": [], "kernel_sources": []},
           open(f"{d}/kernel-metadata.json", "w"), indent=1)
-print(sh(f"kaggle kernels push -p {d}", check=True), flush=True)
+if "fetch" in sys.argv[3:]: print("fetch only: no new version pushed", flush=True)
+else: print(sh(f"kaggle kernels push -p {d}", check=True), flush=True)
 t0 = time.time(); last = ""
 while True:
     time.sleep(30); st = sh(f"kaggle kernels status {kid}"); low = st.lower()
