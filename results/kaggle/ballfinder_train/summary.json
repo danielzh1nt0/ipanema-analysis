@@ -1,0 +1,10 @@
+{
+ "started": "2026-09-29 08:58",
+ "dry": false,
+ "bar": 70,
+ "train_min": 95.0,
+ "per_match": 4000,
+ "variants": {},
+ "error": "inputs missing on R2 (run the [modal2r2] copy first)",
+ "minutes": 0.7
+}

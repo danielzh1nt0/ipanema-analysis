@@ -1,0 +1,23 @@
+[{"stream_name":"stdout","time":27.257207664,"data":"   0.4 min  $ rm -rf /kaggle/temp/ia \u0026\u0026 git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -\u003e 0 \n"}
+,{"stream_name":"stdout","time":33.910600577,"data":"   0.5 min  $ pip install -q ultralytics==8.3.40 -\u003e 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 898.5/898.5 kB 16.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":33.948058632,"data":"   0.5 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv -\u003e 0 name, memory.total [MiB]\n"}
+,{"stream_name":"stdout","time":33.948086758,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":33.94809187,"data":"Tesla T4, 15360 MiB\n"}
+,{"stream_name":"stdout","time":40.061463983,"data":"Creating new Ultralytics Settings v0.0.6 file ✅ \n"}
+,{"stream_name":"stdout","time":40.061494542,"data":"View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'\n"}
+,{"stream_name":"stdout","time":40.061501237,"data":"Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.\n"}
+,{"stream_name":"stdout","time":40.177278778,"data":"   0.7 min  $ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s' -\u003e 0 repo at fdb1539 K1/T0 step 2 retry: the ball-finder Kaggle push was refused (both free GPU slots busy) and looked finished; kaggle_run.py now waits for a free slot (up to 2 h) and ignores the first-minutes 404. Re-triggered.\n"}
+,{"stream_name":"stdout","time":40.265302408,"data":"   0.7 min  missing on R2: models/ball/clicks_latest.pt (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.341452942,"data":"   0.7 min  missing on R2: models/ball/best.json (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.404470334,"data":"   0.7 min  missing on R2: labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.463647943,"data":"   0.7 min  missing on R2: labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.538969578,"data":"   0.7 min  missing on R2: labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.609878096,"data":"   0.7 min  missing on R2: labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json (\u003cHTTPError 403: 'Forbidden'\u003e)\n"}
+,{"stream_name":"stdout","time":40.610413023,"data":"   0.7 min  inputs missing on R2 (run the [modal2r2] copy first)\n"}
+,{"stream_name":"stderr","time":44.523532054,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":44.523565847,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":44.798673762,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":44.7987003,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":45.425907541,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":46.689927449,"data":"[NbConvertApp] Writing 326769 bytes to __results__.html\n"}
+]

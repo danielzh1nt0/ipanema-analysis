@@ -1,0 +1,13 @@
+   0.4 min  $ rm -rf /kaggle/temp/ia && git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -> 0 
+   0.5 min  $ pip install -q ultralytics==8.3.40 -> 0 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 898.5/898.5 kB 16.5 MB/s eta 0:00:00
+   0.5 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv -> 0 name, memory.total [MiB]
+Tesla T4, 15360 MiB
+Tesla T4, 15360 MiB
+   0.7 min  $ cd /kaggle/temp/ia && git log -1 --format='repo at %h %s' -> 0 repo at fdb1539 K1/T0 step 2 retry: the ball-finder Kaggle push was refused (both free GPU slots busy) and looked finished; kaggle_run.py now waits for a free slot (up to 2 h) and ignores the first-minutes 404. Re-triggered.
+   0.7 min  missing on R2: models/ball/clicks_latest.pt (<HTTPError 403: 'Forbidden'>)
+   0.7 min  missing on R2: models/ball/best.json (<HTTPError 403: 'Forbidden'>)
+   0.7 min  missing on R2: labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json (<HTTPError 403: 'Forbidden'>)
+   0.7 min  missing on R2: labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json (<HTTPError 403: 'Forbidden'>)
+   0.7 min  missing on R2: labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json (<HTTPError 403: 'Forbidden'>)
+   0.7 min  missing on R2: labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json (<HTTPError 403: 'Forbidden'>)
+   0.7 min  inputs missing on R2 (run the [modal2r2] copy first)
