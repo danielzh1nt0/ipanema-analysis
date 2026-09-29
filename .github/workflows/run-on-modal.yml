@@ -313,6 +313,16 @@ jobs:
           python scripts_r2copy.py
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/datasets && git commit -qm "r2 copy" && git pull -q --rebase origin main && git push
+      - name: copy ball labels + finder weights from the volume to R2 (commit tagged [modal2r2] or [modal2r2:dry]) - CPU file copies only, Daniel's OK 29 Sep
+        if: contains(github.event.head_commit.message, '[modal2r2')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python scripts_modal2r2.py
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/datasets && git commit -qm "modal volume -> R2 copy" && for i in 1 2 3; do git pull -q --rebase origin main && git push -q && break; sleep 5; done
       - name: player detection pictures on all footage (commit tagged [playerbench:<ids>]) - CPU
         if: contains(github.event.head_commit.message, '[playerbench:')
         env:

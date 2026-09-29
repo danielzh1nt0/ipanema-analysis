@@ -526,6 +526,19 @@ def copy_to_r2(match_id: str):
     ok = r2.head_object(Bucket=c["R2_BUCKET"], Key=key)["ContentLength"] == size
     return {"match": match_id, "GB": round(size / 1e9, 2), "minutes": round((time.time() - t0) / 60, 1), "verified_same_size": ok, "url": f"{c['R2_PUBLIC_URL'].rstrip('/')}/{key}"}
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=2.0, memory=4096, secrets=[modal.Secret.from_name("ipanema-storage")])
+def volume_to_r2(patterns: list = None, dry: bool = False):
+    """29 Sep (Daniel's OK 10:22, CPU file copies only): list models/ + labels/ on the volume and copy the given volume
+    paths (globs) to R2 under the same keys (models/..., labels/...; a match video -> <match>/video.mp4). Skips files
+    R2 already has at the same size, and never copies Reymersholm/Solberga. No GPU, no training."""
+    import boto3
+    _setup(); from ipanema import r2copy as RC
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    log = []
+    rows = RC.copy(ROOT, patterns or RC.DEFAULT_PATTERNS, r2, c["R2_BUCKET"], c["R2_PUBLIC_URL"], dry=dry, log=lambda m: (log.append(m), print(m, flush=True)))
+    return {"listing": RC.listing(ROOT), "files": rows, "log": log, "dry": dry}
+
 @app.function(timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192)
 def player_bench(match_id: str, n: int = 10):
     """28 Sep: player detection on n frames spread over a whole match, drawn by threshold level (playerbench.py). CPU only."""
