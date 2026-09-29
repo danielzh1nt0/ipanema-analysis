@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 21:13:49 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 21:15:23 UTC
 
 
-## run_match.log (9 lines, last 60)
+## run_match.log (10 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
@@ -11,3 +11,4 @@ players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 wasb: using fine-tuned weights, 2x2 tiles
+  wasb frame 1500
