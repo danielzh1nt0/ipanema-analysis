@@ -1,25 +1,18 @@
-kernel danielmatros/ipanema-ball-reym
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ball-reym
-  0.5 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 12.3 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 16.4 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 18.4 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 20.5 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 24.0 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 26.1 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.RUNNING"
- 26.6 min: danielmatros/ipanema-ball-reym has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/ball_reym/ball_cands_rfdetr_reym.json.gz
-Output file downloaded to results/kaggle/ball_reym/log.txt
-Output file downloaded to results/kaggle/ball_reym/result.json
-Kernel log downloaded to results/kaggle/ball_reym/ipanema-ball-reym.log
-  ball_cands_rfdetr_reym.json.gz 384042
-  ipanema-ball-reym.log 4201
-  log.txt 256
-  result.json 118
-  run.json 153
+kernel danielmatros/ipanema-reym-frames
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-reym-frames
+  0.5 min: danielmatros/ipanema-reym-frames has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/reym_frames/full_5230.jpg
+Output file downloaded to results/kaggle/reym_frames/full_6845.jpg
+Output file downloaded to results/kaggle/reym_frames/full_7579.jpg
+Output file downloaded to results/kaggle/reym_frames/full_8754.jpg
+Output file downloaded to results/kaggle/reym_frames/result.json
+Output file downloaded to results/kaggle/reym_frames/sheet.jpg
+Kernel log downloaded to results/kaggle/reym_frames/ipanema-reym-frames.log
+  full_5230.jpg 338305
+  full_6845.jpg 384088
+  full_7579.jpg 298939
+  full_8754.jpg 386783
+  ipanema-reym-frames.log 800
+  result.json 25
+  run.json 156
+  sheet.jpg 325488
