@@ -1,0 +1,35 @@
+{
+ "models": {
+  "ball_finetuned.pt": 136931130,
+  "ball_train_manifest.json": 26,
+  "pnl_SV_kp": 264964645,
+  "pnl_SV_lines": 264857893,
+  "wasb_finetuned.pth": 6093162,
+  "wasb_finetuned.pth.seed0": 6093162,
+  "wasb_finetuned.pth.seed1": 6093162,
+  "wasb_finetuned.pth.seed2": 6093162,
+  "wasb_soccer_best.pth.tar": 6102633,
+  "wasb_train_manifest.json": 64
+ },
+ "models/ball": {
+  "best.json": 63,
+  "clicks_latest.pt": 136691571,
+  "clicks_v1.pt": 136934707,
+  "round_20260928_0108.pt": 136691571,
+  "round_20260928_0721.pt": 136690035
+ },
+ "labels": {
+  "SFKBP1109_ball_auto.json": 1882138,
+  "SFKBP1109_ball_ds_auto0_st5.zip": 1439593005,
+  "SFKBP1109_ball_ds_auto0_x1.zip": 311723883,
+  "SFKBP1109_ball_ds_auto0_x4.zip": 1534846182,
+  "SFKBP1109_ball_ds_auto4000.zip": 940701002,
+  "p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json": 2075999,
+  "p15u-vs-djursholm-2026-09-26_trainset_clicks.json": 3914617,
+  "p15u-vs-reymersholm-2026-09-18_trainset_clicks.json": 1113227,
+  "p15u-vs-spanga-2026-09-25_trainset_clicks.json": 236755,
+  "p15u-vs-vasalund-2026-09-20_trainset.json": 342621,
+  "p15u-vs-vasalund-2026-09-20_trainset_clicks.json": 89833,
+  "solberga-vs-p09-norrviken-2026-09-11_trainset_clicks.json": 7373
+ }
+}

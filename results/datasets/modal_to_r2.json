@@ -1,0 +1,129 @@
+{
+ "dry": false,
+ "copied_or_present": [
+  {
+   "rel": "labels/p15u-vs-vasalund-2026-09-20_trainset.json",
+   "key": "labels/p15u-vs-vasalund-2026-09-20_trainset.json",
+   "bytes": 342621,
+   "status": "uploaded",
+   "seconds": 1.6,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/p15u-vs-vasalund-2026-09-20_trainset.json"
+  },
+  {
+   "rel": "labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json",
+   "key": "labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json",
+   "bytes": 89833,
+   "status": "uploaded",
+   "seconds": 1.1,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json"
+  },
+  {
+   "rel": "labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json",
+   "key": "labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json",
+   "bytes": 2075999,
+   "status": "uploaded",
+   "seconds": 1.9,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json"
+  },
+  {
+   "rel": "labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json",
+   "key": "labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json",
+   "bytes": 236755,
+   "status": "uploaded",
+   "seconds": 1.4,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json"
+  },
+  {
+   "rel": "labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json",
+   "key": "labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json",
+   "bytes": 3914617,
+   "status": "uploaded",
+   "seconds": 1.2,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json"
+  },
+  {
+   "rel": "labels/SFKBP1109_ball_auto.json",
+   "key": "labels/SFKBP1109_ball_auto.json",
+   "bytes": 1882138,
+   "status": "uploaded",
+   "seconds": 1.1,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/SFKBP1109_ball_auto.json"
+  },
+  {
+   "rel": "labels/SFKBP1109_ball_ds_auto0_st5.zip",
+   "key": "labels/SFKBP1109_ball_ds_auto0_st5.zip",
+   "bytes": 1439593005,
+   "status": "uploaded",
+   "seconds": 24.3,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/SFKBP1109_ball_ds_auto0_st5.zip"
+  },
+  {
+   "rel": "labels/SFKBP1109_ball_ds_auto0_x1.zip",
+   "key": "labels/SFKBP1109_ball_ds_auto0_x1.zip",
+   "bytes": 311723883,
+   "status": "uploaded",
+   "seconds": 6.4,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/SFKBP1109_ball_ds_auto0_x1.zip"
+  },
+  {
+   "rel": "labels/SFKBP1109_ball_ds_auto0_x4.zip",
+   "key": "labels/SFKBP1109_ball_ds_auto0_x4.zip",
+   "bytes": 1534846182,
+   "status": "uploaded",
+   "seconds": 25.4,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/SFKBP1109_ball_ds_auto0_x4.zip"
+  },
+  {
+   "rel": "labels/SFKBP1109_ball_ds_auto4000.zip",
+   "key": "labels/SFKBP1109_ball_ds_auto4000.zip",
+   "bytes": 940701002,
+   "status": "uploaded",
+   "seconds": 16.6,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/labels/SFKBP1109_ball_ds_auto4000.zip"
+  },
+  {
+   "rel": "models/wasb_finetuned.pth",
+   "key": "models/wasb_finetuned.pth",
+   "bytes": 6093162,
+   "status": "uploaded",
+   "seconds": 1.5,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/models/wasb_finetuned.pth"
+  },
+  {
+   "rel": "models/ball/clicks_latest.pt",
+   "key": "models/ball/clicks_latest.pt",
+   "bytes": 136691571,
+   "status": "uploaded",
+   "seconds": 4.5,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/models/ball/clicks_latest.pt"
+  },
+  {
+   "rel": "models/ball/best.json",
+   "key": "models/ball/best.json",
+   "bytes": 63,
+   "status": "uploaded",
+   "seconds": 0.8,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/models/ball/best.json"
+  },
+  {
+   "rel": "models/ball_finetuned.pt",
+   "key": "models/ball_finetuned.pt",
+   "bytes": 136931130,
+   "status": "uploaded",
+   "seconds": 4.3,
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/models/ball_finetuned.pt"
+  },
+  {
+   "rel": "videos/SFKBP1109.mp4",
+   "key": "SFKBP1109/video.mp4",
+   "bytes": 3589482814,
+   "status": "already on R2",
+   "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109/video.mp4"
+  }
+ ],
+ "skipped": [],
+ "missing_patterns": [
+  "videos/SFKBP1109/full.mp4"
+ ],
+ "total_GB": 8.1
+}
