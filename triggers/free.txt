@@ -1,2 +1,2 @@
 tools/k1b_free.py results/free/k1b
-# Tue Sep 29 07:25:09 UTC 2026 K1b: ball crops by picture matching at Daniel's checked balls (CPU)
+# Tue Sep 29 07:33:11 UTC 2026 K1b v2: ball crops by picture matching, start on the ball, no line riding (CPU)
