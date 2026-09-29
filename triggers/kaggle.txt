@@ -1,2 +1,2 @@
-kaggle/ballfinder_rfdetr.py 330
-# Tue Sep 29 13:31:46 UTC 2026
+kaggle/ballcheck_grounds.py 40
+# Tue Sep 29 18:35:38 UTC 2026
