@@ -2,7 +2,9 @@
 ball / not-ball 3-frame crops (ipanema/k1crops.py). Runs on Kaggle's free GPU (kaggle/ballcrops_k1.py); videos from R2.
     R2_PUBLIC_URL=... python tools/k1_crops.py OUT_DIR
 Dry run (stand-in video, random WASB weights, 2 checks per match, frames remapped into the fake video):
-    DRY=1 LOCAL_VIDEO=fake.mp4 python tools/k1_crops.py OUT_DIR"""
+    DRY=1 LOCAL_VIDEO=fake.mp4 python tools/k1_crops.py OUT_DIR
+K1_HOW=template follows the ball by picture matching; K1_PEAKS=<k1_peaks.json.gz> reuses stored WASB peaks (CPU only,
+runs on the free GitHub runner: tools/k1b_free.py)."""
 import os, sys, json, gzip, time, subprocess
 import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,30 +16,36 @@ TMP = os.environ.get("K1_TMP", "/kaggle/temp"); HOW = os.environ.get("K1_HOW", "
 t0 = time.time(); LOG = []
 def log(m): LOG.append(f"{time.time() - t0:7.0f}s {m}"); print(LOG[-1], flush=True)
 
-import torch
-dev = "cuda" if torch.cuda.is_available() else "cpu"; log(f"device {dev}")
-if DRY:                                                         # stand-in: the WASB network with random weights
-    sys.path.insert(0, f"{WB.WASB_DIR}/src"); import yaml
-    from models import build_model; from omegaconf import OmegaConf
-    net = build_model(OmegaConf.create({"model": yaml.safe_load(open(f"{WB.WASB_DIR}/src/configs/model/wasb.yaml"))})).to(dev).eval()
-    weights = "random (dry run)"
+STORED = os.environ.get("K1_PEAKS")                             # WASB peaks from an earlier run (k1_peaks.json.gz): no GPU/torch needed
+if STORED:
+    SP = json.load(gzip.open(STORED, "rt")); weights = f"stored peaks {STORED}"
+    def peaks_for(m, c, fr): return {int(dk): [tuple(p) for p in v] for dk, v in SP[m][str(c["frame"])]["peaks"].items()}
 else:
-    try: WB.ensure(ROOT, log=log)
-    except Exception as e: log(f"WASB weights download FAILED (Google Drive): {e!r}"); json.dump({"error": "wasb weights", "detail": repr(e)[:500], "log": LOG}, open(f"{OUT}/k1_summary.json", "w"), indent=1); sys.exit(1)
-    net = WB._model(ROOT, dev, finetuned=False); weights = "WASB soccer (pretrained, Google Drive)"
-boxes = WB.tile_boxes()
+    import torch
+    dev = "cuda" if torch.cuda.is_available() else "cpu"; log(f"device {dev}")
+    if DRY:                                                         # stand-in: the WASB network with random weights
+        sys.path.insert(0, f"{WB.WASB_DIR}/src"); import yaml
+        from models import build_model; from omegaconf import OmegaConf
+        net = build_model(OmegaConf.create({"model": yaml.safe_load(open(f"{WB.WASB_DIR}/src/configs/model/wasb.yaml"))})).to(dev).eval()
+        weights = "random (dry run)"
+    else:
+        try: WB.ensure(ROOT, log=log)
+        except Exception as e: log(f"WASB weights download FAILED (Google Drive): {e!r}"); json.dump({"error": "wasb weights", "detail": repr(e)[:500], "log": LOG}, open(f"{OUT}/k1_summary.json", "w"), indent=1); sys.exit(1)
+        net = WB._model(ROOT, dev, finetuned=False); weights = "WASB soccer (pretrained, Google Drive)"
+    boxes = WB.tile_boxes()
 
-def wasb_peaks(f3):
-    base = [WB.to_base(f) for f in f3]; h, w = f3[1].shape[:2]; fx, fy = w / WB.BASE[0], h / WB.BASE[1]
-    x = torch.from_numpy(np.stack([WB.crop_stack(base, b) for b in boxes])).to(dev)
-    with torch.no_grad():
-        pred = net(x); pred = list(pred.values())[0] if isinstance(pred, dict) else (pred[0] if isinstance(pred, (list, tuple)) else pred)
-        hms = torch.sigmoid(pred).float().cpu().numpy()
-    if DRY:                                                     # random weights give flat maps: stand-in peaks = bright blobs + one fixed decoy
-        assert hms.shape[0] == len(boxes)
-        n, _, st, cen = cv2.connectedComponentsWithStats((f3[1].min(2) > 240).astype(np.uint8))
-        return [(float(cen[i][0]), float(cen[i][1]), 0.6) for i in range(1, n) if 5 <= st[i][4] < 200] + [(1500.0, 300.0, 0.3)]
-    return [(px * fx, py * fy, sc) for px, py, sc in WB.tiled_local_peaks([hms[t, 1] for t in range(len(boxes))], boxes, 0.05, 30)]
+    def wasb_peaks(f3):
+        base = [WB.to_base(f) for f in f3]; h, w = f3[1].shape[:2]; fx, fy = w / WB.BASE[0], h / WB.BASE[1]
+        x = torch.from_numpy(np.stack([WB.crop_stack(base, b) for b in boxes])).to(dev)
+        with torch.no_grad():
+            pred = net(x); pred = list(pred.values())[0] if isinstance(pred, dict) else (pred[0] if isinstance(pred, (list, tuple)) else pred)
+            hms = torch.sigmoid(pred).float().cpu().numpy()
+        if DRY:                                                     # random weights give flat maps: stand-in peaks = bright blobs + one fixed decoy
+            assert hms.shape[0] == len(boxes)
+            n, _, st, cen = cv2.connectedComponentsWithStats((f3[1].min(2) > 240).astype(np.uint8))
+            return [(float(cen[i][0]), float(cen[i][1]), 0.6) for i in range(1, n) if 5 <= st[i][4] < 200] + [(1500.0, 300.0, 0.3)]
+        return [(px * fx, py * fy, sc) for px, py, sc in WB.tiled_local_peaks([hms[t, 1] for t in range(len(boxes))], boxes, 0.05, 30)]
+    def peaks_for(m, c, fr): return {dk: wasb_peaks((fr[dk - 1], fr[dk], fr[dk + 1])) for dk in range(-WINDOW, WINDOW + 1) if all(j in fr for j in (dk - 1, dk, dk + 1))}
 
 def read_window(cap, k0, W):
     cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, k0 - W - 1)); fr = {}
@@ -62,7 +70,7 @@ for m in K.GOOD:
     n0 = len(X); on_spot = 0; lens = []; PEAKS[m] = {}
     for c in checks:
         fr = read_window(cap, c["frame"], WINDOW)
-        pk = {dk: wasb_peaks((fr[dk - 1], fr[dk], fr[dk + 1])) for dk in range(-WINDOW, WINDOW + 1) if all(j in fr for j in (dk - 1, dk, dk + 1))}
+        pk = peaks_for(m, c, fr)
         x, meta, fol = K.crops_for_check(fr, pk, c, m, WINDOW, n_neg_follow=int(os.environ.get("K1_NEG", "6")), how=HOW)
         X += x; META += meta; on_spot += fol[0][2] >= 0; lens.append(len(fol))
         PEAKS[m][c["frame"]] = {"check": c, "followed": {str(k): [round(v, 2) for v in p] for k, p in fol.items()},
