@@ -1,0 +1,54 @@
+{
+ "how": "template",
+ "window": 12,
+ "weights": "stored peaks results/kaggle/ballcrops_k1/k1_peaks.json.gz",
+ "matches": {
+  "p15u-vs-vasalund-2026-09-20": {
+   "checked_balls": 19,
+   "wasb_peak_on_checked_spot": 3,
+   "frames_followed_mean": 12.1,
+   "crops": 680,
+   "ball": 118,
+   "not_ball": 562
+  },
+  "p09-norrviken-vs-solheim-2026-08-30": {
+   "checked_balls": 20,
+   "wasb_peak_on_checked_spot": 2,
+   "frames_followed_mean": 15.3,
+   "crops": 937,
+   "ball": 158,
+   "not_ball": 779
+  },
+  "p15u-vs-spanga-2026-09-25": {
+   "checked_balls": 12,
+   "wasb_peak_on_checked_spot": 2,
+   "frames_followed_mean": 17.2,
+   "crops": 605,
+   "ball": 107,
+   "not_ball": 498
+  },
+  "p15u-vs-djursholm-2026-09-26": {
+   "checked_balls": 14,
+   "wasb_peak_on_checked_spot": 5,
+   "frames_followed_mean": 17.1,
+   "crops": 651,
+   "ball": 123,
+   "not_ball": 528
+  }
+ },
+ "crops": 2873,
+ "ball": 506,
+ "not_ball": 2367,
+ "minutes": 5.2,
+ "MB": 16.5,
+ "log": [
+  "     63s p15u-vs-vasalund-2026-09-20: 19 checked balls, video 169354 frames at 29.97 fps, 3.3 GB",
+  "     67s p15u-vs-vasalund-2026-09-20: {'checked_balls': 19, 'wasb_peak_on_checked_spot': 3, 'frames_followed_mean': 12.1, 'crops': 680, 'ball': 118, 'not_ball': 562}",
+  "    139s p09-norrviken-vs-solheim-2026-08-30: 20 checked balls, video 191778 frames at 29.97 fps, 3.7 GB",
+  "    143s p09-norrviken-vs-solheim-2026-08-30: {'checked_balls': 20, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 15.3, 'crops': 937, 'ball': 158, 'not_ball': 779}",
+  "    207s p15u-vs-spanga-2026-09-25: 12 checked balls, video 168597 frames at 29.97 fps, 3.3 GB",
+  "    209s p15u-vs-spanga-2026-09-25: {'checked_balls': 12, 'wasb_peak_on_checked_spot': 2, 'frames_followed_mean': 17.2, 'crops': 605, 'ball': 107, 'not_ball': 498}",
+  "    310s p15u-vs-djursholm-2026-09-26: 14 checked balls, video 214108 frames at 29.97 fps, 4.1 GB",
+  "    313s p15u-vs-djursholm-2026-09-26: {'checked_balls': 14, 'wasb_peak_on_checked_spot': 5, 'frames_followed_mean': 17.1, 'crops': 651, 'ball': 123, 'not_ball': 528}"
+ ]
+}
