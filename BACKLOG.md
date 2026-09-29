@@ -54,6 +54,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - K1/T0: the full checked ball label sets (Vasalund, Solheim, Spånga, Djursholm: thousands per match) and the fine-tuned WASB are only on the Modal volume. Copying those files out (a download, no GPU) needs your OK to touch Modal; then the scorer can get a fair test on Kaggle for free.
 
 ## Done
+- [x] 29 Sep: B6-lite new ball finder on unseen grounds (Daniel's old yes/no checks, free Kaggle): Reymersholm night 21/23, Solberga 6/7 top guess on the ball; fooled 0/13 by not-a-ball. Leans easy (moments came from old finder). results/ball/grounds_2026-09-29.md
 - [x] 29 Sep: B7 new ball finder (RF-DETR small, trained free on Kaggle on ~5,000 approved balls): exam 84/108 vs 70, ball found 74/81 vs 47/81. In the app (fused with WASB): SFK-BP clip 29/34 vs 22/34. Passes 160 -> 87 (unchecked). ipanema/ballrf.py, ball_rf on Modal.
 - [x] 28 Sep: Kaggle works (free Tesla T4, internet): tools/kaggle_run.py + triggers/kaggle.txt; Reymersholm tracking in 21 min, $0.
 - [x] 28 Sep: E1/E2 who-has-the-ball key grown to 61 clear moments (Claude by eye); possession_simple 51/61 vs viterbi 27/61, both key halves agree. Option only. results/review/who_2026-09-28.md
