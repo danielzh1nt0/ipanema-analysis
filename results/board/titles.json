@@ -30,5 +30,6 @@
  "P5": "Night games: white players read as the green team",
  "P6": "Night games: find why whites turn green during tracking",
  "P7": "Night games: ignore people standing off the pitch",
- "P8": "Fix white players read as the green team at night"
+ "P8": "Fix white players read as the green team at night",
+ "E4": "Switch the app to the new who-has-the-ball rule"
 }
