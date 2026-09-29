@@ -8,6 +8,8 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - Every change gets a test. Results go into `results/`, committed.
 - If an item needs money or a decision, write it under "Waiting for Daniel" and move on.
 - Plain, short language in anything Daniel reads.
+- Kaggle is free and allowed (Daniel, 29 Sep): GPU jobs go there first (tools/kaggle_run.py via triggers/kaggle.txt, script in kaggle/). Modal still needs Daniel's go.
+- Backup for the nightly check: if results/nightly/<today>.md is missing by the first run after 03:00, push triggers/nightly.txt to start it.
 - After changing this file: run `python tools/build_workboard.py` and republish `results/workboard.html` to Daniel's Work Board (Artifact url https://claude.ai/artifact/2qL3nYH9ryKcj1y9f6Ck3B). New task IDs get a plain title in results/board/titles.json; progress numbers live in results/board/progress.json.
 
 ## Queue (priority order)
@@ -46,7 +48,6 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 
 ## Waiting for Daniel
 - The Kaggle token pasted in chat on 28 Sep should be revoked and replaced (paste the new one only into GitHub).
-- P7/P8: the full 5-min Reymersholm re-run on Kaggle (free, kaggle/track_reym.py) was not started - the scheduled worker only uses the GitHub free runner. It ran a 20-s check there instead. Say go if you want the Kaggle run.
 
 ## Done
 - [x] 28 Sep: Kaggle works (free Tesla T4, internet): tools/kaggle_run.py + triggers/kaggle.txt; Reymersholm tracking in 21 min, $0.
