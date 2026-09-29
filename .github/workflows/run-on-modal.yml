@@ -216,6 +216,19 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add -f results/volume results/ball && git commit -qm "ball crops" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: pipeline smoke test after an image change (commit tagged [smoke]) - GPU a few minutes
+        if: contains(github.event.head_commit.message, '[smoke]')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: |
+          python - <<'PY'
+          import modal, os, json
+          out = modal.Function.from_name("ipanema", "pipeline_smoke").remote()
+          os.makedirs("results/ci", exist_ok=True); json.dump(out, open("results/ci/smoke.json", "w"), indent=1); print(json.dumps(out, indent=1)[:6000])
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/ci/smoke.json && git commit -qm "pipeline smoke test" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: ball probe below the cut-off (commit tagged [ballprobe]) - GPU, a few minutes, approved by Daniel 28 Sep
         if: contains(github.event.head_commit.message, '[ballprobe]')
         env:

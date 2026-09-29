@@ -12,6 +12,7 @@ image = (modal.Image.debian_slim(python_version="3.11")
          .run_commands("git clone -q --depth 1 https://github.com/nttcom/WASB-SBDT.git /content/WASB-SBDT",
                        "git clone -q --depth 1 https://github.com/mguti97/PnLCalib.git /content/PnLCalib")
          .pip_install("lsq-ellipse==2.2.1", "shapely")
+         .pip_install("rfdetr==1.11.0", "supervision>=0.29.0", "transformers>=5.1.0,<6")   # 29 Sep: new player detector (Apache); transformers only fed the old team model
          .run_commands("git clone -q https://github.com/roboflow/sports.git /content/sports && pip install -q -e /content/sports",
                        "cd /content/sports/examples/soccer && bash setup.sh"))
 app = modal.App(APP, image=image)
@@ -2169,3 +2170,55 @@ def ball_round(match_id: str = "SFKBP1109", epochs: int = 60, fast: bool = False
     else: L(f"  not promoted: {s['new']['correct']}/{s['new']['of']} vs current best {best}")
     s["current_best"] = best; vol.commit()
     return {"summary": s, "log": log, "pictures": {k: base64.b64encode(v).decode() for k, v in pics.items()}}
+
+
+@app.function(gpu="L4", timeout=20 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def pipeline_smoke(match_id: str = "SFKBP1109_s1200"):
+    """29 Sep: after the image upgrade (rfdetr, supervision 0.29, transformers 5): every pipeline import + RF-DETR kits on
+    36 real frames + WASB model build + click-finder load + 300 frames of tracking. Minutes of GPU, no upload."""
+    import time, traceback, importlib, numpy as np, cv2
+    out = {"steps": []}; t0 = time.time()
+    def step(name, fn):
+        try: r = fn(); out["steps"].append({"step": name, "ok": True, "info": str(r)[:300], "s": round(time.time() - t0, 1)})
+        except Exception: out["steps"].append({"step": name, "ok": False, "error": traceback.format_exc()[-1500:]})
+    S = _setup()
+    import torch, supervision, transformers
+    out["versions"] = {"torch": torch.__version__, "supervision": supervision.__version__, "transformers": transformers.__version__}
+    for mod in ("run", "tracking", "kits", "ball", "ballclicks", "wasb", "possession", "analytics", "export", "calibration", "linecal", "upload", "teams"):
+        step(f"import {mod}", lambda m=mod: importlib.import_module(f"ipanema.{m}") and "ok")
+    from ipanema import video as V, tracking as TR, kits as KT, wasb as WB
+    video = f"/tmp/work/{match_id}/video.mp4"
+    if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{match_id}.mp4", video)
+    def kits():
+        det = TR.RFDetrPerson("medium"); cap = cv2.VideoCapture(video); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fb = []
+        for j in np.linspace(0, n - 1, 36).astype(int):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, int(j)); ok, f = cap.read()
+            if ok: fb.append((f, np.array([b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy])))
+        tm = KT.KitTeamModel().fit_frames(fb, log=print); return {"people": sum(len(b) for _, b in fb), "sizes": tm.model["sizes"], "dark_share": tm.dark_share}
+    step("RF-DETR + kits on 36 frames", kits)
+    step("WASB model", lambda: (WB.ensure(ROOT), type(WB._model(ROOT, "cuda")).__name__))
+    def clicks():
+        from ultralytics import YOLO
+        m = YOLO(f"{ROOT}/models/ball/clicks_latest.pt"); cap = cv2.VideoCapture(video); ok, f = cap.read()
+        from ipanema import ballclicks as BC; return len(BC.detect(m, f, conf=0.05))
+    step("click ball finder", clicks)
+    def track300():
+        os.environ["IPANEMA_DETECTOR"] = "rfdetr"
+        seg = "/tmp/smoke300.mp4"; cap = cv2.VideoCapture(video); fps = cap.get(cv2.CAP_PROP_FPS); w = None
+        for _ in range(300):
+            ok, f = cap.read()
+            if not ok: break
+            if w is None: w = cv2.VideoWriter(seg, cv2.VideoWriter_fourcc(*"mp4v"), fps, (f.shape[1], f.shape[0]))
+            w.write(f)
+        w.release()
+        det = TR.RFDetrPerson("medium"); fr = []; c2 = cv2.VideoCapture(seg)
+        for j in range(0, 300, 25):
+            c2.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c2.read()
+            if ok: fr.append((f, np.array([b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy])))
+        tm = KT.KitTeamModel().fit_frames(fr, log=lambda *a: None)
+        S_ = np.array([[1920 / 106, 0, 0], [0, 1080 / 64, 0], [0, 0, 1.0]]); H = {k: S_ for k in range(300)}
+        per, fps2 = TR.track(seg, None, H, tm, 0.3, log=print, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False)
+        return {"frames": len(per), "rows_per_frame": round(sum(len(v) for v in per.values()) / max(1, len(per)), 1)}
+    step("tracking 300 frames", track300)
+    out["all_ok"] = all(s["ok"] for s in out["steps"]); out["minutes"] = round((time.time() - t0) / 60, 1)
+    return out

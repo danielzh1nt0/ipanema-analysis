@@ -89,12 +89,22 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         log(f"  debug overlays -> {dbg}")
     except StopIteration: pass
     except Exception as e: log(f"  debug overlays failed: {e!r}")
-    T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
+    os.environ.setdefault("IPANEMA_DETECTOR", "rfdetr")                      # 29 Sep: RF-DETR (Apache) + per-match kits are the default; IPANEMA_DETECTOR=yolo = old path
+    if os.environ["IPANEMA_DETECTOR"] == "rfdetr" and not panorama:
+        from . import kits as KT
+        import cv2 as _cv2
+        _det = TR.RFDetrPerson(os.environ.get("IPANEMA_RFDETR_SIZE", "medium")); _cap = _cv2.VideoCapture(video); _fb = []
+        for _j in np.linspace(0, vi["n"] - 1, 36).astype(int):              # 36 frames: 12 was unstable at night (P6)
+            _cap.set(_cv2.CAP_PROP_POS_FRAMES, int(_j)); _ok, _f = _cap.read()
+            if _ok: _fb.append((_f, np.array([b for b in _det.detect_batch([_f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy])))
+        _cap.release(); tm = KT.KitTeamModel().fit_frames(_fb, log=log); del _det
+    else:
+        T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
     _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
-    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_lines_far.pkl" if _lines else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
+    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_rfdetr_v1.pkl" if os.environ.get("IPANEMA_DETECTOR") == "rfdetr" else f"{cache}/tracks_lines_far.pkl" if _lines else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
     alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if (Hm and not panorama) else None
-    if _lines: alt_trk = None                                                  # far-band detection is new: detect again (old caches missed far players)
+    if _lines or os.environ.get("IPANEMA_DETECTOR") == "rfdetr": alt_trk = None                                                  # far-band detection is new: detect again (old caches missed far players)
     if os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
     elif alt_trk and alt_trk != trk and os.path.exists(alt_trk):
         # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
