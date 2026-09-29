@@ -1,0 +1,98 @@
+{
+ "exam scorer + 0.0 x finder": [
+  [
+   43,
+   81
+  ],
+  [
+   51,
+   81
+  ],
+  [
+   49,
+   81
+  ]
+ ],
+ "exam scorer + 0.5 x finder": [
+  [
+   59,
+   81
+  ],
+  [
+   61,
+   81
+  ],
+  [
+   61,
+   81
+  ]
+ ],
+ "exam scorer + 1.0 x finder": [
+  [
+   65,
+   81
+  ],
+  [
+   66,
+   81
+  ],
+  [
+   65,
+   81
+  ]
+ ],
+ "clip34 scorer + 0.0 x finder": [
+  [
+   13,
+   34
+  ],
+  [
+   15,
+   34
+  ],
+  [
+   15,
+   34
+  ]
+ ],
+ "clip34 scorer + 0.5 x finder": [
+  [
+   20,
+   34
+  ],
+  [
+   20,
+   34
+  ],
+  [
+   20,
+   34
+  ]
+ ],
+ "clip34 scorer + 1.0 x finder": [
+  [
+   22,
+   34
+  ],
+  [
+   23,
+   34
+  ],
+  [
+   22,
+   34
+  ]
+ ],
+ "exam finder score only (baseline)": [
+  [
+   61,
+   81
+  ]
+ ],
+ "clip34 finder score only (baseline)": [
+  [
+   25,
+   34
+  ]
+ ]
+}
