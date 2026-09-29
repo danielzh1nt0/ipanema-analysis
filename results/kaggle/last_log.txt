@@ -1,11 +1,300 @@
-kernel danielmatros/ipanema-ballfinder-train
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ballfinder-train
-  0.5 min: danielmatros/ipanema-ballfinder-train has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-ballfinder-train has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/ballfinder_train/log.txt
-Output file downloaded to results/kaggle/ballfinder_train/summary.json
-Kernel log downloaded to results/kaggle/ballfinder_train/ipanema-ballfinder-train.log
-  ipanema-ballfinder-train.log 3611
-  log.txt 1485
-  run.json 166
-  summary.json 201
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_log.txt
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-djursholm-2026-09-26_5143_summary.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_comparison.md
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_log.txt
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_1130_summary.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_comparison.md
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_log.txt
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_2147_summary.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_comparison.md
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_log.txt
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/p15u-vs-vasalund-2026-09-20_4068_summary.json
+Output file downloaded to results/kaggle/players_p1c/run_info.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_comparison.md
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_log.txt
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_1456_summary.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_comparison.md
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_log.txt
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_2766_summary.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_0256.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_0513.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_0770.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_1026.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_1283.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_1540.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_compare_1797.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_comparison.md
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_log.txt
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_raw_0000.jpg
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_rows_all.json.gz
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_rows_keyframes.json
+Output file downloaded to results/kaggle/players_p1c/solberga-vs-p09-norrviken-2026-09-11_5242_summary.json
+Kernel log downloaded to results/kaggle/players_p1c/ipanema-players-p1c.log
+  ipanema-players-p1c.log 5232
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_0000.jpg 120367
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_0256.jpg 123816
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_0513.jpg 135426
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_0770.jpg 126177
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_1026.jpg 143582
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_1283.jpg 147331
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_1540.jpg 147713
+  p09-norrviken-vs-solheim-2026-08-30_1279_compare_1797.jpg 130334
+  p09-norrviken-vs-solheim-2026-08-30_1279_comparison.md 313
+  p09-norrviken-vs-solheim-2026-08-30_1279_log.txt 3598
+  p09-norrviken-vs-solheim-2026-08-30_1279_new_RF-DETR_kit_A.png 151299
+  p09-norrviken-vs-solheim-2026-08-30_1279_new_RF-DETR_kit_B.png 166140
+  p09-norrviken-vs-solheim-2026-08-30_1279_raw_0000.jpg 166209
+  p09-norrviken-vs-solheim-2026-08-30_1279_rows_all.json.gz 477865
+  p09-norrviken-vs-solheim-2026-08-30_1279_rows_keyframes.json 7717
+  p09-norrviken-vs-solheim-2026-08-30_1279_summary.json 265
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_0000.jpg 117759
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_0256.jpg 125528
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_0513.jpg 131240
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_0770.jpg 119995
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_1026.jpg 123789
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_1283.jpg 131257
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_1540.jpg 124041
+  p09-norrviken-vs-solheim-2026-08-30_2431_compare_1797.jpg 118226
+  p09-norrviken-vs-solheim-2026-08-30_2431_comparison.md 313
+  p09-norrviken-vs-solheim-2026-08-30_2431_log.txt 3643
+  p09-norrviken-vs-solheim-2026-08-30_2431_new_RF-DETR_kit_A.png 150887
+  p09-norrviken-vs-solheim-2026-08-30_2431_new_RF-DETR_kit_B.png 169056
+  p09-norrviken-vs-solheim-2026-08-30_2431_raw_0000.jpg 167404
+  p09-norrviken-vs-solheim-2026-08-30_2431_rows_all.json.gz 474995
+  p09-norrviken-vs-solheim-2026-08-30_2431_rows_keyframes.json 6990
+  p09-norrviken-vs-solheim-2026-08-30_2431_summary.json 265
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_0000.jpg 103020
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_0256.jpg 111897
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_0513.jpg 113469
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_0770.jpg 117807
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_1026.jpg 112753
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_1283.jpg 114961
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_1540.jpg 114036
+  p09-norrviken-vs-solheim-2026-08-30_4607_compare_1797.jpg 103063
+  p09-norrviken-vs-solheim-2026-08-30_4607_comparison.md 313
+  p09-norrviken-vs-solheim-2026-08-30_4607_log.txt 3613
+  p09-norrviken-vs-solheim-2026-08-30_4607_new_RF-DETR_kit_A.png 138562
+  p09-norrviken-vs-solheim-2026-08-30_4607_new_RF-DETR_kit_B.png 151061
+  p09-norrviken-vs-solheim-2026-08-30_4607_raw_0000.jpg 140660
+  p09-norrviken-vs-solheim-2026-08-30_4607_rows_all.json.gz 421758
+  p09-norrviken-vs-solheim-2026-08-30_4607_rows_keyframes.json 6728
+  p09-norrviken-vs-solheim-2026-08-30_4607_summary.json 265
+  p15u-vs-djursholm-2026-09-26_1428_compare_0000.jpg 89915
+  p15u-vs-djursholm-2026-09-26_1428_compare_0256.jpg 108041
+  p15u-vs-djursholm-2026-09-26_1428_compare_0513.jpg 109994
+  p15u-vs-djursholm-2026-09-26_1428_compare_0770.jpg 106639
+  p15u-vs-djursholm-2026-09-26_1428_compare_1026.jpg 104784
+  p15u-vs-djursholm-2026-09-26_1428_compare_1283.jpg 105686
+  p15u-vs-djursholm-2026-09-26_1428_compare_1540.jpg 100266
+  p15u-vs-djursholm-2026-09-26_1428_compare_1797.jpg 113933
+  p15u-vs-djursholm-2026-09-26_1428_comparison.md 315
+  p15u-vs-djursholm-2026-09-26_1428_log.txt 3687
+  p15u-vs-djursholm-2026-09-26_1428_new_RF-DETR_kit_A.png 140532
+  p15u-vs-djursholm-2026-09-26_1428_new_RF-DETR_kit_B.png 156927
+  p15u-vs-djursholm-2026-09-26_1428_raw_0000.jpg 118308
+  p15u-vs-djursholm-2026-09-26_1428_rows_all.json.gz 559010
+  p15u-vs-djursholm-2026-09-26_1428_rows_keyframes.json 7983
+  p15u-vs-djursholm-2026-09-26_1428_summary.json 267
+  p15u-vs-djursholm-2026-09-26_2714_compare_0000.jpg 121784
+  p15u-vs-djursholm-2026-09-26_2714_compare_0256.jpg 124722
+  p15u-vs-djursholm-2026-09-26_2714_compare_0513.jpg 133393
+  p15u-vs-djursholm-2026-09-26_2714_compare_0770.jpg 138979
+  p15u-vs-djursholm-2026-09-26_2714_compare_1026.jpg 140828
+  p15u-vs-djursholm-2026-09-26_2714_compare_1283.jpg 132024
+  p15u-vs-djursholm-2026-09-26_2714_compare_1540.jpg 126847
+  p15u-vs-djursholm-2026-09-26_2714_compare_1797.jpg 138654
+  p15u-vs-djursholm-2026-09-26_2714_comparison.md 312
+  p15u-vs-djursholm-2026-09-26_2714_log.txt 3679
+  p15u-vs-djursholm-2026-09-26_2714_new_RF-DETR_kit_A.png 142568
+  p15u-vs-djursholm-2026-09-26_2714_new_RF-DETR_kit_B.png 159165
+  p15u-vs-djursholm-2026-09-26_2714_raw_0000.jpg 173052
+  p15u-vs-djursholm-2026-09-26_2714_rows_all.json.gz 440119
+  p15u-vs-djursholm-2026-09-26_2714_rows_keyframes.json 6800
+  p15u-vs-djursholm-2026-09-26_2714_summary.json 264
+  p15u-vs-djursholm-2026-09-26_5143_compare_0000.jpg 90058
+  p15u-vs-djursholm-2026-09-26_5143_compare_0256.jpg 101562
+  p15u-vs-djursholm-2026-09-26_5143_compare_0513.jpg 103315
+  p15u-vs-djursholm-2026-09-26_5143_compare_0770.jpg 120059
+  p15u-vs-djursholm-2026-09-26_5143_compare_1026.jpg 114865
+  p15u-vs-djursholm-2026-09-26_5143_compare_1283.jpg 95625
+  p15u-vs-djursholm-2026-09-26_5143_compare_1540.jpg 106218
+  p15u-vs-djursholm-2026-09-26_5143_compare_1797.jpg 114194
+  p15u-vs-djursholm-2026-09-26_5143_comparison.md 313
+  p15u-vs-djursholm-2026-09-26_5143_log.txt 3643
+  p15u-vs-djursholm-2026-09-26_5143_new_RF-DETR_kit_A.png 142916
+  p15u-vs-djursholm-2026-09-26_5143_new_RF-DETR_kit_B.png 162430
+  p15u-vs-djursholm-2026-09-26_5143_raw_0000.jpg 118642
+  p15u-vs-djursholm-2026-09-26_5143_rows_all.json.gz 502000
+  p15u-vs-djursholm-2026-09-26_5143_rows_keyframes.json 7967
+  p15u-vs-djursholm-2026-09-26_5143_summary.json 265
+  p15u-vs-vasalund-2026-09-20_1130_compare_0000.jpg 168036
+  p15u-vs-vasalund-2026-09-20_1130_compare_0256.jpg 148168
+  p15u-vs-vasalund-2026-09-20_1130_compare_0513.jpg 155305
+  p15u-vs-vasalund-2026-09-20_1130_compare_0770.jpg 158265
+  p15u-vs-vasalund-2026-09-20_1130_compare_1026.jpg 161252
+  p15u-vs-vasalund-2026-09-20_1130_compare_1283.jpg 155227
+  p15u-vs-vasalund-2026-09-20_1130_compare_1540.jpg 159581
+  p15u-vs-vasalund-2026-09-20_1130_compare_1797.jpg 157835
+  p15u-vs-vasalund-2026-09-20_1130_comparison.md 311
+  p15u-vs-vasalund-2026-09-20_1130_log.txt 3537
+  p15u-vs-vasalund-2026-09-20_1130_new_RF-DETR_kit_A.png 172501
+  p15u-vs-vasalund-2026-09-20_1130_new_RF-DETR_kit_B.png 173607
+  p15u-vs-vasalund-2026-09-20_1130_raw_0000.jpg 291563
+  p15u-vs-vasalund-2026-09-20_1130_rows_all.json.gz 363094
+  p15u-vs-vasalund-2026-09-20_1130_rows_keyframes.json 5572
+  p15u-vs-vasalund-2026-09-20_1130_summary.json 263
+  p15u-vs-vasalund-2026-09-20_2147_compare_0000.jpg 147266
+  p15u-vs-vasalund-2026-09-20_2147_compare_0256.jpg 191992
+  p15u-vs-vasalund-2026-09-20_2147_compare_0513.jpg 178939
+  p15u-vs-vasalund-2026-09-20_2147_compare_0770.jpg 173312
+  p15u-vs-vasalund-2026-09-20_2147_compare_1026.jpg 162191
+  p15u-vs-vasalund-2026-09-20_2147_compare_1283.jpg 165682
+  p15u-vs-vasalund-2026-09-20_2147_compare_1540.jpg 165088
+  p15u-vs-vasalund-2026-09-20_2147_compare_1797.jpg 180658
+  p15u-vs-vasalund-2026-09-20_2147_comparison.md 312
+  p15u-vs-vasalund-2026-09-20_2147_log.txt 3560
+  p15u-vs-vasalund-2026-09-20_2147_new_RF-DETR_kit_A.png 174977
+  p15u-vs-vasalund-2026-09-20_2147_new_RF-DETR_kit_B.png 170990
+  p15u-vs-vasalund-2026-09-20_2147_raw_0000.jpg 229275
+  p15u-vs-vasalund-2026-09-20_2147_rows_all.json.gz 293163
+  p15u-vs-vasalund-2026-09-20_2147_rows_keyframes.json 4474
+  p15u-vs-vasalund-2026-09-20_2147_summary.json 264
+  p15u-vs-vasalund-2026-09-20_4068_compare_0000.jpg 158997
+  p15u-vs-vasalund-2026-09-20_4068_compare_0256.jpg 153004
+  p15u-vs-vasalund-2026-09-20_4068_compare_0513.jpg 151348
+  p15u-vs-vasalund-2026-09-20_4068_compare_0770.jpg 157858
+  p15u-vs-vasalund-2026-09-20_4068_compare_1026.jpg 161784
+  p15u-vs-vasalund-2026-09-20_4068_compare_1283.jpg 171307
+  p15u-vs-vasalund-2026-09-20_4068_compare_1540.jpg 209172
+  p15u-vs-vasalund-2026-09-20_4068_compare_1797.jpg 171844
+  p15u-vs-vasalund-2026-09-20_4068_comparison.md 312
+  p15u-vs-vasalund-2026-09-20_4068_log.txt 3602
+  p15u-vs-vasalund-2026-09-20_4068_new_RF-DETR_kit_A.png 177546
+  p15u-vs-vasalund-2026-09-20_4068_new_RF-DETR_kit_B.png 175810
+  p15u-vs-vasalund-2026-09-20_4068_raw_0000.jpg 259005
+  p15u-vs-vasalund-2026-09-20_4068_rows_all.json.gz 347951
+  p15u-vs-vasalund-2026-09-20_4068_rows_keyframes.json 5677
+  p15u-vs-vasalund-2026-09-20_4068_summary.json 264
+  run.json 157
+  run_info.json 1086
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_0000.jpg 122662
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_0256.jpg 129190
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_0513.jpg 139712
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_0770.jpg 133539
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_1026.jpg 127728
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_1283.jpg 126925
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_1540.jpg 130541
+  solberga-vs-p09-norrviken-2026-09-11_1456_compare_1797.jpg 128033
+  solberga-vs-p09-norrviken-2026-09-11_1456_comparison.md 310
+  solberga-vs-p09-norrviken-2026-09-11_1456_log.txt 6424
+  solberga-vs-p09-norrviken-2026-09-11_1456_new_RF-DETR_kit_A.png 150701
+  solberga-vs-p09-norrviken-2026-09-11_1456_new_RF-DETR_kit_B.png 157888
+  solberga-vs-p09-norrviken-2026-09-11_1456_raw_0000.jpg 196180
+  solberga-vs-p09-norrviken-2026-09-11_1456_rows_all.json.gz 403851
+  solberga-vs-p09-norrviken-2026-09-11_1456_rows_keyframes.json 6307
+  solberga-vs-p09-norrviken-2026-09-11_1456_summary.json 262
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_0000.jpg 120310
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_0256.jpg 132623
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_0513.jpg 133561
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_0770.jpg 146636
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_1026.jpg 144087
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_1283.jpg 146646
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_1540.jpg 148724
+  solberga-vs-p09-norrviken-2026-09-11_2766_compare_1797.jpg 130524
+  solberga-vs-p09-norrviken-2026-09-11_2766_comparison.md 313
+  solberga-vs-p09-norrviken-2026-09-11_2766_log.txt 3646
+  solberga-vs-p09-norrviken-2026-09-11_2766_new_RF-DETR_kit_A.png 153271
+  solberga-vs-p09-norrviken-2026-09-11_2766_new_RF-DETR_kit_B.png 157366
+  solberga-vs-p09-norrviken-2026-09-11_2766_raw_0000.jpg 182388
+  solberga-vs-p09-norrviken-2026-09-11_2766_rows_all.json.gz 390860
+  solberga-vs-p09-norrviken-2026-09-11_2766_rows_keyframes.json 6298
+  solberga-vs-p09-norrviken-2026-09-11_2766_summary.json 265
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_0000.jpg 138536
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_0256.jpg 149571
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_0513.jpg 137967
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_0770.jpg 131785
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_1026.jpg 144122
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_1283.jpg 150694
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_1540.jpg 155350
+  solberga-vs-p09-norrviken-2026-09-11_5242_compare_1797.jpg 155454
+  solberga-vs-p09-norrviken-2026-09-11_5242_comparison.md 312
+  solberga-vs-p09-norrviken-2026-09-11_5242_log.txt 3631
+  solberga-vs-p09-norrviken-2026-09-11_5242_new_RF-DETR_kit_A.png 164111
+  solberga-vs-p09-norrviken-2026-09-11_5242_new_RF-DETR_kit_B.png 165188
+  solberga-vs-p09-norrviken-2026-09-11_5242_raw_0000.jpg 228751
+  solberga-vs-p09-norrviken-2026-09-11_5242_rows_all.json.gz 354755
+  solberga-vs-p09-norrviken-2026-09-11_5242_rows_keyframes.json 5328
+  solberga-vs-p09-norrviken-2026-09-11_5242_summary.json 264

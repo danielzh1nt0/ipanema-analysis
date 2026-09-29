@@ -1,0 +1,40 @@
+[{"stream_name":"stdout","time":1.218550294,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":1.2549794570000001,"data":"name\n"}
+,{"stream_name":"stdout","time":1.255020881,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.255026071,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":1.255029809,"data":"\n"}
+,{"stream_name":"stdout","time":1.255033158,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":23.499951155,"data":"\n"}
+,{"stream_name":"stdout","time":23.499995557,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":44.427967648,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 4.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428014517,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 27.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428019112,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.6/391.6 kB 20.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428022671,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.8/35.8 MB 57.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428026232,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428029446,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 103.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428032737,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 26.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428036412,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 93.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":44.428039762,"data":"\n"}
+,{"stream_name":"stdout","time":44.42804262,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":44.43223854,"data":"repo at 4ea25b8 P1 v2: Kaggle check on Vasalund, Djursholm, Solberga, Solheim (free)\n"}
+,{"stream_name":"stdout","time":44.432264102,"data":"\n"}
+,{"stream_name":"stdout","time":362.07075245,"data":"solberga-vs-p09-norrviken-2026-09-11_1456 {'returncode': 0, 'minutes': 5.3}\n"}
+,{"stream_name":"stdout","time":658.419024295,"data":"solberga-vs-p09-norrviken-2026-09-11_2766 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":953.254360807,"data":"solberga-vs-p09-norrviken-2026-09-11_5242 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":1252.399457867,"data":"p15u-vs-djursholm-2026-09-26_1428 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":1556.689988105,"data":"p15u-vs-djursholm-2026-09-26_2714 {'returncode': 0, 'minutes': 5.1}\n"}
+,{"stream_name":"stdout","time":1855.221121174,"data":"p15u-vs-djursholm-2026-09-26_5143 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":2152.669098693,"data":"p15u-vs-vasalund-2026-09-20_1130 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":2447.478340108,"data":"p15u-vs-vasalund-2026-09-20_2147 {'returncode': 0, 'minutes': 4.9}\n"}
+,{"stream_name":"stdout","time":2747.742231146,"data":"p15u-vs-vasalund-2026-09-20_4068 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":3140.286691055,"data":"p09-norrviken-vs-solheim-2026-08-30_1279 {'returncode': 0, 'minutes': 6.5}\n"}
+,{"stream_name":"stdout","time":3437.723547775,"data":"p09-norrviken-vs-solheim-2026-08-30_2431 {'returncode': 0, 'minutes': 5.0}\n"}
+,{"stream_name":"stdout","time":3727.545165985,"data":"p09-norrviken-vs-solheim-2026-08-30_4607 {'returncode': 0, 'minutes': 4.8}\n"}
+,{"stream_name":"stdout","time":3727.545565296,"data":"done 62.1 min\n"}
+,{"stream_name":"stderr","time":3729.447046565,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3729.447100513,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3729.662411676,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3729.662439033,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3730.271685491,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3731.428119419,"data":"[NbConvertApp] Writing 290890 bytes to __results__.html\n"}
+]
