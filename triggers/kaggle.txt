@@ -1,2 +1,2 @@
-kaggle/players_p1c.py 200
-# Tue Sep 29 08:05:13 UTC 2026 P1 v2 check on the other 4 matches
+kaggle/ballfinder_train.py 330
+# Tue Sep 29 08:39:15 UTC 2026 K1/T0 step 2: ball finder fine-tune on 4 matches' full label sets (agree / all), graded on the 108 SFK-BP exam frames vs 70/108

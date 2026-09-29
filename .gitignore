@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.pkl
 *.mp4
+results/kaggle/ballfinder_train/*.pt
