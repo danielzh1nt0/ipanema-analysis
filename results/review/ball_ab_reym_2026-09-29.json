@@ -1,0 +1,133 @@
+{
+ "method": "29 Sep, Claude by eye, blind A/B: where old and new ball picks disagree (>30 px), zoomed crops of both picks side by side in random order, graded before the key was opened",
+ "agree_moments": 40,
+ "disagree_moments": 20,
+ "result": {
+  "new": 10,
+  "old": 3,
+  "neither": 1,
+  "unsure": 6
+ },
+ "rows": [
+  {
+   "moment": 1,
+   "graded": "A",
+   "A_was": "old",
+   "right": "old"
+  },
+  {
+   "moment": 10,
+   "graded": "?",
+   "A_was": "old",
+   "right": "unsure"
+  },
+  {
+   "moment": 11,
+   "graded": "?",
+   "A_was": "new",
+   "right": "unsure"
+  },
+  {
+   "moment": 13,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 20,
+   "graded": "A",
+   "A_was": "new",
+   "right": "new"
+  },
+  {
+   "moment": 21,
+   "graded": "?",
+   "A_was": "old",
+   "right": "unsure"
+  },
+  {
+   "moment": 22,
+   "graded": "A",
+   "A_was": "old",
+   "right": "old"
+  },
+  {
+   "moment": 26,
+   "graded": "?",
+   "A_was": "new",
+   "right": "unsure"
+  },
+  {
+   "moment": 28,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 30,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 35,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 40,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 44,
+   "graded": "?",
+   "A_was": "old",
+   "right": "unsure"
+  },
+  {
+   "moment": 45,
+   "graded": "B",
+   "A_was": "new",
+   "right": "old"
+  },
+  {
+   "moment": 46,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  },
+  {
+   "moment": 48,
+   "graded": "none",
+   "A_was": "old",
+   "right": "neither"
+  },
+  {
+   "moment": 51,
+   "graded": "A",
+   "A_was": "new",
+   "right": "new"
+  },
+  {
+   "moment": 52,
+   "graded": "?",
+   "A_was": "new",
+   "right": "unsure"
+  },
+  {
+   "moment": 56,
+   "graded": "A",
+   "A_was": "new",
+   "right": "new"
+  },
+  {
+   "moment": 59,
+   "graded": "B",
+   "A_was": "old",
+   "right": "new"
+  }
+ ]
+}

@@ -9,3 +9,19 @@ ball's spot. The key was graded by eye (Claude) from strips that showed the OLD 
 old ball. Verdict: this key can't judge the new ball. Not a proven regression, not a proven gain.
 
 Fix: re-grade the Reymersholm key blind (strips with no ball marker), then score both balls again.
+
+## E6 blind check (same evening)
+Old and new ball agree (within 30 px) on 40 of the 60 moments. On the 20 where they disagree, zoomed crops of both picks
+were shown side by side in random order (A/B), graded by eye BEFORE opening the key (results/review/ball_ab_reym_2026-09-29.json,
+pictures results/qa/ball_ab_reym/):
+
+| Ball actually at | Moments |
+|---|---|
+| **new pick** | **10** |
+| old pick | 3 |
+| neither | 1 |
+| can't tell | 6 |
+
+Verdict: on Reymersholm (night, never trained on) the new ball is right far more often where the two differ. The 23/32 vs 27/32
+possession score came from the biased key. The possession key itself should be re-graded from blind pictures before it is used again.
+Old pick errors seen: a floodlight is not in this set; the NEW finder's wrong picks included a floodlight (m22) and leaves (m26).
