@@ -43,7 +43,7 @@ def grass_lab(frame):
     h = frame.shape[0]; lab = cv2.cvtColor(frame[int(0.66 * h):], cv2.COLOR_BGR2LAB).reshape(-1, 3)[::7].astype(float)
     return np.median(lab, axis=0)
 
-def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=False):
+def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=False, stat=None):
     """median torso colour with THIS pitch's grass removed (28 Sep: removing all green would delete a green kit).
     green_kit (P4, 28 Sep night): if most of the torso reads as grass, it IS the shirt (green kit under floodlights) ->
     keep those pixels instead of what is left (shorts, numbers, skin looked like the white team)."""
@@ -56,7 +56,10 @@ def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=Fals
     if green_kit and keep.mean() < 0.4 and (~keep).sum() >= min_px: lab = lab[~keep]
     else: lab = lab[keep]
     if len(lab) < min_px: return None
-    L, a, b = np.median(lab, axis=0)
+    stat = stat or os.environ.get("IPANEMA_TORSO_STAT", "median")
+    if stat == "mean": L, a, b = lab.mean(axis=0)
+    elif stat == "trim": lo, hi = np.percentile(lab, [10, 90], axis=0); L, a, b = [lab[(lab[:, i] >= lo[i]) & (lab[:, i] <= hi[i]), i].mean() for i in range(3)]
+    else: L, a, b = np.median(lab, axis=0)
     return np.array([L / 2.5, a - 128.0, b - 128.0])                          # lightness counts less than colour (shadows)
 
 def body_hist(frame, box, bins=5):
@@ -137,7 +140,8 @@ def _fit_far(X, C, lab, sizes, order, merge_d, min_share=0.25, l_weight=0.5):
         if min(da, db) <= merge_d: team_of[j] = 0 if da <= db else 1
     ta = X[np.isin(lab, [j for j, t in team_of.items() if t == 0])].mean(0); tb = X[np.isin(lab, [j for j, t in team_of.items() if t == 1])].mean(0)
     d = np.minimum(np.linalg.norm(X - ta, axis=1), np.linalg.norm(X - tb, axis=1)); near = d[np.isin(lab, list(team_of))]
-    return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0}
+    return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0,
+            "spreads": _team_spreads(X, lab, team_of, ta, tb)}
 
 def fit(features, k=4, seeds=8, merge_d=18.0, pair=None):
     """-> {"teams": [centre A, centre B], "spread": typical distance of a team member to its centre}
@@ -166,12 +170,26 @@ def fit(features, k=4, seeds=8, merge_d=18.0, pair=None):
     order = [j for j, t in team_of.items() if t in (0, 1)]
     d = np.minimum(np.linalg.norm(X - ta, axis=1), np.linalg.norm(X - tb, axis=1))
     near = d[np.isin(lab, order)]
-    return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0}
+    return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0,
+            "spreads": _team_spreads(X, lab, team_of, ta, tb)}
+
+def _team_spreads(X, lab, team_of, ta, tb):
+    """P1 (29 Sep): each team's own spread (80th percentile distance of its members to its centre): a striped kit
+    reads much less steadily than a plain one"""
+    out = []
+    for t, c in ((0, ta), (1, tb)):
+        m = np.isin(lab, [j for j, tt in team_of.items() if tt == t]); dd = np.linalg.norm(X[m] - c, axis=1)
+        out.append(float(np.percentile(dd, 80)) if len(dd) else 10.0)
+    return out
 
 def classify(model, f, other_factor=2.0):
     """'A' / 'B' (index of the team centre) or 'other' when far from both, or None when no colour could be read"""
     if f is None: return None
     ta, tb = model["teams"]; da, db = np.linalg.norm(f - ta), np.linalg.norm(f - tb)
+    if os.environ.get("IPANEMA_KIT_SPREAD", "one") == "team" and "spreads" in model:      # P1 option: per-team spread
+        sa, sb = [max(8.0, other_factor * x) for x in model["spreads"]]
+        if da > sa and db > sb: return "other"
+        return "A" if (da / sa if da > sa or db > sb else da) <= (db / sb if da > sa or db > sb else db) else "B"
     if min(da, db) > max(8.0, other_factor * model["spread"]): return "other"
     return "A" if da <= db else "B"
 
@@ -183,22 +201,34 @@ class KitTeamModel:
         """pitch_test: "edge" (P7, pitch_top/feet_on_pitch) or "grass" (P4 on_grass, wrong at night: dropped 321/414 people
         at Reymersholm, most of them players on the floodlit pitch). Default "grass": kits learned from the people it keeps
         still grade better (195/252 labelled night players vs 149 with "edge", results/qa/p7). Env IPANEMA_PITCH_TEST."""
-        import os
+        """P1 (29 Sep): also tries the far-pair rule and a MEAN torso colour (a striped shirt's median jumps between its
+        stripes, so many striped players read as 'neither team'); keeps the one that leaves the fewest of the fitting
+        people as 'neither', only if it beats the default by auto_gain (3 points). Env IPANEMA_KIT_AUTO=0 turns it off."""
+        auto_gain = 0.03
         pitch_test = pitch_test or os.environ.get("IPANEMA_PITCH_TEST", "grass")
-        feats = []; self.samples = []; self.green_kit = green_kit; dropped = 0
+        self.green_kit = green_kit; dropped = 0; kept = []
         for f, boxes in frames_boxes:
             g = grass_lab(f); top = pitch_top(f) if (pitch_only and pitch_test == "edge") else None
             for b in boxes:
                 if b[3] - b[1] < 22: continue
                 if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
-                ft = torso_feature(f, b, g, green_kit=green_kit)
-                if ft is not None: feats.append(ft); self.samples.append((f, b, ft))
-        self.model = fit(feats); ta, tb = self.model["teams"]
+                kept.append((f, b, g))
+        auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
+        combos = [(None, None)] + ([("far", "median"), ("big", "mean"), ("far", "mean")] if auto else [])
+        best = None; self.choice = {}
+        for pair, stat in combos:
+            smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat)) for f, b, g in kept]; smp = [x for x in smp if x[2] is not None]
+            if len(smp) < 8: continue
+            m = fit([x[2] for x in smp], pair=pair); other = float(np.mean([classify(m, x[2]) == "other" for x in smp]))
+            self.choice[f"{pair or 'default'}/{stat or 'default'}"] = round(other, 3)
+            if best is None or other < best[0] - auto_gain: best = (other, m, smp, stat, pair)
+        _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
-        self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"); return self
+        self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"
+                             + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
         """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
         Hs, labs = [], []
@@ -206,7 +236,7 @@ class KitTeamModel:
             g = grass_lab(f); top = pitch_top(f)
             for b in boxes:
                 if b[3] - b[1] < 22 or not feet_on_pitch(f, b, top): continue
-                h, c = body_hist(f, b), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit))
+                h, c = body_hist(f, b), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit, stat=getattr(self, "stat", None)))
                 if h is not None and c in ("A", "B"): Hs.append(h); labs.append(c)
         self.cls = fit_player_cls(Hs, labs)
         log(f"kits: per-player classifier from {len(Hs)} on-pitch people, {len(self.cls)} of 15 runs kept" + ("" if self.cls else " -> colour only"))
@@ -223,7 +253,7 @@ class KitTeamModel:
     def predict_batch(self, frame, xyxys):
         g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
         cls = getattr(self, "cls", None)
-        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk), body_hist(frame, b) if cls else None) for b in xyxys]
+        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None)), body_hist(frame, b) if cls else None) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}

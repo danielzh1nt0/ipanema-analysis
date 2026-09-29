@@ -1,0 +1,485 @@
+{
+ "before P1 (auto off)": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    214,
+    117,
+    99
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.259
+   },
+   "right": 181,
+   "of": 279,
+   "D neither": 0,
+   "S neither": 79,
+   "wrong team": 19,
+   "others kept out": "15/32"
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    161,
+    147,
+    106
+   ],
+   "classifier runs": 7,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 239,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 11,
+   "others kept out": "29/39"
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    206,
+    169,
+    141
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.144
+   }
+  }
+ },
+ "P1 auto choice (new default)": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    242,
+    113,
+    75
+   ],
+   "classifier runs": 0,
+   "reading": "far/mean",
+   "neither-share tried": {
+    "default/default": 0.259,
+    "far/median": 0.199,
+    "big/mean": 0.218,
+    "far/mean": 0.144
+   },
+   "right": 233,
+   "of": 279,
+   "D neither": 1,
+   "S neither": 30,
+   "wrong team": 15,
+   "others kept out": "16/32",
+   "changed vs now": 177
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    161,
+    147,
+    106
+   ],
+   "classifier runs": 7,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161,
+    "far/median": 0.161,
+    "big/mean": 0.161,
+    "far/mean": 0.161
+   },
+   "right": 239,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 11,
+   "others kept out": "29/39",
+   "changed vs now": 0
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    229,
+    206,
+    81
+   ],
+   "classifier runs": 0,
+   "reading": "far/median",
+   "neither-share tried": {
+    "default/default": 0.144,
+    "far/median": 0.067,
+    "big/mean": 0.151,
+    "far/mean": 0.07
+   },
+   "changed vs now": 60
+  }
+ },
+ "mean": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    187,
+    129,
+    114
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.218
+   },
+   "right": 189,
+   "of": 279,
+   "D neither": 2,
+   "S neither": 68,
+   "wrong team": 20,
+   "others kept out": "17/32",
+   "changed vs now": 55
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    163,
+    142,
+    109
+   ],
+   "classifier runs": 9,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 238,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 12,
+   "others kept out": "30/39",
+   "changed vs now": 20
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    192,
+    190,
+    134
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.151
+   },
+   "changed vs now": 43
+  }
+ },
+ "trimmed mean": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    191,
+    135,
+    104
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.218
+   },
+   "right": 185,
+   "of": 279,
+   "D neither": 0,
+   "S neither": 70,
+   "wrong team": 24,
+   "others kept out": "16/32",
+   "changed vs now": 41
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    166,
+    144,
+    104
+   ],
+   "classifier runs": 4,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 233,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 17,
+   "others kept out": "27/39",
+   "changed vs now": 15
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    199,
+    184,
+    133
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.133
+   },
+   "changed vs now": 28
+  }
+ },
+ "per-team spread": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    214,
+    123,
+    93
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.245
+   },
+   "right": 186,
+   "of": 279,
+   "D neither": 0,
+   "S neither": 74,
+   "wrong team": 19,
+   "others kept out": "15/32",
+   "changed vs now": 6
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    166,
+    144,
+    104
+   ],
+   "classifier runs": 8,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.151
+   },
+   "right": 238,
+   "of": 252,
+   "G neither": 0,
+   "W neither": 2,
+   "wrong team": 12,
+   "others kept out": "28/39",
+   "changed vs now": 15
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    155,
+    213,
+    148
+   ],
+   "classifier runs": 1,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.189
+   },
+   "changed vs now": 104
+  }
+ },
+ "mean + per-team spread": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    183,
+    151,
+    96
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.171
+   },
+   "right": 208,
+   "of": 279,
+   "D neither": 2,
+   "S neither": 49,
+   "wrong team": 20,
+   "others kept out": "16/32",
+   "changed vs now": 79
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    166,
+    146,
+    102
+   ],
+   "classifier runs": 4,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 233,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 17,
+   "others kept out": "27/39",
+   "changed vs now": 15
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    169,
+    199,
+    148
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.175
+   },
+   "changed vs now": 67
+  }
+ },
+ "trim + per-team spread": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    184,
+    154,
+    92
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.181
+   },
+   "right": 201,
+   "of": 279,
+   "D neither": 1,
+   "S neither": 53,
+   "wrong team": 24,
+   "others kept out": "17/32",
+   "changed vs now": 62
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    166,
+    146,
+    102
+   ],
+   "classifier runs": 4,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 233,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 17,
+   "others kept out": "27/39",
+   "changed vs now": 15
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    180,
+    192,
+    144
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.158
+   },
+   "changed vs now": 49
+  }
+ },
+ "far + mean": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    242,
+    113,
+    75
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.144
+   },
+   "right": 233,
+   "of": 279,
+   "D neither": 1,
+   "S neither": 30,
+   "wrong team": 15,
+   "others kept out": "16/32",
+   "changed vs now": 177
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    163,
+    142,
+    109
+   ],
+   "classifier runs": 9,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 238,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 12,
+   "others kept out": "30/39",
+   "changed vs now": 20
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    238,
+    199,
+    79
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.07
+   },
+   "changed vs now": 62
+  }
+ },
+ "far + mean + per-team spread": {
+  "p15u-vs-spanga": {
+   "A/B/neither": [
+    226,
+    147,
+    57
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.056
+   },
+   "right": 253,
+   "of": 279,
+   "D neither": 4,
+   "S neither": 8,
+   "wrong team": 14,
+   "others kept out": "9/32",
+   "changed vs now": 177
+  },
+  "p15u-vs-reymer": {
+   "A/B/neither": [
+    166,
+    146,
+    102
+   ],
+   "classifier runs": 4,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.161
+   },
+   "right": 233,
+   "of": 252,
+   "G neither": 1,
+   "W neither": 1,
+   "wrong team": 17,
+   "others kept out": "27/39",
+   "changed vs now": 15
+  },
+  "SFKBP1109_s120": {
+   "A/B/neither": [
+    245,
+    196,
+    75
+   ],
+   "classifier runs": 0,
+   "reading": "None/None",
+   "neither-share tried": {
+    "default/default": 0.063
+   },
+   "changed vs now": 66
+  }
+ }
+}
