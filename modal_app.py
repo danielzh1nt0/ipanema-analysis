@@ -231,7 +231,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
     cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}")]
     todo = [p for p in plan_ if p not in cached]
-    detected = lambda p: (os.path.exists(f"{cdir(p)}/tracks_kp.pkl") or bool(glob.glob(f"{cdir(p)}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{cdir(p)}/ball_cands_wasb_*_t2x2.pkl"))
+    detected = lambda p: (os.path.exists(f"{cdir(p)}/tracks_kp.pkl") or os.path.exists(f"{cdir(p)}/tracks_rfdetr_v1.pkl") or bool(glob.glob(f"{cdir(p)}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{cdir(p)}/ball_cands_wasb_*_t2x2*.pkl"))
     cpu_todo = [p for p in todo if detected(p)]; gpu_todo = [p for p in todo if not detected(p)]
     log(f"pieces: {len(cached)} already processed, {len(cpu_todo)} to finish on CPU (detections saved), {len(gpu_todo)} need a GPU")
     res = [{"i": p["i"], "ok": True, "path": f"{cdir(p)}/{PIECE_FILE}", "log": ["cached"], "images": {}} for p in cached]
@@ -289,7 +289,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
            "picker_gt": [p for p in (f"{ROOT}/reference/{match_id}/ball_gt.json", f"{ROOT}/reference/{match_id}b/ball_gt.json") if os.path.exists(p)]}
     # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)
     gt = {}
-    for d in glob.glob(f"{ROOT}/reference/{match_id}_s*/ball_gt.json"):
+    for d in glob.glob(f"{ROOT}/reference/{match_id}_s*/ball_gt.json") + [g for g in glob.glob(f"/content/ipanema-analysis/reference/{match_id}_s*/ball_gt.json") if not os.path.exists(g.replace("/content/ipanema-analysis", ROOT))]:   # 1 Oct: + keys kept in the repo (AIK)
         start = int(d.split("_s")[-1].split("/")[0]); tmp = f"/tmp/gt_{start}.json"; FM.remap_gt(d, start, fps, tmp); gt.update(json.load(open(tmp)))
     gt_path = None
     if gt: gt_path = "/tmp/gt_full.json"; json.dump(gt, open(gt_path, "w")); log(f"ball check: {len(gt)} held-out test frames mapped into the full match")
@@ -554,6 +554,92 @@ def ball_rf(match_id: str = "SFKBP1109_s1200", smoke_frames: int = 0):
                 "frames_per_s": round(n / max(1, time.time() - t0), 1), "log": logs[-10:], "rows": rows}
     except BaseException:
         return {"ok": False, "error": traceback.format_exc()[-5000:], "log": logs[-15:]}
+
+
+def _full_video(match_id):
+    """the same full video run_full uses (panorama clips: the cropped Veo player area)"""
+    return next((p for p in (f"{ROOT}/videos/{match_id}/full_cropped.mp4", f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
+
+@app.function(gpu="L4", image=image_rf, timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def rf_kits(match_id: str, spans_s: list):
+    """1 Oct: ONE team-colour model for a whole match (36 frames spread over the playing time), so every 5-min piece
+    labels the teams the same way (per-piece models number teams by group size and could swap A/B between pieces)."""
+    import subprocess, sys, pickle, time, numpy as np, cv2, traceback
+    t0 = time.time(); logs = []; L_ = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    try:
+        subprocess.run(f"rm -rf /content/ia && git clone -q --depth 1 {REPO} /content/ia", shell=True, check=True); sys.path.insert(0, "/content/ia")
+        os.environ["IPANEMA_DETECTOR"] = "rfdetr"
+        from ipanema import tracking as TR, kits as KT
+        full = _full_video(match_id); cap = cv2.VideoCapture(full); fps = cap.get(cv2.CAP_PROP_FPS)
+        ts = np.concatenate([np.linspace(a + 0.05 * (b - a), b - 0.05 * (b - a), 18) for a, b in spans_s])
+        det = TR.RFDetrPerson("medium"); fb = []
+        for t in ts:
+            cap.set(cv2.CAP_PROP_POS_FRAMES, int(t * fps)); ok, f = cap.read()
+            if ok: fb.append((f, np.array([b for b in det.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy])))
+        cap.release()
+        tm = KT.KitTeamModel().fit_frames(fb, log=L_); tm.offpitch = os.environ.get("IPANEMA_OFFPITCH", "0") == "1"
+        os.makedirs(f"{ROOT}/cache/{match_id}", exist_ok=True); pickle.dump(tm, open(f"{ROOT}/cache/{match_id}/kits_rfdetr_v1.pkl", "wb")); vol.commit()
+        return {"ok": True, "frames": len(fb), "kit_groups": [int(x) for x in tm.model["sizes"]], "dark_share": {k: float(v) for k, v in tm.dark_share.items()}, "log": logs[-10:]}
+    except BaseException:
+        return {"ok": False, "error": traceback.format_exc()[-4000:], "log": logs[-10:]}
+
+@app.function(gpu="L4", image=image_rf, timeout=90 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384, max_containers=10)
+def rf_piece(pid: str, kit_from: str):
+    """1 Oct: new players (RF-DETR, the match's one kit model) + new ball guesses for one 5-min piece of a full match,
+    saved in the piece's cache where run.prepare picks them up. Skips what is already there."""
+    import subprocess, sys, pickle, time, shutil, numpy as np, traceback
+    t0 = time.time(); logs = []; L_ = lambda m: (logs.append(f"{time.time() - t0:6.0f}s {m}"), print(m, flush=True))
+    try:
+        vol.reload()
+        subprocess.run(f"rm -rf /content/ia && git clone -q --depth 1 {REPO} /content/ia", shell=True, check=True); sys.path.insert(0, "/content/ia")
+        os.environ["IPANEMA_DETECTOR"] = "rfdetr"; os.environ.setdefault("IPANEMA_DET_BATCH", "8"); os.environ.setdefault("IPANEMA_LOG_EVERY", "2000")
+        from ipanema import tracking as TR, video as V, ballrf as BR
+        cache = f"{ROOT}/cache/{pid}"; os.makedirs(cache, exist_ok=True)
+        video = f"/tmp/work/{pid}/video.mp4"
+        if not os.path.exists(video): V.normalise(f"{ROOT}/videos/{pid}.mp4", video)
+        shutil.copy(f"{ROOT}/cache/{kit_from}/kits_rfdetr_v1.pkl", f"{cache}/kits_rfdetr_v1.pkl")
+        out = {"pid": pid}
+        if not os.path.exists(f"{cache}/tracks_rfdetr_v1.pkl"):
+            tm = pickle.load(open(f"{cache}/kits_rfdetr_v1.pkl", "rb")); n = V.info(video)["n"]
+            S_ = np.array([[1920 / 106, 0, 0], [0, 1080 / 64, 0], [0, 0, 1.0]]); H = {k: S_ for k in range(n)}
+            per, fps = TR.track(video, None, H, tm, 0.3, log=L_, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False)
+            pickle.dump((per, fps), open(f"{cache}/tracks_rfdetr_v1.pkl", "wb")); vol.commit()
+            out["players_per_frame"] = round(sum(len(v) for v in per.values()) / max(1, len(per)), 1)
+        bc = BR.candidates(video, f"/content/ia/{BR.WEIGHTS}", f"{cache}/ball_cands_{BR.VERSION}.pkl", log=L_, batch=4); vol.commit()
+        out.update(ok=True, ball_frames=len(bc), minutes=round((time.time() - t0) / 60, 1), log=logs[-6:]); return out
+    except BaseException:
+        return {"pid": pid, "ok": False, "error": traceback.format_exc()[-3000:], "log": logs[-10:]}
+
+@app.function(timeout=6 * 60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
+def rf_full(match_id: str, canary_only: bool = False, video_url: str = ""):
+    """1 Oct: new players + new ball for every piece of a full match: cut the pieces, one kit model for the match, a canary
+    piece first, then the rest in parallel (10 GPUs). Then run_full (PIECE_FILE v3) joins and analyses them."""
+    import json, time
+    _setup()
+    from ipanema import fullmatch as FM
+    t0 = time.time(); full = _full_video(match_id)
+    if full is None and video_url:                                             # same place run_full downloads to
+        import requests
+        full = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(full), exist_ok=True)
+        with requests.get(video_url, stream=True, timeout=600) as r:
+            r.raise_for_status()
+            with open(full, "wb") as f:
+                for chunk in r.iter_content(8 << 20): f.write(chunk)
+        vol.commit()
+    if full is None: return {"ok": False, "error": "full video not on the volume"}
+    n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); out = {"pieces": len(plan_), "video": os.path.basename(full), "minutes_video": round(n / fps / 60, 1)}
+    for p in plan_: FM.cut(full, f"{ROOT}/videos/{FM.piece_id(match_id, p['i'])}.mp4", p["start_s"], p["dur_s"])
+    vol.commit(); out["cut_min"] = round((time.time() - t0) / 60, 1)
+    pf = next((p for p in (f"{ROOT}/periods/{match_id}.json", f"/content/ipanema-analysis/periods/{match_id}.json") if os.path.exists(p)), None)
+    spans = json.load(open(pf))["periods_s"] if pf else [[0.15 * n / fps, 0.45 * n / fps], [0.55 * n / fps, 0.9 * n / fps]]
+    out["kits"] = rf_kits.remote(match_id, spans)
+    if not out["kits"].get("ok"): return {"ok": False, **out}
+    ci = FM.canary_index(plan_, [p["i"] for p in plan_]); out["canary"] = rf_piece.remote(FM.piece_id(match_id, ci), match_id)
+    if not out["canary"].get("ok") or canary_only: out["ok"] = bool(out["canary"].get("ok")); return out
+    rest = [FM.piece_id(match_id, p["i"]) for p in plan_ if p["i"] != ci]
+    res = list(rf_piece.map(rest, [match_id] * len(rest), return_exceptions=True))
+    bad = [str(r)[-400:] for r in res if not (isinstance(r, dict) and r.get("ok"))]
+    out.update(ok=not bad, done=len(res) - len(bad) + 1, failed=bad, minutes=round((time.time() - t0) / 60, 1)); return out
 
 
 @app.function(gpu="L4", image=image_rf, timeout=90 * 60, secrets=[modal.Secret.from_name("ipanema-storage")])

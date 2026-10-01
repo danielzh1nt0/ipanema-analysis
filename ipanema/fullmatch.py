@@ -7,7 +7,7 @@ import os, json, pickle, subprocess, numpy as np
 
 PIECE_S = 300
 ID_STRIDE = 100_000     # tracker ids of piece i become i * ID_STRIDE + id
-PIECE_FILE = "piece_v2.pkl"   # v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
+PIECE_FILE = "piece_v3.pkl"   # v3 (1 Oct): new players + new ball (rf_full) and the tuned picker inputs; v2 = old detectors. v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
 
 def video_info(path):
     import cv2
