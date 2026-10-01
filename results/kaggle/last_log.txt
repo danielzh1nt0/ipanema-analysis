@@ -1,131 +1,23 @@
-kernel danielmatros/ipanema-aik-ab
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-aik-ab
-  0.5 min: danielmatros/ipanema-aik-ab has status "KernelWorkerStatus.RUNNING"
-  1.5 min: danielmatros/ipanema-aik-ab has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/aik_ab/ab00.jpg
-Output file downloaded to results/kaggle/aik_ab/ab01.jpg
-Output file downloaded to results/kaggle/aik_ab/ab02.jpg
-Output file downloaded to results/kaggle/aik_ab/ab03.jpg
-Output file downloaded to results/kaggle/aik_ab/ab04.jpg
-Output file downloaded to results/kaggle/aik_ab/ab05.jpg
-Output file downloaded to results/kaggle/aik_ab/ab06.jpg
-Output file downloaded to results/kaggle/aik_ab/ab07.jpg
-Output file downloaded to results/kaggle/aik_ab/ab08.jpg
-Output file downloaded to results/kaggle/aik_ab/ab09.jpg
-Output file downloaded to results/kaggle/aik_ab/ab10.jpg
-Output file downloaded to results/kaggle/aik_ab/ab11.jpg
-Output file downloaded to results/kaggle/aik_ab/ab12.jpg
-Output file downloaded to results/kaggle/aik_ab/ab13.jpg
-Output file downloaded to results/kaggle/aik_ab/ab14.jpg
-Output file downloaded to results/kaggle/aik_ab/ab15.jpg
-Output file downloaded to results/kaggle/aik_ab/ab16.jpg
-Output file downloaded to results/kaggle/aik_ab/ab17.jpg
-Output file downloaded to results/kaggle/aik_ab/ab18.jpg
-Output file downloaded to results/kaggle/aik_ab/ab19.jpg
-Output file downloaded to results/kaggle/aik_ab/ab20.jpg
-Output file downloaded to results/kaggle/aik_ab/ab21.jpg
-Output file downloaded to results/kaggle/aik_ab/ab22.jpg
-Output file downloaded to results/kaggle/aik_ab/ab23.jpg
-Output file downloaded to results/kaggle/aik_ab/ab24.jpg
-Output file downloaded to results/kaggle/aik_ab/ab25.jpg
-Output file downloaded to results/kaggle/aik_ab/ab26.jpg
-Output file downloaded to results/kaggle/aik_ab/ab27.jpg
-Output file downloaded to results/kaggle/aik_ab/ab28.jpg
-Output file downloaded to results/kaggle/aik_ab/ab29.jpg
-Output file downloaded to results/kaggle/aik_ab/ab30.jpg
-Output file downloaded to results/kaggle/aik_ab/ab31.jpg
-Output file downloaded to results/kaggle/aik_ab/ab32.jpg
-Output file downloaded to results/kaggle/aik_ab/ab33.jpg
-Output file downloaded to results/kaggle/aik_ab/ab34.jpg
-Output file downloaded to results/kaggle/aik_ab/ab35.jpg
-Output file downloaded to results/kaggle/aik_ab/ab36.jpg
-Output file downloaded to results/kaggle/aik_ab/ab37.jpg
-Output file downloaded to results/kaggle/aik_ab/ab38.jpg
-Output file downloaded to results/kaggle/aik_ab/ab39.jpg
-Output file downloaded to results/kaggle/aik_ab/ab40.jpg
-Output file downloaded to results/kaggle/aik_ab/ab41.jpg
-Output file downloaded to results/kaggle/aik_ab/ab42.jpg
-Output file downloaded to results/kaggle/aik_ab/ab43.jpg
-Output file downloaded to results/kaggle/aik_ab/ab44.jpg
-Output file downloaded to results/kaggle/aik_ab/ab45.jpg
-Output file downloaded to results/kaggle/aik_ab/ab46.jpg
-Output file downloaded to results/kaggle/aik_ab/ab47.jpg
-Output file downloaded to results/kaggle/aik_ab/ab48.jpg
-Output file downloaded to results/kaggle/aik_ab/ab49.jpg
-Output file downloaded to results/kaggle/aik_ab/ab50.jpg
-Output file downloaded to results/kaggle/aik_ab/ab51.jpg
-Output file downloaded to results/kaggle/aik_ab/ab52.jpg
-Output file downloaded to results/kaggle/aik_ab/ab53.jpg
-Output file downloaded to results/kaggle/aik_ab/ab54.jpg
-Output file downloaded to results/kaggle/aik_ab/ab55.jpg
-Output file downloaded to results/kaggle/aik_ab/ab56.jpg
-Output file downloaded to results/kaggle/aik_ab/ab57.jpg
-Output file downloaded to results/kaggle/aik_ab/ab58.jpg
-Output file downloaded to results/kaggle/aik_ab/ab59.jpg
-Output file downloaded to results/kaggle/aik_ab/key_HIDDEN.json
-Output file downloaded to results/kaggle/aik_ab/result.json
-Kernel log downloaded to results/kaggle/aik_ab/ipanema-aik-ab.log
-  ab00.jpg 243349
-  ab01.jpg 262609
-  ab02.jpg 293331
-  ab03.jpg 227185
-  ab04.jpg 228826
-  ab05.jpg 226902
-  ab06.jpg 246134
-  ab07.jpg 248612
-  ab08.jpg 250387
-  ab09.jpg 234614
-  ab10.jpg 226705
-  ab11.jpg 248694
-  ab12.jpg 246622
-  ab13.jpg 223143
-  ab14.jpg 256016
-  ab15.jpg 216952
-  ab16.jpg 204583
-  ab17.jpg 241013
-  ab18.jpg 226750
-  ab19.jpg 230399
-  ab20.jpg 161181
-  ab21.jpg 233270
-  ab22.jpg 223779
-  ab23.jpg 223154
-  ab24.jpg 241924
-  ab25.jpg 239121
-  ab26.jpg 224971
-  ab27.jpg 233797
-  ab28.jpg 248504
-  ab29.jpg 245709
-  ab30.jpg 289625
-  ab31.jpg 278657
-  ab32.jpg 278338
-  ab33.jpg 264622
-  ab34.jpg 271764
-  ab35.jpg 279069
-  ab36.jpg 276890
-  ab37.jpg 257185
-  ab38.jpg 286773
-  ab39.jpg 267554
-  ab40.jpg 282416
-  ab41.jpg 274374
-  ab42.jpg 283190
-  ab43.jpg 307185
-  ab44.jpg 288083
-  ab45.jpg 262875
-  ab46.jpg 287126
-  ab47.jpg 277719
-  ab48.jpg 247353
-  ab49.jpg 249821
-  ab50.jpg 292040
-  ab51.jpg 239814
-  ab52.jpg 253818
-  ab53.jpg 269912
-  ab54.jpg 251854
-  ab55.jpg 268599
-  ab56.jpg 256034
-  ab57.jpg 272738
-  ab58.jpg 275435
-  ab59.jpg 270553
-  ipanema-aik-ab.log 804
-  key_HIDDEN.json 5736
-  result.json 70
-  run.json 146
+kernel danielmatros/ipanema-speedcheck
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-speedcheck
+  0.5 min: danielmatros/ipanema-speedcheck has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-speedcheck has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/speedcheck/result.json
+Output file downloaded to results/kaggle/speedcheck/sheet_0.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_1.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_2.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_3.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_4.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_5.jpg
+Output file downloaded to results/kaggle/speedcheck/sheet_6.jpg
+Kernel log downloaded to results/kaggle/speedcheck/ipanema-speedcheck.log
+  ipanema-speedcheck.log 810
+  result.json 21
+  run.json 154
+  sheet_0.jpg 200333
+  sheet_1.jpg 248342
+  sheet_2.jpg 220232
+  sheet_3.jpg 219422
+  sheet_4.jpg 243683
+  sheet_5.jpg 228584
+  sheet_6.jpg 238122
