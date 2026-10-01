@@ -25,4 +25,4 @@ jobs:
         run: |
           git config user.name "bench-bot" && git config user.email "bot@ipanema"
           git add results/qa && git commit -qm "player check pictures (free runner)" || echo "nothing"
-          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
+          bash tools/push_retry.sh

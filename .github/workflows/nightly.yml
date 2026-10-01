@@ -57,4 +57,4 @@ jobs:
           python tools/nightly_scorecard.py
           git config user.name nightly-bot && git config user.email bot@ipanema
           git add results/nightly results/qa && git commit -qm "nightly check $(date -u +%F)" || echo nothing
-          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin main && break; sleep 5; done
+          bash tools/push_retry.sh

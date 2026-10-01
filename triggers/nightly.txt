@@ -1,1 +1,1 @@
-manual Tue Sep 29 05:02:45 UTC 2026
+manual Thu Oct  1 04:23:35 UTC 2026 - backup: no results/nightly for 30 Sep (push lost to a log.txt clash) or 1 Oct yet
