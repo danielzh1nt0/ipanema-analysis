@@ -1,23 +1,84 @@
-kernel danielmatros/ipanema-speedcheck
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-speedcheck
-  0.5 min: danielmatros/ipanema-speedcheck has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-speedcheck has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/speedcheck/result.json
-Output file downloaded to results/kaggle/speedcheck/sheet_0.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_1.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_2.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_3.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_4.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_5.jpg
-Output file downloaded to results/kaggle/speedcheck/sheet_6.jpg
-Kernel log downloaded to results/kaggle/speedcheck/ipanema-speedcheck.log
-  ipanema-speedcheck.log 810
-  result.json 21
-  run.json 154
-  sheet_0.jpg 200333
-  sheet_1.jpg 248342
-  sheet_2.jpg 220232
-  sheet_3.jpg 219422
-  sheet_4.jpg 243683
-  sheet_5.jpg 228584
-  sheet_6.jpg 238122
+kernel danielmatros/ipanema-ballfinder-hn
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-ballfinder-hn
+  0.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 12.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 16.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 18.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 20.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 22.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 24.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 26.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 28.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 30.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 32.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 34.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 36.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 38.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 40.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 42.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 44.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 46.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 48.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 50.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 52.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 54.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 56.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 58.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 60.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 62.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 64.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 66.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 70.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 72.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 74.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 76.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 78.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 80.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 82.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 84.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 86.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 88.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 90.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 92.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 94.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 96.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+ 98.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+100.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+102.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+104.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+106.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+108.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+110.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+112.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+116.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+118.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+120.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+122.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+124.2 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+126.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+128.3 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+130.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+132.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+134.4 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+136.5 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+138.0 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.RUNNING"
+139.1 min: danielmatros/ipanema-ballfinder-hn has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/ballfinder_hn/log.txt
+Output file downloaded to results/kaggle/ballfinder_hn/metrics.csv
+Output file downloaded to results/kaggle/ballfinder_hn/result.json
+Output file downloaded to results/kaggle/ballfinder_hn/rfdetr_ball_small_20261001_hn_fp16.pth
+Output file downloaded to results/kaggle/ballfinder_hn/training_config.json
+Kernel log downloaded to results/kaggle/ballfinder_hn/ipanema-ballfinder-hn.log
+  ipanema-ballfinder-hn.log 45310
+  log.txt 3546
+  metrics.csv 15958
+  result.json 136604
+  rfdetr_ball_small_20261001_hn_fp16.pth 64198665
+  run.json 162
+  training_config.json 4058
