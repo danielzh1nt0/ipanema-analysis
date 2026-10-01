@@ -25,3 +25,8 @@ standing player (should read 0 km/h), (b) swap filter (a track whose box colour/
   not caught (0/7)** - they move smoothly, so a jump filter cannot see them.
 Verdict: good enough for team-level running numbers, not yet for a number under each player. Export stays OFF.
 Next: swap detection needs the player's look (kit colour/box size per frame) -> part of M2 (one track per player).
+
+## M1b (same evening, results/review/m1b/README.md)
+The far side is NOT faster on the whole clip (coarse-calibration areas read slower); the 9.7 vs 5.5 came from the
+hand-picked spike moments. New noise-aware smoother (uses the calibration's metres-per-pixel): 16/21 by-eye moments
+(was 14), error 45 -> 15 km/h summed. Still off: ID swaps (M2) and two mid-pitch walkers at 10-11 km/h. Export stays OFF.

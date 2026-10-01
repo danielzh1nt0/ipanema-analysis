@@ -37,5 +37,6 @@
   "B4c": "Spare-ball rule that still follows a ball taken for a restart",
   "H1b": "Test outside ball pictures (free Kaggle, testing only)",
   "K1c": "Download checked ball labels from Modal (no GPU)",
-  "HN1": "Ball finder: learn from its own mistakes (shoes, heads, spare balls)"
+  "HN1": "Ball finder: learn from its own mistakes (shoes, heads, spare balls)",
+  "M1b": "Speed layer: check whether the far side reads too fast"
 }

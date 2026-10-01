@@ -282,7 +282,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     try:                                                                       # 1 Oct: speed + distance per player for the app's speed layer
         from . import motion as MO
         if os.environ.get("IPANEMA_MOTION", "0") != "1": raise StopIteration("off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)")
-        motion = MO.compute(per, fps); log(f"motion: speed layer {MO.summary(motion, fps)}")
+        motion = MO.compute(per, fps, H=H); log(f"motion: speed layer {MO.summary(motion, fps)}")
     except (Exception, StopIteration) as e: motion = None; log(f"motion skipped ({e!r})")
     root, zpath = EX.write(os.path.join(S.root, "runs"), match_id, video, vi, per, frames_, ball, ballm, state, H, L, W, attack_right, conf, tvs, ps, rst, seqs, ln, sh, st, tm, summary, log=log, periods=ctx.get("periods"), unsure=cal.get("unsure", frozenset()), cands_conf=BL.pick_confidence(ball, cands), bridged=bridged, motion=motion, **(export_kw or {}))
     try:
