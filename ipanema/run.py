@@ -172,6 +172,14 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     return {"match_id": match_id, "video": video, "vi": vi, "H": H, "L": L, "W": W, "cal": cal, "tm": tm, "per": per, "fps": fps, "cands": cands, "t0": t0, "cands_alt": cands_alt}
 
 
+def _ball_gt(S, match_id):
+    """ball answer key: the volume copy first, else the one in the repo (1 Oct: AIK key from the blind A/B check)"""
+    p = os.path.join(S.root, "reference", match_id, "ball_gt.json")
+    if os.path.exists(p): return p
+    q = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", match_id, "ball_gt.json")
+    return q if os.path.exists(q) else p
+
+
 def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     """from raw tracks + ball candidates to stats, events and the exported match (CPU)"""
     match_id, video, vi, H, L, W, cal, tm, per, fps, cands, t0 = (ctx[k] for k in ("match_id", "video", "vi", "H", "L", "W", "cal", "tm", "per", "fps", "cands", "t0"))
@@ -187,11 +195,11 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     picker = os.environ.get("IPANEMA_PICKER", "v2")
     ball = _v2() if picker == "v2" else _v1()
     other = (_v1 if picker == "v2" else _v2) if cands else None
-    ball_check = BL.check(ball, cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
+    ball_check = BL.check(ball, cands, gt_path or _ball_gt(S, match_id), log=log, video=video, debug_dir=f"/content/ipanema-analysis/results/debug/ballcheck_{match_id}")
     # the other picker on the same frames, logged side by side (CPU only)
     try:
         if other is not None:
-            o = BL.check(other(), cands, gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=lambda *a: None)
+            o = BL.check(other(), cands, gt_path or _ball_gt(S, match_id), log=lambda *a: None)
             if o: log(f"ball check (other picker, {'v1' if picker == 'v2' else 'v2'}): {o['correct']}/{o['total']} correct, ceiling {o['ceiling']}/{o['total']}")
         for pg in ctx.get("picker_gt") or []:
             a = BL.check(ball, cands, pg, log=lambda *a: None); b = BL.check(other(), cands, pg, log=lambda *a: None) if other else None
@@ -200,7 +208,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     if ctx.get("cands_alt"):
         try:
             alt = BL.pick_global(ctx["cands_alt"], H, L, W, per=per, fps=fps, log=lambda *a: None)
-            alt_check = BL.check(BL.bridge(alt, fps), ctx["cands_alt"], gt_path or os.path.join(S.root, "reference", match_id, "ball_gt.json"), log=lambda *a: None)
+            alt_check = BL.check(BL.bridge(alt, fps), ctx["cands_alt"], gt_path or _ball_gt(S, match_id), log=lambda *a: None)
             if alt_check: log(f"ball check (alternative: WASB + YOLO candidates): {alt_check['correct']}/{alt_check['total']} correct, ceiling {alt_check['ceiling']}/{alt_check['total']}")
         except Exception as e: log(f"alternative ball check failed: {e!r}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)

@@ -1,0 +1,548 @@
+{
+ "method": "1 Oct, Claude by eye, blind A/B of the new finder's top-2 guesses (random order), graded before key opened",
+ "result": {
+  "top1_is_ball": 30,
+  "top2_is_ball": 9,
+  "neither": 8,
+  "cant_tell": 13
+ },
+ "rows": [
+  {
+   "moment": 0,
+   "frame": 75,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 1,
+   "frame": 225,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    994.4,
+    523.5
+   ]
+  },
+  {
+   "moment": 2,
+   "frame": 375,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    897.9,
+    496.6
+   ]
+  },
+  {
+   "moment": 3,
+   "frame": 524,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1042.8,
+    560.9
+   ]
+  },
+  {
+   "moment": 4,
+   "frame": 674,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    890.0,
+    489.2
+   ]
+  },
+  {
+   "moment": 5,
+   "frame": 824,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1102.1,
+    547.5
+   ]
+  },
+  {
+   "moment": 6,
+   "frame": 974,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 7,
+   "frame": 1124,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 8,
+   "frame": 1274,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 9,
+   "frame": 1424,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 10,
+   "frame": 1573,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1578.3,
+    582.5
+   ]
+  },
+  {
+   "moment": 11,
+   "frame": 1723,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 12,
+   "frame": 1873,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    833.3,
+    504.0
+   ]
+  },
+  {
+   "moment": 13,
+   "frame": 2023,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1177.6,
+    539.8
+   ]
+  },
+  {
+   "moment": 14,
+   "frame": 2173,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 15,
+   "frame": 2323,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1000.5,
+    479.1
+   ]
+  },
+  {
+   "moment": 16,
+   "frame": 2473,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1077.3,
+    779.3
+   ]
+  },
+  {
+   "moment": 17,
+   "frame": 2622,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    830.1,
+    373.2
+   ]
+  },
+  {
+   "moment": 18,
+   "frame": 2772,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 19,
+   "frame": 2922,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    968.2,
+    491.8
+   ]
+  },
+  {
+   "moment": 20,
+   "frame": 3072,
+   "graded": "A",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    617.7,
+    576.8
+   ]
+  },
+  {
+   "moment": 21,
+   "frame": 3222,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    948.7,
+    444.6
+   ]
+  },
+  {
+   "moment": 22,
+   "frame": 3372,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    928.5,
+    403.3
+   ]
+  },
+  {
+   "moment": 23,
+   "frame": 3521,
+   "graded": "B",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1720.5,
+    467.4
+   ]
+  },
+  {
+   "moment": 24,
+   "frame": 3671,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 25,
+   "frame": 3821,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 26,
+   "frame": 3971,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1644.3,
+    477.5
+   ]
+  },
+  {
+   "moment": 27,
+   "frame": 4121,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    672.1,
+    492.6
+   ]
+  },
+  {
+   "moment": 28,
+   "frame": 4271,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 29,
+   "frame": 4421,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    741.1,
+    531.9
+   ]
+  },
+  {
+   "moment": 30,
+   "frame": 4570,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1722.2,
+    548.7
+   ]
+  },
+  {
+   "moment": 31,
+   "frame": 4720,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 32,
+   "frame": 4870,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 33,
+   "frame": 5020,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    907.4,
+    547.9
+   ]
+  },
+  {
+   "moment": 34,
+   "frame": 5170,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    921.3,
+    517.1
+   ]
+  },
+  {
+   "moment": 35,
+   "frame": 5320,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    949.2,
+    521.7
+   ]
+  },
+  {
+   "moment": 36,
+   "frame": 5470,
+   "graded": "B",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1081.8,
+    523.2
+   ]
+  },
+  {
+   "moment": 37,
+   "frame": 5619,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1118.6,
+    510.5
+   ]
+  },
+  {
+   "moment": 38,
+   "frame": 5769,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 39,
+   "frame": 5919,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 40,
+   "frame": 6069,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1480.1,
+    544.7
+   ]
+  },
+  {
+   "moment": 41,
+   "frame": 6219,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 42,
+   "frame": 6369,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 43,
+   "frame": 6518,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1004.6,
+    428.1
+   ]
+  },
+  {
+   "moment": 44,
+   "frame": 6668,
+   "graded": "A",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1092.1,
+    541.8
+   ]
+  },
+  {
+   "moment": 45,
+   "frame": 6818,
+   "graded": "B",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1395.8,
+    535.9
+   ]
+  },
+  {
+   "moment": 46,
+   "frame": 6968,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 47,
+   "frame": 7118,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 48,
+   "frame": 7268,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    940.9,
+    480.8
+   ]
+  },
+  {
+   "moment": 49,
+   "frame": 7418,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1045.1,
+    501.9
+   ]
+  },
+  {
+   "moment": 50,
+   "frame": 7567,
+   "graded": "A",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1627.2,
+    500.9
+   ]
+  },
+  {
+   "moment": 51,
+   "frame": 7717,
+   "graded": "B",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    623.8,
+    540.6
+   ]
+  },
+  {
+   "moment": 52,
+   "frame": 7867,
+   "graded": "?",
+   "result": "cant_tell",
+   "ball_xy": null
+  },
+  {
+   "moment": 53,
+   "frame": 8017,
+   "graded": "N",
+   "result": "neither",
+   "ball_xy": null
+  },
+  {
+   "moment": 54,
+   "frame": 8167,
+   "graded": "B",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    482.8,
+    516.0
+   ]
+  },
+  {
+   "moment": 55,
+   "frame": 8317,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    983.0,
+    534.4
+   ]
+  },
+  {
+   "moment": 56,
+   "frame": 8467,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1151.5,
+    540.8
+   ]
+  },
+  {
+   "moment": 57,
+   "frame": 8616,
+   "graded": "A",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1216.8,
+    585.2
+   ]
+  },
+  {
+   "moment": 58,
+   "frame": 8766,
+   "graded": "A",
+   "result": "top2_is_ball",
+   "ball_xy": [
+    1329.7,
+    597.3
+   ]
+  },
+  {
+   "moment": 59,
+   "frame": 8916,
+   "graded": "A",
+   "result": "top1_is_ball",
+   "ball_xy": [
+    1075.8,
+    565.0
+   ]
+  }
+ ]
+}
