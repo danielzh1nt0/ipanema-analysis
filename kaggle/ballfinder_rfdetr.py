@@ -96,6 +96,13 @@ try:
         with open(f"{DS}/{split}/labels/{name}.txt", "w") as fh:
             if x is not None: b = box_px(y, h); fh.write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
         counts[f"{split}_{'ball' if x is not None else 'empty'}"] += 1
+    def put_box(split, name, f, x, y, bw, bh):
+        """a ball crop with the picture's own box size (outside sets)"""
+        h, w = f.shape[:2]
+        x0 = int(min(max(0, x - rng.randint(CROP // 8, CROP * 7 // 8)), w - CROP)); y0 = int(min(max(0, y - rng.randint(CROP // 8, CROP * 7 // 8)), h - CROP))
+        cv2.imwrite(f"{DS}/{split}/images/{name}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
+        open(f"{DS}/{split}/labels/{name}.txt", "w").write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {bw / CROP:.6f} {bh / CROP:.6f}\n")
+        counts[f"{split}_ball"] += 1
     REPORT["matches"] = {}
     for mt in MATCHES:
         try:
@@ -134,6 +141,29 @@ try:
             for j in range(SFK_COPIES): put("train", f"{nm}_b{j}", f, r["x"], r["y"])
             if rng.random() < NEG_FRAC: put("train", nm + "_n", f, None, None)
     REPORT["sfk"]["crops"] = {k: counts[k] - c0[k] for k in counts}
+    # H1b (1 Oct, Daniel: yes, testing only): HF_EXTRA=1 adds the outside Bundesliga TV ball set (martinjolif/football-ball-detection,
+    # 1,237 pictures, licence doubtful -> the weights from such a run are for testing, never promoted). One crop per picture with
+    # its own box size (median 12 px, Veo-sized), all to train (their test split is never our exam), plus the usual ball-free share.
+    HF_EXTRA = os.environ.get("HF_EXTRA") == "1"; REPORT["hf_extra"] = HF_EXTRA
+    if HF_EXTRA:
+        from ipanema import hfball
+        if os.environ.get("HF_ROOT"): hroot = os.environ["HF_ROOT"]
+        else:
+            sh("pip install -q huggingface_hub")
+            from huggingface_hub import snapshot_download
+            hroot = snapshot_download(repo_id="martinjolif/football-ball-detection", repo_type="dataset", local_dir=f"{TMP}/hf_ball")
+        layout, hitems, hnames = hfball.load(hroot); c0 = dict(counts); nused = 0
+        if SMOKE: hitems = hitems[:6]
+        for i, it in enumerate(hitems):
+            im = hfball.image(it)
+            if im is None or im.shape[0] < CROP or im.shape[1] < CROP: continue
+            bx = hfball.balls(it, im, hnames)
+            if len(bx) != 1: continue
+            x, y, bw, bh = bx[0]; cx, cy = x + bw / 2, y + bh / 2; ball = (cx, cy); nm = f"hf_{i:05d}"
+            put_box("train", nm + "_b", im, cx, cy, max(bw, 4.0), max(bh, 4.0)); nused += 1
+            if rng.random() < NEG_FRAC: put("train", nm + "_n", im, None, None)
+        REPORT["hf"] = {"layout": layout, "items": len(hitems), "used": nused, "crops": {k: counts[k] - c0[k] for k in counts}}
+        log(f"HF extra: {REPORT['hf']}")
     if counts["valid_ball"] == 0:                                                 # smoke: RF-DETR needs a val split; copy 3 train crops
         for fn in sorted(os.listdir(f"{DS}/train/images"))[:3]:
             shutil.copy(f"{DS}/train/images/{fn}", f"{DS}/valid/images/{fn}"); shutil.copy(f"{DS}/train/labels/{fn[:-4]}.txt", f"{DS}/valid/labels/{fn[:-4]}.txt"); counts["valid_ball"] += 1
@@ -165,7 +195,7 @@ try:
         model = Model.from_checkpoint(ck, resolution=RES); REPORT["checkpoint"] = os.path.basename(ck); log(f"loaded {ck}: resolution {getattr(getattr(model, 'model_config', None), 'resolution', '?')}")
         sd = torch.load(ck, map_location="cpu", weights_only=False); sd = sd.get("model", sd)
         sd = {k: (v.half() if torch.is_tensor(v) and v.is_floating_point() else v) for k, v in sd.items()}
-        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
+        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}{'_hf_TESTONLY' if HF_EXTRA else ''}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
         REPORT["weights"] = {"file": wname, "MB": round(os.path.getsize(f"{WORK}/{wname}") / 1e6, 1), "full_checkpoint_MB": round(os.path.getsize(ck) / 1e6, 1)}
         if REPORT["weights"]["MB"] > 95: os.rename(f"{WORK}/{wname}", f"{TMP}/{wname}"); REPORT["weights"]["note"] = "too big for git: left on Kaggle temp (lost)"
     log(f"weights {REPORT.get('weights')}"); save()
