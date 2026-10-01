@@ -1,11 +1,7 @@
-# live log · SFKBP1109_s1200 · running · 18:43:58 UTC
+# live log · SFKBP1109_s1200 · finished · 18:44:11 UTC
 
 
-## run_match.log (33 lines, last 60)
-=== SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
-  debug overlays -> /content/ipanema-analysis/results/debug
+## run_match.log (64 lines, last 60)
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 12.3 candidates/frame
@@ -35,3 +31,34 @@ ball grade: accuracy 0.82, near-player 0.44, possession OK, events withheld
 ball reliability: 100% frames, 44% near a player, 2329 jumps -> OK
   step: export
   wrote match_data.json (23.2 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109_s1200 (157 events) · library.json updated · zip /data/match_analysis/runs/SFKBP1109_s1200_lovable.zip
+upload: SFKBP1109_s1200 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109_s1200
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.82, 'near_player_pct': 0.44, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  duration_s                 300.0
+  calibration_coverage       0.87
+  calibration_frozen         1170
+  team_dark_share            {'A': 0.22, 'B': 0.89}
+  players_per_frame_median   {'A': 8.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              300.0
+  periods                    None
+  ball_check                 {'correct': 28, 'total': 34, 'wrong': 6, 'ceiling': 34}
+  possession_pct             {'A': 47, 'B': 53}
+  loose_pct                  36
+  dead_pct                   22
+  possession_model           simple
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.04, 'B': 0.04}
+  turnovers                  23
+  passes                     64
+  restarts                   14
+  sequences                  83
+  shots                      {'A': 0, 'B': 1}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 1, 'B': 4}
+  field_tilt                 {'A': 12, 'B': 45}
+  runtime_min                2.5
