@@ -1,2 +1,2 @@
-aik clip: new players + new ball + app run
-# Tue Sep 29 20:29:55 UTC 2026
+fetch SFK picker inputs
+# Thu Oct  1 18:47:14 UTC 2026
