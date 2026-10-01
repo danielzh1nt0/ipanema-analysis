@@ -1,0 +1,43 @@
+{
+ "pieces": 21,
+ "video": "SFKBP1109.mp4",
+ "minutes_video": 102.7,
+ "cut_min": 0.0,
+ "kits": {
+  "ok": true,
+  "frames": 36,
+  "kit_groups": [
+   145,
+   138,
+   53,
+   15
+  ],
+  "dark_share": {
+   "A": 0.2,
+   "B": 0.86
+  },
+  "log": [
+   "   104s kits: per-player classifier from 383 on-pitch people, 0 of 15 runs kept -> colour only",
+   "   104s kits: learned from 351 people (329 off the pitch left out), group sizes [145, 138, 53, 15], default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 7.8"
+  ]
+ },
+ "canary": {
+  "pid": "SFKBP1109_c004",
+  "players_per_frame": 20.9,
+  "ok": true,
+  "ball_frames": 8992,
+  "minutes": 29.7,
+  "log": [
+   "  1007s   ball (RF-DETR): frame 3000, 7.7 frames/s",
+   "  1137s   ball (RF-DETR): frame 4000, 7.7 frames/s",
+   "  1267s   ball (RF-DETR): frame 5000, 7.7 frames/s",
+   "  1396s   ball (RF-DETR): frame 6000, 7.7 frames/s",
+   "  1526s   ball (RF-DETR): frame 7000, 7.7 frames/s",
+   "  1655s   ball (RF-DETR): frame 8000, 7.7 frames/s"
+  ]
+ },
+ "ok": true,
+ "done": 21,
+ "failed": [],
+ "minutes": 147.1
+}
