@@ -22,3 +22,4 @@ Ball check = correct picks on held-out labelled frames; ceiling = frames where t
 | 2026-10-01 17:16 | a9135b5 | p15u-vs-aik-2026-09-21-bd09_s2520 | 0.27.0 | 26/39 | 39 | — | OK | withheld | {'A': 7.0, 'B': 7.0} |  · other picker v1: 18/39 |
 | 2026-10-01 18:24 | fb4ac50 | p15u-vs-aik-2026-09-21-bd09_s2520 | 0.27.0 | 26/39 | 39 | — | OK | withheld | {'A': 7.0, 'B': 7.0} |  · other picker v1: 18/39 |
 | 2026-10-01 18:44 | 5122b6c | SFKBP1109_s1200 | 0.27.0 | 28/34 | 34 | — | OK | withheld | {'A': 8.0, 'B': 7.0} |  · with YOLO: 14/34, ceiling 34 · other picker v1: 16/34 |
+| 2026-10-01 19:10 | 031452c | SFKBP1109_s1200 | 0.27.0 | 29/34 | 34 | — | OK | withheld | {'A': 8.0, 'B': 7.0} |  · with YOLO: 14/34, ceiling 34 · other picker v1: 16/34 |
