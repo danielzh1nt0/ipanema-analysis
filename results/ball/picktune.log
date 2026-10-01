@@ -1,38 +1,56 @@
-default {'aik': np.int64(26), 'sfk34_b4': (np.int64(26), np.int64(285))}
-{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(26)}
-{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(28), np.int64(278))}
-{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(26)}
-{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(28), np.int64(278))}
-{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(25), np.int64(282))}
-{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(28), np.int64(279))}
-{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(25), np.int64(282))}
-{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(28), np.int64(279))}
-{'kw': {'conf_w': 1.5, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(20)}
-{'kw': {'conf_w': 1.5, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(23)}
-{'kw': {'conf_w': 1.5, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(20)}
-{'kw': {'conf_w': 1.5, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(23)}
-{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(26), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(26), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(30), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(28), np.int64(284))}
-{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(30), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(28), 'sfk34_b4': (np.int64(28), np.int64(284))}
-{'kw': {'conf_w': 2.5, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(22)}
-{'kw': {'conf_w': 2.5, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(24)}
-{'kw': {'conf_w': 2.5, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(22)}
-{'kw': {'conf_w': 2.5, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(24)}
-{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(25), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(29), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(25), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(29), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(30), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(28), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(30), 'sfk34_b4': (np.int64(27), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(28), np.int64(285))}
-{'kw': {'conf_w': 4.0, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(26)}
-{'kw': {'conf_w': 4.0, 'near_w': 2.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(26), np.int64(278))}
-{'kw': {'conf_w': 4.0, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': np.int64(26)}
-{'kw': {'conf_w': 4.0, 'near_w': 2.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(27), 'sfk34_b4': (np.int64(26), np.int64(278))}
-best passing: [{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(28), np.int64(285))}, {'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': np.int64(31), 'sfk34_b4': (np.int64(28), np.int64(285))}, {'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': np.int64(30), 'sfk34_b4': (np.int64(27), np.int64(285))}]
+app setting until 1 Oct {'aik': 26, 'sfk34': 29, 'b4': 279}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 26, 'sfk34': 29, 'b4': 279}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 26, 'sfk34': 29, 'b4': 277}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 30, 'b4': 276}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 26, 'sfk34': 29, 'b4': 279}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 26, 'sfk34': 29, 'b4': 277}
+{'kw': {'conf_w': 1.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 30, 'b4': 276}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 29, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 27, 'sfk34': 29, 'b4': 283}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 29, 'b4': 281}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 29, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 27, 'sfk34': 29, 'b4': 283}
+{'kw': {'conf_w': 1.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 29, 'b4': 281}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 28, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 28, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 28, 'b4': 281}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 28, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 28, 'sfk34': 28, 'b4': 282}
+{'kw': {'conf_w': 1.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 28, 'b4': 281}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 28, 'sfk34': 29, 'b4': 282}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 27, 'sfk34': 29, 'b4': 282}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 28, 'sfk34': 29, 'b4': 282}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 27, 'sfk34': 29, 'b4': 282}
+{'kw': {'conf_w': 2.5, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 27, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 29, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 29, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 29, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 29, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 2.5, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 28, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 31, 'sfk34': 27, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 29, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 31, 'sfk34': 27, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 29, 'sfk34': 29, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 28, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 28, 'b4': 284}
+{'kw': {'conf_w': 4.0, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 31, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 27, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 30, 'sfk34': 28, 'b4': 285}
+{'kw': {'conf_w': 4.0, 'near_w': 0.5, 'jump_cost': 3.0, 'miss_cost': 5.0}, 'aik': 31, 'sfk34': 28, 'b4': 285}
+best passing: [{'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 29, 'b4': 284}, {'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 3.0}, 'aik': 30, 'sfk34': 29, 'b4': 284}, {'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 6.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 29, 'b4': 285}, {'kw': {'conf_w': 2.5, 'near_w': 0.75, 'jump_cost': 3.0, 'miss_cost': 4.0}, 'aik': 29, 'sfk34': 29, 'b4': 285}, {'kw': {'conf_w': 4.0, 'near_w': 1.0, 'jump_cost': 6.0, 'miss_cost': 5.0}, 'aik': 29, 'sfk34': 29, 'b4': 284}]
