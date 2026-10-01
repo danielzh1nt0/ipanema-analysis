@@ -1,4 +1,43 @@
 {
- "call": "fc-01M3WFJ9X7XP745FYCZ50GY5EK",
- "status": "running (still on Modal after this job ends)"
+ "pieces": 23,
+ "video": "full.mp4",
+ "minutes_video": 115.0,
+ "cut_min": 8.1,
+ "kits": {
+  "ok": true,
+  "frames": 36,
+  "kit_groups": [
+   52,
+   52,
+   30,
+   24
+  ],
+  "dark_share": {
+   "A": 0.21,
+   "B": 0.94
+  },
+  "log": [
+   "    95s kits: per-player classifier from 309 on-pitch people, 0 of 15 runs kept -> colour only",
+   "    95s kits: learned from 158 people (607 off the pitch left out), group sizes [52, 52, 30, 24], default fit leaves out a group at 0.40 x the team gap, far pair moves a team by 10.7"
+  ]
+ },
+ "canary": {
+  "pid": "p15u-vs-aik-2026-09-21-bd09_c004",
+  "players_per_frame": 19.1,
+  "ok": true,
+  "ball_frames": 8992,
+  "minutes": 29.5,
+  "log": [
+   "  1013s   ball (RF-DETR): frame 3000, 7.9 frames/s",
+   "  1140s   ball (RF-DETR): frame 4000, 7.9 frames/s",
+   "  1267s   ball (RF-DETR): frame 5000, 7.9 frames/s",
+   "  1393s   ball (RF-DETR): frame 6000, 7.9 frames/s",
+   "  1520s   ball (RF-DETR): frame 7000, 7.9 frames/s",
+   "  1646s   ball (RF-DETR): frame 8000, 7.9 frames/s"
+  ]
+ },
+ "ok": true,
+ "done": 23,
+ "failed": [],
+ "minutes": 166.0
 }
