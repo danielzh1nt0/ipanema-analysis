@@ -1,4 +1,4 @@
-# live log · SFKBP1109 · running · 22:58:39 UTC
+# live log · SFKBP1109 · running · 23:00:11 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -7,7 +7,7 @@ calibration: from the clip's own camera
 pieces: 0 already processed, 21 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 4 first (CPU)
 
-## piece_004.log (12 lines, last 60)
+## piece_004.log (13 lines, last 60)
 === SFKBP1109_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
@@ -20,6 +20,7 @@ wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 1500
   wasb frame 3000
   wasb frame 4500
+  wasb frame 6000
 
 ## train_ball.log (1 lines, last 60)
 
