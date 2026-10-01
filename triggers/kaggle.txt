@@ -1,2 +1,2 @@
-kaggle/kitcrops_p1.py 120
-# Tue Sep 29 20:27:19 UTC 2026
+kaggle/aik_ab.py 20
+# Thu Oct  1 16:55:08 UTC 2026
