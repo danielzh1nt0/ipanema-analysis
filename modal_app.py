@@ -722,7 +722,10 @@ def detect_periods(match_id: str):
     full = next((p for p in (f"{ROOT}/videos/{match_id}.mp4", f"{ROOT}/videos/{match_id}/full.mp4") if os.path.exists(p)), None)
     n, fps = FM.video_info(full); per = {}; trusted = np.ones(n, bool); L = W = None
     for p in FM.plan(n, fps):
-        c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"; pk = pickle.load(open(f"{c}/{FM.PIECE_FILE}", "rb")); L, W = pk["L"], pk["W"]
+        c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"
+        pf_ = next((f"{c}/{x}" for x in (FM.PIECE_FILE, "piece_v2.pkl") if os.path.exists(f"{c}/{x}")), None)   # 1 Oct: older pieces are fine for periods
+        if pf_ is None: continue
+        pk = pickle.load(open(pf_, "rb")); L, W = pk["L"], pk["W"]
         for k, rows in pk["per"].items():
             g = p["offset"] + k
             if g < n: per[g] = [[r[0], r[1], np.asarray(r[2], float)] for r in rows]

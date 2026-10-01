@@ -673,6 +673,8 @@ jobs:
           if ps: open(f"results/check/{mid}_per_second.json", "w").write(json.dumps(ps))
           open(f"results/check/{mid}_periods.json", "w").write(json.dumps(out, indent=1, default=str)); print(json.dumps(out, indent=1, default=str))
           PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/check && git commit -qm "match periods detected" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: list the newest matches (commit tagged uploads)
         if: contains(github.event.head_commit.message, '[uploads]')
         env:
