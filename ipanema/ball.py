@@ -217,10 +217,12 @@ def recurring_spots(C, fps, L, W, margin=1.5, win_s=3.0, still_r=1.2, still_frac
 
 
 # ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
-def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=1.5, near_w=1.0, air_w=0.6,
-            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
+def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=4.0, near_w=0.5, air_w=0.6,
+            miss_cost=5.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
             poss_only_empty=False, recur_r=None, log=print):
-    """poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
+    """1 Oct (tools/picktune.py): conf_w 1.5->4.0, near_w 1.0->0.5, miss_cost 3->5 = trust the new finder more, the
+    'near a player' bonus less. AIK 26->31/39, SFK-BP 34 moments 26->28 (offline setup), B4 key 285->285.
+    poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
     for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default."""
     n = len(cands); C = []
     ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
