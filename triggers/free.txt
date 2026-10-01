@@ -1,2 +1,2 @@
-tools/h1_hfball.py
-# Tue Sep 29 16:33:55 UTC 2026 H1: look at martinjolif/football-ball-detection
+tools/p1_track.py
+# Thu Oct  1 04:51:55 UTC 2026 P1 v3: 20 s tracked with the striped-kit switch off/on, Spånga + Djursholm (free)

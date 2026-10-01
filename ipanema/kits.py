@@ -132,8 +132,12 @@ def _fit_far(X, C, lab, sizes, order, merge_d, min_share=0.25, l_weight=0.5):
     lightness), else they are 'other'. The old rule took the two biggest groups as the teams; at night on Reymersholm
     those were dark-green and floodlit-green players (same kit) and the whites were pushed out."""
     a = order[0]; big = [j for j in order[1:] if sizes[j] >= min_share * sizes[a]] or order[1:2]
-    b = max(big, key=lambda j: np.linalg.norm(C[j] - C[a])); team_of = {a: 0, b: 1}
     w = np.array([l_weight, 1.0, 1.0] + [1.0] * (C.shape[1] - 3))
+    # P1 (1 Oct): B is chosen with lightness counting half too (env IPANEMA_FAR_PICK=plain = old rule). Plain distance let a
+    # big group of dark people (shade, spectators in coats) beat the real second kit: Djursholm 1428 (spectators became a
+    # team, the red team 'neither'), Reymersholm 4286 (81 green players 'neither').
+    lw = w if os.environ.get("IPANEMA_FAR_PICK", "weighted") == "weighted" else np.ones_like(w)
+    b = max(big, key=lambda j: np.linalg.norm((C[j] - C[a]) * lw)); team_of = {a: 0, b: 1}
     for j in order:
         if j in team_of or sizes[j] == 0: continue
         da, db = np.linalg.norm((C[j] - C[a]) * w), np.linalg.norm((C[j] - C[b]) * w)
@@ -175,6 +179,12 @@ def fit(features, k=4, seeds=8, merge_d=18.0, pair=None):
     return {"teams": [ta, tb], "sizes": sorted(sizes.tolist(), reverse=True), "spread": float(np.percentile(near, 80)) if len(near) else 10.0,
             "spreads": _team_spreads(X, lab, team_of, ta, tb), "missed": float(missed)}
 
+def _team_shift(m1, m2):
+    """P1 v3: how far the team centres move between two fits (best matching of A/B), in feature units"""
+    (a1, b1), (a2, b2) = m1["teams"], m2["teams"]; n = np.linalg.norm
+    d = float(min(max(n(a1 - a2), n(b1 - b2)), max(n(a1 - b2), n(b1 - a2))))
+    return d if np.isfinite(d) else 0.0                                         # degenerate fit (an empty team): no switch
+
 def _team_spreads(X, lab, team_of, ta, tb):
     """P1 (29 Sep): each team's own spread (80th percentile distance of its members to its centre): a striped kit
     reads much less steadily than a plain one"""
@@ -208,8 +218,9 @@ class KitTeamModel:
         not one of the two teams; SFK 0.36, Reymersholm 0.74), it tries the far-pair rule with the median and with a MEAN
         torso colour (a striped shirt's median jumps between its stripes) and keeps the one leaving the fewest of the
         fitting people as 'neither' (must beat the default by 3 points). Env IPANEMA_KIT_AUTO=0 turns it off.
-        A first version that tried the alternatives on every match made SFK and one Reymersholm piece worse on Kaggle."""
-        auto_gain = 0.03; missed_max = 1.0
+        A first version that tried the alternatives on every match made SFK and one Reymersholm piece worse on Kaggle.
+        v3 (1 Oct): new gate (see below), and when it fires the reading is always far pair + mean colour."""
+        missed_max = 1.0; shift_max = 18.0
         pitch_test = pitch_test or os.environ.get("IPANEMA_PITCH_TEST", "grass")
         self.green_kit = green_kit; dropped = 0; kept = []
         for f, boxes in frames_boxes:
@@ -219,24 +230,29 @@ class KitTeamModel:
                 if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
                 kept.append((f, b, g))
         auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
-        combos = [(None, None), ("far", "median"), ("far", "mean")] if auto else [(None, None)]
-        best = None; self.choice = {}; self.choice_missed = 0.0
-        for pair, stat in combos:
-            if self.choice and self.choice_missed < missed_max: break              # default teams look right: keep them
-            smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat)) for f, b, g in kept]; smp = [x for x in smp if x[2] is not None]
-            if len(smp) < 8: continue
-            m = fit([x[2] for x in smp], pair=pair)
-            if not self.choice: self.choice_missed = m.get("missed", 0.0)
-            other = float(np.mean([classify(m, x[2]) == "other" for x in smp]))
-            self.choice[f"{pair or 'default'}/{stat or 'default'}"] = round(other, 3)
-            if best is None or other < best[0] - auto_gain: best = (other, m, smp, stat, pair)
+        self.choice = {}; self.choice_missed = 0.0; self.pair_shift = 0.0
+        def samples(stat):
+            smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat)) for f, b, g in kept]; return [x for x in smp if x[2] is not None]
+        def share(m, smp): return round(float(np.mean([classify(m, x[2]) == "other" for x in smp])), 3)
+        smp = samples(None); m = fit([x[2] for x in smp]); self.choice_missed = m.get("missed", 0.0); self.choice["default/default"] = share(m, smp)
+        best = (None, m, smp, None, None)
+        if auto and len(smp) >= 8:
+            # P1 v3 (1 Oct): switch when the far-pair rule picks a different PAIR of teams than the default (a team centre
+            # moves > 18, with median or mean colour), or when the default leaves out a big group (v2 gate, missed >= 1).
+            # On the 21 real pieces the v2 gate never fired; this one fires on all 3 Spånga pieces and Djursholm 2714
+            # (default made spectators a team, red team 'neither'), and on none of the plain-kit pieces, where far+mean
+            # was mixed (Solberga: referees joined a team). results/qa/p1/pieces/README.md
+            smm = samples("mean"); X, Xm = [x[2] for x in smp], [x[2] for x in smm]
+            with np.errstate(all="ignore"): self.pair_shift = round(max(_team_shift(m, fit(X, pair="far")), _team_shift(fit(Xm, pair="big"), fit(Xm, pair="far")) if len(Xm) >= 8 else 0.0), 1)
+            if (self.choice_missed >= missed_max or self.pair_shift > shift_max) and len(Xm) >= 8:
+                mf = fit(Xm, pair="far"); self.choice["far/mean"] = share(mf, smm); best = (None, mf, smm, "mean", "far")
         _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
         self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"
-                             + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
+                             + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap, far pair moves a team by {self.pair_shift}" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
         """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
         Hs, labs = [], []

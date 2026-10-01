@@ -1,0 +1,590 @@
+{
+ "SFKBP1109_s1200_120": {
+  "default": {
+   "A": 299,
+   "B": 224,
+   "neither": 225,
+   "fit": "kits: learned from 426 people (322 off the pitch left out), group sizes [164, 155, 77, 30], default fit leaves out a group at 0.51 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 370,
+   "B": 272,
+   "neither": 106,
+   "fit": "kits: learned from 426 people (322 off the pitch left out), group sizes [187, 128, 73, 38], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 299,
+   "B": 224,
+   "neither": 225,
+   "fit": "kits: learned from 426 people (322 off the pitch left out), group sizes [164, 155, 77, 30], default fit leaves out a group at 0.51 x the team gap, far pair moves a team by 7.2"
+  },
+  "changed": {
+   "neither -> team": 120,
+   "team -> neither": 1,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "SFKBP1109_s1200_20": {
+  "default": {
+   "A": 297,
+   "B": 249,
+   "neither": 296,
+   "fit": "kits: learned from 377 people (465 off the pitch left out), group sizes [140, 138, 84, 15], default fit leaves out a group at 0.44 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 410,
+   "B": 322,
+   "neither": 110,
+   "fit": "kits: learned from 377 people (465 off the pitch left out), group sizes [184, 120, 57, 16], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 297,
+   "B": 249,
+   "neither": 296,
+   "fit": "kits: learned from 377 people (465 off the pitch left out), group sizes [140, 138, 84, 15], default fit leaves out a group at 0.44 x the team gap, far pair moves a team by 11.0"
+  },
+  "changed": {
+   "neither -> team": 186,
+   "team -> neither": 0,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "SFKBP1109_s1200_220": {
+  "default": {
+   "A": 272,
+   "B": 229,
+   "neither": 200,
+   "fit": "kits: learned from 471 people (230 off the pitch left out), group sizes [192, 176, 67, 36], default fit leaves out a group at 0.50 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 338,
+   "B": 256,
+   "neither": 107,
+   "fit": "kits: learned from 471 people (230 off the pitch left out), group sizes [213, 158, 60, 40], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 272,
+   "B": 229,
+   "neither": 200,
+   "fit": "kits: learned from 471 people (230 off the pitch left out), group sizes [192, 176, 67, 36], default fit leaves out a group at 0.50 x the team gap, far pair moves a team by 5.7"
+  },
+  "changed": {
+   "neither -> team": 93,
+   "team -> neither": 0,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_1279": {
+  "default": {
+   "A": 292,
+   "B": 275,
+   "neither": 168,
+   "fit": "kits: learned from 380 people (370 off the pitch left out), group sizes [154, 152, 55, 19], default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 324,
+   "B": 328,
+   "neither": 83,
+   "fit": "kits: learned from 380 people (370 off the pitch left out), group sizes [183, 122, 55, 20], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 292,
+   "B": 275,
+   "neither": 168,
+   "fit": "kits: learned from 380 people (370 off the pitch left out), group sizes [154, 152, 55, 19], default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 6.9"
+  },
+  "changed": {
+   "neither -> team": 85,
+   "team -> neither": 0,
+   "A -> B": 4,
+   "B -> A": 1
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_2431": {
+  "default": {
+   "A": 309,
+   "B": 255,
+   "neither": 178,
+   "fit": "kits: learned from 438 people (342 off the pitch left out), group sizes [173, 162, 72, 31], default fit leaves out a group at 0.55 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 353,
+   "B": 326,
+   "neither": 63,
+   "fit": "kits: learned from 438 people (342 off the pitch left out), group sizes [187, 177, 41, 33], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 309,
+   "B": 255,
+   "neither": 178,
+   "fit": "kits: learned from 438 people (342 off the pitch left out), group sizes [173, 162, 72, 31], default fit leaves out a group at 0.55 x the team gap, far pair moves a team by 8.4"
+  },
+  "changed": {
+   "neither -> team": 116,
+   "team -> neither": 1,
+   "A -> B": 23,
+   "B -> A": 1
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_4607": {
+  "default": {
+   "A": 243,
+   "B": 271,
+   "neither": 83,
+   "fit": "kits: learned from 524 people (148 off the pitch left out), group sizes [233, 181, 91, 19], default fit leaves out a group at 0.46 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 267,
+   "B": 274,
+   "neither": 56,
+   "fit": "kits: learned from 524 people (148 off the pitch left out), group sizes [250, 225, 30, 19], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 243,
+   "B": 271,
+   "neither": 83,
+   "fit": "kits: learned from 524 people (148 off the pitch left out), group sizes [233, 181, 91, 19], default fit leaves out a group at 0.46 x the team gap, far pair moves a team by 6.6"
+  },
+  "changed": {
+   "neither -> team": 28,
+   "team -> neither": 1,
+   "A -> B": 0,
+   "B -> A": 1
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-djursholm-2026-09-26_1428": {
+  "default": {
+   "A": 294,
+   "B": 334,
+   "neither": 337,
+   "fit": "kits: learned from 755 people (210 off the pitch left out), group sizes [306, 269, 143, 37], default fit leaves out a group at 0.77 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 303,
+   "B": 336,
+   "neither": 326,
+   "fit": "kits: learned from 755 people (210 off the pitch left out), group sizes [302, 278, 138, 37], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 294,
+   "B": 334,
+   "neither": 337,
+   "fit": "kits: learned from 755 people (210 off the pitch left out), group sizes [306, 269, 143, 37], default fit leaves out a group at 0.77 x the team gap, far pair moves a team by 0.0"
+  },
+  "changed": {
+   "neither -> team": 14,
+   "team -> neither": 3,
+   "A -> B": 0,
+   "B -> A": 4
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-djursholm-2026-09-26_2714": {
+  "default": {
+   "A": 348,
+   "B": 301,
+   "neither": 299,
+   "fit": "kits: learned from 622 people (326 off the pitch left out), group sizes [214, 189, 189, 30], default fit leaves out a group at 0.90 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 217,
+   "B": 249,
+   "neither": 482,
+   "fit": "kits: learned from 622 people (326 off the pitch left out), group sizes [218, 194, 185, 25], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 217,
+   "B": 249,
+   "neither": 482,
+   "fit": "kits: learned from 622 people (326 off the pitch left out), group sizes [218, 194, 185, 25], default fit leaves out a group at 0.90 x the team gap, far pair moves a team by 38.7, reading far/mean (neither-share tried: {'default/default': 0.37, 'far/mean': 0.359})"
+  },
+  "changed": {
+   "neither -> team": 220,
+   "team -> neither": 403,
+   "A -> B": 0,
+   "B -> A": 1
+  },
+  "auto switched": true,
+  "auto = default": false
+ },
+ "p15u-vs-djursholm-2026-09-26_5143": {
+  "default": {
+   "A": 303,
+   "B": 285,
+   "neither": 365,
+   "fit": "kits: learned from 728 people (225 off the pitch left out), group sizes [279, 254, 165, 30], default fit leaves out a group at 0.74 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 312,
+   "B": 290,
+   "neither": 351,
+   "fit": "kits: learned from 728 people (225 off the pitch left out), group sizes [285, 257, 155, 31], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 303,
+   "B": 285,
+   "neither": 365,
+   "fit": "kits: learned from 728 people (225 off the pitch left out), group sizes [279, 254, 165, 30], default fit leaves out a group at 0.74 x the team gap, far pair moves a team by 0.0"
+  },
+  "changed": {
+   "neither -> team": 18,
+   "team -> neither": 4,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-reymersholm-2026-09-18_1190": {
+  "default": {
+   "A": 210,
+   "B": 165,
+   "neither": 90,
+   "fit": "kits: learned from 218 people (400 off the pitch left out), group sizes [74, 61, 54, 29], default fit leaves out a group at 0.53 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 216,
+   "B": 213,
+   "neither": 36,
+   "fit": "kits: learned from 218 people (400 off the pitch left out), group sizes [78, 69, 45, 26], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 210,
+   "B": 165,
+   "neither": 90,
+   "fit": "kits: learned from 218 people (400 off the pitch left out), group sizes [74, 61, 54, 29], default fit leaves out a group at 0.53 x the team gap, far pair moves a team by 11.5"
+  },
+  "changed": {
+   "neither -> team": 54,
+   "team -> neither": 0,
+   "A -> B": 18,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-reymersholm-2026-09-18_2262": {
+  "default": {
+   "A": 310,
+   "B": 207,
+   "neither": 55,
+   "fit": "kits: learned from 155 people (555 off the pitch left out), group sizes [65, 58, 27, 5], default fit leaves out a group at 0.67 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 311,
+   "B": 211,
+   "neither": 50,
+   "fit": "kits: learned from 155 people (555 off the pitch left out), group sizes [74, 57, 19, 5], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 310,
+   "B": 207,
+   "neither": 55,
+   "fit": "kits: learned from 155 people (555 off the pitch left out), group sizes [65, 58, 27, 5], default fit leaves out a group at 0.67 x the team gap, far pair moves a team by 0.0"
+  },
+  "changed": {
+   "neither -> team": 7,
+   "team -> neither": 2,
+   "A -> B": 2,
+   "B -> A": 3
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-reymersholm-2026-09-18_4286": {
+  "default": {
+   "A": 219,
+   "B": 155,
+   "neither": 83,
+   "fit": "kits: learned from 226 people (327 off the pitch left out), group sizes [78, 64, 55, 29], default fit leaves out a group at 0.54 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 225,
+   "B": 180,
+   "neither": 52,
+   "fit": "kits: learned from 226 people (327 off the pitch left out), group sizes [77, 70, 50, 29], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 219,
+   "B": 155,
+   "neither": 83,
+   "fit": "kits: learned from 226 people (327 off the pitch left out), group sizes [78, 64, 55, 29], default fit leaves out a group at 0.54 x the team gap, far pair moves a team by 0.0"
+  },
+  "changed": {
+   "neither -> team": 32,
+   "team -> neither": 1,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-spanga-2026-09-25_1125": {
+  "default": {
+   "A": 307,
+   "B": 227,
+   "neither": 99,
+   "fit": "kits: learned from 435 people (261 off the pitch left out), group sizes [143, 103, 103, 86], default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 326,
+   "B": 299,
+   "neither": 8,
+   "fit": "kits: learned from 435 people (261 off the pitch left out), group sizes [158, 105, 105, 67], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 326,
+   "B": 299,
+   "neither": 8,
+   "fit": "kits: learned from 435 people (261 off the pitch left out), group sizes [158, 105, 105, 67], default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 30.0, reading far/mean (neither-share tried: {'default/default': 0.147, 'far/mean': 0.009})"
+  },
+  "changed": {
+   "neither -> team": 94,
+   "team -> neither": 3,
+   "A -> B": 27,
+   "B -> A": 38
+  },
+  "auto switched": true,
+  "auto = default": false
+ },
+ "p15u-vs-spanga-2026-09-25_2137": {
+  "default": {
+   "A": 224,
+   "B": 181,
+   "neither": 54,
+   "fit": "kits: learned from 267 people (342 off the pitch left out), group sizes [90, 70, 59, 48], default fit leaves out a group at 0.54 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 196,
+   "B": 262,
+   "neither": 1,
+   "fit": "kits: learned from 267 people (342 off the pitch left out), group sizes [78, 76, 62, 51], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 196,
+   "B": 262,
+   "neither": 1,
+   "fit": "kits: learned from 267 people (342 off the pitch left out), group sizes [78, 76, 62, 51], default fit leaves out a group at 0.54 x the team gap, far pair moves a team by 28.7, reading far/mean (neither-share tried: {'default/default': 0.131, 'far/mean': 0.004})"
+  },
+  "changed": {
+   "neither -> team": 53,
+   "team -> neither": 0,
+   "A -> B": 28,
+   "B -> A": 0
+  },
+  "auto switched": true,
+  "auto = default": false
+ },
+ "p15u-vs-spanga-2026-09-25_4050": {
+  "default": {
+   "A": 303,
+   "B": 203,
+   "neither": 113,
+   "fit": "kits: learned from 397 people (254 off the pitch left out), group sizes [185, 96, 75, 41], default fit leaves out a group at 0.52 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 335,
+   "B": 240,
+   "neither": 44,
+   "fit": "kits: learned from 397 people (254 off the pitch left out), group sizes [140, 104, 85, 68], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 335,
+   "B": 240,
+   "neither": 44,
+   "fit": "kits: learned from 397 people (254 off the pitch left out), group sizes [140, 104, 85, 68], default fit leaves out a group at 0.52 x the team gap, far pair moves a team by 25.8, reading far/mean (neither-share tried: {'default/default': 0.191, 'far/mean': 0.081})"
+  },
+  "changed": {
+   "neither -> team": 113,
+   "team -> neither": 44,
+   "A -> B": 12,
+   "B -> A": 0
+  },
+  "auto switched": true,
+  "auto = default": false
+ },
+ "p15u-vs-vasalund-2026-09-20_1130": {
+  "default": {
+   "A": 226,
+   "B": 225,
+   "neither": 65,
+   "fit": "kits: learned from 478 people (297 off the pitch left out), group sizes [224, 175, 49, 30], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 237,
+   "B": 233,
+   "neither": 46,
+   "fit": "kits: learned from 478 people (297 off the pitch left out), group sizes [187, 183, 78, 30], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 226,
+   "B": 225,
+   "neither": 65,
+   "fit": "kits: learned from 478 people (297 off the pitch left out), group sizes [224, 175, 49, 30], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 5.1"
+  },
+  "changed": {
+   "neither -> team": 19,
+   "team -> neither": 0,
+   "A -> B": 2,
+   "B -> A": 1
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-vasalund-2026-09-20_2147": {
+  "default": {
+   "A": 181,
+   "B": 138,
+   "neither": 98,
+   "fit": "kits: learned from 259 people (279 off the pitch left out), group sizes [124, 69, 42, 24], default fit leaves out a group at 0.40 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 208,
+   "B": 187,
+   "neither": 22,
+   "fit": "kits: learned from 259 people (279 off the pitch left out), group sizes [114, 68, 46, 31], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 181,
+   "B": 138,
+   "neither": 98,
+   "fit": "kits: learned from 259 people (279 off the pitch left out), group sizes [124, 69, 42, 24], default fit leaves out a group at 0.40 x the team gap, far pair moves a team by 7.3"
+  },
+  "changed": {
+   "neither -> team": 76,
+   "team -> neither": 0,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "p15u-vs-vasalund-2026-09-20_4068": {
+  "default": {
+   "A": 231,
+   "B": 196,
+   "neither": 77,
+   "fit": "kits: learned from 391 people (405 off the pitch left out), group sizes [174, 119, 70, 28], default fit leaves out a group at 0.71 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 258,
+   "B": 211,
+   "neither": 35,
+   "fit": "kits: learned from 391 people (405 off the pitch left out), group sizes [162, 146, 55, 28], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 231,
+   "B": 196,
+   "neither": 77,
+   "fit": "kits: learned from 391 people (405 off the pitch left out), group sizes [174, 119, 70, 28], default fit leaves out a group at 0.71 x the team gap, far pair moves a team by 6.0"
+  },
+  "changed": {
+   "neither -> team": 42,
+   "team -> neither": 0,
+   "A -> B": 2,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_1456": {
+  "default": {
+   "A": 243,
+   "B": 263,
+   "neither": 39,
+   "fit": "kits: learned from 511 people (487 off the pitch left out), group sizes [215, 140, 125, 31], default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 244,
+   "B": 256,
+   "neither": 45,
+   "fit": "kits: learned from 511 people (487 off the pitch left out), group sizes [216, 137, 125, 33], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 243,
+   "B": 263,
+   "neither": 39,
+   "fit": "kits: learned from 511 people (487 off the pitch left out), group sizes [215, 140, 125, 31], default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 0.0"
+  },
+  "changed": {
+   "neither -> team": 6,
+   "team -> neither": 12,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_2766": {
+  "default": {
+   "A": 204,
+   "B": 243,
+   "neither": 164,
+   "fit": "kits: learned from 462 people (338 off the pitch left out), group sizes [182, 174, 87, 19], default fit leaves out a group at 0.51 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 211,
+   "B": 314,
+   "neither": 86,
+   "fit": "kits: learned from 462 people (338 off the pitch left out), group sizes [180, 162, 100, 20], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 204,
+   "B": 243,
+   "neither": 164,
+   "fit": "kits: learned from 462 people (338 off the pitch left out), group sizes [182, 174, 87, 19], default fit leaves out a group at 0.51 x the team gap, far pair moves a team by 8.3"
+  },
+  "changed": {
+   "neither -> team": 78,
+   "team -> neither": 0,
+   "A -> B": 1,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_5242": {
+  "default": {
+   "A": 150,
+   "B": 232,
+   "neither": 193,
+   "fit": "kits: learned from 296 people (384 off the pitch left out), group sizes [119, 78, 55, 44], default fit leaves out a group at 0.62 x the team gap, far pair moves a team by 0.0"
+  },
+  "far+mean": {
+   "A": 199,
+   "B": 275,
+   "neither": 101,
+   "fit": "kits: learned from 296 people (384 off the pitch left out), group sizes [130, 67, 66, 33], default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "auto (v3 gate)": {
+   "A": 150,
+   "B": 232,
+   "neither": 193,
+   "fit": "kits: learned from 296 people (384 off the pitch left out), group sizes [119, 78, 55, 44], default fit leaves out a group at 0.62 x the team gap, far pair moves a team by 7.7"
+  },
+  "changed": {
+   "neither -> team": 92,
+   "team -> neither": 0,
+   "A -> B": 0,
+   "B -> A": 0
+  },
+  "auto switched": false,
+  "auto = default": true
+ }
+}
