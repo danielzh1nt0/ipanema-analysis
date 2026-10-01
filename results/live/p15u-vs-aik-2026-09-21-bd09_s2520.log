@@ -1,5 +1,38 @@
-# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 19:36:12 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 19:37:45 UTC
 
 
-## run_match.log (1 lines, last 60)
+## run_match.log (34 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: panorama registration cached (8992 frames)
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.3/frame
+clean: keeper (right) from a non-team kit: track 164, 571 frames
+clean: removed 9086 rows of non-team kits (referee / staff)
+clean: dropped 19855 off-pitch, merged 1531 duplicates, stitched 314 ids, keepers [23, 142, 147, 149, 424] -> B defends left
+clean: players per frame median A 7 / B 7, max A 15 / B 16
+players: 2595 short gaps filled (marked 'filled' in the export)
+ball v2: 8451/8992 frames on the path, 551 static-clutter candidates dropped
+ball check: 30/39 correct, 9 wrong, 0 no pick (ceiling 39/39)
+ball: dropped 432 static-clutter candidates
+ball (global path): 7722/8992 frames on the chosen path
+ball check (other picker, v1): 18/39 correct, ceiling 39/39
+possession: simple model (nearest feet in the picture); 26% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A ←  B →  confidence A 0.03 / B 0.01  WARNING low confidence
+direction (from keepers): A ←  B →
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball grade: accuracy 0.77, near-player 0.51, possession OK, events withheld
+ball reliability: 100% frames, 51% near a player, 2370 jumps -> OK
+  step: export
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote match_data.json (22.1 MB)
