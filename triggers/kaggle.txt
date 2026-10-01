@@ -1,2 +1,2 @@
-kaggle/speedcheck.py 20
-# Thu Oct  1 19:13:31 UTC 2026
+kaggle/ballfinder_hn.py 330
+# Thu Oct  1 19:23:02 UTC 2026 fix ball: B7 training + hard-example oversampling (free)

@@ -173,6 +173,32 @@ try:
         counts["train_total_after_cut"] = min(50, len(ims))
     REPORT["crops"] = counts; log(f"dataset: {counts}"); save()
 
+    # 1 Oct (fix ball): HARD_NEG=1 = hard-example oversampling. The remaining app misses are mostly the finder scoring a shoe, a
+    # player or a second ball higher than the match ball (results/qa/ballmiss2). The current finder (B7) looks at every training
+    # crop; crops where it has a confident guess (>= HN_CONF) away from the labelled ball are copied HN_COPIES more times, so
+    # training sees those look-alikes more often (unlabelled = background for RF-DETR). Clip and exam frames are never in training.
+    HARD_NEG = os.environ.get("HARD_NEG") == "1"; REPORT["hard_neg_on"] = HARD_NEG
+    if HARD_NEG:
+        from ipanema import ballrf
+        HN_CONF = float(os.environ.get("HN_CONF", "0.4")); HN_COPIES = int(os.environ.get("HN_COPIES", "2"))
+        old = ballrf.load(f"{REPO}/{ballrf.WEIGHTS}") if not os.environ.get("HN_WEIGHTS") else ballrf.load(os.environ["HN_WEIGHTS"])
+        ims = sorted(os.listdir(f"{DS}/train/images")); hard = []; t1 = time.time()
+        for b0 in range(0, len(ims), 16):
+            chunk = ims[b0:b0 + 16]; imgs = [cv2.imread(f"{DS}/train/images/{fn}")[:, :, ::-1].copy() for fn in chunk]
+            res = old.predict(imgs, threshold=HN_CONF)
+            if not isinstance(res, list): res = [res]
+            for fn, d in zip(chunk, res):
+                lab = open(f"{DS}/train/labels/{fn[:-4]}.txt").read().split()
+                bx = (float(lab[1]) * CROP, float(lab[2]) * CROP) if lab else None
+                fp = [float(cf) for (a, b, c, e), cf in zip(d.xyxy, d.confidence) if bx is None or np.hypot((a + c) / 2 - bx[0], (b + e) / 2 - bx[1]) > 20]
+                if fp: hard.append((fn, max(fp), bx is not None))
+        for fn, _, _ in hard:
+            for j in range(HN_COPIES):
+                shutil.copy(f"{DS}/train/images/{fn}", f"{DS}/train/images/{fn[:-4]}_hn{j}.jpg"); shutil.copy(f"{DS}/train/labels/{fn[:-4]}.txt", f"{DS}/train/labels/{fn[:-4]}_hn{j}.txt")
+        REPORT["hard_neg"] = {"conf": HN_CONF, "copies": HN_COPIES, "crops_checked": len(ims), "hard_crops": len(hard), "hard_with_ball": sum(h[2] for h in hard),
+                              "hard_empty": sum(not h[2] for h in hard), "sec": round(time.time() - t1)}
+        log(f"hard negatives: {REPORT['hard_neg']}"); del old; torch.cuda.empty_cache() if torch.cuda.is_available() else None; save()
+
     # ---------------- train
     import rfdetr.training as RT
     _bt = RT.build_trainer
@@ -195,7 +221,7 @@ try:
         model = Model.from_checkpoint(ck, resolution=RES); REPORT["checkpoint"] = os.path.basename(ck); log(f"loaded {ck}: resolution {getattr(getattr(model, 'model_config', None), 'resolution', '?')}")
         sd = torch.load(ck, map_location="cpu", weights_only=False); sd = sd.get("model", sd)
         sd = {k: (v.half() if torch.is_tensor(v) and v.is_floating_point() else v) for k, v in sd.items()}
-        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}{'_hf_TESTONLY' if HF_EXTRA else ''}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
+        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}{'_hf_TESTONLY' if HF_EXTRA else ''}{'_hn' if HARD_NEG else ''}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
         REPORT["weights"] = {"file": wname, "MB": round(os.path.getsize(f"{WORK}/{wname}") / 1e6, 1), "full_checkpoint_MB": round(os.path.getsize(ck) / 1e6, 1)}
         if REPORT["weights"]["MB"] > 95: os.rename(f"{WORK}/{wname}", f"{TMP}/{wname}"); REPORT["weights"]["note"] = "too big for git: left on Kaggle temp (lost)"
     log(f"weights {REPORT.get('weights')}"); save()
