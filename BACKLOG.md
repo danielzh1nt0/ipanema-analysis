@@ -56,6 +56,7 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 ## Waiting for Daniel
 
 ## Done
+- [x] 1 Oct: speed layer v1 (ipanema/motion.py, export fields kmh/dist_m, OFF by default). By-eye check of 28 readings: >25 km/h readings all wrong (ID swaps or exaggerated), walking reads ~11 km/h (2x too high). Not shown in the app until fixed. results/review/speedcheck_2026-10-01.md
 - [x] K1c (1 Oct: nothing to do - the label sets and the fine-tuned WASB were already copied from Modal to R2 on 29 Sep (results/datasets/modal_to_r2.json) and the fair scorer test already ran on Kaggle (scorer_big): no gain, exam 61-64/81 vs 54-66, clip 23-24/34 vs 24-25. results/ball/scorer/big_2026-09-29.md. The Waiting item was stale; no Modal touched.)
 - [x] 1 Oct: picker tuned for free on the EXACT app inputs of both clips (tools/picktune.py, inputs fetched from Modal; old setting reproduces the app's 26 and 29 exactly): conf_w 2.5, near_w 0.75. AIK 26->30/39, SFK-BP 29->29/34, B4 key 279->284. First try (tuned on an older SFK setup) lost a moment in the app (29->28) and was replaced.
 - [x] 1 Oct: AIK app re-run with its new key: ball 26/39 (67%; finder alone 30/39 top guess), possession now shown in the app (41/59), events still withheld. 13 picker misses with the ball among the guesses every time (ceiling 39/39) -> the picker, not the finder, is the gap on AIK.
