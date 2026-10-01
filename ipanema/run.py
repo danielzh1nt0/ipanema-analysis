@@ -186,6 +186,10 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     per, cl = TR.clean(per, L, W, fps, log=log)
     per, _nf = TR.fill_gaps(per, fps, 1.0, H=H)                              # 28 Sep: players the detector drops for < 1 s (dark kits blink: median track 0.8 s)
     log(f"players: {_nf} short gaps filled (marked 'filled' in the export)")
+    try:                                                                       # 1 Oct: the picker's exact inputs, so it can be tuned for free offline ([fetch:cache/<match>/picker_inputs.pkl])
+        pickle.dump({"cands": cands, "H": H, "L": L, "W": W, "fps": fps, "per": {k: [[r[0], r[1], r[2], r[3]] for r in v] for k, v in per.items()}},
+                    open(os.path.join(S.root, "cache", match_id, "picker_inputs.pkl"), "wb"))
+    except Exception as e: log(f"picker inputs not saved ({e!r})")
     def _v1():
         g = BL.pick_global(cands, H, L, W, per=per, fps=fps, log=log)
         if len(g) < 0.2 * len(cands): log("ball: global path too sparse, falling back to trajectory picker"); g = BL.pick(cands, H, L, W, per=per, log=log)
