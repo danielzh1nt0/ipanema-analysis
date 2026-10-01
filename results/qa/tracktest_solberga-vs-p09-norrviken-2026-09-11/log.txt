@@ -62,3 +62,25 @@
 04:37:26 clean: dropped 0 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [68] -> A defends left
 04:37:26 clean: players per frame median A 7 / B 7, max A 9 / B 10
 04:37:26 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 7.0}, 'shown_per_frame': {'dark': 7.0, 'light': 7.0}, 'tracks': 46, 'median_track_s': {'dark': 2.57, 'light': 3.24}, 'minutes': 12.3, 'filled_rows': 116}
+05:40:48 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+05:40:56 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+05:42:04 kits: per-player classifier from 493 on-pitch people, 0 of 15 runs kept -> colour only
+05:42:04 kits: learned from 583 people (515 off the pitch left out), group sizes [244, 225, 79, 35], default fit leaves out a group at 0.64 x the team gap, far pair moves a team by 0.0
+05:42:04 off-pitch people dropped by the pitch-edge test: yes
+05:42:08   tracking frame 0
+05:43:18   tracking frame 50 (0.7 frames/s)
+05:44:27   tracking frame 100 (0.7 frames/s)
+05:45:37   tracking frame 150 (0.7 frames/s)
+05:46:47   tracking frame 200 (0.7 frames/s)
+05:47:57   tracking frame 250 (0.7 frames/s)
+05:49:06   tracking frame 300 (0.7 frames/s)
+05:50:16   tracking frame 350 (0.7 frames/s)
+05:51:25   tracking frame 400 (0.7 frames/s)
+05:52:34   tracking frame 450 (0.7 frames/s)
+05:53:43   tracking frame 500 (0.7 frames/s)
+05:54:53   tracking frame 550 (0.7 frames/s)
+05:56:00 clean: keeper (right) from a non-team kit: track 1, 267 frames
+05:56:00 clean: removed 908 rows of non-team kits (referee / staff)
+05:56:00 clean: dropped 0 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [68] -> A defends left
+05:56:00 clean: players per frame median A 7 / B 7, max A 9 / B 10
+05:56:00 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 7.0}, 'shown_per_frame': {'dark': 7.0, 'light': 7.0}, 'tracks': 46, 'median_track_s': {'dark': 2.57, 'light': 3.24}, 'minutes': 15.1, 'filled_rows': 116}
