@@ -1,2 +1,2 @@
-tools/b4b_sheet.py
-# Thu Oct  1 12:31:06 UTC 2026 B4b: picture sheets where the picker with/without the recurring-spot rule disagree (free)
+tools/ballmiss2_sheet.py
+# Thu Oct  1 19:15:34 UTC 2026 fix ball: pictures of the moments the current app picker still misses (AIK 9, SFK-BP 5)
