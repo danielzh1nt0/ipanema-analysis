@@ -32,3 +32,4 @@
 05:32:35   tracking frame 350 (0.8 frames/s)
 05:33:34   tracking frame 400 (0.8 frames/s)
 05:34:34   tracking frame 450 (0.8 frames/s)
+05:40:35 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
