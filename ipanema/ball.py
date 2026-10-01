@@ -216,10 +216,31 @@ def recurring_spots(C, fps, L, W, margin=1.5, win_s=3.0, still_r=1.2, still_frac
     return out
 
 
+def moving_ball(Mb, fps, L, W, margin=1.5, win_s=0.3, step_m=1.0, disp_m=0.6):
+    """B4c: frames where a ball path (metres per frame, NaN = none) is on the pitch and moving smoothly: every frame in the
+    last win_s seconds present and on the pitch, each step <= step_m (no jumps between guesses), and moved >= disp_m.
+    margin < 0 = only count balls at least -margin metres inside the lines (a ball carried along the touchline by a
+    ball boy during a stoppage is not play)."""
+    n = len(Mb); k = max(1, int(round(win_s * fps)))
+    with np.errstate(invalid="ignore"):
+        on = (Mb[:, 0] > -margin) & (Mb[:, 0] < L + margin) & (Mb[:, 1] > -margin) & (Mb[:, 1] < W + margin)
+    st = np.nan_to_num(np.r_[np.inf, np.linalg.norm(np.diff(Mb, axis=0), axis=1)], nan=np.inf)
+    mv = np.zeros(n, bool)
+    for j in range(k, n):
+        if on[j - k:j + 1].all() and (st[j - k + 1:j + 1] <= step_m).all() and np.linalg.norm(Mb[j] - Mb[j - k]) >= disp_m: mv[j] = True
+    return mv
+
+
+def play_on_mask(moving, fps, play_s):
+    """B4c: frame i is 'play on' if a moving ball was seen in the last play_s seconds (including frame i)."""
+    n = len(moving); w = int(round(play_s * fps)); c = np.r_[0, np.cumsum(moving)]
+    return np.array([c[i + 1] - c[max(0, i - w)] > 0 for i in range(n)], bool)
+
+
 # ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
 def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=2.5, near_w=0.75, air_w=0.6,
             miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
-            poss_only_empty=False, recur_r=None, log=print):
+            poss_only_empty=False, recur_r=None, recur_play_s=None, recur_move_m=0.6, recur_inside_m=-1.5, log=print):
     """1 Oct (tools/picktune.py, exact app inputs of both clips): conf_w 1.5->2.5, near_w 1.0->0.75 = trust the new finder
     more, the 'near a player' bonus less. AIK 26->30/39, SFK-BP 29->29/34, B4 key 279->284. (A first try, conf_w 4 / near_w 0.5 /
     miss_cost 5, was tuned on an older offline SFK-BP setup and lost one SFK-BP moment in the app.)
@@ -248,9 +269,22 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
     # B4b: recurring off-pitch spots (spare ball behind the goal), found before the short-window rule thins them out
     if recur_r:
         spots = recurring_spots(C, fps, L, W, margin=margin)
+        play = None
+        if spots and recur_play_s:
+            # B4c: drop the spot only while play is on = a ball seen moving on the pitch in the last recur_play_s seconds
+            # (first pass with the rule everywhere), so a ball taken from the post for a restart is followed again
+            kw = dict(per=per, fps=fps, margin=margin, min_conf=min_conf, conf_w=conf_w, near_w=near_w, air_w=air_w,
+                      miss_cost=miss_cost, px_w=px_w, jump_px=jump_px, jump_cost=jump_cost, gate_px=gate_px, top_k=top_k,
+                      poss_cost=poss_cost, poss_px=poss_px, poss_only_empty=poss_only_empty)
+            first = pick_v2(cands, H, L, W, recur_r=recur_r, log=lambda *a: None, **kw)
+            Mb = np.full((n, 2), np.nan)
+            for i, p in first.items(): Mb[i] = to_m(H[i], np.float32([p]))[0]
+            play = play_on_mask(moving_ball(Mb, fps, L, W, margin=-recur_inside_m, disp_m=recur_move_m), fps, recur_play_s)
+            log(f"ball v2: play on (ball moving on the pitch within {recur_play_s} s) on {play.mean():.0%} of frames")
         if spots:
             S = np.array([s[:2] for s in spots]); rd = 0
             for i in range(n):
+                if play is not None and not play[i]: continue
                 keep = [r for r in C[i] if r[2] < 0 or r[6] or np.linalg.norm(S - (r[0], r[1]), axis=1).min() > recur_r]
                 rd += len(C[i]) - len(keep); C[i] = keep
             log(f"ball v2: {len(spots)} recurring off-pitch spots ({', '.join(f'{x:.0f},{y:.0f}' for x, y, _ in spots)}), {rd} candidates dropped")

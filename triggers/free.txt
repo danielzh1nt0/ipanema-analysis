@@ -1,2 +1,2 @@
-tools/ballmiss2_sheet.py
-# Thu Oct  1 19:15:34 UTC 2026 fix ball: pictures of the moments the current app picker still misses (AIK 9, SFK-BP 5)
+tools/b4c_sheet.py
+# Thu Oct  1 19:22:42 UTC 2026 B4c: picture sheets where the picker with/without the play-on spare-ball rule disagree (free)

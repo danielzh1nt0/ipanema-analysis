@@ -1,0 +1,729 @@
+{
+ "grid": {
+  "off": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 17,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 13.9,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 11,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    74,
+    99
+   ],
+   "dead_pct": 21,
+   "restarts": 13,
+   "sequences": 81,
+   "passes": 87,
+   "aik39": 30
+  },
+  "B4b (rule always)": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 0,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 0.0,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 0,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 0,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 16,
+   "restarts": 12,
+   "sequences": 85,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 3.0 s, move 0.6 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 9,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 5.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 3,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 17,
+   "restarts": 12,
+   "sequences": 82,
+   "passes": 92,
+   "aik39": 30
+  },
+  "play 3.0 s, move 0.6 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 11,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 8.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 5,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 3.0 s, move 1.0 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 9,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 5.9,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 3,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 18,
+   "restarts": 13,
+   "sequences": 82,
+   "passes": 92,
+   "aik39": 30
+  },
+  "play 3.0 s, move 1.0 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 11,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 8.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 5,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 3.0 s, move 1.5 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 13,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 9.6,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 7,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 82,
+   "passes": 90,
+   "aik39": 30
+  },
+  "play 3.0 s, move 1.5 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 15,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 11.7,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 9,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 20,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 89,
+   "aik39": 30
+  },
+  "play 4.0 s, move 0.6 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 6,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 3.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 1,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 5,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 17,
+   "restarts": 12,
+   "sequences": 83,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 4.0 s, move 0.6 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 9,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 7.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 3,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 4.0 s, move 1.0 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 6,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 3.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 1,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 5,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 17,
+   "restarts": 12,
+   "sequences": 83,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 4.0 s, move 1.0 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 9,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 7.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 3,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 4.0 s, move 1.5 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 12,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 8.1,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 7,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 5,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 18,
+   "restarts": 11,
+   "sequences": 83,
+   "passes": 89,
+   "aik39": 30
+  },
+  "play 4.0 s, move 1.5 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 15,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 11.7,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 9,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 20,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 89,
+   "aik39": 30
+  },
+  "play 5.0 s, move 0.6 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 3,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 1.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 0,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 3,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 16,
+   "restarts": 12,
+   "sequences": 83,
+   "passes": 93,
+   "aik39": 30
+  },
+  "play 5.0 s, move 0.6 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 8,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 6.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 2,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 5.0 s, move 1.0 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 3,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 1.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 0,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 3,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 16,
+   "restarts": 12,
+   "sequences": 83,
+   "passes": 93,
+   "aik39": 30
+  },
+  "play 5.0 s, move 1.0 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 8,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 6.5,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 2,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 19,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 5.0 s, move 1.5 m, inside -1.5 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 10,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 7.1,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 7,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 3,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 17,
+   "restarts": 11,
+   "sequences": 83,
+   "passes": 91,
+   "aik39": 30
+  },
+  "play 5.0 s, move 1.5 m, inside 2.0 m": {
+   "moments34": 29,
+   "b4_ball": 284,
+   "b4_ball_of": 285,
+   "restart_kept": 13,
+   "restart_of": 13,
+   "spare_still_picked": 15,
+   "spare_of": 18,
+   "frames_on_spare_spot_s": 11.7,
+   "frames_with_ball": 8992,
+   "spare_in_play_picked": 9,
+   "spare_in_play_of": 11,
+   "stoppage_ball_followed": 6,
+   "stoppage_of": 7,
+   "who_has_ball_right": [
+    73,
+    99
+   ],
+   "dead_pct": 20,
+   "restarts": 12,
+   "sequences": 81,
+   "passes": 89,
+   "aik39": 30
+  }
+ },
+ "chosen": "play 5.0 s, move 1.0 m, inside 2.0 m",
+ "b4b_tiles": {
+  "0": {
+   "s": 39.6,
+   "same_as": "new"
+  },
+  "1": {
+   "s": 40.1,
+   "same_as": "new"
+  },
+  "2": {
+   "s": 40.6,
+   "same_as": "other"
+  },
+  "3": {
+   "s": 41.0,
+   "same_as": "old"
+  },
+  "4": {
+   "s": 41.5,
+   "same_as": "new"
+  },
+  "5": {
+   "s": 42.0,
+   "same_as": "new"
+  },
+  "6": {
+   "s": 144.0,
+   "same_as": "new"
+  },
+  "7": {
+   "s": 144.5,
+   "same_as": "new"
+  },
+  "8": {
+   "s": 145.0,
+   "same_as": "new"
+  },
+  "9": {
+   "s": 145.5,
+   "same_as": "new"
+  },
+  "10": {
+   "s": 146.0,
+   "same_as": "other"
+  },
+  "11": {
+   "s": 146.5,
+   "same_as": "other"
+  },
+  "12": {
+   "s": 147.0,
+   "same_as": "new"
+  },
+  "13": {
+   "s": 147.5,
+   "same_as": "other"
+  },
+  "14": {
+   "s": 148.0,
+   "same_as": "new"
+  },
+  "15": {
+   "s": 148.5,
+   "same_as": "new"
+  },
+  "16": {
+   "s": 149.0,
+   "same_as": "other"
+  },
+  "17": {
+   "s": 149.5,
+   "same_as": "other"
+  },
+  "18": {
+   "s": 155.2,
+   "same_as": "other"
+  },
+  "19": {
+   "s": 174.2,
+   "same_as": "old"
+  },
+  "20": {
+   "s": 174.7,
+   "same_as": "old"
+  },
+  "21": {
+   "s": 175.2,
+   "same_as": "old"
+  },
+  "22": {
+   "s": 175.7,
+   "same_as": "old"
+  },
+  "23": {
+   "s": 176.2,
+   "same_as": "new"
+  },
+  "24": {
+   "s": 176.7,
+   "same_as": "new"
+  },
+  "25": {
+   "s": 248.2,
+   "same_as": "other"
+  },
+  "26": {
+   "s": 248.7,
+   "same_as": "old"
+  },
+  "27": {
+   "s": 249.2,
+   "same_as": "other"
+  },
+  "28": {
+   "s": 249.7,
+   "same_as": "old"
+  },
+  "29": {
+   "s": 250.2,
+   "same_as": "old"
+  },
+  "30": {
+   "s": 250.8,
+   "same_as": "old"
+  },
+  "31": {
+   "s": 251.3,
+   "same_as": "old"
+  },
+  "32": {
+   "s": 251.8,
+   "same_as": "old"
+  },
+  "33": {
+   "s": 252.3,
+   "same_as": "old"
+  },
+  "34": {
+   "s": 252.8,
+   "same_as": "old"
+  },
+  "35": {
+   "s": 253.3,
+   "same_as": "old"
+  },
+  "36": {
+   "s": 253.6,
+   "same_as": "other"
+  },
+  "37": {
+   "s": 254.1,
+   "same_as": "new"
+  },
+  "38": {
+   "s": 254.6,
+   "same_as": "new"
+  },
+  "39": {
+   "s": 256.5,
+   "same_as": "old"
+  },
+  "40": {
+   "s": 257.0,
+   "same_as": "old"
+  },
+  "41": {
+   "s": 257.5,
+   "same_as": "old"
+  },
+  "42": {
+   "s": 258.0,
+   "same_as": "old"
+  },
+  "43": {
+   "s": 258.5,
+   "same_as": "old"
+  },
+  "44": {
+   "s": 259.1,
+   "same_as": "other"
+  },
+  "45": {
+   "s": 260.5,
+   "same_as": "old"
+  },
+  "46": {
+   "s": 262.8,
+   "same_as": "other"
+  },
+  "47": {
+   "s": 295.6,
+   "same_as": "new"
+  },
+  "48": {
+   "s": 296.1,
+   "same_as": "old"
+  }
+ },
+ "differ": {
+  "frames": 238,
+  "seconds": 7.9,
+  "stretches": [
+   [
+    39.6,
+    40.7
+   ],
+   [
+    41.0,
+    42.2
+   ],
+   [
+    144.0,
+    149.2
+   ],
+   [
+    295.5,
+    295.9
+   ]
+  ]
+ },
+ "who_flips": [
+  {
+   "frame": 4364,
+   "s": 145.6,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 4400,
+   "s": 146.8,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 8862,
+   "s": 295.7,
+   "truth": "dark",
+   "off": "dark",
+   "new": "white"
+  }
+ ],
+ "moments34_changed": []
+}
