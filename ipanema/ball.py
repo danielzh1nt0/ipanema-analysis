@@ -185,10 +185,41 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
     return ball
 
 
+def recurring_spots(C, fps, L, W, margin=1.5, win_s=3.0, still_r=1.2, still_frac=0.5, merge_r=1.5, gap_s=30.0, min_visits=2):
+    """B4b (1 Oct): off-pitch spots where something ball-like lies still in two or more separate visits (>= gap_s apart):
+    a spare ball behind the goal, a cone, a bag. The match ball lies still off the pitch only once per restart, so it does
+    not recur at the same spot. Players walking past do not matter here (the short-window clutter rule needs nobody near).
+    C: per frame rows (mx, my, conf, ...). Returns a list of (x_m, y_m, [window starts in s])."""
+    n = len(C); win = max(1, int(win_s * fps)); spots = []      # still spots per window: (x, y, window index)
+    for w0 in range(0, n, win):
+        pts = [(r[0], r[1], i) for i in range(w0, min(n, w0 + win)) for r in C[i]
+               if r[2] >= 0 and not (-margin < r[0] < L + margin and -margin < r[1] < W + margin)]
+        used = np.zeros(len(pts), bool); P = np.array([p[:2] for p in pts]) if pts else np.zeros((0, 2))
+        while not used.all():
+            best = None
+            for j in np.flatnonzero(~used):
+                m = (~used) & (np.linalg.norm(P - P[j], axis=1) <= still_r)
+                fr = len({pts[q][2] for q in np.flatnonzero(m)})
+                if best is None or fr > best[0]: best = (fr, m)
+            fr, m = best
+            if fr < still_frac * win: break
+            spots.append((*np.median(P[m], axis=0), w0 // win)); used |= m
+    groups = []                                                    # merge window spots that sit at the same place
+    for x, y, k in spots:
+        g = next((g for g in groups if np.hypot(g[0] - x, g[1] - y) <= merge_r), None)
+        if g is None: groups.append([x, y, [k]])
+        else: g[2].append(k); g[0] += (x - g[0]) / len(g[2]); g[1] += (y - g[1]) / len(g[2])
+    out = []
+    for x, y, ks in groups:
+        t = sorted(k * win / fps for k in ks); visits = 1 + sum(1 for a, b in zip(t, t[1:]) if b - a >= gap_s)
+        if visits >= min_visits: out.append((float(x), float(y), t))
+    return out
+
+
 # ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
 def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=1.5, near_w=1.0, air_w=0.6,
             miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
-            poss_only_empty=False, log=print):
+            poss_only_empty=False, recur_r=None, log=print):
     """poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
     for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default."""
     n = len(cands); C = []
@@ -211,6 +242,15 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
                 mx, my = float(r[2][0]), float(r[2][1])
                 rows.append((mx, my, -1.0, float(r[3][0]) + poss_px[0], float(r[3][1]) + poss_px[1], 1.0, True))
         C.append(rows)
+    # B4b: recurring off-pitch spots (spare ball behind the goal), found before the short-window rule thins them out
+    if recur_r:
+        spots = recurring_spots(C, fps, L, W, margin=margin)
+        if spots:
+            S = np.array([s[:2] for s in spots]); rd = 0
+            for i in range(n):
+                keep = [r for r in C[i] if r[2] < 0 or r[6] or np.linalg.norm(S - (r[0], r[1]), axis=1).min() > recur_r]
+                rd += len(C[i]) - len(keep); C[i] = keep
+            log(f"ball v2: {len(spots)} recurring off-pitch spots ({', '.join(f'{x:.0f},{y:.0f}' for x, y, _ in spots)}), {rd} candidates dropped")
     # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
     win = int(3 * fps); grid = {}
     for i in range(n):

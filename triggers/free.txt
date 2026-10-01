@@ -1,2 +1,2 @@
-tools/b4_sheet.py
-# Thu Oct  1 08:34:31 UTC 2026 B4: picture sheets of 312 auto ball-key candidates on SFK-BP (free)
+tools/b4b_sheet.py
+# Thu Oct  1 12:31:06 UTC 2026 B4b: picture sheets where the picker with/without the recurring-spot rule disagree (free)

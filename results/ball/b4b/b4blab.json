@@ -1,0 +1,415 @@
+{
+ "off": {
+  "moments34": 26,
+  "b4_ball": 287,
+  "b4_ball_of": 287,
+  "restart_kept": 13,
+  "restart_of": 13,
+  "spare_still_picked": 16,
+  "spare_of": 16,
+  "frames_on_spare_spot_s": 15.8,
+  "frames_with_ball": 8992,
+  "log": [
+   "ball v2: 8813/8992 frames on the path, 937 static-clutter candidates dropped"
+  ]
+ },
+ "recur_r 1.5 m": {
+  "moments34": 25,
+  "b4_ball": 285,
+  "b4_ball_of": 287,
+  "restart_kept": 13,
+  "restart_of": 13,
+  "spare_still_picked": 3,
+  "spare_of": 16,
+  "frames_on_spare_spot_s": 2.3,
+  "frames_with_ball": 8992,
+  "log": [
+   "ball v2: 2 recurring off-pitch spots (-4,34, -4,29), 1042 candidates dropped",
+   "ball v2: 8782/8992 frames on the path, 937 static-clutter candidates dropped"
+  ]
+ },
+ "recur_r 2.0 m": {
+  "moments34": 25,
+  "b4_ball": 285,
+  "b4_ball_of": 287,
+  "restart_kept": 13,
+  "restart_of": 13,
+  "spare_still_picked": 0,
+  "spare_of": 16,
+  "frames_on_spare_spot_s": 0.1,
+  "frames_with_ball": 8992,
+  "log": [
+   "ball v2: 2 recurring off-pitch spots (-4,34, -4,29), 1330 candidates dropped",
+   "ball v2: 8786/8992 frames on the path, 937 static-clutter candidates dropped"
+  ]
+ },
+ "recur_r 2.5 m": {
+  "moments34": 25,
+  "b4_ball": 285,
+  "b4_ball_of": 287,
+  "restart_kept": 13,
+  "restart_of": 13,
+  "spare_still_picked": 0,
+  "spare_of": 16,
+  "frames_on_spare_spot_s": 0.0,
+  "frames_with_ball": 8992,
+  "log": [
+   "ball v2: 2 recurring off-pitch spots (-4,34, -4,29), 1548 candidates dropped",
+   "ball v2: 8785/8992 frames on the path, 937 static-clutter candidates dropped"
+  ]
+ },
+ "recur_r 3.0 m": {
+  "moments34": 25,
+  "b4_ball": 285,
+  "b4_ball_of": 287,
+  "restart_kept": 13,
+  "restart_of": 13,
+  "spare_still_picked": 0,
+  "spare_of": 16,
+  "frames_on_spare_spot_s": 0.0,
+  "frames_with_ball": 8992,
+  "log": [
+   "ball v2: 2 recurring off-pitch spots (-4,34, -4,29), 1813 candidates dropped",
+   "ball v2: 8781/8992 frames on the path, 937 static-clutter candidates dropped"
+  ]
+ },
+ "spare_spot_m": [
+  -4.0,
+  34.2
+ ],
+ "changed_r2": [
+  {
+   "set": "34",
+   "frame": 7608,
+   "was_right": true,
+   "ball_m": [
+    -3.2,
+    34.8
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 29,
+   "frame": 1203,
+   "verdict": "ball",
+   "was_on": true,
+   "guess_m": [
+    -4.8,
+    34.2
+   ],
+   "new_pick_m": [
+    7.9,
+    31.2
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 31,
+   "frame": 1242,
+   "verdict": "ball",
+   "was_on": true,
+   "guess_m": [
+    -3.7,
+    34.6
+   ],
+   "new_pick_m": [
+    17.9,
+    47.7
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 161,
+   "frame": 4345,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.8,
+    33.6
+   ],
+   "new_pick_m": [
+    1.2,
+    15.9
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 162,
+   "frame": 4372,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.3,
+    32.7
+   ],
+   "new_pick_m": [
+    2.0,
+    20.7
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 163,
+   "frame": 4389,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.0,
+    33.1
+   ],
+   "new_pick_m": [
+    0.1,
+    20.1
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 164,
+   "frame": 4406,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.1,
+    33.1
+   ],
+   "new_pick_m": [
+    -0.4,
+    21.1
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 165,
+   "frame": 4421,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.5,
+    33.7
+   ],
+   "new_pick_m": [
+    1.7,
+    30.9
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 166,
+   "frame": 4437,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.3,
+    34.9
+   ],
+   "new_pick_m": [
+    9.3,
+    13.6
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 167,
+   "frame": 4455,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.5,
+    35.7
+   ],
+   "new_pick_m": [
+    6.9,
+    -3.7
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 180,
+   "frame": 5230,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.3,
+    33.6
+   ],
+   "new_pick_m": [
+    4.2,
+    27.4
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 181,
+   "frame": 5250,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -2.8,
+    33.1
+   ],
+   "new_pick_m": [
+    10.3,
+    21.0
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 253,
+   "frame": 7503,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.2,
+    34.2
+   ],
+   "new_pick_m": [
+    6.4,
+    6.2
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 254,
+   "frame": 7527,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.0,
+    34.4
+   ],
+   "new_pick_m": [
+    7.0,
+    5.4
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 255,
+   "frame": 7542,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -3.9,
+    34.5
+   ],
+   "new_pick_m": [
+    20.2,
+    15.2
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 256,
+   "frame": 7560,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.7,
+    34.2
+   ],
+   "new_pick_m": [
+    8.9,
+    5.6
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 257,
+   "frame": 7578,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.1,
+    34.4
+   ],
+   "new_pick_m": [
+    7.3,
+    21.3
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 258,
+   "frame": 7593,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.4,
+    34.3
+   ],
+   "new_pick_m": [
+    23.2,
+    29.2
+   ]
+  },
+  {
+   "set": "b4",
+   "id": 259,
+   "frame": 7614,
+   "verdict": "spare_ball",
+   "was_on": true,
+   "guess_m": [
+    -4.3,
+    34.2
+   ],
+   "new_pick_m": [
+    11.7,
+    1.4
+   ]
+  }
+ ],
+ "differ": {
+  "frames": 631,
+  "seconds": 21.1,
+  "stretches": [
+   [
+    39.6,
+    40.7
+   ],
+   [
+    41.0,
+    42.1
+   ],
+   [
+    144.0,
+    149.8
+   ],
+   [
+    155.2,
+    155.6
+   ],
+   [
+    174.2,
+    176.7
+   ],
+   [
+    248.2,
+    253.4
+   ],
+   [
+    253.6,
+    254.9
+   ],
+   [
+    256.5,
+    258.6
+   ],
+   [
+    259.1,
+    259.1
+   ],
+   [
+    260.5,
+    261.0
+   ],
+   [
+    262.8,
+    262.9
+   ],
+   [
+    295.6,
+    296.1
+   ]
+  ]
+ }
+}
