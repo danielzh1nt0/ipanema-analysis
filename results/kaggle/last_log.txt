@@ -1,81 +1,131 @@
-kernel danielmatros/ipanema-kitcrops-p1
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-kitcrops-p1
-  0.5 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
- 12.3 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.RUNNING"
- 12.8 min: danielmatros/ipanema-kitcrops-p1 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_120_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_20_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/SFKBP1109_s1200_220_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_1279.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_2431.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p09-norrviken-vs-solheim-2026-08-30_4607.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_1428.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_2714.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-djursholm-2026-09-26_5143.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_1190.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_2262.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-reymersholm-2026-09-18_4286.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_1125_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_2137_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050_frame01.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-spanga-2026-09-25_4050_frame18.jpg
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_1130.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_2147.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/p15u-vs-vasalund-2026-09-20_4068.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/run_info.json
-Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_1456.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_2766.pkl.gz
-Output file downloaded to results/kaggle/kitcrops_p1/solberga-vs-p09-norrviken-2026-09-11_5242.pkl.gz
-Kernel log downloaded to results/kaggle/kitcrops_p1/ipanema-kitcrops-p1.log
-  SFKBP1109_s1200_120.pkl.gz 5462608
-  SFKBP1109_s1200_120_frame01.jpg 407976
-  SFKBP1109_s1200_120_frame18.jpg 318568
-  SFKBP1109_s1200_20.pkl.gz 6208592
-  SFKBP1109_s1200_20_frame01.jpg 339782
-  SFKBP1109_s1200_20_frame18.jpg 456559
-  SFKBP1109_s1200_220.pkl.gz 5128831
-  SFKBP1109_s1200_220_frame01.jpg 305501
-  SFKBP1109_s1200_220_frame18.jpg 311964
-  ipanema-kitcrops-p1.log 17618
-  p09-norrviken-vs-solheim-2026-08-30_1279.pkl.gz 7147096
-  p09-norrviken-vs-solheim-2026-08-30_2431.pkl.gz 7156752
-  p09-norrviken-vs-solheim-2026-08-30_4607.pkl.gz 5113013
-  p15u-vs-djursholm-2026-09-26_1428.pkl.gz 5494185
-  p15u-vs-djursholm-2026-09-26_2714.pkl.gz 7284376
-  p15u-vs-djursholm-2026-09-26_5143.pkl.gz 5887182
-  p15u-vs-reymersholm-2026-09-18_1190.pkl.gz 6030788
-  p15u-vs-reymersholm-2026-09-18_2262.pkl.gz 8290362
-  p15u-vs-reymersholm-2026-09-18_4286.pkl.gz 5347992
-  p15u-vs-spanga-2026-09-25_1125.pkl.gz 7436843
-  p15u-vs-spanga-2026-09-25_1125_frame01.jpg 290451
-  p15u-vs-spanga-2026-09-25_1125_frame18.jpg 312754
-  p15u-vs-spanga-2026-09-25_2137.pkl.gz 5237746
-  p15u-vs-spanga-2026-09-25_2137_frame01.jpg 222858
-  p15u-vs-spanga-2026-09-25_2137_frame18.jpg 227321
-  p15u-vs-spanga-2026-09-25_4050.pkl.gz 5575089
-  p15u-vs-spanga-2026-09-25_4050_frame01.jpg 246761
-  p15u-vs-spanga-2026-09-25_4050_frame18.jpg 258455
-  p15u-vs-vasalund-2026-09-20_1130.pkl.gz 6382366
-  p15u-vs-vasalund-2026-09-20_2147.pkl.gz 5774436
-  p15u-vs-vasalund-2026-09-20_4068.pkl.gz 5783611
-  run.json 157
-  run_info.json 7563
-  solberga-vs-p09-norrviken-2026-09-11_1456.pkl.gz 4673962
-  solberga-vs-p09-norrviken-2026-09-11_2766.pkl.gz 7521315
-  solberga-vs-p09-norrviken-2026-09-11_5242.pkl.gz 7527981
+kernel danielmatros/ipanema-aik-ab
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-aik-ab
+  0.5 min: danielmatros/ipanema-aik-ab has status "KernelWorkerStatus.RUNNING"
+  1.5 min: danielmatros/ipanema-aik-ab has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/aik_ab/ab00.jpg
+Output file downloaded to results/kaggle/aik_ab/ab01.jpg
+Output file downloaded to results/kaggle/aik_ab/ab02.jpg
+Output file downloaded to results/kaggle/aik_ab/ab03.jpg
+Output file downloaded to results/kaggle/aik_ab/ab04.jpg
+Output file downloaded to results/kaggle/aik_ab/ab05.jpg
+Output file downloaded to results/kaggle/aik_ab/ab06.jpg
+Output file downloaded to results/kaggle/aik_ab/ab07.jpg
+Output file downloaded to results/kaggle/aik_ab/ab08.jpg
+Output file downloaded to results/kaggle/aik_ab/ab09.jpg
+Output file downloaded to results/kaggle/aik_ab/ab10.jpg
+Output file downloaded to results/kaggle/aik_ab/ab11.jpg
+Output file downloaded to results/kaggle/aik_ab/ab12.jpg
+Output file downloaded to results/kaggle/aik_ab/ab13.jpg
+Output file downloaded to results/kaggle/aik_ab/ab14.jpg
+Output file downloaded to results/kaggle/aik_ab/ab15.jpg
+Output file downloaded to results/kaggle/aik_ab/ab16.jpg
+Output file downloaded to results/kaggle/aik_ab/ab17.jpg
+Output file downloaded to results/kaggle/aik_ab/ab18.jpg
+Output file downloaded to results/kaggle/aik_ab/ab19.jpg
+Output file downloaded to results/kaggle/aik_ab/ab20.jpg
+Output file downloaded to results/kaggle/aik_ab/ab21.jpg
+Output file downloaded to results/kaggle/aik_ab/ab22.jpg
+Output file downloaded to results/kaggle/aik_ab/ab23.jpg
+Output file downloaded to results/kaggle/aik_ab/ab24.jpg
+Output file downloaded to results/kaggle/aik_ab/ab25.jpg
+Output file downloaded to results/kaggle/aik_ab/ab26.jpg
+Output file downloaded to results/kaggle/aik_ab/ab27.jpg
+Output file downloaded to results/kaggle/aik_ab/ab28.jpg
+Output file downloaded to results/kaggle/aik_ab/ab29.jpg
+Output file downloaded to results/kaggle/aik_ab/ab30.jpg
+Output file downloaded to results/kaggle/aik_ab/ab31.jpg
+Output file downloaded to results/kaggle/aik_ab/ab32.jpg
+Output file downloaded to results/kaggle/aik_ab/ab33.jpg
+Output file downloaded to results/kaggle/aik_ab/ab34.jpg
+Output file downloaded to results/kaggle/aik_ab/ab35.jpg
+Output file downloaded to results/kaggle/aik_ab/ab36.jpg
+Output file downloaded to results/kaggle/aik_ab/ab37.jpg
+Output file downloaded to results/kaggle/aik_ab/ab38.jpg
+Output file downloaded to results/kaggle/aik_ab/ab39.jpg
+Output file downloaded to results/kaggle/aik_ab/ab40.jpg
+Output file downloaded to results/kaggle/aik_ab/ab41.jpg
+Output file downloaded to results/kaggle/aik_ab/ab42.jpg
+Output file downloaded to results/kaggle/aik_ab/ab43.jpg
+Output file downloaded to results/kaggle/aik_ab/ab44.jpg
+Output file downloaded to results/kaggle/aik_ab/ab45.jpg
+Output file downloaded to results/kaggle/aik_ab/ab46.jpg
+Output file downloaded to results/kaggle/aik_ab/ab47.jpg
+Output file downloaded to results/kaggle/aik_ab/ab48.jpg
+Output file downloaded to results/kaggle/aik_ab/ab49.jpg
+Output file downloaded to results/kaggle/aik_ab/ab50.jpg
+Output file downloaded to results/kaggle/aik_ab/ab51.jpg
+Output file downloaded to results/kaggle/aik_ab/ab52.jpg
+Output file downloaded to results/kaggle/aik_ab/ab53.jpg
+Output file downloaded to results/kaggle/aik_ab/ab54.jpg
+Output file downloaded to results/kaggle/aik_ab/ab55.jpg
+Output file downloaded to results/kaggle/aik_ab/ab56.jpg
+Output file downloaded to results/kaggle/aik_ab/ab57.jpg
+Output file downloaded to results/kaggle/aik_ab/ab58.jpg
+Output file downloaded to results/kaggle/aik_ab/ab59.jpg
+Output file downloaded to results/kaggle/aik_ab/key_HIDDEN.json
+Output file downloaded to results/kaggle/aik_ab/result.json
+Kernel log downloaded to results/kaggle/aik_ab/ipanema-aik-ab.log
+  ab00.jpg 243349
+  ab01.jpg 262609
+  ab02.jpg 293331
+  ab03.jpg 227185
+  ab04.jpg 228826
+  ab05.jpg 226902
+  ab06.jpg 246134
+  ab07.jpg 248612
+  ab08.jpg 250387
+  ab09.jpg 234614
+  ab10.jpg 226705
+  ab11.jpg 248694
+  ab12.jpg 246622
+  ab13.jpg 223143
+  ab14.jpg 256016
+  ab15.jpg 216952
+  ab16.jpg 204583
+  ab17.jpg 241013
+  ab18.jpg 226750
+  ab19.jpg 230399
+  ab20.jpg 161181
+  ab21.jpg 233270
+  ab22.jpg 223779
+  ab23.jpg 223154
+  ab24.jpg 241924
+  ab25.jpg 239121
+  ab26.jpg 224971
+  ab27.jpg 233797
+  ab28.jpg 248504
+  ab29.jpg 245709
+  ab30.jpg 289625
+  ab31.jpg 278657
+  ab32.jpg 278338
+  ab33.jpg 264622
+  ab34.jpg 271764
+  ab35.jpg 279069
+  ab36.jpg 276890
+  ab37.jpg 257185
+  ab38.jpg 286773
+  ab39.jpg 267554
+  ab40.jpg 282416
+  ab41.jpg 274374
+  ab42.jpg 283190
+  ab43.jpg 307185
+  ab44.jpg 288083
+  ab45.jpg 262875
+  ab46.jpg 287126
+  ab47.jpg 277719
+  ab48.jpg 247353
+  ab49.jpg 249821
+  ab50.jpg 292040
+  ab51.jpg 239814
+  ab52.jpg 253818
+  ab53.jpg 269912
+  ab54.jpg 251854
+  ab55.jpg 268599
+  ab56.jpg 256034
+  ab57.jpg 272738
+  ab58.jpg 275435
+  ab59.jpg 270553
+  ipanema-aik-ab.log 804
+  key_HIDDEN.json 5736
+  result.json 70
+  run.json 146
