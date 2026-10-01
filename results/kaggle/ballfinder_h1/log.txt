@@ -1,0 +1,32 @@
+   0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -> 0 Tesla T4, 15360 MiB
+Tesla T4, 15360 MiB
+   1.0 min  $ rm -rf /kaggle/temp/ia && git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -> 0 
+   1.6 min  $ pip install -q "rfdetr[train]==1.11.0" -> 0 ━ 69.6/69.6 kB 4.3 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+google-adk 1.29.0 requires google-cloud-bigquery-storage>=2.0.0, which is not installed.
+   2.2 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}
+   2.2 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 1 s
+   3.7 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 91 s
+   4.2 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -> {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 30s
+   4.2 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 1 s
+   6.2 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 118 s
+  10.8 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 276s
+  10.8 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 1 s
+  12.3 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 88 s
+  13.3 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 59s
+  13.3 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 1 s
+  15.3 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 119 s
+  20.2 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 292s
+  20.3 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 6 s
+  22.1 min  downloaded SFKBP1109/video.mp4: 3589 MB in 110 s
+  23.4 min  $ pip install -q huggingface_hub -> 0 
+  31.2 min  HF extra: {'layout': 'yolo', 'items': 1237, 'used': 1237, 'crops': {'train_ball': 1237, 'train_empty': 314, 'valid_ball': 0, 'valid_empty': 0}}
+  31.2 min  dataset: {'train_ball': 6220, 'train_empty': 1554, 'valid_ball': 178, 'valid_empty': 44}
+  31.6 min  training RF-DETR small at 640 px, 12 epochs, batch 4, cap 2.6 h
+ 161.2 min  training done in 129.7 min; outputs ['checkpoint_best_ema.pth', 'checkpoint_best_total.pth', 'last.ckpt', 'last_ema.pth', 'metrics.csv', 'training_config.json']
+ 161.2 min  loaded /kaggle/temp/rf_out/checkpoint_best_total.pth: resolution 640
+ 161.2 min  weights {'file': 'rfdetr_ball_small_20261001_hf_TESTONLY_fp16.pth', 'MB': 64.2, 'full_checkpoint_MB': 128.4}
+ 162.2 min  exam: 108 frames graded in 58s
+ 162.2 min  exam: {"at_0.25_as_click_finder": {"correct": 82, "of": 108, "ball_found": 73, "ball_frames": 81, "no_ball_right": 9, "no_ball_frames": 27}, "ball_among_guesses_0.05": 80, "top_guess_is_ball": 70, "ball_frames": 81, "current_click_finder": {"correct": 70, "ball_found": 47, "among_guesses": 54, "top_guess": 51}, "wasb": {"among_guesses": 79, "top_guess": 56}}
+ 163.1 min  clip34: {"moments": 34, "ball_among_guesses_0.05": 33, "ball_among_top6": 32, "top_guess_is_ball": 28, "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
+ 163.1 min  done
