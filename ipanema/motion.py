@@ -9,9 +9,9 @@ Output: {frame: {track_id: (kmh or None, metres_so_far)}}. Identity is per TRACK
 these are not per-player match totals until tracks are joined into players."""
 import numpy as np
 
-MAX_MS = 10.0          # 36 km/h: faster than any youth player sprints
-SMOOTH_S = 0.5
-STEP_S = 0.2
+MAX_MS = 7.0           # 25 km/h: above this a youth reading is a tracking error (1 Oct check: all >25 readings were wrong)
+SMOOTH_S = 1.0         # 1 Oct: 0.5 s gave 117-134 m per player-minute (jitter adds metres); 1.0 s gives 96-115
+STEP_S = 0.5
 MIN_PIECE_S = 0.6      # shorter pieces get no speed (too little to smooth)
 JUMP_M = 3.0           # one-frame jump this big = ID swap / bad calibration, not running
 
