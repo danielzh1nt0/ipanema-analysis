@@ -2,9 +2,9 @@
 "clip": "SFKBP1109_s1200",
 "graded": "Claude by eye, 1 Oct 2026, sheets results/free/b4/sheet_*.jpg",
 "counts": {
-"ball": 287,
-"unsure": 9,
-"spare_ball": 16
+"ball": 285,
+"spare_ball": 18,
+"unsure": 9
 },
 "verdicts": "ball = guess is on a ball in play (or the match ball out of play); unsure = can't tell from the picture; spare_ball = a real ball lying at the goal post, probably not the match ball",
 "moments": [
@@ -276,7 +276,8 @@
 "y": 487.0,
 "rf": 0.531,
 "wasb": 0.634,
-"verdict": "ball"
+"verdict": "spare_ball",
+"note": "corrected 1 Oct (B4b): white ball at the post, the yellow match ball is in play elsewhere"
 },
 {
 "id": 30,
@@ -294,7 +295,8 @@
 "y": 483.9,
 "rf": 0.762,
 "wasb": 0.718,
-"verdict": "ball"
+"verdict": "spare_ball",
+"note": "corrected 1 Oct (B4b): white ball at the post, the yellow match ball is in play elsewhere"
 },
 {
 "id": 32,

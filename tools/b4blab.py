@@ -66,3 +66,25 @@ print(f"{len(diff)} frames differ ({len(diff) / fps:.1f} s) in {len(segs)} stret
 res["differ"] = {"frames": len(diff), "seconds": round(len(diff) / fps, 1), "stretches": [[round(a / fps, 1), round(z / fps, 1)] for a, z in segs]}
 json.dump(res, open(f"{OUT}/b4blab.json", "w"), indent=1)
 json.dump({"clip": M, "moments": chk}, open(f"{OUT}/check_moments.json", "w"), indent=0)
+# who-has-the-ball (99-moment key, E2) and the stats, same way as run.py, with and without the rule (app ball: RF-DETR + WASB 30)
+E4 = {"__file__": os.path.abspath("tools/e4lab.py")}; exec(compile(open("tools/e4lab.py").read().split("\nif __name__")[0], "e4lab", "exec"), E4)
+c = dict(name="SFK-BP", per={k: per.get(k, []) for k in range(n)}, H=[H[k] for k in range(n)], L=L, W=W, fps=fps, boxh=None,
+         key=json.load(open("results/review/who_answers.json"))["moments"])
+res["stats"] = {}
+for nm, b in (("off", b0), ("recur_r 2.0", b1)):
+    c["ball"] = b; s = E4["stats"](c, "simple"); res["stats"][nm] = s
+    print(nm, {k: s[k] for k in ("who_has_ball_right", "possession_pct_dark_A", "dead_pct", "restarts", "sequences", "turnovers", "passes")}, flush=True)
+json.dump(res, open(f"{OUT}/b4blab.json", "w"), indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))
+# which who-has-the-ball moments flip
+st = {}
+for nm, b in (("off", b0), ("recur_r 2.0", b1)):
+    c["ball"] = b; fr_, bm_ = E4["P"].carriers(c["per"], b, c["H"], 2.5, 5.0)
+    st[nm] = E4["P"].pipeline_state(c["per"], b, bm_, c["H"], fps, L, W, mode="simple", log=lambda *a: None)[0]
+nm_ = {0: "dark", 1: "white", 2: "loose"}; flips = []
+for a in c["key"]:
+    f = a["frame"]
+    if f < n and st["off"][f] != st["recur_r 2.0"][f]:
+        flips.append({"frame": f, "s": round(f / fps, 1), "truth": a["truth"], "off": nm_.get(int(st["off"][f])), "new": nm_.get(int(st["recur_r 2.0"][f]))})
+res["who_flips"] = flips
+for x in flips: print(x)
+json.dump(res, open(f"{OUT}/b4blab.json", "w"), indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))

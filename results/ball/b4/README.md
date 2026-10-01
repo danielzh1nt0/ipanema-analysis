@@ -12,9 +12,9 @@ How:
 
 | Verdict | Count |
 |---|---|
-| ball (guess is on the ball) | 287 |
+| ball (guess is on the ball) | 287 (285 after B4b) |
 | can't tell (in a crowd / at feet, hidden) | 9 |
-| a spare ball lying at the goal post, not the match ball | 16 |
+| a spare ball lying at the goal post, not the match ball | 16 (18 after the B4b fix of #29, #31) |
 
 Found on the way:
 - **The picker follows a spare ball lying at the left goal post** for ~4 s at a time, three times in 5 min

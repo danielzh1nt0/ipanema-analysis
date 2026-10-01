@@ -1,12 +1,12 @@
 {
  "off": {
   "moments34": 26,
-  "b4_ball": 287,
-  "b4_ball_of": 287,
+  "b4_ball": 285,
+  "b4_ball_of": 285,
   "restart_kept": 13,
   "restart_of": 13,
-  "spare_still_picked": 16,
-  "spare_of": 16,
+  "spare_still_picked": 18,
+  "spare_of": 18,
   "frames_on_spare_spot_s": 15.8,
   "frames_with_ball": 8992,
   "log": [
@@ -16,11 +16,11 @@
  "recur_r 1.5 m": {
   "moments34": 25,
   "b4_ball": 285,
-  "b4_ball_of": 287,
+  "b4_ball_of": 285,
   "restart_kept": 13,
   "restart_of": 13,
   "spare_still_picked": 3,
-  "spare_of": 16,
+  "spare_of": 18,
   "frames_on_spare_spot_s": 2.3,
   "frames_with_ball": 8992,
   "log": [
@@ -31,11 +31,11 @@
  "recur_r 2.0 m": {
   "moments34": 25,
   "b4_ball": 285,
-  "b4_ball_of": 287,
+  "b4_ball_of": 285,
   "restart_kept": 13,
   "restart_of": 13,
   "spare_still_picked": 0,
-  "spare_of": 16,
+  "spare_of": 18,
   "frames_on_spare_spot_s": 0.1,
   "frames_with_ball": 8992,
   "log": [
@@ -46,11 +46,11 @@
  "recur_r 2.5 m": {
   "moments34": 25,
   "b4_ball": 285,
-  "b4_ball_of": 287,
+  "b4_ball_of": 285,
   "restart_kept": 13,
   "restart_of": 13,
   "spare_still_picked": 0,
-  "spare_of": 16,
+  "spare_of": 18,
   "frames_on_spare_spot_s": 0.0,
   "frames_with_ball": 8992,
   "log": [
@@ -61,11 +61,11 @@
  "recur_r 3.0 m": {
   "moments34": 25,
   "b4_ball": 285,
-  "b4_ball_of": 287,
+  "b4_ball_of": 285,
   "restart_kept": 13,
   "restart_of": 13,
   "spare_still_picked": 0,
-  "spare_of": 16,
+  "spare_of": 18,
   "frames_on_spare_spot_s": 0.0,
   "frames_with_ball": 8992,
   "log": [
@@ -91,7 +91,7 @@
    "set": "b4",
    "id": 29,
    "frame": 1203,
-   "verdict": "ball",
+   "verdict": "spare_ball",
    "was_on": true,
    "guess_m": [
     -4.8,
@@ -106,7 +106,7 @@
    "set": "b4",
    "id": 31,
    "frame": 1242,
-   "verdict": "ball",
+   "verdict": "spare_ball",
    "was_on": true,
    "guess_m": [
     -3.7,
@@ -411,5 +411,131 @@
     296.1
    ]
   ]
- }
+ },
+ "stats": {
+  "off": {
+   "who_has_ball_right": [
+    76,
+    99
+   ],
+   "possession_pct_dark_A": 43,
+   "loose_pct": 29,
+   "dead_pct": 19,
+   "restarts": 13,
+   "sequences": 86,
+   "sequence_median_s": 1.8,
+   "turnovers": 26,
+   "turnover_rule_s": 1.0,
+   "passes": 78,
+   "passes_completed": 48,
+   "shots_detected": {
+    "A": 0,
+    "B": 3
+   },
+   "field_tilt": {
+    "A": 13,
+    "B": 42
+   },
+   "high_turnovers": {
+    "A": 2,
+    "B": 5
+   },
+   "state_counts": {
+    "0": 2772,
+    "1": 3627,
+    "2": 2593
+   }
+  },
+  "recur_r 2.0": {
+   "who_has_ball_right": [
+    74,
+    99
+   ],
+   "possession_pct_dark_A": 45,
+   "loose_pct": 24,
+   "dead_pct": 13,
+   "restarts": 9,
+   "sequences": 93,
+   "sequence_median_s": 1.8,
+   "turnovers": 27,
+   "turnover_rule_s": 1.0,
+   "passes": 90,
+   "passes_completed": 58,
+   "shots_detected": {
+    "A": 0,
+    "B": 3
+   },
+   "field_tilt": {
+    "A": 12,
+    "B": 44
+   },
+   "high_turnovers": {
+    "A": 2,
+    "B": 6
+   },
+   "state_counts": {
+    "0": 3101,
+    "1": 3730,
+    "2": 2161
+   }
+  }
+ },
+ "who_flips": [
+  {
+   "frame": 4438,
+   "s": 148.1,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 4364,
+   "s": 145.6,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 4400,
+   "s": 146.8,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 7528,
+   "s": 251.2,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 7574,
+   "s": 252.7,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 7712,
+   "s": 257.3,
+   "truth": "unsure",
+   "off": "loose",
+   "new": "white"
+  },
+  {
+   "frame": 7873,
+   "s": 262.7,
+   "truth": "loose",
+   "off": "loose",
+   "new": "dark"
+  },
+  {
+   "frame": 8862,
+   "s": 295.7,
+   "truth": "dark",
+   "off": "dark",
+   "new": "white"
+  }
+ ]
 }

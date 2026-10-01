@@ -33,5 +33,6 @@
  "P8": "Fix white players read as the green team at night",
  "E4": "Switch the app to the new who-has-the-ball rule",
  "E5": "Count possession sequences properly on the new rule",
- "B4b": "Stop the ball picker following a spare ball by the goal"
+ "B4b": "Stop the ball picker following a spare ball by the goal",
+ "B4c": "Spare-ball rule that still follows a ball taken for a restart"
 }
