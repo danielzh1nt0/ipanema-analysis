@@ -1,5 +1,37 @@
-# live log · SFKBP1109_s1200 · running · 19:09:02 UTC
+# live log · SFKBP1109_s1200 · running · 19:10:35 UTC
 
 
-## run_match.log (1 lines, last 60)
+## run_match.log (33 lines, last 60)
 === SFKBP1109_s1200 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 87% of frames trusted (lines drawn); 1170 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 12.3 candidates/frame
+ball: RF-DETR + WASB guesses fused, 16.6/frame
+clean: keeper (left) from a non-team kit: track 310, 221 frames
+clean: removed 27084 rows of non-team kits (referee / staff)
+clean: dropped 21848 off-pitch, merged 1057 duplicates, stitched 298 ids, keepers [153, 389, 504, 523, 554, 561, 579, 637, 770, 771, 785, 789, 827, 976] -> A defends left
+clean: players per frame median A 8 / B 7, max A 14 / B 12
+players: 1601 short gaps filled (marked 'filled' in the export)
+ball v2: 8704/8992 frames on the path, 930 static-clutter candidates dropped
+ball check: 29/34 correct, 5 wrong, 0 no pick (ceiling 34/34)
+ball: dropped 930 static-clutter candidates
+ball (global path): 7944/8992 frames on the chosen path
+ball check (other picker, v1): 16/34 correct, ceiling 34/34
+ball check (alternative: WASB + YOLO candidates): 14/34 correct, ceiling 34/34
+possession: simple model (nearest feet in the picture); 35% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.04 / B 0.04  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball grade: accuracy 0.85, near-player 0.48, possession OK, events withheld
+ball reliability: 100% frames, 48% near a player, 2223 jumps -> OK
+  step: export
+  wrote match_data.json (23.3 MB)
