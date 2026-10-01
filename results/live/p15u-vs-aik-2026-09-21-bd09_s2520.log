@@ -1,13 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · running · 19:37:45 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09_s2520 · finished · 19:38:15 UTC
 
 
-## run_match.log (34 lines, last 60)
-=== p15u-vs-aik-2026-09-21-bd09_s2520 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-calibration: panorama registration cached (8992 frames)
-calibration: from panorama, 8992/8992 frames registered
-  debug overlays -> /content/ipanema-analysis/results/debug
-players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+## run_match.log (66 lines, last 60)
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.3/frame
@@ -36,3 +30,35 @@ ball reliability: 100% frames, 51% near a player, 2370 jumps -> OK
   step: export
 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
   wrote match_data.json (22.1 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520 (164 events) · library.json updated · zip /data/match_analysis/runs/p15u-vs-aik-2026-09-21-bd09_s2520_lovable.zip
+upload: p15u-vs-aik-2026-09-21-bd09_s2520 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, thumb)
+
+--- SUMMARY ---
+  match_id                   p15u-vs-aik-2026-09-21-bd09_s2520
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.77, 'near_player_pct': 0.51, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  duration_s                 300.0
+  calibration_coverage       1.0
+  calibration_frozen         0
+  team_dark_share            {'A': 0.25, 'B': 0.92}
+  players_per_frame_median   {'A': 7.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              300.0
+  periods                    None
+  ball_check                 {'correct': 30, 'total': 39, 'wrong': 9, 'ceiling': 39}
+  possession_pct             {'A': 39, 'B': 61}
+  loose_pct                  26
+  dead_pct                   3
+  possession_model           simple
+  attack_right               {'A': False, 'B': True}
+  direction_confidence       {'A': 0.03, 'B': 0.01}
+  turnovers                  13
+  passes                     107
+  restarts                   1
+  sequences                  93
+  shots                      {'A': 0, 'B': 0}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 2, 'B': 3}
+  field_tilt                 {'A': 24, 'B': 22}
+  runtime_min                2.0
+publish skipped: GITHUB_TOKEN not in the ipanema-storage secret (re-run colab_modal_setup.py)
