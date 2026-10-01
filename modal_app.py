@@ -642,6 +642,24 @@ def rf_full(match_id: str, canary_only: bool = False, video_url: str = ""):
     out.update(ok=not bad, done=len(res) - len(bad) + 1, failed=bad, minutes=round((time.time() - t0) / 60, 1)); return out
 
 
+@app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384, max_containers=10)
+def wasb_piece(pid: str):
+    """2 Oct: WASB ball guesses (cut-off 0.05, as the app run asks for them) for one piece on a GPU, written to the exact
+    cache file run.prepare looks for, so the full-match run can finish the piece on CPU."""
+    import time
+    S = _setup(); vol.reload()
+    from ipanema import wasb, video as V
+    t0 = time.time(); video = V.normalise(f"{ROOT}/videos/{pid}.mp4", f"/tmp/work/{pid}/video.mp4")
+    c = wasb.candidates(video, S.root, f"{ROOT}/cache/{pid}/ball_cands_wasb.pkl", log=print, train=False, thr=float(os.environ.get("IPANEMA_WASB_THR", "0.05")))
+    vol.commit(); return {"pid": pid, "frames": len(c), "minutes": round((time.time() - t0) / 60, 1)}
+
+@app.function(timeout=3 * 60 * 60, volumes={"/data": vol}, cpu=2.0)
+def wasb_full(match_id: str, skip: list = []):
+    _setup()
+    from ipanema import fullmatch as FM
+    n, fps = FM.video_info(_full_video(match_id)); pids = [FM.piece_id(match_id, p["i"]) for p in FM.plan(n, fps) if p["i"] not in skip]
+    return list(wasb_piece.map(pids, return_exceptions=True))
+
 @app.function(gpu="L4", image=image_rf, timeout=90 * 60, secrets=[modal.Secret.from_name("ipanema-storage")])
 def tracktest_rf(start_s: float = 60.0, dur_s: float = 20.0, batch: int = 8, match: str = "SFKBP1109_s1200"):
     """28 Sep: tools/tracktest.py (before vs new pipeline with RF-DETR) on a GPU, in its OWN image so the main pipeline image
