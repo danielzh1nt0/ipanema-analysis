@@ -133,7 +133,7 @@ def _piece_body(match_id, piece, full_path):
     for p in sorted(_g.glob(f"/content/ipanema-analysis/results/debug/{match_id}_c{piece['i']:03d}_v*_f*.jpg"))[:2]:
         try: imgs[os.path.basename(p)] = base64.b64encode(open(p, "rb").read()).decode()
         except Exception: pass
-    return {"i": piece["i"], "ok": ok, "path": path, "log": lines[-12:], "images": imgs}
+    return {"i": piece["i"], "ok": ok, "path": path, "log": lines[-40:], "images": imgs}   # 2 Oct: -12 cut off the calibration line the canary check looks for (new pipeline logs more)
 
 @app.function(gpu="L4", timeout=75 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], max_containers=10)   # plan limit: 10 GPUs at once
 def run_piece(match_id: str, piece: dict, full_path: str):
