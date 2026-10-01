@@ -1,2 +1,2 @@
-kaggle/ballfinder_h1.py 330
-# Thu Oct  1 19:10:22 UTC 2026 H1b (Daniel: yes) - B7 training + outside ball set, testing only
+kaggle/speedcheck.py 20
+# Thu Oct  1 19:13:31 UTC 2026
