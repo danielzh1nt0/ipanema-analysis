@@ -498,6 +498,25 @@ jobs:
           PY
           git config user.name modal-bot && git config user.email modal@ipanema
           git add results/ci && git commit -qm "full match: new players + ball per piece" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: wait for a spawned Modal call and save its result (commit tagged [getcall:<call id>:<name>])
+        if: contains(github.event.head_commit.message, '[getcall:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, time
+          cid, name = re.search(r"\[getcall:([A-Za-z0-9_-]+):([A-Za-z0-9_.-]+)\]", os.environ["MSG"]).groups()
+          call = modal.FunctionCall.from_id(cid); out = {"call": cid, "status": "still running"}; t0 = time.time()
+          while time.time() - t0 < 150 * 60:
+              try: out = call.get(timeout=60); break
+              except Exception as e:
+                  if "imeout" not in type(e).__name__: out = {"error": repr(e)[-2000:]}; break
+          os.makedirs("results/ci", exist_ok=True); json.dump(out, open(f"results/ci/{name}.json", "w"), indent=1, default=str); print(json.dumps(out, default=str)[:3000])
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/ci && git commit -qm "modal call result" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: run a full match (commit tagged full:<match_id>) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[full:')
         env:
