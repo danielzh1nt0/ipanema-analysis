@@ -1,13 +1,26 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 00:58:59 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 01:00:38 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 22 to finish on CPU (detections saved), 1 need a GPU
 canary: piece 4 first (GPU)
+canary passed: calibration from the panorama, 19.1 players per frame
 
-## piece_004.log (23 lines, last 60)
+## piece_000.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_001.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_002.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_003.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_004.log (26 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -31,6 +44,57 @@ wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 4500
   wasb frame 6000
   wasb frame 7500
+wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.44/0.65/0.76
+ball: RF-DETR + WASB guesses fused, 15.4/frame
+p15u-vs-aik-2026-09-21-bd09_c004: 8992 frames, 19.1 players/frame
+
+## piece_005.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_006.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_007.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_008.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_009.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c009 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_010.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c010 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_011.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c011 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_012.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c012 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_013.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c013 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_015.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_016.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c016 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_017.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c017 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_018.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c018 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_019.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c019 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_020.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c020 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_021.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c021 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## train_ball.log (1 lines, last 60)
 
