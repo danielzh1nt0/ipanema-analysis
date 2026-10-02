@@ -1,6 +1,11 @@
-# live log · SFKBP1109 · running · 00:47:36 UTC
+# live log · SFKBP1109 · running · 00:49:08 UTC
 
 
-## run_full.log (2 lines, last 60)
+## run_full.log (4 lines, last 60)
 === SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
 calibration: from the clip's own camera
+pieces: 1 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
+canary: piece 3 first (CPU)
+
+## train_ball.log (1 lines, last 60)
+
