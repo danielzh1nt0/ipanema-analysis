@@ -1,0 +1,262 @@
+{
+ "current": {
+  "aik": 30,
+  "sfk34": 29,
+  "b4": 284,
+  "passes": 87,
+  "real_kept": 20,
+  "fake_kept": 8
+ },
+ "grid": {
+  "off_cost": [
+   0.0,
+   0.3,
+   1.0
+  ],
+  "px_w": [
+   0.02,
+   0.05,
+   0.1
+  ],
+  "jump_cost": [
+   6.0,
+   12.0
+  ]
+ },
+ "all": [
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.02,
+    "jump_cost": 6.0
+   },
+   "aik": 30,
+   "sfk34": 29,
+   "b4": 284,
+   "passes": 87,
+   "real_kept": 20,
+   "fake_kept": 8
+  },
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.02,
+    "jump_cost": 12.0
+   },
+   "aik": 30,
+   "sfk34": 29,
+   "b4": 284,
+   "passes": 87,
+   "real_kept": 20,
+   "fake_kept": 8
+  },
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.05,
+    "jump_cost": 6.0
+   },
+   "aik": 29,
+   "sfk34": 27,
+   "b4": 279,
+   "passes": 90,
+   "real_kept": 17,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.05,
+    "jump_cost": 12.0
+   },
+   "aik": 29,
+   "sfk34": 27,
+   "b4": 279,
+   "passes": 90,
+   "real_kept": 17,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.1,
+    "jump_cost": 6.0
+   },
+   "aik": 28,
+   "sfk34": 26,
+   "b4": 275,
+   "passes": 83,
+   "real_kept": 15,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.0,
+    "px_w": 0.1,
+    "jump_cost": 12.0
+   },
+   "aik": 28,
+   "sfk34": 26,
+   "b4": 275,
+   "passes": 83,
+   "real_kept": 15,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.02,
+    "jump_cost": 6.0
+   },
+   "aik": 28,
+   "sfk34": 23,
+   "b4": 254,
+   "passes": 116,
+   "real_kept": 16,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.02,
+    "jump_cost": 12.0
+   },
+   "aik": 28,
+   "sfk34": 23,
+   "b4": 254,
+   "passes": 116,
+   "real_kept": 16,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.05,
+    "jump_cost": 6.0
+   },
+   "aik": 27,
+   "sfk34": 23,
+   "b4": 252,
+   "passes": 115,
+   "real_kept": 17,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.05,
+    "jump_cost": 12.0
+   },
+   "aik": 27,
+   "sfk34": 23,
+   "b4": 252,
+   "passes": 115,
+   "real_kept": 17,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.1,
+    "jump_cost": 6.0
+   },
+   "aik": 26,
+   "sfk34": 23,
+   "b4": 246,
+   "passes": 100,
+   "real_kept": 18,
+   "fake_kept": 6
+  },
+  {
+   "kw": {
+    "off_cost": 0.3,
+    "px_w": 0.1,
+    "jump_cost": 12.0
+   },
+   "aik": 26,
+   "sfk34": 23,
+   "b4": 246,
+   "passes": 100,
+   "real_kept": 18,
+   "fake_kept": 6
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.02,
+    "jump_cost": 6.0
+   },
+   "aik": 28,
+   "sfk34": 22,
+   "b4": 245,
+   "passes": 125,
+   "real_kept": 16,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.02,
+    "jump_cost": 12.0
+   },
+   "aik": 28,
+   "sfk34": 22,
+   "b4": 245,
+   "passes": 125,
+   "real_kept": 16,
+   "fake_kept": 7
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.05,
+    "jump_cost": 6.0
+   },
+   "aik": 29,
+   "sfk34": 22,
+   "b4": 247,
+   "passes": 120,
+   "real_kept": 16,
+   "fake_kept": 6
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.05,
+    "jump_cost": 12.0
+   },
+   "aik": 29,
+   "sfk34": 22,
+   "b4": 247,
+   "passes": 120,
+   "real_kept": 16,
+   "fake_kept": 6
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.1,
+    "jump_cost": 6.0
+   },
+   "aik": 27,
+   "sfk34": 22,
+   "b4": 242,
+   "passes": 113,
+   "real_kept": 18,
+   "fake_kept": 5
+  },
+  {
+   "kw": {
+    "off_cost": 1.0,
+    "px_w": 0.1,
+    "jump_cost": 12.0
+   },
+   "aik": 27,
+   "sfk34": 22,
+   "b4": 242,
+   "passes": 113,
+   "real_kept": 18,
+   "fake_kept": 5
+  }
+ ]
+}
