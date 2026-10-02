@@ -1,2 +1,2 @@
-kaggle/bundesliga_look.py 40
-# Fri Oct  2 09:47:55 UTC 2026
+kaggle/neg_sheet.py 30
+# Fri Oct  2 10:38:27 UTC 2026
