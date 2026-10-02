@@ -3,3 +3,4 @@ __pycache__/
 *.pkl
 *.mp4
 results/kaggle/ballfinder_train/*.pt
+!results/kaggle/*/cands_*.pkl
