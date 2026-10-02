@@ -33,9 +33,9 @@
   },
   {
    "label": "Full match in the app",
-   "value": 10,
-   "status": "bad",
-   "note": "1 Oct night: SFK-BP and AIK full matches running on Modal with the new pipeline (players + ball per 5-min piece, then the app run). Demo Tue 6 Oct."
+   "value": 70,
+   "status": "warn",
+   "note": "2 Oct night: SFK-BP and AIK full matches in the app with the new pipeline. Ball 25/34 (SFK-BP) and 26/39 (AIK) on checked moments, possession shown, goals match Veo (2-1, 6-1). Pass/event stats still flagged low-confidence (Beta label pending in Lovable)."
   },
   {
    "label": "Speed & distance",
@@ -45,6 +45,10 @@
   }
  ],
  "measured": [
+  [
+   "Full matches in the app (2 Oct)",
+   "SFK-BP: ball 25/34, poss 44/56, goals 2-1 | AIK: ball 26/39, poss 41/59, goals 6-1"
+  ],
   [
    "Ball, app clips (1 Oct)",
    "SFK-BP 29/34, AIK 30/39 (was 22/34, 26/39)"
