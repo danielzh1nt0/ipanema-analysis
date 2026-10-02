@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 02:04:09 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 02:05:54 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -370,7 +370,7 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.5/frame
 p15u-vs-aik-2026-09-21-bd09_c021: 8992 frames, 18.7 players/frame
 
-## piece_022.log (19 lines, last 60)
+## piece_022.log (20 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c022 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8954 frames (299 s)
 calibration: too few anchors
@@ -390,6 +390,7 @@ calibration: too few anchors
   calibration frame 6500
   calibration frame 7000
   calibration frame 7500
+  calibration frame 8000
 
 ## train_ball.log (1 lines, last 60)
 
