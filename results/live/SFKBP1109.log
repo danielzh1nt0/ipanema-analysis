@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 00:59:09 UTC
+# live log · SFKBP1109 · running · 01:00:56 UTC
 
 
-## run_full.log (32 lines, last 60)
+## run_full.log (52 lines, last 60)
 === SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
 calibration: from the clip's own camera
 pieces: 1 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
@@ -34,6 +34,26 @@ tracking frame 184725
   calibration check piece 3: {'mode': 'line calibration', 'trusted_pct': 85.3, 'i': 3}
   calibration check piece 0: {'mode': 'line calibration', 'trusted_pct': 93.0, 'i': 0}
   calibration check piece 1: {'mode': 'line calibration', 'trusted_pct': 90.0, 'i': 1}
+  calibration check piece 2: {'mode': 'line calibration', 'trusted_pct': 88.3, 'i': 2}
+  calibration check piece 5: {'mode': 'line calibration', 'trusted_pct': 86.0, 'i': 5}
+  calibration check piece 6: {'mode': 'line calibration', 'trusted_pct': 87.5, 'i': 6}
+  calibration check piece 7: {'mode': 'line calibration', 'trusted_pct': 87.4, 'i': 7}
+  calibration check piece 8: {'mode': 'line calibration', 'trusted_pct': 85.4, 'i': 8}
+  calibration check piece 9: {'mode': 'line calibration', 'trusted_pct': 86.3, 'i': 9}
+  calibration check piece 10: {'mode': 'line calibration', 'trusted_pct': 98.0, 'i': 10}
+  calibration check piece 11: {'mode': 'line calibration', 'trusted_pct': 94.7, 'i': 11}
+  calibration check piece 12: {'mode': 'line calibration', 'trusted_pct': 84.3, 'i': 12}
+  calibration check piece 13: {'mode': 'line calibration', 'trusted_pct': 83.6, 'i': 13}
+  calibration check piece 14: {'mode': 'line calibration', 'trusted_pct': 78.7, 'i': 14}
+  calibration check piece 15: {'mode': 'line calibration', 'trusted_pct': 84.0, 'i': 15}
+  calibration check piece 16: {'mode': 'line calibration', 'trusted_pct': 82.3, 'i': 16}
+  calibration check piece 17: {'mode': 'line calibration', 'trusted_pct': 81.0, 'i': 17}
+  calibration check piece 18: {'mode': 'line calibration', 'trusted_pct': 87.3, 'i': 18}
+  calibration check piece 19: {'mode': 'line calibration', 'trusted_pct': 85.3, 'i': 19}
+  calibration check piece 20: {'mode': 'line calibration', 'trusted_pct': 82.2, 'i': 20}
+periods: [(0.0, 3059.99), (3733.0, 5940.0)] s; 87 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 85.7% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 40 held-out test frames mapped into the full match
 
 ## piece_000.log (9 lines, last 60)
 === SFKBP1109_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
