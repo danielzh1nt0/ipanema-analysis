@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 07:37:58 UTC
+# live log · SFKBP1109 · running · 07:39:31 UTC
 
 
-## run_full.log (42 lines, last 60)
+## run_full.log (46 lines, last 60)
 === SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
 calibration: from the clip's own camera
 pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -44,6 +44,10 @@ ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
 ball: dropped 8892 static-clutter candidates
 ball (global path): 140122/184725 frames on the chosen path
 ball check (other picker, v1): 17/34 correct, ceiling 33/34
+ball: dropped 8892 static-clutter candidates
+ball (global path): 140122/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 48/59, other 26/59, ceiling 55
+ball: dropped 8892 static-clutter candidates
 
 ## train_ball.log (1 lines, last 60)
 
