@@ -1,14 +1,7 @@
-# live log · SFKBP1109 · running · 08:19:04 UTC
+# live log · SFKBP1109 · running · 08:20:37 UTC
 
 
-## run_full.log (56 lines, last 60)
-=== SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
-calibration: from the clip's own camera
-pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
-pieces: 21/21 done in 1.3 min
-tracking frame 184725
-  piece 00: cached
-  piece 01: cached
+## run_full.log (67 lines, last 60)
   piece 02: cached
   piece 03: cached
   piece 04: cached
@@ -58,6 +51,17 @@ direction (from keepers): A →  B ←
   step: lanes
   step: passes
   step: shapes
+  step: stats
+  step: metrics
+veo: 25 shots incl. 4 goals imported; 0 goal tag(s) rejected; team from the ball for 22, from the players for 0, unknown for 3
+our shot detector vs Veo: found 0/25 of Veo's shots, 0/13 of ours are real (within 10 s)
+ball grade: accuracy 0.82, near-player 0.51, possession OK, events withheld
+ball reliability: 76% frames, 51% near a player, 32743 jumps -> OK
+  step: export
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 21 frame files (every 3 frames, 300 s each, largest 6.9 MB)
+  wrote match_data.json (1.1 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109 (2043 events) · library.json updated · zip None
 
 ## train_ball.log (1 lines, last 60)
 
