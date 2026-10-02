@@ -1,0 +1,50 @@
+   0.0 min  $ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader -> 0 Tesla T4, 15360 MiB
+Tesla T4, 15360 MiB
+   0.7 min  $ rm -rf /kaggle/temp/ia && git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia -> 0 
+   1.4 min  $ pip install -q "rfdetr[train]==1.11.0" -> 0 ━ 69.6/69.6 kB 3.1 MB/s eta 0:00:00
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+google-adk 1.29.0 requires google-cloud-bigquery-storage>=2.0.0, which is not installed.
+   2.1 min  versions {'torch': '2.10.0+cu128', 'rfdetr': '?', 'cuda': True}
+   2.1 min  downloaded labels/p15u-vs-vasalund-2026-09-20_trainset_clicks.json: 0 MB in 0 s
+   3.2 min  downloaded p15u-vs-vasalund-2026-09-20/video.mp4: 3289 MB in 67 s
+   3.8 min  p15u-vs-vasalund-2026-09-20: 1008 labels, 1008 usable, 1008 frames -> {'train_ball': 963, 'train_empty': 240, 'valid_ball': 40, 'valid_empty': 13} in 36s
+   3.8 min  downloaded labels/p09-norrviken-vs-solheim-2026-08-30_trainset_clicks.json: 2 MB in 0 s
+   5.1 min  downloaded p09-norrviken-vs-solheim-2026-08-30/video.mp4: 3733 MB in 76 s
+  10.3 min  p09-norrviken-vs-solheim-2026-08-30: 23000 labels, 23000 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 296, 'valid_ball': 46, 'valid_empty': 11} in 313s
+  10.3 min  downloaded labels/p15u-vs-spanga-2026-09-25_trainset_clicks.json: 0 MB in 0 s
+  11.6 min  downloaded p15u-vs-spanga-2026-09-25/video.mp4: 3280 MB in 77 s
+  12.7 min  p15u-vs-spanga-2026-09-25: 2613 labels, 2613 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 277, 'valid_ball': 46, 'valid_empty': 7} in 67s
+  12.7 min  downloaded labels/p15u-vs-djursholm-2026-09-26_trainset_clicks.json: 4 MB in 0 s
+  14.0 min  downloaded p15u-vs-djursholm-2026-09-26/video.mp4: 4086 MB in 78 s
+  19.5 min  p15u-vs-djursholm-2026-09-26: 43560 labels, 43560 usable, 1150 frames -> {'train_ball': 1104, 'train_empty': 285, 'valid_ball': 46, 'valid_empty': 13} in 331s
+  19.6 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 6 s
+  20.9 min  downloaded SFKBP1109/video.mp4: 3589 MB in 77 s
+  22.3 min  dataset: {'train_ball': 4983, 'train_empty': 1240, 'valid_ball': 178, 'valid_empty': 44}
+  22.4 min  downloaded p15u-vs-aik-2026-09-21-bd09_s2520/video.mp4: 298 MB in 6 s
+  26.0 min  negatives: {'json': 54, 'sfk_fp': 120, 'sfk_frames': 312, 'copies': 2, 'sec': 218} -> {'train_ball': 5047, 'train_empty': 1524, 'valid_ball': 178, 'valid_empty': 44}
+  26.1 min  training RF-DETR small at 640 px, 12 epochs, batch 4, cap 2.6 h
+ 139.8 min  training done in 113.6 min; outputs ['checkpoint_best_ema.pth', 'checkpoint_best_total.pth', 'last.ckpt', 'last_ema.pth', 'metrics.csv', 'training_config.json']
+ 139.8 min  loaded /kaggle/temp/rf_out/checkpoint_best_total.pth: resolution 640
+ 139.8 min  weights {'file': 'rfdetr_ball_small_20261002_fp16.pth', 'MB': 64.2, 'full_checkpoint_MB': 128.4}
+ 140.9 min  exam: 108 frames graded in 64s
+ 140.9 min  exam: {"at_0.25_as_click_finder": {"correct": 84, "of": 108, "ball_found": 72, "ball_frames": 81, "no_ball_right": 12, "no_ball_frames": 27}, "ball_among_guesses_0.05": 81, "top_guess_is_ball": 72, "ball_frames": 81, "current_click_finder": {"correct": 70, "ball_found": 47, "among_guesses": 54, "top_guess": 51}, "wasb": {"among_guesses": 79, "top_guess": 56}}
+ 141.9 min  clip34: {"moments": 34, "ball_among_guesses_0.05": 33, "ball_among_top6": 31, "top_guess_is_ball": 25, "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
+ 142.0 min  downloaded SFKBP1109_s1200/video.mp4: 301 MB in 6 s
+ 148.0 min    ball (RF-DETR): frame 1000, 2.8 frames/s
+ 154.0 min    ball (RF-DETR): frame 2000, 2.8 frames/s
+ 160.0 min    ball (RF-DETR): frame 3000, 2.8 frames/s
+ 166.0 min    ball (RF-DETR): frame 4000, 2.8 frames/s
+ 171.9 min    ball (RF-DETR): frame 5000, 2.8 frames/s
+ 177.9 min    ball (RF-DETR): frame 6000, 2.8 frames/s
+ 183.9 min    ball (RF-DETR): frame 7000, 2.8 frames/s
+ 189.9 min    ball (RF-DETR): frame 8000, 2.8 frames/s
+ 201.7 min    ball (RF-DETR): frame 1000, 2.9 frames/s
+ 207.6 min    ball (RF-DETR): frame 2000, 2.9 frames/s
+ 213.4 min    ball (RF-DETR): frame 3000, 2.9 frames/s
+ 219.2 min    ball (RF-DETR): frame 4000, 2.9 frames/s
+ 225.0 min    ball (RF-DETR): frame 5000, 2.9 frames/s
+ 230.9 min    ball (RF-DETR): frame 6000, 2.9 frames/s
+ 236.7 min    ball (RF-DETR): frame 7000, 2.9 frames/s
+ 242.5 min    ball (RF-DETR): frame 8000, 2.9 frames/s
+ 248.3 min  candidates SFKBP1109_s1200: new 8992 old 8992 frames in 106.3 min
+ 248.3 min  done
