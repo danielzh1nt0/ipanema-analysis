@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 01:02:30 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 01:04:17 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -8,13 +8,24 @@ pieces: 0 already processed, 22 to finish on CPU (detections saved), 1 need a GP
 canary: piece 4 first (GPU)
 canary passed: calibration from the panorama, 19.1 players per frame
 
-## piece_000.log (4 lines, last 60)
+## piece_000.log (15 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 4000 (direct 2, chained 96)
   calibration anchor 5000 (direct 2, chained 196)
+  calibration anchor 6000 (direct 6, chained 292)
+  calibration anchor 7000 (direct 7, chained 391)
+  calibration anchor 8000 (direct 10, chained 488)
+calibration via panorama: 33 direct + 564 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.3 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.0/frame
+p15u-vs-aik-2026-09-21-bd09_c000: 8992 frames, 14.6 players/frame
 
-## piece_001.log (14 lines, last 60)
+## piece_001.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -29,8 +40,12 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration via panorama: 109 direct + 791 chained anchors -> 8992/8992 frames
 calibration: from panorama, 8992/8992 frames registered
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.2/frame
+p15u-vs-aik-2026-09-21-bd09_c001: 8992 frames, 18.0 players/frame
 
-## piece_002.log (16 lines, last 60)
+## piece_002.log (17 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 1000 (direct 35, chained 10)
@@ -47,15 +62,10 @@ players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.5/frame
+p15u-vs-aik-2026-09-21-bd09_c002: 8992 frames, 18.1 players/frame
 
-## piece_003.log (7 lines, last 60)
-=== p15u-vs-aik-2026-09-21-bd09_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-  calibration anchor 1000 (direct 67, chained 31)
-  calibration anchor 2000 (direct 67, chained 131)
-  calibration anchor 3000 (direct 73, chained 225)
-  calibration anchor 4000 (direct 77, chained 321)
-  calibration anchor 5000 (direct 80, chained 418)
+## piece_003.log (1 lines, last 60)
+p15u-vs-aik-2026-09-21-bd09_c003: cached
 
 ## piece_004.log (26 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -85,16 +95,10 @@ wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p9
 ball: RF-DETR + WASB guesses fused, 15.4/frame
 p15u-vs-aik-2026-09-21-bd09_c004: 8992 frames, 19.1 players/frame
 
-## piece_005.log (7 lines, last 60)
-=== p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-  calibration anchor 1000 (direct 16, chained 60)
-  calibration anchor 2000 (direct 48, chained 128)
-  calibration anchor 3000 (direct 88, chained 188)
-  calibration anchor 4000 (direct 159, chained 217)
-  calibration anchor 5000 (direct 189, chained 287)
+## piece_005.log (1 lines, last 60)
+p15u-vs-aik-2026-09-21-bd09_c005: cached
 
-## piece_006.log (16 lines, last 60)
+## piece_006.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -111,8 +115,10 @@ calibration: from panorama, 8992/8992 frames registered
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.6/frame
+p15u-vs-aik-2026-09-21-bd09_c006: 8992 frames, 19.3 players/frame
 
-## piece_007.log (8 lines, last 60)
+## piece_007.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -121,8 +127,18 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 117, chained 184)
   calibration anchor 4000 (direct 117, chained 284)
   calibration anchor 5000 (direct 198, chained 303)
+  calibration anchor 6000 (direct 261, chained 340)
+  calibration anchor 7000 (direct 319, chained 382)
+  calibration anchor 8000 (direct 419, chained 382)
+calibration via panorama: 458 direct + 442 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.0 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.7/frame
+p15u-vs-aik-2026-09-21-bd09_c007: 8992 frames, 18.1 players/frame
 
-## piece_008.log (11 lines, last 60)
+## piece_008.log (15 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 90, chained 3)
@@ -134,8 +150,12 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration via panorama: 432 direct + 260 chained anchors -> 8992/8992 frames
 calibration: from panorama, 8992/8992 frames registered
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.3/frame
+p15u-vs-aik-2026-09-21-bd09_c008: 8992 frames, 15.9 players/frame
 
-## piece_009.log (8 lines, last 60)
+## piece_009.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c009 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -144,8 +164,18 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 172, chained 129)
   calibration anchor 4000 (direct 248, chained 153)
   calibration anchor 5000 (direct 342, chained 159)
+  calibration anchor 6000 (direct 431, chained 170)
+  calibration anchor 7000 (direct 463, chained 238)
+  calibration anchor 8000 (direct 502, chained 299)
+calibration via panorama: 579 direct + 321 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.7 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.2/frame
+p15u-vs-aik-2026-09-21-bd09_c009: 8992 frames, 20.2 players/frame
 
-## piece_010.log (7 lines, last 60)
+## piece_010.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c010 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 1000 (direct 9, chained 86)
@@ -153,8 +183,19 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 117, chained 178)
   calibration anchor 4000 (direct 162, chained 233)
   calibration anchor 5000 (direct 181, chained 314)
+  calibration anchor 6000 (direct 210, chained 385)
+  calibration anchor 7000 (direct 245, chained 450)
+  calibration anchor 8000 (direct 280, chained 515)
+calibration via panorama: 298 direct + 596 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.5/frame
+p15u-vs-aik-2026-09-21-bd09_c010: 8992 frames, 15.3 players/frame
 
-## piece_011.log (8 lines, last 60)
+## piece_011.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c011 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -163,8 +204,18 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 50, chained 251)
   calibration anchor 4000 (direct 65, chained 336)
   calibration anchor 5000 (direct 80, chained 421)
+  calibration anchor 6000 (direct 81, chained 520)
+  calibration anchor 7000 (direct 98, chained 603)
+  calibration anchor 8000 (direct 113, chained 688)
+calibration via panorama: 119 direct + 781 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 6.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 11.1/frame
+p15u-vs-aik-2026-09-21-bd09_c011: 8992 frames, 17.1 players/frame
 
-## piece_012.log (8 lines, last 60)
+## piece_012.log (17 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c012 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 1000 (direct 78, chained 14)
@@ -173,8 +224,17 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 4000 (direct 151, chained 241)
   calibration anchor 5000 (direct 161, chained 331)
   calibration anchor 6000 (direct 192, chained 400)
+  calibration anchor 7000 (direct 271, chained 421)
+  calibration anchor 8000 (direct 321, chained 471)
+calibration via panorama: 394 direct + 497 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 6.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 11.2/frame
+p15u-vs-aik-2026-09-21-bd09_c012: 8992 frames, 15.4 players/frame
 
-## piece_013.log (7 lines, last 60)
+## piece_013.log (17 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c013 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 1000 (direct 89, chained 11)
@@ -182,14 +242,35 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 161, chained 139)
   calibration anchor 4000 (direct 174, chained 226)
   calibration anchor 5000 (direct 174, chained 326)
+  calibration anchor 6000 (direct 174, chained 426)
+  calibration anchor 7000 (direct 231, chained 469)
+  calibration anchor 8000 (direct 260, chained 540)
+calibration via panorama: 283 direct + 616 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.6/frame
+p15u-vs-aik-2026-09-21-bd09_c013: 8992 frames, 17.7 players/frame
 
-## piece_014.log (4 lines, last 60)
+## piece_014.log (15 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c014 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 31, chained 54)
   calibration anchor 4000 (direct 39, chained 146)
+  calibration anchor 5000 (direct 39, chained 246)
+  calibration anchor 6000 (direct 39, chained 346)
+  calibration anchor 7000 (direct 40, chained 445)
+  calibration anchor 8000 (direct 40, chained 545)
+calibration via panorama: 40 direct + 644 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.4/frame
+p15u-vs-aik-2026-09-21-bd09_c014: 8992 frames, 17.9 players/frame
 
-## piece_015.log (7 lines, last 60)
+## piece_015.log (16 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 1000 (direct 15, chained 45)
@@ -197,16 +278,32 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 3000 (direct 15, chained 245)
   calibration anchor 4000 (direct 15, chained 345)
   calibration anchor 5000 (direct 15, chained 445)
+  calibration anchor 6000 (direct 15, chained 545)
+  calibration anchor 7000 (direct 15, chained 645)
+  calibration anchor 8000 (direct 15, chained 745)
+calibration via panorama: 15 direct + 844 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.8/frame
 
-## piece_016.log (6 lines, last 60)
+## piece_016.log (13 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c016 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 6000 (direct 69, chained 27)
   calibration anchor 7000 (direct 75, chained 121)
   calibration anchor 8000 (direct 75, chained 221)
 calibration via panorama: 75 direct + 320 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.7 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.7/frame
+p15u-vs-aik-2026-09-21-bd09_c016: 8992 frames, 17.5 players/frame
 
-## piece_017.log (11 lines, last 60)
+## piece_017.log (13 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c017 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 5000 (direct 19, chained 36)
@@ -218,13 +315,25 @@ calibration: from panorama, 8992/8992 frames registered
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.4/frame
+p15u-vs-aik-2026-09-21-bd09_c017: 8992 frames, 17.3 players/frame
 
-## piece_018.log (3 lines, last 60)
+## piece_018.log (13 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c018 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 5000 (direct 5, chained 39)
+  calibration anchor 6000 (direct 5, chained 139)
+  calibration anchor 7000 (direct 5, chained 239)
+  calibration anchor 8000 (direct 5, chained 339)
+calibration via panorama: 5 direct + 438 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.0/frame
+p15u-vs-aik-2026-09-21-bd09_c018: 8992 frames, 20.4 players/frame
 
-## piece_019.log (7 lines, last 60)
+## piece_019.log (16 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c019 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 2000 (direct 1, chained 52)
@@ -232,8 +341,17 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 4000 (direct 1, chained 252)
   calibration anchor 5000 (direct 1, chained 352)
   calibration anchor 6000 (direct 1, chained 452)
+  calibration anchor 7000 (direct 1, chained 552)
+  calibration anchor 8000 (direct 1, chained 652)
+calibration via panorama: 1 direct + 751 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.3/frame
+p15u-vs-aik-2026-09-21-bd09_c019: 8992 frames, 16.9 players/frame
 
-## piece_020.log (13 lines, last 60)
+## piece_020.log (14 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c020 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 4000 (direct 1, chained 4)
@@ -247,13 +365,29 @@ players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 11.0 candidates/frame
 ball: RF-DETR + WASB guesses fused, 15.6/frame
+p15u-vs-aik-2026-09-21-bd09_c020: 8992 frames, 18.7 players/frame
 
-## piece_021.log (5 lines, last 60)
+## piece_021.log (16 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c021 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 2000 (direct 1, chained 3)
   calibration anchor 3000 (direct 1, chained 103)
   calibration anchor 4000 (direct 1, chained 203)
+  calibration anchor 5000 (direct 1, chained 303)
+  calibration anchor 6000 (direct 1, chained 403)
+  calibration anchor 7000 (direct 1, chained 503)
+  calibration anchor 8000 (direct 2, chained 602)
+calibration via panorama: 2 direct + 701 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.5/frame
+p15u-vs-aik-2026-09-21-bd09_c021: 8992 frames, 18.7 players/frame
+
+## piece_022.log (2 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c022 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8954 frames (299 s)
 
 ## train_ball.log (1 lines, last 60)
 
