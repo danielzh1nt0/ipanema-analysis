@@ -3,7 +3,7 @@
 The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` with a one-line result, commits, and stops.
 
 ## Rules (Daniel's, non-negotiable)
-- **No Modal spend without Daniel's explicit "go" in chat.** This includes anything under $1. The worker only uses this machine and the free GitHub runner (`triggers/free.txt`, `triggers/playerbench.txt`, `triggers/nightly.txt`).
+- **NO MODAL AT ALL (Daniel, 2 Oct: "I don't want to pay Modal stuff, it's way too expensive now").** Nothing goes to Modal, not even a cent, not even app runs, until Daniel says otherwise in chat. Free only: this machine, the free GitHub runner, Kaggle. App updates wait under "Waiting for Daniel". Old rule: no Modal spend without Daniel's explicit "go" in chat, including anything under $1. The worker only uses this machine and the free GitHub runner (`triggers/free.txt`, `triggers/playerbench.txt`, `triggers/nightly.txt`).
 - Prove offline first. Test before running (a dry run with stand-in models, plus the `tests/` suite). Nothing replaces a better model unless it scores better.
 - Every change gets a test. Results go into `results/`, committed.
 - If an item needs money or a decision, write it under "Waiting for Daniel" and move on.
