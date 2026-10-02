@@ -1,2 +1,9 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 08:33:49 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 08:35:23 UTC
+
+
+## run_full.log (2 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
+calibration: from the clip's own camera
+
+## train_ball.log (1 lines, last 60)
 
