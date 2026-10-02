@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 00:55:53 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 00:57:26 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -7,7 +7,7 @@ calibration: from the clip's own camera
 pieces: 0 already processed, 22 to finish on CPU (detections saved), 1 need a GPU
 canary: piece 4 first (GPU)
 
-## piece_004.log (22 lines, last 60)
+## piece_004.log (23 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -30,6 +30,7 @@ wasb: using fine-tuned weights, 2x2 tiles
   wasb frame 3000
   wasb frame 4500
   wasb frame 6000
+  wasb frame 7500
 
 ## train_ball.log (1 lines, last 60)
 
