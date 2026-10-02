@@ -122,3 +122,22 @@ Tier 3 #16 (aerial duels): out of reach — no ball height from one camera. #18 
 2. Treat `bridged` ball state as predicted; treat player absence as not seen (no stale state exists).
 3. `players[].id` is a track id: hide anything per player and the shirt-number idea until M2.
 4. Shirt numbers are never written; the "any" payload shirt keys will always be empty.
+
+## Pressing (3 Oct, confirmed from the code)
+
+- `frames[].pressure_m` = metres from the **ball carrier** (player within 2.5 m of the ball) to the **nearest opposing player**; `null` when nobody is on the ball. Decide the pressing side from the carrier's team (`carrier` id -> `players[]`), not from `possession` (smoothed state, can disagree for a few frames).
+- *Pressed* = opponent within **2 m** (`press_r_m`). `turnover_lost.time_to_press` = seconds from the win (`t_won`) to the first frame with `pressure_m <= 2`, searched over 8 s, `null` if never. `pressed_within_2s_pct` counts `time_to_press <= 2`. A map drawn at <= 5 m will not agree with the headline; draw it at 2 m or call the 5 m layer "near".
+- *Near* = within **5 m** (`near_r_m`): `near_at_2s` = opponents within 5 m of the carrier 2 s after the win.
+- Per-event fields (exports from the next run): `turnover_lost.payload.{time_to_press, near_at_2s, pressed_within_2s, regained_within_5s, t_won, press_r_m, near_r_m}`; `turnover_won.payload.{time_to_forward_pass, forward_within_3s, lost_back_5s, gain_5s_m, t_won}`.
+- `match_data.periods[]` = `{index, t_start, t_end, mirrored, attack_right, confidence}`; second half `mirrored: true`. First-half exports have one period.
+
+## Events vs Veo (3 Oct, tools/eventcheck.py, SFK-BP first half, Veo minutes 10-31 and 44-51)
+
+| type | Veo | ours | ours confirmed by Veo (+-1 min) |
+|---|---|---|---|
+| throw-in | 22 | 14 | 9 (64%) |
+| corner | 2 | 3 | 0 |
+| goal kick | 7 | 3 | 2 |
+| free kick | 8 | 27 | 8 (29%) |
+
+Only **goals and shots** are verified (they come from Veo's list). For the demo the match section should list goals and shots; `set_piece`, `turnover_*`, `sequence_end`, `better_option`, `high_turnover` hidden or behind a Beta toggle. Veo also lists fouls and offsides; we never produce them.
