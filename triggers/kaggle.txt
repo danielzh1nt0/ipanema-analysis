@@ -1,2 +1,2 @@
-kaggle/passcheck.py 30
-# Fri Oct  2 07:02:13 UTC 2026
+kaggle/kickoff_sheet.py 15
+# Fri Oct  2 08:03:03 UTC 2026
