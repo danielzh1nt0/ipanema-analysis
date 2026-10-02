@@ -1,0 +1,172 @@
+{
+ "bundesliga1": {
+  "fps": 30.0,
+  "frames": 6187,
+  "seconds": 206.2,
+  "size": [
+   1920,
+   1080
+  ],
+  "bytes": 521144329,
+  "cuts_first_3_min": 0,
+  "frames_checked": [
+   {
+    "t": 5.0,
+    "people": 29,
+    "ball_top_conf": 0.75,
+    "person_h_px_median": 49.5
+   },
+   {
+    "t": 22.8,
+    "people": 31,
+    "ball_top_conf": 0.78,
+    "person_h_px_median": 45.7
+   },
+   {
+    "t": 40.7,
+    "people": 30,
+    "ball_top_conf": 0.84,
+    "person_h_px_median": 48.8
+   },
+   {
+    "t": 58.5,
+    "people": 27,
+    "ball_top_conf": 0.83,
+    "person_h_px_median": 54.6
+   },
+   {
+    "t": 76.4,
+    "people": 25,
+    "ball_top_conf": 0.64,
+    "person_h_px_median": 48.2
+   },
+   {
+    "t": 94.2,
+    "people": 30,
+    "ball_top_conf": 0.79,
+    "person_h_px_median": 48.9
+   },
+   {
+    "t": 112.0,
+    "people": 26,
+    "ball_top_conf": 0.82,
+    "person_h_px_median": 48.9
+   },
+   {
+    "t": 129.9,
+    "people": 27,
+    "ball_top_conf": 0.84,
+    "person_h_px_median": 52.7
+   },
+   {
+    "t": 147.7,
+    "people": 27,
+    "ball_top_conf": 0.7,
+    "person_h_px_median": 53.1
+   },
+   {
+    "t": 165.6,
+    "people": 28,
+    "ball_top_conf": 0.86,
+    "person_h_px_median": 42.4
+   },
+   {
+    "t": 183.4,
+    "people": 29,
+    "ball_top_conf": 0.84,
+    "person_h_px_median": 47.5
+   },
+   {
+    "t": 201.2,
+    "people": 26,
+    "ball_top_conf": 0.82,
+    "person_h_px_median": 45.5
+   }
+  ]
+ },
+ "bundesliga2": {
+  "fps": 30.0,
+  "frames": 5403,
+  "seconds": 180.1,
+  "size": [
+   1920,
+   1080
+  ],
+  "bytes": 455155210,
+  "cuts_first_3_min": 0,
+  "frames_checked": [
+   {
+    "t": 5.0,
+    "people": 32,
+    "ball_top_conf": 0.31,
+    "person_h_px_median": 46.5
+   },
+   {
+    "t": 20.5,
+    "people": 24,
+    "ball_top_conf": 0.67,
+    "person_h_px_median": 47.7
+   },
+   {
+    "t": 35.9,
+    "people": 26,
+    "ball_top_conf": 0.63,
+    "person_h_px_median": 59.9
+   },
+   {
+    "t": 51.4,
+    "people": 27,
+    "ball_top_conf": 0.5,
+    "person_h_px_median": 67.9
+   },
+   {
+    "t": 66.9,
+    "people": 29,
+    "ball_top_conf": 0.4,
+    "person_h_px_median": 58.7
+   },
+   {
+    "t": 82.3,
+    "people": 26,
+    "ball_top_conf": 0.45,
+    "person_h_px_median": 74.0
+   },
+   {
+    "t": 97.8,
+    "people": 20,
+    "ball_top_conf": 0.75,
+    "person_h_px_median": 69.6
+   },
+   {
+    "t": 113.2,
+    "people": 25,
+    "ball_top_conf": 0.81,
+    "person_h_px_median": 51.4
+   },
+   {
+    "t": 128.7,
+    "people": 27,
+    "ball_top_conf": 0.83,
+    "person_h_px_median": 67.8
+   },
+   {
+    "t": 144.2,
+    "people": 27,
+    "ball_top_conf": 0.51,
+    "person_h_px_median": 57.7
+   },
+   {
+    "t": 159.6,
+    "people": 27,
+    "ball_top_conf": 0.37,
+    "person_h_px_median": 59.0
+   },
+   {
+    "t": 175.1,
+    "people": 30,
+    "ball_top_conf": 0.75,
+    "person_h_px_median": 55.2
+   }
+  ]
+ }
+}
