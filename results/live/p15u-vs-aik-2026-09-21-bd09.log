@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:09:26 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · failed: EOFError('Ran out of input') · 03:09:57 UTC
 
 
-## run_full.log (44 lines, last 60)
+## run_full.log (51 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 23 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -46,6 +46,13 @@ tracking frame 206756
   calibration check piece 13: {'checks': 900, 'good': 176, 'bad': 724, 'unjudged': 0, 'trusted_pct': 18.7, 'i': 13}
   calibration check piece 14: {'checks': 900, 'good': 228, 'bad': 672, 'unjudged': 0, 'trusted_pct': 21.3, 'i': 14}
   calibration check piece ?: Ran out of input
+  calibration check piece 16: {'checks': 900, 'good': 220, 'bad': 680, 'unjudged': 0, 'trusted_pct': 23.1, 'i': 16}
+  calibration check piece 17: {'checks': 900, 'good': 15, 'bad': 885, 'unjudged': 0, 'trusted_pct': 0.9, 'i': 17}
+  calibration check piece 18: {'checks': 900, 'good': 76, 'bad': 824, 'unjudged': 0, 'trusted_pct': 7.6, 'i': 18}
+  calibration check piece 19: {'checks': 900, 'good': 17, 'bad': 883, 'unjudged': 0, 'trusted_pct': 0.9, 'i': 19}
+  calibration check piece 20: {'checks': 900, 'good': 0, 'bad': 900, 'unjudged': 0, 'trusted_pct': 0.0, 'i': 20}
+  calibration check piece 21: {'checks': 900, 'good': 95, 'bad': 805, 'unjudged': 0, 'trusted_pct': 7.8, 'i': 21}
+  calibration check piece 22: {'checks': 896, 'good': 1, 'bad': 895, 'unjudged': 0, 'trusted_pct': 0.0, 'i': 22}
 
 ## train_ball.log (1 lines, last 60)
 
