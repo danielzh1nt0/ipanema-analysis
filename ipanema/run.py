@@ -229,22 +229,24 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         attack_right = {"A": bool(ref_dir), "B": not ref_dir}; log(f"direction: from reference labels -> A {'→' if attack_right['A'] else '←'}")
     elif min(conf.values()) < 0.15:
         attack_right = P.direction_from_keepers(per, L, log=log) or P.direction_fallback(per, L, log=log)
-    log("  step: sequences"); t_ = time.time()
+    _t = [time.time()]
+    def step(name): log(f"  step: {name} ({time.time() - _t[0]:.0f} s since the last step)"); _t[0] = time.time()   # 3 Oct: step timers were started and never reported
+    step("sequences")
     _take = float(os.environ.get("IPANEMA_SPELL_TAKE", P.SPELL_TAKE_S)); cstate = P.spell_state(state, fps, _take, P.SPELL_JOIN_S)   # S8: counted stats read the de-flickered state
     _fl = lambda st: int(sum(1 for i in range(1, len(st)) if st[i] < 2 and st[i - 1] < 2 and st[i] != st[i - 1]))
     log(f"  spell state (take {_take} s): possession flips {_fl(state)} -> {_fl(cstate)} ({_fl(cstate) / max(1e-6, len(per) / fps / 60):.1f} per minute)")
     seqs = P.sequences(cstate, ballm, bspeed, fps, L, attack_right, **pinfo["seq"]); rst = P.restarts(dstate, ballm, fps, L, W)
-    log("  step: turnovers"); t_ = time.time()
+    step("turnovers")
     tvs = P.turnovers(per, frames_, cstate, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
-    log("  step: lanes"); t_ = time.time()
+    step("lanes")
     ln = AN.lanes(per, frames_, attack_right, S.lane_half, S.max_lane)
-    log("  step: passes"); t_ = time.time()
+    step("passes")
     ps, tracks = AN.passes(per, frames_, tvs, ln, attack_right, fps)
-    log("  step: shapes"); t_ = time.time()
+    step("shapes")
     sh = AN.shapes(per, L, fps)
-    log("  step: stats"); t_ = time.time()
+    step("stats")
     st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs)
-    log("  step: metrics"); t_ = time.time()
+    step("metrics")
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
     try:
@@ -290,7 +292,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
                "ball_frames_pct": round(100 * len(ball) / max(1, n_play)), "match_seconds": round(n_play / fps, 1), "periods": ctx.get("periods"), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
                "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((np.asarray(dstate) == 3).sum()) / n), "possession_model": pinfo["mode"], "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
-    log("  step: export"); t_ = time.time()
+    step("export")
     try:                                                                       # 1 Oct: speed + distance per player for the app's speed layer
         from . import motion as MO
         if os.environ.get("IPANEMA_MOTION", "0") != "1": raise StopIteration("off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)")

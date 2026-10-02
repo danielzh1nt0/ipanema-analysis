@@ -222,7 +222,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "time_under_pressure_s": round(len(pressed) * dt, 1), "passes": int(len(mp)), "passes_completed": int(mp["completed"].sum()) if len(mp) else 0,
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,
-                        "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": int(mp["better_option"].sum()) if len(mp) else 0,
+                        "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": int(mp["better_option"].sum()) if len(mp) else 0, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
                         "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(step[valid & (sp > 5.5)].sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
                         "avg_x_m": round(float(P[:, 0].mean()), 1), "avg_y_m": round(float(P[:, 1].mean()), 1),
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
@@ -247,5 +247,6 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                       "losses": len(lost), "recoveries": len(won), "time_to_press_median_s": med([t["time_to_press"] for t in lost]), "pressed_within_2s_pct": pct([(t["time_to_press"] is not None and t["time_to_press"] <= 2) for t in lost]),
                       "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]), "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
                       "time_to_forward_pass_median_s": med([t["time_to_forward_pass"] for t in won]), "forward_within_3s_pct": pct([(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3) for t in won]),
-                      "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]), "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da})
+                      "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]), "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
+                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0})   # 3 Oct: the app reads it per team
     return {"players": players, "teams": teams, "heatmaps": heat, "grid": list(GRID)}

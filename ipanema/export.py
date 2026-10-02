@@ -95,6 +95,12 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
         log(f"  wrote {len(chunk_files)} frame files (every {frame_stride} frames, {split_s:.0f} s each, largest {max(os.path.getsize(f'{root}/{k}.json') for k in chunk_files)/1e6:.1f} MB)")
     tmp = os.path.join(tempfile.gettempdir(), f"{match_id}_match_data.json"); json.dump(md, open(tmp, "w"), default=_json_default); shutil.copy(tmp, f"{root}/match_data.json"); log(f"  wrote match_data.json ({os.path.getsize(tmp)/1e6:.1f} MB)")
     st = dict(stats_); st["passes"] = passes_; st["sequences"] = sequences_; st["restarts"] = restarts_; st["pitch"] = {"length": L, "width": W}
+    # 3 Oct (UI contract): what the app reads but could not find - the ball grade, duration and direction, in stats.json too
+    st["summary"] = {"ball_grade": summary.get("ball_grade"), "ball_reliable": summary.get("ball_reliable")}; st["duration_s"] = round(n / fps, 1); st["attack_right"] = attack_right
+    st["periods"] = md["periods"]
+    for row in st.get("teams", []): row["summary"] = st["summary"]; row["duration_s"] = st["duration_s"]; row["attack_right"] = attack_right
+    for sh in (st.get("metrics") or {}).get("shots", []):                   # aliases the app reads: x, y, on_target
+        if "x_m" in sh: sh.setdefault("x", sh["x_m"]); sh.setdefault("y", sh["y_m"]); sh.setdefault("on_target", sh.get("outcome") in ("on target", "goal"))
     json.dump(st, open(f"{root}/stats.json", "w"), default=_json_default)
     if team_model is not None and getattr(team_model, "strips", None):
         for ab, img in team_model.strips.items(): cv2.imwrite(f"{root}/kit_{ab}.png", img)

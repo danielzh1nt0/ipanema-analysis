@@ -248,7 +248,7 @@ def pick_global(cands, H, L, W, per=None, fps=30.0, margin=1.5, max_step_m=2.5, 
             keep.append(r)
         C[i] = keep
     if dropped: log(f"ball: dropped {dropped} static-clutter candidates")
-    INF = 1e18; cost = []; back = []; last_pos = {}      # state index len(rows) = "no ball"
+    INF = 1e18; cost = []; back = []                      # state index len(rows) = "no ball"
     prev_cost = None
     for i in range(n):
         rows = C[i]; k = len(rows); cur = np.full(k + 1, INF); bk = np.full(k + 1, -1, int)
@@ -344,7 +344,6 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
     moments - a lost ball re-found far away looks like a teleport, and persistent clutter makes staying put cheap."""
     n = len(cands); C = []
     ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
-    inv = {}
     for i in range(n):
         rows = []
         if cands.get(i):
@@ -403,7 +402,7 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
         ball = _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px, jump_cost, gate_px, poss_cost, ghost_s, max_ghosts, ghost_speed_px, jump_cost if reappear_cost is None else reappear_cost)
         log(f"ball v2 (ghosts {ghost_s} s): {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")
         return ball
-    INF = 1e18; back = []; prev_cost = None
+    back = []; prev_cost = None
     for i in range(n):
         rows = C[i]; k = len(rows)
         emit = np.array([poss_cost if r[2] < 0 else conf_w * (1 - r[2]) + (near_w * (1 - r[5]) if r[6] else air_w) for r in rows] + [miss_cost])
@@ -440,7 +439,7 @@ def _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px
     the pixel position pan-corrected, lives ghost_s seconds, at most max_ghosts per frame); a candidate after a ghost pays the
     distance like after a seen ball, and a candidate after the bare 'miss' state (ball gone for > ghost_s) pays jump_cost.
     States per frame: candidates, ghosts, miss (last). Backtracking yields picks only on candidate states."""
-    INF = 1e18; back = []; pos_hist = []; kind_hist = []; prev_cost = None; prev_pos = None; prev_kind = None; prev_age = None
+    INF = 1e18; back = []; pos_hist = []; kind_hist = []; prev_cost = None; prev_pos = None; prev_age = None
     for i in range(n):
         rows = C[i]; k = len(rows)
         rpos = np.float32([[r[3], r[4]] for r in rows]).reshape(-1, 2)
@@ -472,7 +471,7 @@ def _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px
             tot_m = prev_cost + np.where(np.arange(pk) == pm, 0.0, 0.8); bk[m - 1] = int(np.argmin(tot_m)); cost[m - 1] = tot_m[bk[m - 1]] + miss_cost
             pos = np.vstack([rpos, gpos]) if (k or g) else np.zeros((0, 2), np.float32); kind = ["c"] * k + ["g"] * g + ["m"]
             age = [0] * k + [prev_age[j] + 1 for j in gsrc] + [0]
-        back.append(bk); pos_hist.append(pos); kind_hist.append(kind); prev_cost, prev_pos, prev_kind, prev_age = cost, pos, kind, age
+        back.append(bk); pos_hist.append(pos); kind_hist.append(kind); prev_cost, prev_pos, prev_age = cost, pos, age
     ball = {}; s = int(np.argmin(prev_cost))
     for i in range(n - 1, -1, -1):
         if kind_hist[i][s] == "c": ball[i] = [float(pos_hist[i][s][0]), float(pos_hist[i][s][1])]

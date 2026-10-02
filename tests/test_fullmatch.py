@@ -76,6 +76,11 @@ def test_full_match_join_and_export(capsys):
     assert all("pressed" in f and isinstance(f["pressed"], bool) for f in f1)
     assert all(f["pressed"] == (f["pressure_m"] is not None and f["pressure_m"] <= 2.0) for f in f1)
     assert all(e.get("tier") in ("verified", "beta", "hidden") for e in md["events"]) and all(e["verified"] == (e["type"] in ("goal", "shot")) for e in md["events"])
+    st = json.load(open(f"{folder}/stats.json"))                              # 3 Oct: UI-contract keys in stats.json
+    assert st["summary"]["ball_grade"] == summary["ball_grade"] and st["duration_s"] == summary["duration_s"] and st["attack_right"] == md["attack_right"] and st["periods"] == md["periods"]
+    assert all(t["summary"]["ball_grade"] == summary["ball_grade"] for t in st["teams"])
+    assert all(("x" in sh and "on_target" in sh) for sh in st["metrics"]["shots"])
+    assert all("better_option_count" in t for t in st["teams"]) and all("passes_risky" in p for p in st["players"])
 
 
 def test_full_match_with_periods(capsys):
