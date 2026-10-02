@@ -24,6 +24,13 @@ def tier_events(ev):
         e["tier"] = EVENT_TIER.get(e["type"], "hidden"); e["verified"] = e["tier"] == "verified"
     return ev
 
+def _load(path):
+    with open(path) as fh: return json.load(fh)
+
+def _dump(obj, path, **kw):
+    """3 Oct: write JSON and close the file (the old one-liners left handles open until garbage collection)"""
+    with open(path, "w") as fh: json.dump(obj, fh, default=_json_default, **kw)
+
 def events(turnovers_, passes_, restarts_, sequences_, fps):
     ev = []
     for t in turnovers_:
@@ -90,10 +97,10 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
         md["frames"] = []; md["frame_chunks"] = []; per_file = max(1, int(round(split_s * fps / max(1, frame_stride))))
         for i in range(0, len(frames_out), per_file):
             part = frames_out[i:i + per_file]; key = f"frames_{i // per_file:03d}"
-            json.dump({"t_start": part[0]["t"], "t_end": part[-1]["t"], "frames": part}, open(f"{root}/{key}.json", "w"), default=_json_default, separators=(",", ":"))
+            _dump({"t_start": part[0]["t"], "t_end": part[-1]["t"], "frames": part}, f"{root}/{key}.json", separators=(",", ":"))
             md["frame_chunks"].append({"key": key, "t_start": part[0]["t"], "t_end": part[-1]["t"]}); chunk_files[key] = f"matches/{match_id}/{key}.json"
         log(f"  wrote {len(chunk_files)} frame files (every {frame_stride} frames, {split_s:.0f} s each, largest {max(os.path.getsize(f'{root}/{k}.json') for k in chunk_files)/1e6:.1f} MB)")
-    tmp = os.path.join(tempfile.gettempdir(), f"{match_id}_match_data.json"); json.dump(md, open(tmp, "w"), default=_json_default); shutil.copy(tmp, f"{root}/match_data.json"); log(f"  wrote match_data.json ({os.path.getsize(tmp)/1e6:.1f} MB)")
+    tmp = os.path.join(tempfile.gettempdir(), f"{match_id}_match_data.json"); _dump(md, tmp); shutil.copy(tmp, f"{root}/match_data.json"); log(f"  wrote match_data.json ({os.path.getsize(tmp)/1e6:.1f} MB)")
     st = dict(stats_); st["passes"] = passes_; st["sequences"] = sequences_; st["restarts"] = restarts_; st["pitch"] = {"length": L, "width": W}
     # 3 Oct (UI contract): what the app reads but could not find - the ball grade, duration and direction, in stats.json too
     st["summary"] = {"ball_grade": summary.get("ball_grade"), "ball_reliable": summary.get("ball_reliable")}; st["duration_s"] = round(n / fps, 1); st["attack_right"] = attack_right
@@ -101,25 +108,25 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
     for row in st.get("teams", []): row["summary"] = st["summary"]; row["duration_s"] = st["duration_s"]; row["attack_right"] = attack_right
     for sh in (st.get("metrics") or {}).get("shots", []):                   # aliases the app reads: x, y, on_target
         if "x_m" in sh: sh.setdefault("x", sh["x_m"]); sh.setdefault("y", sh["y_m"]); sh.setdefault("on_target", sh.get("outcome") in ("on target", "goal"))
-    json.dump(st, open(f"{root}/stats.json", "w"), default=_json_default)
+    _dump(st, f"{root}/stats.json")
     if team_model is not None and getattr(team_model, "strips", None):
         for ab, img in team_model.strips.items(): cv2.imwrite(f"{root}/kit_{ab}.png", img)
     from .video import frame_at
     th = frame_at(video, int(n * 0.3))
     if th is not None: cv2.imwrite(f"{root}/thumb.jpg", cv2.resize(th, (640, 360)))
     if copy_video: shutil.copy(video, f"{root}/{os.path.basename(video)}")
-    json.dump(summary, open(f"{root}/summary.json", "w"), indent=1, default=_json_default)
+    _dump(summary, f"{root}/summary.json", indent=1)
     entry = {"id": match_id, "title": "Team A – Team B (label in app)", "date": None, "competition": None, "home": "A", "away": "B", "score": None, "duration_s": round(n / fps, 1),
              "thumbnail": f"matches/{match_id}/thumb.jpg", "schema_version": SCHEMA_VERSION,
              "files": {"video": f"matches/{match_id}/{os.path.basename(video)}", "match_data": f"matches/{match_id}/match_data.json", "stats": f"matches/{match_id}/stats.json", "kit_A": f"matches/{match_id}/kit_A.png", "kit_B": f"matches/{match_id}/kit_B.png", **chunk_files},
              "video_url": video_url,
              "status": "ready", "tags": [], "attack_right": attack_right, "attack_right_confidence": conf, "labels": None, "summary": summary}
-    lib_path = os.path.join(out_dir, "library.json"); lib = json.load(open(lib_path)) if os.path.exists(lib_path) else {"matches": []}
-    lib["matches"] = [m for m in lib["matches"] if m["id"] != match_id] + [entry]; json.dump(lib, open(lib_path, "w"), indent=1, default=_json_default)
+    lib_path = os.path.join(out_dir, "library.json"); lib = _load(lib_path) if os.path.exists(lib_path) else {"matches": []}
+    lib["matches"] = [m for m in lib["matches"] if m["id"] != match_id] + [entry]; _dump(lib, lib_path, indent=1)
     zpath = None
     if make_zip:
         stage = os.path.join(tempfile.gettempdir(), f"{match_id}_lovable"); shutil.rmtree(stage, ignore_errors=True); os.makedirs(os.path.join(stage, "matches"))
-        shutil.copytree(root, os.path.join(stage, "matches", match_id)); json.dump({"matches": [entry]}, open(os.path.join(stage, "library.json"), "w"), indent=1, default=_json_default)
+        shutil.copytree(root, os.path.join(stage, "matches", match_id)); _dump({"matches": [entry]}, os.path.join(stage, "library.json"), indent=1)
         zlocal = shutil.make_archive(os.path.join(tempfile.gettempdir(), f"{match_id}_lovable"), "zip", root_dir=stage, base_dir=".")
         zpath = os.path.join(out_dir, f"{match_id}_lovable.zip"); shutil.copy(zlocal, zpath)
     log(f"export: {root} ({len(ev)} events) · library.json updated · zip {zpath}")
