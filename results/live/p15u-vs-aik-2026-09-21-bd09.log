@@ -1,48 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:48:31 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · finished · 03:49:54 UTC
 
 
-## run_full.log (55 lines, last 60)
-=== p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
-calibration: from the clip's own camera
-pieces: 23 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
-pieces: 23/23 done in 1.4 min
-tracking frame 206756
-  piece 00: cached
-  piece 01: cached
-  piece 02: cached
-  piece 03: cached
-  piece 04: cached
-  piece 05: cached
-  piece 06: cached
-  piece 07: cached
-  piece 08: cached
-  piece 09: cached
-  piece 10: cached
-  piece 11: cached
-  piece 12: cached
-  piece 13: cached
-  piece 14: cached
-  piece 15: cached
-  piece 16: cached
-  piece 17: cached
-  piece 18: cached
-  piece 19: cached
-  piece 20: cached
-  piece 21: cached
-  piece 22: cached
-periods: [(366.0, 3389.99), (3950.01, 6898.76)] s; 99 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
-calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
-ball check: 39 held-out test frames mapped into the full match
-clean: keeper (left) from a non-team kit: track 1700435, 1403 frames
-clean: keeper (right) from a non-team kit: track 1300964, 1742 frames
-clean: removed 794212 rows of non-team kits (referee / staff)
-clean: dropped 478277 off-pitch, merged 37864 duplicates, stitched 7825 ids, keepers [101311, 101331, 101381, 101449, 101454, 200046, 200027, 200836, 200916, 200919, 200929, 200953, 200955, 200956, 200961, 200968, 200978, 200987, 200989, 200991, 201000, 201008, 201016, 201019, 201056, 201061, 201064, 201084, 201090, 300835, 300848, 300853, 300883, 400365, 501382, 501434, 600048, 700924, 800398, 800524, 800531, 800553, 800810, 901069, 901272, 1001095, 1001185, 1001331, 1100259, 1100280, 1100387, 1100469, 1100470, 1100486, 1100581, 1100710, 1100731, 1300543, 1301148, 1301183, 1301187, 1301322, 1400014, 1400018, 1400026, 1400099, 1400153, 1400673, 1500124, 1600505, 1700808, 1800013, 1800040, 1800020, 1800062, 1800099, 1800170, 1800187, 1800194, 1800224, 1800213, 1800230, 1800263, 1800265, 1800278, 1800332, 1800363, 1800451, 1800469, 1800476, 1800477, 1800480, 1800487, 1800515, 1800584, 1801110, 1900101, 1900507, 1900575, 2000013, 2000043, 2000103, 2000104, 2000115, 2000133, 2000140, 2000127, 2000144, 2000135, 2000147, 2000153, 2000168, 2000171, 2000187, 2000191, 2000189, 2000206, 2000208, 2000210, 2000215, 2000219, 2000222, 2000236, 2000245, 2000282, 2000283, 2000364, 2000379, 2000397, 2000400, 2000419, 2000413, 2000422, 2000467, 2000577, 2000581, 2000588, 2000621, 2000648, 2000678, 2000685, 2000728, 2000755, 2100053, 2100064, 2100099, 2100098, 2100125, 2100192, 2100190, 2100199, 2100317, 2200023, 2200027, 2200029, 2200037, 2200050, 2200151, 2200166, 2200184, 2200163, 2200191, 2200224, 2200280, 2200292, 2200293, 2200294, 2200307, 2200309, 2200310, 2200443, 2200721, 2201070, 2201071] -> B defends left
-clean: players per frame median A 5 / B 5, max A 17 / B 18
-players: 65301 short gaps filled (marked 'filled' in the export)
-ball v2: 166599/206756 frames on the path, 18646 static-clutter candidates dropped
-ball check: 26/39 correct, 13 wrong, 0 no pick (ceiling 39/39)
-ball: dropped 13958 static-clutter candidates
+## run_full.log (101 lines, last 60)
 ball (global path): 148009/206756 frames on the chosen path
 ball check (other picker, v1): 13/39 correct, ceiling 39/39
 ball: dropped 13958 static-clutter candidates
@@ -57,6 +16,52 @@ direction (from keepers): A ←  B →
   step: passes
   step: shapes
   step: stats
+  step: metrics
+veo: 30 shots incl. 7 goals imported; 0 goal tag(s) rejected; team from the ball for 30, from the players for 0, unknown for 0
+our shot detector vs Veo: found 0/30 of Veo's shots, 0/6 of ours are real (within 10 s)
+ball grade: accuracy 0.67, near-player 0.51, possession OK, events withheld
+ball reliability: 87% frames, 51% near a player, 42839 jumps -> OK
+  step: export
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 23 frame files (every 3 frames, 300 s each, largest 6.3 MB)
+  wrote match_data.json (1.4 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09 (2590 events) · library.json updated · zip None
+upload: p15u-vs-aik-2026-09-21-bd09 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, frames_021, frames_022, thumb)
+
+--- SUMMARY ---
+  match_id                   p15u-vs-aik-2026-09-21-bd09
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.67, 'near_player_pct': 0.51, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  duration_s                 6898.8
+  calibration_coverage       0.97
+  calibration_frozen         163
+  team_dark_share            {'A': 0.21, 'B': 0.94}
+  players_per_frame_median   {'A': 6.0, 'B': 6.0}
+  ball_frames_pct            100
+  match_seconds              5972.7
+  periods                    [{'index': 1, 't_start': 366.0, 't_end': 3389.99, 'mirrored': False}, {'index': 2, 't_start': 3950.01, 't_end': 6898.76, 'mirrored': True}]
+  ball_check                 {'correct': 26, 'total': 39, 'wrong': 13, 'ceiling': 39}
+  possession_pct             {'A': 41, 'B': 59}
+  loose_pct                  45
+  dead_pct                   7
+  possession_model           simple
+  attack_right               {'A': False, 'B': True}
+  direction_confidence       {'A': 0.03, 'B': 0.01}
+  turnovers                  316
+  passes                     1943
+  restarts                   88
+  sequences                  1282
+  shots                      {'A': 16, 'B': 14}
+  goals                      {'A': 6, 'B': 1}
+  high_turnovers             {'A': 32, 'B': 29}
+  field_tilt                 {'A': 24, 'B': 21}
+  runtime_min                6.8
+QA PASS: pieces processed (23/23)
+QA PASS: calibration (coverage 0.97)
+QA FAIL: players per frame (A 6.0 + B 6.0)
+QA PASS: team balance (A 6.0 vs B 6.0)
+QA PASS: shots and goals from Veo (shots {'A': 16, 'B': 14}, goals {'A': 6, 'B': 1})
+QA PASS: match time (5972.7 s of 6899 s)
 
 ## train_ball.log (1 lines, last 60)
 
