@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 08:40:04 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 08:41:38 UTC
 
 
-## run_full.log (41 lines, last 60)
+## run_full.log (47 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 23 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -43,6 +43,12 @@ clean: players per frame median A 5 / B 5, max A 17 / B 17
 players: 62521 short gaps filled (marked 'filled' in the export)
 ball v2: 166600/206756 frames on the path, 18646 static-clutter candidates dropped
 ball check: 26/39 correct, 13 wrong, 0 no pick (ceiling 39/39)
+ball: dropped 13958 static-clutter candidates
+ball (global path): 147898/206756 frames on the chosen path
+ball check (other picker, v1): 13/39 correct, ceiling 39/39
+ball: dropped 13958 static-clutter candidates
+ball (global path): 147898/206756 frames on the chosen path
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 40/62, other 22/62, ceiling 51
 
 ## train_ball.log (1 lines, last 60)
 
