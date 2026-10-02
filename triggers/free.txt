@@ -1,2 +1,2 @@
-tools/b4c_sheet.py
-# Thu Oct  1 19:22:42 UTC 2026 B4c: picture sheets where the picker with/without the play-on spare-ball rule disagree (free)
+tools/t1_score.py
+# Fri Oct  2 01:24:40 UTC 2026 T1: 3-frame ball scorers on every guess of the app inputs (AIK + SFK-BP clips) + picture sheets (free)

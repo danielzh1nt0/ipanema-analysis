@@ -1,0 +1,67 @@
+{
+ "train_sfk": 5252,
+ "train_k1": 4059,
+ "left_out_window": 322,
+ "models": {
+  "sfk_s0": {
+   "clip34 scorer + 0.0 x finder": [
+    16,
+    34
+   ],
+   "clip34 scorer + 0.5 x finder": [
+    24,
+    34
+   ],
+   "clip34 scorer + 1.0 x finder": [
+    25,
+    34
+   ]
+  },
+  "sfk_s1": {
+   "clip34 scorer + 0.0 x finder": [
+    17,
+    34
+   ],
+   "clip34 scorer + 0.5 x finder": [
+    22,
+    34
+   ],
+   "clip34 scorer + 1.0 x finder": [
+    25,
+    34
+   ]
+  },
+  "sfk_k1_s0": {
+   "clip34 scorer + 0.0 x finder": [
+    18,
+    34
+   ],
+   "clip34 scorer + 0.5 x finder": [
+    21,
+    34
+   ],
+   "clip34 scorer + 1.0 x finder": [
+    23,
+    34
+   ]
+  },
+  "sfk_k1_s1": {
+   "clip34 scorer + 0.0 x finder": [
+    18,
+    34
+   ],
+   "clip34 scorer + 0.5 x finder": [
+    20,
+    34
+   ],
+   "clip34 scorer + 1.0 x finder": [
+    23,
+    34
+   ]
+  }
+ },
+ "clip34 finder only": [
+  25,
+  34
+ ]
+}
