@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:27:12 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:28:47 UTC
 
 
-## run_full.log (7 lines, last 60)
+## run_full.log (32 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c005/piece_v4.pkl
@@ -9,6 +9,31 @@ broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd0
 pieces: 21 already processed, 2 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 5 first (CPU)
 canary passed: calibration from the panorama, 19.7 players per frame
+pieces: 23/23 done in 5.7 min
+tracking frame 206756
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: p15u-vs-aik-2026-09-21-bd09_c005: 8992 frames, 19.7 players/frame
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: p15u-vs-aik-2026-09-21-bd09_c015: 8992 frames, 19.6 players/frame
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
+  piece 21: cached
+  piece 22: cached
 
 ## piece_005.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -21,8 +46,16 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.5/frame
 p15u-vs-aik-2026-09-21-bd09_c005: 8992 frames, 19.7 players/frame
 
-## piece_015.log (1 lines, last 60)
+## piece_015.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: panorama registration cached (8992 frames)
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.8/frame
+p15u-vs-aik-2026-09-21-bd09_c015: 8992 frames, 19.6 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
