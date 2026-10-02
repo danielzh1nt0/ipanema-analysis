@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:24:02 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:25:37 UTC
 
 
 ## run_full.log (6 lines, last 60)
@@ -8,6 +8,10 @@ broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd0
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c015/piece_v4.pkl
 pieces: 21 already processed, 2 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 5 first (CPU)
+
+## piece_005.log (2 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 
 ## train_ball.log (1 lines, last 60)
 
