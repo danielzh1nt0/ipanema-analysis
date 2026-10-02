@@ -85,12 +85,13 @@ def canary_ok(log_lines, expect_panorama, players_range=(6.0, 30.0)):   # panora
     text = "\n".join(log_lines)
     if "PIECE FAILED" in text: return False, "the piece crashed"
     if "mosaic calibration failed" in text: return False, "the panorama calibration crashed"
-    if expect_panorama and "calibration: from panorama" not in text: return False, "the panorama calibration was not used"
+    lines = "calibration: from the line model" in text                       # 2 Oct: the match line calibration is the better one when present
+    if expect_panorama and not lines and "calibration: from panorama" not in text: return False, "the panorama calibration was not used"
     m = re.search(r"(\d+) frames, ([\d.]+) players/frame", text)
     if not m: return False, "no player count in the piece's log"
     p = float(m.group(2))
     if not (players_range[0] <= p <= players_range[1]): return False, f"{p} players per frame is outside {players_range[0]:.0f}-{players_range[1]:.0f}"
-    return True, f"calibration from the panorama, {p} players per frame"
+    return True, f"calibration from the {'line model' if lines else 'panorama'}, {p} players per frame"
 
 
 def apply_periods(per, H, cands, periods_s, fps, L, W):
