@@ -1,153 +1,59 @@
-"""S1 (29 Sep): pass counting on Metrica's free pro games. Our completed passes vs their hand-labelled PASS events,
-matched in time (ours within +-1 s of the release, same team). Misses and extras are sorted into kinds (short, long,
-one-touch, header, set piece, during a loose ball ...) so we can see which rule is wrong. Clean positions and 'streak'
-noise (errors in runs, like our Veo tracking). Also compares two possession states: the old viterbi model and
-possession_simple (nearest feet to the ball; on Metrica H = identity, metres used as 'pixels', near_m = 1.5).
-Free, CPU. The slow part (positions -> carriers -> states) is cached in the scratch dir given by PASSLAB_CACHE.
-    python tools/passlab.py <metrica data dir with Sample_Game_1, Sample_Game_2> [base|grid|fine|defl|states]"""
-import sys, os, json, pickle, random, collections, numpy as np
+"""S4 (2 Oct): reproduce the SFK-BP clip's exported passes from the exact app inputs, then test pass-rule changes against
+the by-eye verdicts on the first 30 (results/review/passcheck_answers.json). Free, local."""
+import sys, os, json, pickle, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from ipanema import possession as P, analytics as AN
-import tools.metricalab as ML
-FPS = ML.FPS; TOL = 1.0
-CACHE = os.environ.get("PASSLAB_CACHE", "/tmp/passlab_cache")
-
-def prepare(frames, per, noisy, seed=0):
-    """same noise model as tools/turnoverlab.py (so numbers line up), plus the possession_simple state"""
-    rng = random.Random(seed); ks = sorted(k for k in frames if frames[k][0] == per); k0 = ks[0]
-    perd, ballm, H, run = {}, {}, {}, [0, "ok", None]
-    for i, k in enumerate(ks):
-        _, ps, b = frames[k]
-        rows = [[pid, "A" if pid < 200 else "B", np.array([x, y]), None, None, False] for pid, x, y in ps]
-        if noisy:
-            rows = [r for r in rows if rng.random() < 0.65]
-            for r in rows: r[2] = r[2] + np.array([rng.gauss(0, 0.8), rng.gauss(0, 0.8)])
-        for r in rows: r[3] = r[2]                                             # 'pixel' feet = metres (H = identity)
-        perd[i] = rows; H[i] = np.eye(3)
-        if noisy:
-            if run[0] <= 0:
-                u = rng.random(); run[1] = "miss" if u < 0.25 else "wrong" if u < 0.35 else "ok"
-                run[0] = int(rng.expovariate(1 / ({"miss": 0.6, "wrong": 0.4, "ok": 1.2}[run[1]] * FPS))) + 1
-                run[2] = np.array([rng.uniform(-25, 25), rng.uniform(-15, 15)])
-            run[0] -= 1
-        if b is not None:
-            bm = np.array(b)
-            if noisy:
-                if run[1] == "miss": continue
-                bm = bm + (run[2] if run[1] == "wrong" else np.array([rng.gauss(0, 0.7), rng.gauss(0, 0.7)]))
-            ballm[i] = bm
-    frames_, bm = P.carriers(perd, dict(ballm), H)
-    sv, _ = P.viterbi(perd, P.clean_ball(bm, ML.L, ML.W), FPS, ML.L, ML.W)
-    ss = P.possession_simple(perd, {k: tuple(v) for k, v in ballm.items()}, H, len(perd), near_m=1.5, smooth=6)
-    ar = P.direction_from_keepers(perd, ML.L, log=lambda *a: None) or {"A": True, "B": False}
-    return dict(k0=k0, perd=perd, frames_=frames_, bm=bm, ballm=ballm, state_viterbi=np.asarray(sv), state_simple=np.asarray(ss), ar=ar)
-
-def load_game(root, g):
-    d = f"{root}/{g}"
-    home = ML.load_tracking(f"{d}/{g}_RawTrackingData_Home_Team.csv", 100); away = ML.load_tracking(f"{d}/{g}_RawTrackingData_Away_Team.csv", 200)
-    frames = {k: (home[k][0], home[k][1] + away[k][1], home[k][2]) for k in home}
-    return frames, ML.load_events(f"{d}/{g}_RawEventsData.csv")
-
-def cached(root, g, per, noisy):
-    os.makedirs(CACHE, exist_ok=True); fn = f"{CACHE}/{g}_{per}_{noisy or 'clean'}.pkl"
-    if os.path.exists(fn): return pickle.load(open(fn, "rb"))
-    frames, _ = load_game(root, g); S = prepare(frames, per, noisy); pickle.dump(S, open(fn, "wb")); return S
-
-def truth_passes(ev, per):
-    """PASS events of one half with kinds. One-touch = passer received the ball < 0.5 s before; set piece = a SET PIECE
-    event at the same frame (or a goal kick); loose = a CHALLENGE/RECOVERY/BALL LOST within 1 s before."""
-    E = sorted([e for e in ev if e["period"] == per], key=lambda e: e["f0"]); out = []
-    for i, e in enumerate(E):
-        if e["type"] != "PASS": continue
-        prev = [x for x in E[max(0, i - 6):i] if x["f0"] >= e["f0"] - 1.0 * FPS]
-        rec = next((x for x in reversed(E[:i]) if x["type"] == "PASS"), None)
-        dur = (e["f1"] - e["f0"]) / FPS
-        kinds = []
-        if e["sub"] == "GOAL KICK" or any(x["type"] == "SET PIECE" and abs(x["f0"] - e["f0"]) <= 2 for x in E[max(0, i - 3):i + 1]): kinds.append("set piece")
-        if "HEAD" in e["sub"]: kinds.append("header")
-        if rec is not None and rec["team"] == e["team"] and 0 <= e["f0"] - rec["f1"] < 0.5 * FPS: kinds.append("one-touch")
-        if any(x["type"] in ("CHALLENGE", "RECOVERY", "BALL LOST") for x in prev): kinds.append("after duel/loose")
-        kinds.append("short (<0.6 s)" if dur < 0.6 else "long (>2 s)" if dur > 2.0 else "medium")
-        out.append({"f": e["f0"], "f1": e["f1"], "team": "A" if e["team"] == "Home" else "B", "kinds": kinds, "dur": dur})
-    return out
-
-def match(tp, op, tol=TOL * FPS):
-    """greedy nearest match, same team -> (matched truth idx set, matched ours idx set)"""
-    pairs = sorted((abs(o["f"] - t["f"]), i, j) for i, t in enumerate(tp) for j, o in enumerate(op) if o["team"] == t["team"] and abs(o["f"] - t["f"]) <= tol)
-    ut, uo = set(), set()
-    for _, i, j in pairs:
-        if i in ut or j in uo: continue
-        ut.add(i); uo.add(j)
-    return ut, uo
-
-def extra_kind(o, tp, ev, per, state):
-    E = [e for e in ev if e["period"] == per]
-    near = [t for t in tp if abs(t["f"] - o["f"]) <= 3 * FPS and t["team"] == o["team"]]
-    if any(e["type"] == "BALL OUT" and 0 <= o["f"] - e["f0"] <= 15 * FPS for e in E) and not near: return "dead ball"
-    if any(t["f"] < o["f"] < t["f1"] for t in tp if t["team"] == o["team"]): return "during a pass (ball passed a teammate)"
-    if near: return "near a real pass (split/double)"
-    if any(e["type"] in ("CHALLENGE", "BALL LOST", "RECOVERY") and abs(e["f0"] - o["f"]) <= 2 * FPS for e in E): return "duel/loose ball"
-    return "other (carry/dribble)"
-
-def our_passes(S, variant):
-    """variant = passes() keyword args, plus state='viterbi'|'simple' (filter carriers by that state) and
-    carriers_from='simple'|'viterbi' (carrier = nearest player of the team the state names, AN.carriers_from_state)"""
-    v = dict(variant); src = v.pop("state", None); cf = v.pop("carriers_from", None); cm = v.pop("carrier_m", 2.5); fr = S["frames_"]
-    if src is not None: v["state"] = S[f"state_{src}"]
-    if v.get("pass_by_mps"): v["ballm"] = S["bm"]
-    if cf is not None: fr = AN.carriers_from_state(S["perd"], S["ballm"], S[f"state_{cf}"], max_m=cm)
-    ps, _ = AN.passes(S["perd"], fr, [], {}, S["ar"], FPS, **v)
-    return [{"f": S["k0"] + int(round(p["t"] * FPS)), "team": p["team"], "len": p["length_m"]} for p in ps if p["completed"]]
-
-OLD = {"team_sandwich_s": 0.0, "min_pass_m": 0.0}                           # the rule before S1 (29 Sep)
-VARIANTS = {"now": dict(OLD), "new": {}}
-GRID = {f"ts{a}_ms{b}_len{c}": {"team_sandwich_s": a, "mate_sandwich_s": b, "min_pass_m": c}
-        for a in (0.0, 0.3, 0.6) for b in (0.0, 0.2, 0.3, 0.4) for c in (0.0, 3.0, 5.0)}
-FINE = {f"ts{a}_ms{b}_len{c}_mt{m}": {"team_sandwich_s": a, "mate_sandwich_s": b, "min_pass_m": c, "min_touch_s": m}
-        for a in (0.2, 0.3, 0.4) for b in (0.0, 0.1, 0.2) for c in (4.0, 5.0, 6.0) for m in (0.4, 0.6, 0.8)}
-DEFL = {f"ts{a}_ms{b}_len{c}_pb{d}": {"team_sandwich_s": a, "mate_sandwich_s": b, "min_pass_m": c, "pass_by_mps": d}
-        for a in (0.4, 0.6) for b in (0.0, 0.3, 0.6) for c in (0.0, 3.0, 5.0) for d in (4.0, 6.0, 8.0)}
-NEW = {"team_sandwich_s": 0.3, "min_pass_m": 5.0}                           # the S1 rule (now the default)
-STATES = {"now": dict(OLD), "new": dict(NEW)}
-for _nm, _kw in {"filter_viterbi": {"state": "viterbi"}, "filter_simple": {"state": "simple"}, "from_viterbi": {"carriers_from": "viterbi"},
-                 "from_simple": {"carriers_from": "simple"}}.items():
-    STATES[_nm] = dict(_kw, **OLD); STATES[_nm + "+new"] = dict(_kw, **NEW)
-
-def summary(res):
-    by = collections.defaultdict(list)
-    for r in res: by[r["variant"]].append(r)
-    out = []
-    for v, rs in by.items():
-        m, t, o = (sum(r[k] for r in rs) for k in ("matched", "truth", "ours"))
-        out.append({"variant": v, "max_abs_err_pct": max(abs(r["err_pct"]) for r in rs), "errs": [r["err_pct"] for r in rs],
-                    "recall": round(m / t, 3), "precision": round(m / o, 3)})
-    return sorted(out, key=lambda x: x["max_abs_err_pct"])
-
-def events(root, g):
-    return ML.load_events(f"{root}/{g}/{g}_RawEventsData.csv")
-
-def run(root, variants, noises=(False, "streak"), detail=True):
-    res = []
-    for g in ("Sample_Game_1", "Sample_Game_2"):
-        ev = events(root, g)
-        for per in (1, 2):
-            tp = truth_passes(ev, per)
-            for noisy in noises:
-                S = cached(root, g, per, noisy)
-                for name, var in variants.items():
-                    op = our_passes(S, var); ut, uo = match(tp, op)
-                    miss = collections.Counter(k for i, t in enumerate(tp) if i not in ut for k in t["kinds"])
-                    allk = collections.Counter(k for t in tp for k in t["kinds"])
-                    extra = collections.Counter(extra_kind(o, tp, ev, per, None) for j, o in enumerate(op) if j not in uo)
-                    r = {"game": g[-1], "half": per, "noise": noisy or "clean", "variant": name, "truth": len(tp), "ours": len(op), "matched": len(ut),
-                         "err_pct": round(100 * (len(op) - len(tp)) / len(tp), 1), "missed": len(tp) - len(ut), "extra": len(op) - len(uo),
-                         "missed_by_kind": {k: f"{miss[k]}/{allk[k]}" for k in allk}, "extra_by_kind": dict(extra)}
-                    res.append(r); print(json.dumps(r), flush=True)
-    return res
-
-if __name__ == "__main__":
-    root = sys.argv[1]; mode = sys.argv[2] if len(sys.argv) > 2 else "base"
-    V = {"base": VARIANTS, "grid": GRID, "fine": FINE, "defl": DEFL, "states": STATES}[mode]
-    res = run(root, V); summ = summary(res)
-    for x in summ: print(json.dumps(x))
-    os.makedirs("results/metrica", exist_ok=True); json.dump({"runs": res, "summary": summ}, open(f"results/metrica/passlab_{mode}.json", "w"), indent=1)
+from ipanema import ball as BL, possession as P, analytics as AN, tracking as TR
+P_ = pickle.load(open("results/volume/cache/SFKBP1109_s1200/picker_inputs.pkl", "rb")); fps = P_["fps"]; H = P_["H"]; L, W = P_["L"], P_["W"]
+per = {k: [[r[0], r[1], np.asarray(r[2]), None if r[3] is None else np.asarray(r[3]), None, False] for r in v] for k, v in P_["per"].items()}
+q = lambda *a: None
+ball = BL.bridge(BL.pick_v2(P_["cands"], H, L, W, per=per, fps=fps, log=q), fps)
+frames_, ballm = P.carriers(per, ball, H, 2.5, 5.0)
+state, bspeed, dstate, pinfo = P.pipeline_state(per, ball, ballm, H, fps, L, W, log=q)
+attack_right, conf = P.direction(state, ballm, log=q)
+tvs = P.turnovers(per, frames_, state, ballm, fps, attack_right, 2.0, 5.0, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
+ln = AN.lanes(per, frames_, attack_right, 1.5, 30.0)
+def run(**kw):
+    ps, _ = AN.passes(per, frames_, tvs, ln, attack_right, fps, **kw); return ps
+base = run(); print("passes reproduced:", len(base), "(app exported 87)")
+exp = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/stats.json"))["passes"]
+print("same times as the export:", sum(1 for a, b in zip(base, exp) if abs(a["t"] - b["t"]) < 0.05), "/", min(len(base), len(exp)))
+A = json.load(open("results/review/passcheck_answers.json"))
+fake = set(A["fake"]); unsure = set(A["unsure"]); graded = [i for i in range(A["graded_first_n"]) if i not in unsure]
+def grade(ps, name):
+    # map each exported pass index to a time; a rule 'keeps' the pass if a pass within 0.3 s remains
+    keep = [any(abs(p["t"] - exp[i]["t"]) < 0.3 for p in ps) for i in graded]
+    real_kept = sum(k for i, k in zip(graded, keep) if i not in fake); fake_kept = sum(k for i, k in zip(graded, keep) if i in fake)
+    print(f"{name:40s} passes {len(ps):3d} | of graded: real kept {real_kept}/{len(graded) - len(fake)}, fake kept {fake_kept}/{len(fake)}")
+grade(base, "current rule")
+for kw in ({"ball_min_m": 5.0}, {"ball_min_m": 8.0}, {"ball_min_m": 5.0, "dedupe_s": 1.0}, {"ball_min_m": 8.0, "dedupe_s": 1.0}, {"ball_min_m": 5.0, "dedupe_s": 1.0, "state": state}, {"ball_min_m": 8.0, "dedupe_s": 1.5, "state": state}):
+    try: grade(run(ballm=ballm, **kw), ", ".join(f"{k}={'yes' if k == 'state' else v}" for k, v in kw.items()))
+    except TypeError as e: print("not implemented:", e); break
+# why do the fakes survive? per graded pass: ball displacement between contacts, peak ball speed in the window, state, gap
+ps, _ = AN.passes(per, frames_, tvs, ln, attack_right, fps, debug=True)
+def bstat(e):
+    a0, a1, b0, b1 = e; ks = [j for j in range(a1, b0 + 1) if j in ballm]
+    if len(ks) < 2: return None
+    pts = np.array([ballm[j] for j in ks]); d = np.linalg.norm(pts[-1] - pts[0]); sp = np.linalg.norm(np.diff(pts, axis=0), axis=1) * fps / np.maximum(1, np.diff(ks))
+    return round(float(d), 1), round(float(np.percentile(sp, 90)), 1), int(state[a1]), round((b0 - a1) / fps, 2), round((a1 - a0) / fps, 2), round((b1 - b0) / fps, 2)
+print("idx fake? | ball moved m, ball speed p90 m/s, state, gap s, touch A s, touch B s")
+for i in graded: print(i, "FAKE" if i in fake else "real", bstat(ps[i]["_eps"]))
+print("--- pixel features: share of window frames where the ball px stays within 40 px of the passer; ball off pitch at either contact")
+pxpos = {k: {r[0]: r[3] for r in v if r[3] is not None} for k, v in per.items()}
+def pxstat(p):
+    a0, a1, b0, b1 = p["_eps"]; ks = [j for j in range(a1, b0 + 1) if j in ball and p["from"] in pxpos.get(j, {})]
+    if not ks: return None
+    near = np.mean([np.hypot(ball[j][0] - pxpos[j][p["from"]][0], ball[j][1] - pxpos[j][p["from"]][1]) < 40 for j in ks])
+    offp = any(not (-2 <= ballm[j][0] <= L + 2 and -2 <= ballm[j][1] <= W + 2) for j in (a1, b0) if j in ballm)
+    return round(float(near), 2), offp, len(ks)
+for i in graded: print(i, "FAKE" if i in fake else "real", pxstat(ps[i]))
+print("--- camera-corrected ball travel in px over the window (ball px minus median shift of all players), and dead/stoppage")
+def travel(p):
+    a0, a1, b0, b1 = p["_eps"]; ks = [j for j in range(max(0, a1 - 3), min(len(per), b0 + 4)) if j in ball]
+    if len(ks) < 2: return None
+    cum = np.zeros(2); rel = [np.array(ball[ks[0]], float)]
+    for j0, j1 in zip(ks[:-1], ks[1:]):
+        d = [np.asarray(pxpos[j1][t]) - np.asarray(pxpos[j0][t]) for t in pxpos.get(j1, {}) if t in pxpos.get(j0, {})]
+        cam = np.median(d, 0) if len(d) >= 3 else np.zeros(2); cum += cam
+        rel.append(np.array(ball[j1], float) - cum)
+    rel = np.array(rel); return round(float(np.linalg.norm(rel[-1] - rel[0])), 0), round(float(np.abs(np.diff(rel, axis=0)).sum()), 0), int(dstate[a1]) if a1 < len(dstate) else None
+for i in graded: print(i, "FAKE" if i in fake else "real", travel(ps[i]))

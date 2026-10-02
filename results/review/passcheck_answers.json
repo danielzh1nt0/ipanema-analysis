@@ -1,0 +1,18 @@
+{
+ "graded_first_n": 30,
+ "note": "2 Oct, Claude by eye from results/kaggle/passcheck/pass_00-04.jpg: fake = ball visibly did not move between -0.4 and +0.8 s (still at feet / dead) or the ball pick was off the pitch (fence, trees); unsure = long high ball, cannot tell",
+ "fake": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  20,
+  22,
+  25
+ ],
+ "unsure": [
+  18,
+  24
+ ]
+}
