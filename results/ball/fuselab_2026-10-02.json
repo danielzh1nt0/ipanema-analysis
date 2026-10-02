@@ -1,0 +1,78 @@
+[
+ {
+  "name": "today (1.5 / 1.0 / bonus 0.8)",
+  "kw": {},
+  "sfk34": 29,
+  "b4": 284
+ },
+ {
+  "name": "WASB 1.5",
+  "kw": {
+   "wbw": 1.5
+  },
+  "sfk34": 29,
+  "b4": 283
+ },
+ {
+  "name": "WASB 2.0",
+  "kw": {
+   "wbw": 2.0
+  },
+  "sfk34": 28,
+  "b4": 282
+ },
+ {
+  "name": "RF 1.0 WASB 1.5",
+  "kw": {
+   "wy": 1.0,
+   "wbw": 1.5
+  },
+  "sfk34": 27,
+  "b4": 283
+ },
+ {
+  "name": "near feet 40 px: WASB 2.0",
+  "kw": {
+   "feet_px": 40,
+   "wb_feet": 2.0
+  },
+  "sfk34": 29,
+  "b4": 281
+ },
+ {
+  "name": "near feet 40 px: WASB 2.5 RF 1.0",
+  "kw": {
+   "feet_px": 40,
+   "wb_feet": 2.5,
+   "wy_feet": 1.0
+  },
+  "sfk34": 28,
+  "b4": 280
+ },
+ {
+  "name": "near feet 60 px: WASB 2.0",
+  "kw": {
+   "feet_px": 60,
+   "wb_feet": 2.0
+  },
+  "sfk34": 29,
+  "b4": 282
+ },
+ {
+  "name": "near feet 40 px: RF 2.5",
+  "kw": {
+   "feet_px": 40,
+   "wy_feet": 2.5
+  },
+  "sfk34": 29,
+  "b4": 282
+ },
+ {
+  "name": "bonus 1.2",
+  "kw": {
+   "bonus": 1.2
+  },
+  "sfk34": 28,
+  "b4": 279
+ }
+]
