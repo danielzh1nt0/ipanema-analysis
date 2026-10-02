@@ -1,0 +1,13 @@
+{
+ "ok": true,
+ "match": "p15u-vs-aik-2026-09-21-bd09",
+ "cut_s": 3600,
+ "frames": 107893,
+ "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-aik-2026-09-21-bd09/video_cropped.mp4",
+ "minutes": 5.9,
+ "log": [
+  "first half [366, 3390] s -> video cut at 3600 s (piece boundary), of 6899 s",
+  "cut video: 107893 frames @ 29.970 fps (expected 107892)",
+  "uploaded https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-aik-2026-09-21-bd09/video_cropped.mp4 (4.99 GB)"
+ ]
+}

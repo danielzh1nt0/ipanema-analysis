@@ -1,0 +1,13 @@
+{
+ "ok": true,
+ "match": "SFKBP1109",
+ "cut_s": 3300,
+ "frames": 98902,
+ "url": "https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109/video_cropped.mp4",
+ "minutes": 5.9,
+ "log": [
+  "first half [555, 3060] s -> video cut at 3300 s (piece boundary), of 6164 s",
+  "cut video: 98902 frames @ 29.970 fps (expected 98901)",
+  "uploaded https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109/video_cropped.mp4 (4.23 GB)"
+ ]
+}
