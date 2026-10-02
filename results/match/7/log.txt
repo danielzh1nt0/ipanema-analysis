@@ -1,0 +1,110 @@
+19:49:53 venue base for p15u-vs-spanga-2026-09-25 on Modal
+20:18:34 19:50:31 24 frames sampled over 94 min
+20:18:34 19:50:42 23 frames with enough painted lines
+20:18:34 19:52:05   first poses from the reference base: 12/12 frames placed
+20:18:34 19:54:56   base search 25/100: best so far [50.  65.5 -5.5] cost 27.333
+20:18:34 19:57:30   base search 50/100: best so far [53.  68.5 -5.5] cost 24.056
+20:18:34 19:59:54   base search 75/100: best so far [53.  70.  -5.5] cost 24.043
+20:18:34 20:02:23   base search 100/100: best so far [53.  70.  -5.5] cost 24.043
+20:18:34 20:02:23   coarse best base [53.  70.  -5.5] (cost 24.043); runner-up [53.  68.5 -5.5] (cost 24.056)
+20:18:34 20:15:59   refined base [53.  70.  -5.5] tilt [0. 0.] deg, cost 24.043 -> 22.864 on 23/23 frames
+20:18:34 20:18:33   held-out half: new base cost 20.081 vs reference (Edsberg) 22.697
+20:18:34 20:18:34 venue base ACCEPTED: [53.  70.  -5.5]
+20:18:34 full-match calibration on Modal: p15u-vs-spanga-2026-09-25
+21:36:46   stretch 0-234s: 235 frames, 0 checkpoints
+21:36:46   t=59s: 0/60 confident
+21:36:46   t=119s: 0/120 confident
+21:36:46   t=179s: 4/180 confident
+21:36:46   stretch 234-469s: 234 frames, 0 checkpoints
+21:36:46   t=294s: 2/60 confident
+21:36:46   t=354s: 4/120 confident
+21:36:46   t=414s: 4/180 confident
+21:36:46   stretch 469-703s: 235 frames, 0 checkpoints
+21:36:46   t=528s: 1/60 confident
+21:36:46   t=588s: 1/120 confident
+21:36:46   t=648s: 1/180 confident
+21:36:46   stretch 703-938s: 234 frames, 0 checkpoints
+21:36:46   t=763s: 1/60 confident
+21:36:46   t=823s: 3/120 confident
+21:36:46   t=883s: 3/180 confident
+21:36:46   stretch 938-1172s: 234 frames, 0 checkpoints
+21:36:46   t=997s: 0/60 confident
+21:36:46   t=1057s: 0/120 confident
+21:36:46   t=1117s: 0/180 confident
+21:36:46   stretch 1172-1406s: 235 frames, 0 checkpoints
+21:36:46   t=1231s: 0/60 confident
+21:36:46   t=1291s: 0/120 confident
+21:36:46   t=1351s: 0/180 confident
+21:36:46   stretch 1406-1641s: 234 frames, 0 checkpoints
+21:36:46   t=1466s: 0/60 confident
+21:36:46   t=1526s: 0/120 confident
+21:36:46   t=1586s: 2/180 confident
+21:36:46   stretch 1641-1875s: 235 frames, 0 checkpoints
+21:36:46   t=1700s: 1/60 confident
+21:36:46   t=1760s: 3/120 confident
+21:36:46   t=1820s: 3/180 confident
+21:36:46   stretch 1875-2110s: 234 frames, 0 checkpoints
+21:36:46   t=1935s: 0/60 confident
+21:36:46   t=1995s: 0/120 confident
+21:36:46   t=2055s: 0/180 confident
+21:36:46   stretch 2110-2344s: 234 frames, 0 checkpoints
+21:36:46   t=2169s: 0/60 confident
+21:36:46   t=2229s: 0/120 confident
+21:36:46   t=2289s: 0/180 confident
+21:36:46   stretch 2344-2578s: 235 frames, 0 checkpoints
+21:36:46   t=2403s: 3/60 confident
+21:36:46   t=2463s: 3/120 confident
+21:36:46   t=2523s: 3/180 confident
+21:36:46   stretch 2578-2813s: 234 frames, 0 checkpoints
+21:36:46   t=2638s: 0/60 confident
+21:36:46   t=2698s: 0/120 confident
+21:36:46   t=2758s: 0/180 confident
+21:36:46   stretch 2813-3047s: 235 frames, 0 checkpoints
+21:36:46   t=2872s: 0/60 confident
+21:36:46   t=2932s: 0/120 confident
+21:36:46   t=2992s: 0/180 confident
+21:36:46   stretch 3047-3282s: 234 frames, 0 checkpoints
+21:36:46   t=3107s: 3/60 confident
+21:36:46   t=3167s: 3/120 confident
+21:36:46   t=3227s: 5/180 confident
+21:36:46   stretch 3282-3516s: 234 frames, 0 checkpoints
+21:36:46   t=3341s: 4/60 confident
+21:36:46   t=3401s: 6/120 confident
+21:36:46   t=3461s: 8/180 confident
+21:36:46   stretch 3516-3750s: 235 frames, 0 checkpoints
+21:36:46   t=3575s: 4/60 confident
+21:36:46   t=3635s: 8/120 confident
+21:36:46   t=3695s: 8/180 confident
+21:36:46   stretch 3750-3985s: 234 frames, 0 checkpoints
+21:36:46   t=3810s: 5/60 confident
+21:36:46   t=3870s: 6/120 confident
+21:36:46   t=3930s: 9/180 confident
+21:36:46   stretch 3985-4219s: 235 frames, 0 checkpoints
+21:36:46   t=4044s: 1/60 confident
+21:36:46   t=4104s: 2/120 confident
+21:36:46   t=4164s: 3/180 confident
+21:36:46   stretch 4219-4454s: 234 frames, 0 checkpoints
+21:36:46   t=4279s: 1/60 confident
+21:36:46   t=4339s: 4/120 confident
+21:36:46   t=4399s: 7/180 confident
+21:36:46   stretch 4454-4688s: 234 frames, 0 checkpoints
+21:36:46   t=4513s: 7/60 confident
+21:36:46   t=4573s: 9/120 confident
+21:36:46   t=4633s: 9/180 confident
+21:36:46   stretch 4688-4922s: 235 frames, 0 checkpoints
+21:36:46   t=4747s: 2/60 confident
+21:36:46   t=4807s: 3/120 confident
+21:36:46   t=4867s: 4/180 confident
+21:36:46   stretch 4922-5157s: 234 frames, 0 checkpoints
+21:36:46   t=4982s: 1/60 confident
+21:36:46   t=5042s: 2/120 confident
+21:36:46   t=5102s: 6/180 confident
+21:36:46   stretch 5157-5391s: 235 frames, 0 checkpoints
+21:36:46   t=5216s: 0/60 confident
+21:36:46   t=5276s: 8/120 confident
+21:36:46   t=5336s: 19/180 confident
+21:36:46   stretch 5391-5626s: 234 frames, 0 checkpoints
+21:36:46   t=5451s: 0/60 confident
+21:36:46   t=5511s: 0/120 confident
+21:36:46   t=5571s: 0/180 confident
+21:36:46 p15u-vs-spanga-2026-09-25: 1% of the match placed confidently (72/5626 seconds); no click checkpoints for this match; longest unsure stretch 1458 s
