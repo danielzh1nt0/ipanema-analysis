@@ -1,8 +1,7 @@
-# live log · SFKBP1109 · running · 01:07:49 UTC
+# live log · SFKBP1109 · finished · 01:07:54 UTC
 
 
-## run_full.log (125 lines, last 60)
-picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 40/59, other 22/59, ceiling 45
+## run_full.log (126 lines, last 60)
 ball: dropped 8244 static-clutter candidates
 ball (global path): 120651/184725 frames on the chosen path
 picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 87/134, other 50/134, ceiling 97
@@ -62,6 +61,7 @@ QA PASS: players per frame (A 8.0 + B 7.0)
 QA PASS: team balance (A 8.0 vs B 7.0)
 QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 15}, goals {'A': 2, 'B': 1})
 QA PASS: match time (4515.5 s of 6164 s)
+SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.74, "near_player_pct": 0.53, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 6163.7, "calibration_coverage": 0.87, "calibration_frozen": 24655, "team_dark_share": {"A": 0.2, "B": 0.86}, "players_per_frame_median": {"A": 8.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 4515.5, "periods": [{"index": 1, "t_start": 0.0, "t_end": 3059.99, "mirrored": false}, {"index": 2, "t_start": 3733.0, "t_end": 5940.0, "mirrored": true}], "ball_check": {"correct": 25, "total": 34, "wrong": 6, "ceiling": 30}, "possession_pct": {"A": 44, "B": 56}, "loose_pct": 32, "dead_pct": 16, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.03, "B": 0.05}, "turnovers": 234, "passes": 1149, "restarts": 151, "sequences": 1041, "shots": {"A": 8, "B": 15}, "goals": {"A": 2, "B": 1}, "high_turnovers": {"A": 19, "B": 35}, "field_tilt": {"A": 17, "B": 31}, "runtime_min": 23.5, "quality": {"pieces": {"ok": true, "detail": "21/21"}, "positions": {"ok": false, "detail": "coverage 0.87"}, "players": {"ok": true, "detail": "A 8.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 8.0 vs B 7.0"}, "shots": {"ok": true, "detail": "shots {'A': 8, 'B': 15}, goals {'A': 2, 'B': 1}"}, "match_time": {"ok": true, "detail": "4515.5 s of 6164 s"}, "ball": {"ok": true, "detail": "accuracy 0.74, near a player 0.53"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (21/21)", "QA FAIL: calibration (coverage 0.87)", "QA PASS: players per frame (A 8.0 + B 7.0)", "QA PASS: team balance (A 8.0 vs B 7.0)", "QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 15}, goals {'A': 2, 'B': 1})", "QA PASS: match time (4515.5 s of 6164 s)"]}
 
 ## piece_000.log (9 lines, last 60)
 === SFKBP1109_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
