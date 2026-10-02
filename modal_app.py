@@ -929,6 +929,37 @@ def compare_detectors(match_id: str, i: int):
         log(f"COMPARE {name:26s}: {ms:5.0f} ms/frame ({1000 / ms:4.1f} frames/s) | detections per frame median {np.median(counts):4.1f}, 10th pct {np.percentile(counts, 10):4.1f}")
     return lines[-20:]
 
+@app.function(timeout=60 * 60, volumes={"/data": vol}, cpu=4.0, memory=8192, secrets=[modal.Secret.from_name("ipanema-storage")])
+def make_half(match_id: str, end_s: float):
+    """2 Oct (demo: first halves only, Daniel 2 Oct 11:45): cut the full video to [0, end_s] as full_cropped.mp4 (run_full then
+    analyses that and the app plays <match>/video_cropped.mp4 from R2), and write a periods file on the volume with the FIRST
+    period only (volume file wins over the repo's). end_s is rounded UP to a 300-s piece boundary so every piece the cut
+    covers is identical to the full match's cached piece (no GPU work). The warm-up before kick-off stays in the video as
+    non-match time. CPU only. To undo: delete videos/<m>/full_cropped.mp4 and periods/<m>.json on the volume."""
+    import json, subprocess, time, math, requests, boto3
+    _setup()
+    from ipanema import fullmatch as FM
+    log, lines = _logger(f"{match_id}/make_half.log"); t0 = time.time()
+    d = f"{ROOT}/videos/{match_id}"; src = f"{d}/full.mp4" if os.path.exists(f"{d}/full.mp4") else f"{ROOT}/videos/{match_id}.mp4"; dst = f"{d}/full_cropped.mp4"; os.makedirs(d, exist_ok=True)
+    if not os.path.exists(src): return {"ok": False, "error": "full video not on the volume"}
+    rp = f"/content/ipanema-analysis/periods/{match_id}.json"
+    if not os.path.exists(rp): return {"ok": False, "error": "no periods file in the repo"}
+    spec = json.load(open(rp)); p1 = spec["periods_s"][0]
+    cut = math.ceil(max(end_s, p1[1]) / FM.PIECE_S) * FM.PIECE_S; n, fps = FM.video_info(src)
+    cut = min(cut, n / fps)
+    log(f"first half {p1} s -> video cut at {cut} s (piece boundary), of {n / fps:.0f} s")
+    subprocess.run(["ffmpeg", "-y", "-i", src, "-t", str(cut), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", dst], check=True, capture_output=True)
+    m, fps2 = FM.video_info(dst); log(f"cut video: {m} frames @ {fps2:.3f} fps (expected {int(cut * fps)})")
+    if abs(fps2 - fps) > 0.01 or abs(m - cut * fps) > fps: os.remove(dst); return {"ok": False, "error": f"cut video length off: {m} frames vs {cut * fps:.0f} expected"}
+    os.makedirs(f"{ROOT}/periods", exist_ok=True)
+    json.dump({**spec, "periods_s": [p1], "note": f"first half only (make_half, cut at {cut} s); repo file has both halves"}, open(f"{ROOT}/periods/{match_id}.json", "w"), indent=1)
+    c = {k: os.environ[k] for k in ("R2_ACCOUNT_ID", "R2_ACCESS_KEY", "R2_SECRET_KEY", "R2_BUCKET", "R2_PUBLIC_URL")}
+    r2 = boto3.client("s3", endpoint_url=f"https://{c['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com", aws_access_key_id=c["R2_ACCESS_KEY"], aws_secret_access_key=c["R2_SECRET_KEY"], region_name="auto")
+    r2.upload_file(dst, c["R2_BUCKET"], f"{match_id}/video_cropped.mp4", ExtraArgs={"ContentType": "video/mp4"})
+    url = f"{c['R2_PUBLIC_URL'].rstrip('/')}/{match_id}/video_cropped.mp4"; log(f"uploaded {url} ({os.path.getsize(dst) / 1e9:.2f} GB)")
+    vol.commit()
+    return {"ok": True, "match": match_id, "cut_s": cut, "frames": m, "url": url, "minutes": round((time.time() - t0) / 60, 1), "log": lines[-10:]}
+
 @app.function(timeout=60 * 60, volumes={"/data": vol}, secrets=[modal.Secret.from_name("ipanema-storage")], cpu=8.0, memory=16384)
 def prepare_panorama_clip(match_id: str, video_url: str):
     """Screen recordings include the browser around Veo's player: find the player area, crop the whole clip to it once,
