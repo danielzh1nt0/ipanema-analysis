@@ -1,0 +1,534 @@
+{
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "spans": [
+   [
+    366,
+    3390
+   ],
+   [
+    3950,
+    6899
+   ]
+  ],
+  "match_model_groups": [
+   48,
+   42,
+   22,
+   18
+  ],
+  "pieces": [
+   {
+    "fallback": null,
+    "flip": true,
+    "same": 13,
+    "cross": 70,
+    "people": 83,
+    "agree": 0.843,
+    "i": 1,
+    "start_s": 300.0
+   },
+   {
+    "fallback": null,
+    "flip": true,
+    "same": 20,
+    "cross": 62,
+    "people": 126,
+    "agree": 0.756,
+    "i": 2,
+    "start_s": 600.0
+   },
+   {
+    "fallback": null,
+    "flip": true,
+    "same": 18,
+    "cross": 73,
+    "people": 145,
+    "agree": 0.802,
+    "i": 3,
+    "start_s": 900.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 87,
+    "cross": 45,
+    "people": 159,
+    "agree": 0.659,
+    "i": 4,
+    "start_s": 1200.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 56,
+    "cross": 59,
+    "people": 138,
+    "agree": 0.513,
+    "i": 5,
+    "start_s": 1500.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 77,
+    "cross": 30,
+    "people": 110,
+    "agree": 0.72,
+    "i": 6,
+    "start_s": 1800.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 46,
+    "cross": 24,
+    "people": 99,
+    "agree": 0.657,
+    "i": 7,
+    "start_s": 2100.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 47,
+    "cross": 43,
+    "people": 98,
+    "agree": 0.522,
+    "i": 8,
+    "start_s": 2400.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 61,
+    "cross": 41,
+    "people": 122,
+    "agree": 0.598,
+    "i": 9,
+    "start_s": 2700.0
+   },
+   {
+    "fallback": null,
+    "flip": true,
+    "same": 14,
+    "cross": 48,
+    "people": 64,
+    "agree": 0.774,
+    "i": 10,
+    "start_s": 3000.0
+   },
+   {
+    "fallback": "too few people",
+    "flip": false,
+    "same": 0,
+    "cross": 0,
+    "people": 12,
+    "i": 11,
+    "start_s": 3300.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 35,
+    "cross": 55,
+    "people": 94,
+    "agree": 0.611,
+    "i": 13,
+    "start_s": 3900.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 114,
+    "cross": 35,
+    "people": 192,
+    "agree": 0.765,
+    "i": 14,
+    "start_s": 4200.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 135,
+    "cross": 54,
+    "people": 248,
+    "agree": 0.714,
+    "i": 15,
+    "start_s": 4500.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 110,
+    "cross": 34,
+    "people": 163,
+    "agree": 0.764,
+    "i": 16,
+    "start_s": 4800.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 112,
+    "cross": 45,
+    "people": 219,
+    "agree": 0.713,
+    "i": 17,
+    "start_s": 5100.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 107,
+    "cross": 58,
+    "people": 215,
+    "agree": 0.648,
+    "i": 18,
+    "start_s": 5400.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 100,
+    "cross": 40,
+    "people": 140,
+    "agree": 0.714,
+    "i": 19,
+    "start_s": 5700.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 104,
+    "cross": 41,
+    "people": 202,
+    "agree": 0.717,
+    "i": 20,
+    "start_s": 6000.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 132,
+    "cross": 64,
+    "people": 225,
+    "agree": 0.673,
+    "i": 21,
+    "start_s": 6300.0
+   },
+   {
+    "fallback": "no clear A/B naming",
+    "flip": false,
+    "same": 119,
+    "cross": 97,
+    "people": 222,
+    "agree": 0.551,
+    "i": 22,
+    "start_s": 6600.0
+   }
+  ],
+  "tests": {
+   "3 per piece": {
+    "match": {
+     "A": 4.67,
+     "B": 2.8,
+     "K": 4.3
+    },
+    "piece": {
+     "A": 5.07,
+     "B": 3.63,
+     "K": 3.07
+    },
+    "agreement_with_piece_model": {
+     "match": {
+      "same": 307,
+      "swapped": 78
+     }
+    },
+    "frames": 60
+   },
+   "inside the clip window (F1 frames)": {
+    "match": {
+     "A": 4.35,
+     "B": 2.05,
+     "K": 2.75
+    },
+    "clip": {
+     "A": 4.35,
+     "B": 3.4,
+     "K": 1.4
+    },
+    "piece": {
+     "A": 4.35,
+     "B": 2.05,
+     "K": 2.75
+    },
+    "agreement_with_piece_model": {
+     "match": {
+      "same": 128,
+      "swapped": 0
+     },
+     "clip": {
+      "same": 65,
+      "swapped": 38
+     }
+    },
+    "frames": 20
+   }
+  }
+ },
+ "SFKBP1109": {
+  "spans": [
+   [
+    555,
+    3060
+   ],
+   [
+    3733,
+    5940
+   ]
+  ],
+  "match_model_groups": [
+   138,
+   106,
+   44,
+   16
+  ],
+  "pieces": [
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 353,
+    "cross": 42,
+    "people": 460,
+    "agree": 0.894,
+    "i": 2,
+    "start_s": 600.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 277,
+    "cross": 0,
+    "people": 364,
+    "agree": 1.0,
+    "i": 3,
+    "start_s": 900.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 304,
+    "cross": 0,
+    "people": 385,
+    "agree": 1.0,
+    "i": 4,
+    "start_s": 1200.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 308,
+    "cross": 0,
+    "people": 406,
+    "agree": 1.0,
+    "i": 5,
+    "start_s": 1500.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 298,
+    "cross": 0,
+    "people": 372,
+    "agree": 1.0,
+    "i": 6,
+    "start_s": 1800.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 315,
+    "cross": 0,
+    "people": 357,
+    "agree": 1.0,
+    "i": 7,
+    "start_s": 2100.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 282,
+    "cross": 0,
+    "people": 352,
+    "agree": 1.0,
+    "i": 8,
+    "start_s": 2400.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 273,
+    "cross": 0,
+    "people": 343,
+    "agree": 1.0,
+    "i": 9,
+    "start_s": 2700.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 303,
+    "cross": 0,
+    "people": 377,
+    "agree": 1.0,
+    "i": 12,
+    "start_s": 3600.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 278,
+    "cross": 0,
+    "people": 352,
+    "agree": 1.0,
+    "i": 13,
+    "start_s": 3900.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 275,
+    "cross": 0,
+    "people": 351,
+    "agree": 1.0,
+    "i": 14,
+    "start_s": 4200.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 321,
+    "cross": 0,
+    "people": 374,
+    "agree": 1.0,
+    "i": 15,
+    "start_s": 4500.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 296,
+    "cross": 0,
+    "people": 367,
+    "agree": 1.0,
+    "i": 16,
+    "start_s": 4800.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 249,
+    "cross": 16,
+    "people": 358,
+    "agree": 0.94,
+    "i": 17,
+    "start_s": 5100.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 337,
+    "cross": 0,
+    "people": 399,
+    "agree": 1.0,
+    "i": 18,
+    "start_s": 5400.0
+   },
+   {
+    "fallback": null,
+    "flip": false,
+    "same": 274,
+    "cross": 0,
+    "people": 339,
+    "agree": 1.0,
+    "i": 19,
+    "start_s": 5700.0
+   }
+  ],
+  "tests": {
+   "3 per piece": {
+    "match": {
+     "A": 5.85,
+     "B": 6.17,
+     "K": 2.39
+    },
+    "piece": {
+     "A": 5.96,
+     "B": 5.96,
+     "K": 2.5
+    },
+    "agreement_with_piece_model": {
+     "match": {
+      "same": 532,
+      "swapped": 2
+     }
+    },
+    "frames": 46
+   }
+  }
+ },
+ "log": [
+  "     9s p15u-vs-aik-2026-09-21-bd09: video ['p15u-vs-aik-2026-09-21-bd09', 'video.mp4'] 206756 frames @ 29.970",
+  "     9s p15u-vs-aik-2026-09-21-bd09: playing time [[366, 3390], [3950, 6899]]",
+  "    69s kits: per-player classifier from 214 on-pitch people, 7 of 15 runs kept",
+  "    69s kits: learned from 130 people (639 off the pitch left out), group sizes [48, 42, 22, 18], default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 36.7, reading far/mean (neither-share tried: {'default/default': 0.277, 'far/mean': 0.331})",
+  "   128s p15u-vs-aik-2026-09-21-bd09 piece 1 (300s): {\"fallback\": null, \"flip\": true, \"same\": 13, \"cross\": 70, \"people\": 83, \"agree\": 0.843, \"i\": 1, \"start_s\": 300.0}",
+  "   187s p15u-vs-aik-2026-09-21-bd09 piece 2 (600s): {\"fallback\": null, \"flip\": true, \"same\": 20, \"cross\": 62, \"people\": 126, \"agree\": 0.756, \"i\": 2, \"start_s\": 600.0}",
+  "   246s p15u-vs-aik-2026-09-21-bd09 piece 3 (900s): {\"fallback\": null, \"flip\": true, \"same\": 18, \"cross\": 73, \"people\": 145, \"agree\": 0.802, \"i\": 3, \"start_s\": 900.0}",
+  "   305s p15u-vs-aik-2026-09-21-bd09 piece 4 (1200s): {\"fallback\": null, \"flip\": false, \"same\": 87, \"cross\": 45, \"people\": 159, \"agree\": 0.659, \"i\": 4, \"start_s\": 1200.0}",
+  "   361s p15u-vs-aik-2026-09-21-bd09 piece 5 (1500s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 56, \"cross\": 59, \"people\": 138, \"agree\": 0.513, \"i\": 5, \"start_s\": 1500.0}",
+  "   419s p15u-vs-aik-2026-09-21-bd09 piece 6 (1800s): {\"fallback\": null, \"flip\": false, \"same\": 77, \"cross\": 30, \"people\": 110, \"agree\": 0.72, \"i\": 6, \"start_s\": 1800.0}",
+  "   476s p15u-vs-aik-2026-09-21-bd09 piece 7 (2100s): {\"fallback\": null, \"flip\": false, \"same\": 46, \"cross\": 24, \"people\": 99, \"agree\": 0.657, \"i\": 7, \"start_s\": 2100.0}",
+  "   532s p15u-vs-aik-2026-09-21-bd09 piece 8 (2400s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 47, \"cross\": 43, \"people\": 98, \"agree\": 0.522, \"i\": 8, \"start_s\": 2400.0}",
+  "   590s p15u-vs-aik-2026-09-21-bd09 piece 9 (2700s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 61, \"cross\": 41, \"people\": 122, \"agree\": 0.598, \"i\": 9, \"start_s\": 2700.0}",
+  "   647s p15u-vs-aik-2026-09-21-bd09 piece 10 (3000s): {\"fallback\": null, \"flip\": true, \"same\": 14, \"cross\": 48, \"people\": 64, \"agree\": 0.774, \"i\": 10, \"start_s\": 3000.0}",
+  "   702s p15u-vs-aik-2026-09-21-bd09 piece 11 (3300s): {\"fallback\": \"too few people\", \"flip\": false, \"same\": 0, \"cross\": 0, \"people\": 12, \"i\": 11, \"start_s\": 3300.0}",
+  "   757s p15u-vs-aik-2026-09-21-bd09 piece 13 (3900s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 35, \"cross\": 55, \"people\": 94, \"agree\": 0.611, \"i\": 13, \"start_s\": 3900.0}",
+  "   815s p15u-vs-aik-2026-09-21-bd09 piece 14 (4200s): {\"fallback\": null, \"flip\": false, \"same\": 114, \"cross\": 35, \"people\": 192, \"agree\": 0.765, \"i\": 14, \"start_s\": 4200.0}",
+  "   877s p15u-vs-aik-2026-09-21-bd09 piece 15 (4500s): {\"fallback\": null, \"flip\": false, \"same\": 135, \"cross\": 54, \"people\": 248, \"agree\": 0.714, \"i\": 15, \"start_s\": 4500.0}",
+  "   937s p15u-vs-aik-2026-09-21-bd09 piece 16 (4800s): {\"fallback\": null, \"flip\": false, \"same\": 110, \"cross\": 34, \"people\": 163, \"agree\": 0.764, \"i\": 16, \"start_s\": 4800.0}",
+  "   997s p15u-vs-aik-2026-09-21-bd09 piece 17 (5100s): {\"fallback\": null, \"flip\": false, \"same\": 112, \"cross\": 45, \"people\": 219, \"agree\": 0.713, \"i\": 17, \"start_s\": 5100.0}",
+  "  1054s p15u-vs-aik-2026-09-21-bd09 piece 18 (5400s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 107, \"cross\": 58, \"people\": 215, \"agree\": 0.648, \"i\": 18, \"start_s\": 5400.0}",
+  "  1112s p15u-vs-aik-2026-09-21-bd09 piece 19 (5700s): {\"fallback\": null, \"flip\": false, \"same\": 100, \"cross\": 40, \"people\": 140, \"agree\": 0.714, \"i\": 19, \"start_s\": 5700.0}",
+  "  1170s p15u-vs-aik-2026-09-21-bd09 piece 20 (6000s): {\"fallback\": null, \"flip\": false, \"same\": 104, \"cross\": 41, \"people\": 202, \"agree\": 0.717, \"i\": 20, \"start_s\": 6000.0}",
+  "  1227s p15u-vs-aik-2026-09-21-bd09 piece 21 (6300s): {\"fallback\": null, \"flip\": false, \"same\": 132, \"cross\": 64, \"people\": 225, \"agree\": 0.673, \"i\": 21, \"start_s\": 6300.0}",
+  "  1284s p15u-vs-aik-2026-09-21-bd09 piece 22 (6600s): {\"fallback\": \"no clear A/B naming\", \"flip\": false, \"same\": 119, \"cross\": 97, \"people\": 222, \"agree\": 0.551, \"i\": 22, \"start_s\": 6600.0}",
+  "  1377s p15u-vs-aik-2026-09-21-bd09 3 per piece {\"match\": {\"A\": 4.67, \"B\": 2.8, \"K\": 4.3}, \"piece\": {\"A\": 5.07, \"B\": 3.63, \"K\": 3.07}, \"agreement_with_piece_model\": {\"match\": {\"same\": 307, \"swapped\": 78}}, \"frames\": 60}",
+  "  1434s kits: per-player classifier from 325 on-pitch people, 0 of 15 runs kept -> colour only",
+  "  1434s kits: learned from 115 people (604 off the pitch left out), group sizes [42, 37, 19, 17], default fit leaves out a group at 0.50 x the team gap, far pair moves a team by 4.0",
+  "  1466s p15u-vs-aik-2026-09-21-bd09 clip window {\"match\": {\"A\": 4.35, \"B\": 2.05, \"K\": 2.75}, \"clip\": {\"A\": 4.35, \"B\": 3.4, \"K\": 1.4}, \"piece\": {\"A\": 4.35, \"B\": 2.05, \"K\": 2.75}, \"agreement_with_piece_model\": {\"match\": {\"same\": 128, \"swapped\": 0}, \"clip\": {\"same\": 65, \"swapped\": 38}}, \"frames\": 20}",
+  "  1477s SFKBP1109: video ['SFKBP1109', 'video.mp4'] 184725 frames @ 29.970",
+  "  1477s SFKBP1109: playing time [[555, 3060], [3733, 5940]]",
+  "  1534s kits: per-player classifier from 377 on-pitch people, 0 of 15 runs kept -> colour only",
+  "  1534s kits: learned from 304 people (357 off the pitch left out), group sizes [138, 106, 44, 16], default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 6.9",
+  "  1601s SFKBP1109 piece 2 (600s): {\"fallback\": null, \"flip\": false, \"same\": 353, \"cross\": 42, \"people\": 460, \"agree\": 0.894, \"i\": 2, \"start_s\": 600.0}",
+  "  1657s SFKBP1109 piece 3 (900s): {\"fallback\": null, \"flip\": false, \"same\": 277, \"cross\": 0, \"people\": 364, \"agree\": 1.0, \"i\": 3, \"start_s\": 900.0}",
+  "  1715s SFKBP1109 piece 4 (1200s): {\"fallback\": null, \"flip\": false, \"same\": 304, \"cross\": 0, \"people\": 385, \"agree\": 1.0, \"i\": 4, \"start_s\": 1200.0}",
+  "  1772s SFKBP1109 piece 5 (1500s): {\"fallback\": null, \"flip\": false, \"same\": 308, \"cross\": 0, \"people\": 406, \"agree\": 1.0, \"i\": 5, \"start_s\": 1500.0}",
+  "  1830s SFKBP1109 piece 6 (1800s): {\"fallback\": null, \"flip\": false, \"same\": 298, \"cross\": 0, \"people\": 372, \"agree\": 1.0, \"i\": 6, \"start_s\": 1800.0}",
+  "  1889s SFKBP1109 piece 7 (2100s): {\"fallback\": null, \"flip\": false, \"same\": 315, \"cross\": 0, \"people\": 357, \"agree\": 1.0, \"i\": 7, \"start_s\": 2100.0}",
+  "  1948s SFKBP1109 piece 8 (2400s): {\"fallback\": null, \"flip\": false, \"same\": 282, \"cross\": 0, \"people\": 352, \"agree\": 1.0, \"i\": 8, \"start_s\": 2400.0}",
+  "  2005s SFKBP1109 piece 9 (2700s): {\"fallback\": null, \"flip\": false, \"same\": 273, \"cross\": 0, \"people\": 343, \"agree\": 1.0, \"i\": 9, \"start_s\": 2700.0}",
+  "  2063s SFKBP1109 piece 12 (3600s): {\"fallback\": null, \"flip\": false, \"same\": 303, \"cross\": 0, \"people\": 377, \"agree\": 1.0, \"i\": 12, \"start_s\": 3600.0}",
+  "  2120s SFKBP1109 piece 13 (3900s): {\"fallback\": null, \"flip\": false, \"same\": 278, \"cross\": 0, \"people\": 352, \"agree\": 1.0, \"i\": 13, \"start_s\": 3900.0}",
+  "  2180s SFKBP1109 piece 14 (4200s): {\"fallback\": null, \"flip\": false, \"same\": 275, \"cross\": 0, \"people\": 351, \"agree\": 1.0, \"i\": 14, \"start_s\": 4200.0}",
+  "  2242s SFKBP1109 piece 15 (4500s): {\"fallback\": null, \"flip\": false, \"same\": 321, \"cross\": 0, \"people\": 374, \"agree\": 1.0, \"i\": 15, \"start_s\": 4500.0}",
+  "  2302s SFKBP1109 piece 16 (4800s): {\"fallback\": null, \"flip\": false, \"same\": 296, \"cross\": 0, \"people\": 367, \"agree\": 1.0, \"i\": 16, \"start_s\": 4800.0}",
+  "  2363s SFKBP1109 piece 17 (5100s): {\"fallback\": null, \"flip\": false, \"same\": 249, \"cross\": 16, \"people\": 358, \"agree\": 0.94, \"i\": 17, \"start_s\": 5100.0}",
+  "  2424s SFKBP1109 piece 18 (5400s): {\"fallback\": null, \"flip\": false, \"same\": 337, \"cross\": 0, \"people\": 399, \"agree\": 1.0, \"i\": 18, \"start_s\": 5400.0}",
+  "  2484s SFKBP1109 piece 19 (5700s): {\"fallback\": null, \"flip\": false, \"same\": 274, \"cross\": 0, \"people\": 339, \"agree\": 1.0, \"i\": 19, \"start_s\": 5700.0}",
+  "  2558s SFKBP1109 3 per piece {\"match\": {\"A\": 5.85, \"B\": 6.17, \"K\": 2.39}, \"piece\": {\"A\": 5.96, \"B\": 5.96, \"K\": 2.5}, \"agreement_with_piece_model\": {\"match\": {\"same\": 532, \"swapped\": 2}}, \"frames\": 46}"
+ ],
+ "minutes": 42.6
+}
