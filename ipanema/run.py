@@ -228,7 +228,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     log("  step: sequences"); t_ = time.time()
     _take = float(os.environ.get("IPANEMA_SPELL_TAKE", P.SPELL_TAKE_S)); cstate = P.spell_state(state, fps, _take, P.SPELL_JOIN_S)   # S8: counted stats read the de-flickered state
     _fl = lambda st: int(sum(1 for i in range(1, len(st)) if st[i] < 2 and st[i - 1] < 2 and st[i] != st[i - 1]))
-    log(f"  spell state (take {_take} s): possession flips {_fl(state)} -> {_fl(cstate)} ({_fl(cstate) / max(1e-6, n / fps / 60):.1f} per minute)")
+    log(f"  spell state (take {_take} s): possession flips {_fl(state)} -> {_fl(cstate)} ({_fl(cstate) / max(1e-6, len(per) / fps / 60):.1f} per minute)")
     seqs = P.sequences(cstate, ballm, bspeed, fps, L, attack_right, **pinfo["seq"]); rst = P.restarts(dstate, ballm, fps, L, W)
     log("  step: turnovers"); t_ = time.time()
     tvs = P.turnovers(per, frames_, cstate, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
