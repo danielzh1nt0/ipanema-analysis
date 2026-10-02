@@ -33,9 +33,9 @@
   },
   {
    "label": "Full match in the app",
-   "value": 70,
+   "value": 80,
    "status": "warn",
-   "note": "2 Oct night: SFK-BP and AIK full matches in the app with the new pipeline. Ball 25/34 (SFK-BP) and 26/39 (AIK) on checked moments, possession shown, goals match Veo (2-1, 6-1). Pass/event stats still flagged low-confidence (Beta label pending in Lovable)."
+   "note": "2 Oct: SFK-BP and AIK full matches in the app. Ball 28/34 (SFK-BP) and 26/39 (AIK), possession shown, goals match Veo (2-1, 6-1). Checked by eye on 24 moments: mostly right; bench people counted as players early in SFK-BP, some AIK players missed in shadow."
   },
   {
    "label": "Speed & distance",
@@ -47,7 +47,7 @@
  "measured": [
   [
    "Full matches in the app (2 Oct)",
-   "SFK-BP: ball 25/34, poss 44/56, goals 2-1 | AIK: ball 26/39, poss 41/59, goals 6-1"
+   "SFK-BP: ball 28/34, poss 44/56, goals 2-1 | AIK: ball 26/39, poss 41/59, goals 6-1"
   ],
   [
    "Ball, app clips (1 Oct)",
