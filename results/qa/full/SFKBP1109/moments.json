@@ -3,7 +3,7 @@
  "moments": [
   "t=219s possession=B phase=control ball=yes players A=13 B=4",
   "t=658s possession=None phase=loose ball=yes players A=7 B=1",
-  "t=1097s possession=A phase=control ball=yes players A=10 B=11",
+  "t=1097s possession=A phase=control ball=yes players A=10 B=10",
   "t=1536s possession=A phase=control ball=yes players A=8 B=6",
   "t=1975s possession=None phase=loose ball=yes players A=11 B=7",
   "t=2414s possession=None phase=loose ball=yes players A=7 B=9",
