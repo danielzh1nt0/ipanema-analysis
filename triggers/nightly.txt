@@ -1,1 +1,1 @@
-manual Thu Oct  1 04:23:35 UTC 2026 - backup: no results/nightly for 30 Sep (push lost to a log.txt clash) or 1 Oct yet
+manual Fri Oct  2 04:21:53 UTC 2026 - backup: no results/nightly/2026-10-02.md yet (scheduled run not started)
