@@ -1,0 +1,87 @@
+{
+ "A_aik_kits": {
+  "half_time_kit_frames": 1,
+  "counts": {
+   "inside the clip window": {
+    "match model as used (default spans)": {
+     "A": 3.5,
+     "B": 2.9,
+     "K": 2.8,
+     "none": 0.0
+    },
+    "match model from the halves (periods file)": {
+     "A": 4.3,
+     "B": 2.5,
+     "K": 2.2,
+     "none": 0.0
+    },
+    "clip model (36 frames of the 5-min clip)": {
+     "A": 4.3,
+     "B": 3.4,
+     "K": 1.4,
+     "none": 0.0
+    },
+    "frames": 20
+   },
+   "over both halves": {
+    "match model as used (default spans)": {
+     "A": 4.3,
+     "B": 3.3,
+     "K": 3.2,
+     "none": 0.0
+    },
+    "match model from the halves (periods file)": {
+     "A": 3.9,
+     "B": 3.6,
+     "K": 3.3,
+     "none": 0.0
+    },
+    "clip model (36 frames of the 5-min clip)": {
+     "A": 4.9,
+     "B": 3.7,
+     "K": 2.1,
+     "none": 0.0
+    },
+    "frames": 18
+   }
+  },
+  "dark_share": {
+   "match model as used (default spans)": {
+    "A": 0.22,
+    "B": 0.93
+   },
+   "match model from the halves (periods file)": {
+    "A": 0.41,
+    "B": 0.43
+   },
+   "clip model (36 frames of the 5-min clip)": {
+    "A": 0.22,
+    "B": 0.92
+   }
+  }
+ },
+ "B_app_p15u-vs-aik-2026-09-21-bd09": {
+  "error": "match_data.json not readable: <HTTPError 400: 'Bad Request'>"
+ },
+ "B_app_SFKBP1109": {
+  "error": "match_data.json not readable: <HTTPError 400: 'Bad Request'>"
+ },
+ "log": [
+  "    12s p15u-vs-aik-2026-09-21-bd09: video ['p15u-vs-aik-2026-09-21-bd09', 'video.mp4'] 206756 frames @ 29.970",
+  "    12s default spans: 1 of 36 kit frames fall in half-time ([3915])",
+  "    90s kits: per-player classifier from 306 on-pitch people, 0 of 15 runs kept -> colour only",
+  "    90s kits: learned from 153 people (611 off the pitch left out), group sizes [57, 53, 23, 20], default fit leaves out a group at 0.37 x the team gap, far pair moves a team by 8.0",
+  "    90s   match model as used (default spans): 36 frames, 36 frames detected so far",
+  "   154s kits: per-player classifier from 247 on-pitch people, 7 of 15 runs kept",
+  "   155s kits: learned from 125 people (643 off the pitch left out), group sizes [48, 37, 20, 20], default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 37.6, reading far/mean (neither-share tried: {'default/default': 0.256, 'far/mean': 0.288})",
+  "   155s   match model from the halves (periods file): 36 frames, 72 frames detected so far",
+  "   218s kits: per-player classifier from 325 on-pitch people, 0 of 15 runs kept -> colour only",
+  "   218s kits: learned from 115 people (604 off the pitch left out), group sizes [42, 37, 19, 17], default fit leaves out a group at 0.50 x the team gap, far pair moves a team by 4.0",
+  "   218s   clip model (36 frames of the 5-min clip): 36 frames, 108 frames detected so far",
+  "   253s inside the clip window {\"match model as used (default spans)\": {\"A\": 3.5, \"B\": 2.9, \"K\": 2.8, \"none\": 0.0}, \"match model from the halves (periods file)\": {\"A\": 4.3, \"B\": 2.5, \"K\": 2.2, \"none\": 0.0}, \"clip model (36 frames of the 5-min clip)\": {\"A\": 4.3, \"B\": 3.4, \"K\": 1.4, \"none\": 0.0}, \"frames\": 20}",
+  "   322s over both halves {\"match model as used (default spans)\": {\"A\": 4.3, \"B\": 3.3, \"K\": 3.2, \"none\": 0.0}, \"match model from the halves (periods file)\": {\"A\": 3.9, \"B\": 3.6, \"K\": 3.3, \"none\": 0.0}, \"clip model (36 frames of the 5-min clip)\": {\"A\": 4.9, \"B\": 3.7, \"K\": 2.1, \"none\": 0.0}, \"frames\": 18}",
+  "   333s p15u-vs-aik-2026-09-21-bd09: app files not readable (<HTTPError 400: 'Bad Request'>)",
+  "   333s SFKBP1109: app files not readable (<HTTPError 400: 'Bad Request'>)"
+ ],
+ "minutes": 5.6
+}
