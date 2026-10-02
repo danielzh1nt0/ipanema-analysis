@@ -1,0 +1,406 @@
+{
+ "per_half": {
+  "Sample_Game_1|p1|thr1.0|min2.0": {
+   "truth": 51,
+   "ours": 56,
+   "found": 40
+  },
+  "Sample_Game_1|p1|thr1.0|min3.0": {
+   "truth": 51,
+   "ours": 46,
+   "found": 36
+  },
+  "Sample_Game_1|p1|thr1.0|min4.0": {
+   "truth": 51,
+   "ours": 44,
+   "found": 36
+  },
+  "Sample_Game_1|p1|thr1.0|min6.0": {
+   "truth": 51,
+   "ours": 39,
+   "found": 33
+  },
+  "Sample_Game_1|p1|thr1.4|min2.0": {
+   "truth": 51,
+   "ours": 91,
+   "found": 43
+  },
+  "Sample_Game_1|p1|thr1.4|min3.0": {
+   "truth": 51,
+   "ours": 75,
+   "found": 43
+  },
+  "Sample_Game_1|p1|thr1.4|min4.0": {
+   "truth": 51,
+   "ours": 69,
+   "found": 43
+  },
+  "Sample_Game_1|p1|thr1.4|min6.0": {
+   "truth": 51,
+   "ours": 53,
+   "found": 39
+  },
+  "Sample_Game_1|p1|thr1.8|min2.0": {
+   "truth": 51,
+   "ours": 113,
+   "found": 40
+  },
+  "Sample_Game_1|p1|thr1.8|min3.0": {
+   "truth": 51,
+   "ours": 98,
+   "found": 40
+  },
+  "Sample_Game_1|p1|thr1.8|min4.0": {
+   "truth": 51,
+   "ours": 86,
+   "found": 40
+  },
+  "Sample_Game_1|p1|thr1.8|min6.0": {
+   "truth": 51,
+   "ours": 72,
+   "found": 39
+  },
+  "Sample_Game_1|p1|thr2.2|min2.0": {
+   "truth": 51,
+   "ours": 94,
+   "found": 32
+  },
+  "Sample_Game_1|p1|thr2.2|min3.0": {
+   "truth": 51,
+   "ours": 86,
+   "found": 32
+  },
+  "Sample_Game_1|p1|thr2.2|min4.0": {
+   "truth": 51,
+   "ours": 78,
+   "found": 31
+  },
+  "Sample_Game_1|p1|thr2.2|min6.0": {
+   "truth": 51,
+   "ours": 69,
+   "found": 31
+  },
+  "Sample_Game_1|p2|thr1.0|min2.0": {
+   "truth": 39,
+   "ours": 55,
+   "found": 31
+  },
+  "Sample_Game_1|p2|thr1.0|min3.0": {
+   "truth": 39,
+   "ours": 46,
+   "found": 28
+  },
+  "Sample_Game_1|p2|thr1.0|min4.0": {
+   "truth": 39,
+   "ours": 35,
+   "found": 25
+  },
+  "Sample_Game_1|p2|thr1.0|min6.0": {
+   "truth": 39,
+   "ours": 26,
+   "found": 21
+  },
+  "Sample_Game_1|p2|thr1.4|min2.0": {
+   "truth": 39,
+   "ours": 102,
+   "found": 33
+  },
+  "Sample_Game_1|p2|thr1.4|min3.0": {
+   "truth": 39,
+   "ours": 88,
+   "found": 33
+  },
+  "Sample_Game_1|p2|thr1.4|min4.0": {
+   "truth": 39,
+   "ours": 71,
+   "found": 32
+  },
+  "Sample_Game_1|p2|thr1.4|min6.0": {
+   "truth": 39,
+   "ours": 58,
+   "found": 31
+  },
+  "Sample_Game_1|p2|thr1.8|min2.0": {
+   "truth": 39,
+   "ours": 113,
+   "found": 27
+  },
+  "Sample_Game_1|p2|thr1.8|min3.0": {
+   "truth": 39,
+   "ours": 99,
+   "found": 27
+  },
+  "Sample_Game_1|p2|thr1.8|min4.0": {
+   "truth": 39,
+   "ours": 87,
+   "found": 27
+  },
+  "Sample_Game_1|p2|thr1.8|min6.0": {
+   "truth": 39,
+   "ours": 71,
+   "found": 27
+  },
+  "Sample_Game_1|p2|thr2.2|min2.0": {
+   "truth": 39,
+   "ours": 100,
+   "found": 18
+  },
+  "Sample_Game_1|p2|thr2.2|min3.0": {
+   "truth": 39,
+   "ours": 96,
+   "found": 18
+  },
+  "Sample_Game_1|p2|thr2.2|min4.0": {
+   "truth": 39,
+   "ours": 90,
+   "found": 18
+  },
+  "Sample_Game_1|p2|thr2.2|min6.0": {
+   "truth": 39,
+   "ours": 77,
+   "found": 18
+  },
+  "Sample_Game_2|p1|thr1.0|min2.0": {
+   "truth": 40,
+   "ours": 45,
+   "found": 28
+  },
+  "Sample_Game_2|p1|thr1.0|min3.0": {
+   "truth": 40,
+   "ours": 34,
+   "found": 24
+  },
+  "Sample_Game_2|p1|thr1.0|min4.0": {
+   "truth": 40,
+   "ours": 26,
+   "found": 22
+  },
+  "Sample_Game_2|p1|thr1.0|min6.0": {
+   "truth": 40,
+   "ours": 19,
+   "found": 16
+  },
+  "Sample_Game_2|p1|thr1.4|min2.0": {
+   "truth": 40,
+   "ours": 108,
+   "found": 32
+  },
+  "Sample_Game_2|p1|thr1.4|min3.0": {
+   "truth": 40,
+   "ours": 90,
+   "found": 31
+  },
+  "Sample_Game_2|p1|thr1.4|min4.0": {
+   "truth": 40,
+   "ours": 77,
+   "found": 31
+  },
+  "Sample_Game_2|p1|thr1.4|min6.0": {
+   "truth": 40,
+   "ours": 52,
+   "found": 26
+  },
+  "Sample_Game_2|p1|thr1.8|min2.0": {
+   "truth": 40,
+   "ours": 111,
+   "found": 26
+  },
+  "Sample_Game_2|p1|thr1.8|min3.0": {
+   "truth": 40,
+   "ours": 101,
+   "found": 25
+  },
+  "Sample_Game_2|p1|thr1.8|min4.0": {
+   "truth": 40,
+   "ours": 85,
+   "found": 24
+  },
+  "Sample_Game_2|p1|thr1.8|min6.0": {
+   "truth": 40,
+   "ours": 68,
+   "found": 22
+  },
+  "Sample_Game_2|p1|thr2.2|min2.0": {
+   "truth": 40,
+   "ours": 109,
+   "found": 18
+  },
+  "Sample_Game_2|p1|thr2.2|min3.0": {
+   "truth": 40,
+   "ours": 100,
+   "found": 18
+  },
+  "Sample_Game_2|p1|thr2.2|min4.0": {
+   "truth": 40,
+   "ours": 90,
+   "found": 17
+  },
+  "Sample_Game_2|p1|thr2.2|min6.0": {
+   "truth": 40,
+   "ours": 73,
+   "found": 16
+  },
+  "Sample_Game_2|p2|thr1.0|min2.0": {
+   "truth": 52,
+   "ours": 58,
+   "found": 40
+  },
+  "Sample_Game_2|p2|thr1.0|min3.0": {
+   "truth": 52,
+   "ours": 49,
+   "found": 38
+  },
+  "Sample_Game_2|p2|thr1.0|min4.0": {
+   "truth": 52,
+   "ours": 43,
+   "found": 34
+  },
+  "Sample_Game_2|p2|thr1.0|min6.0": {
+   "truth": 52,
+   "ours": 38,
+   "found": 31
+  },
+  "Sample_Game_2|p2|thr1.4|min2.0": {
+   "truth": 52,
+   "ours": 96,
+   "found": 42
+  },
+  "Sample_Game_2|p2|thr1.4|min3.0": {
+   "truth": 52,
+   "ours": 85,
+   "found": 42
+  },
+  "Sample_Game_2|p2|thr1.4|min4.0": {
+   "truth": 52,
+   "ours": 69,
+   "found": 41
+  },
+  "Sample_Game_2|p2|thr1.4|min6.0": {
+   "truth": 52,
+   "ours": 53,
+   "found": 39
+  },
+  "Sample_Game_2|p2|thr1.8|min2.0": {
+   "truth": 52,
+   "ours": 98,
+   "found": 33
+  },
+  "Sample_Game_2|p2|thr1.8|min3.0": {
+   "truth": 52,
+   "ours": 88,
+   "found": 33
+  },
+  "Sample_Game_2|p2|thr1.8|min4.0": {
+   "truth": 52,
+   "ours": 79,
+   "found": 33
+  },
+  "Sample_Game_2|p2|thr1.8|min6.0": {
+   "truth": 52,
+   "ours": 65,
+   "found": 33
+  },
+  "Sample_Game_2|p2|thr2.2|min2.0": {
+   "truth": 52,
+   "ours": 85,
+   "found": 25
+  },
+  "Sample_Game_2|p2|thr2.2|min3.0": {
+   "truth": 52,
+   "ours": 80,
+   "found": 25
+  },
+  "Sample_Game_2|p2|thr2.2|min4.0": {
+   "truth": 52,
+   "ours": 75,
+   "found": 25
+  },
+  "Sample_Game_2|p2|thr2.2|min6.0": {
+   "truth": 52,
+   "ours": 69,
+   "found": 25
+  }
+ },
+ "summary": {
+  "thr1.0|min2.0": {
+   "truth": 182,
+   "ours": 214,
+   "found": 139
+  },
+  "thr1.0|min3.0": {
+   "truth": 182,
+   "ours": 175,
+   "found": 126
+  },
+  "thr1.0|min4.0": {
+   "truth": 182,
+   "ours": 148,
+   "found": 117
+  },
+  "thr1.0|min6.0": {
+   "truth": 182,
+   "ours": 122,
+   "found": 101
+  },
+  "thr1.4|min2.0": {
+   "truth": 182,
+   "ours": 397,
+   "found": 150
+  },
+  "thr1.4|min3.0": {
+   "truth": 182,
+   "ours": 338,
+   "found": 149
+  },
+  "thr1.4|min4.0": {
+   "truth": 182,
+   "ours": 286,
+   "found": 147
+  },
+  "thr1.4|min6.0": {
+   "truth": 182,
+   "ours": 216,
+   "found": 135
+  },
+  "thr1.8|min2.0": {
+   "truth": 182,
+   "ours": 435,
+   "found": 126
+  },
+  "thr1.8|min3.0": {
+   "truth": 182,
+   "ours": 386,
+   "found": 125
+  },
+  "thr1.8|min4.0": {
+   "truth": 182,
+   "ours": 337,
+   "found": 124
+  },
+  "thr1.8|min6.0": {
+   "truth": 182,
+   "ours": 276,
+   "found": 121
+  },
+  "thr2.2|min2.0": {
+   "truth": 182,
+   "ours": 388,
+   "found": 93
+  },
+  "thr2.2|min3.0": {
+   "truth": 182,
+   "ours": 362,
+   "found": 93
+  },
+  "thr2.2|min4.0": {
+   "truth": 182,
+   "ours": 333,
+   "found": 91
+  },
+  "thr2.2|min6.0": {
+   "truth": 182,
+   "ours": 288,
+   "found": 90
+  }
+ }
+}
