@@ -222,6 +222,17 @@ def clean(per, L, W, fps, log=print):
     dropped = 0
     for k in per:
         keep = [r for r in per[k] if 0 <= r[2][0] <= L and 0 <= r[2][1] <= W]; dropped += len(per[k]) - len(keep); per[k] = keep
+    # 1b) F2 (2 Oct): people standing by the touchline who never move (bench, coaches, ball boys) read as players when the
+    #     calibration puts them a metre inside the line; a track that stays within edge_m of a touchline/end line and moves
+    #     less than still_m in its whole life is not a player
+    edge_m, still_m = 2.0, 3.0; life = {}
+    for k in per:
+        for r in per[k]: life.setdefault(r[0], []).append(r[2])
+    still = {t for t, pts in life.items() if len(pts) >= int(2 * fps) and all(min(p[0], L - p[0], p[1], W - p[1]) < edge_m for p in pts)
+             and float(np.linalg.norm(np.max(pts, axis=0) - np.min(pts, axis=0))) < still_m}
+    for k in per:
+        keep = [r for r in per[k] if r[0] not in still]; dropped += len(per[k]) - len(keep); per[k] = keep
+    if still: log(f"clean: {len(still)} still people by the lines dropped (bench, coaches)")
     # 2) duplicates: same team within 1 m in one frame -> keep the bigger box
     merged = 0
     for k in per:

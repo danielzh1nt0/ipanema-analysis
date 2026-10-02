@@ -240,8 +240,12 @@ def clean_ball(ballm, L, W, max_out=6.0):
     fence, the trees); it was turning the ball 'dead' and inventing set pieces (31 on a clip where Veo lists 6)"""
     return {k: v for k, v in ballm.items() if max(-v[0], v[0] - L, -v[1], v[1] - W, 0.0) <= max_out}
 
-def restarts(state, ballm, fps, L, W, min_s=2.0, join_gap_s=1.5):
-    """a stoppage = dead runs joined across gaps up to join_gap_s, lasting min_s (27 Sep: 0.8 s let every flicker count)"""
+def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0):
+    """a stoppage = dead runs joined across gaps up to join_gap_s, lasting min_s (27 Sep: 0.8 s let every flicker count).
+    S5 (2 Oct): 1.5 s / 2 s split one stoppage into 2-5 (SFK-BP clip 13 restarts, Veo lists 7; full match 168 vs Veo 80);
+    3 s / 3 s gives 7 on the clip. The spot is the median ball position over the stoppage's last second (one wrong pick
+    put 94 of 168 full-match restarts off the pitch), and a spot near the end line but away from the corner and the goal is
+    a free kick, not a corner (30 'corners' vs Veo's 4)."""
     n = len(state); out = []; k = 0
     while k < n:
         if STATES[state[k]] == "dead":
@@ -252,11 +256,12 @@ def restarts(state, ballm, fps, L, W, min_s=2.0, join_gap_s=1.5):
                 if nxt is None: break
                 j = nxt
             if (j - k + 1) / fps >= min_s:
-                bm = next((ballm[q] for q in range(j, min(n, j + int(1.5 * fps))) if q in ballm), None)
+                pts = [ballm[q] for q in range(max(k, j - int(1.0 * fps)), min(n, j + int(1.5 * fps))) if q in ballm]
+                bm = tuple(np.median(np.array(pts, float), axis=0)) if pts else None
                 team_after = next((STATES[state[q]] for q in range(j + 1, min(n, j + int(3 * fps))) if state[q] < 2), None); kind = "unknown"
                 if bm is not None:
                     x, y = bm; near_end = x < 3 or x > L - 3; near_side = y < 3 or y > W - 3
-                    kind = "corner" if (near_end and near_side) else "goal kick" if (near_end and abs(y - W / 2) < 12) else "throw-in" if near_side else "corner" if near_end else "free kick"
+                    kind = "corner" if (near_end and near_side) else "goal kick" if (near_end and abs(y - W / 2) < 12) else "throw-in" if near_side else "free kick"
                 out.append({"t": round(j / fps, 2), "kind": kind, "team": team_after, "x_m": round(float(bm[0]), 1) if bm is not None else None, "y_m": round(float(bm[1]), 1) if bm is not None else None})
             k = j + 1
         else: k += 1
