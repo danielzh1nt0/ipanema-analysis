@@ -1,25 +1,19 @@
-kernel danielmatros/ipanema-bundesliga-look
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-bundesliga-look
-  0.5 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-bundesliga-look has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga1_sheet0.jpg
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga1_sheet1.jpg
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga1_sheet2.jpg
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga2_sheet0.jpg
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga2_sheet1.jpg
-Output file downloaded to results/kaggle/bundesliga_look/bundesliga2_sheet2.jpg
-Output file downloaded to results/kaggle/bundesliga_look/result.json
-Kernel log downloaded to results/kaggle/bundesliga_look/ipanema-bundesliga-look.log
-  bundesliga1_sheet0.jpg 318193
-  bundesliga1_sheet1.jpg 317305
-  bundesliga1_sheet2.jpg 357102
-  bundesliga2_sheet0.jpg 369200
-  bundesliga2_sheet1.jpg 351503
-  bundesliga2_sheet2.jpg 376650
-  ipanema-bundesliga-look.log 23633
-  result.json 2818
-  run.json 165
+kernel danielmatros/ipanema-neg-sheet
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-neg-sheet
+  0.5 min: danielmatros/ipanema-neg-sheet has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-neg-sheet has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-neg-sheet has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-neg-sheet has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/neg_sheet/SFKBP1_keyed_elsewhere.jpg
+Output file downloaded to results/kaggle/neg_sheet/SFKBP1_still.jpg
+Output file downloaded to results/kaggle/neg_sheet/p15u-v_keyed_elsewhere.jpg
+Output file downloaded to results/kaggle/neg_sheet/p15u-v_still.jpg
+Output file downloaded to results/kaggle/neg_sheet/result.json
+Kernel log downloaded to results/kaggle/neg_sheet/ipanema-neg-sheet.log
+  SFKBP1_keyed_elsewhere.jpg 363704
+  SFKBP1_still.jpg 364077
+  ipanema-neg-sheet.log 1223
+  p15u-v_keyed_elsewhere.jpg 326000
+  p15u-v_still.jpg 381020
+  result.json 12
+  run.json 152
