@@ -15,10 +15,11 @@ def events(turnovers_, passes_, restarts_, sequences_, fps):
         rx = t.get("reactions", {})
         ev.append({"id": f"lost_{t['frame']}", "t": t["t"], "type": "turnover_lost", "team": t["lost_by"], "title": f"{t['lost_by']} lost the ball",
                    "subtitle": f"press {t['time_to_press'] if t['time_to_press'] is not None else '—'} s · {t['near_at_2s'] if t['near_at_2s'] is not None else '—'} within 5 m · {'regained' if t['regained_within_5s'] else 'not regained'}",
-                   "payload": {k: t.get(k) for k in ("time_to_press", "near_at_2s", "regained_within_5s", "ball_m_before_press")} | {"reactions": rx}})
+                   "payload": {k: t.get(k) for k in ("time_to_press", "near_at_2s", "regained_within_5s", "ball_m_before_press")} | {"reactions": rx, "press_r_m": 2.0, "near_r_m": 5.0,
+                               "pressed_within_2s": bool(t["time_to_press"] is not None and t["time_to_press"] <= 2.0), "t_won": t.get("t_won"), "frame_won": t.get("frame")}})   # 3 Oct: per-event values the UI lists
         ev.append({"id": f"won_{t['frame']}", "t": t["t"], "type": "turnover_won", "team": t["won_by"], "title": f"{t['won_by']} won the ball",
                    "subtitle": f"forward pass {t['time_to_forward_pass'] if t['time_to_forward_pass'] is not None else '—'} s · {t['gain_5s_m'] if t['gain_5s_m'] is not None else '—'} m in 5 s",
-                   "payload": {k: t.get(k) for k in ("time_to_forward_pass", "gain_5s_m", "lost_back_5s")}})
+                   "payload": {k: t.get(k) for k in ("time_to_forward_pass", "gain_5s_m", "lost_back_5s")} | {"forward_within_3s": bool(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3.0), "t_won": t.get("t_won")}})
     for p in passes_:
         if p["quality"] in ("bad_lost", "risky_completed") or p.get("better_option"):
             typ = "better_option" if p.get("better_option") else ("pass_bad" if p["quality"] == "bad_lost" else "pass_risky")
