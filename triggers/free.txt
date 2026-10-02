@@ -1,2 +1,2 @@
-tools/f1_check.py
-# Fri Oct  2 04:42:38 UTC 2026 F1: AIK kit models (match vs clip) on the same people + 10 app moments of each full match (free, CPU)
+tools/f1b_check.py
+# Fri Oct  2 08:34:29 UTC 2026 F1b: a kit model per 5-min piece (teams named like the match model) vs the one match model, AIK + SFK-BP full matches (free, CPU)

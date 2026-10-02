@@ -270,9 +270,11 @@ class KitTeamModel:
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
     def _lab(self, f, h=None):
-        """colour reading; with the P8 classifier the team (A/B) comes from the body histogram, 'other' still from colour"""
+        """colour reading; with the P8 classifier the team (A/B) comes from the body histogram, 'other' still from colour.
+        F1b: a piece model aligned to the match model may rename its teams (flip) so A/B mean the same team all match."""
         c = self._colour_lab(f)
-        if c in ("A", "B") and h is not None and getattr(self, "cls", None): return "B" if player_cls_prob(self.cls, h) > 0.5 else "A"
+        if c in ("A", "B") and h is not None and getattr(self, "cls", None): c = "B" if player_cls_prob(self.cls, h) > 0.5 else "A"
+        if c in ("A", "B") and getattr(self, "flip", False): c = "B" if c == "A" else "A"
         return c
     def predict_batch(self, frame, xyxys):
         g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
@@ -286,3 +288,46 @@ class KitTeamModel:
             cs = cs or [np.zeros((72, 48, 3), np.uint8)]
             while len(cs) % 12: cs.append(np.zeros_like(cs[0]))
             self.strips[t] = np.vstack([np.hstack(cs[r:r + 12]) for r in range(0, len(cs), 12)])
+
+
+def match_team(model, f, b, g=None):
+    """the team (A/B) a kit model gives a person when it must choose one: nearest team colour, no 'neither' (a piece in
+    strong sun may sit outside the match model's 'neither' limit for everyone, yet still be nearer its own team)"""
+    h = body_hist(f, b) if getattr(model, "cls", None) else None
+    if h is not None: c = "B" if player_cls_prob(model.cls, h) > 0.5 else "A"
+    else:
+        x = torso_feature(f, b, g if g is not None else grass_lab(f), green_kit=getattr(model, "green_kit", False), stat=getattr(model, "stat", None))
+        if x is None: return None
+        ta, tb = model.model["teams"]; c = "A" if np.linalg.norm(x - ta) <= np.linalg.norm(x - tb) else "B"
+        if model.swap: c = "B" if c == "A" else "A"
+    if getattr(model, "flip", False): c = "B" if c == "A" else "A"
+    return c
+
+def piece_model(frames_boxes, match, log=print, min_people=20, min_votes=8, min_agree=0.65):
+    """F1b (2 Oct): a kit model learned on ONE 5-min piece of a full match, its two teams named like the match model's.
+    One model for a whole match fits badly when sun and shadow change the kit colours over two hours (full AIK called
+    ~2x more real players 'neither' than the clip's own model, results/ball/f1/README.md). Naming: every person the piece
+    model calls A or B is also given a team by the match model (match_team); if most of them get the other letter, the piece's A/B are swapped.
+    Falls back to the match model when the piece has too few people, too few readings both models agree are a team, or
+    no clear majority (the A/B naming can't be trusted). -> (model, info)"""
+    info = {"fallback": None, "flip": False, "same": 0, "cross": 0}
+    try:
+        pm = KitTeamModel().fit_frames(frames_boxes, log=log)
+    except Exception as e:                                                     # too few people for 4 colour groups etc.
+        info["fallback"] = f"fit failed: {type(e).__name__}"; return match, info
+    info["people"] = len(pm.samples)
+    if len(pm.samples) < min_people: info["fallback"] = "too few people"; return match, info
+    grass = {}
+    for f, b, ft in pm.samples:
+        p = pm._lab(ft, body_hist(f, b) if pm.cls else None)
+        if p not in ("A", "B"): continue
+        g = grass.setdefault(id(f), grass_lab(f)); m = match_team(match, f, b, g)
+        if m in ("A", "B"): info["same" if p == m else "cross"] += 1
+    n = info["same"] + info["cross"]; info["agree"] = round(max(info["same"], info["cross"]) / max(1, n), 3)
+    if n < min_votes: info["fallback"] = "too few team readings"; return match, info
+    if info["agree"] < min_agree: info["fallback"] = "no clear A/B naming"; return match, info
+    pm.flip = info["cross"] > info["same"]; info["flip"] = bool(pm.flip)
+    if pm.flip: pm.dark_share = {"A": pm.dark_share["B"], "B": pm.dark_share["A"]}
+    pm.offpitch = getattr(match, "offpitch", False); pm._strips()
+    log(f"kits: piece model, teams named like the match model ({info['same']} same / {info['cross']} swapped -> flip {pm.flip})")
+    return pm, info
