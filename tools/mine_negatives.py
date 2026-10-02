@@ -7,6 +7,7 @@ import sys, os, json, pickle, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ipanema import ball as BL
 MIN_CONF, FAR, R, STILL_S, NEAR_M = 0.3, 40.0, 25.0, 2.0, 3.0
+STILL = False   # 2 Oct eye check (results/kaggle/neg_sheet): the still-nobody-near spots on AIK are mostly real balls at feet (players missing from the tracks) -> not used
 def load(m):
     P_ = pickle.load(open(f"results/volume/cache/{m}/picker_inputs.pkl", "rb"))
     P_["per"] = {k: [[r[0], r[1], np.asarray(r[2]), None if r[3] is None else np.asarray(r[3])] for r in v] for k, v in P_["per"].items()}
@@ -21,10 +22,10 @@ for clip, gt in keys.items():
     n1 = 0
     for f, (gx, gy) in gt.items():
         for c in cands.get(f, []):
-            if c[2] >= MIN_CONF and np.hypot(c[0] - gx, c[1] - gy) > FAR: out.append({"clip": clip, "frame": int(f), "x": float(c[0]), "y": float(c[1]), "conf": float(c[2]), "why": "keyed elsewhere"}); n1 += 1
+            if c[2] >= MIN_CONF and np.hypot(c[0] - gx, c[1] - gy) > FAR: out.append({"clip": clip, "frame": int(f), "x": float(c[0]), "y": float(c[1]), "conf": float(c[2]), "why": "keyed elsewhere", "ball": [float(gx), float(gy)]}); n1 += 1
     # still spots: follow each confident candidate forward
     n = len(H); used = set(); n2 = 0; step = 3
-    for k0 in range(0, n, step):
+    for k0 in (range(0, n, step) if STILL else []):
         for c in cands.get(k0, []):
             if c[2] < MIN_CONF or (k0, round(c[0]), round(c[1])) in used: continue
             run = [(k0, c)]; last = k0; p = np.array([c[0], c[1]], np.float32); ok = True

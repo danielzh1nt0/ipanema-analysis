@@ -1,2 +1,2 @@
-kaggle/neg_sheet.py 30
-# Fri Oct  2 10:38:27 UTC 2026
+kaggle/ballfinder_neg.py 300
+# Fri Oct  2 10:48:22 UTC 2026

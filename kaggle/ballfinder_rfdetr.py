@@ -10,7 +10,7 @@
 #   guesses >= 0.05 / top guess is the ball.  clip34: ball among guesses / top guess (as probe.json).
 # MODE=smoke: 50 crops, 1 epoch, 3 exam frames.  MODE=full: the real run.
 # LOCAL=1: offline dry run with stand-in files (R2_BASE = a local folder, REPO_DIR = this repo).
-import os, sys, json, time, shutil, subprocess, random, urllib.request, numpy as np
+import os, pickle, sys, json, time, shutil, subprocess, random, urllib.request, numpy as np
 os.environ.setdefault("PYTORCH_ALLOC_CONF", "expandable_segments:True")
 R2 = os.environ.get("R2_BASE", "{{R2}}").rstrip("/"); LOCAL = os.environ.get("LOCAL") == "1"; MODE = os.environ.get("MODE", "full")
 WORK = os.environ.get("WORK", "/kaggle/working"); TMP = os.environ.get("TMPD", "/kaggle/temp"); os.makedirs(WORK, exist_ok=True); os.makedirs(TMP, exist_ok=True)
@@ -199,6 +199,52 @@ try:
                               "hard_empty": sum(not h[2] for h in hard), "sec": round(time.time() - t1)}
         log(f"hard negatives: {REPORT['hard_neg']}"); del old; torch.cuda.empty_cache() if torch.cuda.is_available() else None; save()
 
+    # 2 Oct (S8, kaggle/ballfinder_neg.py): explicit 'not a ball' crops. NEG_JSON = repo file of {clip, frame, x, y} spots (mined from
+    # the exact clip inputs: candidates away from the keyed ball, still spots with nobody near); NEG_CLIPS = which clips of it to
+    # use (the SFK-BP clip is the test set and is never used). NEG_SFK_FP=1 = the old finder on SFK-BP TRAIN click frames (outside
+    # the exam and the clip window): every confident guess away from the click becomes an empty crop. NEG_COPIES copies each.
+    NEG_JSON = os.environ.get("NEG_JSON"); NEG_SFK_FP = os.environ.get("NEG_SFK_FP") == "1"; NEG_COPIES = int(os.environ.get("NEG_COPIES", "2"))
+    if NEG_JSON or NEG_SFK_FP:
+        from ipanema import ballrf
+        t1 = time.time(); negc = {"json": 0, "sfk_fp": 0, "sfk_frames": 0}
+        def put_empty_at(name, f, x, y, ball_xy=None):
+            """a crop around a 'not a ball' spot; the real ball (if known and inside the crop) keeps its box, the spot gets none"""
+            h, w = f.shape[:2]
+            x0 = int(min(max(0, x - rng.randint(CROP // 8, CROP * 7 // 8)), w - CROP)); y0 = int(min(max(0, y - rng.randint(CROP // 8, CROP * 7 // 8)), h - CROP))
+            inside = ball_xy is not None and x0 + 6 <= ball_xy[0] <= x0 + CROP - 6 and y0 + 6 <= ball_xy[1] <= y0 + CROP - 6
+            for j in range(NEG_COPIES):
+                cv2.imwrite(f"{DS}/train/images/{name}_n{j}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
+                with open(f"{DS}/train/labels/{name}_n{j}.txt", "w") as fh:
+                    if inside: b = box_px(ball_xy[1], h); fh.write(f"0 {(ball_xy[0] - x0) / CROP:.6f} {(ball_xy[1] - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
+                counts["train_ball" if inside else "train_empty"] += 1
+        if NEG_JSON:
+            spots = json.load(open(f"{REPO}/{NEG_JSON}")); use = [c for c in os.environ.get("NEG_CLIPS", "p15u-vs-aik-2026-09-21-bd09_s2520").split(",") if c]
+            per_clip = int(os.environ.get("NEG_PER_CLIP", "400")); rng2 = random.Random(1)
+            for c in use:
+                rows = [r for r in spots if r["clip"] == c]; rng2.shuffle(rows); rows = rows[:per_clip]; byf = {}
+                for r in rows: byf.setdefault(r["frame"], []).append(r)
+                vp = video(f"{c}/video.mp4", f"{TMP}/{c}_neg.mp4")
+                for k, f in frames_at(vp, list(byf)):
+                    f = cv2.resize(f, (1920, 1080))
+                    for i, r in enumerate(byf[k]): put_empty_at(f"neg_{c[:6]}_{k}_{i}", f, r["x"], r["y"], r.get("ball")); negc["json"] += 1
+                if vp.startswith(TMP): rm(vp)
+        if NEG_SFK_FP:
+            old = ballrf.load(f"{REPO}/{ballrf.WEIGHTS}"); FP_CONF = float(os.environ.get("NEG_FP_CONF", "0.4")); pick = train[::max(1, len(train) // int(os.environ.get("NEG_SFK_FRAMES", "600")))]
+            byk2 = {int(round(r["t"] * fps)): r for r in pick}; buf = []
+            def flush():
+                if not buf: return
+                res = ballrf.detect_many(old, [f for _, f in buf], floor=FP_CONF)
+                for (k, f), g in zip(buf, res):
+                    r = byk2[k]; negc["sfk_frames"] += 1
+                    for i, (x, y, cf) in enumerate(g):
+                        if r["x"] is None or np.hypot(x - r["x"], y - r["y"]) > 40: put_empty_at(f"negfp_sfk_{k}_{i}", f, x, y, None if r["x"] is None else (r["x"], r["y"])); negc["sfk_fp"] += 1
+                buf.clear()
+            for k, f in frames_at(full, list(byk2)):
+                buf.append((k, cv2.resize(f, (1920, 1080))))
+                if len(buf) >= 4: flush()
+            flush(); del old; torch.cuda.empty_cache() if torch.cuda.is_available() else None
+        REPORT["negatives"] = {**negc, "copies": NEG_COPIES, "sec": round(time.time() - t1)}; REPORT["crops"] = counts; log(f"negatives: {REPORT['negatives']} -> {counts}"); save()
+
     # ---------------- train
     import rfdetr.training as RT
     _bt = RT.build_trainer
@@ -270,6 +316,13 @@ try:
                         "top_guess_is_ball": sum(bool(r["guesses"]) and near(r["guesses"][0], r["truth"]) for r in crow),
                         "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
     REPORT["clip_rows"] = crow; log(f"clip34: {json.dumps(REPORT['clip34'])}")
+    # 2 Oct (S8): candidates over whole clips with the new finder (and the old one, same code), for the offline picker/pass grading
+    for c in [c for c in os.environ.get("CANDS_CLIPS", "").split(",") if c]:
+        vp = video(f"{c}/video.mp4", f"{TMP}/{c}_cands.mp4"); t1 = time.time()
+        newc = ballrf.candidates_model(model, vp, floor=0.05, batch=4, log=log) if hasattr(ballrf, "candidates_model") else None
+        if newc is not None: pickle.dump(newc, open(f"{WORK}/cands_new_{c}.pkl", "wb"))
+        old = ballrf.load(f"{REPO}/{ballrf.WEIGHTS}"); oldc = ballrf.candidates_model(old, vp, floor=0.05, batch=4, log=log); pickle.dump(oldc, open(f"{WORK}/cands_old_{c}.pkl", "wb")); del old
+        log(f"candidates {c}: new {len(newc) if newc else None} old {len(oldc)} frames in {(time.time() - t1) / 60:.1f} min")
     REPORT["ok"] = True; save(); log("done")
 except Exception:
     import traceback; log(traceback.format_exc()); REPORT["ok"] = False; REPORT["error"] = traceback.format_exc()[-3000:]; save()

@@ -50,6 +50,24 @@ def detect_many(model, frames, floor=0.05):
     return out
 
 
+def candidates_model(model, video, floor=0.05, batch=4, log=print, max_frames=0):
+    """2 Oct: candidates for every frame with an already loaded model (no cache): {frame: [(x, y, conf)]}"""
+    import cv2
+    out = {}; t0 = time.time(); cap = cv2.VideoCapture(video); k = 0; buf = []
+    def flush():
+        for (kk, _), g in zip(buf, detect_many(model, [f for _, f in buf], floor)): out[kk] = g
+        buf.clear()
+    while True:
+        if max_frames and k >= max_frames: break
+        ok, f = cap.read()
+        if not ok: break
+        if f.shape[:2] != (1080, 1920): f = cv2.resize(f, (1920, 1080))
+        buf.append((k, f))
+        if len(buf) >= batch: flush()
+        if k % 1000 == 0 and k: log(f"  ball (RF-DETR): frame {k}, {k / max(1e-6, time.time() - t0):.1f} frames/s")
+        k += 1
+    flush(); return out
+
 def candidates(video, weights, cache, floor=0.05, batch=4, log=print, max_frames=0):
     """every frame of the video -> {frame: [(x, y, conf)]}, cached, resumable (partial file every 1000 frames)"""
     import cv2
