@@ -33,7 +33,11 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
             if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
     except StopIteration: pass
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
-    if _lines:
+    from . import fixedcam as FC
+    _fixed = FC.find(match_id)
+    if _fixed:                                                                 # 3 Oct: a fixed camera (tactical/broadcast): one homography from hand-read pitch points, every frame
+        cal = FC.calibration(_fixed, vi["n"], vi["width"], vi["height"], log=log); L, W = cal["L"], cal["W"]
+    elif _lines:
         _base, _off, _rows = _lines
         cal = LC.calibration_for_clip(_rows, vi["n"], vi["fps"], vi["width"], vi["height"], offset_s=_off, log=log)
         L, W = cal["L"], cal["W"]
