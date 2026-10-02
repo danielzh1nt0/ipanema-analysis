@@ -41,5 +41,6 @@
  "M1b": "Speed layer: check whether the far side reads too fast",
  "F1": "Full matches vs the 5-min clips: why scores differ",
  "F1b": "AIK full match: team colours per 5-min piece",
- "F1c": "Team colours in sun and shadow (AIK)"
+ "F1c": "Team colours in sun and shadow (AIK)",
+ "B10": "Lock a still ball before the picker"
 }

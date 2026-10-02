@@ -125,6 +125,58 @@ def hold_still(ball, cands, H, fps, jump_px=110.0, hold_r=40.0, min_conf=0.3, lo
     log(f"ball hold-still: {events} teleports held, {held} frames moved to the still spot")
     return out
 
+def still_spells(ball, H, fps, still_px=15.0, min_s=1.0, max_gap_s=0.3):
+    """B10: stretches where the picked ball stays within still_px (camera pan removed) of where the stretch began for at
+    least min_s seconds (missing picks up to max_gap_s allowed). Returns [(first frame, last frame, anchor xy)]."""
+    ks = sorted(ball); out = []; i = 0; g = max_gap_s * fps
+    while i < len(ks):
+        a = ks[i]; last = a; j = i + 1
+        while j < len(ks) and ks[j] - last <= g:
+            p = _pan(H, a, ks[j], [ball[a]])[0]
+            if np.hypot(p[0] - ball[ks[j]][0], p[1] - ball[ks[j]][1]) > still_px: break
+            last = ks[j]; j += 1
+        if last - a >= min_s * fps: out.append((a, last, list(ball[a]))); i = j
+        else: i += 1
+    return out
+
+def still_prior(cands, ball, H, fps, per=None, still_px=15.0, min_s=1.0, hold_r=25.0, min_conf=0.05, boost=0.7,
+                gap_s=0.3, player_m=2.0, discount=0.5, extend=True):
+    """B10 (2 Oct): still-ball handling BEFORE the picker. After a first pick, find spells where the ball has not moved in
+    the picture for > min_s (still_spells). For those frames (and, with extend, onwards while any candidate >= min_conf keeps
+    showing within hold_r px of the still spot, gaps <= gap_s) the still spot gets a strong candidate (conf >= boost, at the
+    spot's own candidate when there is one) and other candidates within player_m metres of a player have their conf
+    multiplied by discount (the shoes/legs the finders flick to while the ball rests). Returns new candidates + spell list."""
+    out = {k: list(v) for k, v in cands.items()}; n = len(H); spells = []
+    covered = np.zeros(n, bool)
+    for a, b, anchor in still_spells(ball, H, fps, still_px, min_s):
+        if covered[a]: continue
+        pos = np.float32(anchor); last = a; k = a; frames_ = []
+        while k < n:
+            p = _pan(H, a, k, [pos])[0] if k != a else pos
+            near = [c for c in cands.get(k, []) if c[2] >= min_conf and np.hypot(c[0] - p[0], c[1] - p[1]) <= hold_r]
+            if near or k <= b: frames_.append((k, near, p))
+            if near: last = k
+            if k > b and (not extend or k - last > gap_s * fps): break
+            k += 1
+        frames_ = [f for f in frames_ if f[0] <= max(b, last)]
+        for k, near, p in frames_:
+            covered[k] = True
+            best = max(near, key=lambda z: z[2]) if near else (float(p[0]), float(p[1]), 0.0)
+            rows = [c for c in out.get(k, []) if c not in near]
+            if per is not None and per.get(k) and rows and discount < 1:
+                pl = np.array([r[2] for r in per[k]]); m = to_m(H[k], np.float32([[c[0], c[1]] for c in rows]))
+                rows = [(c[0], c[1], c[2] * discount) if np.linalg.norm(pl - mm, axis=1).min() <= player_m else c for c, mm in zip(rows, m)]
+            out[k] = rows + [(best[0], best[1], max(best[2], boost))]
+        spells.append((frames_[0][0], frames_[-1][0]))
+    return out, spells
+
+def pick_still(cands, H, L, W, per=None, fps=30.0, still_kw=None, log=print, **kw):
+    """B10: pick, add the still-ball prior, pick again with the same picker settings."""
+    first = pick_v2(cands, H, L, W, per=per, fps=fps, log=lambda *a: None, **kw)
+    c2, spells = still_prior(cands, first, H, fps, per=per, **(still_kw or {}))
+    log(f"ball still-prior: {len(spells)} still spells, {sum(b - a + 1 for a, b in spells)} frames")
+    return pick_v2(c2, H, L, W, per=per, fps=fps, log=log, **kw)
+
 def pick_confidence(ball, cands, r_px=12.0):
     """per frame: the strongest candidate score within r_px of the picked ball (0 when none, e.g. a bridged frame)"""
     out = {}
