@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 00:38:48 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 00:40:21 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -7,7 +7,7 @@ calibration: from the clip's own camera
 pieces: 0 already processed, 22 to finish on CPU (detections saved), 1 need a GPU
 canary: piece 4 first (GPU)
 
-## piece_004.log (7 lines, last 60)
+## piece_004.log (18 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 0 (direct 1, chained 0)
@@ -15,6 +15,17 @@ video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
   calibration anchor 2000 (direct 77, chained 124)
   calibration anchor 3000 (direct 121, chained 180)
   calibration anchor 4000 (direct 176, chained 225)
+  calibration anchor 5000 (direct 233, chained 268)
+  calibration anchor 6000 (direct 314, chained 287)
+  calibration anchor 7000 (direct 314, chained 387)
+  calibration anchor 8000 (direct 315, chained 486)
+calibration via panorama: 322 direct + 578 chained anchors -> 8992/8992 frames
+calibration: from panorama, 8992/8992 frames registered
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.8 candidates/frame
+wasb: using fine-tuned weights, 2x2 tiles
 
 ## train_ball.log (1 lines, last 60)
 
