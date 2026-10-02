@@ -66,6 +66,18 @@
    "date": "2026-08-30",
    "file": "p2009-norrviken-2026-vs-fc-solheim-taby-p17-2026-08-30.mp4",
    "bytes": 3732557712
+  },
+  {
+   "id": "bundesliga1",
+   "opponent": "FC Bayern - VfB Stuttgart (Scoutingfeed tactical camera, 206 s)",
+   "date": null,
+   "ground": "stadium, fixed high tactical camera (not Veo)",
+   "home": false,
+   "venue_known": false,
+   "drive_id": "1aQs8FTVbZm7ewmDzvaq658d1CdV5k9dR",
+   "file": "bundesliga1.mp4",
+   "bytes": 521144329,
+   "note": "2 Oct: demo clip from Daniel's Drive; see results/kaggle/bundesliga_look"
   }
  ]
 }

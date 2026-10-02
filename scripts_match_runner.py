@@ -10,7 +10,7 @@ try:
         for l in vb["log"]: log(l)
         os.makedirs(f"{OUT}/venue", exist_ok=True); json.dump(vb["report"], open(f"{OUT}/venue/report.json", "w"), indent=1); open(f"{OUT}/venue/strip.jpg", "wb").write(base64.b64decode(vb["strip_b64"]))
         if not vb["report"]["accepted"]: log("venue base rejected: stopping before the full match"); open("/tmp/issue_title", "w").write(f"Ipanema {match_id}: venue camera base REJECTED, match not run"); open("/tmp/issue_body.md", "w").write(f"Held-out check: {vb['report']['heldout']}\nStrip: results/match/{tag}/venue/strip.jpg\n"); sys.exit(0)
-    log(f"full-match calibration on Modal: {match_id}"); res = modal.Function.from_name("ipanema", "match_calibration").remote(match_id, 12, 1.0)
+    log(f"full-match calibration on Modal: {match_id}"); stretches = int(next((w for w in trig if w.startswith("stretches=")), "stretches=12")[10:]); res = modal.Function.from_name("ipanema", "match_calibration").remote(match_id, stretches, 1.0)   # 2 Oct: AIK timed out at 12 (4200 s per stretch)
     if "error" in res: log(res["error"]); sys.exit(1)
     for l in res["log"]: log(l)
     os.makedirs(f"{OUT}/misses", exist_ok=True)
