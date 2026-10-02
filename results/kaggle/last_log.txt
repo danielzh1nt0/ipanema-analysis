@@ -1,63 +1,12 @@
-kernel danielmatros/ipanema-passcheck
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-passcheck
-  0.5 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.RUNNING"
-  8.7 min: danielmatros/ipanema-passcheck has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/passcheck/dense_00.jpg
-Output file downloaded to results/kaggle/passcheck/dense_01.jpg
-Output file downloaded to results/kaggle/passcheck/dense_02.jpg
-Output file downloaded to results/kaggle/passcheck/dense_03.jpg
-Output file downloaded to results/kaggle/passcheck/dense_04.jpg
-Output file downloaded to results/kaggle/passcheck/dense_05.jpg
-Output file downloaded to results/kaggle/passcheck/dense_06.jpg
-Output file downloaded to results/kaggle/passcheck/dense_07.jpg
-Output file downloaded to results/kaggle/passcheck/dense_08.jpg
-Output file downloaded to results/kaggle/passcheck/dense_09.jpg
-Output file downloaded to results/kaggle/passcheck/pass_00.jpg
-Output file downloaded to results/kaggle/passcheck/pass_01.jpg
-Output file downloaded to results/kaggle/passcheck/pass_02.jpg
-Output file downloaded to results/kaggle/passcheck/pass_03.jpg
-Output file downloaded to results/kaggle/passcheck/pass_04.jpg
-Output file downloaded to results/kaggle/passcheck/pass_05.jpg
-Output file downloaded to results/kaggle/passcheck/pass_06.jpg
-Output file downloaded to results/kaggle/passcheck/pass_07.jpg
-Output file downloaded to results/kaggle/passcheck/pass_08.jpg
-Output file downloaded to results/kaggle/passcheck/pass_09.jpg
-Output file downloaded to results/kaggle/passcheck/pass_10.jpg
-Output file downloaded to results/kaggle/passcheck/pass_11.jpg
-Output file downloaded to results/kaggle/passcheck/pass_12.jpg
-Output file downloaded to results/kaggle/passcheck/pass_13.jpg
-Output file downloaded to results/kaggle/passcheck/pass_14.jpg
-Output file downloaded to results/kaggle/passcheck/result.json
-Kernel log downloaded to results/kaggle/passcheck/ipanema-passcheck.log
-  dense_00.jpg 717320
-  dense_01.jpg 724409
-  dense_02.jpg 705025
-  dense_03.jpg 692124
-  dense_04.jpg 762547
-  dense_05.jpg 709465
-  dense_06.jpg 664710
-  dense_07.jpg 672821
-  dense_08.jpg 666065
-  dense_09.jpg 654789
-  ipanema-passcheck.log 809
-  pass_00.jpg 676422
-  pass_01.jpg 740011
-  pass_02.jpg 713009
-  pass_03.jpg 657359
-  pass_04.jpg 724383
-  pass_05.jpg 630383
-  pass_06.jpg 622937
-  pass_07.jpg 693530
-  pass_08.jpg 601629
-  pass_09.jpg 650708
-  pass_10.jpg 621365
-  pass_11.jpg 652453
-  pass_12.jpg 635626
-  pass_13.jpg 665193
-  pass_14.jpg 305073
+kernel danielmatros/ipanema-kickoff-sheet
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-kickoff-sheet
+  0.5 min: danielmatros/ipanema-kickoff-sheet has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/kickoff_sheet/result.json
+Output file downloaded to results/kaggle/kickoff_sheet/sheet_0.jpg
+Output file downloaded to results/kaggle/kickoff_sheet/sheet_1.jpg
+Kernel log downloaded to results/kaggle/kickoff_sheet/ipanema-kickoff-sheet.log
+  ipanema-kickoff-sheet.log 803
   result.json 26
-  run.json 152
+  run.json 160
+  sheet_0.jpg 1092796
+  sheet_1.jpg 1083861
