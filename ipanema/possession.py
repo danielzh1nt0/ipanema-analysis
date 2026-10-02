@@ -215,6 +215,19 @@ def sequence_spans(state, fps, take_s=0.0, join_s=1.0):
     if cur is not None: out.append(cur)
     return out
 
+SPELL_TAKE_S, SPELL_JOIN_S = 1.5, 3.0   # S8 (2 Oct): the state the COUNTED stats use; 0 = off (raw state)
+
+def spell_state(state, fps, take_s=SPELL_TAKE_S, join_s=SPELL_JOIN_S):
+    """S8 (2 Oct, tools/s8lab.py, exact clip inputs): the raw state (possession_simple) flips 27-33 times a minute when the
+    ball sits between two players; it stays the display/possession-% state (82/99 moments) but the counted stats
+    (sequences, turnovers, pressures) read this one: a team keeps the ball until the other has held it take_s longer
+    (sequence_spans), joined across loose gaps up to join_s. take 1.5 / join 3: flips 2-3 per minute, sequences 81-93 ->
+    24-32 per 5 min, turnovers 13-20 -> 17-21 on SFK-BP and AIK. Loose/dead frames keep their raw value outside spans."""
+    st = np.asarray(state); out = np.where(st < 2, 2, st).copy()
+    if not take_s: return st.copy()
+    for sq in sequence_spans(st, fps, take_s, join_s): out[sq["start"]:sq["end"] + 1] = 0 if sq["team"] == "A" else 1
+    return out
+
 def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S):
     """E5 (29 Sep): possession_simple flips to the other team ~190 times per 5 min when the ball sits between two
     players, which cut sequences into 3x as many pieces (SFK-BP 64 -> 210, median 0.6 s). The state is untouched

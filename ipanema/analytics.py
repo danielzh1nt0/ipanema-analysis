@@ -235,7 +235,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
             pts = np.array([r[2] for r in per[k] if r[1] == tm and not r[5]])
             if len(pts) >= 5:
                 xs = np.sort(pts[:, 0]); lens.append(xs[-1] - xs[0]); wids.append(pts[:, 1].max() - pts[:, 1].min()); hts.append(xs[0] if attack_right[tm] else L - xs[-1])
-        my = [p for p in players if p["team"] == tm]; da = sum(p["pressures_applied"] for p in my); seqs = sum(1 for i in range(1, n) if poss[i] == tm and poss[i - 1] != tm)
+        my = [p for p in players if p["team"] == tm]; da = sum(p["pressures_applied"] for p in my); seqs = (sum(1 for q in sequences_ if q["team"] == tm) if sequences_ is not None else sum(1 for i in range(1, n) if poss[i] == tm and poss[i - 1] != tm))   # S8: the exported sequences, not raw-state flips
         ctrl = sum(1 for p in poss if p is not None); ps = sum(1 for p in poss if p == tm) * dt
         lost = [t for t in turnovers_ if t["lost_by"] == tm]; won = [t for t in turnovers_ if t["won_by"] == tm]
         def med(v): v = [x for x in v if x is not None]; return round(float(np.median(v)), 2) if v else None

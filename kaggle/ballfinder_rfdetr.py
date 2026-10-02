@@ -103,6 +103,37 @@ try:
         cv2.imwrite(f"{DS}/{split}/images/{name}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
         open(f"{DS}/{split}/labels/{name}.txt", "w").write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {bw / CROP:.6f} {bh / CROP:.6f}\n")
         counts[f"{split}_ball"] += 1
+    # 2 Oct (S8, kaggle/ballfinder_feet.py): AT_FEET=1 = balls at a player's feet / half hidden are the finder's weak spot
+    # (dead-ball stretch: ball at a foot scores 0.11, a line mark 0.19). Every labelled ball that sits in the lower half of a
+    # person box (or just under it) gets FEET_COPIES extra crops, cut so the player is in the crop. Person boxes from the
+    # pipeline's own detector (RF-DETR medium) on the labelled frame. Test clip and exam frames never trained on (unchanged).
+    AT_FEET = os.environ.get("AT_FEET") == "1"; FEET_COPIES = int(os.environ.get("FEET_COPIES", "3")); REPORT["at_feet_on"] = AT_FEET
+    feetc = {"checked": 0, "at_feet": 0, "copies": 0}
+    if AT_FEET:
+        os.environ["IPANEMA_DETECTOR"] = "rfdetr"; from ipanema import tracking as TR
+        if LOCAL:                                                                 # dry run: a stand-in detector (one box with the stub ball at its feet)
+            class _Stub:
+                def detect_batch(self, fs, conf, tiles):
+                    class D: xyxy = np.array([[260.0 + 5 * 0, 520.0, 340.0 + 5 * 150, 612.0]])
+                    return [[D()]]
+            pdet = _Stub()
+        else: pdet = TR.RFDetrPerson("medium")
+    def at_feet(f, x, y):
+        if not AT_FEET or x is None: return False
+        feetc["checked"] += 1
+        try: d = pdet.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0]
+        except Exception: return False
+        for (a, b, c, e) in d.xyxy:
+            if a - 10 <= x <= c + 10 and (b + e) / 2 <= y <= e + 12: feetc["at_feet"] += 1; return True
+        return False
+    def put_feet(split, name, f, x, y):
+        """FEET_COPIES crops that keep the player: ball offset by at most a third of the crop"""
+        h, w = f.shape[:2]
+        for j in range(FEET_COPIES):
+            x0 = int(min(max(0, x - rng.randint(CROP // 3, CROP * 2 // 3)), w - CROP)); y0 = int(min(max(0, y - rng.randint(CROP // 3, CROP * 2 // 3)), h - CROP))
+            cv2.imwrite(f"{DS}/{split}/images/{name}_ft{j}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
+            b = box_px(y, h); open(f"{DS}/{split}/labels/{name}_ft{j}.txt", "w").write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
+            counts[f"{split}_ball"] += 1; feetc["copies"] += 1
     REPORT["matches"] = {}
     for mt in MATCHES:
         try:
@@ -117,6 +148,7 @@ try:
             for k, f in frames_at(vid, list(by)):
                 i, l = by[k]; ball = (l["x"], l["y"]); split = "valid" if i in vset else "train"; nm = f"{mt[:12]}_{k:06d}"
                 put(split, nm + "_b", f, l["x"], l["y"])
+                if split == "train" and at_feet(f, l["x"], l["y"]): put_feet("train", nm, f, l["x"], l["y"])
                 if rng.random() < NEG_FRAC: put(split, nm + "_n", f, None, None)
             rm(vid)
             REPORT["matches"][mt] = {"labels": len(labs), "usable": len(good), "frames_used": n, "crops": {k: counts[k] - c0[k] for k in counts}, "sec": round(time.time() - t1)}
@@ -139,8 +171,10 @@ try:
         else:
             ball = (r["x"], r["y"])
             for j in range(SFK_COPIES): put("train", f"{nm}_b{j}", f, r["x"], r["y"])
+            if at_feet(f, r["x"], r["y"]): put_feet("train", nm, f, r["x"], r["y"])
             if rng.random() < NEG_FRAC: put("train", nm + "_n", f, None, None)
     REPORT["sfk"]["crops"] = {k: counts[k] - c0[k] for k in counts}
+    if AT_FEET: REPORT["at_feet"] = feetc; log(f"at feet: {feetc}"); del pdet; torch.cuda.empty_cache() if torch.cuda.is_available() else None
     # H1b (1 Oct, Daniel: yes, testing only): HF_EXTRA=1 adds the outside Bundesliga TV ball set (martinjolif/football-ball-detection,
     # 1,237 pictures, licence doubtful -> the weights from such a run are for testing, never promoted). One crop per picture with
     # its own box size (median 12 px, Veo-sized), all to train (their test split is never our exam), plus the usual ball-free share.

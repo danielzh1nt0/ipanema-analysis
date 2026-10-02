@@ -1,2 +1,2 @@
-kaggle/ballfinder_neg.py 30 fetch
-# Fri Oct  2 15:02:30 UTC 2026
+kaggle/ballfinder_feet.py 330
+# Fri Oct  2 15:33:56 UTC 2026
