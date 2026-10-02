@@ -1,0 +1,110 @@
+=== p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
+calibration: from the clip's own camera
+broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c005/piece_v4.pkl
+broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c015/piece_v4.pkl
+pieces: 21 already processed, 2 to finish on CPU (detections saved), 0 need a GPU
+canary: piece 5 first (CPU)
+canary passed: calibration from the panorama, 19.7 players per frame
+pieces: 23/23 done in 5.7 min
+tracking frame 206756
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: p15u-vs-aik-2026-09-21-bd09_c005: 8992 frames, 19.7 players/frame
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: p15u-vs-aik-2026-09-21-bd09_c015: 8992 frames, 19.6 players/frame
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
+  piece 21: cached
+  piece 22: cached
+  calibration check piece 5: {'checks': 900, 'good': 209, 'bad': 691, 'unjudged': 0, 'trusted_pct': 18.4, 'i': 5}
+  calibration check piece 15: {'checks': 900, 'good': 289, 'bad': 611, 'unjudged': 0, 'trusted_pct': 29.6, 'i': 15}
+periods: [(366.0, 3389.99), (3950.01, 6898.76)] s; 99 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 11.8% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 39 held-out test frames mapped into the full match
+clean: keeper (left) from a non-team kit: track 200427, 48 frames
+clean: removed 67067 rows of non-team kits (referee / staff)
+clean: dropped 108934 off-pitch, merged 1771 duplicates, stitched 1082 ids, keepers [] -> B defends left
+clean: players per frame median A 0 / B 0, max A 13 / B 14
+players: 49004 short gaps filled (marked 'filled' in the export)
+ball v2: 20026/206756 frames on the path, 2276 static-clutter candidates dropped
+ball check: 7/39 correct, 3 wrong, 29 no pick (ceiling 9/39)
+ball: dropped 2191 static-clutter candidates
+ball (global path): 18850/206756 frames on the chosen path
+ball: global path too sparse, falling back to trajectory picker
+ball: 1.5 candidates/frame, 7299 trajectories, top (score,len,conf,speed) [(357.9, 459, 0.94, 2.2), (222.8, 246, 0.86, 1.08), (195.8, 647, 0.21, 1.49), (195.6, 359, 0.4, 1.15), (195.0, 868, 0.2, 0.99)], picks 20507/206756
+ball check (other picker, v1): 5/39 correct, ceiling 9/39
+ball: dropped 2191 static-clutter candidates
+ball (global path): 18850/206756 frames on the chosen path
+ball: global path too sparse, falling back to trajectory picker
+ball: 1.5 candidates/frame, 7299 trajectories, top (score,len,conf,speed) [(357.9, 459, 0.94, 2.2), (222.8, 246, 0.86, 1.08), (195.8, 647, 0.21, 1.49), (195.6, 359, 0.4, 1.15), (195.0, 868, 0.2, 0.99)], picks 20507/206756
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 4/62, other 1/62, ceiling 4
+possession: simple model (nearest feet in the picture); 45% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.04 / B 0.01  WARNING low confidence
+direction (fallback from player positions): A ←  B →  median x A 63 / B 58
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
+  step: metrics
+ball grade: accuracy 0.18, near-player 0.59, possession withheld, events withheld
+ball reliability: 12% frames, 59% near a player, 4889 jumps -> UNRELIABLE (stats withheld in app)
+  step: export
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 23 frame files (every 3 frames, 300 s each, largest 2.9 MB)
+  wrote match_data.json (0.3 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09 (571 events) · library.json updated · zip None
+upload: p15u-vs-aik-2026-09-21-bd09 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_020, frames_021, frames_022, thumb)
+
+--- SUMMARY ---
+  match_id                   p15u-vs-aik-2026-09-21-bd09
+  ball_reliable              False
+  ball_grade                 {'accuracy': 0.18, 'near_player_pct': 0.59, 'frames_pct': 1.16, 'possession_ok': False, 'events_ok': False}
+  duration_s                 6898.8
+  calibration_coverage       0.97
+  calibration_frozen         163
+  team_dark_share            {'A': 0.21, 'B': 0.94}
+  players_per_frame_median   {'A': 6.0, 'B': 7.0}
+  ball_frames_pct            116
+  match_seconds              706.6
+  periods                    [{'index': 1, 't_start': 366.0, 't_end': 3389.99, 'mirrored': False}, {'index': 2, 't_start': 3950.01, 't_end': 6898.76, 'mirrored': True}]
+  ball_check                 {'correct': 7, 'total': 39, 'wrong': 3, 'ceiling': 9}
+  possession_pct             {'A': 42, 'B': 58}
+  loose_pct                  45
+  dead_pct                   5
+  possession_model           simple
+  attack_right               {'A': False, 'B': True}
+  direction_confidence       {'A': 0.04, 'B': 0.01}
+  turnovers                  108
+  passes                     296
+  restarts                   17
+  sequences                  282
+  shots                      {'A': 0, 'B': 0}
+  goals                      {'A': 0, 'B': 0}
+  high_turnovers             {'A': 3, 'B': 1}
+  field_tilt                 {'A': 5, 'B': 2}
+  runtime_min                9.7
+QA PASS: pieces processed (23/23)
+QA PASS: calibration (coverage 0.97)
+QA FAIL: players per frame (A 6.0 + B 7.0)
+QA PASS: team balance (A 6.0 vs B 7.0)
+QA FAIL: shots and goals from Veo (shots {'A': 0, 'B': 0}, goals {'A': 0, 'B': 0})
+QA FAIL: match time (706.6 s of 6899 s)
+SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": false, "ball_grade": {"accuracy": 0.18, "near_player_pct": 0.59, "frames_pct": 1.16, "possession_ok": false, "events_ok": false}, "duration_s": 6898.8, "calibration_coverage": 0.97, "calibration_frozen": 163, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 7.0}, "ball_frames_pct": 116, "match_seconds": 706.6, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3389.99, "mirrored": false}, {"index": 2, "t_start": 3950.01, "t_end": 6898.76, "mirrored": true}], "ball_check": {"correct": 7, "total": 39, "wrong": 3, "ceiling": 9}, "possession_pct": {"A": 42, "B": 58}, "loose_pct": 45, "dead_pct": 5, "possession_model": "simple", "attack_right": {"A": false, "B": true}, "direction_confidence": {"A": 0.04, "B": 0.01}, "turnovers": 108, "passes": 296, "restarts": 17, "sequences": 282, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 3, "B": 1}, "field_tilt": {"A": 5, "B": 2}, "runtime_min": 9.7, "quality": {"pieces": {"ok": true, "detail": "23/23"}, "positions": {"ok": true, "detail": "coverage 0.97"}, "players": {"ok": false, "detail": "A 6.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 7.0"}, "shots": {"ok": false, "detail": "shots {'A': 0, 'B': 0}, goals {'A': 0, 'B': 0}"}, "match_time": {"ok": false, "detail": "706.6 s of 6899 s"}, "ball": {"ok": false, "detail": "accuracy 0.18, near a player 0.59"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (23/23)", "QA PASS: calibration (coverage 0.97)", "QA FAIL: players per frame (A 6.0 + B 7.0)", "QA PASS: team balance (A 6.0 vs B 7.0)", "QA FAIL: shots and goals from Veo (shots {'A': 0, 'B': 0}, goals {'A': 0, 'B': 0})", "QA FAIL: match time (706.6 s of 6899 s)"]}
+
+SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": false, "ball_grade": {"accuracy": 0.18, "near_player_pct": 0.59, "frames_pct": 1.16, "possession_ok": false, "events_ok": false}, "duration_s": 6898.8, "calibration_coverage": 0.97, "calibration_frozen": 163, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 7.0}, "ball_frames_pct": 116, "match_seconds": 706.6, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3389.99, "mirrored": false}, {"index": 2, "t_start": 3950.01, "t_end": 6898.76, "mirrored": true}], "ball_check": {"correct": 7, "total": 39, "wrong": 3, "ceiling": 9}, "possession_pct": {"A": 42, "B": 58}, "loose_pct": 45, "dead_pct": 5, "possession_model": "simple", "attack_right": {"A": false, "B": true}, "direction_confidence": {"A": 0.04, "B": 0.01}, "turnovers": 108, "passes": 296, "restarts": 17, "sequences": 282, "shots": {"A": 0, "B": 0}, "goals": {"A": 0, "B": 0}, "high_turnovers": {"A": 3, "B": 1}, "field_tilt": {"A": 5, "B": 2}, "runtime_min": 9.7, "quality": {"pieces": {"ok": true, "detail": "23/23"}, "positions": {"ok": true, "detail": "coverage 0.97"}, "players": {"ok": false, "detail": "A 6.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 7.0"}, "shots": {"ok": false, "detail": "shots {'A': 0, 'B': 0}, goals {'A': 0, 'B': 0}"}, "match_time": {"ok": false, "detail": "706.6 s of 6899 s"}, "ball": {"ok": false, "detail": "accuracy 0.18, near a player 0.59"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (23/23)", "QA PASS: calibration (coverage 0.97)", "QA FAIL: players per frame (A 6.0 + B 7.0)", "QA PASS: team balance (A 6.0 vs B 7.0)", "QA FAIL: shots and goals from Veo (shots {'A': 0, 'B': 0}, goals {'A': 0, 'B': 0})", "QA FAIL: match time (706.6 s of 6899 s)"]}
