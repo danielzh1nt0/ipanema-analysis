@@ -2,61 +2,131 @@
   warnings.warn(
 /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
-[2026-10-02 08:35:59] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
-/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   1%|          | 3.52M/386M [00:00<00:10, 36.6MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   6%|▌         | 23.7M/386M [00:00<00:02, 139MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  11%|█▏        | 44.2M/386M [00:00<00:02, 174MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 65.0M/386M [00:00<00:01, 191MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 85.7M/386M [00:00<00:01, 201MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  28%|██▊       | 106M/386M [00:00<00:01, 206MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 126M/386M [00:00<00:01, 182MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 146M/386M [00:00<00:01, 190MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 166M/386M [00:00<00:01, 195MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 186M/386M [00:01<00:01, 201MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  53%|█████▎    | 206M/386M [00:01<00:01, 174MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  58%|█████▊    | 223M/386M [00:01<00:01, 168MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 241M/386M [00:01<00:00, 174MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  67%|██████▋   | 258M/386M [00:01<00:00, 174MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  71%|███████▏  | 276M/386M [00:01<00:00, 178MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  76%|███████▌  | 294M/386M [00:01<00:00, 181MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  81%|████████  | 312M/386M [00:01<00:00, 183MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  85%|████████▌ | 330M/386M [00:01<00:00, 185MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  90%|█████████ | 348M/386M [00:02<00:00, 186MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  95%|█████████▍| 366M/386M [00:02<00:00, 186MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  99%|█████████▉| 384M/386M [00:02<00:00, 187MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:02<00:00, 182MiB/s]
-[2026-10-02 08:36:02] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
-[2026-10-02 08:36:02] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-10-02 08:36:02] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-10-02 08:36:03] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-p15u-vs-aik-2026-09-21-bd09: video ['p15u-vs-aik-2026-09-21-bd09', 'video.mp4'] 206756 frames @ 29.970
-p15u-vs-aik-2026-09-21-bd09: playing time [[366, 3390], [3950, 6899]]
-[2026-10-02 08:36:05] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-kits: per-player classifier from 214 on-pitch people, 7 of 15 runs kept
-kits: learned from 130 people (639 off the pitch left out), group sizes [48, 42, 22, 18], default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 36.7, reading far/mean (neither-share tried: {'default/default': 0.277, 'far/mean': 0.331})
-p15u-vs-aik-2026-09-21-bd09 piece 1 (300s): {"fallback": null, "flip": true, "same": 13, "cross": 70, "people": 83, "agree": 0.843, "i": 1, "start_s": 300.0}
-p15u-vs-aik-2026-09-21-bd09 piece 2 (600s): {"fallback": null, "flip": true, "same": 20, "cross": 62, "people": 126, "agree": 0.756, "i": 2, "start_s": 600.0}
-p15u-vs-aik-2026-09-21-bd09 piece 3 (900s): {"fallback": null, "flip": true, "same": 18, "cross": 73, "people": 145, "agree": 0.802, "i": 3, "start_s": 900.0}
-p15u-vs-aik-2026-09-21-bd09 piece 4 (1200s): {"fallback": null, "flip": false, "same": 87, "cross": 45, "people": 159, "agree": 0.659, "i": 4, "start_s": 1200.0}
-p15u-vs-aik-2026-09-21-bd09 piece 5 (1500s): {"fallback": "no clear A/B naming", "flip": false, "same": 56, "cross": 59, "people": 138, "agree": 0.513, "i": 5, "start_s": 1500.0}
-p15u-vs-aik-2026-09-21-bd09 piece 6 (1800s): {"fallback": null, "flip": false, "same": 77, "cross": 30, "people": 110, "agree": 0.72, "i": 6, "start_s": 1800.0}
-p15u-vs-aik-2026-09-21-bd09 piece 7 (2100s): {"fallback": null, "flip": false, "same": 46, "cross": 24, "people": 99, "agree": 0.657, "i": 7, "start_s": 2100.0}
-p15u-vs-aik-2026-09-21-bd09 piece 8 (2400s): {"fallback": "no clear A/B naming", "flip": false, "same": 47, "cross": 43, "people": 98, "agree": 0.522, "i": 8, "start_s": 2400.0}
-p15u-vs-aik-2026-09-21-bd09 piece 9 (2700s): {"fallback": "no clear A/B naming", "flip": false, "same": 61, "cross": 41, "people": 122, "agree": 0.598, "i": 9, "start_s": 2700.0}
-p15u-vs-aik-2026-09-21-bd09 piece 10 (3000s): {"fallback": null, "flip": true, "same": 14, "cross": 48, "people": 64, "agree": 0.774, "i": 10, "start_s": 3000.0}
-p15u-vs-aik-2026-09-21-bd09 piece 11 (3300s): {"fallback": "too few people", "flip": false, "same": 0, "cross": 0, "people": 12, "i": 11, "start_s": 3300.0}
-p15u-vs-aik-2026-09-21-bd09 piece 13 (3900s): {"fallback": "no clear A/B naming", "flip": false, "same": 35, "cross": 55, "people": 94, "agree": 0.611, "i": 13, "start_s": 3900.0}
-p15u-vs-aik-2026-09-21-bd09 piece 14 (4200s): {"fallback": null, "flip": false, "same": 114, "cross": 35, "people": 192, "agree": 0.765, "i": 14, "start_s": 4200.0}
-p15u-vs-aik-2026-09-21-bd09 piece 15 (4500s): {"fallback": null, "flip": false, "same": 135, "cross": 54, "people": 248, "agree": 0.714, "i": 15, "start_s": 4500.0}
-p15u-vs-aik-2026-09-21-bd09 piece 16 (4800s): {"fallback": null, "flip": false, "same": 110, "cross": 34, "people": 163, "agree": 0.764, "i": 16, "start_s": 4800.0}
-p15u-vs-aik-2026-09-21-bd09 piece 17 (5100s): {"fallback": null, "flip": false, "same": 112, "cross": 45, "people": 219, "agree": 0.713, "i": 17, "start_s": 5100.0}
-p15u-vs-aik-2026-09-21-bd09 piece 18 (5400s): {"fallback": "no clear A/B naming", "flip": false, "same": 107, "cross": 58, "people": 215, "agree": 0.648, "i": 18, "start_s": 5400.0}
-p15u-vs-aik-2026-09-21-bd09 piece 19 (5700s): {"fallback": null, "flip": false, "same": 100, "cross": 40, "people": 140, "agree": 0.714, "i": 19, "start_s": 5700.0}
-p15u-vs-aik-2026-09-21-bd09 piece 20 (6000s): {"fallback": null, "flip": false, "same": 104, "cross": 41, "people": 202, "agree": 0.717, "i": 20, "start_s": 6000.0}
-p15u-vs-aik-2026-09-21-bd09 piece 21 (6300s): {"fallback": null, "flip": false, "same": 132, "cross": 64, "people": 225, "agree": 0.673, "i": 21, "start_s": 6300.0}
-p15u-vs-aik-2026-09-21-bd09 piece 22 (6600s): {"fallback": "no clear A/B naming", "flip": false, "same": 119, "cross": 97, "people": 222, "agree": 0.551, "i": 22, "start_s": 6600.0}
-p15u-vs-aik-2026-09-21-bd09 3 per piece {"match": {"A": 4.67, "B": 2.8, "K": 4.3}, "piece": {"A": 5.07, "B": 3.63, "K": 3.07}, "agreement_with_piece_model": {"match": {"same": 307, "swapped": 78}}, "frames": 60}
-kits: per-player classifier from 325 on-pitch people, 0 of 15 runs kept -> colour only
-kits: learned from 115 people (604 off the pitch left out), group sizes [42, 37, 19, 17], default fit leaves out a group at 0.50 x the team gap, far pair moves a team by 4.0
-p15u-vs-aik-2026-09-21-bd09 clip window {"match": {"A": 4.35, "B": 2.05, "K": 2.75}, "clip": {"A": 4.35, "B": 3.4, "K": 1.4}, "piece": {"A": 4.35, "B": 2.05, "K": 2.75}, "agreement_with_piece_model": {"match": {"same": 128, "swapped": 0}, "clip": {"same": 65, "swapped": 38}}, "frames": 20}
-SFKBP1109: video ['SFKBP1109', 'video.mp4'] 184725 frames @ 29.970
-SFKBP1109: playing time [[555, 3060], [3733, 5940]]
-kits: per-player classifier from 377 on-pitch people, 0 of 15 runs kept -> colour only
-kits: learned from 304 people (357 off the pitch left out), group sizes [138, 106, 44, 16], default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 6.9
-SFKBP1109 piece 2 (600s): {"fallback": null, "flip": false, "same": 353, "cross": 42, "people": 460, "agree": 0.894, "i": 2, "start_s": 600.0}
-SFKBP1109 piece 3 (900s): {"fallback": null, "flip": false, "same": 277, "cross": 0, "people": 364, "agree": 1.0, "i": 3, "start_s": 900.0}
-SFKBP1109 piece 4 (1200s): {"fallback": null, "flip": false, "same": 304, "cross": 0, "people": 385, "agree": 1.0, "i": 4, "start_s": 1200.0}
-SFKBP1109 piece 5 (1500s): {"fallback": null, "flip": false, "same": 308, "cross": 0, "people": 406, "agree": 1.0, "i": 5, "start_s": 1500.0}
-SFKBP1109 piece 6 (1800s): {"fallback": null, "flip": false, "same": 298, "cross": 0, "people": 372, "agree": 1.0, "i": 6, "start_s": 1800.0}
-SFKBP1109 piece 7 (2100s): {"fallback": null, "flip": false, "same": 315, "cross": 0, "people": 357, "agree": 1.0, "i": 7, "start_s": 2100.0}
-SFKBP1109 piece 8 (2400s): {"fallback": null, "flip": false, "same": 282, "cross": 0, "people": 352, "agree": 1.0, "i": 8, "start_s": 2400.0}
-SFKBP1109 piece 9 (2700s): {"fallback": null, "flip": false, "same": 273, "cross": 0, "people": 343, "agree": 1.0, "i": 9, "start_s": 2700.0}
-SFKBP1109 piece 12 (3600s): {"fallback": null, "flip": false, "same": 303, "cross": 0, "people": 377, "agree": 1.0, "i": 12, "start_s": 3600.0}
-SFKBP1109 piece 13 (3900s): {"fallback": null, "flip": false, "same": 278, "cross": 0, "people": 352, "agree": 1.0, "i": 13, "start_s": 3900.0}
-SFKBP1109 piece 14 (4200s): {"fallback": null, "flip": false, "same": 275, "cross": 0, "people": 351, "agree": 1.0, "i": 14, "start_s": 4200.0}
-SFKBP1109 piece 15 (4500s): {"fallback": null, "flip": false, "same": 321, "cross": 0, "people": 374, "agree": 1.0, "i": 15, "start_s": 4500.0}
-SFKBP1109 piece 16 (4800s): {"fallback": null, "flip": false, "same": 296, "cross": 0, "people": 367, "agree": 1.0, "i": 16, "start_s": 4800.0}
-SFKBP1109 piece 17 (5100s): {"fallback": null, "flip": false, "same": 249, "cross": 16, "people": 358, "agree": 0.94, "i": 17, "start_s": 5100.0}
-SFKBP1109 piece 18 (5400s): {"fallback": null, "flip": false, "same": 337, "cross": 0, "people": 399, "agree": 1.0, "i": 18, "start_s": 5400.0}
-SFKBP1109 piece 19 (5700s): {"fallback": null, "flip": false, "same": 274, "cross": 0, "people": 339, "agree": 1.0, "i": 19, "start_s": 5700.0}
-SFKBP1109 3 per piece {"match": {"A": 5.85, "B": 6.17, "K": 2.39}, "piece": {"A": 5.96, "B": 5.96, "K": 2.5}, "agreement_with_piece_model": {"match": {"same": 532, "swapped": 2}}, "frames": 46}
-done 42.6 min
+[2026-10-02 12:26:58] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
+/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   3%|▎         | 9.97M/386M [00:00<00:03, 105MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   5%|▌         | 20.2M/386M [00:00<00:03, 106MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   8%|▊         | 31.3M/386M [00:00<00:03, 111MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  11%|█         | 42.6M/386M [00:00<00:03, 114MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  14%|█▍        | 54.1M/386M [00:00<00:02, 116MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 65.8M/386M [00:00<00:02, 119MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  20%|██        | 77.7M/386M [00:00<00:02, 120MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  23%|██▎       | 89.4M/386M [00:00<00:02, 121MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 103M/386M [00:00<00:02, 127MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  30%|██▉       | 116M/386M [00:01<00:02, 130MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 129M/386M [00:01<00:02, 133MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  37%|███▋      | 142M/386M [00:01<00:01, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  40%|████      | 155M/386M [00:01<00:01, 135MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  44%|████▎     | 169M/386M [00:01<00:01, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  47%|████▋     | 182M/386M [00:01<00:01, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  51%|█████     | 196M/386M [00:01<00:01, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  54%|█████▍    | 209M/386M [00:01<00:01, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  58%|█████▊    | 223M/386M [00:01<00:01, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  61%|██████    | 236M/386M [00:01<00:01, 141MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  65%|██████▍   | 250M/386M [00:02<00:01, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  68%|██████▊   | 263M/386M [00:02<00:00, 141MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  72%|███████▏  | 276M/386M [00:02<00:00, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  75%|███████▌  | 290M/386M [00:02<00:00, 140MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  79%|███████▊  | 303M/386M [00:02<00:00, 139MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  82%|████████▏ | 316M/386M [00:02<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  85%|████████▌ | 330M/386M [00:02<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  89%|████████▉ | 343M/386M [00:02<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 356M/386M [00:02<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  96%|█████████▌| 369M/386M [00:02<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  99%|█████████▉| 383M/386M [00:03<00:00, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 133MiB/s]
+[2026-10-02 12:27:02] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
+[2026-10-02 12:27:02] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-02 12:27:02] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-02 12:27:03] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-02 12:27:12] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+    20s p15u-vs-aik-2026-09-21-bd09 fit 0 t=517s people 16
+    22s p15u-vs-aik-2026-09-21-bd09 fit 1 t=677s people 18
+    24s p15u-vs-aik-2026-09-21-bd09 fit 2 t=837s people 16
+    26s p15u-vs-aik-2026-09-21-bd09 fit 3 t=997s people 26
+    28s p15u-vs-aik-2026-09-21-bd09 fit 4 t=1158s people 25
+    30s p15u-vs-aik-2026-09-21-bd09 fit 5 t=1318s people 31
+    32s p15u-vs-aik-2026-09-21-bd09 fit 6 t=1478s people 23
+    34s p15u-vs-aik-2026-09-21-bd09 fit 7 t=1638s people 27
+    36s p15u-vs-aik-2026-09-21-bd09 fit 8 t=1798s people 22
+    38s p15u-vs-aik-2026-09-21-bd09 fit 9 t=1958s people 25
+    40s p15u-vs-aik-2026-09-21-bd09 fit 10 t=2118s people 18
+    42s p15u-vs-aik-2026-09-21-bd09 fit 11 t=2278s people 27
+    44s p15u-vs-aik-2026-09-21-bd09 fit 12 t=2438s people 14
+    46s p15u-vs-aik-2026-09-21-bd09 fit 13 t=2598s people 23
+    48s p15u-vs-aik-2026-09-21-bd09 fit 14 t=2759s people 19
+    50s p15u-vs-aik-2026-09-21-bd09 fit 15 t=2919s people 26
+    52s p15u-vs-aik-2026-09-21-bd09 fit 16 t=3079s people 21
+    53s p15u-vs-aik-2026-09-21-bd09 fit 17 t=3239s people 22
+    60s p15u-vs-aik-2026-09-21-bd09 fit 18 t=4097s people 17
+    62s p15u-vs-aik-2026-09-21-bd09 fit 19 t=4254s people 18
+    64s p15u-vs-aik-2026-09-21-bd09 fit 20 t=4410s people 22
+    66s p15u-vs-aik-2026-09-21-bd09 fit 21 t=4566s people 23
+    68s p15u-vs-aik-2026-09-21-bd09 fit 22 t=4722s people 26
+    69s p15u-vs-aik-2026-09-21-bd09 fit 23 t=4878s people 20
+    71s p15u-vs-aik-2026-09-21-bd09 fit 24 t=5034s people 26
+    74s p15u-vs-aik-2026-09-21-bd09 fit 25 t=5190s people 16
+    75s p15u-vs-aik-2026-09-21-bd09 fit 26 t=5346s people 28
+    77s p15u-vs-aik-2026-09-21-bd09 fit 27 t=5503s people 10
+    79s p15u-vs-aik-2026-09-21-bd09 fit 28 t=5659s people 26
+    81s p15u-vs-aik-2026-09-21-bd09 fit 29 t=5815s people 14
+    83s p15u-vs-aik-2026-09-21-bd09 fit 30 t=5971s people 21
+    85s p15u-vs-aik-2026-09-21-bd09 fit 31 t=6127s people 25
+    87s p15u-vs-aik-2026-09-21-bd09 fit 32 t=6283s people 19
+    89s p15u-vs-aik-2026-09-21-bd09 fit 33 t=6439s people 16
+    91s p15u-vs-aik-2026-09-21-bd09 fit 34 t=6595s people 20
+    93s p15u-vs-aik-2026-09-21-bd09 fit 35 t=6752s people 27
+    95s p15u-vs-aik-2026-09-21-bd09 test 0 t=457s people 25
+    97s p15u-vs-aik-2026-09-21-bd09 test 1 t=660s people 26
+    99s p15u-vs-aik-2026-09-21-bd09 test 2 t=863s people 17
+   101s p15u-vs-aik-2026-09-21-bd09 test 3 t=1066s people 21
+   103s p15u-vs-aik-2026-09-21-bd09 test 4 t=1269s people 25
+   105s p15u-vs-aik-2026-09-21-bd09 test 5 t=1472s people 24
+   107s p15u-vs-aik-2026-09-21-bd09 test 6 t=1675s people 21
+   109s p15u-vs-aik-2026-09-21-bd09 test 7 t=1878s people 33
+   111s p15u-vs-aik-2026-09-21-bd09 test 8 t=2081s people 17
+   113s p15u-vs-aik-2026-09-21-bd09 test 9 t=2284s people 22
+   115s p15u-vs-aik-2026-09-21-bd09 test 10 t=2487s people 25
+   117s p15u-vs-aik-2026-09-21-bd09 test 11 t=2691s people 23
+   119s p15u-vs-aik-2026-09-21-bd09 test 12 t=2894s people 26
+   121s p15u-vs-aik-2026-09-21-bd09 test 13 t=3097s people 25
+   122s p15u-vs-aik-2026-09-21-bd09 test 14 t=3300s people 26
+   124s p15u-vs-aik-2026-09-21-bd09 test 15 t=4039s people 14
+   126s p15u-vs-aik-2026-09-21-bd09 test 16 t=4237s people 22
+   129s p15u-vs-aik-2026-09-21-bd09 test 17 t=4435s people 22
+   131s p15u-vs-aik-2026-09-21-bd09 test 18 t=4633s people 23
+   133s p15u-vs-aik-2026-09-21-bd09 test 19 t=4831s people 12
+   135s p15u-vs-aik-2026-09-21-bd09 test 20 t=5029s people 24
+   136s p15u-vs-aik-2026-09-21-bd09 test 21 t=5227s people 19
+   138s p15u-vs-aik-2026-09-21-bd09 test 22 t=5425s people 30
+   141s p15u-vs-aik-2026-09-21-bd09 test 23 t=5623s people 35
+   143s p15u-vs-aik-2026-09-21-bd09 test 24 t=5821s people 23
+   145s p15u-vs-aik-2026-09-21-bd09 test 25 t=6019s people 15
+   147s p15u-vs-aik-2026-09-21-bd09 test 26 t=6217s people 30
+   149s p15u-vs-aik-2026-09-21-bd09 test 27 t=6415s people 27
+   150s p15u-vs-aik-2026-09-21-bd09 test 28 t=6613s people 19
+   152s p15u-vs-aik-2026-09-21-bd09 test 29 t=6811s people 7
+   155s SFKBP1109 fit 0 t=680s people 12
+   164s SFKBP1109 fit 1 t=813s people 29
+   166s SFKBP1109 fit 2 t=945s people 13
+   168s SFKBP1109 fit 3 t=1078s people 19
+   170s SFKBP1109 fit 4 t=1211s people 25
+   172s SFKBP1109 fit 5 t=1343s people 14
+   174s SFKBP1109 fit 6 t=1476s people 22
+   176s SFKBP1109 fit 7 t=1609s people 20
+   178s SFKBP1109 fit 8 t=1741s people 27
+   180s SFKBP1109 fit 9 t=1874s people 18
+   182s SFKBP1109 fit 10 t=2006s people 26
+   184s SFKBP1109 fit 11 t=2139s people 20
+   186s SFKBP1109 fit 12 t=2272s people 28
+   188s SFKBP1109 fit 13 t=2404s people 15
+   190s SFKBP1109 fit 14 t=2537s people 15
+   192s SFKBP1109 fit 15 t=2670s people 25
+   194s SFKBP1109 fit 16 t=2802s people 19
+   196s SFKBP1109 fit 17 t=2935s people 21
+   198s SFKBP1109 fit 18 t=3843s people 15
+   200s SFKBP1109 fit 19 t=3960s people 16
+   202s SFKBP1109 fit 20 t=4077s people 22
+   204s SFKBP1109 fit 21 t=4194s people 7
+   206s SFKBP1109 fit 22 t=4311s people 19
+   208s SFKBP1109 fit 23 t=4428s people 22
+   210s SFKBP1109 fit 24 t=4544s people 16
+   211s SFKBP1109 fit 25 t=4661s people 25
+   213s SFKBP1109 fit 26 t=4778s people 27
+   215s SFKBP1109 fit 27 t=4895s people 14
+   217s SFKBP1109 fit 28 t=5012s people 17
+   219s SFKBP1109 fit 29 t=5129s people 7
+   222s SFKBP1109 fit 30 t=5245s people 27
+   224s SFKBP1109 fit 31 t=5362s people 10
+   226s SFKBP1109 fit 32 t=5479s people 8
+   228s SFKBP1109 fit 33 t=5596s people 21
+   230s SFKBP1109 fit 34 t=5713s people 11
+   232s SFKBP1109 fit 35 t=5830s people 19
+   234s SFKBP1109 test 0 t=631s people 20
+   236s SFKBP1109 test 1 t=925s people 11
+   238s SFKBP1109 test 2 t=1219s people 26
+   240s SFKBP1109 test 3 t=1514s people 9
+   242s SFKBP1109 test 4 t=1808s people 20
+   244s SFKBP1109 test 5 t=2102s people 14
+   246s SFKBP1109 test 6 t=2397s people 19
+   248s SFKBP1109 test 7 t=2691s people 28
+   250s SFKBP1109 test 8 t=2985s people 28
+   252s SFKBP1109 test 9 t=3800s people 22
+   254s SFKBP1109 test 10 t=4059s people 13
+   256s SFKBP1109 test 11 t=4318s people 23
+   258s SFKBP1109 test 12 t=4578s people 21
+   260s SFKBP1109 test 13 t=4837s people 12
+   262s SFKBP1109 test 14 t=5096s people 21
+   264s SFKBP1109 test 15 t=5356s people 22
+   266s SFKBP1109 test 16 t=5615s people 15
+   268s SFKBP1109 test 17 t=5874s people 21
+{"p15u-vs-aik-2026-09-21-bd09": {"spans": [[366, 3390], [3950, 6899]], "frames": {"fit": 36, "test": 30}}, "SFKBP1109": {"spans": [[555, 3060], [3733, 5940]], "frames": {"fit": 36, "test": 18}}, "minutes": 4.5}
