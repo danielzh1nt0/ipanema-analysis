@@ -236,7 +236,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     log("  step: shapes"); t_ = time.time()
     sh = AN.shapes(per, L, fps)
     log("  step: stats"); t_ = time.time()
-    st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r)
+    st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs)
     log("  step: metrics"); t_ = time.time()
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them

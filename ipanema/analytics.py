@@ -171,7 +171,10 @@ def shapes(per, L, fps=25.0):
             elif last[tm][0] is not None and k - last[tm][1] <= hold: out[k][tm] = dict(last[tm][0], held=True)
     return out
 
-def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_right, press_r=2.0, near_r=5.0):
+def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_right, press_r=2.0, near_r=5.0, sequences_=None):
+    """sequences_ (2 Oct, tools/presslab.py): when given, pressures_applied = one per presser per possession sequence (the
+    usual 'pressure event'); without it the old count (one per second within press_r of the opposing carrier, which gave
+    700-1,500 per team per 90 min on AIK/SFK-BP because the carrier flickers; per sequence: 250-340)."""
     from .possession import STATES
     n = len(per); dt = 1 / fps; pass_df = pd.DataFrame(passes_)
     ids = [t for t in tracks if len(tracks[t]) * dt >= 2.0]
@@ -183,6 +186,15 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
     for tv in turnovers_:
         for cat, lst in tv.get("reactions", {}).items():
             for tid in lst: d = react.setdefault(tid, {"losses_seen": 0, "pressed": 0, "jogged": 0, "stood": 0}); d["losses_seen"] += 1; d[cat] += 1
+    press_by_seq = {}
+    if sequences_ is not None:
+        for sq in sequences_:
+            seen = set()
+            for k in range(sq["start"], min(n, sq["end"] + 1)):
+                f = frames_[k]; c = f["carrier"]
+                if c is None or f["team"] != sq["team"] or c not in tracks or k not in tracks[c]: continue
+                for r in per[k]:
+                    if r[1] != sq["team"] and r[0] not in seen and np.linalg.norm(r[2] - tracks[c][k]) <= press_r: seen.add(r[0]); press_by_seq[r[0]] = press_by_seq.get(r[0], 0) + 1
     players = []; heat = {}; GRID = (12, 8)
     for tid in ids:
         tm = team_id[tid]; ks = np.array(sorted(tracks[tid])); P = np.array([tracks[tid][k] for k in ks]); sgn = 1 if attack_right[tm] else -1
@@ -195,10 +207,12 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
         sp = np.linalg.norm(V, axis=1); valid = ~np.isnan(sp); step = np.where(valid, sp * np.r_[0, np.diff(ks)] * dt, 0)
         on = [k for k in ks if frames_[k]["carrier"] == tid]; pressed = [k for k in on if frames_[k]["pressure_m"] is not None and frames_[k]["pressure_m"] <= press_r]
         pr = 0; lastp = -99
-        for k in ks:
-            f = frames_[k]
-            if f["carrier"] is not None and f["team"] != tm and f["carrier"] in tracks and k in tracks[f["carrier"]]:
-                if np.linalg.norm(tracks[tid][k] - tracks[f["carrier"]][k]) <= press_r and k - lastp > fps: pr += 1; lastp = k
+        if sequences_ is not None: pr = press_by_seq.get(tid, 0)
+        else:
+            for k in ks:
+                f = frames_[k]
+                if f["carrier"] is not None and f["team"] != tm and f["carrier"] in tracks and k in tracks[f["carrier"]]:
+                    if np.linalg.norm(tracks[tid][k] - tracks[f["carrier"]][k]) <= press_r and k - lastp > fps: pr += 1; lastp = k
         mp = pass_df[pass_df["from"] == tid] if len(pass_df) else pass_df; rc = pass_df[(pass_df["to"] == tid) & pass_df["completed"]] if len(pass_df) else pass_df
         g = np.zeros(GRID)
         for x, y in P: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
