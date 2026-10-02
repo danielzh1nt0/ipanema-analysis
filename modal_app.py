@@ -284,19 +284,19 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
         per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
         log(f"periods: {[(p['t_start'], p['t_end']) for p in periods]} s; {int(play_mask.sum() / fps / 60)} min of match time kept, later halves mirrored so each team attacks the same way")
     else: log("periods: none set, the whole recording counts as match time")
-    trusted = np.ones(n, bool); missing = []
     trust_all = os.path.exists(pf) and json.load(open(pf)).get("trust_all_calibration", False)   # 2 Oct: AIK - the line-alignment check rejects ~88% of frames although the 5-min clip with the same calibration scores the ball 30/39
     if trust_all: log("calibration: per-frame check skipped for this match (periods file: trust_all_calibration)")
-    for r, p in ([] if trust_all else zip(done, pl)):
-        f = f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok_v3.npy"
-        if not os.path.exists(f): missing.append(r["i"]); continue
-        m_ = np.load(f); a = p["offset"]; b = min(n, a + len(m_)); trusted[a:b] = m_[:b - a]
+    _mf = lambda i: f"{ROOT}/cache/{piece_id(match_id, i)}/calib_ok_v3.npy"
+    entries = [] if trust_all else [(r["i"], p["offset"], np.load(_mf(r["i"])) if os.path.exists(_mf(r["i"])) else None, bool(__import__("ipanema.linecal", fromlist=["find_rows"]).find_rows(ROOT, piece_id(match_id, r["i"])))) for r, p in zip(done, pl)]   # same test as calib_mask_piece
+    trusted, missing = FM.trusted_frames(n, entries)                       # F1 (2 Oct): line-calibrated unsure frames kept as in the clip, marked unsure in the export
+    if any(e[3] for e in entries) and os.environ.get("IPANEMA_FULL_UNSURE", "keep") != "blank":
+        log(f"calibration: {len(meta['unsure'])} unsure line-calibration frames kept as in the 5-min clips (no pitch lines drawn); IPANEMA_FULL_UNSURE=blank hides them")
     if missing: log(f"calibration check missing for pieces {missing}: their frames are trusted as before")
     base = play_mask if play_mask is not None else np.ones(n, bool)
     log(f"calibration: {100 * (trusted & base).sum() / max(1, base.sum()):.1f}% of match frames placed confidently; the rest are marked unknown and excluded")
     per, cands = FM.apply_unknown(per, cands, trusted); play_mask = base & trusted
     ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
-           "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"]}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
+           "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"], "unsure": meta.get("unsure", set())}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
            "per": per, "fps": fps, "cands": cands, "t0": t0, "play_mask": play_mask, "periods": periods,
            "picker_gt": [p for p in (f"{ROOT}/reference/{match_id}/ball_gt.json", f"{ROOT}/reference/{match_id}b/ball_gt.json") if os.path.exists(p)]}
     # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)

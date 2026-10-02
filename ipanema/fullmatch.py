@@ -45,7 +45,7 @@ def process_piece(full, match_id, piece, S, log=print):
 
 def join(pieces, plan_, n_total, fps):
     """piece pickles -> one context for analyse(): global frame indices, unique tracker ids, every frame present"""
-    per, H, cands = {}, {}, {}; cov = []; frozen = 0; meta = None
+    per, H, cands = {}, {}, {}; cov = []; frozen = 0; meta = None; unsure = set()
     for p, pl in zip(pieces, plan_):
         off = pl["offset"]; bump = pl["i"] * ID_STRIDE
         for k, rows in p["per"].items():
@@ -57,6 +57,7 @@ def join(pieces, plan_, n_total, fps):
         for k, c in p["cands"].items():
             if off + k < n_total: cands[off + k] = c
         cov.append(p["coverage"]); frozen += p["frozen"]; meta = meta or p
+        unsure.update(off + int(k) for k in p.get("unsure", ()) if off + int(k) < n_total)    # F1: line calibration's own unsure frames (empty otherwise)
     known = sorted(H)
     import bisect
     for g in range(n_total):                                  # frames lost at a cut: no players, nearest calibration
@@ -65,7 +66,8 @@ def join(pieces, plan_, n_total, fps):
             j = bisect.bisect_left(known, g); cand = [known[x] for x in (j - 1, j) if 0 <= x < len(known)]
             H[g] = H[min(cand, key=lambda v: abs(v - g))]
     return per, H, cands, {"coverage": float(np.mean(cov)) if cov else 0.0, "frozen": frozen, "L": meta["L"], "W": meta["W"],
-                           "width": meta["width"], "height": meta["height"], "dark_share": meta["dark_share"], "strips": meta["strips"]}
+                           "width": meta["width"], "height": meta["height"], "dark_share": meta["dark_share"], "strips": meta["strips"],
+                           "unsure": unsure}
 
 def remap_gt(src_gt, start_s, fps, dst):
     """labels of a segment cut at start_s -> the same frames in the full match"""
@@ -117,6 +119,22 @@ def apply_periods(per, H, cands, periods_s, fps, L, W):
     per2.update(reposition(mirrored, H2))
     records = [{"index": i + 1, "t_start": round(a / fps, 2), "t_end": round(b / fps, 2), "mirrored": i >= 1} for i, (a, b) in enumerate(spans)]
     return per2, H2, cands2, which >= 0, records
+
+
+def trusted_frames(n, entries, keep_line_unsure=None):
+    """F1 (2 Oct): which frames of the joined match are trusted. entries: [(piece i, offset, calib_ok mask or None, line
+    calibrated?)]. A line-calibrated piece's 'not trusted' frames are only its own unsure frames (bridged or borrowed
+    camera). Blanking them (no players, no ball guesses) cost the full SFK-BP 3 of the 34 checked balls and 44 of the 284
+    B4 balls that the 5-min clip gets right (tools/f1_sim.py). By default they are now treated as the clip treats them:
+    kept, and marked 'unsure' in the export (no pitch lines). IPANEMA_FULL_UNSURE=blank = the 2 Oct behaviour.
+    Returns (trusted bool[n], pieces with no mask)."""
+    if keep_line_unsure is None: keep_line_unsure = os.environ.get("IPANEMA_FULL_UNSURE", "keep") != "blank"
+    trusted = np.ones(n, bool); missing = []
+    for i, a, m_, is_line in entries:
+        if is_line and keep_line_unsure: continue
+        if m_ is None: missing.append(i); continue
+        b = min(n, a + len(m_)); trusted[a:b] = m_[:b - a]
+    return trusted, missing
 
 
 def apply_unknown(per, cands, ok):

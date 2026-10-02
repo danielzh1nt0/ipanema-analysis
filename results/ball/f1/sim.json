@@ -1,0 +1,152 @@
+{
+ "unsure_frames": 1170,
+ "of": 8992,
+ "key_moments_on_unsure_frames": [
+  1383,
+  2536,
+  4150
+ ],
+ "b4_of": 285,
+ "variants": {
+  "clip (nothing blanked)": {
+   "sfk34": 29,
+   "ceiling": 34,
+   "b4": 284,
+   "missed": [
+    5072,
+    6225,
+    6916,
+    7377,
+    7608
+   ],
+   "full_frame_of_missed": [
+    41036,
+    42189,
+    42880,
+    43341,
+    43572
+   ],
+   "stats": {
+    "who_has_ball_right": [
+     74,
+     99
+    ],
+    "possession_pct_dark_A": 47,
+    "loose_pct": 35,
+    "dead_pct": 21,
+    "sequences": 81,
+    "turnovers": 20,
+    "passes": 87,
+    "restarts": 13
+   }
+  },
+  "full match now (players + ball guesses blanked)": {
+   "sfk34": 26,
+   "ceiling": 31,
+   "b4": 240,
+   "missed": [
+    1383,
+    2536,
+    4150,
+    5072,
+    6225,
+    6916,
+    7377,
+    7608
+   ],
+   "full_frame_of_missed": [
+    37347,
+    38500,
+    40114,
+    41036,
+    42189,
+    42880,
+    43341,
+    43572
+   ],
+   "stats": {
+    "who_has_ball_right": [
+     74,
+     99
+    ],
+    "possession_pct_dark_A": 44,
+    "loose_pct": 32,
+    "dead_pct": 18,
+    "sequences": 79,
+    "turnovers": 21,
+    "passes": 73,
+    "restarts": 11
+   }
+  },
+  "ball guesses kept, players blanked": {
+   "sfk34": 29,
+   "ceiling": 34,
+   "b4": 284,
+   "missed": [
+    5072,
+    6225,
+    6916,
+    7377,
+    7608
+   ],
+   "full_frame_of_missed": [
+    41036,
+    42189,
+    42880,
+    43341,
+    43572
+   ],
+   "stats": {
+    "who_has_ball_right": [
+     70,
+     99
+    ],
+    "possession_pct_dark_A": 47,
+    "loose_pct": 41,
+    "dead_pct": 22,
+    "sequences": 79,
+    "turnovers": 17,
+    "passes": 73,
+    "restarts": 15
+   }
+  },
+  "players kept, ball guesses blanked": {
+   "sfk34": 26,
+   "ceiling": 31,
+   "b4": 240,
+   "missed": [
+    1383,
+    2536,
+    4150,
+    5072,
+    6225,
+    6916,
+    7377,
+    7608
+   ],
+   "full_frame_of_missed": [
+    37347,
+    38500,
+    40114,
+    41036,
+    42189,
+    42880,
+    43341,
+    43572
+   ],
+   "stats": {
+    "who_has_ball_right": [
+     74,
+     99
+    ],
+    "possession_pct_dark_A": 44,
+    "loose_pct": 32,
+    "dead_pct": 18,
+    "sequences": 79,
+    "turnovers": 21,
+    "passes": 73,
+    "restarts": 11
+   }
+  }
+ }
+}
