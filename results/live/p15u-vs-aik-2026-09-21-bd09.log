@@ -1,17 +1,28 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:25:37 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:27:12 UTC
 
 
-## run_full.log (6 lines, last 60)
+## run_full.log (7 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c005/piece_v4.pkl
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c015/piece_v4.pkl
 pieces: 21 already processed, 2 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 5 first (CPU)
+canary passed: calibration from the panorama, 19.7 players per frame
 
-## piece_005.log (2 lines, last 60)
+## piece_005.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: panorama registration cached (8992 frames)
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.5/frame
+p15u-vs-aik-2026-09-21-bd09_c005: 8992 frames, 19.7 players/frame
+
+## piece_015.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## train_ball.log (1 lines, last 60)
 
