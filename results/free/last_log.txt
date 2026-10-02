@@ -1,3 +1,23 @@
-downloading SFKBP1109_s1200
-18/18 moments cut
-18/18 moments cut
+models: ['sfk_k1_s0', 'sfk_k1_s1', 'sfk_s0', 'sfk_s1', 'scorer_all_seed0']
+p15u-vs-aik-2026-09-21-bd09_s2520 video ready 7 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 0/8992, 8 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 1000/8992, 26 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 2000/8992, 42 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 3000/8992, 60 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 4000/8992, 76 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 5000/8992, 92 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 6000/8992, 115 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 7000/8992, 136 s
+  p15u-vs-aik-2026-09-21-bd09_s2520: frame 8000/8992, 154 s
+p15u-vs-aik-2026-09-21-bd09_s2520 done 8992 frames 128467 guesses 171 s
+SFKBP1109_s1200 video ready 7 s
+  SFKBP1109_s1200: frame 0/8992, 7 s
+  SFKBP1109_s1200: frame 1000/8992, 29 s
+  SFKBP1109_s1200: frame 2000/8992, 47 s
+  SFKBP1109_s1200: frame 3000/8992, 65 s
+  SFKBP1109_s1200: frame 4000/8992, 83 s
+  SFKBP1109_s1200: frame 5000/8992, 107 s
+  SFKBP1109_s1200: frame 6000/8992, 127 s
+  SFKBP1109_s1200: frame 7000/8992, 149 s
+  SFKBP1109_s1200: frame 8000/8992, 169 s
+SFKBP1109_s1200 done 8992 frames 148878 guesses 190 s

@@ -1,0 +1,14 @@
+{
+ "clip": "SFKBP1109_s1200",
+ "frames": 8992,
+ "guesses": 148878,
+ "models": [
+  "sfk_k1_s0",
+  "sfk_k1_s1",
+  "sfk_s0",
+  "sfk_s1",
+  "scorer_all_seed0"
+ ],
+ "sheet_model": "sfk_k1_s0",
+ "seconds": 190
+}

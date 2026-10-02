@@ -1,0 +1,14 @@
+{
+ "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+ "frames": 8992,
+ "guesses": 128467,
+ "models": [
+  "sfk_k1_s0",
+  "sfk_k1_s1",
+  "sfk_s0",
+  "sfk_s1",
+  "scorer_all_seed0"
+ ],
+ "sheet_model": "sfk_k1_s0",
+ "seconds": 171
+}
