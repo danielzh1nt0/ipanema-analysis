@@ -1,30 +1,57 @@
-kernel danielmatros/ipanema-shadow-check
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shadow-check
-  0.5 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.RUNNING"
-  2.1 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/shadow_check/m00.jpg
-Output file downloaded to results/kaggle/shadow_check/m01.jpg
-Output file downloaded to results/kaggle/shadow_check/m02.jpg
-Output file downloaded to results/kaggle/shadow_check/m03.jpg
-Output file downloaded to results/kaggle/shadow_check/m04.jpg
-Output file downloaded to results/kaggle/shadow_check/m05.jpg
-Output file downloaded to results/kaggle/shadow_check/m06.jpg
-Output file downloaded to results/kaggle/shadow_check/m07.jpg
-Output file downloaded to results/kaggle/shadow_check/m08.jpg
-Output file downloaded to results/kaggle/shadow_check/m09.jpg
-Output file downloaded to results/kaggle/shadow_check/result.json
-Kernel log downloaded to results/kaggle/shadow_check/ipanema-shadow-check.log
-  ipanema-shadow-check.log 21190
-  m00.jpg 495206
-  m01.jpg 497766
-  m02.jpg 482671
-  m03.jpg 470699
-  m04.jpg 484321
-  m05.jpg 461474
-  m06.jpg 645949
-  m07.jpg 625860
-  m08.jpg 606447
-  m09.jpg 503371
-  result.json 1058
-  run.json 158
+kernel danielmatros/ipanema-track-aik
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-track-aik
+  0.5 min: danielmatros/ipanema-track-aik has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-track-aik has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-track-aik has status "KernelWorkerStatus.RUNNING"
+  5.1 min: danielmatros/ipanema-track-aik has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/track_aik/compare_0000.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0128.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0256.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0384.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0513.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0641.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0769.jpg
+Output file downloaded to results/kaggle/track_aik/compare_0898.jpg
+Output file downloaded to results/kaggle/track_aik/comparison.md
+Output file downloaded to results/kaggle/track_aik/log.txt
+Output file downloaded to results/kaggle/track_aik/new_RF-DETR_kit_A.png
+Output file downloaded to results/kaggle/track_aik/new_RF-DETR_kit_B.png
+Output file downloaded to results/kaggle/track_aik/raw_0000.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0128.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0256.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0384.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0513.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0641.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0769.jpg
+Output file downloaded to results/kaggle/track_aik/raw_0898.jpg
+Output file downloaded to results/kaggle/track_aik/rows_all.json.gz
+Output file downloaded to results/kaggle/track_aik/rows_keyframes.json
+Output file downloaded to results/kaggle/track_aik/run_info.json
+Output file downloaded to results/kaggle/track_aik/summary.json
+Kernel log downloaded to results/kaggle/track_aik/ipanema-track-aik.log
+  compare_0000.jpg 159228
+  compare_0128.jpg 173260
+  compare_0256.jpg 176259
+  compare_0384.jpg 177623
+  compare_0513.jpg 160000
+  compare_0641.jpg 163972
+  compare_0769.jpg 219207
+  compare_0898.jpg 233812
+  comparison.md 312
+  ipanema-track-aik.log 5038
+  log.txt 1177
+  new_RF-DETR_kit_A.png 140072
+  new_RF-DETR_kit_B.png 183800
+  raw_0000.jpg 271496
+  raw_0128.jpg 432321
+  raw_0256.jpg 437941
+  raw_0384.jpg 411376
+  raw_0513.jpg 385480
+  raw_0641.jpg 400908
+  raw_0769.jpg 511440
+  raw_0898.jpg 541706
+  rows_all.json.gz 95630
+  rows_keyframes.json 2563
+  run.json 152
+  run_info.json 33
+  summary.json 264

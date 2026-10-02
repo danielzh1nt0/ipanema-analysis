@@ -1,0 +1,11 @@
+09:29:30 clip .r2.dev/p15u-vs-aik-2026-09-21-bd09/video.mp4: 206756 frames @ 29.97
+09:29:48 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+09:30:37 kits: per-player classifier from 281 on-pitch people, 0 of 15 runs kept -> colour only
+09:30:37 kits: learned from 132 people (601 off the pitch left out), group sizes [39, 34, 30, 29], default fit leaves out a group at 1.03 x the team gap, far pair moves a team by 40.4, reading far/mean (neither-share tried: {'default/default': 0.242, 'far/mean': 0.288})
+09:30:37 off-pitch people dropped by the pitch-edge test: yes
+09:30:42   tracking frame 0
+09:31:38   tracking frame 500 (8.9 frames/s)
+09:32:26 clean: removed 1736 rows of non-team kits (referee / staff)
+09:32:26 clean: dropped 0 off-pitch, merged 44 duplicates, stitched 25 ids, keepers [20, 18, 214, 216] -> B defends left
+09:32:26 clean: players per frame median A 1 / B 1, max A 11 / B 13
+09:32:26 new, RF-DETR: {'observed_per_frame': {'dark': 1.0, 'light': 1.0}, 'shown_per_frame': {'dark': 2.0, 'light': 2.0}, 'tracks': 87, 'median_track_s': {'dark': 1.37, 'light': 1.55}, 'minutes': 2.6, 'filled_rows': 356}

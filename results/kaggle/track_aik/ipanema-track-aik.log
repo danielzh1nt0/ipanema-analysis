@@ -1,0 +1,35 @@
+[{"stream_name":"stdout","time":0.793633163,"data":"+ nvidia-smi --query-gpu=name --format=csv; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":11.179795291,"data":"name\n"}
+,{"stream_name":"stdout","time":11.179834217,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":11.179838546,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":11.179840972,"data":"2.10.0+cu128 True\n"}
+,{"stream_name":"stdout","time":11.180008963,"data":"\n"}
+,{"stream_name":"stdout","time":11.180022415,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":55.644674197,"data":"\n"}
+,{"stream_name":"stdout","time":55.644720637,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":85.9430341,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943087729,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 20.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943095009,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.5/395.5 kB 19.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943100612,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 65.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943105525,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943110259,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 108.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943114835,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 24.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943119501,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 88.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943124115,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 40.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943128831,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 7.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943133349,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 103.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943138249,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 3.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":85.943145767,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stdout","time":85.943153072,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":85.943184489,"data":"\n"}
+,{"stream_name":"stdout","time":85.943189074,"data":"+ python -c 'import torch;print(\"after install\", torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":88.406634466,"data":"after install 2.10.0+cu128 True\n"}
+,{"stream_name":"stdout","time":88.406689911,"data":"\n"}
+,{"stream_name":"stdout","time":267.114810759,"data":"done 0 4.4 min\n"}
+,{"stream_name":"stderr","time":269.090655884,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":269.090685865,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":269.315594139,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":269.315621733,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":269.961080735,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":271.129205035,"data":"[NbConvertApp] Writing 280618 bytes to __results__.html\n"}
+]
