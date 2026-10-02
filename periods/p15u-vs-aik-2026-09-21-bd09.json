@@ -1,2 +1,14 @@
-{"periods_s": [[366, 3390], [3950, 6899]],
- "note": "2 Oct: detected from the footage (players on the pitch + kick-off formation both halves); second-half kick-off 3950 s agrees with Veo's goal list (1-6 at 84' clip at 6268 s -> about 3988 s, +-60 s)."}
+{
+ "periods_s": [
+  [
+   366,
+   3390
+  ],
+  [
+   3950,
+   6899
+  ]
+ ],
+ "note": "2 Oct: detected from the footage (players on the pitch + kick-off formation both halves); second-half kick-off 3950 s agrees with Veo's goal list (1-6 at 84' clip at 6268 s -> about 3988 s, +-60 s). trust_all_calibration: the per-frame line check trusts only 12% of AIK frames (the clip run, which skips that check, scores the ball 30/39 and possession sensibly).",
+ "trust_all_calibration": true
+}

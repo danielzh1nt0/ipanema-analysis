@@ -285,7 +285,9 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
         log(f"periods: {[(p['t_start'], p['t_end']) for p in periods]} s; {int(play_mask.sum() / fps / 60)} min of match time kept, later halves mirrored so each team attacks the same way")
     else: log("periods: none set, the whole recording counts as match time")
     trusted = np.ones(n, bool); missing = []
-    for r, p in zip(done, pl):
+    trust_all = os.path.exists(pf) and json.load(open(pf)).get("trust_all_calibration", False)   # 2 Oct: AIK - the line-alignment check rejects ~88% of frames although the 5-min clip with the same calibration scores the ball 30/39
+    if trust_all: log("calibration: per-frame check skipped for this match (periods file: trust_all_calibration)")
+    for r, p in ([] if trust_all else zip(done, pl)):
         f = f"{ROOT}/cache/{piece_id(match_id, r['i'])}/calib_ok_v3.npy"
         if not os.path.exists(f): missing.append(r["i"]); continue
         m_ = np.load(f); a = p["offset"]; b = min(n, a + len(m_)); trusted[a:b] = m_[:b - a]
