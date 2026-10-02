@@ -1,12 +1,37 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 02:10:58 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · STOPPED AUTOMATICALLY: the fallback calibration was used although this match has a panorama calibration (piece_022.log: 'calibration: 8954 frames, keypoints on') · 02:12:40 UTC
 
 
-## run_full.log (5 lines, last 60)
+## run_full.log (30 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 22 to finish on CPU (detections saved), 1 need a GPU
 canary: piece 4 first (GPU)
 canary passed: calibration from the panorama, 19.1 players per frame
+pieces: 23/23 done in 97.8 min
+tracking frame 206756
+  piece 00: p15u-vs-aik-2026-09-21-bd09_c000: 8992 frames, 14.6 players/frame
+  piece 01: p15u-vs-aik-2026-09-21-bd09_c001: 8992 frames, 18.0 players/frame
+  piece 02: p15u-vs-aik-2026-09-21-bd09_c002: 8992 frames, 18.1 players/frame
+  piece 03: p15u-vs-aik-2026-09-21-bd09_c003: cached
+  piece 04: p15u-vs-aik-2026-09-21-bd09_c004: 8992 frames, 19.1 players/frame
+  piece 05: p15u-vs-aik-2026-09-21-bd09_c005: cached
+  piece 06: p15u-vs-aik-2026-09-21-bd09_c006: 8992 frames, 19.3 players/frame
+  piece 07: p15u-vs-aik-2026-09-21-bd09_c007: 8992 frames, 18.1 players/frame
+  piece 08: p15u-vs-aik-2026-09-21-bd09_c008: 8992 frames, 15.9 players/frame
+  piece 09: p15u-vs-aik-2026-09-21-bd09_c009: 8992 frames, 20.2 players/frame
+  piece 10: p15u-vs-aik-2026-09-21-bd09_c010: 8992 frames, 15.3 players/frame
+  piece 11: p15u-vs-aik-2026-09-21-bd09_c011: 8992 frames, 17.1 players/frame
+  piece 12: p15u-vs-aik-2026-09-21-bd09_c012: 8992 frames, 15.4 players/frame
+  piece 13: p15u-vs-aik-2026-09-21-bd09_c013: 8992 frames, 17.7 players/frame
+  piece 14: p15u-vs-aik-2026-09-21-bd09_c014: 8992 frames, 17.9 players/frame
+  piece 15: p15u-vs-aik-2026-09-21-bd09_c015: cached
+  piece 16: p15u-vs-aik-2026-09-21-bd09_c016: 8992 frames, 17.5 players/frame
+  piece 17: p15u-vs-aik-2026-09-21-bd09_c017: 8992 frames, 17.3 players/frame
+  piece 18: p15u-vs-aik-2026-09-21-bd09_c018: 8992 frames, 20.4 players/frame
+  piece 19: p15u-vs-aik-2026-09-21-bd09_c019: 8992 frames, 16.9 players/frame
+  piece 20: p15u-vs-aik-2026-09-21-bd09_c020: 8992 frames, 18.7 players/frame
+  piece 21: p15u-vs-aik-2026-09-21-bd09_c021: 8992 frames, 18.7 players/frame
+  piece 22: p15u-vs-aik-2026-09-21-bd09_c022: 8954 frames, 18.0 players/frame
 
 ## piece_000.log (15 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -370,7 +395,7 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.5/frame
 p15u-vs-aik-2026-09-21-bd09_c021: 8992 frames, 18.7 players/frame
 
-## piece_022.log (21 lines, last 60)
+## piece_022.log (27 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c022 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8954 frames (299 s)
 calibration: too few anchors
@@ -392,6 +417,12 @@ calibration: too few anchors
   calibration frame 7500
   calibration frame 8000
   calibration frame 8500
+calibration: 8954 frames, keypoints on 39%, 5339 carried by feature tracking, 163 frozen
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.2 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.9/frame
+p15u-vs-aik-2026-09-21-bd09_c022: 8954 frames, 18.0 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
