@@ -232,7 +232,14 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     for line in train_ball.remote(match_id): log("  " + line)
     from ipanema.fullmatch import piece_id, PIECE_FILE
     cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
-    cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}") and os.path.getsize(f"{cdir(p)}/{PIECE_FILE}") > 10000]   # 2 Oct: an empty file = a piece cut off mid-write
+    def _piece_ok(f):                                                        # 2 Oct: a piece file cut off mid-write (stopped run) is removed and redone
+        if not os.path.exists(f): return False
+        try:
+            with open(f, "rb") as fh: pickle.load(fh)
+            return True
+        except Exception:
+            log(f"broken piece file removed: {f}"); os.remove(f); vol.commit(); return False
+    cached = [p for p in plan_ if _piece_ok(f"{cdir(p)}/{PIECE_FILE}")]
     todo = [p for p in plan_ if p not in cached]
     detected = lambda p: (os.path.exists(f"{cdir(p)}/tracks_kp.pkl") or os.path.exists(f"{cdir(p)}/tracks_rfdetr_v1.pkl") or bool(glob.glob(f"{cdir(p)}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{cdir(p)}/ball_cands_wasb_*_t2x2*.pkl"))
     cpu_todo = [p for p in todo if detected(p)]; gpu_todo = [p for p in todo if not detected(p)]
@@ -244,7 +251,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
         cp = next(p for p in todo if p["i"] == ci); fn = run_piece_cpu if cp in cpu_todo else run_piece
         log(f"canary: piece {ci} first ({'CPU' if fn is run_piece_cpu else 'GPU'})")
         r = fn.remote(match_id, cp, full)
-        ok, why = FM.canary_ok(r.get("log") or [], os.path.exists(f"/content/ipanema-analysis/calibration/{match_id}.json"))
+        ok, why = FM.canary_ok(r.get("log") or [], os.path.exists(f"/content/ipanema-analysis/calibration/{match_id}.json") and ci != plan_[-1]["i"])   # 2 Oct: the last piece may run past the final whistle
         if not (r.get("ok") and ok):
             log(f"CANARY FAILED on piece {ci}: {why}; the other {len(todo) - 1} pieces were not started")
             for line in (r.get("log") or [])[-12:]: log("  " + line)

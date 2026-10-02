@@ -74,7 +74,7 @@ def main():
     kind, mid = sys.argv[1], sys.argv[2]
     if kind == "collect": return collect(mid)
     R2 = os.environ["R2_PUBLIC_URL"]; base = re.sub(r"_(seg|s|c)\d+$", "", mid)
-    check_fallback = os.path.exists(f"calibration/{base}.json")
+    check_fallback = os.path.exists(f"calibration/{base}.json") and "[allow-fallback]" not in os.environ.get("MSG", "")   # 2 Oct: AIK's last piece (after the final whistle) can't register to the panorama
     vol = modal.Volume.from_name("ipanema-data"); since = time.time()
     fn = modal.Function.from_name("ipanema", "run_full" if kind == "full" else "run_match")
     call = fn.spawn(mid, f"{R2}/{mid}/video.mp4")
