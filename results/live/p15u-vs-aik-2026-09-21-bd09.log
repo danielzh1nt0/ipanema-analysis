@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:07:52 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:09:26 UTC
 
 
-## run_full.log (38 lines, last 60)
+## run_full.log (44 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 23 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -40,6 +40,12 @@ tracking frame 206756
   calibration check piece 7: {'checks': 900, 'good': 78, 'bad': 822, 'unjudged': 0, 'trusted_pct': 7.1, 'i': 7}
   calibration check piece 8: {'checks': 900, 'good': 145, 'bad': 755, 'unjudged': 0, 'trusted_pct': 14.1, 'i': 8}
   calibration check piece 9: {'checks': 900, 'good': 131, 'bad': 769, 'unjudged': 0, 'trusted_pct': 11.6, 'i': 9}
+  calibration check piece 10: {'checks': 900, 'good': 173, 'bad': 727, 'unjudged': 0, 'trusted_pct': 17.6, 'i': 10}
+  calibration check piece 11: {'checks': 900, 'good': 99, 'bad': 801, 'unjudged': 0, 'trusted_pct': 10.3, 'i': 11}
+  calibration check piece 12: {'checks': 900, 'good': 72, 'bad': 828, 'unjudged': 0, 'trusted_pct': 7.4, 'i': 12}
+  calibration check piece 13: {'checks': 900, 'good': 176, 'bad': 724, 'unjudged': 0, 'trusted_pct': 18.7, 'i': 13}
+  calibration check piece 14: {'checks': 900, 'good': 228, 'bad': 672, 'unjudged': 0, 'trusted_pct': 21.3, 'i': 14}
+  calibration check piece ?: Ran out of input
 
 ## train_ball.log (1 lines, last 60)
 
