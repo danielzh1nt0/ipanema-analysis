@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:46:58 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:48:31 UTC
 
 
-## run_full.log (42 lines, last 60)
+## run_full.log (55 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 pieces: 23 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -44,6 +44,19 @@ ball v2: 166599/206756 frames on the path, 18646 static-clutter candidates dropp
 ball check: 26/39 correct, 13 wrong, 0 no pick (ceiling 39/39)
 ball: dropped 13958 static-clutter candidates
 ball (global path): 148009/206756 frames on the chosen path
+ball check (other picker, v1): 13/39 correct, ceiling 39/39
+ball: dropped 13958 static-clutter candidates
+ball (global path): 148009/206756 frames on the chosen path
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 40/62, other 22/62, ceiling 51
+possession: simple model (nearest feet in the picture); 45% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A ←  B →  confidence A 0.03 / B 0.01  WARNING low confidence
+direction (from keepers): A ←  B →
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
 
 ## train_ball.log (1 lines, last 60)
 
