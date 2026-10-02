@@ -5,7 +5,7 @@ lines = [f"# Nightly check {d}", "", "| Check | Result |", "|---|---|"]
 t = q.get("tests", {}); lines.append(f"| Tests | {t.get('total', '?') - len(t.get('failed', []))}/{t.get('total', '?')} pass" + (f" — FAILED: {', '.join(t['failed'])}" if t.get("failed") else "") + " |")
 b = q.get("ball_34_moments", {}); lines.append(f"| Ball, 34 checked moments | {b.get('right', '?')}/{b.get('of', '?')} (best possible {b.get('best_possible', '?')}) |")
 s = q.get("stats_pro_data", {}); lines.append(f"| Stats on pro data (worst half) | passes {s.get('worst_pass_err_pct', '?')}% off, possession {s.get('worst_poss_err_pts', '?')} pts off |")
-if "sequences_found_pct" in s: lines.append(f"| Sequences on pro data (all halves) | {s['sequences_found_pct']}% of real ones found, {s['sequences_real_pct']}% of ours real |")
+if "sequences_found_pct" in s: lines.append(f"| Sequences on pro data (all halves) | {s['sequences_found_pct']}% of real ones found, {s['sequences_real_pct']}% of ours real (since 3 Oct counted on the spell state like the app, S6: expect ~8 pts fewer found than before (47 -> 40%), not a regression) |")
 if s.get("possession_model") == "simple": lines.append("| Note | From 29 Sep the pro-data stats use the pipeline's possession model (possession_simple), not the old one; numbers before that date are not comparable (E5) |")
 for f in sorted(glob.glob("results/qa/tracktest*/summary.json")):
     r = json.load(open(f)); v = r.get("new, RF-DETR")

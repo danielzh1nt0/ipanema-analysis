@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ipanema import possession as P, analytics as AN
 
 L, W, FPS = 105.0, 68.0, 25.0
+FLICK_P, FLICK_R, FLICK_S = 0.02, 10.0, (0.3, 0.6)   # S6 "flicker" noise: chance per frame that the ball dot hops to the nearest opponent (within 10 m of the ball) for 0.3-0.6 s. Metrica: 17 raw team switches per min, raw state agrees with the clean one on 78% of held frames (our clips: 82/99 who-has-the-ball, 35-41 switches). Heavy test (tools/s6lab.py): 0.1, 10, (0.3, 1.0) = 28 per min, 48%
 
 def load_tracking(path, team):
     rows = list(csv.reader(open(path))); hdr = rows[2]; out = {}
@@ -66,8 +67,9 @@ def truth_sequences(ev, per):
     if cur: out.append(cur)
     return out
 
-def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True, mode=None):
-    """E5 (29 Sep): the possession state comes from P.pipeline_state, as in ipanema/run.py (default possession_simple,
+def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True, mode=None, spell_take=None, spell_join=None):
+    """S6 (2 Oct): sequences and balls lost read P.spell_state like ipanema/run.py since S8 (spell_take=0 = raw state,
+    None = the pipeline default). E5 (29 Sep): the possession state comes from P.pipeline_state, as in ipanema/run.py (default possession_simple,
     'feet' = metres because H = identity; mode='viterbi' or IPANEMA_POSSESSION=viterbi = the old model, which the
     nightly scored until 29 Sep). Set pieces and dead time come from the old model's dead runs, as in the pipeline."""
     rng = random.Random(seed); ks = sorted(k for k in frames if frames[k][0] == per); k0 = ks[0]
@@ -75,7 +77,7 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     for i, k in enumerate(ks):
         _, ps, b = frames[k]
         rows = [[pid, "A" if pid < 200 else "B", np.array([x, y]), None, None, False] for pid, x, y in ps]
-        if noisy:                                                              # what our Veo follow-cam delivers (measured 27-28 Sep)
+        if noisy and noisy != "flicker":                                       # what our Veo follow-cam delivers (measured 27-28 Sep)
             rows = [r for r in rows if rng.random() < 0.65]                     # ~7 of 11 per team visible
             for r in rows: r[2] = r[2] + np.array([rng.gauss(0, 0.8), rng.gauss(0, 0.8)])
         for r in rows: r[3] = r[2]                                             # 'pixel' feet = metres (H = identity)
@@ -91,6 +93,14 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
             if noisy == "streak":
                 if run[1] == "miss": continue
                 bm = bm + (run[2] if run[1] == "wrong" else np.array([rng.gauss(0, 0.7), rng.gauss(0, 0.7)]))
+            elif noisy == "flicker":                                             # S6: the ball dot hops to a nearby other player for
+                if run[0] <= 0 and rng.random() < FLICK_P:                       # 0.3-1.0 s (our clips: state flips 27-33 per minute)
+                    run[0] = int(rng.uniform(FLICK_S[0], FLICK_S[1]) * FPS) + 1
+                if run[0] > 0:                                                   # hop to the nearest player of the OTHER team than
+                    run[0] -= 1; d = sorted((float(np.hypot(x - b[0], y - b[1])), pid, x, y) for pid, x, y in ps)   # the one on the ball
+                    o = next((q for q in d[1:] if (q[1] < 200) != (d[0][1] < 200)), None) if d else None
+                    if o is not None and o[0] < FLICK_R: bm = np.array([o[2], o[3]])
+                bm = bm + np.array([rng.gauss(0, 0.7), rng.gauss(0, 0.7)])
             elif noisy:
                 u = rng.random()
                 if u < 0.25: continue                                           # ball not found
@@ -102,8 +112,9 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     state, bspeed, dstate, info = P.pipeline_state(perd, {k: tuple(v) for k, v in ball_px.items()}, bm, H, FPS, L, W, mode=mode, log=lambda *a: None)
     ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or {"A": True, "B": False}
     rst = P.restarts(dstate, bm, FPS, L, W)
-    tvs = P.turnovers(perd, frames_, state, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
-    seqs = P.sequences(state, bm, bspeed, FPS, L, ar, **info["seq"])
+    cstate = P.spell_state(state, FPS, P.SPELL_TAKE_S if spell_take is None else spell_take, P.SPELL_JOIN_S if spell_join is None else spell_join)
+    tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
+    seqs = P.sequences(cstate, bm, bspeed, FPS, L, ar, **info["seq"])
     ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich)
     st = np.asarray(state)
     live = np.isin(st, [0, 1]).sum()
@@ -112,7 +123,13 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
             "balls_lost": {"Home": sum(t["lost_by"] == "A" for t in tvs), "Away": sum(t["lost_by"] == "B" for t in tvs)},
             "possession_pct": {"Home": round(100 * (st == 0).sum() / max(1, live)), "Away": round(100 * (st == 1).sum() / max(1, live))},
             "dead_pct": round(100 * (np.asarray(dstate) == 3).mean()), "mode": info["mode"],
-            "sequences": len(seqs), "sequence_starts": [(k0 + s["start"], s["team"]) for s in seqs]}
+            "sequences": len(seqs), "sequence_starts": [(k0 + s["start"], s["team"]) for s in seqs],
+            "switches_per_min_raw": switches_per_min(state, FPS), "switches_per_min": switches_per_min(cstate, FPS)}
+
+def switches_per_min(st, fps):
+    """S6: team changes per minute, loose/dead frames skipped (A, loose, B = one switch); our clips: 35-41 raw, 4-5 spell"""
+    t = [int(x) for x in np.asarray(st) if x < 2]
+    return round(sum(1 for a, b in zip(t, t[1:]) if a != b) / max(1e-6, len(st) / fps / 60), 1)
 
 def seq_found(truth, ours_starts, tol=2 * FPS):
     """E5: true sequences whose start has one of ours (same team) within +-2 s -> (found, ours that are real)"""
