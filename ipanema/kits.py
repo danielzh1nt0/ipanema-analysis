@@ -43,10 +43,45 @@ def grass_lab(frame):
     h = frame.shape[0]; lab = cv2.cvtColor(frame[int(0.66 * h):], cv2.COLOR_BGR2LAB).reshape(-1, 3)[::7].astype(float)
     return np.median(lab, axis=0)
 
-def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=False, stat=None):
+def local_grass_L(frame, box, grass=None, hue_d=30.0, min_chroma=0.35, min_px=40):
+    """F1c (2 Oct): lightness of the grass right around this person's feet (sun or shadow there). Grass = pixels with this
+    pitch's grass HUE in a*b* (within 30 degrees) and at least 35% of its chroma: grass in hard shadow keeps its hue but
+    loses chroma and lightness, so the colour distance of pitch_top would miss it. Box widened by one box width each side,
+    lower 40% of the box down to 15% below the feet. None when too little grass is seen (crowd, frame edge, grey pitch)."""
+    H, W = frame.shape[:2]; x1, y1, x2, y2 = [float(v) for v in box]; w, h = max(4.0, x2 - x1), max(8.0, y2 - y1)
+    c = frame[int(max(0, y1 + 0.6 * h)):int(min(H, y2 + 0.15 * h)) + 1, int(max(0, x1 - w)):int(min(W, x2 + w)) + 1]
+    if c.size == 0: return None
+    g = grass_lab(frame) if grass is None else grass
+    ga, gb = g[1] - 128.0, g[2] - 128.0; gc = np.hypot(ga, gb)
+    if gc < 4: return None
+    lab = cv2.cvtColor(c, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float); a, b = lab[:, 1] - 128.0, lab[:, 2] - 128.0
+    dh = np.degrees(np.abs(np.angle(np.exp(1j * (np.arctan2(b, a) - np.arctan2(gb, ga))))))
+    m = (dh <= hue_d) & (np.hypot(a, b) >= min_chroma * gc)
+    return float(np.median(lab[m, 0])) if m.sum() >= min_px else None
+
+LOCAL_REF_L = 110.0     # F1c: grass lightness every reading is brought to (a fixed value, so frames that are mostly shade
+                        # and frames that are mostly sun give the same number for the same shirt)
+
+SHADE_SPREAD = 2.4     # F1c auto gate: p90/p10 of (grass at the feet / frame grass) over the fitting people
+
+def light_mode():
+    """F1c: 'auto' (default for KitTeamModel: 'local' when the match has hard sun/shade, else 'frame'), 'frame' (torso
+    lightness as is, the reading before 2 Oct) or 'local' (relative to the grass at the feet). Env IPANEMA_KIT_LIGHT.
+    Plain torso_feature/body_hist calls treat 'auto' as 'frame' (only a fitted model knows the match's light)."""
+    return os.environ.get("IPANEMA_KIT_LIGHT", "auto")
+
+def shade_spread(kept):
+    """F1c: how unevenly lit the players are: p90/p10 of the grass lightness at their feet relative to the frame's grass.
+    AIK full match (sun + hard shadow) 2.85; Spånga night 1.96, Reymersholm night 1.54, SFK-BP 1.15-1.23 (clip / full)."""
+    r = [gl / g[0] for f, b, g in kept for gl in [local_grass_L(f, b, g)] if gl and g[0] > 5]
+    return float(np.percentile(r, 90) / max(1e-6, np.percentile(r, 10))) if len(r) >= 20 else 1.0
+
+def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=False, stat=None, light=None):
     """median torso colour with THIS pitch's grass removed (28 Sep: removing all green would delete a green kit).
     green_kit (P4, 28 Sep night): if most of the torso reads as grass, it IS the shirt (green kit under floodlights) ->
-    keep those pixels instead of what is left (shorts, numbers, skin looked like the white team)."""
+    keep those pixels instead of what is left (shorts, numbers, skin looked like the white team).
+    light='local' (F1c): lightness read relative to the grass at the player's feet (shirt L x LOCAL_REF_L / local grass L),
+    so a white shirt in hard shadow and a dark shirt in sun no longer meet in the middle (AIK, results/qa/f1b)."""
     x1, y1, x2, y2 = [float(v) for v in box]; w, h = x2 - x1, y2 - y1
     c = frame[int(y1 + 0.20 * h):int(y1 + 0.48 * h), int(x1 + 0.30 * w):int(x1 + 0.70 * w) + 1]
     if c.size == 0: return None
@@ -60,9 +95,12 @@ def torso_feature(frame, box, grass=None, min_px=6, grass_d=16.0, green_kit=Fals
     if stat == "mean": L, a, b = lab.mean(axis=0)
     elif stat == "trim": lo, hi = np.percentile(lab, [10, 90], axis=0); L, a, b = [lab[(lab[:, i] >= lo[i]) & (lab[:, i] <= hi[i]), i].mean() for i in range(3)]
     else: L, a, b = np.median(lab, axis=0)
-    return np.array([L / 2.5, a - 128.0, b - 128.0])                          # lightness counts less than colour (shadows)
+    if (light or light_mode()) == "local":
+        gl = local_grass_L(frame, box, g)
+        if gl is not None and gl > 5: L = float(np.clip(L * LOCAL_REF_L / gl, 0, 255))
+    return np.array([L / 2.5, a - 128.0, b - 128.0])                         # lightness counts less than colour (shadows)
 
-def body_hist(frame, box, bins=5):
+def body_hist(frame, box, bins=5, light=None):
     """P8 (29 Sep): colour histogram of the upper body (shirt area incl. its edges), lightness scaled by this frame's grass,
     square-rooted. A blurred floodlit white shirt has a torso MEDIAN between the kits, but still many bright pixels -
     the histogram keeps that. 5x5x5 bins (L, a, b)."""
@@ -70,6 +108,9 @@ def body_hist(frame, box, bins=5):
     c = frame[int(max(0, y1 + 0.12 * h)):int(max(0, y1 + 0.55 * h)), int(max(0, x1 + 0.15 * w)):int(max(0, x1 + 0.85 * w)) + 1]
     if c.size == 0: return None
     lab = cv2.cvtColor(c, cv2.COLOR_BGR2LAB).reshape(-1, 3).astype(float); gL = grass_lab(frame)[0]
+    if (light or light_mode()) == "local":                                   # F1c: scale by the grass at the feet
+        gl = local_grass_L(frame, box)
+        if gl is not None and gl > 5: gL = gl
     Ln = np.clip(lab[:, 0] / (2 * gL + 1e-6), 0, 0.999); a = np.clip((lab[:, 1] - 88) / 80, 0, 0.999); b = np.clip((lab[:, 2] - 88) / 80, 0, 0.999)
     idx = (Ln * bins).astype(int) * bins * bins + (a * bins).astype(int) * bins + (b * bins).astype(int)
     return np.sqrt(np.bincount(idx, minlength=bins ** 3) / len(idx))
@@ -230,9 +271,15 @@ class KitTeamModel:
                 if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
                 kept.append((f, b, g))
         auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
+        # F1c (2 Oct): in hard sun + shade read lightness relative to the grass at the feet (AIK full: 130 -> 234/254
+        # players in the right team); night and even-light grounds stay on the old reading (gate below 2.4)
+        # spread over everyone tall enough, before the pitch test: on AIK the grass test keeps mostly people in the shade
+        # (the frame's grass reference is the shaded lower third), which hides the sun/shade split (1.22 vs 2.85)
+        lm = light_mode(); self.shade = round(shade_spread([(f, b, grass_lab(f)) for f, bs in frames_boxes for b in bs if b[3] - b[1] >= 22]), 2) if lm == "auto" else None
+        self.light = ("local" if self.shade >= SHADE_SPREAD else "frame") if lm == "auto" else lm
         self.choice = {}; self.choice_missed = 0.0; self.pair_shift = 0.0
         def samples(stat):
-            smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat)) for f, b, g in kept]; return [x for x in smp if x[2] is not None]
+            smp = [(f, b, torso_feature(f, b, g, green_kit=green_kit, stat=stat, light=self.light)) for f, b, g in kept]; return [x for x in smp if x[2] is not None]
         def share(m, smp): return round(float(np.mean([classify(m, x[2]) == "other" for x in smp])), 3)
         smp = samples(None); m = fit([x[2] for x in smp]); self.choice_missed = m.get("missed", 0.0); self.choice["default/default"] = share(m, smp)
         best = (None, m, smp, None, None)
@@ -252,7 +299,7 @@ class KitTeamModel:
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
         self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"
-                             + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap, far pair moves a team by {self.pair_shift}" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
+                             + (f", light {self.light} (shade spread {self.shade:.1f})" if self.shade is not None else f", light {self.light}") + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap, far pair moves a team by {self.pair_shift}" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
         """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
         Hs, labs = [], []
@@ -260,7 +307,7 @@ class KitTeamModel:
             g = grass_lab(f); top = pitch_top(f)
             for b in boxes:
                 if b[3] - b[1] < 22 or not feet_on_pitch(f, b, top): continue
-                h, c = body_hist(f, b), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit, stat=getattr(self, "stat", None)))
+                h, c = body_hist(f, b, light=self.light), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit, stat=getattr(self, "stat", None), light=self.light))
                 if h is not None and c in ("A", "B"): Hs.append(h); labs.append(c)
         self.cls = fit_player_cls(Hs, labs)
         log(f"kits: per-player classifier from {len(Hs)} on-pitch people, {len(self.cls)} of 15 runs kept" + ("" if self.cls else " -> colour only"))
@@ -278,13 +325,13 @@ class KitTeamModel:
         return c
     def predict_batch(self, frame, xyxys):
         g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
-        cls = getattr(self, "cls", None)
-        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None)), body_hist(frame, b) if cls else None) for b in xyxys]
+        cls = getattr(self, "cls", None); lt = getattr(self, "light", "frame")
+        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None), light=lt), body_hist(frame, b, light=lt) if cls else None) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}
         for t in ("A", "B"):
-            cs = [cv2.resize(f[int(b[1]):int(b[3]), int(b[0]):int(b[2])], (48, 72)) for f, b, ft in self.samples if self._lab(ft, body_hist(f, b) if self.cls else None) == t and b[3] - b[1] > 30][:24]
+            cs = [cv2.resize(f[int(b[1]):int(b[3]), int(b[0]):int(b[2])], (48, 72)) for f, b, ft in self.samples if self._lab(ft, body_hist(f, b, light=getattr(self, "light", "frame")) if self.cls else None) == t and b[3] - b[1] > 30][:24]
             cs = cs or [np.zeros((72, 48, 3), np.uint8)]
             while len(cs) % 12: cs.append(np.zeros_like(cs[0]))
             self.strips[t] = np.vstack([np.hstack(cs[r:r + 12]) for r in range(0, len(cs), 12)])
@@ -293,10 +340,10 @@ class KitTeamModel:
 def match_team(model, f, b, g=None):
     """the team (A/B) a kit model gives a person when it must choose one: nearest team colour, no 'neither' (a piece in
     strong sun may sit outside the match model's 'neither' limit for everyone, yet still be nearer its own team)"""
-    h = body_hist(f, b) if getattr(model, "cls", None) else None
+    lt = getattr(model, "light", "frame"); h = body_hist(f, b, light=lt) if getattr(model, "cls", None) else None
     if h is not None: c = "B" if player_cls_prob(model.cls, h) > 0.5 else "A"
     else:
-        x = torso_feature(f, b, g if g is not None else grass_lab(f), green_kit=getattr(model, "green_kit", False), stat=getattr(model, "stat", None))
+        x = torso_feature(f, b, g if g is not None else grass_lab(f), green_kit=getattr(model, "green_kit", False), stat=getattr(model, "stat", None), light=lt)
         if x is None: return None
         ta, tb = model.model["teams"]; c = "A" if np.linalg.norm(x - ta) <= np.linalg.norm(x - tb) else "B"
         if model.swap: c = "B" if c == "A" else "A"
@@ -319,7 +366,7 @@ def piece_model(frames_boxes, match, log=print, min_people=20, min_votes=8, min_
     if len(pm.samples) < min_people: info["fallback"] = "too few people"; return match, info
     grass = {}
     for f, b, ft in pm.samples:
-        p = pm._lab(ft, body_hist(f, b) if pm.cls else None)
+        p = pm._lab(ft, body_hist(f, b, light=pm.light) if pm.cls else None)
         if p not in ("A", "B"): continue
         g = grass.setdefault(id(f), grass_lab(f)); m = match_team(match, f, b, g)
         if m in ("A", "B"): info["same" if p == m else "cross"] += 1
