@@ -27,6 +27,8 @@ def homography(camera, pose, w, h, L=106.0, W=64.0):
 def find_rows(root, match_id):
     """(base match id, offset seconds, rows path) or None"""
     m = re.match(r"^(.*?)_s(\d+)$", match_id); base, off = (m.group(1), float(m.group(2))) if m else (match_id, 0.0)
+    c = re.match(r"^(.*?)_c(\d{3})$", match_id)                               # 2 Oct: a 5-min piece of a full match (fullmatch.PIECE_S)
+    if c and not m: base, off = c.group(1), float(int(c.group(2)) * 300)
     for d in (root, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "calibration")):
         p = os.path.join(d, "calibration", f"{base}_lines_match.json") if d == root else os.path.join(d, f"{base}_lines_match.json")
         if os.path.exists(p): return base, off, p

@@ -7,7 +7,7 @@ import os, json, pickle, subprocess, numpy as np
 
 PIECE_S = 300
 ID_STRIDE = 100_000     # tracker ids of piece i become i * ID_STRIDE + id
-PIECE_FILE = "piece_v3.pkl"   # v3 (1 Oct): new players + new ball (rf_full) and the tuned picker inputs; v2 = old detectors. v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
+PIECE_FILE = "piece_v4.pkl"   # v4 (2 Oct): pieces use the match line calibration when there is one (v3 used panorama registration: only 32% of SFK-BP frames trusted). v3 (1 Oct): new players + new ball (rf_full) and the tuned picker inputs; v2 = old detectors. v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
 
 def video_info(path):
     import cv2
@@ -37,7 +37,8 @@ def process_piece(full, match_id, piece, S, log=print):
     ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece["i"] in (0, 4, 10, 16)))
     keep = {"per": ctx["per"], "H": {k: (v if hasattr(v, "to_m") else np.asarray(v, np.float32)) for k, v in ctx["H"].items()}, "cands": ctx["cands"], "fps": ctx["fps"],
             "n": ctx["vi"]["n"], "L": ctx["L"], "W": ctx["W"], "coverage": ctx["cal"]["coverage"], "frozen": ctx["cal"]["frozen"],
-            "dark_share": getattr(ctx["tm"], "dark_share", None), "strips": getattr(ctx["tm"], "strips", None), "width": ctx["vi"]["width"], "height": ctx["vi"]["height"]}
+            "dark_share": getattr(ctx["tm"], "dark_share", None), "strips": getattr(ctx["tm"], "strips", None), "width": ctx["vi"]["width"], "height": ctx["vi"]["height"],
+            "unsure": sorted(int(x) for x in ctx["cal"].get("unsure", ()))}            # 2 Oct: line calibration's own 'not sure' frames
     os.makedirs(os.path.dirname(out), exist_ok=True); pickle.dump(keep, open(out, "wb"))
     log(f"{pid}: {ctx['vi']['n']} frames, {sum(len(v) for v in ctx['per'].values()) / max(1, len(ctx['per'])):.1f} players/frame")
     return out
