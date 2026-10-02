@@ -1,2 +1,14 @@
-{"periods_s": [[0, 3060], [3733, 5940]],
- "note": "first half 0:00-51:00 and full time 1:39:00 from the coach; second-half kick-off 1:02:13 (+-30 s) from Veo: goals 2-0 (57') at 1:13:42 and 2-1 (77') at 1:33:44 both put it in 1:01:44-1:02:42. The coach's 58:29 was when players came back out."}
+{
+ "periods_s": [
+  [
+   0,
+   3060
+  ],
+  [
+   3733,
+   5940
+  ]
+ ],
+ "note": "first half 0:00-51:00 and full time 1:39:00 from the coach; second-half kick-off 1:02:13 (+-30 s) from Veo: goals 2-0 (57') at 1:13:42 and 2-1 (77') at 1:33:44 both put it in 1:01:44-1:02:42. The coach's 58:29 was when players came back out. | 2 Oct: trust_all_calibration - the 5-min clip run (ball 29/34) keeps the line calibration's bridged frames; dropping them in the full match removed the ball in 4 of the 34 checked moments (25/34, best possible 30).",
+ "trust_all_calibration": true
+}

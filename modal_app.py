@@ -654,6 +654,42 @@ def rf_full(match_id: str, canary_only: bool = False, video_url: str = ""):
     out.update(ok=not bad, done=len(res) - len(bad) + 1, failed=bad, minutes=round((time.time() - t0) / 60, 1)); return out
 
 
+@app.function(timeout=30 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384)
+def qa_frames(match_id: str, n: int = 12):
+    """2 Oct: by-eye check of a match as the app shows it: n moments spread over the playing time, each the video frame with
+    the exported ball (yellow ring) and players (red = A, blue = B, white = unknown) drawn on, plus the possession label."""
+    import json, base64, cv2, numpy as np
+    _setup()
+    root = f"{ROOT}/runs/matches/{match_id}"; md = json.load(open(f"{root}/match_data.json"))
+    full = _full_video(match_id) or f"{ROOT}/videos/{match_id}.mp4"; cap = cv2.VideoCapture(full); fps = md["fps"]
+    spans = [(p["t_start"], p["t_end"]) for p in (md.get("periods") or [])] or [(0, md.get("duration_s") or cap.get(7) / fps)]
+    tot = sum(b - a for a, b in spans); ts = []
+    for j in range(n):
+        x = (j + 0.5) / n * tot
+        for a, b in spans:
+            if x <= b - a: ts.append(a + x); break
+            x -= b - a
+    frames = {}
+    for ch in md.get("frame_chunks") or []:
+        if any(ch["t_start"] - 1 <= t <= ch["t_end"] + 1 for t in ts):
+            for f in json.load(open(f"{root}/{ch['key']}.json"))["frames"]: frames[round(f["t"], 3)] = f
+    for f in md.get("frames") or []: frames[round(f["t"], 3)] = f
+    keys = np.array(sorted(frames)); out = {}; rows = []
+    for j, t in enumerate(ts):
+        ft = keys[np.argmin(np.abs(keys - t))]; f = frames[ft]
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(ft * fps))); ok, img = cap.read()
+        if not ok: continue
+        img = cv2.resize(img, (1920, 1080))
+        for p in f.get("players") or []:
+            c = (0, 0, 255) if p["team"] == "A" else (255, 120, 0) if p["team"] == "B" else (255, 255, 255)
+            cv2.circle(img, (int(p["px"][0]), int(p["px"][1])), 9, c, -1)
+        b = f.get("ball")
+        if b: cv2.circle(img, (int(b["px"][0]), int(b["px"][1])), 18, (0, 255, 255), 3)
+        lab = f"t={ft:.0f}s possession={f.get('possession')} phase={f.get('phase')} ball={'yes' if b else 'none'} players A={sum(p['team'] == 'A' for p in f.get('players') or [])} B={sum(p['team'] == 'B' for p in f.get('players') or [])}"
+        cv2.rectangle(img, (0, 0), (1920, 44), (0, 0, 0), -1); cv2.putText(img, f"#{j} " + lab, (10, 32), 0, 1.0, (255, 255, 255), 2)
+        ok2, enc = cv2.imencode(".jpg", cv2.resize(img, (1280, 720)), [cv2.IMWRITE_JPEG_QUALITY, 82]); out[f"m{j:02d}.jpg"] = base64.b64encode(enc).decode(); rows.append(lab)
+    return {"ok": True, "moments": rows, "files": out}
+
 @app.function(gpu="L4", timeout=40 * 60, volumes={"/data": vol}, cpu=4.0, memory=16384, max_containers=10)
 def wasb_piece(pid: str):
     """2 Oct: WASB ball guesses (cut-off 0.05, as the app run asks for them) for one piece on a GPU, written to the exact

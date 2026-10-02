@@ -530,6 +530,25 @@ jobs:
               sk = re.search(r"\[skip:([0-9,]+)\]", os.environ["MSG"]); skip = [int(x) for x in sk.group(1).split(",")] if sk else []
               c = modal.Function.from_name("ipanema", "wasb_full").spawn(m, skip); print("spawned wasb_full", m, skip, c.object_id)
           PY
+      - name: by-eye pictures of a match as exported (commit tagged [qa-frames:<match>]) - CPU, cents
+        if: contains(github.event.head_commit.message, '[qa-frames:')
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+          MSG: ${{ github.event.head_commit.message }}
+        run: |
+          python - <<'PY'
+          import modal, os, re, json, base64
+          for m in re.findall(r"\[qa-frames:([A-Za-z0-9_.-]+)\]", os.environ["MSG"]):
+              try: out = modal.Function.from_name("ipanema", "qa_frames").remote(m)
+              except Exception as e:
+                  import traceback; out = {"error": traceback.format_exc()[-3000:], "files": {}}
+              d = f"results/qa/full/{m}"; os.makedirs(d, exist_ok=True)
+              for k, b in out.pop("files", {}).items(): open(f"{d}/{k}", "wb").write(base64.b64decode(b))
+              json.dump(out, open(f"{d}/moments.json", "w"), indent=1); print(m, json.dumps(out)[:1500])
+          PY
+          git config user.name modal-bot && git config user.email modal@ipanema
+          git add results/qa/full && git commit -qm "qa pictures of exported matches" && for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: run a full match (commit tagged full:<match_id>) — watched, live log, automatic stop
         if: contains(github.event.head_commit.message, '[full:')
         env:
