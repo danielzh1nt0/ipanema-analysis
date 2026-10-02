@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:30:22 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:31:57 UTC
 
 
-## run_full.log (34 lines, last 60)
+## run_full.log (54 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c005/piece_v4.pkl
@@ -36,6 +36,26 @@ tracking frame 206756
   piece 22: cached
   calibration check piece 5: {'checks': 900, 'good': 209, 'bad': 691, 'unjudged': 0, 'trusted_pct': 18.4, 'i': 5}
   calibration check piece 15: {'checks': 900, 'good': 289, 'bad': 611, 'unjudged': 0, 'trusted_pct': 29.6, 'i': 15}
+periods: [(366.0, 3389.99), (3950.01, 6898.76)] s; 99 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: 11.8% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 39 held-out test frames mapped into the full match
+clean: keeper (left) from a non-team kit: track 200427, 48 frames
+clean: removed 67067 rows of non-team kits (referee / staff)
+clean: dropped 108934 off-pitch, merged 1771 duplicates, stitched 1082 ids, keepers [] -> B defends left
+clean: players per frame median A 0 / B 0, max A 13 / B 14
+players: 49004 short gaps filled (marked 'filled' in the export)
+ball v2: 20026/206756 frames on the path, 2276 static-clutter candidates dropped
+ball check: 7/39 correct, 3 wrong, 29 no pick (ceiling 9/39)
+ball: dropped 2191 static-clutter candidates
+ball (global path): 18850/206756 frames on the chosen path
+ball: global path too sparse, falling back to trajectory picker
+ball: 1.5 candidates/frame, 7299 trajectories, top (score,len,conf,speed) [(357.9, 459, 0.94, 2.2), (222.8, 246, 0.86, 1.08), (195.8, 647, 0.21, 1.49), (195.6, 359, 0.4, 1.15), (195.0, 868, 0.2, 0.99)], picks 20507/206756
+ball check (other picker, v1): 5/39 correct, ceiling 9/39
+ball: dropped 2191 static-clutter candidates
+ball (global path): 18850/206756 frames on the chosen path
+ball: global path too sparse, falling back to trajectory picker
+ball: 1.5 candidates/frame, 7299 trajectories, top (score,len,conf,speed) [(357.9, 459, 0.94, 2.2), (222.8, 246, 0.86, 1.08), (195.8, 647, 0.21, 1.49), (195.6, 359, 0.4, 1.15), (195.0, 868, 0.2, 0.99)], picks 20507/206756
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 4/62, other 1/62, ceiling 4
 
 ## piece_005.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
