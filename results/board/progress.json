@@ -17,13 +17,13 @@
    "label": "Who has the ball",
    "value": 83,
    "status": "warn",
-   "note": "New rule: 82/99 on SFK-BP and 27/32 on Reymersholm (night, no calibration). Old method: 43/99. Now the default in the pipeline (29 Sep); reaches the app at the next paid run."
+   "note": "New rule: 82/99 on SFK-BP and 27/32 on Reymersholm. In the app since the 1 Oct runs. 2 Oct: the raw state flips 27-33x/min; a de-flickered 'spell state' now feeds sequences/turnovers/pressures (2-3 flips/min) - reaches the app at the next run."
   },
   {
    "label": "Ball dot",
    "value": 81,
    "status": "warn",
-   "note": "In the app: SFK-BP 29/34 (85%), AIK 30/39 (77%) with the new RF-DETR ball finder + tuned picker (1 Oct). Holds on 4 grounds in blind checks. Misses: shoes, a second ball, crowds."
+   "note": "In the app: SFK-BP 28/34, AIK 26/39 (full matches); clips 29/34, 30/39. 2 Oct: retrain with hard negatives = no gain (28/281); fusion weights = no gain; ball-at-feet positives retrain running on Kaggle. Weak spot measured: ball at a foot scores 0.11, a line mark 0.19."
   },
   {
    "label": "Set pieces",
@@ -35,7 +35,7 @@
    "label": "Full match in the app",
    "value": 80,
    "status": "warn",
-   "note": "2 Oct: both full matches in the app with the new pipeline; warm-up cut from SFK-BP (kick-off 9:15), bench people dropped, stoppages joined. Pass count, restarts, sequences, per-player table hidden (Beta) until fixed."
+   "note": "2 Oct: both full matches in the app. Fixed since (next run): pressures once per spell (was once per second), sequences/turnovers from the spell state, team sequences = exported ones. Hidden for the demo: pass count (30% fake), restarts, sequences, PPDA, pressures, per-player table."
   },
   {
    "label": "Speed & distance",
