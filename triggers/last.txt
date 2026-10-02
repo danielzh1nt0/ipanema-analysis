@@ -1,2 +1,2 @@
-SFK full stats fixes
-# Fri Oct  2 07:24:04 UTC 2026
+qa sfk 2
+# Fri Oct  2 07:44:38 UTC 2026
