@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 01:04:17 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 01:06:02 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -270,23 +270,8 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.6 candidates/frame
 ball: RF-DETR + WASB guesses fused, 13.4/frame
 p15u-vs-aik-2026-09-21-bd09_c014: 8992 frames, 17.9 players/frame
 
-## piece_015.log (16 lines, last 60)
-=== p15u-vs-aik-2026-09-21-bd09_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
-video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
-  calibration anchor 1000 (direct 15, chained 45)
-  calibration anchor 2000 (direct 15, chained 145)
-  calibration anchor 3000 (direct 15, chained 245)
-  calibration anchor 4000 (direct 15, chained 345)
-  calibration anchor 5000 (direct 15, chained 445)
-  calibration anchor 6000 (direct 15, chained 545)
-  calibration anchor 7000 (direct 15, chained 645)
-  calibration anchor 8000 (direct 15, chained 745)
-calibration via panorama: 15 direct + 844 chained anchors -> 8992/8992 frames
-calibration: from panorama, 8992/8992 frames registered
-players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
-tracking: RF-DETR tracks re-positioned with this calibration
-ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.1 candidates/frame
-ball: RF-DETR + WASB guesses fused, 13.8/frame
+## piece_015.log (1 lines, last 60)
+p15u-vs-aik-2026-09-21-bd09_c015: cached
 
 ## piece_016.log (13 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c016 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -385,9 +370,11 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 ball: RF-DETR + WASB guesses fused, 14.5/frame
 p15u-vs-aik-2026-09-21-bd09_c021: 8992 frames, 18.7 players/frame
 
-## piece_022.log (2 lines, last 60)
+## piece_022.log (4 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c022 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8954 frames (299 s)
+calibration: too few anchors
+  calibration frame 0
 
 ## train_ball.log (1 lines, last 60)
 
