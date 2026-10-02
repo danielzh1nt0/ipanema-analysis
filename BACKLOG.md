@@ -64,6 +64,8 @@ The scheduled worker takes the first item marked `[ ]`, does it, ticks it `[x]` 
 - [ ] A1. Prepare the "one paid run" list: exactly what goes to the app (new players + current ball) on which clips, estimated cost, command ready. Put it under Waiting for Daniel.
 - [ ] N1. Every morning: read results/nightly/<date>.md, and if anything got worse than the day before, put it at the top of this queue.
 
+- [x] D1 (2 Oct, free Kaggle look, results/kaggle/bundesliga_look): Daniel's two Bundesliga clips (Drive, FCB-VFB, 206 s and 180 s, 1920x1080 30 fps, 'Scoutingfeed' watermark) are a fixed high tactical camera, no cuts, whole pitch in view, all 22 players + staff found by our detector (25-32 people, ~48 px tall). Ball finder: top candidates mostly land on ad boards / corner flags in the sheets (confidence 0.3-0.86) - not trusted on this footage without a check. Calibration on a stadium pitch untested (line model trained on Veo grounds). Needs a pipeline run (GPU) to say more.
+
 ## Waiting for Daniel
 - App updates need Modal (about EUR 1-2 per full match re-run, CPU only, pieces cached). Until Daniel says go, fixes stay in the code and the two matches in the app stay as uploaded on 2 Oct 10:45.
 - F1: re-run the full SFK-BP with the unsure-frames fix (pieces cached, CPU only on Modal, ~25 min like the last run)? Offline it brings the checked balls from 25-26 back to 29/34 and the B4 key from 240 to 284. Needs your go (Modal). results/ball/f1/README.md
