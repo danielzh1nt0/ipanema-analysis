@@ -1,41 +1,7 @@
-# live log · SFKBP1109 · running · 19:21:02 UTC
+# live log · SFKBP1109 · finished · 19:21:07 UTC
 
 
-## run_full.log (59 lines, last 60)
-=== SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
-calibration: from the clip's own camera
-pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
-pieces: 11/11 done in 1.4 min
-tracking frame 98902
-  piece 00: cached
-  piece 01: cached
-  piece 02: cached
-  piece 03: cached
-  piece 04: cached
-  piece 05: cached
-  piece 06: cached
-  piece 07: cached
-  piece 08: cached
-  piece 09: cached
-  piece 10: cached
-periods: [(554.99, 3059.99)] s; 41 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
-calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
-ball check: 40 held-out test frames mapped into the full match
-clean: 67 still people by the lines dropped (bench, coaches)
-clean: keeper (left) from a non-team kit: track 900838, 515 frames
-clean: keeper (right) from a non-team kit: track 300055, 1094 frames
-clean: removed 183442 rows of non-team kits (referee / staff)
-clean: dropped 219044 off-pitch, merged 8931 duplicates, stitched 2413 ids, keepers [200107, 200125, 200129, 200145, 200173, 200181, 200180, 200182, 200194, 200225, 200232, 200247, 200259, 200274, 200284, 200303, 200305, 200485, 200776, 200921, 201012, 300029, 300139, 300177, 300249, 300274, 300323, 300532, 300684, 300798, 300872, 400172, 400381, 400485, 400551, 400556, 400576, 400628, 400762, 400775, 400779, 400780, 400945, 500058, 500171, 500183, 500187, 500191, 500196, 500216, 500423, 500774, 600084, 600147, 600181, 600313, 600479, 600480, 600481, 600488, 600494, 600495, 600501, 600515, 600519, 600523, 600533, 600535, 600547, 600553, 600554, 600559, 600870, 600937, 600985, 700002, 700003, 700007, 700008, 700005, 700021, 700022, 700119, 700181, 700308, 700374, 700595, 700655, 700734, 700822, 700875, 700917, 700949, 700951, 700954, 700975, 700978, 700979, 700982, 700983, 700991, 700992, 800012, 800021, 800104, 800188, 800290, 800297, 800300, 800310, 800312, 800314, 800317, 800327, 800337, 800342, 800344, 800346, 800360, 800377, 800530, 800603, 800607, 800609, 900125, 900166, 900260, 900265, 900284, 900282, 900286, 900287, 900297, 900319, 900527, 900642, 900691, 900910, 1000046, 1000116, 1000120] -> A defends left
-clean: players per frame median A 6 / B 6, max A 16 / B 14
-players: 11961 short gaps filled (marked 'filled' in the export)
-ball v2: 72769/98902 frames on the path, 4571 static-clutter candidates dropped
-ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
-ball: dropped 3890 static-clutter candidates
-ball (global path): 66740/98902 frames on the chosen path
-ball check (other picker, v1): 17/34 correct, ceiling 33/34
-ball: dropped 3890 static-clutter candidates
-ball (global path): 66740/98902 frames on the chosen path
+## run_full.log (94 lines, last 60)
 picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 23/59, other 10/59, ceiling 28
 ball: dropped 3890 static-clutter candidates
 ball (global path): 66740/98902 frames on the chosen path
@@ -61,6 +27,41 @@ motion skipped (StopIteration('off until speeds pass the by-eye check (results/r
   wrote match_data.json (0.5 MB)
 export: /data/match_analysis/runs/matches/SFKBP1109 (854 events) · library.json updated · zip None
 upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.82, 'near_player_pct': 0.5, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  duration_s                 3300.0
+  calibration_coverage       0.89
+  calibration_frozen         11304
+  team_dark_share            {'A': 0.2, 'B': 0.86}
+  players_per_frame_median   {'A': 7.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              2505.0
+  periods                    [{'index': 1, 't_start': 554.99, 't_end': 3059.99, 'mirrored': False}]
+  ball_check                 {'correct': 28, 'total': 34, 'wrong': 6, 'ceiling': 33}
+  possession_pct             {'A': 46, 'B': 54}
+  loose_pct                  46
+  dead_pct                   15
+  possession_model           simple
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.05, 'B': 0.06}
+  turnovers                  152
+  passes                     685
+  restarts                   65
+  sequences                  252
+  shots                      {'A': 4, 'B': 3}
+  goals                      {'A': 0, 'B': 1}
+  high_turnovers             {'A': 17, 'B': 22}
+  field_tilt                 {'A': 21, 'B': 31}
+  runtime_min                5.6
+QA PASS: pieces processed (11/11)
+QA FAIL: calibration (coverage 0.89)
+QA PASS: players per frame (A 7.0 + B 7.0)
+QA PASS: team balance (A 7.0 vs B 7.0)
+QA PASS: shots and goals from Veo (shots {'A': 4, 'B': 3}, goals {'A': 0, 'B': 1})
+QA PASS: match time (2505.0 s of 3300 s)
 
 ## train_ball.log (1 lines, last 60)
 
