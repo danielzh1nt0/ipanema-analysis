@@ -12,3 +12,8 @@ def test_turnover_payloads_carry_per_event_values():
     ev = EX.events([t2], [], [], [], 30.0)
     assert next(e for e in ev if e["type"] == "turnover_lost")["payload"]["pressed_within_2s"] is False
     assert next(e for e in ev if e["type"] == "turnover_won")["payload"]["forward_within_3s"] is False
+
+def test_event_tiers():
+    ev = EX.tier_events([{"type": "goal"}, {"type": "shot"}, {"type": "set_piece"}, {"type": "turnover_lost"}, {"type": "something_new"}])
+    assert [e["tier"] for e in ev] == ["verified", "verified", "hidden", "beta", "hidden"]
+    assert [e["verified"] for e in ev] == [True, True, False, False, False]

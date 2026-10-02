@@ -249,6 +249,11 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
                                os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")) if os.path.exists(p)), "")
         if os.path.exists(vp):
             vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log)
+            # 3 Oct: only shots inside the analysed video and its match periods (a first-half cut must not carry second-half goals)
+            _dur = len(per) / fps; _pers = ctx.get("periods") or []
+            _in = lambda t: t <= _dur and (not _pers or any(p["t_start"] - 5 <= t <= p["t_end"] + 5 for p in _pers))
+            _drop = [x for x in vs if not _in(x["t"])]; vs = [x for x in vs if _in(x["t"])]
+            if _drop: log(f"veo: {len(_drop)} shots/goals outside the analysed video or its periods left out ({sum(1 for x in _drop if x['goal'])} goals)")
             sc = VEO.score_detector(mx["shots"], vs)
             log(f"our shot detector vs Veo: found {sc['found']}/{sc['veo_shots']} of Veo's shots, {sc['real']}/{sc['ours']} of ours are real (within 10 s)")
             for g in rej: log(f"veo: rejected goal tag at {g['t']} s: {g['why']}")

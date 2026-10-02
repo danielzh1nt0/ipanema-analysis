@@ -9,6 +9,21 @@ def _json_default(o):
     if isinstance(o, np.ndarray): return o.tolist()
     return str(o)
 
+PRESS_R = 2.0            # 3 Oct: 'pressed' = an opponent within 2 m of the ball carrier (same rule as time_to_press / pressed_within_2s)
+
+# 3 Oct (Daniel: 'I saw a free kick when there was no free kick'): every event carries a tier so the app lists only what is
+# checked. verified = goals and shots (from Veo's own list). beta = turnovers (feed the Pressing screen; no answer key yet).
+# hidden = set pieces (40% confirmed by Veo on SFK-BP: free kicks 27 vs 8), sequence ends, better option, high turnovers,
+# risky/bad passes (pass count ~30% fake). results/review/eventcheck_2026-10-03.md.
+EVENT_TIER = {"goal": "verified", "shot": "verified", "turnover_lost": "beta", "turnover_won": "beta",
+              "set_piece": "hidden", "sequence_end": "hidden", "better_option": "hidden", "high_turnover": "hidden", "pass_risky": "hidden", "pass_bad": "hidden"}
+
+def tier_events(ev):
+    """add tier + verified to every event (unknown types: hidden)"""
+    for e in ev:
+        e["tier"] = EVENT_TIER.get(e["type"], "hidden"); e["verified"] = e["tier"] == "verified"
+    return ev
+
 def events(turnovers_, passes_, restarts_, sequences_, fps):
     ev = []
     for t in turnovers_:
@@ -58,12 +73,13 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
             "ball": ({"px": [round(ball[k][0], 1), round(ball[k][1], 1)], "m": [round(float(ballm[k][0]), 2), round(float(ballm[k][1]), 2)] if k in ballm else None,
                       "state": "observed" if _ball_seen(ball, k, bridged) else "bridged", "conf": round(_ball_conf(ball, k, cands_conf, bridged), 2)} if k in ball else None),
             "possession": STATES[state[k]] if state[k] < 2 else None, "phase": "control" if state[k] < 2 else STATES[state[k]],
-            "carrier": f["carrier"], "pressure_m": f["pressure_m"], "near_opps": f["near_opps"], "shape": sh, "lanes": lanes_.get(k),
+            "carrier": f["carrier"], "pressure_m": f["pressure_m"], "pressed": (f["pressure_m"] is not None and f["pressure_m"] <= PRESS_R), "near_opps": f["near_opps"], "shape": sh, "lanes": lanes_.get(k),
             "pitch_lines": None if (hasattr(H[k], "to_m") or k in unsure) else [float(v) for v in H[k].ravel()], "cal_ok": k not in unsure})
     ev = events(turnovers_, passes_, restarts_, sequences_, fps)
     if stats_.get('metrics'):
         from .metrics import extra_events
         ev = sorted(ev + extra_events(stats_['metrics']), key=lambda x: x['t'])
+    ev = tier_events(ev)
     md = {"schema_version": SCHEMA_VERSION, "match_id": match_id, "video": os.path.basename(video), "fps": fps, "width": vinfo["width"], "height": vinfo["height"], "pitch": {"length": L, "width": W}, "camera": (H[0].as_dict() if hasattr(H.get(0) if isinstance(H, dict) else None, "as_dict") else None),
           "teams": {"light": "A", "dark": "B"}, "periods": ([dict(p, attack_right=attack_right, confidence=conf) for p in periods] if periods else [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}]),
           "attack_right": attack_right, "attack_right_confidence": conf, "kits": {"A": "kit_A.png", "B": "kit_B.png"}, "contract": "1.1", "frames": frames_out, "events": ev,

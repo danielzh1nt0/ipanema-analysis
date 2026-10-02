@@ -72,6 +72,10 @@ def test_full_match_join_and_export(capsys):
     assert summary["ball_check"]["total"] == 3
     assert sorted(gt, key=int) == ["909", "1099", "1399"]
     assert summary["ball_reliable"] == summary["ball_grade"]["possession_ok"]
+    # 3 Oct: every frame says whether the carrier is pressed (2 m rule); every event carries a tier, goals/shots verified
+    assert all("pressed" in f and isinstance(f["pressed"], bool) for f in f1)
+    assert all(f["pressed"] == (f["pressure_m"] is not None and f["pressure_m"] <= 2.0) for f in f1)
+    assert all(e.get("tier") in ("verified", "beta", "hidden") for e in md["events"]) and all(e["verified"] == (e["type"] in ("goal", "shot")) for e in md["events"])
 
 
 def test_full_match_with_periods(capsys):
