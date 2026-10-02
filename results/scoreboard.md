@@ -26,3 +26,4 @@ Ball check = correct picks on held-out labelled frames; ceiling = frames where t
 | 2026-10-01 19:38 | 124afb3 | p15u-vs-aik-2026-09-21-bd09_s2520 | 0.27.0 | 30/39 | 39 | — | OK | withheld | {'A': 7.0, 'B': 7.0} |  · other picker v1: 18/39 |
 | 2026-10-01 23:18 | 12bcccd | SFKBP1109_full | ? | —/— | — | — | withheld | withheld | — |  |
 | 2026-10-02 00:14 | 5ffaccf | SFKBP1109_full | ? | 13/34 | 14 | — | withheld | withheld | {'A': 9.0, 'B': 8.0} |  · other picker v1: 10/34 · picker test SFKBP1109: v2 16/59, other 9/59 · picker test SFKBP1109b: v2 31/134, other 20/134 |
+| 2026-10-02 00:34 | 4a618c0 | SFKBP1109_full | 0.27.0 | —/— | — | — | withheld | withheld | — |  |
