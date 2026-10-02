@@ -232,7 +232,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     for line in train_ball.remote(match_id): log("  " + line)
     from ipanema.fullmatch import piece_id, PIECE_FILE
     cdir = lambda p: f"{ROOT}/cache/{piece_id(match_id, p['i'])}"
-    cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}")]
+    cached = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{PIECE_FILE}") and os.path.getsize(f"{cdir(p)}/{PIECE_FILE}") > 10000]   # 2 Oct: an empty file = a piece cut off mid-write
     todo = [p for p in plan_ if p not in cached]
     detected = lambda p: (os.path.exists(f"{cdir(p)}/tracks_kp.pkl") or os.path.exists(f"{cdir(p)}/tracks_rfdetr_v1.pkl") or bool(glob.glob(f"{cdir(p)}/tracks_pano_*.pkl"))) and bool(glob.glob(f"{cdir(p)}/ball_cands_wasb_*_t2x2*.pkl"))
     cpu_todo = [p for p in todo if detected(p)]; gpu_todo = [p for p in todo if not detected(p)]
@@ -746,7 +746,8 @@ def detect_periods(match_id: str):
         c = f"{ROOT}/cache/{FM.piece_id(match_id, p['i'])}"
         pf_ = next((f"{c}/{x}" for x in (FM.PIECE_FILE, "piece_v2.pkl") if os.path.exists(f"{c}/{x}")), None)   # 1 Oct: older pieces are fine for periods
         if pf_ is None: continue
-        pk = pickle.load(open(pf_, "rb")); L, W = pk["L"], pk["W"]
+        try: pk = pickle.load(open(pf_, "rb")); L, W = pk["L"], pk["W"]
+        except Exception: continue                                                 # 2 Oct: a piece cut off mid-write
         for k, rows in pk["per"].items():
             g = p["offset"] + k
             if g < n: per[g] = [[r[0], r[1], np.asarray(r[2], float)] for r in rows]

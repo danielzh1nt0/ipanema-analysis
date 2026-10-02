@@ -32,7 +32,7 @@ def process_piece(full, match_id, piece, S, log=print):
     """GPU part for one piece -> saves and returns the path of its pickle"""
     from .run import prepare
     pid = piece_id(match_id, piece["i"]); out = os.path.join(S.root, "cache", pid, PIECE_FILE)
-    if os.path.exists(out): log(f"{pid}: cached"); return out
+    if os.path.exists(out) and os.path.getsize(out) > 10000: log(f"{pid}: cached"); return out
     src = cut(full, os.path.join(S.root, "videos", f"{pid}.mp4"), piece["start_s"], piece["dur_s"])
     ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece["i"] in (0, 4, 10, 16)))
     keep = {"per": ctx["per"], "H": {k: (v if hasattr(v, "to_m") else np.asarray(v, np.float32)) for k, v in ctx["H"].items()}, "cands": ctx["cands"], "fps": ctx["fps"],
