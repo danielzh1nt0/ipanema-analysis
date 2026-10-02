@@ -1,4 +1,4 @@
-# live log · SFKBP1109 · running · 00:50:41 UTC
+# live log · SFKBP1109 · running · 00:52:24 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -7,6 +7,37 @@ calibration: from the clip's own camera
 pieces: 1 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 3 first (CPU)
 canary passed: calibration from the line model, 17.2 players per frame
+
+## piece_000.log (9 lines, last 60)
+=== SFKBP1109_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 93% of frames trusted (lines drawn); 629 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.0 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.7/frame
+SFKBP1109_c000: 8992 frames, 21.3 players/frame
+
+## piece_001.log (8 lines, last 60)
+=== SFKBP1109_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 90% of frames trusted (lines drawn); 900 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.2 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.0/frame
+SFKBP1109_c001: 8992 frames, 28.4 players/frame
+
+## piece_002.log (8 lines, last 60)
+=== SFKBP1109_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 88% of frames trusted (lines drawn); 1048 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.3 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.6/frame
+SFKBP1109_c002: 8992 frames, 20.0 players/frame
 
 ## piece_003.log (8 lines, last 60)
 === SFKBP1109_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -17,6 +48,124 @@ tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.7 candidates/frame
 ball: RF-DETR + WASB guesses fused, 15.1/frame
 SFKBP1109_c003: 8992 frames, 17.2 players/frame
+
+## piece_005.log (8 lines, last 60)
+=== SFKBP1109_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 86% of frames trusted (lines drawn); 1260 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 12.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 16.9/frame
+SFKBP1109_c005: 8992 frames, 20.7 players/frame
+
+## piece_006.log (4 lines, last 60)
+=== SFKBP1109_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 88% of frames trusted (lines drawn); 1121 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+
+## piece_007.log (1 lines, last 60)
+=== SFKBP1109_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_008.log (6 lines, last 60)
+=== SFKBP1109_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 85% of frames trusted (lines drawn); 1313 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 11.4 candidates/frame
+
+## piece_009.log (6 lines, last 60)
+=== SFKBP1109_c009 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 86% of frames trusted (lines drawn); 1230 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 11.0 candidates/frame
+
+## piece_010.log (9 lines, last 60)
+=== SFKBP1109_c010 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 98% of frames trusted (lines drawn); 180 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 4.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 9.2/frame
+SFKBP1109_c010: 8992 frames, 17.4 players/frame
+
+## piece_011.log (8 lines, last 60)
+=== SFKBP1109_c011 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 95% of frames trusted (lines drawn); 480 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 6.3 candidates/frame
+ball: RF-DETR + WASB guesses fused, 11.0/frame
+SFKBP1109_c011: 8992 frames, 21.1 players/frame
+
+## piece_012.log (6 lines, last 60)
+=== SFKBP1109_c012 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 84% of frames trusted (lines drawn); 1410 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.5 candidates/frame
+
+## piece_013.log (1 lines, last 60)
+=== SFKBP1109_c013 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_014.log (8 lines, last 60)
+=== SFKBP1109_c014 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 79% of frames trusted (lines drawn); 1918 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.9 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.4/frame
+SFKBP1109_c014: 8992 frames, 18.7 players/frame
+
+## piece_015.log (8 lines, last 60)
+=== SFKBP1109_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 84% of frames trusted (lines drawn); 1440 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.1/frame
+SFKBP1109_c015: 8992 frames, 20.9 players/frame
+
+## piece_016.log (2 lines, last 60)
+=== SFKBP1109_c016 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+
+## piece_017.log (2 lines, last 60)
+=== SFKBP1109_c017 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+
+## piece_018.log (1 lines, last 60)
+=== SFKBP1109_c018 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_019.log (8 lines, last 60)
+=== SFKBP1109_c019 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 85% of frames trusted (lines drawn); 1318 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.2 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.7/frame
+SFKBP1109_c019: 8992 frames, 18.5 players/frame
+
+## piece_020.log (8 lines, last 60)
+=== SFKBP1109_c020 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 4905 frames (164 s)
+calibration: from the line model, 82% of frames trusted (lines drawn); 873 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 4.7 candidates/frame
+ball: RF-DETR + WASB guesses fused, 10.2/frame
+SFKBP1109_c020: 4905 frames, 18.5 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
