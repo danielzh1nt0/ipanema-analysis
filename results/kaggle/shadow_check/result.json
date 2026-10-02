@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "rows": [
+  {
+   "t": 615,
+   "conf 0.3 (pipeline)": 24,
+   "conf 0.15": 28,
+   "conf 0.3 + gamma 0.6": 25
+  },
+  {
+   "t": 1113,
+   "conf 0.3 (pipeline)": 26,
+   "conf 0.15": 40,
+   "conf 0.3 + gamma 0.6": 28
+  },
+  {
+   "t": 2108,
+   "conf 0.3 (pipeline)": 18,
+   "conf 0.15": 21,
+   "conf 0.3 + gamma 0.6": 18
+  },
+  {
+   "t": 2606,
+   "conf 0.3 (pipeline)": 26,
+   "conf 0.15": 39,
+   "conf 0.3 + gamma 0.6": 28
+  },
+  {
+   "t": 3104,
+   "conf 0.3 (pipeline)": 20,
+   "conf 0.15": 43,
+   "conf 0.3 + gamma 0.6": 20
+  },
+  {
+   "t": 4161,
+   "conf 0.3 (pipeline)": 25,
+   "conf 0.15": 55,
+   "conf 0.3 + gamma 0.6": 25
+  },
+  {
+   "t": 4659,
+   "conf 0.3 (pipeline)": 30,
+   "conf 0.15": 55,
+   "conf 0.3 + gamma 0.6": 33
+  },
+  {
+   "t": 5157,
+   "conf 0.3 (pipeline)": 19,
+   "conf 0.15": 23,
+   "conf 0.3 + gamma 0.6": 20
+  },
+  {
+   "t": 5655,
+   "conf 0.3 (pipeline)": 22,
+   "conf 0.15": 53,
+   "conf 0.3 + gamma 0.6": 23
+  },
+  {
+   "t": 6152,
+   "conf 0.3 (pipeline)": 17,
+   "conf 0.15": 26,
+   "conf 0.3 + gamma 0.6": 17
+  }
+ ]
+}

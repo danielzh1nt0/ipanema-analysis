@@ -1,12 +1,30 @@
-kernel danielmatros/ipanema-kickoff-sheet
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-kickoff-sheet
-  0.5 min: danielmatros/ipanema-kickoff-sheet has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/kickoff_sheet/result.json
-Output file downloaded to results/kaggle/kickoff_sheet/sheet_0.jpg
-Output file downloaded to results/kaggle/kickoff_sheet/sheet_1.jpg
-Kernel log downloaded to results/kaggle/kickoff_sheet/ipanema-kickoff-sheet.log
-  ipanema-kickoff-sheet.log 803
-  result.json 26
-  run.json 160
-  sheet_0.jpg 1092796
-  sheet_1.jpg 1083861
+kernel danielmatros/ipanema-shadow-check
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shadow-check
+  0.5 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.RUNNING"
+  2.1 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-shadow-check has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/shadow_check/m00.jpg
+Output file downloaded to results/kaggle/shadow_check/m01.jpg
+Output file downloaded to results/kaggle/shadow_check/m02.jpg
+Output file downloaded to results/kaggle/shadow_check/m03.jpg
+Output file downloaded to results/kaggle/shadow_check/m04.jpg
+Output file downloaded to results/kaggle/shadow_check/m05.jpg
+Output file downloaded to results/kaggle/shadow_check/m06.jpg
+Output file downloaded to results/kaggle/shadow_check/m07.jpg
+Output file downloaded to results/kaggle/shadow_check/m08.jpg
+Output file downloaded to results/kaggle/shadow_check/m09.jpg
+Output file downloaded to results/kaggle/shadow_check/result.json
+Kernel log downloaded to results/kaggle/shadow_check/ipanema-shadow-check.log
+  ipanema-shadow-check.log 21190
+  m00.jpg 495206
+  m01.jpg 497766
+  m02.jpg 482671
+  m03.jpg 470699
+  m04.jpg 484321
+  m05.jpg 461474
+  m06.jpg 645949
+  m07.jpg 625860
+  m08.jpg 606447
+  m09.jpg 503371
+  result.json 1058
+  run.json 158
