@@ -1,2 +1,2 @@
-tools/f1b_check.py
-# Fri Oct  2 08:34:29 UTC 2026 F1b: a kit model per 5-min piece (teams named like the match model) vs the one match model, AIK + SFK-BP full matches (free, CPU)
+tools/f1c_frames.py
+# Fri Oct  2 12:24:26 UTC 2026 F1c: save AIK + SFK-BP full-match frames and people boxes (fit + test) for offline shadow-aware kit tests (free, CPU)
