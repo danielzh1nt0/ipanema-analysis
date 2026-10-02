@@ -1,11 +1,22 @@
-# live log · SFKBP1109 · running · 00:49:08 UTC
+# live log · SFKBP1109 · running · 00:50:41 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
 calibration: from the clip's own camera
 pieces: 1 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 3 first (CPU)
+canary passed: calibration from the line model, 17.2 players per frame
+
+## piece_003.log (8 lines, last 60)
+=== SFKBP1109_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 85% of frames trusted (lines drawn); 1319 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.7 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.1/frame
+SFKBP1109_c003: 8992 frames, 17.2 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
