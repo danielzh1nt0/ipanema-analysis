@@ -84,6 +84,47 @@ def bridge(ball, fps, max_gap_s=1.0, bridged=None):
                 if bridged is not None: bridged.add(k)
     return ball
 
+def _pan(H, i, j, pts):
+    """pixels of frame i -> pixels of frame j (camera pan removed); fixed camera: unchanged"""
+    if hasattr(H[i], "to_m") or hasattr(H[j], "to_m"): return np.asarray(pts, np.float32).reshape(-1, 2)
+    G = H[j] @ np.linalg.inv(H[i])
+    return cv2.perspectiveTransform(np.float32(pts).reshape(-1, 1, 2), G.astype(np.float32)).reshape(-1, 2)
+
+def hold_still(ball, cands, H, fps, jump_px=110.0, hold_r=40.0, min_conf=0.3, look_s=1.0, min_share=0.6, max_gap_s=1.0, log=print):
+    """S8/B10 (2 Oct): the picker teleports to another spot through a missed frame (pick -> miss -> far candidate costs 3.8,
+    a direct jump 13). When it does, and the OLD spot keeps a candidate (conf >= min_conf within hold_r px, pan removed) in
+    >= min_share of the next look_s seconds, the ball is still there: keep the old spot (its own candidates) until they
+    stop, then return to the picker's path. Picks before the first frame are untouched."""
+    ks = sorted(ball); out = dict(ball); held = 0; events = 0; i = 1
+    while i < len(ks):
+        a, b = ks[i - 1], ks[i]
+        if b - a > max_gap_s * fps: i += 1; continue
+        pa = _pan(H, a, b, [out[a]])[0]
+        if np.hypot(pa[0] - out[b][0], pa[1] - out[b][1]) <= jump_px: i += 1; continue
+        # candidate at the old spot in the following frames?
+        look = [k for k in range(b, min(b + int(look_s * fps), len(H))) if cands.get(k)]
+        hits = {}
+        for k in look:
+            p = _pan(H, a, k, [out[a]])[0]
+            c = [c for c in cands[k] if c[2] >= min_conf and np.hypot(c[0] - p[0], c[1] - p[1]) <= hold_r]
+            if c: hits[k] = max(c, key=lambda z: z[2])
+        if not look or len(hits) / len(look) < min_share: i += 1; continue
+        # hold: follow the old spot's candidates while they keep coming (gaps up to max_gap_s)
+        events += 1; last = a; k = b
+        while k < len(H) and k - last <= max_gap_s * fps:
+            if cands.get(k):
+                p = _pan(H, last, k, [out[last]])[0]
+                c = [c for c in cands[k] if c[2] >= min_conf and np.hypot(c[0] - p[0], c[1] - p[1]) <= hold_r]
+                if c:
+                    best = max(c, key=lambda z: z[2]); out[k] = [best[0], best[1]]; last = k; held += 1
+            k += 1
+        # resume where the picker's own path is next, after the hold
+        while i < len(ks) and ks[i] <= last: i += 1
+    for k in list(out):
+        if k not in ball and k not in cands: del out[k]
+    log(f"ball hold-still: {events} teleports held, {held} frames moved to the still spot")
+    return out
+
 def pick_confidence(ball, cands, r_px=12.0):
     """per frame: the strongest candidate score within r_px of the picked ball (0 when none, e.g. a bridged frame)"""
     out = {}
@@ -240,12 +281,15 @@ def play_on_mask(moving, fps, play_s):
 # ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
 def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=2.5, near_w=0.75, air_w=0.6,
             miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
-            poss_only_empty=False, recur_r=None, recur_play_s=None, recur_move_m=0.6, recur_inside_m=-1.5, log=print):
+            poss_only_empty=False, recur_r=None, recur_play_s=None, recur_move_m=0.6, recur_inside_m=-1.5, ghost_s=None, max_ghosts=8, ghost_speed_px=40.0, reappear_cost=None, log=print):
     """1 Oct (tools/picktune.py, exact app inputs of both clips): conf_w 1.5->2.5, near_w 1.0->0.75 = trust the new finder
     more, the 'near a player' bonus less. AIK 26->30/39, SFK-BP 29->29/34, B4 key 279->284. (A first try, conf_w 4 / near_w 0.5 /
     miss_cost 5, was tuned on an older offline SFK-BP setup and lost one SFK-BP moment in the app.)
     poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
-    for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default."""
+    for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default.
+    ghost_s (S8, 2 Oct, tools/holdlab.py): missed frames carry the last position so a teleport through a miss costs a real
+    jump. Off (None): on the exact clip inputs it removed 6 of 8 fake passes but lost 7 of 20 real ones and 3 AIK ball
+    moments - a lost ball re-found far away looks like a teleport, and persistent clutter makes staying put cheap."""
     n = len(cands); C = []
     ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
     inv = {}
@@ -275,7 +319,7 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
             # (first pass with the rule everywhere), so a ball taken from the post for a restart is followed again
             kw = dict(per=per, fps=fps, margin=margin, min_conf=min_conf, conf_w=conf_w, near_w=near_w, air_w=air_w,
                       miss_cost=miss_cost, px_w=px_w, jump_px=jump_px, jump_cost=jump_cost, gate_px=gate_px, top_k=top_k,
-                      poss_cost=poss_cost, poss_px=poss_px, poss_only_empty=poss_only_empty)
+                      poss_cost=poss_cost, poss_px=poss_px, poss_only_empty=poss_only_empty, ghost_s=ghost_s, max_ghosts=max_ghosts, ghost_speed_px=ghost_speed_px, reappear_cost=reappear_cost)
             first = pick_v2(cands, H, L, W, recur_r=recur_r, log=lambda *a: None, **kw)
             Mb = np.full((n, 2), np.nan)
             for i, p in first.items(): Mb[i] = to_m(H[i], np.float32([p]))[0]
@@ -290,18 +334,23 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
             log(f"ball v2: {len(spots)} recurring off-pitch spots ({', '.join(f'{x:.0f},{y:.0f}' for x, y, _ in spots)}), {rd} candidates dropped")
     # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
     win = int(3 * fps); grid = {}
+    def cell(i, r): return (i // win, round(r[0] * 2), round(r[1] * 2))   # S8 (2 Oct): pan-corrected pixel cells tried instead - worse on all 3 keys (drops real still balls)
     for i in range(n):
         for r in C[i]:
             if r[2] < 0: continue
-            grid.setdefault((i // win, round(r[0] * 2), round(r[1] * 2)), set()).add(i)
+            grid.setdefault(cell(i, r), set()).add(i)
     dropped = 0
     for i in range(n):
         keep = []
         for r in C[i]:
             if r[2] < 0: keep.append(r); continue
-            if r[5] == 0.0 and len(grid.get((i // win, round(r[0] * 2), round(r[1] * 2)), ())) > 0.6 * win: dropped += 1; continue
+            if r[5] == 0.0 and len(grid.get(cell(i, r), ())) > 0.6 * win: dropped += 1; continue
             keep.append(r)
         C[i] = keep
+    if ghost_s:
+        ball = _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px, jump_cost, gate_px, poss_cost, ghost_s, max_ghosts, ghost_speed_px, jump_cost if reappear_cost is None else reappear_cost)
+        log(f"ball v2 (ghosts {ghost_s} s): {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")
+        return ball
     INF = 1e18; back = []; prev_cost = None
     for i in range(n):
         rows = C[i]; k = len(rows)
@@ -330,6 +379,53 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
         s = back[i][s]
         if s < 0: break
     log(f"ball v2: {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")
+    return ball
+
+
+def _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px, jump_cost, gate_px, poss_cost, ghost_s, max_ghosts, ghost_speed_px=40.0, reappear_cost=6.0):
+    """S8 (2 Oct): the plain path could teleport through a missed frame (pick -> miss 3 -> far candidate 0.8 = 3.8, a
+    direct jump 13). Here a missed frame keeps the last position as a 'ghost' state (costs miss_cost like a miss, carries
+    the pixel position pan-corrected, lives ghost_s seconds, at most max_ghosts per frame); a candidate after a ghost pays the
+    distance like after a seen ball, and a candidate after the bare 'miss' state (ball gone for > ghost_s) pays jump_cost.
+    States per frame: candidates, ghosts, miss (last). Backtracking yields picks only on candidate states."""
+    INF = 1e18; back = []; pos_hist = []; kind_hist = []; prev_cost = None; prev_pos = None; prev_kind = None; prev_age = None
+    for i in range(n):
+        rows = C[i]; k = len(rows)
+        rpos = np.float32([[r[3], r[4]] for r in rows]).reshape(-1, 2)
+        remit = [poss_cost if r[2] < 0 else conf_w * (1 - r[2]) + (near_w * (1 - r[5]) if r[6] else air_w) for r in rows]
+        if prev_cost is None:
+            cost = np.array(remit + [miss_cost]); bk = np.full(k + 1, -1, int); pos = rpos; kind = ["c"] * k + ["m"]; age = [0] * (k + 1)
+            gpos = np.zeros((0, 2), np.float32)
+        else:
+            pk = len(prev_cost); pm = pk - 1                       # previous miss index
+            # previous positions carried into this frame's pixels
+            carried = _pan(H, i - 1, i, prev_pos) if len(prev_pos) else np.zeros((0, 2), np.float32)
+            # ghosts: from previous candidate/ghost states still young enough; keep the cheapest, dedup 10 px, cap
+            cand_g = [j for j in range(pm) if prev_age[j] + 1 <= int(ghost_s * fps)]
+            cand_g.sort(key=lambda j: prev_cost[j]); gsrc = []
+            for j in cand_g:
+                if all(np.hypot(*(carried[j] - carried[q])) > 10 for q in gsrc): gsrc.append(j)
+                if len(gsrc) >= max_ghosts: break
+            gpos = carried[gsrc] if gsrc else np.zeros((0, 2), np.float32); g = len(gsrc)
+            m = k + g + 1; cost = np.full(m, INF); bk = np.full(m, -1, int)
+            if k:
+                d = np.linalg.norm(rpos[:, None, :] - carried[None, :, :], axis=2) if pm else np.zeros((k, 0))
+                # a ghost of age a frames may have flown ghost_speed_px * a further (a real ball lost in flight); a teleport cannot
+                allow = jump_px + ghost_speed_px * np.array(prev_age[:pm], float)[None, :]
+                tr = px_w * np.maximum(0.0, d - ghost_speed_px * np.array(prev_age[:pm], float)[None, :]) + np.where(d > allow, jump_cost, 0.0) + np.where(d > gate_px + ghost_speed_px * np.array(prev_age[:pm], float)[None, :], 1e6, 0.0)
+                full = np.full((k, pk), 0.0); full[:, :pm] = tr; full[:, pm] = reappear_cost  # from miss (ball gone > ghost_s): a reappearance
+                tot = prev_cost[None, :] + full; bkc = np.argmin(tot, axis=1)
+                cost[:k] = tot[np.arange(k), bkc] + np.array(remit); bk[:k] = bkc
+            for t, j in enumerate(gsrc): cost[k + t] = prev_cost[j] + miss_cost; bk[k + t] = j
+            tot_m = prev_cost + np.where(np.arange(pk) == pm, 0.0, 0.8); bk[m - 1] = int(np.argmin(tot_m)); cost[m - 1] = tot_m[bk[m - 1]] + miss_cost
+            pos = np.vstack([rpos, gpos]) if (k or g) else np.zeros((0, 2), np.float32); kind = ["c"] * k + ["g"] * g + ["m"]
+            age = [0] * k + [prev_age[j] + 1 for j in gsrc] + [0]
+        back.append(bk); pos_hist.append(pos); kind_hist.append(kind); prev_cost, prev_pos, prev_kind, prev_age = cost, pos, kind, age
+    ball = {}; s = int(np.argmin(prev_cost))
+    for i in range(n - 1, -1, -1):
+        if kind_hist[i][s] == "c": ball[i] = [float(pos_hist[i][s][0]), float(pos_hist[i][s][1])]
+        s = back[i][s]
+        if s < 0: break
     return ball
 
 

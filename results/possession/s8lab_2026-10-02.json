@@ -1,0 +1,200 @@
+{
+ "SFKBP1109_s1200|raw state (today)": {
+  "flips_per_min": 27.197002285970257,
+  "passes": 87,
+  "graded": [
+   20,
+   8
+  ],
+  "turnovers": 20,
+  "sequences": 81,
+  "pressures_per_90": {
+   "A": 305.9662757171654,
+   "B": 305.9662757171654
+  },
+  "ttp": {
+   "A": 1.3,
+   "B": 0.32
+  }
+ },
+ "SFKBP1109_s1200|spell state take 0.5 join 3.0": {
+  "flips_per_min": 11.3987436051493,
+  "passes": 87,
+  "graded": [
+   20,
+   8
+  ],
+  "turnovers": 39,
+  "sequences": 81,
+  "pressures_per_90": {
+   "A": 305.9662757171654,
+   "B": 305.9662757171654
+  },
+  "ttp": {
+   "A": 1.3,
+   "B": 0.53
+  }
+ },
+ "SFKBP1109_s1200|+ passes filtered by it": {
+  "flips_per_min": 6.99922852947764,
+  "passes": 57,
+  "graded": [
+   14,
+   2
+  ],
+  "turnovers": 40,
+  "sequences": 47,
+  "pressures_per_90": {
+   "A": 305.9662757171654,
+   "B": 251.97222706119504
+  },
+  "ttp": {
+   "A": 1.3,
+   "B": 2.6
+  }
+ },
+ "SFKBP1109_s1200|spell state take 1.0 join 3.0": {
+  "flips_per_min": 6.799250571492564,
+  "passes": 87,
+  "graded": [
+   20,
+   8
+  ],
+  "turnovers": 40,
+  "sequences": 53,
+  "pressures_per_90": {
+   "A": 287.9682594985086,
+   "B": 251.97222706119504
+  },
+  "ttp": {
+   "A": 1.3,
+   "B": 2.6
+  }
+ },
+ "SFKBP1109_s1200|spell state take 1.5 join 3.0": {
+  "flips_per_min": 3.1996473277612067,
+  "passes": 87,
+  "graded": [
+   20,
+   8
+  ],
+  "turnovers": 21,
+  "sequences": 32,
+  "pressures_per_90": {
+   "A": 251.97222706119504,
+   "B": 161.9821459679111
+  },
+  "ttp": {
+   "A": 1.85,
+   "B": 3.49
+  }
+ },
+ "SFKBP1109_s1200|spell state take 1.0 join 5.0": {
+  "flips_per_min": 6.99922852947764,
+  "passes": 87,
+  "graded": [
+   20,
+   8
+  ],
+  "turnovers": 40,
+  "sequences": 47,
+  "pressures_per_90": {
+   "A": 305.9662757171654,
+   "B": 251.97222706119504
+  },
+  "ttp": {
+   "A": 1.3,
+   "B": 2.6
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|raw state (today)": {
+  "flips_per_min": 33.19634102552252,
+  "passes": 107,
+  "graded": null,
+  "turnovers": 13,
+  "sequences": 93,
+  "pressures_per_90": {
+   "A": 287.9682594985086,
+   "B": 287.9682594985086
+  },
+  "ttp": {
+   "A": 2.2,
+   "B": 2.89
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|spell state take 0.5 join 3.0": {
+  "flips_per_min": 13.398523185000053,
+  "passes": 107,
+  "graded": null,
+  "turnovers": 42,
+  "sequences": 93,
+  "pressures_per_90": {
+   "A": 287.9682594985086,
+   "B": 287.9682594985086
+  },
+  "ttp": {
+   "A": 1.07,
+   "B": 0.6
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|+ passes filtered by it": {
+  "flips_per_min": 5.199426907611961,
+  "passes": 78,
+  "graded": null,
+  "turnovers": 31,
+  "sequences": 37,
+  "pressures_per_90": {
+   "A": 269.97024327985184,
+   "B": 233.97421084253824
+  },
+  "ttp": {
+   "A": 2.2,
+   "B": 3.02
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|spell state take 1.0 join 3.0": {
+  "flips_per_min": 4.599493033656735,
+  "passes": 107,
+  "graded": null,
+  "turnovers": 33,
+  "sequences": 39,
+  "pressures_per_90": {
+   "A": 251.97222706119504,
+   "B": 215.97619462388144
+  },
+  "ttp": {
+   "A": 2.2,
+   "B": 2.5
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|spell state take 1.5 join 3.0": {
+  "flips_per_min": 1.9997795798507543,
+  "passes": 107,
+  "graded": null,
+  "turnovers": 17,
+  "sequences": 24,
+  "pressures_per_90": {
+   "A": 233.97421084253824,
+   "B": 215.97619462388144
+  },
+  "ttp": {
+   "A": 1.63,
+   "B": 0.33
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520|spell state take 1.0 join 5.0": {
+  "flips_per_min": 5.199426907611961,
+  "passes": 107,
+  "graded": null,
+  "turnovers": 31,
+  "sequences": 37,
+  "pressures_per_90": {
+   "A": 269.97024327985184,
+   "B": 233.97421084253824
+  },
+  "ttp": {
+   "A": 2.2,
+   "B": 3.02
+  }
+ }
+}

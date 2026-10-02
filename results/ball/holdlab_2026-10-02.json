@@ -1,0 +1,21 @@
+[
+ {
+  "name": "picker as today",
+  "aik": {
+   "passes": 107,
+   "turnovers": 13,
+   "sequences": 93,
+   "flips": 166
+  },
+  "sfk34": 29,
+  "b4": 284,
+  "sfk": {
+   "passes": 87,
+   "real_kept": 20,
+   "fake_kept": 8,
+   "turnovers": 20,
+   "sequences": 81,
+   "flips": 136
+  }
+ }
+]
