@@ -274,7 +274,7 @@ def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0):
                 team_after = next((STATES[state[q]] for q in range(j + 1, min(n, j + int(3 * fps))) if state[q] < 2), None); kind = "unknown"
                 if bm is not None:
                     x, y = bm; near_end = x < 3 or x > L - 3; near_side = y < 3 or y > W - 3
-                    kind = "corner" if (near_end and near_side) else "goal kick" if (near_end and abs(y - W / 2) < 12) else "throw-in" if near_side else "free kick"
+                    kind = "corner" if (near_end and near_side) else "goal kick" if (near_end and abs(y - W / 2) < 12) else "throw-in" if near_side else "stoppage"   # 3 Oct: we never see a foul; a stoppage in open field is not called a free kick (SFK-BP: 27 'free kicks' vs Veo's 8)
                 out.append({"t": round(j / fps, 2), "kind": kind, "team": team_after, "x_m": round(float(bm[0]), 1) if bm is not None else None, "y_m": round(float(bm[1]), 1) if bm is not None else None})
             k = j + 1
         else: k += 1

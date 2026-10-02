@@ -17,9 +17,9 @@ ev = collections.Counter(e["type"] for e in md["events"] if HALF[0] <= e["t"] <=
 lines = [f"# Events vs Veo, SFK-BP first half ({time.strftime('%Y-%m-%d')})", "", f"Export: {D}. Veo list covers video minutes 1-31 and 44-51 (29 of the 42 first-half minutes).", "",
          "| type | Veo (covered minutes) | ours (covered minutes) | ours confirmed by Veo (+-1 min) | ours in uncovered minutes |", "|---|---|---|---|---|"]
 tot = {}
-for kind in ("throw-in", "corner", "goal kick", "free kick"):
+for kind in ("throw-in", "corner", "goal kick", "free kick"):   # ours: "stoppage" = Veo "free kick" (same moments, honest name)
     v = [(m, t) for m, t, k in veo if k == kind and m in COVER and m >= 10]
-    o = [(int(t // 60) + 1, team) for t, k, team in ours if k == kind]
+    o = [(int(t // 60) + 1, team) for t, k, team in ours if k == kind or (kind == "free kick" and k == "stoppage")]
     oc = [x for x in o if x[0] in COVER]; left = list(v); conf = 0
     for m, team in oc:
         j = next((i for i, (vm, vt) in enumerate(left) if abs(vm - m) <= 1), None)
