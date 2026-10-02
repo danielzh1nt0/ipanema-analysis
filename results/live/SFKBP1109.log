@@ -1,9 +1,38 @@
-# live log · SFKBP1109 · running · 07:33:19 UTC
+# live log · SFKBP1109 · running · 07:34:53 UTC
 
 
-## run_full.log (2 lines, last 60)
+## run_full.log (31 lines, last 60)
 === SFKBP1109 full match === video: 184725 frames (6164 s) @ 29.970 fps -> 21 pieces
 calibration: from the clip's own camera
+pieces: 21 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 21/21 done in 1.6 min
+tracking frame 184725
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: cached
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+  piece 20: cached
+periods: [(0.0, 3059.99), (3733.0, 5940.0)] s; 87 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
+calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 40 held-out test frames mapped into the full match
+clean: 166 still people by the lines dropped (bench, coaches)
 
 ## train_ball.log (1 lines, last 60)
 
