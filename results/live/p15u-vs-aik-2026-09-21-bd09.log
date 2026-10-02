@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:28:47 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 03:30:22 UTC
 
 
-## run_full.log (32 lines, last 60)
+## run_full.log (34 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces
 calibration: from the clip's own camera
 broken piece file removed: /data/match_analysis/cache/p15u-vs-aik-2026-09-21-bd09_c005/piece_v4.pkl
@@ -34,6 +34,8 @@ tracking frame 206756
   piece 20: cached
   piece 21: cached
   piece 22: cached
+  calibration check piece 5: {'checks': 900, 'good': 209, 'bad': 691, 'unjudged': 0, 'trusted_pct': 18.4, 'i': 5}
+  calibration check piece 15: {'checks': 900, 'good': 289, 'bad': 611, 'unjudged': 0, 'trusted_pct': 29.6, 'i': 15}
 
 ## piece_005.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
