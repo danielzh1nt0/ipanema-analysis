@@ -1,19 +1,7 @@
-# live log · SFKBP1109 · running · 01:04:24 UTC
+# live log · SFKBP1109 · running · 01:06:05 UTC
 
 
-## run_full.log (66 lines, last 60)
-tracking frame 184725
-  piece 00: SFKBP1109_c000: 8992 frames, 21.3 players/frame
-  piece 01: SFKBP1109_c001: 8992 frames, 28.4 players/frame
-  piece 02: SFKBP1109_c002: 8992 frames, 20.0 players/frame
-  piece 03: SFKBP1109_c003: 8992 frames, 17.2 players/frame
-  piece 04: cached
-  piece 05: SFKBP1109_c005: 8992 frames, 20.7 players/frame
-  piece 06: SFKBP1109_c006: 8992 frames, 20.8 players/frame
-  piece 07: SFKBP1109_c007: 8992 frames, 19.6 players/frame
-  piece 08: SFKBP1109_c008: 8992 frames, 18.6 players/frame
-  piece 09: SFKBP1109_c009: 8992 frames, 19.5 players/frame
-  piece 10: SFKBP1109_c010: 8992 frames, 17.4 players/frame
+## run_full.log (78 lines, last 60)
   piece 11: SFKBP1109_c011: 8992 frames, 21.1 players/frame
   piece 12: SFKBP1109_c012: 8992 frames, 17.1 players/frame
   piece 13: SFKBP1109_c013: 8992 frames, 17.5 players/frame
@@ -62,6 +50,18 @@ ball check (other picker, v1): 15/34 correct, ceiling 30/34
 ball: dropped 8244 static-clutter candidates
 ball (global path): 120651/184725 frames on the chosen path
 picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 40/59, other 22/59, ceiling 45
+ball: dropped 8244 static-clutter candidates
+ball (global path): 120651/184725 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 87/134, other 50/134, ceiling 97
+possession: simple model (nearest feet in the picture); 32% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.03 / B 0.05  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences
+  step: turnovers
+  step: lanes
+  step: passes
+  step: shapes
+  step: stats
 
 ## piece_000.log (9 lines, last 60)
 === SFKBP1109_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
