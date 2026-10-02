@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 19:17:53 UTC
+# live log · SFKBP1109 · running · 19:19:28 UTC
 
 
-## run_full.log (27 lines, last 60)
+## run_full.log (35 lines, last 60)
 === SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -29,6 +29,14 @@ clean: removed 183442 rows of non-team kits (referee / staff)
 clean: dropped 219044 off-pitch, merged 8931 duplicates, stitched 2413 ids, keepers [200107, 200125, 200129, 200145, 200173, 200181, 200180, 200182, 200194, 200225, 200232, 200247, 200259, 200274, 200284, 200303, 200305, 200485, 200776, 200921, 201012, 300029, 300139, 300177, 300249, 300274, 300323, 300532, 300684, 300798, 300872, 400172, 400381, 400485, 400551, 400556, 400576, 400628, 400762, 400775, 400779, 400780, 400945, 500058, 500171, 500183, 500187, 500191, 500196, 500216, 500423, 500774, 600084, 600147, 600181, 600313, 600479, 600480, 600481, 600488, 600494, 600495, 600501, 600515, 600519, 600523, 600533, 600535, 600547, 600553, 600554, 600559, 600870, 600937, 600985, 700002, 700003, 700007, 700008, 700005, 700021, 700022, 700119, 700181, 700308, 700374, 700595, 700655, 700734, 700822, 700875, 700917, 700949, 700951, 700954, 700975, 700978, 700979, 700982, 700983, 700991, 700992, 800012, 800021, 800104, 800188, 800290, 800297, 800300, 800310, 800312, 800314, 800317, 800327, 800337, 800342, 800344, 800346, 800360, 800377, 800530, 800603, 800607, 800609, 900125, 900166, 900260, 900265, 900284, 900282, 900286, 900287, 900297, 900319, 900527, 900642, 900691, 900910, 1000046, 1000116, 1000120] -> A defends left
 clean: players per frame median A 6 / B 6, max A 16 / B 14
 players: 11961 short gaps filled (marked 'filled' in the export)
+ball v2: 72769/98902 frames on the path, 4571 static-clutter candidates dropped
+ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
+ball: dropped 3890 static-clutter candidates
+ball (global path): 66740/98902 frames on the chosen path
+ball check (other picker, v1): 17/34 correct, ceiling 33/34
+ball: dropped 3890 static-clutter candidates
+ball (global path): 66740/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 23/59, other 10/59, ceiling 28
 
 ## train_ball.log (1 lines, last 60)
 
