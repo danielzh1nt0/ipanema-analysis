@@ -17,13 +17,19 @@
 1432,
 625
 ],
-"m05": null,
+"m05": [
+432,
+497
+],
 "m06": null,
 "m07": null,
 "m08": null,
 "m09": null,
 "m10": null,
-"m11": null,
+"m11": [
+1055,
+492
+],
 "m12": [
 1050,
 532
@@ -62,7 +68,10 @@
 803,
 522
 ],
-"m23": null,
+"m23": [
+913,
+512
+],
 "m23_candidates": [
 [
 827,
@@ -118,5 +127,13 @@
 512
 ],
 "m38": null,
-"m39": null
+"m39": null,
+"m01_note": "far side scanned at 2x: no ball visible in y 380-700; may be out of the far band or hidden",
+"m06_note": "not visible at 2x either",
+"m07_m10_note": "m07-m10 (frames 1585-1658, 2.5 s apart): a referee signal / set-up moment by the far goal; the ball is in a cluster of players and not visible at 2x -> unsure",
+"m17_note": "scanned at 2x, not visible; may be outside the far band",
+"m20_note": "not visible at 2x",
+"m32_note": "players rush towards the right goal; ball likely ahead/in the air, not visible in the band",
+"m33_m34_note": "restart being set up by the far goal; ball in the player cluster, not readable",
+"m38_m39_note": "players sprint towards the right goal (m38) / long ball (m39); ball not in the band"
 }
