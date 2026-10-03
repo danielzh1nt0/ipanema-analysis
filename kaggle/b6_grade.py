@@ -17,13 +17,15 @@ near = lambda g, t: np.hypot(g[0] - t[0], g[1] - t[1]) <= 30
 for name, w in FINDERS.items():
     try: m = BR.load(f"{T}/ia/{w}")
     except Exception as e: rep[name] = {"error": repr(e)[:200]}; continue
-    ks = sorted(frames); out = BR.detect_many(m, [frames[k] for k in ks], floor=0.05); r = {"top": 0, "top3": 0, "any": 0, "unsure_fires": 0, "unsure_n": 0}; rows[name] = {}
+    ks = sorted(frames); out = []
+    for b in range(0, len(ks), 4): out += BR.detect_many(m, [frames[k] for k in ks[b:b + 4]], floor=0.05)   # 4 frames x 8 tiles per batch (T4 memory)
+    r = {"top": 0, "top3": 0, "any": 0, "unsure_fires": 0, "unsure_n": 0}; rows[name] = {}
     for k, g in zip(ks, out):
         rows[name][k] = [[round(x), round(y), round(c, 2)] for x, y, c in g[:5]]
         if k in K:
             t = K[k]; r["top"] += bool(g) and near(g[0], t); r["top3"] += any(near(z, t) for z in g[:3]); r["any"] += any(near(z, t) for z in g)
         else: r["unsure_n"] += 1; r["unsure_fires"] += bool(g) and g[0][2] >= 0.3
-    rep[name] = r; print(name, r, flush=True); del m
+    rep[name] = r; print(name, r, flush=True); del m; import torch; torch.cuda.empty_cache()
 json.dump({"summary": rep, "guesses": rows}, open(f"{W}/result.json", "w"), indent=1)
 # sheet: key moments with the key (green) and each finder's top guess (B7 yellow, neg cyan, feet magenta)
 cols = {"B7 (app)": (0, 255, 255), "hard negatives (2 Oct)": (255, 255, 0), "at feet (2 Oct)": (255, 0, 255)}; tiles = []
