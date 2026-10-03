@@ -10,7 +10,7 @@ jobs:
   match:
     runs-on: ubuntu-latest
     environment: MODAL_TOKEN_ID
-    timeout-minutes: 120
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
