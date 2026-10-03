@@ -92,9 +92,21 @@ try:
                 x0, y0 = rng.randint(0, w - CROP), rng.randint(0, h - CROP)
                 if ball is None or not (x0 - 40 <= ball[0] <= x0 + CROP + 40 and y0 - 40 <= ball[1] <= y0 + CROP + 40): break
             else: return
+        extra = None
+        if PASTE and split == "train" and x is not None and pasted["tried"] < PASTE_MAX and prng.random() < PASTE_P:   # S3b: one far pasted ball inside this crop
+            pasted["tried"] += 1
+            if PB_STATE["boxes"] is None: PB_STATE["boxes"] = person_boxes(f); PB_STATE["spots"] = PB.far_spots(f, PB_STATE["boxes"], prng)
+            for _ in range(25):                                                     # move the crop (ball still 1/8..7/8 inside) until a far spot is in it
+                if PB.in_window(PB_STATE["spots"], (x, y), (x0, y0, x0 + CROP, y0 + CROP)): break
+                x0 = int(min(max(0, x - rng.randint(CROP // 8, CROP * 7 // 8)), w - CROP)); y0 = int(min(max(0, y - rng.randint(CROP // 8, CROP * 7 // 8)), h - CROP))
+            f, extra = PB.paste_in_window(f, PB_STATE["boxes"], (x, y), (x0, y0, x0 + CROP, y0 + CROP), patches, prng, cands=PB_STATE["spots"])
+            if extra:
+                pasted["n"] += 1; pasted["kinds"][extra["kind"]] = pasted["kinds"].get(extra["kind"], 0) + 1; pasted["d"].append(round(extra["d"], 1))
+                if len(sheet) < 48: sheet.append(f[int(extra["y"]) - 40:int(extra["y"]) + 40, int(extra["x"]) - 40:int(extra["x"]) + 40].copy())
         cv2.imwrite(f"{DS}/{split}/images/{name}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
         with open(f"{DS}/{split}/labels/{name}.txt", "w") as fh:
             if x is not None: b = box_px(y, h); fh.write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
+            if extra: b = box_px(extra["y"], h); fh.write(f"0 {(extra['x'] - x0) / CROP:.6f} {(extra['y'] - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
         counts[f"{split}_{'ball' if x is not None else 'empty'}"] += 1
     def put_box(split, name, f, x, y, bw, bh):
         """a ball crop with the picture's own box size (outside sets)"""
@@ -134,6 +146,31 @@ try:
             cv2.imwrite(f"{DS}/{split}/images/{name}_ft{j}.jpg", f[y0:y0 + CROP, x0:x0 + CROP], [cv2.IMWRITE_JPEG_QUALITY, 92])
             b = box_px(y, h); open(f"{DS}/{split}/labels/{name}_ft{j}.txt", "w").write(f"0 {(x - x0) / CROP:.6f} {(y - y0) / CROP:.6f} {b / CROP:.6f} {b / CROP:.6f}\n")
             counts[f"{split}_ball"] += 1; feetc["copies"] += 1
+    # 3 Oct (S3b, kaggle/ballfinder_paste.py): PASTE=1 = into each training ball crop (real ball labelled) paste ONE far real-ball
+    # patch (4-8 px at 1080 rows, sized from the players in the frame, ipanema/pasteball.py), labelled like a real far ball.
+    # Patches from checked balls only: SFK-BP train clicks outside the test clip window and +-1 s of exam frames, + K1's 4 grounds.
+    # Person boxes from the pipeline detector (never paste on a person). Ball-free crops stay ball-free. Exam/clip untouched.
+    PASTE = os.environ.get("PASTE") == "1"; PASTE_P = float(os.environ.get("PASTE_P", "1.0")); PASTE_MAX = int(os.environ.get("PASTE_MAX", "1000000"))
+    REPORT["paste_on"] = PASTE; PB_STATE = {"boxes": None, "spots": []}; pasted = {"tried": 0, "n": 0, "kinds": {}, "d": []}; sheet = []; prng = np.random.default_rng(3)
+    if PASTE:
+        from ipanema import pasteball as PB
+        _cl = json.load(open(os.environ.get("CLICKS", f"{REPO}/results/labels/SFKBP1109_ball_clicks.json")))["frames"]; _ex = [r["t"] for r in _cl if r["split"] == "exam"]
+        _cv = video("SFKBP1109_s1200/video.mp4", f"{TMP}/clip.mp4"); _cc = cv2.VideoCapture(_cv); _win = (1200 - 5, 1200 + int(_cc.get(cv2.CAP_PROP_FRAME_COUNT)) / (_cc.get(cv2.CAP_PROP_FPS) or 29.97) + 5); _cc.release()
+        patches = PB.load_patches(REPO, skip_t=lambda t: _win[0] <= t <= _win[1] or (bool(_ex) and min(abs(t - e) for e in _ex) <= 1.0))
+        REPORT["paste_patches"] = {"n": len(patches), "sfk": sum(p["sid"].startswith("sfk") for p in patches), "k1": sum(p["sid"].startswith("k1") for p in patches), "clip_window_s": [round(v) for v in _win]}
+        log(f"paste: {REPORT['paste_patches']}")
+        if not AT_FEET:
+            os.environ["IPANEMA_DETECTOR"] = "rfdetr"; from ipanema import tracking as TR
+            if LOCAL:
+                class _StubP:
+                    def detect_batch(self, fs, conf, tiles):
+                        class D: xyxy = np.array([[260.0, 520.0, 300.0, 612.0], [900.0, 300.0, 925.0, 360.0], [1400.0, 250.0, 1420.0, 300.0], [500.0, 700.0, 560.0, 830.0]])
+                        return [[D()]]
+                pdet = _StubP()
+            else: pdet = TR.RFDetrPerson("medium")
+    def person_boxes(f):
+        try: return [list(map(float, b)) for b in pdet.detect_batch([f], 0.3, TR.FOLLOW_TILES)[0][0].xyxy]
+        except Exception as e: log(f"person boxes failed: {e!r}"); return []
     REPORT["matches"] = {}
     for mt in MATCHES:
         try:
@@ -146,7 +183,7 @@ try:
             by = {int(l["frame"]): (i, l) for i, l in enumerate(pick)}
             vid = video(f"{mt}/video.mp4", f"{TMP}/{mt}.mp4"); c0 = dict(counts); t1 = time.time()
             for k, f in frames_at(vid, list(by)):
-                i, l = by[k]; ball = (l["x"], l["y"]); split = "valid" if i in vset else "train"; nm = f"{mt[:12]}_{k:06d}"
+                PB_STATE["boxes"] = None; i, l = by[k]; ball = (l["x"], l["y"]); split = "valid" if i in vset else "train"; nm = f"{mt[:12]}_{k:06d}"
                 put(split, nm + "_b", f, l["x"], l["y"])
                 if split == "train" and at_feet(f, l["x"], l["y"]): put_feet("train", nm, f, l["x"], l["y"])
                 if rng.random() < NEG_FRAC: put(split, nm + "_n", f, None, None)
@@ -166,7 +203,7 @@ try:
     full = video("SFKBP1109/video.mp4", f"{TMP}/sfk_full.mp4"); cf = cv2.VideoCapture(full); fps = cf.get(cv2.CAP_PROP_FPS) or 29.97; cf.release()
     by = {int(round(r["t"] * fps)): r for r in train}; c0 = dict(counts)
     for k, f in frames_at(full, list(by)):
-        r = by[k]; nm = f"sfk_{r['file'][:-4]}"
+        r = by[k]; nm = f"sfk_{r['file'][:-4]}"; PB_STATE["boxes"] = None
         if r["x"] is None: ball = None; put("train", nm + "_n", f, None, None)
         else:
             ball = (r["x"], r["y"])
@@ -174,7 +211,16 @@ try:
             if at_feet(f, r["x"], r["y"]): put_feet("train", nm, f, r["x"], r["y"])
             if rng.random() < NEG_FRAC: put("train", nm + "_n", f, None, None)
     REPORT["sfk"]["crops"] = {k: counts[k] - c0[k] for k in counts}
-    if AT_FEET: REPORT["at_feet"] = feetc; log(f"at feet: {feetc}"); del pdet; torch.cuda.empty_cache() if torch.cuda.is_available() else None
+    if AT_FEET: REPORT["at_feet"] = feetc; log(f"at feet: {feetc}")
+    if PASTE:
+        dd = np.array(pasted["d"]) if pasted["d"] else np.zeros(1)
+        REPORT["pasted"] = {"crops_tried": pasted["tried"], "pasted": pasted["n"], "kinds": pasted["kinds"], "d_px_p10_p50_p90": [round(float(v), 1) for v in np.percentile(dd, [10, 50, 90])]}
+        log(f"pasted: {REPORT['pasted']}")
+        if sheet:                                                                   # by-eye check: 80x80 windows around pasted balls, x3
+            t_ = [cv2.resize(z, (240, 240), interpolation=cv2.INTER_NEAREST) if z.shape[:2] == (80, 80) else np.zeros((240, 240, 3), np.uint8) for z in sheet]
+            while len(t_) % 8: t_.append(np.zeros((240, 240, 3), np.uint8))
+            cv2.imwrite(f"{WORK}/paste_sheet.jpg", np.vstack([np.hstack(t_[r * 8:(r + 1) * 8]) for r in range(len(t_) // 8)]), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    if AT_FEET or PASTE: del pdet; torch.cuda.empty_cache() if torch.cuda.is_available() else None
     # H1b (1 Oct, Daniel: yes, testing only): HF_EXTRA=1 adds the outside Bundesliga TV ball set (martinjolif/football-ball-detection,
     # 1,237 pictures, licence doubtful -> the weights from such a run are for testing, never promoted). One crop per picture with
     # its own box size (median 12 px, Veo-sized), all to train (their test split is never our exam), plus the usual ball-free share.
@@ -301,7 +347,7 @@ try:
         model = Model.from_checkpoint(ck, resolution=RES); REPORT["checkpoint"] = os.path.basename(ck); log(f"loaded {ck}: resolution {getattr(getattr(model, 'model_config', None), 'resolution', '?')}")
         sd = torch.load(ck, map_location="cpu", weights_only=False); sd = sd.get("model", sd)
         sd = {k: (v.half() if torch.is_tensor(v) and v.is_floating_point() else v) for k, v in sd.items()}
-        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}{'_hf_TESTONLY' if HF_EXTRA else ''}{'_hn' if HARD_NEG else ''}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
+        wname = f"rfdetr_ball_{SIZE}_{time.strftime('%Y%m%d')}{'_hf_TESTONLY' if HF_EXTRA else ''}{'_hn' if HARD_NEG else ''}{'_paste' if PASTE else ''}_fp16.pth"; torch.save({"model": sd, "size": SIZE, "resolution": RES, "classes": ["ball"]}, f"{WORK}/{wname}")
         REPORT["weights"] = {"file": wname, "MB": round(os.path.getsize(f"{WORK}/{wname}") / 1e6, 1), "full_checkpoint_MB": round(os.path.getsize(ck) / 1e6, 1)}
         if REPORT["weights"]["MB"] > 95: os.rename(f"{WORK}/{wname}", f"{TMP}/{wname}"); REPORT["weights"]["note"] = "too big for git: left on Kaggle temp (lost)"
     log(f"weights {REPORT.get('weights')}"); save()
@@ -351,6 +397,7 @@ try:
                         "current_click_finder": {"among_guesses": 18, "top_guess": 16}, "wasb": {"among_guesses": 31, "top_guess": 26}}
     REPORT["clip_rows"] = crow; log(f"clip34: {json.dumps(REPORT['clip34'])}")
     # 2 Oct (S8): candidates over whole clips with the new finder (and the old one, same code), for the offline picker/pass grading
+    if os.environ.get("CANDS_CLIPS"): from ipanema import ballrf
     for c in [c for c in os.environ.get("CANDS_CLIPS", "").split(",") if c]:
         vp = video(f"{c}/video.mp4", f"{TMP}/{c}_cands.mp4"); t1 = time.time()
         newc = ballrf.candidates_model(model, vp, floor=0.05, batch=4, log=log) if hasattr(ballrf, "candidates_model") else None

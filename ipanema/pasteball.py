@@ -155,3 +155,55 @@ def paste(frame, patch, x, y, d, rng, blur=(0.2, 0.5), smear=(2, 4), smear_p=0.3
     out[y0:y0 + 2 * P + 1, x0:x0 + 2 * P + 1] = np.clip(comp, 0, 255).astype(np.uint8)
     r = d / 2 + L / 2
     return out, [float(x - r), float(y - r), float(x + r), float(y + r)]
+
+
+# ---------------- S3b (3 Oct): pasting inside the training crops of the ball finder (kaggle/ballfinder_paste.py)
+def _crop_t(name):
+    """SFK-BP crop file name 't01234.5.jpg' -> 1234.5 s (None when not a time name)"""
+    try: return float(str(name)[1:-4])
+    except ValueError: return None
+
+
+def load_patches(repo=".", skip_t=None):
+    """clean ball patches from the checked ball crops in the repo (as tools/s3_paste.py): SFK-BP TRAIN clicks (skip_t(t)
+    True = left out, e.g. the test clip's window and +-1 s around exam frames) + the K1 checked balls of 4 more grounds."""
+    out = []
+    d = np.load(f"{repo}/results/volume/cache/ballcrops/SFKBP1109_crops.npz", allow_pickle=True); X, M = d["X"], d["meta"]
+    for i in range(len(M)):
+        if M[i][6] == 1 and M[i][1] == "train":
+            t = _crop_t(M[i][0])
+            if skip_t is not None and (t is None or skip_t(t)): continue
+            p = cut_patch(X[i][1])
+            if p: p.update(sid=f"sfk:{i}"); out.append(p)
+    k = np.load(f"{repo}/results/free/k1b/k1_crops.npz", allow_pickle=True); KX, KM = k["X"], k["meta"]
+    for i in range(len(KM)):
+        if KM[i][6] == 1 and int(KM[i][8]) == 0:
+            p = cut_patch(KX[i][1])
+            if p: p.update(sid=f"k1:{i}"); out.append(p)
+    return out
+
+
+def far_spots(frame, boxes, rng, n=12, d_lo=4.0, d_hi=8.0):
+    """candidate far spots of one frame (d_lo..d_hi px at 1080 rows, scaled with the frame height)"""
+    s = frame.shape[0] / 1080.0
+    return spots(frame, boxes, n, rng, d_lo=d_lo * s, d_hi=d_hi * s)
+
+
+def in_window(sp, real_xy, win, margin=24, min_gap=40):
+    """the spots inside window win = (x0, y0, x1, y1) (margin px from its edge) and min_gap px from the real ball"""
+    x0, y0, x1, y1 = win
+    return [p for p in sp if x0 + margin <= p[0] < x1 - margin and y0 + margin <= p[1] < y1 - margin
+            and (real_xy is None or np.hypot(p[0] - real_xy[0], p[1] - real_xy[1]) >= min_gap)]
+
+
+def paste_in_window(frame, boxes, real_xy, win, patches, rng, d_lo=4.0, d_hi=8.0, margin=24, min_gap=40, n_try=8, cands=None):
+    """paste ONE far ball (d_lo..d_hi px at 1080 rows, scaled with the frame height) inside the window win = (x0, y0, x1, y1)
+    of frame, never on a person nor within min_gap px of the real ball real_xy (None = no real ball). Returns
+    (frame copy, dict(x, y, d, kind, src)) or (frame, None) when no far spot falls inside the window."""
+    sp = cands if cands is not None else far_spots(frame, boxes, rng, n_try, d_lo, d_hi)
+    ok = in_window(sp, real_xy, win, margin, min_gap)
+    if not ok or not patches: return frame, None
+    x, y, d, kind = ok[0]; p = patches[int(rng.integers(len(patches)))]
+    out, box = paste(frame, p, x, y, d, rng)
+    if box is None: return frame, None
+    return out, dict(x=float(x), y=float(y), d=float(d), kind=kind, src=p.get("sid"))

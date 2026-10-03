@@ -65,3 +65,26 @@ def test_paste_is_deterministic_by_seed():
     a, _ = PB.paste(fr, p, 300, 200, 6.0, np.random.default_rng(5))
     b, _ = PB.paste(fr, p, 300, 200, 6.0, np.random.default_rng(5))
     assert np.array_equal(a, b)
+
+
+def test_paste_in_window_stays_inside_and_away_from_real_ball():
+    fr = _grass(720, 1280); p = PB.cut_patch(_ball_crop(10))
+    boxes = [[x, y - 0.12 * y, x + 0.05 * y, y] for x, y in ((200, 200), (600, 300), (900, 450), (300, 600), (1000, 650))]
+    win = (0, 0, 640, 640); real = (320, 300); hits = 0
+    for s in range(12):
+        out, info = PB.paste_in_window(fr, boxes, real, win, [p], np.random.default_rng(s))
+        if info is None: assert out is fr; continue
+        hits += 1
+        assert 24 <= info["x"] < 616 and 24 <= info["y"] < 616
+        assert np.hypot(info["x"] - real[0], info["y"] - real[1]) >= 40
+        diff = np.abs(out.astype(int) - fr.astype(int)).sum(2); ys, xs = np.nonzero(diff > 25)
+        assert np.all(np.abs(xs - info["x"]) <= 20) and np.all(np.abs(ys - info["y"]) <= 20)
+    assert hits >= 6
+    out, info = PB.paste_in_window(fr, boxes, real, (1200, 700, 1280, 720), [p], np.random.default_rng(0))   # no room
+    assert info is None and out is fr
+
+
+def test_load_patches_skips_test_window():
+    allp = PB.load_patches(".")
+    some = PB.load_patches(".", skip_t=lambda t: t < 1e9)        # every SFK-BP crop left out: only the K1 grounds remain
+    assert len(allp) > len(some) > 0 and all(q["sid"].startswith("k1:") for q in some)
