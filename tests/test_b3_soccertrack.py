@@ -25,8 +25,8 @@ def keypoints(cal):
 
 
 def ball_path(n):
-    """ground ball: 60 frames at a player's feet, then rolls slowly, then 'in the air' (fast), repeated"""
-    t = np.arange(n); x = 30 + 40 * (t % 400) / 400.0; y = 20 + 25 * np.sin(t / 150.0)
+    """ball at a player's feet, moving ~1 m/frame at most so a 1-frame sync error shows"""
+    t = np.arange(n); x = 52 + 30 * np.sin(t / 25.0); y = 34 + 20 * np.sin(t / 37.0)
     return np.stack([x, y], 1)
 
 
@@ -40,7 +40,7 @@ def stand_in(tmp_path_factory):
     lines = ["<root>"]
     for per, base in (("FIRST_HALF", off), ("SECOND_HALF", off + 5000)):
         for k in range(n):
-            b = bm[k]; ploc = [b + [0.8, 0.0], b + [15, 10], b + [-20, 5]]
+            b = bm[k]; ploc = [b + [1.5, 0.0], b + [15, 10], b + [-20, 5]]
             lines.append(f'<frame frameNumber="{base + k}" eventPeriod="{per}">')
             for j, q in enumerate(ploc):                                                   # players: y flipped in 132877
                 lines.append(f'<player playerId="{j}" loc="[{q[0] / 105:.5f}, {1 - q[1] / 68:.5f}]"/>')
@@ -52,6 +52,8 @@ def stand_in(tmp_path_factory):
         vw = cv2.VideoWriter(str(root / "videos" / m / f"{m}_panorama_{h}_half.mp4"), cv2.VideoWriter_fourcc(*"mp4v"), 25, (W, H))
         for k in range(n):
             img = np.full((H, W, 3), (40, 120, 50), np.uint8)
+            for q in ST.project(cal, np.array([bm[k] + [1.5, 0.0], bm[k] + [15, 10], bm[k] + [-20, 5]])):    # players (sync check)
+                cv2.circle(img, (int(q[0]), int(q[1])), 5, (25, 25, 25), -1)
             cv2.circle(img, (int(round(true[k, 0])), int(round(true[k, 1]))), 3, (235, 235, 235), -1)
             vw.write(img)
         vw.release()
@@ -63,7 +65,7 @@ def test_flips_and_projection(stand_in):
     per = ST.parse_xml(str(root / "raw" / "132877" / "132877_tracker_box_data.xml"))
     assert per["FIRST_HALF"]["frames"][0] == off and len(per["SECOND_HALF"]["frames"]) == 600
     b = ST.to_metres(per["FIRST_HALF"]["ball"][:5], "132877", "ball"); assert np.allclose(b, bm[:5], atol=0.01)
-    p = ST.to_metres(per["FIRST_HALF"]["players"][0][:1], "132877", "player"); assert np.allclose(p[0], bm[0] + [0.8, 0], atol=0.01)
+    p = ST.to_metres(per["FIRST_HALF"]["players"][0][:1], "132877", "player"); assert np.allclose(p[0], bm[0] + [1.5, 0], atol=0.01)
     pitch, image, _ = ST.load_keypoints(str(root / "raw" / "132877" / "132877_keypoints.json"), "132877")
     fit = ST.calibrate(pitch, image, W, H); assert fit["rms"] < 1.0
     assert np.abs(ST.project(fit, bm[:50]) - true[:50]).max() < 2.0
@@ -91,6 +93,7 @@ def test_dry_run_end_to_end(stand_in, tmp_path):
                        env=env, capture_output=True, text=True); assert r.returncode == 0, r.stderr[-2000:]
     labs = json.load(open(tmp_path / "labels.json")); s = json.load(open(tmp_path / "summary.json"))
     assert len(labs) == 16 and s["matches"]["132877"]["1st"]["offset"] == off and s["ball_folder"] == ["ball/readme.txt"]
+    assert s["matches"]["132877"]["1st"]["sync_shift"] in range(-3, 4) and s["matches"]["132877"]["1st"]["sync_hit"] > 0.8
     for l in labs:
         k = l["xml_frame"] - off - (5000 if l["half"] == "2nd" else 0)
         assert l["kind"] in ("feet", "rolling") and l["snapped"]

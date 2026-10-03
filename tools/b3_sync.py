@@ -16,25 +16,7 @@ SPAN = int(os.environ.get("SPAN", "1500")); STEP = int(os.environ.get("STEP", "5
 NF = int(os.environ.get("N_FRAMES", "12")); t0 = time.time()
 def log(m): print(f"{(time.time() - t0) / 60:5.1f} min  {m}", flush=True)
 
-def background(vp, n):
-    cap = cv2.VideoCapture(vp); tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fr = []
-    for k in np.linspace(tot * 0.05, tot * 0.95, n).astype(int):
-        cap.set(cv2.CAP_PROP_POS_FRAMES, int(k)); ok, f = cap.read()
-        if ok: fr.append(cv2.resize(f, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA))
-    cap.release(); return np.median(np.array(fr), 0).astype(np.uint8), tot
-
-def fg_mask(img, bg):
-    s = cv2.resize(img, (bg.shape[1], bg.shape[0]), interpolation=cv2.INTER_AREA)
-    d = cv2.absdiff(s, bg).max(2); m = (d > 40).astype(np.uint8)
-    return cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
-
-def hits(mask, pts, r=R // 2):
-    h, w = mask.shape; n = 0; k = 0
-    for x, y in pts / 2.0:
-        x, y = int(x), int(y)
-        if not (r <= x < w - r and r <= y < h - r): continue
-        k += 1; n += mask[y - r:y + r + 1, x - r:x + r + 1].any()
-    return n, k
+background, fg_mask, hits = ST.background, ST.fg_mask, lambda m, p, r=R // 2: ST.hits(m, p, r)
 
 def main():
     files = B.listing(); res = {}

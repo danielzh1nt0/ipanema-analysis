@@ -1,2 +1,2 @@
-tools/b3_sync.py
-# Sat Oct  3 05:11:30 UTC 2026 B3 check: SoccerTrack XML vs video sync (offset search on 4 matches) + what is in the ball/ folder (free, CPU)
+tools/b3_soccertrack.py
+# Sat Oct  3 05:22:54 UTC 2026 B3 pass 2: per-half XML/video sync found from the players, tighter ball snap with a size check (free, CPU)

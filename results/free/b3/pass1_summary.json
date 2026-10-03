@@ -1,0 +1,575 @@
+{
+ "started": "2026-10-03 04:48",
+ "n_files": 197,
+ "matches": {
+  "117092": {
+   "keypoints": "raw/117092/117092_keypoints.json",
+   "xml": "raw/117092/117092_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/117092/117092_panorama_1st_half.mp4",
+    "2nd": "videos/117092/117092_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 67375,
+    "offset": 252,
+    "ball_tracked": 67371,
+    "feet": 28431,
+    "rolling": 8410,
+    "video_wh": [
+     3840,
+     1906
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67375,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 35
+   },
+   "rms_px": 30.63,
+   "2nd": {
+    "xml_frames": 67576,
+    "offset": 251,
+    "ball_tracked": 67571,
+    "feet": 28899,
+    "rolling": 10863,
+    "video_wh": [
+     3840,
+     1906
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67550,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 33
+   },
+   "status": "ok"
+  },
+  "117093": {
+   "keypoints": "raw/117093/117093_keypoints.json",
+   "xml": "raw/117093/117093_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/117093/117093_panorama_1st_half.mp4",
+    "2nd": "videos/117093/117093_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 67650,
+    "offset": 251,
+    "ball_tracked": 67598,
+    "feet": 29193,
+    "rolling": 8349,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67625,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 18
+   },
+   "rms_px": 8.64,
+   "2nd": {
+    "xml_frames": 70475,
+    "offset": 251,
+    "ball_tracked": 70447,
+    "feet": 30287,
+    "rolling": 10159,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 70475,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 21
+   },
+   "status": "ok"
+  },
+  "118575": {
+   "keypoints": "raw/118575/118575_keypoints.json",
+   "xml": "raw/118575/118575_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/118575/118575_panorama_1st_half.mp4",
+    "2nd": "videos/118575/118575_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 72101,
+    "offset": 251,
+    "ball_tracked": 72101,
+    "feet": 28008,
+    "rolling": 10520,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 71850,
+    "frames_read": 39,
+    "labels": 39,
+    "snapped": 18
+   },
+   "rms_px": 10.04,
+   "2nd": {
+    "xml_frames": 73676,
+    "offset": 251,
+    "ball_tracked": 73625,
+    "feet": 31040,
+    "rolling": 10981,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 73425,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 9
+   },
+   "status": "ok"
+  },
+  "118576": {
+   "keypoints": "raw/118576/118576_keypoints.json",
+   "xml": "raw/118576/118576_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/118576/118576_panorama_1st_half.mp4",
+    "2nd": "videos/118576/118576_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 73101,
+    "offset": 251,
+    "ball_tracked": 73072,
+    "feet": 31507,
+    "rolling": 12554,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 72825,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 14
+   },
+   "rms_px": 9.88,
+   "2nd": {
+    "xml_frames": 73051,
+    "offset": 251,
+    "ball_tracked": 72990,
+    "feet": 27358,
+    "rolling": 16609,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 72775,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 19
+   },
+   "status": "ok"
+  },
+  "118577": {
+   "keypoints": "raw/118577/118577_keypoints.json",
+   "xml": "raw/118577/118577_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/118577/118577_panorama_1st_half.mp4",
+    "2nd": "videos/118577/118577_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 72676,
+    "offset": 251,
+    "ball_tracked": 72597,
+    "feet": 27835,
+    "rolling": 17693,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 72425,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 13
+   },
+   "rms_px": 9.4,
+   "2nd": {
+    "xml_frames": 72751,
+    "offset": 251,
+    "ball_tracked": 72717,
+    "feet": 27340,
+    "rolling": 14292,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 72475,
+    "frames_read": 39,
+    "labels": 39,
+    "snapped": 9
+   },
+   "status": "ok"
+  },
+  "118578": {
+   "keypoints": "raw/118578/118578_keypoints.json",
+   "xml": "raw/118578/118578_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/118578/118578_panorama_1st_half.mp4",
+    "2nd": "videos/118578/118578_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 70626,
+    "offset": 251,
+    "ball_tracked": 70584,
+    "feet": 28718,
+    "rolling": 10524,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 70350,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 22
+   },
+   "rms_px": 9.73,
+   "2nd": {
+    "xml_frames": 71225,
+    "offset": 252,
+    "ball_tracked": 71183,
+    "feet": 27047,
+    "rolling": 13772,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 70975,
+    "frames_read": 39,
+    "labels": 39,
+    "snapped": 25
+   },
+   "status": "ok"
+  },
+  "128057": {
+   "keypoints": "raw/128057/128057_keypoints.json",
+   "xml": "raw/128057/128057_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/128057/128057_panorama_1st_half.mp4",
+    "2nd": "videos/128057/128057_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 67650,
+    "offset": 251,
+    "ball_tracked": 67644,
+    "feet": 28438,
+    "rolling": 12356,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67625,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 14
+   },
+   "rms_px": 9.27,
+   "2nd": {
+    "xml_frames": 70375,
+    "offset": 251,
+    "ball_tracked": 70344,
+    "feet": 29573,
+    "rolling": 11734,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 70350,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 14
+   },
+   "status": "ok"
+  },
+  "128058": {
+   "keypoints": "raw/128058/128058_keypoints.json",
+   "xml": "raw/128058/128058_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/128058/128058_panorama_1st_half.mp4",
+    "2nd": "videos/128058/128058_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 69251,
+    "offset": 251,
+    "ball_tracked": 69180,
+    "feet": 26612,
+    "rolling": 9288,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 68975,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 22
+   },
+   "rms_px": 9.35,
+   "2nd": {
+    "xml_frames": 68025,
+    "offset": 252,
+    "ball_tracked": 67987,
+    "feet": 23756,
+    "rolling": 12727,
+    "video_wh": [
+     4096,
+     1080
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67750,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 22
+   },
+   "status": "ok"
+  },
+  "132831": {
+   "keypoints": "raw/132831/132831_keypoints.json",
+   "xml": "raw/132831/132831_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/132831/132831_panorama_1st_half.mp4",
+    "2nd": "videos/132831/132831_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "corrected copy",
+   "1st": {
+    "xml_frames": 67800,
+    "offset": 1,
+    "ball_tracked": 56205,
+    "feet": 3749,
+    "rolling": 5248,
+    "video_wh": [
+     3840,
+     1504
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67775,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 26
+   },
+   "rms_px": 18.07,
+   "2nd": {
+    "xml_frames": 68401,
+    "offset": 67801,
+    "ball_tracked": 55981,
+    "feet": 3432,
+    "rolling": 6085,
+    "video_wh": [
+     3840,
+     1504
+    ],
+    "video_fps": 25.0,
+    "video_frames": 68375,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 29
+   },
+   "status": "ok"
+  },
+  "132877": {
+   "keypoints": "raw/132877/132877_keypoints.json",
+   "xml": "raw/132877/132877_tracker_box_data.xml",
+   "videos": {
+    "1st": "videos/132877/132877_panorama_1st_half.mp4",
+    "2nd": "videos/132877/132877_panorama_2nd_half.mp4"
+   },
+   "keypoint_source": "dataset",
+   "1st": {
+    "xml_frames": 67713,
+    "offset": 1,
+    "ball_tracked": 58441,
+    "feet": 27962,
+    "rolling": 4346,
+    "video_wh": [
+     4096,
+     1084
+    ],
+    "video_fps": 25.0,
+    "video_frames": 67700,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 14
+   },
+   "rms_px": 9.78,
+   "2nd": {
+    "xml_frames": 69376,
+    "offset": 67714,
+    "ball_tracked": 52965,
+    "feet": 22970,
+    "rolling": 2083,
+    "video_wh": [
+     4096,
+     1084
+    ],
+    "video_fps": 25.0,
+    "video_frames": 69350,
+    "frames_read": 40,
+    "labels": 40,
+    "snapped": 15
+   },
+   "status": "ok"
+  }
+ },
+ "ball_folder": [
+  "ball/117092_1st_ball.npz",
+  "ball/117092_2nd_ball.npz",
+  "ball/117093_1st_ball.npz",
+  "ball/117093_2nd_ball.npz",
+  "ball/118575_1st_ball.npz",
+  "ball/118575_2nd_ball.npz",
+  "ball/118576_1st_ball.npz",
+  "ball/118576_2nd_ball.npz",
+  "ball/118577_1st_ball.npz",
+  "ball/118577_2nd_ball.npz",
+  "ball/118578_1st_ball.npz",
+  "ball/118578_2nd_ball.npz",
+  "ball/128057_1st_ball.npz",
+  "ball/128057_2nd_ball.npz",
+  "ball/128058_1st_ball.npz",
+  "ball/128058_2nd_ball.npz",
+  "ball/132831_1st_ball.npz",
+  "ball/132831_2nd_ball.npz",
+  "ball/132877_1st_ball.npz",
+  "ball/132877_2nd_ball.npz"
+ ],
+ "raw_folder": [
+  "raw/117092/117092_12_class_events.json",
+  "raw/117092/117092_camera_intrinsics.npz",
+  "raw/117092/117092_homography.npy",
+  "raw/117092/117092_keypoints.json",
+  "raw/117092/117092_mapx.npy",
+  "raw/117092/117092_mapy.npy",
+  "raw/117092/117092_padding_info.csv",
+  "raw/117092/117092_player_nodes.csv",
+  "raw/117092/117092_tracker_box_data.xml",
+  "raw/117092/117092_tracker_box_metadata.xml",
+  "raw/117093/117093_12_class_events.json",
+  "raw/117093/117093_camera_intrinsics.npz",
+  "raw/117093/117093_homography.npy",
+  "raw/117093/117093_keypoints.json",
+  "raw/117093/117093_mapx.npy",
+  "raw/117093/117093_mapy.npy",
+  "raw/117093/117093_padding_info.csv",
+  "raw/117093/117093_player_nodes.csv",
+  "raw/117093/117093_tracker_box_data.xml",
+  "raw/117093/117093_tracker_box_metadata.xml",
+  "raw/118575/118575_12_class_events.json",
+  "raw/118575/118575_camera_intrinsics.npz",
+  "raw/118575/118575_homography.npy",
+  "raw/118575/118575_keypoints.json",
+  "raw/118575/118575_mapx.npy",
+  "raw/118575/118575_mapy.npy",
+  "raw/118575/118575_padding_info.csv",
+  "raw/118575/118575_player_nodes.csv",
+  "raw/118575/118575_tracker_box_data.xml",
+  "raw/118575/118575_tracker_box_metadata.xml",
+  "raw/118576/118576_12_class_events.json",
+  "raw/118576/118576_camera_intrinsics.npz",
+  "raw/118576/118576_homography.npy",
+  "raw/118576/118576_keypoints.json",
+  "raw/118576/118576_mapx.npy",
+  "raw/118576/118576_mapy.npy",
+  "raw/118576/118576_padding_info.csv",
+  "raw/118576/118576_player_nodes.csv",
+  "raw/118576/118576_tracker_box_data.xml",
+  "raw/118576/118576_tracker_box_metadata.xml",
+  "raw/118577/118577_12_class_events.json",
+  "raw/118577/118577_camera_intrinsics.npz",
+  "raw/118577/118577_homography.npy",
+  "raw/118577/118577_keypoints.json",
+  "raw/118577/118577_mapx.npy",
+  "raw/118577/118577_mapy.npy",
+  "raw/118577/118577_padding_info.csv",
+  "raw/118577/118577_player_nodes.csv",
+  "raw/118577/118577_tracker_box_data.xml",
+  "raw/118577/118577_tracker_box_metadata.xml",
+  "raw/118578/118578_12_class_events.json",
+  "raw/118578/118578_camera_intrinsics.npz",
+  "raw/118578/118578_homography.npy",
+  "raw/118578/118578_keypoints.json",
+  "raw/118578/118578_mapx.npy",
+  "raw/118578/118578_mapy.npy",
+  "raw/118578/118578_padding_info.csv",
+  "raw/118578/118578_player_nodes.csv",
+  "raw/118578/118578_tracker_box_data.xml",
+  "raw/118578/118578_tracker_box_metadata.xml",
+  "raw/128057/128057_12_class_events.json",
+  "raw/128057/128057_camera_intrinsics.npz",
+  "raw/128057/128057_homography.npy",
+  "raw/128057/128057_keypoints.json",
+  "raw/128057/128057_mapx.npy",
+  "raw/128057/128057_mapy.npy",
+  "raw/128057/128057_padding_info.csv",
+  "raw/128057/128057_player_nodes.csv",
+  "raw/128057/128057_tracker_box_data.xml",
+  "raw/128057/128057_tracker_box_metadata.xml",
+  "raw/128058/128058_12_class_events.json",
+  "raw/128058/128058_camera_intrinsics.npz",
+  "raw/128058/128058_homography.npy",
+  "raw/128058/128058_keypoints.json",
+  "raw/128058/128058_mapx.npy",
+  "raw/128058/128058_mapy.npy",
+  "raw/128058/128058_padding_info.csv",
+  "raw/128058/128058_player_nodes.csv",
+  "raw/128058/128058_tracker_box_data.xml",
+  "raw/128058/128058_tracker_box_metadata.xml",
+  "raw/132831/132831_12_class_events.json",
+  "raw/132831/132831_8_class_events.json",
+  "raw/132831/132831_camera_intrinsics.npz",
+  "raw/132831/132831_homography.npy",
+  "raw/132831/132831_keypoints.json",
+  "raw/132831/132831_mapx.npy",
+  "raw/132831/132831_mapy.npy",
+  "raw/132831/132831_padding_info.csv",
+  "raw/132831/132831_player_nodes.csv",
+  "raw/132831/132831_tracker_box_data.xml",
+  "raw/132831/132831_tracker_box_metadata.xml",
+  "raw/132877/132877_12_class_events.json",
+  "raw/132877/132877_8_class_events.json",
+  "raw/132877/132877_camera_intrinsics.npz",
+  "raw/132877/132877_homography.npy",
+  "raw/132877/132877_keypoints.json",
+  "raw/132877/132877_mapx.npy",
+  "raw/132877/132877_mapy.npy",
+  "raw/132877/132877_padding_info.csv",
+  "raw/132877/132877_player_nodes.csv",
+  "raw/132877/132877_tracker_box_data.xml",
+  "raw/132877/132877_tracker_box_metadata.xml"
+ ],
+ "ball_folder_samples": {
+  "ball/117092_1st_ball.npz": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000\u0000\u0000!\u0000V]\ufffd\u05c9l\u0001\u0000<\u001d\u0004\u0000\t\u0000\u0014\u0000frame.npy\u0001\u0000\u0010\u0000<\u001d\u0004\u0000\u0000\u0000\u0000\u0000\ufffdl\u0001\u0000\u0000\u0000\u0000\u0000\ufffd\ufffd\ufffd\u0016\ufffdL\ufffd\u0005\u043fm\u06f6m\u06f6m\u06f6m\u06f6m\u06f6\ufffd\ufffd\ufffd\ufffdW8\u0019c^\ufffd\ufffdSI\ufffdv\ufffd=\ufffdl\ufffd2\ufffdk\u0004\ufffd_\ufffd\ufffd\ufffdJ\u05b8I\ufffdF\u001d\ufffd\u531f,w\ufffd\ufffd\ufffdR\ufffdO\u05b4]\ufffd\ufffd\u001d\u001b\ufffd\ufffd\u05eec\ufffd&\ufffd\u018b6h\u0769\ufffd\ufffdN\ufffd\u001b\ufffdo\ufffd>y\ufffdl\ufffd\ufffdeI\ufffd\"u\ufffd>\ufffd\ufffd\ufffdW\ufffd\u0000\ufffd\ufffd\ufffd\ufffd\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,\ufffd\bO\u0004\"\u0012\ufffd\ufffdD!*\u0448N\fb\u0012\ufffd\ufffd\ufffd!.\ufffdO\u0002\u0012\ufffd\ufffd\ufffd$!)\ufffdHN\nR\ufffd\ufffd\u0524!-\ufffdHO\u00062\ufffd\ufffd\ufffdd!+\ufffd\ufffdN\u000er\ufffd\ufffd\ufffd\ufffd!/\ufffd\ufffdO\u0001\nR\ufffd\ufffd\u0014\ufffd(\ufffd(N\tJR\ufffd\u0494\ufffd,\ufffd(O\u0005*R\ufffd\ufffdT\ufffd*\u0568N\njR\ufffd\ufffd\u0521.\ufffd\ufffdO\u0003\u001a\u0488\ufffd4\ufffd)\ufffdhN\u000bZ\u048a\u05b4\ufffd-\ufffdhO\u0007:\u0489\ufffdt\ufffd+\ufffd\ufffdN\u000fz\u048b\ufffd\ufffd\ufffd/\ufffd\ufffd\ufffd\u0000\u00062\ufffd\ufffd\fa(\ufffd\u0018\ufffd\bF2\ufffd\u044ca,\ufffd\u0018\ufffd\u0004&2\ufffd\ufffdLa*\u04d8\ufffd\ff2\ufffd\ufffd\ufffda.\ufffd\ufffd\u0002\u0016\ufffd\ufffd\ufffd,a)\ufffdX\ufffd\nV\ufffd\ufffd\u056ca-\ufffdX\ufffd\u00066\ufffd\ufffd\ufffdla+\ufffd\ufffd\ufffd\u000ev\ufffd\ufffd\ufffd\ufffda/\ufffd\ufffd\ufffd\u0001\u000er\ufffd\ufffd\u001c\ufffd(\ufffd8\ufffd\tNr\ufffd\u04dc\ufffd,\ufffd8\ufffd\u0005.r\ufffd\ufffd\\\ufffd*\u05f8\ufffd\nnr\ufffd\ufffd\ufffd\ufffd.\ufffd\ufffd\ufffd\u0003\u001e\ufffd\ufffd<\ufffd)\ufffdx\ufffd\u000b^\ufffd\u05fc\ufffd-\ufffdx\ufffd\u0007>\ufffd\ufffd|\ufffd+\ufffd\ufffd\ufffd\u000f~\ufffd\ufffd\ufffd\ufffd?\ufffd\ufffd?\u000f\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\b\ufffdM\u0012\ufffd\bM\u0018\ufffd\u0012\ufffd\ufffdD \"\ufffd\ufffdL\u0014\ufffd\u0012\ufffd\ufffd\ufffd &\ufffd\ufffdM\u001c\ufffd\u0012\ufffd\ufffd$ !\ufffdHL\u0012\ufffd\ufffd\ufffd\ufffd %\ufffdHM\u001a\u0492\ufffd\ufffdd #\ufffd\ufffdL\u0016\ufffd\ufffd\ufffd\ufffd\ufffd '\ufffd\ufffdM\u001e\ufffd\ufffd\u0014\ufffd \ufffd(L\u0011\ufffdR\ufffd\u2520$\ufffd(M\u0019\ufffdR\ufffd\ufffdT\ufffd\"\ufffd\ufffdL\u0015\ufffdR\ufffd\ufffd\ufffd\ufffdW\ufffdZ\u0526\u000eu\ufffdG}\u001a\u0410F4\ufffd\tMiFsZ\u0412V\ufffd\ufffd\nmiG{:\u0411Nt\ufffd\u000b]\ufffdFwz\u0413^\ufffd\ufffd\u000f}\ufffdG\u007f\u00060\ufffdA\ff\bC\u0019\ufffdpF0\ufffdQ\ufffdf\fc\u0019\ufffdx&0\ufffdILf\nS\ufffd\ufffdtf0\ufffdY\ufffdf\u000es\ufffd\ufffd|\u0016\ufffd\ufffdE,f\tKY\ufffdrV\ufffd\ufffdU\ufffdf\nkY\ufffdz6\ufffd\ufffdMlf\u000b[\ufffd\ufffdvv\ufffd\ufffd]\ufffdf\u000f{\ufffd\ufffd~\u000ep\ufffdC\u001c\ufffd\bG9\ufffdqNp\ufffdS\ufffd\ufffd\fg9\ufffdy.p\ufffdK\\\ufffd\nW\ufffd\ufffdunp\ufffd[\ufffd\ufffd\u000ew\ufffd\ufffd}\u001e\ufffdG<\ufffd\tOy\ufffds^\ufffdW\ufffd\ufffd\noy\ufffd{>\ufffdO|\ufffd\u000b_\ufffd\ufffdw~\ufffd_\ufffd\ufffd\u000f\ufffd\ufffd\u007f/\ufffd\u0000\u0004$\u0010\ufffd\tBP\ufffd\u0011\ufffd\u0010\ufffd$\u0014\ufffd\tCX\ufffd\u0011\ufffd\bD$\u0012\ufffd\ufffdBT\ufffd\u0011\ufffd\u0018\ufffd$\u0016\ufffd\ufffdC\\\ufffd\u0011\ufffd\u0004$$\u0011\ufffdIBR\ufffd\ufffd\ufffd\u0014\ufffd$\u0015\ufffdICZ\u0491\ufffd\fd$\u0013\ufffd\ufffdBV\ufffd\ufffd\ufffd\u001c\ufffd$\u0017\ufffd\ufffdC^\ufffd\u0002\u0014\ufffd\u0010\ufffd)BQ\ufffdQ\ufffd\u0012\ufffd\ufffd\u0014\ufffd)CY\ufffdQ\ufffd\nT\ufffd\u0012\ufffd\ufffdBU\ufffdQ\ufffd\u001a\u0524\u0016\ufffd\ufffdC]\ufffdQ\ufffd\u00064\ufffd\u0011\ufffdiBS\ufffd\u045c\u0016\ufffd\ufffd\u0015\ufffdiC[\ufffd\u045e\u000et\ufffd\u0013\ufffd\ufffdBW\ufffd\u045d\u001e\ufffd\ufffd\u0017\ufffd\ufffdC_\ufffd\u045f\u0001\fd\u0010\ufffd\u0019\ufffdP\ufffd1\ufffd\u0011\ufffdd\u0014\ufffd\u0019\ufffdX\ufffd1\ufffd\tLd\u0012\ufffd\ufffd\ufffdT\ufffd1\ufffd\u0019\ufffdd\u0016\ufffd\ufffd\ufffd\\\ufffd1\ufffd\u0005,d\u0011\ufffdY\ufffdR\ufffd\ufffd\ufffd\u0015\ufffdd\u0015\ufffdY\ufffdZ\u05b1\ufffd\nld\u0013\ufffd\ufffd\ufffdV\ufffd\ufffd\ufffd\u001d\ufffdd\u0017\ufffd\ufffd\ufffd^\ufffd\ufffd\ufffd\u0003\u001c\ufffd\u0010\ufffd9\ufffdQ\ufffdq\ufffd\u0013\ufffd\ufffd\u0014\ufffd9\ufffdY\ufffdq\ufffd\u000b\\\ufffd\u0012\ufffd\ufffd\ufffdU\ufffdq\ufffd\u001b\ufffd\ufffd\u0016\ufffd\ufffd\ufffd]\ufffdq\ufffd\u0007<\ufffd\u0011\ufffdy\ufffdS\ufffd\ufffd\u0017\ufffd\ufffd\u0015\ufffdy\ufffd[\ufffd\ufffd\u000f|\ufffd\u0013\ufffd\ufffd\ufffdW\ufffd\ufffd\u001f\ufffd\ufffd\u0017\ufffd\ufffd\ufffd\u007f\ufffd\ufffd\ufffdG\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,",
+  "ball/117092_2nd_ball.npz": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000\u0000\u0000!\u0000~\u0004\ufffd\ufffdym\u0001\u0000\ufffd\u001f\u0004\u0000\t\u0000\u0014\u0000frame.npy\u0001\u0000\u0010\u0000\ufffd\u001f\u0004\u0000\u0000\u0000\u0000\u0000ym\u0001\u0000\u0000\u0000\u0000\u0000\ufffd\ufffd\ufffd\u0016\ufffdL\ufffd\u0005\u043fm\u06f6m\u06f6m\u06f6m\u06f6m\u06f6\ufffd\ufffd\ufffd\ufffdW8\u0019c^\ufffd\ufffdSI\ufffdv\ufffd=\ufffdl\ufffd2\ufffdk\u0004\ufffd_\ufffd\ufffd\ufffdJ\u05b8I\ufffdF\u001d\ufffd\u531f,w\ufffd\ufffd\ufffdR\ufffdO\u05b4]\ufffd\ufffd\u001d\u001b\ufffd\ufffd\u05eec\ufffd&\ufffd\u018b6h\u0769\ufffd\ufffdN\ufffd\u001b\ufffdo\ufffd>y\ufffdlY2\ufffdH\ufffd\"u\ufffd>\ufffd\ufffd\ufffdW\ufffd\u0000\ufffd\ufffd\ufffd\ufffd\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,\ufffd\bO\u0004\"\u0012\ufffd\ufffdD!*\u0448N\fb\u0012\ufffd\ufffd\ufffd!.\ufffdO\u0002\u0012\ufffd\ufffd\ufffd$!)\ufffdHN\nR\ufffd\ufffd\u0524!-\ufffdHO\u00062\ufffd\ufffd\ufffdd!+\ufffd\ufffdN\u000er\ufffd\ufffd\ufffd\ufffd!/\ufffd\ufffdO\u0001\nR\ufffd\ufffd\u0014\ufffd(\ufffd(N\tJR\ufffd\u0494\ufffd,\ufffd(O\u0005*R\ufffd\ufffdT\ufffd*\u0568N\njR\ufffd\ufffd\u0521.\ufffd\ufffdO\u0003\u001a\u0488\ufffd4\ufffd)\ufffdhN\u000bZ\u048a\u05b4\ufffd-\ufffdhO\u0007:\u0489\ufffdt\ufffd+\ufffd\ufffdN\u000fz\u048b\ufffd\ufffd\ufffd/\ufffd\ufffd\ufffd\u0000\u00062\ufffd\ufffd\fa(\ufffd\u0018\ufffd\bF2\ufffd\u044ca,\ufffd\u0018\ufffd\u0004&2\ufffd\ufffdLa*\u04d8\ufffd\ff2\ufffd\ufffd\ufffda.\ufffd\ufffd\u0002\u0016\ufffd\ufffd\ufffd,a)\ufffdX\ufffd\nV\ufffd\ufffd\u056ca-\ufffdX\ufffd\u00066\ufffd\ufffd\ufffdla+\ufffd\ufffd\ufffd\u000ev\ufffd\ufffd\ufffd\ufffda/\ufffd\ufffd\ufffd\u0001\u000er\ufffd\ufffd\u001c\ufffd(\ufffd8\ufffd\tNr\ufffd\u04dc\ufffd,\ufffd8\ufffd\u0005.r\ufffd\ufffd\\\ufffd*\u05f8\ufffd\nnr\ufffd\ufffd\ufffd\ufffd.\ufffd\ufffd\ufffd\u0003\u001e\ufffd\ufffd<\ufffd)\ufffdx\ufffd\u000b^\ufffd\u05fc\ufffd-\ufffdx\ufffd\u0007>\ufffd\ufffd|\ufffd+\ufffd\ufffd\ufffd\u000f~\ufffd\ufffd\ufffd\ufffd?\ufffd\ufffd?\u000f\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\b\ufffdM\u0012\ufffd\bM\u0018\ufffd\u0012\ufffd\ufffdD \"\ufffd\ufffdL\u0014\ufffd\u0012\ufffd\ufffd\ufffd &\ufffd\ufffdM\u001c\ufffd\u0012\ufffd\ufffd$ !\ufffdHL\u0012\ufffd\ufffd\ufffd\ufffd %\ufffdHM\u001a\u0492\ufffd\ufffdd #\ufffd\ufffdL\u0016\ufffd\ufffd\ufffd\ufffd\ufffd '\ufffd\ufffdM\u001e\ufffd\ufffd\u0014\ufffd \ufffd(L\u0011\ufffdR\ufffd\u2520$\ufffd(M\u0019\ufffdR\ufffd\ufffdT\ufffd\"\ufffd\ufffdL\u0015\ufffdR\ufffd\ufffd\ufffd\ufffdW\ufffdZ\u0526\u000eu\ufffdG}\u001a\u0410F4\ufffd\tMiFsZ\u0412V\ufffd\ufffd\nmiG{:\u0411Nt\ufffd\u000b]\ufffdFwz\u0413^\ufffd\ufffd\u000f}\ufffdG\u007f\u00060\ufffdA\ff\bC\u0019\ufffdpF0\ufffdQ\ufffdf\fc\u0019\ufffdx&0\ufffdILf\nS\ufffd\ufffdtf0\ufffdY\ufffdf\u000es\ufffd\ufffd|\u0016\ufffd\ufffdE,f\tKY\ufffdrV\ufffd\ufffdU\ufffdf\nkY\ufffdz6\ufffd\ufffdMlf\u000b[\ufffd\ufffdvv\ufffd\ufffd]\ufffdf\u000f{\ufffd\ufffd~\u000ep\ufffdC\u001c\ufffd\bG9\ufffdqNp\ufffdS\ufffd\ufffd\fg9\ufffdy.p\ufffdK\\\ufffd\nW\ufffd\ufffdunp\ufffd[\ufffd\ufffd\u000ew\ufffd\ufffd}\u001e\ufffdG<\ufffd\tOy\ufffds^\ufffdW\ufffd\ufffd\noy\ufffd{>\ufffdO|\ufffd\u000b_\ufffd\ufffdw~\ufffd_\ufffd\ufffd\u000f\ufffd\ufffd\u007f/\ufffd\u0000\u0004$\u0010\ufffd\tBP\ufffd\u0011\ufffd\u0010\ufffd$\u0014\ufffd\tCX\ufffd\u0011\ufffd\bD$\u0012\ufffd\ufffdBT\ufffd\u0011\ufffd\u0018\ufffd$\u0016\ufffd\ufffdC\\\ufffd\u0011\ufffd\u0004$$\u0011\ufffdIBR\ufffd\ufffd\ufffd\u0014\ufffd$\u0015\ufffdICZ\u0491\ufffd\fd$\u0013\ufffd\ufffdBV\ufffd\ufffd\ufffd\u001c\ufffd$\u0017\ufffd\ufffdC^\ufffd\u0002\u0014\ufffd\u0010\ufffd)BQ\ufffdQ\ufffd\u0012\ufffd\ufffd\u0014\ufffd)CY\ufffdQ\ufffd\nT\ufffd\u0012\ufffd\ufffdBU\ufffdQ\ufffd\u001a\u0524\u0016\ufffd\ufffdC]\ufffdQ\ufffd\u00064\ufffd\u0011\ufffdiBS\ufffd\u045c\u0016\ufffd\ufffd\u0015\ufffdiC[\ufffd\u045e\u000et\ufffd\u0013\ufffd\ufffdBW\ufffd\u045d\u001e\ufffd\ufffd\u0017\ufffd\ufffdC_\ufffd\u045f\u0001\fd\u0010\ufffd\u0019\ufffdP\ufffd1\ufffd\u0011\ufffdd\u0014\ufffd\u0019\ufffdX\ufffd1\ufffd\tLd\u0012\ufffd\ufffd\ufffdT\ufffd1\ufffd\u0019\ufffdd\u0016\ufffd\ufffd\ufffd\\\ufffd1\ufffd\u0005,d\u0011\ufffdY\ufffdR\ufffd\ufffd\ufffd\u0015\ufffdd\u0015\ufffdY\ufffdZ\u05b1\ufffd\nld\u0013\ufffd\ufffd\ufffdV\ufffd\ufffd\ufffd\u001d\ufffdd\u0017\ufffd\ufffd\ufffd^\ufffd\ufffd\ufffd\u0003\u001c\ufffd\u0010\ufffd9\ufffdQ\ufffdq\ufffd\u0013\ufffd\ufffd\u0014\ufffd9\ufffdY\ufffdq\ufffd\u000b\\\ufffd\u0012\ufffd\ufffd\ufffdU\ufffdq\ufffd\u001b\ufffd\ufffd\u0016\ufffd\ufffd\ufffd]\ufffdq\ufffd\u0007<\ufffd\u0011\ufffdy\ufffdS\ufffd\ufffd\u0017\ufffd\ufffd\u0015\ufffdy\ufffd[\ufffd\ufffd\u000f|\ufffd\u0013\ufffd\ufffd\ufffdW\ufffd\ufffd\u001f\ufffd\ufffd\u0017\ufffd\ufffd\ufffd\u007f\ufffd\ufffd\ufffdG\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!",
+  "ball/117093_1st_ball.npz": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000\u0000\u0000!\u0000d?\ufffd\u0012\ufffdm\u0001\u0000$!\u0004\u0000\t\u0000\u0014\u0000frame.npy\u0001\u0000\u0010\u0000$!\u0004\u0000\u0000\u0000\u0000\u0000\ufffdm\u0001\u0000\u0000\u0000\u0000\u0000\ufffd\ufffd\ufffd\u0016\ufffdL\ufffd\u0005\u043fm\u06f6m\u06f6m\u06f6m\u06f6m\u06f6\ufffd\ufffd\ufffd\ufffdW8\u0019c^\ufffd\ufffdSI\ufffdv\ufffd=\ufffdl\ufffd2\ufffdk\u0004\ufffd_\ufffd\ufffd\ufffdJ\u05b8I\ufffdF\u001d\ufffd\u531f,w\ufffd\ufffd\ufffdR\ufffdO\u05b4]\ufffd\ufffd\u001d\u001b\ufffd\ufffd\u05eec\ufffd&\ufffd\u018b6h\u0769\ufffd\ufffdN\ufffd\u001b\ufffdo\ufffd>y\ufffdlY3fI\ufffd\"u\ufffd>\ufffd\ufffd\ufffdW\ufffd\u0000\ufffd\ufffd\ufffd\ufffd\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,\ufffd\bO\u0004\"\u0012\ufffd\ufffdD!*\u0448N\fb\u0012\ufffd\ufffd\ufffd!.\ufffdO\u0002\u0012\ufffd\ufffd\ufffd$!)\ufffdHN\nR\ufffd\ufffd\u0524!-\ufffdHO\u00062\ufffd\ufffd\ufffdd!+\ufffd\ufffdN\u000er\ufffd\ufffd\ufffd\ufffd!/\ufffd\ufffdO\u0001\nR\ufffd\ufffd\u0014\ufffd(\ufffd(N\tJR\ufffd\u0494\ufffd,\ufffd(O\u0005*R\ufffd\ufffdT\ufffd*\u0568N\njR\ufffd\ufffd\u0521.\ufffd\ufffdO\u0003\u001a\u0488\ufffd4\ufffd)\ufffdhN\u000bZ\u048a\u05b4\ufffd-\ufffdhO\u0007:\u0489\ufffdt\ufffd+\ufffd\ufffdN\u000fz\u048b\ufffd\ufffd\ufffd/\ufffd\ufffd\ufffd\u0000\u00062\ufffd\ufffd\fa(\ufffd\u0018\ufffd\bF2\ufffd\u044ca,\ufffd\u0018\ufffd\u0004&2\ufffd\ufffdLa*\u04d8\ufffd\ff2\ufffd\ufffd\ufffda.\ufffd\ufffd\u0002\u0016\ufffd\ufffd\ufffd,a)\ufffdX\ufffd\nV\ufffd\ufffd\u056ca-\ufffdX\ufffd\u00066\ufffd\ufffd\ufffdla+\ufffd\ufffd\ufffd\u000ev\ufffd\ufffd\ufffd\ufffda/\ufffd\ufffd\ufffd\u0001\u000er\ufffd\ufffd\u001c\ufffd(\ufffd8\ufffd\tNr\ufffd\u04dc\ufffd,\ufffd8\ufffd\u0005.r\ufffd\ufffd\\\ufffd*\u05f8\ufffd\nnr\ufffd\ufffd\ufffd\ufffd.\ufffd\ufffd\ufffd\u0003\u001e\ufffd\ufffd<\ufffd)\ufffdx\ufffd\u000b^\ufffd\u05fc\ufffd-\ufffdx\ufffd\u0007>\ufffd\ufffd|\ufffd+\ufffd\ufffd\ufffd\u000f~\ufffd\ufffd\ufffd\ufffd?\ufffd\ufffd?\u000f\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\b\ufffdM\u0012\ufffd\bM\u0018\ufffd\u0012\ufffd\ufffdD \"\ufffd\ufffdL\u0014\ufffd\u0012\ufffd\ufffd\ufffd &\ufffd\ufffdM\u001c\ufffd\u0012\ufffd\ufffd$ !\ufffdHL\u0012\ufffd\ufffd\ufffd\ufffd %\ufffdHM\u001a\u0492\ufffd\ufffdd #\ufffd\ufffdL\u0016\ufffd\ufffd\ufffd\ufffd\ufffd '\ufffd\ufffdM\u001e\ufffd\ufffd\u0014\ufffd \ufffd(L\u0011\ufffdR\ufffd\u2520$\ufffd(M\u0019\ufffdR\ufffd\ufffdT\ufffd\"\ufffd\ufffdL\u0015\ufffdR\ufffd\ufffd\ufffd\ufffdW\ufffdZ\u0526\u000eu\ufffdG}\u001a\u0410F4\ufffd\tMiFsZ\u0412V\ufffd\ufffd\nmiG{:\u0411Nt\ufffd\u000b]\ufffdFwz\u0413^\ufffd\ufffd\u000f}\ufffdG\u007f\u00060\ufffdA\ff\bC\u0019\ufffdpF0\ufffdQ\ufffdf\fc\u0019\ufffdx&0\ufffdILf\nS\ufffd\ufffdtf0\ufffdY\ufffdf\u000es\ufffd\ufffd|\u0016\ufffd\ufffdE,f\tKY\ufffdrV\ufffd\ufffdU\ufffdf\nkY\ufffdz6\ufffd\ufffdMlf\u000b[\ufffd\ufffdvv\ufffd\ufffd]\ufffdf\u000f{\ufffd\ufffd~\u000ep\ufffdC\u001c\ufffd\bG9\ufffdqNp\ufffdS\ufffd\ufffd\fg9\ufffdy.p\ufffdK\\\ufffd\nW\ufffd\ufffdunp\ufffd[\ufffd\ufffd\u000ew\ufffd\ufffd}\u001e\ufffdG<\ufffd\tOy\ufffds^\ufffdW\ufffd\ufffd\noy\ufffd{>\ufffdO|\ufffd\u000b_\ufffd\ufffdw~\ufffd_\ufffd\ufffd\u000f\ufffd\ufffd\u007f/\ufffd\u0000\u0004$\u0010\ufffd\tBP\ufffd\u0011\ufffd\u0010\ufffd$\u0014\ufffd\tCX\ufffd\u0011\ufffd\bD$\u0012\ufffd\ufffdBT\ufffd\u0011\ufffd\u0018\ufffd$\u0016\ufffd\ufffdC\\\ufffd\u0011\ufffd\u0004$$\u0011\ufffdIBR\ufffd\ufffd\ufffd\u0014\ufffd$\u0015\ufffdICZ\u0491\ufffd\fd$\u0013\ufffd\ufffdBV\ufffd\ufffd\ufffd\u001c\ufffd$\u0017\ufffd\ufffdC^\ufffd\u0002\u0014\ufffd\u0010\ufffd)BQ\ufffdQ\ufffd\u0012\ufffd\ufffd\u0014\ufffd)CY\ufffdQ\ufffd\nT\ufffd\u0012\ufffd\ufffdBU\ufffdQ\ufffd\u001a\u0524\u0016\ufffd\ufffdC]\ufffdQ\ufffd\u00064\ufffd\u0011\ufffdiBS\ufffd\u045c\u0016\ufffd\ufffd\u0015\ufffdiC[\ufffd\u045e\u000et\ufffd\u0013\ufffd\ufffdBW\ufffd\u045d\u001e\ufffd\ufffd\u0017\ufffd\ufffdC_\ufffd\u045f\u0001\fd\u0010\ufffd\u0019\ufffdP\ufffd1\ufffd\u0011\ufffdd\u0014\ufffd\u0019\ufffdX\ufffd1\ufffd\tLd\u0012\ufffd\ufffd\ufffdT\ufffd1\ufffd\u0019\ufffdd\u0016\ufffd\ufffd\ufffd\\\ufffd1\ufffd\u0005,d\u0011\ufffdY\ufffdR\ufffd\ufffd\ufffd\u0015\ufffdd\u0015\ufffdY\ufffdZ\u05b1\ufffd\nld\u0013\ufffd\ufffd\ufffdV\ufffd\ufffd\ufffd\u001d\ufffdd\u0017\ufffd\ufffd\ufffd^\ufffd\ufffd\ufffd\u0003\u001c\ufffd\u0010\ufffd9\ufffdQ\ufffdq\ufffd\u0013\ufffd\ufffd\u0014\ufffd9\ufffdY\ufffdq\ufffd\u000b\\\ufffd\u0012\ufffd\ufffd\ufffdU\ufffdq\ufffd\u001b\ufffd\ufffd\u0016\ufffd\ufffd\ufffd]\ufffdq\ufffd\u0007<\ufffd\u0011\ufffdy\ufffdS\ufffd\ufffd\u0017\ufffd\ufffd\u0015\ufffdy\ufffd[\ufffd\ufffd\u000f|\ufffd\u0013\ufffd\ufffd\ufffdW\ufffd\ufffd\u001f\ufffd\ufffd\u0017\ufffd\ufffd\ufffd\u007f\ufffd\ufffd\ufffdG\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!"
+ },
+ "labels": 797,
+ "snapped": 392,
+ "negatives": 797,
+ "minutes": 11.9,
+ "kinds": {
+  "feet": 415,
+  "rolling": 382
+ }
+}

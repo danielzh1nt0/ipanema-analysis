@@ -21,7 +21,7 @@ ROOT = os.environ.get("ST_ROOT")                     # local stand-in (dry run);
 OUT = os.environ.get("B3_OUT", "results/free/b3"); os.makedirs(OUT, exist_ok=True)
 TMP = os.environ.get("B3_TMP", "/tmp/b3"); os.makedirs(TMP, exist_ok=True)
 N_PER_HALF = int(os.environ.get("N_PER_HALF", "40")); MIN_GAP = int(os.environ.get("MIN_GAP", "250"))  # 10 s at 25 fps
-MAX_MIN = float(os.environ.get("MAX_MIN", "300")); XML_FPS = 25.0
+MAX_MIN = float(os.environ.get("MAX_MIN", "300")); XML_FPS = 25.0; MIN_HIT = float(os.environ.get("MIN_HIT", "0.6"))
 MATCHES = os.environ.get("ST_MATCHES", ",".join(ST.MATCHES)).split(",")
 CORR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference/soccertrack")
 t0 = time.time(); LOG = []
@@ -108,15 +108,20 @@ def main():
             if cal is None:
                 try: cal = ST.calibrate(pitch, image, W, H); ms["rms_px"] = round(cal["rms"], 2)
                 except cv2.error as e: log(f"{m}: calibration refused"); ms["status"] = "calibration refused"; drop(vp); break
-            vf = {i: int(round((p["frames"][i] - off) * fps / XML_FPS)) for i in pick}
+            bg, _ = ST.background(vp, 40); sv = list(np.linspace(nfr * 0.1, nfr * 0.9, 12).astype(int))
+            masks = {k: ST.fg_mask(v, bg) for k, v in read_frames(vp, sv).items()}
+            shift, hit, hit0 = ST.sync_shift(cal, p, m, masks); hs.update(sync_shift=int(shift), sync_hit=round(hit, 3), sync_hit_at_0=round(hit0, 3))
+            if hit < MIN_HIT:
+                log(f"{m} {h}: players do not line up at any shift (best {hit:.2f} at {shift}) -> skipped"); hs["status"] = "sync not found"; drop(vp); continue
+            vf = {i: int(round((p["frames"][i] - off - shift) * fps / XML_FPS)) for i in pick}
             imgs = read_frames(vp, [v for v in vf.values() if 0 <= v < max(nfr, 1)]); hs["frames_read"] = len(imgs)
             bxy = ST.project(cal, g["metres"][pick]); bpx = ST.ball_px_size(cal, g["metres"][pick])
-            rad = max(16.0, 1.5 * cal["rms"]); nsnap = 0; rng = np.random.default_rng(len(labels))
+            nsnap = 0; rng = np.random.default_rng(len(labels))
             for j, i in enumerate(pick):
                 img = imgs.get(vf[i])
                 if img is None or not (0 <= bxy[j, 0] < W and 0 <= bxy[j, 1] < H): continue
-                sx, sy, c, found = ST.snap(img, bxy[j], rad, bpx[j]); nsnap += found
-                lab = dict(match=m, half=h, video=vids[h], frame=vf[i], xml_frame=int(p["frames"][i]), x_raw=round(float(bxy[j, 0]), 1),
+                sx, sy, c, found = ST.snap(img, bxy[j], float(np.clip(2.5 * bpx[j], 10, 30)), bpx[j]); nsnap += found
+                lab = dict(match=m, half=h, video=vids[h], frame=vf[i], xml_frame=int(p["frames"][i]), sync_shift=int(shift), x_raw=round(float(bxy[j, 0]), 1),
                            y_raw=round(float(bxy[j, 1]), 1), x=round(sx if found else float(bxy[j, 0]), 1), y=round(sy if found else float(bxy[j, 1]), 1),
                            snapped=found, snap_px=round(float(np.hypot(sx - bxy[j, 0], sy - bxy[j, 1])) if found else 0.0, 1), contrast=round(c, 1),
                            ball_px=round(float(bpx[j]), 1), kind=str(kind[i]), d_player_m=round(float(g["d_player"][i]), 2),

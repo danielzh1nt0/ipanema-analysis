@@ -200,6 +200,10 @@ def snap(img, xy, radius, ball_px):
     k = int(np.argmax(resp)); py, px = divmod(k, resp.shape[1]); c = float(resp[py, px])
     noise = float(np.std(resp[resp > -1e8])) + 1e-6
     found = c >= 12.0 and c / noise >= 3.0
+    if found:                                                                   # blob must be ball-sized, not a sock/line
+        import cv2 as _cv
+        lab = (resp > 0.5 * c).astype(np.uint8); _, comp = _cv.connectedComponents(lab); area = int((comp == comp[py, px]).sum())
+        exp = np.pi * (max(ball_px, 4.0) * 1.3 / 2.0) ** 2; found = 0.25 * exp <= area <= 3.0 * exp + 6
     r = max(2, int(round(s * 1.5))); y1, y2, x1, x2 = max(0, py - r), py + r + 1, max(0, px - r), px + r + 1
     wgt = np.clip(resp[y1:y2, x1:x2] - 0.3 * c, 0, None)                        # sub-pixel: centroid of the peak's top
     if wgt.sum() > 0:
@@ -215,3 +219,49 @@ def crop(img, xy, size):
     sa, sb, ta, tb = max(0, xa), min(w, xb), max(0, ya), min(h, yb)
     if sb > sa and tb > ta: out[ta - ya:tb - ya, sa - xa:sb - xa] = img[ta:tb, sa:sb]
     return out
+
+
+# --- sync (3 Oct check, results/free/b3/sync.json): the XML runs 0-25 frames ahead of the video on some matches -----
+def background(cap_path, n=40):
+    """median of n frames spread over the video at half size (fixed camera -> empty pitch)"""
+    import cv2
+    cap = cv2.VideoCapture(cap_path); tot = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fr = []
+    for k in np.linspace(tot * 0.05, tot * 0.95, n).astype(int):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, int(k)); ok, f = cap.read()
+        if ok: fr.append(cv2.resize(f, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA))
+    cap.release(); return np.median(np.array(fr), 0).astype(np.uint8), tot
+
+
+def fg_mask(img, bg, thr=40):
+    import cv2
+    s = cv2.resize(img, (bg.shape[1], bg.shape[0]), interpolation=cv2.INTER_AREA)
+    m = (cv2.absdiff(s, bg).max(2) > thr).astype(np.uint8)
+    return cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
+
+
+def hits(mask, pts, r=7):
+    """(players with foreground within r half-size px of their feet, players inside the frame)"""
+    h, w = mask.shape; n = k = 0
+    for x, y in np.asarray(pts, float) / 2.0:
+        x, y = int(x), int(y)
+        if not (r <= x < w - r and r <= y < h - r): continue
+        k += 1; n += bool(mask[y - r:y + r + 1, x - r:x + r + 1].any())
+    return n, k
+
+
+def sync_shift(cal, per, match, masks, span=250, step=5):
+    """best XML shift (frames) for video frames {vf: fg mask}: coarse grid, then +-step at 1-frame resolution.
+    Returns (shift, hit rate at shift, hit rate at 0)."""
+    off0 = int(per["frames"][0]); fidx = {int(f): i for i, f in enumerate(per["frames"])}
+    def rate(d):
+        n = k = 0
+        for vf, mk in masks.items():
+            i = fidx.get(int(vf) + off0 + d)
+            if i is None or not len(per["players"][i]): continue
+            a, b = hits(mk, project(cal, to_metres(per["players"][i], match, "player"))); n += a; k += b
+        return n / max(k, 1)
+    def middle(sc):                                                             # slow play -> a plateau of equal rates: take its middle
+        top = max(sc.values()); ds = sorted(d for d, v in sc.items() if v >= top - 0.01); return ds[len(ds) // 2]
+    coarse = {d: rate(d) for d in range(-span, span + 1, step)}; d0 = middle(coarse)
+    fine = {d: rate(d) for d in range(d0 - 2 * step, d0 + 2 * step + 1)}; d1 = middle(fine)
+    return d1, fine[d1], coarse.get(0, rate(0))
