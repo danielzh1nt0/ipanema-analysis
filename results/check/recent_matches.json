@@ -1,11 +1,44 @@
 [
  {
+  "id": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "status": "processing",
+  "created_at": "2026-10-03T19:07:01.266074+00:00",
+  "duration_s": 5966,
+  "summary_keys": [],
+  "progress": null,
+  "columns": [
+   "attack_right",
+   "attack_right_confidence",
+   "contract",
+   "created_at",
+   "duration_s",
+   "files",
+   "fps",
+   "height",
+   "id",
+   "schema_version",
+   "status",
+   "summary",
+   "width"
+  ]
+ },
+ {
   "id": "p15u-vs-bp-2026-09-22-2000",
   "status": "processing",
   "created_at": "2026-09-22T11:14:52.276303+00:00",
   "duration_s": 1807.7,
-  "summary_keys": [],
-  "progress": null,
+  "summary_keys": [
+   "progress"
+  ],
+  "progress": {
+   "pct": 0,
+   "eta_s": null,
+   "label": "Reading the pitch",
+   "scope": "match",
+   "stage": 0,
+   "elapsed_s": 3,
+   "updated_at": "2026-09-22T21:02:42.764876+00:00"
+  },
   "columns": [
    "attack_right",
    "attack_right_confidence",
@@ -26,7 +59,7 @@
   "id": "SFKBP1109",
   "status": "ready",
   "created_at": "2026-09-21T21:05:18.035336+00:00",
-  "duration_s": 6163.7,
+  "duration_s": 3300,
   "summary_keys": [
    "attack_right",
    "ball_check",
@@ -96,22 +129,24 @@
  },
  {
   "id": "p15u-vs-aik-2026-09-21-bd09",
-  "status": "processing",
+  "status": "ready",
   "created_at": "2026-09-21T12:04:32.360315+00:00",
-  "duration_s": 6898.8,
+  "duration_s": 3300,
   "summary_keys": [
-   "progress"
+   "attack_right",
+   "ball_check",
+   "ball_frames_pct",
+   "ball_grade",
+   "ball_reliable",
+   "calibration_coverage",
+   "calibration_frozen",
+   "dead_pct",
+   "direction_confidence",
+   "duration_s",
+   "field_tilt",
+   "goals"
   ],
-  "progress": {
-   "pct": 100,
-   "eta_s": 0,
-   "label": "5-minute test ready",
-   "scope": "5-minute test",
-   "stage": 4,
-   "elapsed_s": 1679,
-   "updated_at": "2026-09-21T16:12:35.576003+00:00",
-   "segment_ready": "p15u-vs-aik-2026-09-21-bd09_s2520"
-  },
+  "progress": null,
   "columns": [
    "attack_right",
    "attack_right_confidence",
