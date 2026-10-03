@@ -8,12 +8,12 @@
    "dark": 7.0,
    "light": 7.0
   },
-  "tracks": 46,
+  "tracks": 45,
   "median_track_s": {
-   "dark": 2.57,
+   "dark": 2.55,
    "light": 3.24
   },
-  "minutes": 16.7,
-  "filled_rows": 116
+  "minutes": 16.9,
+  "filled_rows": 112
  }
 }

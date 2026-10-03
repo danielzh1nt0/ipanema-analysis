@@ -1,7 +1,7 @@
 {
- "date": "2026-10-02",
+ "date": "2026-10-03",
  "tests": {
-  "total": 70,
+  "total": 81,
   "failed": []
  },
  "ball_34_moments": {
@@ -13,8 +13,8 @@
   "worst_pass_err_pct": 15,
   "worst_poss_err_pts": 8,
   "possession_model": "simple",
-  "sequences_found_pct": 47,
-  "sequences_real_pct": 46,
+  "sequences_found_pct": 40,
+  "sequences_real_pct": 44,
   "rows": [
    {
     "game": "1",
@@ -23,9 +23,9 @@
     "pass_err_pct": 15,
     "poss_err_pts": 6,
     "seq_truth": 200,
-    "seq_ours": 166,
-    "seq_found": 118,
-    "seq_real": 118,
+    "seq_ours": 136,
+    "seq_found": 96,
+    "seq_real": 96,
     "mode": "simple"
    },
    {
@@ -35,9 +35,9 @@
     "pass_err_pct": 6,
     "poss_err_pts": 8,
     "seq_truth": 200,
-    "seq_ours": 207,
-    "seq_found": 69,
-    "seq_real": 69,
+    "seq_ours": 190,
+    "seq_found": 56,
+    "seq_real": 56,
     "mode": "simple"
    },
    {
@@ -47,9 +47,9 @@
     "pass_err_pct": 10,
     "poss_err_pts": 5,
     "seq_truth": 159,
-    "seq_ours": 123,
-    "seq_found": 97,
-    "seq_real": 97,
+    "seq_ours": 107,
+    "seq_found": 82,
+    "seq_real": 82,
     "mode": "simple"
    },
    {
@@ -59,9 +59,9 @@
     "pass_err_pct": 9,
     "poss_err_pts": 7,
     "seq_truth": 159,
-    "seq_ours": 234,
-    "seq_found": 61,
-    "seq_real": 61,
+    "seq_ours": 214,
+    "seq_found": 54,
+    "seq_real": 54,
     "mode": "simple"
    },
    {
@@ -71,9 +71,9 @@
     "pass_err_pct": 5,
     "poss_err_pts": 2,
     "seq_truth": 181,
-    "seq_ours": 159,
-    "seq_found": 109,
-    "seq_real": 109,
+    "seq_ours": 129,
+    "seq_found": 91,
+    "seq_real": 91,
     "mode": "simple"
    },
    {
@@ -83,9 +83,9 @@
     "pass_err_pct": 9,
     "poss_err_pts": 5,
     "seq_truth": 181,
-    "seq_ours": 251,
-    "seq_found": 68,
-    "seq_real": 68,
+    "seq_ours": 228,
+    "seq_found": 57,
+    "seq_real": 57,
     "mode": "simple"
    },
    {
@@ -95,9 +95,9 @@
     "pass_err_pct": 7,
     "poss_err_pts": 1,
     "seq_truth": 154,
-    "seq_ours": 119,
-    "seq_found": 82,
-    "seq_real": 82,
+    "seq_ours": 101,
+    "seq_found": 72,
+    "seq_real": 72,
     "mode": "simple"
    },
    {
@@ -107,9 +107,9 @@
     "pass_err_pct": 11,
     "poss_err_pts": 6,
     "seq_truth": 154,
-    "seq_ours": 182,
-    "seq_found": 54,
-    "seq_real": 54,
+    "seq_ours": 161,
+    "seq_found": 48,
+    "seq_real": 48,
     "mode": "simple"
    }
   ]
