@@ -18,3 +18,4 @@
 15:19:15 clean: dropped 0 off-pitch, merged 10 duplicates, stitched 21 ids, keepers [] -> A defends left
 15:19:15 clean: players per frame median A 7 / B 6, max A 10 / B 11
 15:19:15 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 6.0}, 'shown_per_frame': {'dark': 7.0, 'light': 6.0}, 'tracks': 64, 'median_track_s': {'dark': 2.44, 'light': 2.54}, 'minutes': 15.8, 'filled_rows': 148}
+04:22:57 clip 0c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4: 168597 frames @ 29.97
