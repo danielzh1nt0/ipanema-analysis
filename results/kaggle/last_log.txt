@@ -1,33 +1,88 @@
-kernel danielmatros/ipanema-bundesliga-frames
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-bundesliga-frames
-  0.5 min: danielmatros/ipanema-bundesliga-frames has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-bundesliga-frames has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/bundesliga_frames/frame_010.png
-Output file downloaded to results/kaggle/bundesliga_frames/frame_100.png
-Output file downloaded to results/kaggle/bundesliga_frames/frame_190.png
-Output file downloaded to results/kaggle/bundesliga_frames/grid_010.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/grid_100.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/grid_190.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/result.json
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_010_left.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_010_right.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_100_left.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_100_right.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_190_left.jpg
-Output file downloaded to results/kaggle/bundesliga_frames/zoom_190_right.jpg
-Kernel log downloaded to results/kaggle/bundesliga_frames/ipanema-bundesliga-frames.log
-  frame_010.png 2043464
-  frame_100.png 1701263
-  frame_190.png 2199745
-  grid_010.jpg 427701
-  grid_100.jpg 389893
-  grid_190.jpg 457265
-  ipanema-bundesliga-frames.log 911
-  result.json 51
-  run.json 168
-  zoom_010_left.jpg 279727
-  zoom_010_right.jpg 252369
-  zoom_100_left.jpg 268043
-  zoom_100_right.jpg 254406
-  zoom_190_left.jpg 278584
-  zoom_190_right.jpg 316142
+kernel danielmatros/ipanema-b6-frames
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-frames
+  0.5 min: danielmatros/ipanema-b6-frames has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/b6_frames/m00.jpg
+Output file downloaded to results/kaggle/b6_frames/m01.jpg
+Output file downloaded to results/kaggle/b6_frames/m02.jpg
+Output file downloaded to results/kaggle/b6_frames/m03.jpg
+Output file downloaded to results/kaggle/b6_frames/m04.jpg
+Output file downloaded to results/kaggle/b6_frames/m05.jpg
+Output file downloaded to results/kaggle/b6_frames/m06.jpg
+Output file downloaded to results/kaggle/b6_frames/m07.jpg
+Output file downloaded to results/kaggle/b6_frames/m08.jpg
+Output file downloaded to results/kaggle/b6_frames/m09.jpg
+Output file downloaded to results/kaggle/b6_frames/m10.jpg
+Output file downloaded to results/kaggle/b6_frames/m11.jpg
+Output file downloaded to results/kaggle/b6_frames/m12.jpg
+Output file downloaded to results/kaggle/b6_frames/m13.jpg
+Output file downloaded to results/kaggle/b6_frames/m14.jpg
+Output file downloaded to results/kaggle/b6_frames/m15.jpg
+Output file downloaded to results/kaggle/b6_frames/m16.jpg
+Output file downloaded to results/kaggle/b6_frames/m17.jpg
+Output file downloaded to results/kaggle/b6_frames/m18.jpg
+Output file downloaded to results/kaggle/b6_frames/m19.jpg
+Output file downloaded to results/kaggle/b6_frames/m20.jpg
+Output file downloaded to results/kaggle/b6_frames/m21.jpg
+Output file downloaded to results/kaggle/b6_frames/m22.jpg
+Output file downloaded to results/kaggle/b6_frames/m23.jpg
+Output file downloaded to results/kaggle/b6_frames/m24.jpg
+Output file downloaded to results/kaggle/b6_frames/m25.jpg
+Output file downloaded to results/kaggle/b6_frames/m26.jpg
+Output file downloaded to results/kaggle/b6_frames/m27.jpg
+Output file downloaded to results/kaggle/b6_frames/m28.jpg
+Output file downloaded to results/kaggle/b6_frames/m29.jpg
+Output file downloaded to results/kaggle/b6_frames/m30.jpg
+Output file downloaded to results/kaggle/b6_frames/m31.jpg
+Output file downloaded to results/kaggle/b6_frames/m32.jpg
+Output file downloaded to results/kaggle/b6_frames/m33.jpg
+Output file downloaded to results/kaggle/b6_frames/m34.jpg
+Output file downloaded to results/kaggle/b6_frames/m35.jpg
+Output file downloaded to results/kaggle/b6_frames/m36.jpg
+Output file downloaded to results/kaggle/b6_frames/m37.jpg
+Output file downloaded to results/kaggle/b6_frames/m38.jpg
+Output file downloaded to results/kaggle/b6_frames/m39.jpg
+Output file downloaded to results/kaggle/b6_frames/result.json
+Kernel log downloaded to results/kaggle/b6_frames/ipanema-b6-frames.log
+  ipanema-b6-frames.log 868
+  m00.jpg 494366
+  m01.jpg 544062
+  m02.jpg 556945
+  m03.jpg 577887
+  m04.jpg 461797
+  m05.jpg 434770
+  m06.jpg 441176
+  m07.jpg 442316
+  m08.jpg 438129
+  m09.jpg 439954
+  m10.jpg 438628
+  m11.jpg 435751
+  m12.jpg 464695
+  m13.jpg 467978
+  m14.jpg 464479
+  m15.jpg 466491
+  m16.jpg 474006
+  m17.jpg 539457
+  m18.jpg 555794
+  m19.jpg 543984
+  m20.jpg 477072
+  m21.jpg 444092
+  m22.jpg 510481
+  m23.jpg 529576
+  m24.jpg 498994
+  m25.jpg 530033
+  m26.jpg 529495
+  m27.jpg 608529
+  m28.jpg 512919
+  m29.jpg 573146
+  m30.jpg 536097
+  m31.jpg 462910
+  m32.jpg 439806
+  m33.jpg 432930
+  m34.jpg 434878
+  m35.jpg 437017
+  m36.jpg 457872
+  m37.jpg 454441
+  m38.jpg 470812
+  m39.jpg 510818
+  result.json 52
+  run.json 152
