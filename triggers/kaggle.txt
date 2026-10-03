@@ -1,2 +1,2 @@
-kaggle/b6_frames.py 20
-# Sat Oct  3 00:43:43 UTC 2026
+kaggle/b6_zoom.py 20
+# Sat Oct  3 00:54:08 UTC 2026
