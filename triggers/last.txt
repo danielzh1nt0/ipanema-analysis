@@ -3,3 +3,4 @@ AIK full fixes
 # Fri Oct  2 19:08:08 UTC 2026 first half run
 # Fri Oct  2 19:27:27 UTC 2026 AIK first half run
 # Fri Oct  2 22:05:15 UTC 2026 fetch first-half exports
+# Sat Oct  3 04:35:28 UTC 2026 qa frames first halves
