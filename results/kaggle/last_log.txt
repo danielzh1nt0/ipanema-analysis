@@ -1,16 +1,13 @@
-kernel danielmatros/ipanema-b6-grade
-Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-grade
-  0.5 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.RUNNING"
-  3.6 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/b6_grade/result.json
-Output file downloaded to results/kaggle/b6_grade/sheet_0.jpg
-Output file downloaded to results/kaggle/b6_grade/sheet_1.jpg
-Output file downloaded to results/kaggle/b6_grade/sheet_2.jpg
-Kernel log downloaded to results/kaggle/b6_grade/ipanema-b6-grade.log
-  ipanema-b6-grade.log 4839
-  result.json 28649
-  run.json 150
-  sheet_0.jpg 240984
-  sheet_1.jpg 240752
-  sheet_2.jpg 219282
+kernel danielmatros/ipanema-aik-halftime
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-aik-halftime
+  0.5 min: danielmatros/ipanema-aik-halftime has status "KernelWorkerStatus.RUNNING"
+  1.0 min: danielmatros/ipanema-aik-halftime has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/aik_halftime/result.json
+Output file downloaded to results/kaggle/aik_halftime/sheet_0.jpg
+Output file downloaded to results/kaggle/aik_halftime/sheet_1.jpg
+Kernel log downloaded to results/kaggle/aik_halftime/ipanema-aik-halftime.log
+  ipanema-aik-halftime.log 801
+  result.json 26
+  run.json 158
+  sheet_0.jpg 981897
+  sheet_1.jpg 1015790
