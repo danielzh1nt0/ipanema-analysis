@@ -1,20 +1,64 @@
+   0.0 min  downloaded ball/117092_1st_ball.npz: 0 MB in 1 s
+   0.0 min  downloaded ball/117092_2nd_ball.npz: 0 MB in 1 s
    0.0 min  downloaded ball/117093_1st_ball.npz: 0 MB in 1 s
-   0.0 min  downloaded ball/117093_2nd_ball.npz: 0 MB in 1 s
-   0.0 min  downloaded raw/117093/117093_keypoints.json: 0 MB in 0 s
-   0.1 min  downloaded raw/117093/117093_tracker_box_data.xml: 216 MB in 2 s
-   0.5 min  downloaded videos/117093/117093_panorama_1st_half.mp4: 3346 MB in 20 s
-   0.9 min  downloaded ball/118575_1st_ball.npz: 0 MB in 1 s
-   0.9 min  downloaded ball/118575_2nd_ball.npz: 0 MB in 1 s
-   0.9 min  downloaded raw/118575/118575_keypoints.json: 0 MB in 0 s
-   0.9 min  downloaded raw/118575/118575_tracker_box_data.xml: 228 MB in 2 s
-   1.3 min  downloaded videos/118575/118575_panorama_1st_half.mp4: 3550 MB in 14 s
-   1.6 min  downloaded ball/132877_1st_ball.npz: 0 MB in 1 s
-   1.6 min  downloaded ball/132877_2nd_ball.npz: 0 MB in 1 s
-   1.6 min  downloaded raw/132877/132877_keypoints.json: 0 MB in 0 s
-   1.6 min  downloaded raw/132877/132877_tracker_box_data.xml: 221 MB in 2 s
-   1.9 min  downloaded videos/132877/132877_panorama_1st_half.mp4: 3318 MB in 10 s
-   2.3 min  downloaded ball/117092_1st_ball.npz: 0 MB in 1 s
-   2.3 min  downloaded ball/117092_2nd_ball.npz: 0 MB in 1 s
-   2.3 min  downloaded raw/117092/117092_keypoints.json: 0 MB in 0 s
-   2.3 min  downloaded raw/117092/117092_tracker_box_data.xml: 318 MB in 2 s
-   2.8 min  downloaded videos/117092/117092_panorama_1st_half.mp4: 6688 MB in 20 s
+   0.0 min  downloaded raw/117092/117092_keypoints.json: 0 MB in 0 s
+   0.1 min  downloaded raw/117092/117092_tracker_box_data.xml: 318 MB in 2 s
+   0.7 min  downloaded videos/117092/117092_panorama_1st_half.mp4: 6688 MB in 27 s
+   0.9 min  117092 1st: players do not line up at any shift (best 0.23 at -7) -> skipped
+   1.3 min  downloaded videos/117092/117092_panorama_2nd_half.mp4: 6690 MB in 20 s
+   1.6 min  117092 2nd: players do not line up at any shift (best 0.22 at 29) -> skipped
+   1.6 min  downloaded raw/117093/117093_keypoints.json: 0 MB in 0 s
+   1.6 min  downloaded raw/117093/117093_tracker_box_data.xml: 216 MB in 2 s
+   1.9 min  downloaded videos/117093/117093_panorama_1st_half.mp4: 3346 MB in 12 s
+   2.4 min  117093 1st: 40 labels, snapped 17, rms 8.64, offset 251
+   2.6 min  downloaded videos/117093/117093_panorama_2nd_half.mp4: 3482 MB in 12 s
+   3.1 min  117093 2nd: 40 labels, snapped 15, rms 8.64, offset 251
+   3.2 min  downloaded raw/118575/118575_keypoints.json: 0 MB in 0 s
+   3.2 min  downloaded raw/118575/118575_tracker_box_data.xml: 228 MB in 2 s
+   3.5 min  downloaded videos/118575/118575_panorama_1st_half.mp4: 3550 MB in 12 s
+   4.0 min  118575 1st: 39 labels, snapped 11, rms 10.04, offset 251
+   4.3 min  downloaded videos/118575/118575_panorama_2nd_half.mp4: 3637 MB in 16 s
+   4.8 min  118575 2nd: 40 labels, snapped 9, rms 10.04, offset 251
+   4.8 min  downloaded raw/118576/118576_keypoints.json: 0 MB in 0 s
+   4.8 min  downloaded raw/118576/118576_tracker_box_data.xml: 229 MB in 2 s
+   5.1 min  downloaded videos/118576/118576_panorama_1st_half.mp4: 3595 MB in 13 s
+   5.6 min  118576 1st: 40 labels, snapped 10, rms 9.88, offset 251
+   5.9 min  downloaded videos/118576/118576_panorama_2nd_half.mp4: 3594 MB in 13 s
+   6.4 min  118576 2nd: 40 labels, snapped 13, rms 9.88, offset 251
+   6.4 min  downloaded raw/118577/118577_keypoints.json: 0 MB in 0 s
+   6.4 min  downloaded raw/118577/118577_tracker_box_data.xml: 227 MB in 2 s
+   6.8 min  downloaded videos/118577/118577_panorama_1st_half.mp4: 3576 MB in 13 s
+   7.4 min  118577 1st: 40 labels, snapped 8, rms 9.4, offset 251
+   7.6 min  downloaded videos/118577/118577_panorama_2nd_half.mp4: 3587 MB in 12 s
+   8.1 min  118577 2nd: 39 labels, snapped 4, rms 9.4, offset 251
+   8.1 min  downloaded raw/118578/118578_keypoints.json: 0 MB in 0 s
+   8.1 min  downloaded raw/118578/118578_tracker_box_data.xml: 222 MB in 2 s
+   8.4 min  downloaded videos/118578/118578_panorama_1st_half.mp4: 3474 MB in 11 s
+   8.9 min  118578 1st: 40 labels, snapped 13, rms 9.73, offset 251
+   9.1 min  downloaded videos/118578/118578_panorama_2nd_half.mp4: 3498 MB in 11 s
+   9.5 min  118578 2nd: 39 labels, snapped 13, rms 9.73, offset 252
+   9.5 min  downloaded raw/128057/128057_keypoints.json: 0 MB in 0 s
+   9.6 min  downloaded raw/128057/128057_tracker_box_data.xml: 216 MB in 2 s
+   9.8 min  downloaded videos/128057/128057_panorama_1st_half.mp4: 3313 MB in 11 s
+  10.3 min  128057 1st: 40 labels, snapped 13, rms 9.27, offset 251
+  10.5 min  downloaded videos/128057/128057_panorama_2nd_half.mp4: 3451 MB in 11 s
+  11.0 min  128057 2nd: 40 labels, snapped 12, rms 9.27, offset 251
+  11.0 min  downloaded raw/128058/128058_keypoints.json: 0 MB in 1 s
+  11.1 min  downloaded raw/128058/128058_tracker_box_data.xml: 215 MB in 2 s
+  11.4 min  downloaded videos/128058/128058_panorama_1st_half.mp4: 3415 MB in 11 s
+  11.9 min  128058 1st: 40 labels, snapped 14, rms 9.35, offset 251
+  12.1 min  downloaded videos/128058/128058_panorama_2nd_half.mp4: 3319 MB in 11 s
+  12.6 min  128058 2nd: 40 labels, snapped 14, rms 9.35, offset 252
+  12.6 min  downloaded raw/132831/132831_keypoints.json: 0 MB in 0 s
+  12.6 min  downloaded raw/132831/132831_tracker_box_data.xml: 220 MB in 2 s
+  13.0 min  downloaded videos/132831/132831_panorama_1st_half.mp4: 6834 MB in 19 s
+  13.6 min  132831 1st: 40 labels, snapped 12, rms 18.07, offset 1
+  13.9 min  downloaded videos/132831/132831_panorama_2nd_half.mp4: 6892 MB in 20 s
+  14.5 min  132831 2nd: 40 labels, snapped 11, rms 18.07, offset 67801
+  14.5 min  downloaded raw/132877/132877_keypoints.json: 0 MB in 0 s
+  14.5 min  downloaded raw/132877/132877_tracker_box_data.xml: 221 MB in 2 s
+  14.8 min  downloaded videos/132877/132877_panorama_1st_half.mp4: 3318 MB in 11 s
+  15.3 min  132877 1st: 40 labels, snapped 14, rms 9.78, offset 1
+  15.5 min  downloaded videos/132877/132877_panorama_2nd_half.mp4: 3420 MB in 12 s
+  16.0 min  132877 2nd: 40 labels, snapped 12, rms 9.78, offset 67714
+  16.0 min  done: 717 labels (215 snapped), 717 ball-free crops

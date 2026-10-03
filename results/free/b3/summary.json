@@ -1,5 +1,5 @@
 {
- "started": "2026-10-03 04:48",
+ "started": "2026-10-03 05:24",
  "n_files": 197,
  "matches": {
   "117092": {
@@ -22,9 +22,10 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67375,
-    "frames_read": 40,
-    "labels": 40,
-    "snapped": 35
+    "sync_shift": -7,
+    "sync_hit": 0.235,
+    "sync_hit_at_0": 0.205,
+    "status": "sync not found"
    },
    "rms_px": 30.63,
    "2nd": {
@@ -39,9 +40,10 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67550,
-    "frames_read": 40,
-    "labels": 40,
-    "snapped": 33
+    "sync_shift": 29,
+    "sync_hit": 0.216,
+    "sync_hit_at_0": 0.212,
+    "status": "sync not found"
    },
    "status": "ok"
   },
@@ -65,9 +67,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67625,
+    "sync_shift": 26,
+    "sync_hit": 0.856,
+    "sync_hit_at_0": 0.591,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 18
+    "snapped": 17
    },
    "rms_px": 8.64,
    "2nd": {
@@ -82,9 +87,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 70475,
+    "sync_shift": 1,
+    "sync_hit": 0.894,
+    "sync_hit_at_0": 0.902,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 21
+    "snapped": 15
    },
    "status": "ok"
   },
@@ -108,9 +116,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 71850,
+    "sync_shift": 1,
+    "sync_hit": 0.845,
+    "sync_hit_at_0": 0.837,
     "frames_read": 39,
     "labels": 39,
-    "snapped": 18
+    "snapped": 11
    },
    "rms_px": 10.04,
    "2nd": {
@@ -125,6 +136,9 @@
     ],
     "video_fps": 25.0,
     "video_frames": 73425,
+    "sync_shift": -2,
+    "sync_hit": 0.844,
+    "sync_hit_at_0": 0.836,
     "frames_read": 40,
     "labels": 40,
     "snapped": 9
@@ -151,9 +165,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 72825,
+    "sync_shift": 25,
+    "sync_hit": 0.825,
+    "sync_hit_at_0": 0.479,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 14
+    "snapped": 10
    },
    "rms_px": 9.88,
    "2nd": {
@@ -168,9 +185,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 72775,
+    "sync_shift": 25,
+    "sync_hit": 0.86,
+    "sync_hit_at_0": 0.636,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 19
+    "snapped": 13
    },
    "status": "ok"
   },
@@ -194,9 +214,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 72425,
+    "sync_shift": 0,
+    "sync_hit": 0.844,
+    "sync_hit_at_0": 0.844,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 13
+    "snapped": 8
    },
    "rms_px": 9.4,
    "2nd": {
@@ -211,9 +234,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 72475,
+    "sync_shift": 25,
+    "sync_hit": 0.841,
+    "sync_hit_at_0": 0.58,
     "frames_read": 39,
     "labels": 39,
-    "snapped": 9
+    "snapped": 4
    },
    "status": "ok"
   },
@@ -237,9 +263,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 70350,
+    "sync_shift": 26,
+    "sync_hit": 0.837,
+    "sync_hit_at_0": 0.58,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 22
+    "snapped": 13
    },
    "rms_px": 9.73,
    "2nd": {
@@ -254,9 +283,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 70975,
+    "sync_shift": -2,
+    "sync_hit": 0.886,
+    "sync_hit_at_0": 0.845,
     "frames_read": 39,
     "labels": 39,
-    "snapped": 25
+    "snapped": 13
    },
    "status": "ok"
   },
@@ -280,9 +312,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67625,
+    "sync_shift": 24,
+    "sync_hit": 0.867,
+    "sync_hit_at_0": 0.424,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 14
+    "snapped": 13
    },
    "rms_px": 9.27,
    "2nd": {
@@ -297,9 +332,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 70350,
+    "sync_shift": 24,
+    "sync_hit": 0.822,
+    "sync_hit_at_0": 0.534,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 14
+    "snapped": 12
    },
    "status": "ok"
   },
@@ -323,9 +361,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 68975,
+    "sync_shift": 28,
+    "sync_hit": 0.837,
+    "sync_hit_at_0": 0.538,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 22
+    "snapped": 14
    },
    "rms_px": 9.35,
    "2nd": {
@@ -340,9 +381,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67750,
+    "sync_shift": 24,
+    "sync_hit": 0.845,
+    "sync_hit_at_0": 0.581,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 22
+    "snapped": 14
    },
    "status": "ok"
   },
@@ -366,9 +410,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67775,
+    "sync_shift": 28,
+    "sync_hit": 0.879,
+    "sync_hit_at_0": 0.523,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 26
+    "snapped": 12
    },
    "rms_px": 18.07,
    "2nd": {
@@ -383,9 +430,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 68375,
+    "sync_shift": 30,
+    "sync_hit": 0.72,
+    "sync_hit_at_0": 0.443,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 29
+    "snapped": 11
    },
    "status": "ok"
   },
@@ -409,6 +459,9 @@
     ],
     "video_fps": 25.0,
     "video_frames": 67700,
+    "sync_shift": 15,
+    "sync_hit": 0.72,
+    "sync_hit_at_0": 0.568,
     "frames_read": 40,
     "labels": 40,
     "snapped": 14
@@ -426,9 +479,12 @@
     ],
     "video_fps": 25.0,
     "video_frames": 69350,
+    "sync_shift": 25,
+    "sync_hit": 0.731,
+    "sync_hit_at_0": 0.443,
     "frames_read": 40,
     "labels": 40,
-    "snapped": 15
+    "snapped": 12
    },
    "status": "ok"
   }
@@ -564,12 +620,12 @@
   "ball/117092_2nd_ball.npz": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000\u0000\u0000!\u0000~\u0004\ufffd\ufffdym\u0001\u0000\ufffd\u001f\u0004\u0000\t\u0000\u0014\u0000frame.npy\u0001\u0000\u0010\u0000\ufffd\u001f\u0004\u0000\u0000\u0000\u0000\u0000ym\u0001\u0000\u0000\u0000\u0000\u0000\ufffd\ufffd\ufffd\u0016\ufffdL\ufffd\u0005\u043fm\u06f6m\u06f6m\u06f6m\u06f6m\u06f6\ufffd\ufffd\ufffd\ufffdW8\u0019c^\ufffd\ufffdSI\ufffdv\ufffd=\ufffdl\ufffd2\ufffdk\u0004\ufffd_\ufffd\ufffd\ufffdJ\u05b8I\ufffdF\u001d\ufffd\u531f,w\ufffd\ufffd\ufffdR\ufffdO\u05b4]\ufffd\ufffd\u001d\u001b\ufffd\ufffd\u05eec\ufffd&\ufffd\u018b6h\u0769\ufffd\ufffdN\ufffd\u001b\ufffdo\ufffd>y\ufffdlY2\ufffdH\ufffd\"u\ufffd>\ufffd\ufffd\ufffdW\ufffd\u0000\ufffd\ufffd\ufffd\ufffd\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,\ufffd\bO\u0004\"\u0012\ufffd\ufffdD!*\u0448N\fb\u0012\ufffd\ufffd\ufffd!.\ufffdO\u0002\u0012\ufffd\ufffd\ufffd$!)\ufffdHN\nR\ufffd\ufffd\u0524!-\ufffdHO\u00062\ufffd\ufffd\ufffdd!+\ufffd\ufffdN\u000er\ufffd\ufffd\ufffd\ufffd!/\ufffd\ufffdO\u0001\nR\ufffd\ufffd\u0014\ufffd(\ufffd(N\tJR\ufffd\u0494\ufffd,\ufffd(O\u0005*R\ufffd\ufffdT\ufffd*\u0568N\njR\ufffd\ufffd\u0521.\ufffd\ufffdO\u0003\u001a\u0488\ufffd4\ufffd)\ufffdhN\u000bZ\u048a\u05b4\ufffd-\ufffdhO\u0007:\u0489\ufffdt\ufffd+\ufffd\ufffdN\u000fz\u048b\ufffd\ufffd\ufffd/\ufffd\ufffd\ufffd\u0000\u00062\ufffd\ufffd\fa(\ufffd\u0018\ufffd\bF2\ufffd\u044ca,\ufffd\u0018\ufffd\u0004&2\ufffd\ufffdLa*\u04d8\ufffd\ff2\ufffd\ufffd\ufffda.\ufffd\ufffd\u0002\u0016\ufffd\ufffd\ufffd,a)\ufffdX\ufffd\nV\ufffd\ufffd\u056ca-\ufffdX\ufffd\u00066\ufffd\ufffd\ufffdla+\ufffd\ufffd\ufffd\u000ev\ufffd\ufffd\ufffd\ufffda/\ufffd\ufffd\ufffd\u0001\u000er\ufffd\ufffd\u001c\ufffd(\ufffd8\ufffd\tNr\ufffd\u04dc\ufffd,\ufffd8\ufffd\u0005.r\ufffd\ufffd\\\ufffd*\u05f8\ufffd\nnr\ufffd\ufffd\ufffd\ufffd.\ufffd\ufffd\ufffd\u0003\u001e\ufffd\ufffd<\ufffd)\ufffdx\ufffd\u000b^\ufffd\u05fc\ufffd-\ufffdx\ufffd\u0007>\ufffd\ufffd|\ufffd+\ufffd\ufffd\ufffd\u000f~\ufffd\ufffd\ufffd\ufffd?\ufffd\ufffd?\u000f\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\b\ufffdM\u0012\ufffd\bM\u0018\ufffd\u0012\ufffd\ufffdD \"\ufffd\ufffdL\u0014\ufffd\u0012\ufffd\ufffd\ufffd &\ufffd\ufffdM\u001c\ufffd\u0012\ufffd\ufffd$ !\ufffdHL\u0012\ufffd\ufffd\ufffd\ufffd %\ufffdHM\u001a\u0492\ufffd\ufffdd #\ufffd\ufffdL\u0016\ufffd\ufffd\ufffd\ufffd\ufffd '\ufffd\ufffdM\u001e\ufffd\ufffd\u0014\ufffd \ufffd(L\u0011\ufffdR\ufffd\u2520$\ufffd(M\u0019\ufffdR\ufffd\ufffdT\ufffd\"\ufffd\ufffdL\u0015\ufffdR\ufffd\ufffd\ufffd\ufffdW\ufffdZ\u0526\u000eu\ufffdG}\u001a\u0410F4\ufffd\tMiFsZ\u0412V\ufffd\ufffd\nmiG{:\u0411Nt\ufffd\u000b]\ufffdFwz\u0413^\ufffd\ufffd\u000f}\ufffdG\u007f\u00060\ufffdA\ff\bC\u0019\ufffdpF0\ufffdQ\ufffdf\fc\u0019\ufffdx&0\ufffdILf\nS\ufffd\ufffdtf0\ufffdY\ufffdf\u000es\ufffd\ufffd|\u0016\ufffd\ufffdE,f\tKY\ufffdrV\ufffd\ufffdU\ufffdf\nkY\ufffdz6\ufffd\ufffdMlf\u000b[\ufffd\ufffdvv\ufffd\ufffd]\ufffdf\u000f{\ufffd\ufffd~\u000ep\ufffdC\u001c\ufffd\bG9\ufffdqNp\ufffdS\ufffd\ufffd\fg9\ufffdy.p\ufffdK\\\ufffd\nW\ufffd\ufffdunp\ufffd[\ufffd\ufffd\u000ew\ufffd\ufffd}\u001e\ufffdG<\ufffd\tOy\ufffds^\ufffdW\ufffd\ufffd\noy\ufffd{>\ufffdO|\ufffd\u000b_\ufffd\ufffdw~\ufffd_\ufffd\ufffd\u000f\ufffd\ufffd\u007f/\ufffd\u0000\u0004$\u0010\ufffd\tBP\ufffd\u0011\ufffd\u0010\ufffd$\u0014\ufffd\tCX\ufffd\u0011\ufffd\bD$\u0012\ufffd\ufffdBT\ufffd\u0011\ufffd\u0018\ufffd$\u0016\ufffd\ufffdC\\\ufffd\u0011\ufffd\u0004$$\u0011\ufffdIBR\ufffd\ufffd\ufffd\u0014\ufffd$\u0015\ufffdICZ\u0491\ufffd\fd$\u0013\ufffd\ufffdBV\ufffd\ufffd\ufffd\u001c\ufffd$\u0017\ufffd\ufffdC^\ufffd\u0002\u0014\ufffd\u0010\ufffd)BQ\ufffdQ\ufffd\u0012\ufffd\ufffd\u0014\ufffd)CY\ufffdQ\ufffd\nT\ufffd\u0012\ufffd\ufffdBU\ufffdQ\ufffd\u001a\u0524\u0016\ufffd\ufffdC]\ufffdQ\ufffd\u00064\ufffd\u0011\ufffdiBS\ufffd\u045c\u0016\ufffd\ufffd\u0015\ufffdiC[\ufffd\u045e\u000et\ufffd\u0013\ufffd\ufffdBW\ufffd\u045d\u001e\ufffd\ufffd\u0017\ufffd\ufffdC_\ufffd\u045f\u0001\fd\u0010\ufffd\u0019\ufffdP\ufffd1\ufffd\u0011\ufffdd\u0014\ufffd\u0019\ufffdX\ufffd1\ufffd\tLd\u0012\ufffd\ufffd\ufffdT\ufffd1\ufffd\u0019\ufffdd\u0016\ufffd\ufffd\ufffd\\\ufffd1\ufffd\u0005,d\u0011\ufffdY\ufffdR\ufffd\ufffd\ufffd\u0015\ufffdd\u0015\ufffdY\ufffdZ\u05b1\ufffd\nld\u0013\ufffd\ufffd\ufffdV\ufffd\ufffd\ufffd\u001d\ufffdd\u0017\ufffd\ufffd\ufffd^\ufffd\ufffd\ufffd\u0003\u001c\ufffd\u0010\ufffd9\ufffdQ\ufffdq\ufffd\u0013\ufffd\ufffd\u0014\ufffd9\ufffdY\ufffdq\ufffd\u000b\\\ufffd\u0012\ufffd\ufffd\ufffdU\ufffdq\ufffd\u001b\ufffd\ufffd\u0016\ufffd\ufffd\ufffd]\ufffdq\ufffd\u0007<\ufffd\u0011\ufffdy\ufffdS\ufffd\ufffd\u0017\ufffd\ufffd\u0015\ufffdy\ufffd[\ufffd\ufffd\u000f|\ufffd\u0013\ufffd\ufffd\ufffdW\ufffd\ufffd\u001f\ufffd\ufffd\u0017\ufffd\ufffd\ufffd\u007f\ufffd\ufffd\ufffdG\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!",
   "ball/117093_1st_ball.npz": "PK\u0003\u0004\u0014\u0000\u0000\u0000\b\u0000\u0000\u0000!\u0000d?\ufffd\u0012\ufffdm\u0001\u0000$!\u0004\u0000\t\u0000\u0014\u0000frame.npy\u0001\u0000\u0010\u0000$!\u0004\u0000\u0000\u0000\u0000\u0000\ufffdm\u0001\u0000\u0000\u0000\u0000\u0000\ufffd\ufffd\ufffd\u0016\ufffdL\ufffd\u0005\u043fm\u06f6m\u06f6m\u06f6m\u06f6m\u06f6\ufffd\ufffd\ufffd\ufffdW8\u0019c^\ufffd\ufffdSI\ufffdv\ufffd=\ufffdl\ufffd2\ufffdk\u0004\ufffd_\ufffd\ufffd\ufffdJ\u05b8I\ufffdF\u001d\ufffd\u531f,w\ufffd\ufffd\ufffdR\ufffdO\u05b4]\ufffd\ufffd\u001d\u001b\ufffd\ufffd\u05eec\ufffd&\ufffd\u018b6h\u0769\ufffd\ufffdN\ufffd\u001b\ufffdo\ufffd>y\ufffdlY3fI\ufffd\"u\ufffd>\ufffd\ufffd\ufffdW\ufffd\u0000\ufffd\ufffd\ufffd\ufffd\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!,\ufffd\bO\u0004\"\u0012\ufffd\ufffdD!*\u0448N\fb\u0012\ufffd\ufffd\ufffd!.\ufffdO\u0002\u0012\ufffd\ufffd\ufffd$!)\ufffdHN\nR\ufffd\ufffd\u0524!-\ufffdHO\u00062\ufffd\ufffd\ufffdd!+\ufffd\ufffdN\u000er\ufffd\ufffd\ufffd\ufffd!/\ufffd\ufffdO\u0001\nR\ufffd\ufffd\u0014\ufffd(\ufffd(N\tJR\ufffd\u0494\ufffd,\ufffd(O\u0005*R\ufffd\ufffdT\ufffd*\u0568N\njR\ufffd\ufffd\u0521.\ufffd\ufffdO\u0003\u001a\u0488\ufffd4\ufffd)\ufffdhN\u000bZ\u048a\u05b4\ufffd-\ufffdhO\u0007:\u0489\ufffdt\ufffd+\ufffd\ufffdN\u000fz\u048b\ufffd\ufffd\ufffd/\ufffd\ufffd\ufffd\u0000\u00062\ufffd\ufffd\fa(\ufffd\u0018\ufffd\bF2\ufffd\u044ca,\ufffd\u0018\ufffd\u0004&2\ufffd\ufffdLa*\u04d8\ufffd\ff2\ufffd\ufffd\ufffda.\ufffd\ufffd\u0002\u0016\ufffd\ufffd\ufffd,a)\ufffdX\ufffd\nV\ufffd\ufffd\u056ca-\ufffdX\ufffd\u00066\ufffd\ufffd\ufffdla+\ufffd\ufffd\ufffd\u000ev\ufffd\ufffd\ufffd\ufffda/\ufffd\ufffd\ufffd\u0001\u000er\ufffd\ufffd\u001c\ufffd(\ufffd8\ufffd\tNr\ufffd\u04dc\ufffd,\ufffd8\ufffd\u0005.r\ufffd\ufffd\\\ufffd*\u05f8\ufffd\nnr\ufffd\ufffd\ufffd\ufffd.\ufffd\ufffd\ufffd\u0003\u001e\ufffd\ufffd<\ufffd)\ufffdx\ufffd\u000b^\ufffd\u05fc\ufffd-\ufffdx\ufffd\u0007>\ufffd\ufffd|\ufffd+\ufffd\ufffd\ufffd\u000f~\ufffd\ufffd\ufffd\ufffd?\ufffd\ufffd?\u000f\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\b\ufffdM\u0012\ufffd\bM\u0018\ufffd\u0012\ufffd\ufffdD \"\ufffd\ufffdL\u0014\ufffd\u0012\ufffd\ufffd\ufffd &\ufffd\ufffdM\u001c\ufffd\u0012\ufffd\ufffd$ !\ufffdHL\u0012\ufffd\ufffd\ufffd\ufffd %\ufffdHM\u001a\u0492\ufffd\ufffdd #\ufffd\ufffdL\u0016\ufffd\ufffd\ufffd\ufffd\ufffd '\ufffd\ufffdM\u001e\ufffd\ufffd\u0014\ufffd \ufffd(L\u0011\ufffdR\ufffd\u2520$\ufffd(M\u0019\ufffdR\ufffd\ufffdT\ufffd\"\ufffd\ufffdL\u0015\ufffdR\ufffd\ufffd\ufffd\ufffdW\ufffdZ\u0526\u000eu\ufffdG}\u001a\u0410F4\ufffd\tMiFsZ\u0412V\ufffd\ufffd\nmiG{:\u0411Nt\ufffd\u000b]\ufffdFwz\u0413^\ufffd\ufffd\u000f}\ufffdG\u007f\u00060\ufffdA\ff\bC\u0019\ufffdpF0\ufffdQ\ufffdf\fc\u0019\ufffdx&0\ufffdILf\nS\ufffd\ufffdtf0\ufffdY\ufffdf\u000es\ufffd\ufffd|\u0016\ufffd\ufffdE,f\tKY\ufffdrV\ufffd\ufffdU\ufffdf\nkY\ufffdz6\ufffd\ufffdMlf\u000b[\ufffd\ufffdvv\ufffd\ufffd]\ufffdf\u000f{\ufffd\ufffd~\u000ep\ufffdC\u001c\ufffd\bG9\ufffdqNp\ufffdS\ufffd\ufffd\fg9\ufffdy.p\ufffdK\\\ufffd\nW\ufffd\ufffdunp\ufffd[\ufffd\ufffd\u000ew\ufffd\ufffd}\u001e\ufffdG<\ufffd\tOy\ufffds^\ufffdW\ufffd\ufffd\noy\ufffd{>\ufffdO|\ufffd\u000b_\ufffd\ufffdw~\ufffd_\ufffd\ufffd\u000f\ufffd\ufffd\u007f/\ufffd\u0000\u0004$\u0010\ufffd\tBP\ufffd\u0011\ufffd\u0010\ufffd$\u0014\ufffd\tCX\ufffd\u0011\ufffd\bD$\u0012\ufffd\ufffdBT\ufffd\u0011\ufffd\u0018\ufffd$\u0016\ufffd\ufffdC\\\ufffd\u0011\ufffd\u0004$$\u0011\ufffdIBR\ufffd\ufffd\ufffd\u0014\ufffd$\u0015\ufffdICZ\u0491\ufffd\fd$\u0013\ufffd\ufffdBV\ufffd\ufffd\ufffd\u001c\ufffd$\u0017\ufffd\ufffdC^\ufffd\u0002\u0014\ufffd\u0010\ufffd)BQ\ufffdQ\ufffd\u0012\ufffd\ufffd\u0014\ufffd)CY\ufffdQ\ufffd\nT\ufffd\u0012\ufffd\ufffdBU\ufffdQ\ufffd\u001a\u0524\u0016\ufffd\ufffdC]\ufffdQ\ufffd\u00064\ufffd\u0011\ufffdiBS\ufffd\u045c\u0016\ufffd\ufffd\u0015\ufffdiC[\ufffd\u045e\u000et\ufffd\u0013\ufffd\ufffdBW\ufffd\u045d\u001e\ufffd\ufffd\u0017\ufffd\ufffdC_\ufffd\u045f\u0001\fd\u0010\ufffd\u0019\ufffdP\ufffd1\ufffd\u0011\ufffdd\u0014\ufffd\u0019\ufffdX\ufffd1\ufffd\tLd\u0012\ufffd\ufffd\ufffdT\ufffd1\ufffd\u0019\ufffdd\u0016\ufffd\ufffd\ufffd\\\ufffd1\ufffd\u0005,d\u0011\ufffdY\ufffdR\ufffd\ufffd\ufffd\u0015\ufffdd\u0015\ufffdY\ufffdZ\u05b1\ufffd\nld\u0013\ufffd\ufffd\ufffdV\ufffd\ufffd\ufffd\u001d\ufffdd\u0017\ufffd\ufffd\ufffd^\ufffd\ufffd\ufffd\u0003\u001c\ufffd\u0010\ufffd9\ufffdQ\ufffdq\ufffd\u0013\ufffd\ufffd\u0014\ufffd9\ufffdY\ufffdq\ufffd\u000b\\\ufffd\u0012\ufffd\ufffd\ufffdU\ufffdq\ufffd\u001b\ufffd\ufffd\u0016\ufffd\ufffd\ufffd]\ufffdq\ufffd\u0007<\ufffd\u0011\ufffdy\ufffdS\ufffd\ufffd\u0017\ufffd\ufffd\u0015\ufffdy\ufffd[\ufffd\ufffd\u000f|\ufffd\u0013\ufffd\ufffd\ufffdW\ufffd\ufffd\u001f\ufffd\ufffd\u0017\ufffd\ufffd\ufffd\u007f\ufffd\ufffd\ufffdG\u007f\u0000\u0002\u0012\ufffd\ufffd\u0004!(\ufffd\bN\bB\u0012\ufffd\u0404!"
  },
- "labels": 797,
- "snapped": 392,
- "negatives": 797,
- "minutes": 11.9,
+ "labels": 717,
+ "snapped": 215,
+ "negatives": 717,
+ "minutes": 16.0,
  "kinds": {
-  "feet": 415,
-  "rolling": 382
+  "feet": 375,
+  "rolling": 342
  }
 }
