@@ -1,0 +1,14 @@
+{
+ "periods_s": [
+  [
+   0,
+   2900
+  ],
+  [
+   3000,
+   5966
+  ]
+ ],
+ "note": "PLACEHOLDER until detect_periods + eyeball (3 Oct night). Veo: SFK 1-0 at 47', VAL 1-1 at 50', SFK 2-2 at 79', 3-2 at 81'.",
+ "trust_all_calibration": true
+}
