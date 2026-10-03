@@ -1,6 +1,6 @@
 # S3b: does pasting far balls help the ball finder? (3 Oct 2026, free Kaggle, no Modal)
 
-**Status:** training job started on Kaggle's free GPU (3 Oct ~13:40 UTC, about 4.5 h). Results land in
+**Status:** training job started on Kaggle's free GPU (3 Oct 13:09 UTC, about 4.5 h; GitHub run 37125155685). Results land in
 `results/kaggle/ballfinder_paste/` by themselves; the next worker run grades them.
 
 ## What the job does
