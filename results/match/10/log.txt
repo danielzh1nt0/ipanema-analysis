@@ -1,0 +1,122 @@
+21:39:14 full-match calibration on Modal: p15u-vs-vallentuna-2026-10-03-6cce
+23:52:34   stretch 0-249s: 249 frames, 0 checkpoints
+23:52:34   t=59s: 1/60 confident
+23:52:34   t=119s: 2/120 confident
+23:52:34   t=179s: 4/180 confident
+23:52:34   t=239s: 6/240 confident
+23:52:34   stretch 249-497s: 249 frames, 0 checkpoints
+23:52:34   t=308s: 2/60 confident
+23:52:34   t=368s: 4/120 confident
+23:52:34   t=428s: 56/180 confident
+23:52:34   t=488s: 115/240 confident
+23:52:34   stretch 497-746s: 248 frames, 0 checkpoints
+23:52:34   t=557s: 36/60 confident
+23:52:34   t=617s: 64/120 confident
+23:52:34   t=677s: 93/180 confident
+23:52:34   t=737s: 139/240 confident
+23:52:34   stretch 746-994s: 249 frames, 0 checkpoints
+23:52:34   t=805s: 34/60 confident
+23:52:34   t=865s: 46/120 confident
+23:52:34   t=925s: 61/180 confident
+23:52:34   t=985s: 95/240 confident
+23:52:34   stretch 994-1243s: 248 frames, 0 checkpoints
+23:52:34   t=1054s: 55/60 confident
+23:52:34   t=1114s: 110/120 confident
+23:52:34   t=1174s: 162/180 confident
+23:52:34   t=1234s: 180/240 confident
+23:52:34   stretch 1243-1491s: 249 frames, 0 checkpoints
+23:52:34   t=1302s: 23/60 confident
+23:52:34   t=1362s: 62/120 confident
+23:52:34   t=1422s: 106/180 confident
+23:52:34   t=1482s: 151/240 confident
+23:52:34   stretch 1491-1740s: 249 frames, 0 checkpoints
+23:52:34   t=1551s: 51/60 confident
+23:52:34   t=1611s: 99/120 confident
+23:52:34   t=1671s: 142/180 confident
+23:52:34   t=1731s: 176/240 confident
+23:52:34   stretch 1740-1989s: 248 frames, 0 checkpoints
+23:52:34   t=1800s: 48/60 confident
+23:52:34   t=1860s: 95/120 confident
+23:52:34   t=1920s: 150/180 confident
+23:52:34   t=1980s: 181/240 confident
+23:52:34   stretch 1989-2237s: 249 frames, 0 checkpoints
+23:52:34   t=2048s: 54/60 confident
+23:52:34   t=2108s: 109/120 confident
+23:52:34   t=2168s: 142/180 confident
+23:52:34   t=2228s: 167/240 confident
+23:52:34   stretch 2237-2486s: 248 frames, 0 checkpoints
+23:52:34   t=2297s: 36/60 confident
+23:52:34   t=2357s: 80/120 confident
+23:52:34   t=2417s: 117/180 confident
+23:52:34   t=2477s: 149/240 confident
+23:52:34   stretch 2486-2734s: 249 frames, 0 checkpoints
+23:52:34   t=2545s: 47/60 confident
+23:52:34   t=2605s: 94/120 confident
+23:52:34   t=2665s: 107/180 confident
+23:52:34   t=2725s: 124/240 confident
+23:52:34   stretch 2734-2983s: 248 frames, 0 checkpoints
+23:52:34   t=2794s: 27/60 confident
+23:52:34   t=2854s: 51/120 confident
+23:52:34   t=2914s: 84/180 confident
+23:52:34   t=2974s: 107/240 confident
+23:52:34   stretch 2983-3232s: 249 frames, 0 checkpoints
+23:52:34   t=3042s: 45/60 confident
+23:52:34   t=3102s: 84/120 confident
+23:52:34   t=3162s: 110/180 confident
+23:52:34   t=3222s: 151/240 confident
+23:52:34   stretch 3232-3480s: 249 frames, 0 checkpoints
+23:52:34   t=3291s: 14/60 confident
+23:52:34   t=3351s: 23/120 confident
+23:52:34   t=3411s: 52/180 confident
+23:52:34   t=3471s: 77/240 confident
+23:52:34   stretch 3480-3729s: 248 frames, 0 checkpoints
+23:52:34   t=3540s: 12/60 confident
+23:52:34   t=3600s: 42/120 confident
+23:52:34   t=3660s: 75/180 confident
+23:52:34   t=3720s: 96/240 confident
+23:52:34   stretch 3729-3977s: 249 frames, 0 checkpoints
+23:52:34   t=3788s: 22/60 confident
+23:52:34   t=3848s: 26/120 confident
+23:52:34   t=3908s: 42/180 confident
+23:52:34   t=3968s: 82/240 confident
+23:52:34   stretch 3977-4226s: 248 frames, 0 checkpoints
+23:52:34   t=4037s: 2/60 confident
+23:52:34   t=4097s: 31/120 confident
+23:52:34   t=4157s: 53/180 confident
+23:52:34   t=4217s: 72/240 confident
+23:52:34   stretch 4226-4474s: 249 frames, 0 checkpoints
+23:52:34   t=4285s: 8/60 confident
+23:52:34   t=4345s: 20/120 confident
+23:52:34   t=4405s: 46/180 confident
+23:52:34   t=4465s: 76/240 confident
+23:52:34   stretch 4474-4723s: 249 frames, 0 checkpoints
+23:52:34   t=4534s: 8/60 confident
+23:52:34   t=4594s: 14/120 confident
+23:52:34   t=4654s: 31/180 confident
+23:52:34   t=4714s: 62/240 confident
+23:52:34   stretch 4723-4972s: 248 frames, 0 checkpoints
+23:52:34   t=4783s: 34/60 confident
+23:52:34   t=4843s: 55/120 confident
+23:52:34   t=4903s: 61/180 confident
+23:52:34   t=4963s: 64/240 confident
+23:52:34   stretch 4972-5220s: 249 frames, 0 checkpoints
+23:52:34   t=5031s: 23/60 confident
+23:52:34   t=5091s: 31/120 confident
+23:52:34   t=5151s: 61/180 confident
+23:52:34   t=5211s: 62/240 confident
+23:52:34   stretch 5220-5469s: 248 frames, 0 checkpoints
+23:52:34   t=5280s: 28/60 confident
+23:52:34   t=5340s: 57/120 confident
+23:52:34   t=5400s: 74/180 confident
+23:52:34   t=5460s: 80/240 confident
+23:52:34   stretch 5469-5717s: 249 frames, 0 checkpoints
+23:52:34   t=5528s: 13/60 confident
+23:52:34   t=5588s: 44/120 confident
+23:52:34   t=5648s: 74/180 confident
+23:52:34   t=5708s: 133/240 confident
+23:52:34   stretch 5717-5966s: 248 frames, 0 checkpoints
+23:52:34   t=5777s: 44/60 confident
+23:52:34   t=5837s: 54/120 confident
+23:52:34   t=5897s: 55/180 confident
+23:52:34   t=5957s: 68/240 confident
+23:52:34 p15u-vs-vallentuna-2026-10-03-6cce: 39% of the match placed confidently (2341/5966 seconds); no click checkpoints for this match; longest unsure stretch 369 s

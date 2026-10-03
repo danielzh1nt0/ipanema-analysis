@@ -1,0 +1,13 @@
+{
+ "frames": 5966,
+ "confident": 2341,
+ "confident_share": 0.392,
+ "hard_moments": 2044,
+ "hard_confident": 606,
+ "unsure_stretches_over_10s": 78,
+ "longest_unsure_s": 369.0,
+ "checkpoints": 0,
+ "checkpoints_within_10px": 0,
+ "checkpoint_median_px": null,
+ "checkpoints_confident_and_wrong": 0
+}
