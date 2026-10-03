@@ -1,2 +1,2 @@
-tools/f1c_frames.py
-# Fri Oct  2 12:24:26 UTC 2026 F1c: save AIK + SFK-BP full-match frames and people boxes (fit + test) for offline shadow-aware kit tests (free, CPU)
+tools/b3_soccertrack.py
+# Sat Oct  3 04:46:50 UTC 2026 B3: SoccerTrack v2 ball labels in pixels (10 matches, ground balls only, 40 per half) + check sheets (free, CPU, HF download)
