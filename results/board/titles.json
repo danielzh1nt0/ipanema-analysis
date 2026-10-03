@@ -43,5 +43,6 @@
  "F1b": "AIK full match: team colours per 5-min piece",
  "F1c": "Team colours in sun and shadow (AIK)",
  "B10": "Lock a still ball before the picker",
- "S6": "Sequences: stop the count flickering (one per spell of play)"
+ "S6": "Sequences: stop the count flickering (one per spell of play)",
+ "S3b": "Test if pasted balls make the ball finder better (free Kaggle training)"
 }

@@ -1,0 +1,24 @@
+{
+ "seed": 0,
+ "per_frame": 6,
+ "checked_balls": 325,
+ "clean_patches": 84,
+ "patches_by_ground": {
+  "SFKBP1109": 52,
+  "p09-norrviken-vs-solheim-2026-08-30": 14,
+  "p15u-vs-djursholm-2026-09-26": 9,
+  "p15u-vs-spanga-2026-09-25": 2,
+  "p15u-vs-vasalund-2026-09-20": 7
+ },
+ "pasted": 414,
+ "by_ground": {
+  "SFKBP1109_s1200": 144,
+  "p15u-vs-reymersholm-2026-09-18": 126,
+  "p15u-vs-spanga-2026-09-25": 144
+ },
+ "d_px_p10_p50_p90": [
+  5.7,
+  7.2,
+  7.9
+ ]
+}
