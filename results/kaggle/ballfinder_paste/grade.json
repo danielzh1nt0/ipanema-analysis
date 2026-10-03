@@ -1,0 +1,68 @@
+{
+ "app inputs": {
+  "sfk34": 29,
+  "b4": 284,
+  "passes": 87,
+  "real_kept": 20,
+  "fake_kept": 8,
+  "turnovers": 20,
+  "sequences": 81,
+  "flips": 136
+ },
+ "old + ball_cands_wasb_1790008894_t2x2_thr0.05.pkl": {
+  "sfk34": 29,
+  "b4": 284,
+  "passes": 81,
+  "real_kept": 15,
+  "fake_kept": 4,
+  "turnovers": 23,
+  "sequences": 73,
+  "flips": 120,
+  "same_as_app": [
+   110,
+   8992
+  ]
+ },
+ "old + ball_cands_wasb_1790008894_t2x2_thr0.05_lp30.pkl": {
+  "sfk34": 27,
+  "b4": 284,
+  "passes": 71,
+  "real_kept": 13,
+  "fake_kept": 1,
+  "turnovers": 25,
+  "sequences": 74,
+  "flips": 126,
+  "same_as_app": [
+   0,
+   8992
+  ]
+ },
+ "new + ball_cands_wasb_1790008894_t2x2_thr0.05.pkl": {
+  "sfk34": 26,
+  "b4": 282,
+  "passes": 91,
+  "real_kept": 13,
+  "fake_kept": 3,
+  "turnovers": 18,
+  "sequences": 82,
+  "flips": 125,
+  "same_as_app": [
+   0,
+   8992
+  ]
+ },
+ "new + ball_cands_wasb_1790008894_t2x2_thr0.05_lp30.pkl": {
+  "sfk34": 26,
+  "b4": 278,
+  "passes": 95,
+  "real_kept": 14,
+  "fake_kept": 4,
+  "turnovers": 19,
+  "sequences": 84,
+  "flips": 128,
+  "same_as_app": [
+   0,
+   8992
+  ]
+ }
+}
