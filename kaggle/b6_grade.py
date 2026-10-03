@@ -21,10 +21,10 @@ for name, w in FINDERS.items():
     for b in range(0, len(ks), 4): out += BR.detect_many(m, [frames[k] for k in ks[b:b + 4]], floor=0.05)   # 4 frames x 8 tiles per batch (T4 memory)
     r = {"top": 0, "top3": 0, "any": 0, "unsure_fires": 0, "unsure_n": 0}; rows[name] = {}
     for k, g in zip(ks, out):
-        rows[name][k] = [[round(x), round(y), round(c, 2)] for x, y, c in g[:5]]
+        rows[name][k] = [[int(round(x)), int(round(y)), float(round(c, 2))] for x, y, c in g[:5]]
         if k in K:
-            t = K[k]; r["top"] += bool(g) and near(g[0], t); r["top3"] += any(near(z, t) for z in g[:3]); r["any"] += any(near(z, t) for z in g)
-        else: r["unsure_n"] += 1; r["unsure_fires"] += bool(g) and g[0][2] >= 0.3
+            t = K[k]; r["top"] += int(bool(g) and near(g[0], t)); r["top3"] += int(any(near(z, t) for z in g[:3])); r["any"] += int(any(near(z, t) for z in g))
+        else: r["unsure_n"] += 1; r["unsure_fires"] += int(bool(g) and g[0][2] >= 0.3)
     rep[name] = r; print(name, r, flush=True); del m; import torch; torch.cuda.empty_cache()
 json.dump({"summary": rep, "guesses": rows}, open(f"{W}/result.json", "w"), indent=1)
 # sheet: key moments with the key (green) and each finder's top guess (B7 yellow, neg cyan, feet magenta)
