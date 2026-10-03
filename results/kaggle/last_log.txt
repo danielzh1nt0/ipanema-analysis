@@ -1,88 +1,168 @@
-kernel danielmatros/ipanema-b6-frames
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-frames
-  0.5 min: danielmatros/ipanema-b6-frames has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/b6_frames/m00.jpg
-Output file downloaded to results/kaggle/b6_frames/m01.jpg
-Output file downloaded to results/kaggle/b6_frames/m02.jpg
-Output file downloaded to results/kaggle/b6_frames/m03.jpg
-Output file downloaded to results/kaggle/b6_frames/m04.jpg
-Output file downloaded to results/kaggle/b6_frames/m05.jpg
-Output file downloaded to results/kaggle/b6_frames/m06.jpg
-Output file downloaded to results/kaggle/b6_frames/m07.jpg
-Output file downloaded to results/kaggle/b6_frames/m08.jpg
-Output file downloaded to results/kaggle/b6_frames/m09.jpg
-Output file downloaded to results/kaggle/b6_frames/m10.jpg
-Output file downloaded to results/kaggle/b6_frames/m11.jpg
-Output file downloaded to results/kaggle/b6_frames/m12.jpg
-Output file downloaded to results/kaggle/b6_frames/m13.jpg
-Output file downloaded to results/kaggle/b6_frames/m14.jpg
-Output file downloaded to results/kaggle/b6_frames/m15.jpg
-Output file downloaded to results/kaggle/b6_frames/m16.jpg
-Output file downloaded to results/kaggle/b6_frames/m17.jpg
-Output file downloaded to results/kaggle/b6_frames/m18.jpg
-Output file downloaded to results/kaggle/b6_frames/m19.jpg
-Output file downloaded to results/kaggle/b6_frames/m20.jpg
-Output file downloaded to results/kaggle/b6_frames/m21.jpg
-Output file downloaded to results/kaggle/b6_frames/m22.jpg
-Output file downloaded to results/kaggle/b6_frames/m23.jpg
-Output file downloaded to results/kaggle/b6_frames/m24.jpg
-Output file downloaded to results/kaggle/b6_frames/m25.jpg
-Output file downloaded to results/kaggle/b6_frames/m26.jpg
-Output file downloaded to results/kaggle/b6_frames/m27.jpg
-Output file downloaded to results/kaggle/b6_frames/m28.jpg
-Output file downloaded to results/kaggle/b6_frames/m29.jpg
-Output file downloaded to results/kaggle/b6_frames/m30.jpg
-Output file downloaded to results/kaggle/b6_frames/m31.jpg
-Output file downloaded to results/kaggle/b6_frames/m32.jpg
-Output file downloaded to results/kaggle/b6_frames/m33.jpg
-Output file downloaded to results/kaggle/b6_frames/m34.jpg
-Output file downloaded to results/kaggle/b6_frames/m35.jpg
-Output file downloaded to results/kaggle/b6_frames/m36.jpg
-Output file downloaded to results/kaggle/b6_frames/m37.jpg
-Output file downloaded to results/kaggle/b6_frames/m38.jpg
-Output file downloaded to results/kaggle/b6_frames/m39.jpg
-Output file downloaded to results/kaggle/b6_frames/result.json
-Kernel log downloaded to results/kaggle/b6_frames/ipanema-b6-frames.log
-  ipanema-b6-frames.log 868
-  m00.jpg 494366
-  m01.jpg 544062
-  m02.jpg 556945
-  m03.jpg 577887
-  m04.jpg 461797
-  m05.jpg 434770
-  m06.jpg 441176
-  m07.jpg 442316
-  m08.jpg 438129
-  m09.jpg 439954
-  m10.jpg 438628
-  m11.jpg 435751
-  m12.jpg 464695
-  m13.jpg 467978
-  m14.jpg 464479
-  m15.jpg 466491
-  m16.jpg 474006
-  m17.jpg 539457
-  m18.jpg 555794
-  m19.jpg 543984
-  m20.jpg 477072
-  m21.jpg 444092
-  m22.jpg 510481
-  m23.jpg 529576
-  m24.jpg 498994
-  m25.jpg 530033
-  m26.jpg 529495
-  m27.jpg 608529
-  m28.jpg 512919
-  m29.jpg 573146
-  m30.jpg 536097
-  m31.jpg 462910
-  m32.jpg 439806
-  m33.jpg 432930
-  m34.jpg 434878
-  m35.jpg 437017
-  m36.jpg 457872
-  m37.jpg 454441
-  m38.jpg 470812
-  m39.jpg 510818
-  result.json 52
-  run.json 152
+kernel danielmatros/ipanema-b6-zoom
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-zoom
+  0.5 min: danielmatros/ipanema-b6-zoom has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/b6_zoom/m00L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m00R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m01L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m01R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m02L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m02R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m03L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m03R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m04L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m04R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m05L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m05R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m06L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m06R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m07L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m07R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m08L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m08R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m09L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m09R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m10L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m10R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m11L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m11R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m12L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m12R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m13L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m13R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m14L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m14R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m15L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m15R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m16L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m16R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m17L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m17R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m18L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m18R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m19L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m19R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m20L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m20R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m21L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m21R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m22L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m22R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m23L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m23R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m24L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m24R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m25L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m25R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m26L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m26R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m27L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m27R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m28L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m28R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m29L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m29R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m30L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m30R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m31L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m31R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m32L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m32R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m33L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m33R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m34L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m34R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m35L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m35R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m36L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m36R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m37L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m37R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m38L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m38R.jpg
+Output file downloaded to results/kaggle/b6_zoom/m39L.jpg
+Output file downloaded to results/kaggle/b6_zoom/m39R.jpg
+Output file downloaded to results/kaggle/b6_zoom/result.json
+Kernel log downloaded to results/kaggle/b6_zoom/ipanema-b6-zoom.log
+  ipanema-b6-zoom.log 868
+  m00L.jpg 222506
+  m00R.jpg 205841
+  m01L.jpg 291591
+  m01R.jpg 215225
+  m02L.jpg 289934
+  m02R.jpg 222405
+  m03L.jpg 298794
+  m03R.jpg 230175
+  m04L.jpg 234994
+  m04R.jpg 221754
+  m05L.jpg 224315
+  m05R.jpg 244916
+  m06L.jpg 230003
+  m06R.jpg 248393
+  m07L.jpg 234555
+  m07R.jpg 252473
+  m08L.jpg 234457
+  m08R.jpg 250320
+  m09L.jpg 234812
+  m09R.jpg 252642
+  m10L.jpg 234530
+  m10R.jpg 247600
+  m11L.jpg 229295
+  m11R.jpg 219922
+  m12L.jpg 218952
+  m12R.jpg 237535
+  m13L.jpg 224984
+  m13R.jpg 238271
+  m14L.jpg 235517
+  m14R.jpg 230434
+  m15L.jpg 242567
+  m15R.jpg 221791
+  m16L.jpg 231717
+  m16R.jpg 233282
+  m17L.jpg 280567
+  m17R.jpg 223156
+  m18L.jpg 294190
+  m18R.jpg 226946
+  m19L.jpg 264362
+  m19R.jpg 228222
+  m20L.jpg 223285
+  m20R.jpg 244860
+  m21L.jpg 223335
+  m21R.jpg 259940
+  m22L.jpg 250192
+  m22R.jpg 305085
+  m23L.jpg 255331
+  m23R.jpg 315696
+  m24L.jpg 230308
+  m24R.jpg 213322
+  m25L.jpg 239185
+  m25R.jpg 229625
+  m26L.jpg 235146
+  m26R.jpg 229586
+  m27L.jpg 309141
+  m27R.jpg 232882
+  m28L.jpg 227834
+  m28R.jpg 245893
+  m29L.jpg 284124
+  m29R.jpg 232598
+  m30L.jpg 287311
+  m30R.jpg 205987
+  m31L.jpg 238381
+  m31R.jpg 241819
+  m32L.jpg 219655
+  m32R.jpg 247140
+  m33L.jpg 221821
+  m33R.jpg 254232
+  m34L.jpg 217477
+  m34R.jpg 253614
+  m35L.jpg 222585
+  m35R.jpg 252442
+  m36L.jpg 221793
+  m36R.jpg 233838
+  m37L.jpg 235624
+  m37R.jpg 225021
+  m38L.jpg 225732
+  m38R.jpg 221859
+  m39L.jpg 235981
+  m39R.jpg 285682
+  result.json 26
+  run.json 148
