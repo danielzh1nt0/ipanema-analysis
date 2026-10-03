@@ -1,0 +1,40 @@
+{
+ "coarse_best": [
+  53.0,
+  70.0,
+  -5.5
+ ],
+ "coarse_cost": 10.581,
+ "refined_cost": 12.895,
+ "refine_evals": 50,
+ "base": {
+  "C": [
+   53.0557137112634,
+   67.9835182217106,
+   -5.001422418535881
+  ],
+  "base_tilt": [
+   0.009183587041920776,
+   0.006249687265522642
+  ]
+ },
+ "frames_used": 24,
+ "of": 24,
+ "runner_up": [
+  53.0,
+  71.5,
+  -5.5
+ ],
+ "runner_up_cost": 10.586,
+ "heldout": {
+  "new": {
+   "cost": 15.664,
+   "frames": 12
+  },
+  "reference": {
+   "cost": 15.766,
+   "frames": 12
+  }
+ },
+ "accepted": true
+}
