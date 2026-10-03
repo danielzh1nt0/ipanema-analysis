@@ -1,8 +1,10 @@
 kernel danielmatros/ipanema-b6-grade
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-grade
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-b6-grade
   0.5 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.RUNNING"
   2.0 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.RUNNING"
-  3.1 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.ERROR"
+  3.6 min: danielmatros/ipanema-b6-grade has status "KernelWorkerStatus.ERROR"
+Output file downloaded to results/kaggle/b6_grade/result.json
 Kernel log downloaded to results/kaggle/b6_grade/ipanema-b6-grade.log
-  ipanema-b6-grade.log 13575
+  ipanema-b6-grade.log 7194
+  result.json 75
   run.json 147

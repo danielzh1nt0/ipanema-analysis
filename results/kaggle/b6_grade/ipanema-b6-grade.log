@@ -1,95 +1,45 @@
-[{"stream_name":"stdout","time":98.306644568,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.4 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":98.998966854,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 15.3 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":99.041045842,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.5/395.5 kB 17.2 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":99.400863948,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 57.6 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":99.436850624,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.2 MB/s eta 0:00:00\n"}
-,{"stream_name":"stderr","time":154.792257787,"data":"[2026-10-03 01:04:45] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stderr","time":154.792314075,"data":"[2026-10-03 01:04:45] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stderr","time":157.342798092,"data":"[2026-10-03 01:04:47] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
-,{"stream_name":"stderr","time":159.680842352,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stderr","time":159.683672138,"data":"  File \"/kaggle/src/script.py\", line 20, in \u003cmodule\u003e\n"}
-,{"stream_name":"stderr","time":159.683701306,"data":"    ks = sorted(frames); out = BR.detect_many(m, [frames[k] for k in ks], floor=0.05); r = {\"top\": 0, \"top3\": 0, \"any\": 0, \"unsure_fires\": 0, \"unsure_n\": 0}; rows[name] = {}\n"}
-,{"stream_name":"stderr","time":159.683708407,"data":"                               ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683714312,"data":"  File \"/kaggle/temp/ia/ipanema/ballrf.py\", line 39, in detect_many\n"}
-,{"stream_name":"stderr","time":159.683718778,"data":"    res = model.predict(crops, threshold=floor)\n"}
-,{"stream_name":"stderr","time":159.683723256,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n"}
-,{"stream_name":"stderr","time":159.683728254,"data":"    return func(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683733251,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/detr.py\", line 324, in wrapper\n"}
-,{"stream_name":"stderr","time":159.683738281,"data":"    return method(self, *args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.68374306,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/detr.py\", line 2820, in predict\n"}
-,{"stream_name":"stderr","time":159.683747708,"data":"    predictions = model(batch_tensor)\n"}
-,{"stream_name":"stderr","time":159.683752022,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.68375682,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683761748,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683788412,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683792865,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.68379646,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/lwdetr.py\", line 477, in forward\n"}
-,{"stream_name":"stderr","time":159.683800069,"data":"    features, poss, cross_attn_features = self.backbone(samples)\n"}
-,{"stream_name":"stderr","time":159.683803939,"data":"                                          ~~~~~~~~~~~~~^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683807458,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683811444,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683815009,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683818612,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683822319,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683826221,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/__init__.py\", line 26, in forward\n"}
-,{"stream_name":"stderr","time":159.683830057,"data":"    result = self[0](tensor_list)\n"}
-,{"stream_name":"stderr","time":159.683834446,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683837687,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683843115,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.68384682,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683850282,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683853626,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/backbone.py\", line 175, in forward\n"}
-,{"stream_name":"stderr","time":159.6838577,"data":"    raw_feats = self.encoder(tensor_list.tensors)\n"}
-,{"stream_name":"stderr","time":159.68386115,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683864831,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683868492,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683872337,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683875928,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.68387931,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/dinov2.py\", line 276, in forward\n"}
-,{"stream_name":"stderr","time":159.683883062,"data":"    x = self.encoder(x)\n"}
-,{"stream_name":"stderr","time":159.683886503,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683890351,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683893845,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683902204,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683906327,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683910121,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 1314, in forward\n"}
-,{"stream_name":"stderr","time":159.683914199,"data":"    outputs = self.encoder(\n"}
-,{"stream_name":"stderr","time":159.683918065,"data":"        embedding_output, output_hidden_states=True, output_attentions=output_attentions, return_dict=return_dict\n"}
-,{"stream_name":"stderr","time":159.683921626,"data":"    )\n"}
-,{"stream_name":"stderr","time":159.683925451,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683929141,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683932829,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683936725,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683940236,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683943649,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 855, in forward\n"}
-,{"stream_name":"stderr","time":159.683947531,"data":"    layer_outputs = layer_module(hidden_states, output_attentions, run_full_attention)\n"}
-,{"stream_name":"stderr","time":159.683952123,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683956089,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683959493,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683962843,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683966292,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683969639,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 804, in forward\n"}
-,{"stream_name":"stderr","time":159.68397301,"data":"    layer_output = self.mlp(layer_output)\n"}
-,{"stream_name":"stderr","time":159.683976349,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.683979997,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683983435,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.683987019,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.683990617,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.683993836,"data":"  File \"/usr/local/lib/python3.13/dist-packages/rfdetr/models/backbone/dinov2_with_windowed_attn.py\", line 713, in forward\n"}
-,{"stream_name":"stderr","time":159.683997311,"data":"    hidden_state = self.activation(hidden_state)\n"}
-,{"stream_name":"stderr","time":159.684000442,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n"}
-,{"stream_name":"stderr","time":159.68400415,"data":"    return self._call_impl(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.684011096,"data":"           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.68401478,"data":"  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n"}
-,{"stream_name":"stderr","time":159.684018597,"data":"    return forward_call(*args, **kwargs)\n"}
-,{"stream_name":"stderr","time":159.684022472,"data":"  File \"/usr/local/lib/python3.13/dist-packages/transformers/activations.py\", line 89, in forward\n"}
-,{"stream_name":"stderr","time":159.684026845,"data":"    return self.act(input)\n"}
-,{"stream_name":"stderr","time":159.684030793,"data":"           ~~~~~~~~^^^^^^^\n"}
-,{"stream_name":"stderr","time":159.684056249,"data":"torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.94 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1020.81 MiB is free. Including non-PyTorch memory, this process has 13.56 GiB memory in use. Of the allocated memory 10.52 GiB is allocated by PyTorch, and 2.91 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"}
-,{"stream_name":"stderr","time":167.042800683,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":167.042839695,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":167.332768368,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":167.332805006,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":168.246545396,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":169.362697035,"data":"[NbConvertApp] Writing 297516 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":98.057816575,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 3.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":98.669352053,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 20.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":98.698885662,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 395.5/395.5 kB 20.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":98.985335526,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 61.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":99.012602048,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":150.137633788,"data":"[2026-10-03 01:14:18] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":150.137673397,"data":"[2026-10-03 01:14:18] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":151.582571026,"data":"[2026-10-03 01:14:19] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":166.572673105,"data":"B7 (app) {'top': np.int64(19), 'top3': 22, 'any': 23, 'unsure_fires': 5, 'unsure_n': 14}\n"}
+,{"stream_name":"stderr","time":166.873936761,"data":"[2026-10-03 01:14:35] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":166.874009324,"data":"[2026-10-03 01:14:35] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":167.859986401,"data":"[2026-10-03 01:14:36] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":179.736283753,"data":"hard negatives (2 Oct) {'top': np.int64(20), 'top3': 23, 'any': 24, 'unsure_fires': 5, 'unsure_n': 14}\n"}
+,{"stream_name":"stderr","time":179.964446431,"data":"[2026-10-03 01:14:48] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":179.964477335,"data":"[2026-10-03 01:14:48] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":180.703832358,"data":"[2026-10-03 01:14:48] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":192.812916355,"data":"at feet (2 Oct) {'top': np.int64(18), 'top3': 19, 'any': 22, 'unsure_fires': 8, 'unsure_n': 14}\n"}
+,{"stream_name":"stderr","time":192.867637507,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":192.868778934,"data":"  File \"/kaggle/src/script.py\", line 29, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":192.868804785,"data":"    json.dump({\"summary\": rep, \"guesses\": rows}, open(f\"{W}/result.json\", \"w\"), indent=1)\n"}
+,{"stream_name":"stderr","time":192.868811762,"data":"    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":192.868816347,"data":"  File \"/usr/lib/python3.13/json/__init__.py\", line 181, in dump\n"}
+,{"stream_name":"stderr","time":192.868821323,"data":"    for chunk in iterable:\n"}
+,{"stream_name":"stderr","time":192.868825941,"data":"                 ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":192.868830137,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 435, in _iterencode\n"}
+,{"stream_name":"stderr","time":192.86883505,"data":"    yield from _iterencode_dict(o, _current_indent_level)\n"}
+,{"stream_name":"stderr","time":192.868839849,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 409, in _iterencode_dict\n"}
+,{"stream_name":"stderr","time":192.868844083,"data":"    yield from chunks\n"}
+,{"stream_name":"stderr","time":192.868848104,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 409, in _iterencode_dict\n"}
+,{"stream_name":"stderr","time":192.86885232,"data":"    yield from chunks\n"}
+,{"stream_name":"stderr","time":192.868858253,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 409, in _iterencode_dict\n"}
+,{"stream_name":"stderr","time":192.868879268,"data":"    yield from chunks\n"}
+,{"stream_name":"stderr","time":192.868881742,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 442, in _iterencode\n"}
+,{"stream_name":"stderr","time":192.868884425,"data":"    o = _default(o)\n"}
+,{"stream_name":"stderr","time":192.868886882,"data":"  File \"/usr/lib/python3.13/json/encoder.py\", line 182, in default\n"}
+,{"stream_name":"stderr","time":192.868889627,"data":"    raise TypeError(f'Object of type {o.__class__.__name__} '\n"}
+,{"stream_name":"stderr","time":192.868892205,"data":"                    f'is not JSON serializable')\n"}
+,{"stream_name":"stderr","time":192.868894699,"data":"TypeError: Object of type int64 is not JSON serializable\n"}
+,{"stream_name":"stderr","time":199.503782706,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":199.503810098,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":199.764087807,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":199.764114206,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":200.595821465,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":201.629908055,"data":"[NbConvertApp] Writing 298449 bytes to __results__.html\n"}
 ]
