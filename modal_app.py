@@ -948,7 +948,8 @@ def make_half(match_id: str, end_s: float):
     cut = math.ceil(max(end_s, p1[1]) / FM.PIECE_S) * FM.PIECE_S; n, fps = FM.video_info(src)
     cut = min(cut, n / fps)
     log(f"first half {p1} s -> video cut at {cut} s (piece boundary), of {n / fps:.0f} s")
-    subprocess.run(["ffmpeg", "-y", "-i", src, "-t", str(cut), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", dst], check=True, capture_output=True)
+    if os.path.exists(dst) and abs(FM.video_info(dst)[0] - cut * fps) <= fps: log("cut video already there (same length), not re-encoded")   # 3 Oct: periods-only re-run
+    else: subprocess.run(["ffmpeg", "-y", "-i", src, "-t", str(cut), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-an", dst], check=True, capture_output=True)
     m, fps2 = FM.video_info(dst); log(f"cut video: {m} frames @ {fps2:.3f} fps (expected {int(cut * fps)})")
     if abs(fps2 - fps) > 0.01 or abs(m - cut * fps) > fps: os.remove(dst); return {"ok": False, "error": f"cut video length off: {m} frames vs {cut * fps:.0f} expected"}
     os.makedirs(f"{ROOT}/periods", exist_ok=True)
