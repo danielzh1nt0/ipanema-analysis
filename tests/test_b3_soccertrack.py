@@ -98,3 +98,31 @@ def test_dry_run_end_to_end(stand_in, tmp_path):
     d = np.load(tmp_path / "crops64.npz"); assert d["X"].shape == (16, 64, 64, 3) and len(d["N"]) == 16
     assert d["X"][:, 30:34, 30:34].mean() > d["N"][:, 30:34, 30:34].mean() + 30          # ball in the middle of X only
     assert (tmp_path / "sheet_132877.jpg").exists() and (tmp_path / "over_132877.jpg").exists()
+
+
+def test_sync_finds_shift(tmp_path):
+    """b3_sync: video lags the XML by 30 frames -> the offset search must find +30 (players drawn as dark blobs)"""
+    root = tmp_path / "st"; m = "117093"; cal = camera(); shift = 30; n = 500
+    os.makedirs(root / "raw" / m); os.makedirs(root / "videos" / m)
+    json.dump(keypoints(cal), open(root / "raw" / m / f"{m}_keypoints.json", "w"))
+    t = np.arange(n + 100)
+    P = [np.stack([20 + j * 7 + 15 * np.sin(t / (40.0 + j)), 10 + j * 4 + 8 * np.cos(t / (55.0 + j))], 1) for j in range(8)]
+    lines = ["<root>"]
+    for k in range(n + 100):
+        lines.append(f'<frame frameNumber="{100 + k}" eventPeriod="FIRST_HALF">')
+        for j, p in enumerate(P): lines.append(f'<player playerId="{j}" loc="[{p[k, 0] / 105:.5f}, {p[k, 1] / 68:.5f}]"/>')
+        lines.append(f'<ball playerId="B" loc="[{P[0][k, 0] / 105:.5f}, {P[0][k, 1] / 68:.5f}]"/>'); lines.append("</frame>")
+    lines.append("</root>"); (root / "raw" / m / f"{m}_tracker_box_data.xml").write_text("\n".join(lines))
+    vw = cv2.VideoWriter(str(root / "videos" / m / f"{m}_panorama_1st_half.mp4"), cv2.VideoWriter_fourcc(*"mp4v"), 25, (W, H))
+    for k in range(n):
+        img = np.full((H, W, 3), (40, 120, 50), np.uint8)
+        for p in P:
+            q = ST.project(cal, p[k + shift][None])[0]; cv2.circle(img, (int(q[0]), int(q[1])), 6, (20, 20, 20), -1)
+        vw.write(img)
+    vw.release()
+    env = dict(os.environ, ST_ROOT=str(root), B3_OUT=str(tmp_path / "out"), ST_MATCHES=m, SPAN="60", STEP="5", N_FRAMES="8")
+    r = subprocess.run([sys.executable, "tools/b3_sync.py"], cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))), env=env, capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr[-2000:]
+    s = json.load(open(tmp_path / "out" / "sync.json"))[m]
+    assert "error" not in s, s.get("error")
+    assert s["best"][0] == shift and s["best"][1] > 0.8 and s["hit_at_file_offset"][1] < s["best"][1]
