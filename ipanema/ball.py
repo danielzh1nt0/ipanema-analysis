@@ -330,18 +330,9 @@ def play_on_mask(moving, fps, play_s):
     return np.array([c[i + 1] - c[max(0, i - w)] > 0 for i in range(n)], bool)
 
 
-# ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
-def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=2.5, near_w=0.75, air_w=0.6,
-            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
-            poss_only_empty=False, recur_r=None, recur_play_s=None, recur_move_m=0.6, recur_inside_m=-1.5, ghost_s=None, max_ghosts=8, ghost_speed_px=40.0, reappear_cost=None, log=print):
-    """1 Oct (tools/picktune.py, exact app inputs of both clips): conf_w 1.5->2.5, near_w 1.0->0.75 = trust the new finder
-    more, the 'near a player' bonus less. AIK 26->30/39, SFK-BP 29->29/34, B4 key 279->284. (A first try, conf_w 4 / near_w 0.5 /
-    miss_cost 5, was tuned on an older offline SFK-BP setup and lost one SFK-BP moment in the app.)
-    poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
-    for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default.
-    ghost_s (S8, 2 Oct, tools/holdlab.py): missed frames carry the last position so a teleport through a miss costs a real
-    jump. Off (None): on the exact clip inputs it removed 6 of 8 fake passes but lost 7 of 20 real ones and 3 AIK ball
-    moments - a lost ball re-found far away looks like a teleport, and persistent clutter makes staying put cheap."""
+def v2_rows(cands, H, L, W, per=None, margin=1.5, min_conf=0.08, top_k=12, poss_cost=None, poss_px=(0.0, 0.0), poss_only_empty=False):
+    """picker v2 candidate rows per frame: (mx, my, conf, x_px, y_px, near_player, on_pitch); conf -1 = 'ball with this player'.
+    Shared by pick_v2 and the particle-filter picker (PF1)."""
     n = len(cands); C = []
     ppos = {i: np.array([r[2] for r in per[i]]) for i in range(n) if per and per.get(i)} if per is not None else {}
     for i in range(n):
@@ -361,6 +352,44 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
                 mx, my = float(r[2][0]), float(r[2][1])
                 rows.append((mx, my, -1.0, float(r[3][0]) + poss_px[0], float(r[3][1]) + poss_px[1], 1.0, True))
         C.append(rows)
+    return C
+
+
+def drop_static(C, fps):
+    """picker v2 static clutter rule (returns new rows, number dropped)"""
+    n = len(C); C = [list(r) for r in C]
+    # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
+    win = int(3 * fps); grid = {}
+    def cell(i, r): return (i // win, round(r[0] * 2), round(r[1] * 2))   # S8 (2 Oct): pan-corrected pixel cells tried instead - worse on all 3 keys (drops real still balls)
+    for i in range(n):
+        for r in C[i]:
+            if r[2] < 0: continue
+            grid.setdefault(cell(i, r), set()).add(i)
+    dropped = 0
+    for i in range(n):
+        keep = []
+        for r in C[i]:
+            if r[2] < 0: keep.append(r); continue
+            if r[5] == 0.0 and len(grid.get(cell(i, r), ())) > 0.6 * win: dropped += 1; continue
+            keep.append(r)
+        C[i] = keep
+    return C, dropped
+
+
+# ---- picker v2: movement measured in the picture with the camera pan removed; airborne balls kept ----
+def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_w=2.5, near_w=0.75, air_w=0.6,
+            miss_cost=3.0, px_w=0.02, jump_px=110.0, jump_cost=6.0, gate_px=260.0, top_k=12, poss_cost=None, poss_px=(0.0, 0.0),
+            poss_only_empty=False, recur_r=None, recur_play_s=None, recur_move_m=0.6, recur_inside_m=-1.5, ghost_s=None, max_ghosts=8, ghost_speed_px=40.0, reappear_cost=None, log=print):
+    """1 Oct (tools/picktune.py, exact app inputs of both clips): conf_w 1.5->2.5, near_w 1.0->0.75 = trust the new finder
+    more, the 'near a player' bonus less. AIK 26->30/39, SFK-BP 29->29/34, B4 key 279->284. (A first try, conf_w 4 / near_w 0.5 /
+    miss_cost 5, was tuned on an older offline SFK-BP setup and lost one SFK-BP moment in the app.)
+    poss_cost (B1, 28 Sep): also offer every player's feet as a 'ball with this player' candidate at this fixed cost,
+    for moments when no finder sees the ball (at feet, in a crowd). Off (None) by default.
+    ghost_s (S8, 2 Oct, tools/holdlab.py): missed frames carry the last position so a teleport through a miss costs a real
+    jump. Off (None): on the exact clip inputs it removed 6 of 8 fake passes but lost 7 of 20 real ones and 3 AIK ball
+    moments - a lost ball re-found far away looks like a teleport, and persistent clutter makes staying put cheap."""
+    n = len(cands)
+    C = v2_rows(cands, H, L, W, per=per, margin=margin, min_conf=min_conf, top_k=top_k, poss_cost=poss_cost, poss_px=poss_px, poss_only_empty=poss_only_empty)
     # B4b: recurring off-pitch spots (spare ball behind the goal), found before the short-window rule thins them out
     if recur_r:
         spots = recurring_spots(C, fps, L, W, margin=margin)
@@ -383,21 +412,7 @@ def pick_v2(cands, H, L, W, per=None, fps=30.0, margin=1.5, min_conf=0.08, conf_
                 keep = [r for r in C[i] if r[2] < 0 or r[6] or np.linalg.norm(S - (r[0], r[1]), axis=1).min() > recur_r]
                 rd += len(C[i]) - len(keep); C[i] = keep
             log(f"ball v2: {len(spots)} recurring off-pitch spots ({', '.join(f'{x:.0f},{y:.0f}' for x, y, _ in spots)}), {rd} candidates dropped")
-    # static clutter (fence signs, cones, marks): same projected position for seconds with nobody near it
-    win = int(3 * fps); grid = {}
-    def cell(i, r): return (i // win, round(r[0] * 2), round(r[1] * 2))   # S8 (2 Oct): pan-corrected pixel cells tried instead - worse on all 3 keys (drops real still balls)
-    for i in range(n):
-        for r in C[i]:
-            if r[2] < 0: continue
-            grid.setdefault(cell(i, r), set()).add(i)
-    dropped = 0
-    for i in range(n):
-        keep = []
-        for r in C[i]:
-            if r[2] < 0: keep.append(r); continue
-            if r[5] == 0.0 and len(grid.get(cell(i, r), ())) > 0.6 * win: dropped += 1; continue
-            keep.append(r)
-        C[i] = keep
+    C, dropped = drop_static(C, fps)
     if ghost_s:
         ball = _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px, jump_cost, gate_px, poss_cost, ghost_s, max_ghosts, ghost_speed_px, jump_cost if reappear_cost is None else reappear_cost)
         log(f"ball v2 (ghosts {ghost_s} s): {len(ball)}/{n} frames on the path, {dropped} static-clutter candidates dropped")

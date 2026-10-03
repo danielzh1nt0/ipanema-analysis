@@ -1,0 +1,416 @@
+{
+ "baseline": {
+  "kw": "viterbi pick_v2 (today's app picker)",
+  "aik": 30,
+  "sfk34": 29,
+  "b4": 284,
+  "passes": 87,
+  "real_kept": 20,
+  "fake_kept": 8,
+  "sfk_flips": 136
+ },
+ "keys": {
+  "aik": 39,
+  "sfk34": 34,
+  "b4": 285,
+  "graded_real_passes": 20,
+  "graded_fake_passes": 8
+ },
+ "pf": [
+  {
+   "kw": {},
+   "aik": 25,
+   "sfk34": 24,
+   "b4": 269,
+   "passes": 59,
+   "real_kept": 12,
+   "fake_kept": 2,
+   "sfk_flips": 117,
+   "sec": 68
+  },
+  {
+   "kw": {
+    "lag": 0
+   },
+   "aik": 25,
+   "sfk34": 25,
+   "b4": 255,
+   "passes": 80,
+   "real_kept": 12,
+   "fake_kept": 4,
+   "sfk_flips": 153,
+   "sec": 54
+  },
+  {
+   "kw": {
+    "lag": 8
+   },
+   "aik": 24,
+   "sfk34": 25,
+   "b4": 273,
+   "passes": 67,
+   "real_kept": 13,
+   "fake_kept": 2,
+   "sfk_flips": 133,
+   "sec": 58
+  },
+  {
+   "kw": {
+    "min_support": 0.05
+   },
+   "aik": 25,
+   "sfk34": 24,
+   "b4": 269,
+   "passes": 59,
+   "real_kept": 12,
+   "fake_kept": 2,
+   "sfk_flips": 117,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "inject": 0.1
+   },
+   "aik": 22,
+   "sfk34": 23,
+   "b4": 269,
+   "passes": 58,
+   "real_kept": 12,
+   "fake_kept": 4,
+   "sfk_flips": 113,
+   "sec": 47
+  },
+  {
+   "kw": {
+    "inject": 0.02
+   },
+   "aik": 25,
+   "sfk34": 27,
+   "b4": 275,
+   "passes": 59,
+   "real_kept": 12,
+   "fake_kept": 2,
+   "sfk_flips": 112,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "sigma_px": 20
+   },
+   "aik": 26,
+   "sfk34": 24,
+   "b4": 276,
+   "passes": 61,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "sfk_flips": 124,
+   "sec": 49
+  },
+  {
+   "kw": {
+    "conf_pow": 3
+   },
+   "aik": 24,
+   "sfk34": 26,
+   "b4": 275,
+   "passes": 58,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 117,
+   "sec": 47
+  },
+  {
+   "kw": {
+    "keep_free": true
+   },
+   "aik": 25,
+   "sfk34": 24,
+   "b4": 269,
+   "passes": 63,
+   "real_kept": 13,
+   "fake_kept": 3,
+   "sfk_flips": 120,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "pmiss": [
+     0.2,
+     0.5,
+     0.7
+    ]
+   },
+   "aik": 22,
+   "sfk34": 26,
+   "b4": 270,
+   "passes": 62,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "sfk_flips": 113,
+   "sec": 49
+  },
+  {
+   "kw": {
+    "off_pen": 0.4
+   },
+   "aik": 24,
+   "sfk34": 25,
+   "b4": 268,
+   "passes": 70,
+   "real_kept": 14,
+   "fake_kept": 2,
+   "sfk_flips": 112,
+   "sec": 50
+  },
+  {
+   "kw": {
+    "n_part": 1200
+   },
+   "aik": 25,
+   "sfk34": 24,
+   "b4": 274,
+   "passes": 63,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "sfk_flips": 125,
+   "sec": 89
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20
+   },
+   "aik": 27,
+   "sfk34": 25,
+   "b4": 276,
+   "passes": 66,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "sfk_flips": 115,
+   "sec": 56
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3
+   },
+   "aik": 26,
+   "sfk34": 27,
+   "b4": 279,
+   "passes": 60,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 113,
+   "sec": 47
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 3
+   },
+   "aik": 28,
+   "sfk34": 27,
+   "b4": 281,
+   "passes": 58,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 106,
+   "sec": 46
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "lag": 30
+   },
+   "aik": 20,
+   "sfk34": 25,
+   "b4": 258,
+   "passes": 38,
+   "real_kept": 10,
+   "fake_kept": 0,
+   "sfk_flips": 85,
+   "sec": 47
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "n_part": 1500
+   },
+   "aik": 27,
+   "sfk34": 26,
+   "b4": 280,
+   "passes": 56,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 103,
+   "sec": 87
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "vg": 5,
+    "va": 8
+   },
+   "aik": 25,
+   "sfk34": 27,
+   "b4": 282,
+   "passes": 55,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 107,
+   "sec": 46
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "p_gp": 0,
+    "p_ga": 0
+   },
+   "aik": 26,
+   "sfk34": 26,
+   "b4": 276,
+   "passes": 52,
+   "real_kept": 10,
+   "fake_kept": 0,
+   "sfk_flips": 106,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "seed": 1
+   },
+   "aik": 26,
+   "sfk34": 27,
+   "b4": 280,
+   "passes": 55,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 107,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "inject": 0.02,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "seed": 2
+   },
+   "aik": 27,
+   "sfk34": 26,
+   "b4": 283,
+   "passes": 58,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 113,
+   "sec": 49
+  },
+  {
+   "kw": {
+    "inject": 0.005,
+    "sigma_px": 20,
+    "conf_pow": 3
+   },
+   "aik": 27,
+   "sfk34": 27,
+   "b4": 282,
+   "passes": 56,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 103,
+   "sec": 45
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "lag": 8
+   },
+   "aik": 27,
+   "sfk34": 27,
+   "b4": 281,
+   "passes": 52,
+   "real_kept": 10,
+   "fake_kept": 0,
+   "sfk_flips": 127,
+   "sec": 46
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 4
+   },
+   "aik": 26,
+   "sfk34": 26,
+   "b4": 279,
+   "passes": 55,
+   "real_kept": 11,
+   "fake_kept": 0,
+   "sfk_flips": 100,
+   "sec": 46
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "vg": 5,
+    "va": 8
+   },
+   "aik": 27,
+   "sfk34": 27,
+   "b4": 281,
+   "passes": 57,
+   "real_kept": 12,
+   "fake_kept": 1,
+   "sfk_flips": 112,
+   "sec": 48
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "seed": 1
+   },
+   "aik": 26,
+   "sfk34": 26,
+   "b4": 281,
+   "passes": 63,
+   "real_kept": 11,
+   "fake_kept": 1,
+   "sfk_flips": 103,
+   "sec": 46
+  },
+  {
+   "kw": {
+    "inject": 0.01,
+    "sigma_px": 20,
+    "conf_pow": 3,
+    "seed": 2
+   },
+   "aik": 28,
+   "sfk34": 27,
+   "b4": 281,
+   "passes": 59,
+   "real_kept": 12,
+   "fake_kept": 1,
+   "sfk_flips": 104,
+   "sec": 47
+  }
+ ]
+}
