@@ -1,6 +1,34 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 05:18:36 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 05:20:10 UTC
 
 
-## run_full.log (2 lines, last 60)
+## run_full.log (27 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
+pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 11/11 done in 1.5 min
+tracking frame 98902
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+periods: [(366.0, 3224.99)] s; 47 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
+calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
+ball check: 39 held-out test frames mapped into the full match
+clean: 113 still people by the lines dropped (bench, coaches)
+clean: keeper (left) from a non-team kit: track 400909, 927 frames
+clean: keeper (right) from a non-team kit: track 101293, 1134 frames
+clean: removed 382095 rows of non-team kits (referee / staff)
+clean: dropped 208802 off-pitch, merged 10929 duplicates, stitched 3773 ids, keepers [101311, 101331, 101381, 101449, 101454, 200046, 200027, 200836, 200916, 200919, 200929, 200953, 200955, 200956, 200961, 200968, 200978, 200987, 200989, 200991, 201000, 201008, 201016, 201019, 201056, 201061, 201064, 201084, 201090, 300835, 300848, 300853, 300883, 400365, 501382, 501434, 600048, 700924, 800398, 800524, 800531, 800553, 800810, 901069, 901272] -> A defends left
+clean: players per frame median A 5 / B 5, max A 14 / B 17
+players: 28438 short gaps filled (marked 'filled' in the export)
+
+## train_ball.log (1 lines, last 60)
+
