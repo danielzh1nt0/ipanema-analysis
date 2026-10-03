@@ -44,5 +44,6 @@
  "F1c": "Team colours in sun and shadow (AIK)",
  "B10": "Lock a still ball before the picker",
  "S6": "Sequences: stop the count flickering (one per spell of play)",
- "S3b": "Test if pasted balls make the ball finder better (free Kaggle training)"
+ "S3b": "Test if pasted balls make the ball finder better (free Kaggle training)",
+ "B3b": "SoccerTrack ball labels, checked by our ball finder"
 }
