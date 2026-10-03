@@ -1,0 +1,72 @@
+{
+ "labels": 717,
+ "checked": 717,
+ "kept": 254,
+ "minutes": 18.8,
+ "scales": [
+  1.0,
+  2.0
+ ],
+ "rule": {
+  "radius": 60.0,
+  "conf": 0.5,
+  "rival": 0.6
+ },
+ "reasons": {
+  "kept": 254,
+  "no guess": 324,
+  "two guesses": 5,
+  "weak": 134
+ },
+ "best_conf_at_least": {
+  "0.1": 342,
+  "0.3": 284,
+  "0.5": 259,
+  "0.7": 204,
+  "0.9": 0
+ },
+ "kept_by_scale": {
+  "1": 1,
+  "1,2": 217,
+  "2": 36
+ },
+ "kept_where_b3_snapped": 108,
+ "per_match": {
+  "117093": {
+   "labels": 80,
+   "kept": 31
+  },
+  "118575": {
+   "labels": 79,
+   "kept": 25
+  },
+  "118576": {
+   "labels": 80,
+   "kept": 29
+  },
+  "118577": {
+   "labels": 79,
+   "kept": 18
+  },
+  "118578": {
+   "labels": 79,
+   "kept": 28
+  },
+  "128057": {
+   "labels": 80,
+   "kept": 31
+  },
+  "128058": {
+   "labels": 80,
+   "kept": 38
+  },
+  "132831": {
+   "labels": 80,
+   "kept": 13
+  },
+  "132877": {
+   "labels": 80,
+   "kept": 41
+  }
+ }
+}
