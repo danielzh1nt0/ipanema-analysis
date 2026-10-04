@@ -7,6 +7,6 @@ def test_reads_override(tmp_path):
     assert periods_direction(str(tmp_path), "m") is False
 
 def test_repo_files():
-    assert periods_direction("/nonexistent", "SFKBP1109") is False          # SFK (dark) attacks left in the first half
+    assert periods_direction("/nonexistent", "SFKBP1109") is True           # SFK (dark) attacks right in the first half (goal at 43:39)
     assert periods_direction("/nonexistent", "p15u-vs-aik-2026-09-21-bd09") is True
     assert periods_direction("/nonexistent", "no-such-match") is None

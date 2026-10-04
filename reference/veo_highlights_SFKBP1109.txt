@@ -7,7 +7,7 @@
 2183 shot
 2425 shot
 2618 shot
-2619 goal
+2619 goal A
 2786 shot
 2865 shot
 3584 shot

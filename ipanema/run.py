@@ -272,7 +272,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         vp = next((p for p in (os.path.join(S.root, "reference", f"veo_highlights_{match_id}.txt"),
                                os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")) if os.path.exists(p)), "")
         if os.path.exists(vp):
-            vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log)
+            vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log, known_teams=VEO.teams(vp))
             # 3 Oct: only shots inside the analysed video and its match periods (a first-half cut must not carry second-half goals)
             _in = lambda t: veo_in_window(t, len(per) / fps, ctx.get("periods"))
             _drop = [x for x in vs if not _in(x["t"])]; vs = [x for x in vs if _in(x["t"])]

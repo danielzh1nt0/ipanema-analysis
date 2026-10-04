@@ -9,6 +9,7 @@
    5645
   ]
  ],
- "note": "4 Oct by eye (results/kaggle/vall_periods): kick-off 7:15 (huddle until 6:30, lined up 7:00), first half ends 48:10 (players walk off 48:15, pitch empty 48:30-52:30), second-half kick-off 53:40, video ends 99:26 before the final whistle is visible. Veo clock: SFK 1-0 47', VAL 1-1 50', SFK 2-2 79', 3-2 81' (the 2-1 goal in a gap). Vallentuna red, Sollentuna black. trust_all_calibration like AIK (strict check 39%, strip looks right). | 4 Oct: FULL TIME at 94:05 (5645 s): SFK 3-2 at 93:13 (Veo clip), restart at ~94:00, both teams lined up for the handshake at 94:40, empty pitch with a dog at 98:44 (results/kaggle/vall_goals_fine). Was 5966 (video end).",
- "trust_all_calibration": true
+ "note": "4 Oct by eye (results/kaggle/vall_periods): kick-off 7:15 (huddle until 6:30, lined up 7:00), first half ends 48:10 (players walk off 48:15, pitch empty 48:30-52:30), second-half kick-off 53:40, video ends 99:26 before the final whistle is visible. Veo clock: SFK 1-0 47', VAL 1-1 50', SFK 2-2 79', 3-2 81' (the 2-1 goal in a gap). Vallentuna red, Sollentuna black. trust_all_calibration like AIK (strict check 39%, strip looks right). | 4 Oct: FULL TIME at 94:05 (5645 s): SFK 3-2 at 93:13 (Veo clip), restart at ~94:00, both teams lined up for the handshake at 94:40, empty pitch with a dog at 98:44 (results/kaggle/vall_goals_fine). Was 5966 (video end). | 4 Oct evening: attack_right_A true - after each goal the conceding team kicks off: SFK scored 3604, 5513, 5593, Vallentuna 3742, 3840; SFK's goals at the right end, Vallentuna's at the left (second half mirrored).",
+ "trust_all_calibration": true,
+ "attack_right_A": true
 }

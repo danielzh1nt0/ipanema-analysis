@@ -7,8 +7,8 @@ def test_veo_build():
     fps, L, W = 10.0, 120.0, 70.0; attack_right = {"A": True, "B": False}
     ballm = {}; per = {}
     for t, x in ((600, 100.0), (2619, 105.0), (4422, 12.0), (28, 30.0)):           # action at A's attacking end (x>60) or B's (x<60)
-        for k in range(int((t - 1) * fps), int((t + 1) * fps)): ballm[k] = np.array([x, 35.0])
-    for k in range(int(5000 * fps), int(5020 * fps)): per[k] = [[i, "A", np.array([20.0 + i, 30.0]), None, None, False] for i in range(6)]   # no ball, players at B's end
+        for k in range(int((t + 6) * fps), int((t + 20) * fps)): ballm[k] = np.array([x, 35.0])   # 4 Oct: the shot comes 5-25 s after the clip start
+    for k in range(int(5000 * fps), int(5020 * fps)): per[k] = [[i, "A", np.array([20.0 + i, 30.0]), None, None, False] for i in range(6)]   # no ball, players at B's end (frames 5000-5020 s, before the clip at 5021 + 25 s)
     restarts = [{"t": 2700.0, "x_m": 60.0, "y_m": 35.0}, {"t": 4500.0, "x_m": 61.0, "y_m": 34.0}]      # kick-offs after the real goals
     p = os.path.join(tempfile.mkdtemp(), "h.txt"); open(p, "w").write("# test\n28 goal\n28 shot\n600 shot\n2618 shot\n2619 goal\n4421 shot\n4422 goal\n5021 shot\n")
     shots, rej = VEO.build(VEO.load(p), fps, ballm, per, L, W, attack_right, restarts, periods=[{"t_start": 0.0}, {"t_start": 3509.0}], log=lambda *a: None)

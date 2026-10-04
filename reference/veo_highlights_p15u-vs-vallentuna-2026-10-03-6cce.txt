@@ -11,16 +11,16 @@
 2310 shot
 2738 shot
 3603 shot
-3604 goal
+3604 goal A
 3741 shot
-3742 goal
+3742 goal B
 3839 shot
-3840 goal
+3840 goal B
 4436 shot
 5132 shot
 5325 shot
 5512 shot
-5513 goal
+5513 goal A
 5558 shot
 5592 shot
-5593 goal
+5593 goal A
