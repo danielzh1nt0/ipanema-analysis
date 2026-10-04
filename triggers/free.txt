@@ -1,2 +1,2 @@
-tools/p2b_track.py
-# Sun Oct  4 08:48:29 UTC 2026 P2b: re-track the 3 Reymersholm pieces with the kit-sample fallback (free, CPU)
+tools/p2c_track.py
+# Sun Oct  4 13:29:07 UTC 2026 P2c: re-track Reymersholm 4227 with the kit classifier self-check (free, CPU)

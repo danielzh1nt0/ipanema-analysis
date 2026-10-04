@@ -64,6 +64,8 @@ LOCAL_REF_L = 110.0     # F1c: grass lightness every reading is brought to (a fi
 
 HUE_NEAR = 0.5
 HUE_KEEP = 15.0        # 4 Oct: a*b* gap between the two kits from which colour (not lightness) decides a doubtful person
+CLS_MAX_FLIP = 0.25    # P2c: the P8 classifier is dropped when it moves more than this share of one team's clear colour readings
+CLS_CLEAR = 0.4        # P2c: a 'clear' colour reading: distance to the nearer team colour < 0.4 x distance to the other
 SHADE_SPREAD = 2.4     # F1c auto gate: p90/p10 of (grass at the feet / frame grass) over the fitting people
 
 def light_mode():
@@ -332,15 +334,30 @@ class KitTeamModel:
                              + (f", light {self.light} (shade spread {self.shade:.1f})" if self.shade is not None else f", light {self.light}") + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap, far pair moves a team by {self.pair_shift}" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
         """P8: per-player classifier on body histograms, trained on this match's on-pitch people (edge test)"""
-        Hs, labs = [], []
+        Hs, labs, Fs = [], [], []
         for f, boxes in frames_boxes:
             g = grass_lab(f); top = pitch_top(f)
             for b in boxes:
                 if b[3] - b[1] < 22 or not feet_on_pitch(f, b, top): continue
-                h, c = body_hist(f, b, light=self.light), self._colour_lab(torso_feature(f, b, g, green_kit=self.green_kit, stat=getattr(self, "stat", None), light=self.light))
-                if h is not None and c in ("A", "B"): Hs.append(h); labs.append(c)
+                x = torso_feature(f, b, g, green_kit=self.green_kit, stat=getattr(self, "stat", None), light=self.light)
+                h, c = body_hist(f, b, light=self.light), self._colour_lab(x)
+                if h is not None and c in ("A", "B"): Hs.append(h); labs.append(c); Fs.append(x)
         self.cls = fit_player_cls(Hs, labs)
         log(f"kits: per-player classifier from {len(Hs)} on-pitch people, {len(self.cls)} of 15 runs kept" + ("" if self.cls else " -> colour only"))
+        # P2c (4 Oct): self-check. The classifier exists to fix blurred shirts whose colour sits between the kits; when it
+        # moves many CLEAR colour readings to the other team it has learned something else (near vs far, lit vs dim).
+        # Reymersholm 4227: it moved 31% of the clear green team (88 labelled people: 26/64 right vs 47 colour only);
+        # Spånga 2576: 30%, by eye ~26 of its 28 moves put black players in the striped team. Where it helps it moves
+        # 7-18% (Reymersholm key frames 10%, piece 726 18%, Djursholm 2072 7%). Env IPANEMA_CLS_MAX_FLIP (0 = off).
+        mx = float(os.environ.get("IPANEMA_CLS_MAX_FLIP", str(CLS_MAX_FLIP)))
+        if self.cls and mx > 0:
+            ta, tb = self.model["teams"]; fl = {"A": [], "B": []}
+            for h, c, x in zip(Hs, labs, Fs):
+                da, db = np.linalg.norm(x - ta), np.linalg.norm(x - tb)
+                if min(da, db) / max(da, db, 1e-6) < CLS_CLEAR: fl[c].append(("B" if player_cls_prob(self.cls, h) > 0.5 else "A") != c)
+            self.cls_flip = {t: round(float(np.mean(v)), 2) if len(v) >= 5 else 0.0 for t, v in fl.items()}
+            if max(self.cls_flip.values()) > mx:
+                log(f"kits: classifier moves {max(self.cls_flip.values()):.0%} of a team's clear colour readings (> {mx:.0%}) -> dropped, colour only"); self.cls = []
     def _colour_lab(self, f):
         c = classify(self.model, f)
         if c is None: return None

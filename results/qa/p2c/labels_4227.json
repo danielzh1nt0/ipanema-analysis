@@ -1,0 +1,2 @@
+{"note": "P2c (4 Oct, worker): the 88 people the detector found on the 8 key frames of Reymersholm piece 4227 (results/qa/p2/p15u-vs-reymersholm-2026-09-18_4227/keydets.json, in file order), labelled by eye from crops: G = green team, W = white team, K = keeper / referee, O = spectator / staff off the pitch, ? = can't tell",
+ "labels": "WWWGGGKWWWGWWWGKWWWWGKWGWKWGWGWKWGGGKWWK?WWWOOGGKGWWWWOGWWKWOOOKWGWGGGWKWWOWOOOWGGGWWGKO"}

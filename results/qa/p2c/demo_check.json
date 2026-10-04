@@ -1,0 +1,23 @@
+{
+ "SFKBP1109": {
+  "people": 345,
+  "people that change": 0,
+  "log now": [
+   "kits: per-player classifier from 379 on-pitch people, 0 of 15 runs kept -> colour only"
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "people": 678,
+  "people that change": 0,
+  "log now": [
+   "kits: per-player classifier from 270 on-pitch people, 0 of 15 runs kept -> colour only"
+  ]
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "people": 397,
+  "people that change": 0,
+  "log now": [
+   "kits: per-player classifier from 253 on-pitch people, 2 of 15 runs kept"
+  ]
+ }
+}
