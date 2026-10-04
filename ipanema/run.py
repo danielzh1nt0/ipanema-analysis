@@ -184,6 +184,17 @@ def _ball_gt(S, match_id):
     return q if os.path.exists(q) else p
 
 
+def periods_direction(root, match_id):
+    """4 Oct: which way the dark team (A) attacks in the first period, checked by eye from a goal (who celebrates / who kicks
+    off) and written in periods/<match>.json as "attack_right_A". The automatic guess is near a coin flip on our clips
+    (confidence 0.01-0.10) and gave SFK-BP's first-half goal to BP. Later periods are mirrored, so one value covers the match."""
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for p in (os.path.join(root, "periods", f"{match_id}.json"), os.path.join(here, "periods", f"{match_id}.json")):
+        if os.path.exists(p):
+            v = json.load(open(p)).get("attack_right_A")
+            if v is not None: return bool(v)
+    return None
+
 def veo_in_window(t, duration_s, periods, slack_s=5.0):
     """3 Oct: a Veo shot/goal counts only inside the analysed video and (when periods are set) inside a period +- slack.
     SFK-BP: Veo's list had a 'goal' clip named 00:00:28 (before kick-off) and the second-half goals; a first-half cut must not show them."""
@@ -231,6 +242,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     import glob as _g
     ref = next(iter(_g.glob(os.path.join(S.root, "reference", f"events_gt_{match_id}.json")) + _g.glob(os.path.join(S.root, "reference", match_id, "events_gt*.json"))), None)
     ref_dir = json.load(open(ref)).get("attack_right_A") if ref else None
+    if ref_dir is None: ref_dir = periods_direction(S.root, match_id)
     if ref_dir is not None:
         attack_right = {"A": bool(ref_dir), "B": not ref_dir}; log(f"direction: from reference labels -> A {'→' if attack_right['A'] else '←'}")
     elif min(conf.values()) < 0.15:
