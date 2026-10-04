@@ -1,6 +1,6 @@
 {
  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
- "note": "4 Oct, graded by Claude by eye on the finder's top-3 zoom crops (results/kaggle/vall_ball_key). A/B/C = which guess is the match ball; '?' = two ball-like objects (spare balls by the fence/benches/goal, or the yellow match ball in deep shade); 'none' = ball elsewhere (b33: in the air at a header). Leans to balls the finder saw.",
+ "note": "4 Oct, graded by Claude by eye on the finder's top-3 zoom crops (results/kaggle/vall_ball_key). A/B/C = which guess is the match ball; '?' = two ball-like objects (spare balls by the fence/benches/goal, or the yellow match ball in deep shade); 'none' = ball elsewhere (b33: in the air at a header). Leans to balls the finder saw. | Round 2 (c00-c39, the who-has-the-ball moments, seed 21) added 4 Oct with 'owner' = A (dark, SFK) / B (red, Vallentuna) / loose / ? by eye. Match ball is YELLOW; white balls by the fence/benches/goals are spares. The finder also fires on the Veo logo (c26).",
  "counts": {
   "A": 29,
   "?": 7,
@@ -334,6 +334,364 @@
    "t": 5929.7,
    "grade": "after full time",
    "ball_px": null
+  },
+  {
+   "id": "c00",
+   "t": 462.7,
+   "grade": "none",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c01",
+   "t": 557.2,
+   "grade": "A",
+   "ball_px": [
+    1388.9,
+    562.3
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c02",
+   "t": 622.3,
+   "grade": "A",
+   "ball_px": [
+    1149.5,
+    527.2
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c03",
+   "t": 853.4,
+   "grade": "A",
+   "ball_px": [
+    1172.5,
+    535.2
+   ],
+   "owner": "A"
+  },
+  {
+   "id": "c04",
+   "t": 976.7,
+   "grade": "A",
+   "ball_px": [
+    535.8,
+    518.5
+   ],
+   "owner": "A"
+  },
+  {
+   "id": "c05",
+   "t": 1015.9,
+   "grade": "A",
+   "ball_px": [
+    1081.9,
+    532.8
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c06",
+   "t": 1017.0,
+   "grade": "A",
+   "ball_px": [
+    946.3,
+    544.9
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c07",
+   "t": 1025.1,
+   "grade": "A",
+   "ball_px": [
+    643.7,
+    356.2
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c08",
+   "t": 1351.1,
+   "grade": "A",
+   "ball_px": [
+    711.5,
+    507.3
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c09",
+   "t": 1612.0,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c10",
+   "t": 1674.8,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c11",
+   "t": 1692.6,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c12",
+   "t": 1868.7,
+   "grade": "A",
+   "ball_px": [
+    1442.0,
+    527.0
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c13",
+   "t": 1988.5,
+   "grade": "A",
+   "ball_px": [
+    829.8,
+    497.6
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c14",
+   "t": 2120.8,
+   "grade": "A",
+   "ball_px": [
+    715.7,
+    522.6
+   ],
+   "owner": "A"
+  },
+  {
+   "id": "c15",
+   "t": 2238.9,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c16",
+   "t": 2369.2,
+   "grade": "A",
+   "ball_px": [
+    182.2,
+    508.1
+   ],
+   "owner": "?"
+  },
+  {
+   "id": "c17",
+   "t": 2371.9,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c18",
+   "t": 2406.0,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c19",
+   "t": 2864.1,
+   "grade": "A",
+   "ball_px": [
+    1288.8,
+    496.5
+   ],
+   "owner": "A"
+  },
+  {
+   "id": "c20",
+   "t": 3321.3,
+   "grade": "A",
+   "ball_px": [
+    878.1,
+    470.8
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c21",
+   "t": 3328.6,
+   "grade": "A",
+   "ball_px": [
+    164.0,
+    566.5
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c22",
+   "t": 3516.2,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c23",
+   "t": 3537.8,
+   "grade": "A",
+   "ball_px": [
+    978.9,
+    598.7
+   ],
+   "owner": "A"
+  },
+  {
+   "id": "c24",
+   "t": 3609.2,
+   "grade": "A",
+   "ball_px": [
+    876.7,
+    530.5
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c25",
+   "t": 3685.8,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c26",
+   "t": 3800.2,
+   "grade": "B",
+   "ball_px": [
+    1036.6,
+    441.0
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c27",
+   "t": 4024.5,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c28",
+   "t": 4057.9,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c29",
+   "t": 4118.7,
+   "grade": "A",
+   "ball_px": [
+    844.6,
+    516.6
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c30",
+   "t": 4320.7,
+   "grade": "A",
+   "ball_px": [
+    182.9,
+    511.1
+   ],
+   "owner": "?"
+  },
+  {
+   "id": "c31",
+   "t": 4396.0,
+   "grade": "A",
+   "ball_px": [
+    961.7,
+    522.4
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c32",
+   "t": 4426.7,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c33",
+   "t": 4556.5,
+   "grade": "A",
+   "ball_px": [
+    940.3,
+    481.1
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c34",
+   "t": 4708.9,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c35",
+   "t": 5189.8,
+   "grade": "?",
+   "ball_px": null,
+   "owner": "-"
+  },
+  {
+   "id": "c36",
+   "t": 5305.1,
+   "grade": "A",
+   "ball_px": [
+    371.5,
+    695.4
+   ],
+   "owner": "loose"
+  },
+  {
+   "id": "c37",
+   "t": 5327.0,
+   "grade": "A",
+   "ball_px": [
+    1032.5,
+    550.5
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c38",
+   "t": 5453.1,
+   "grade": "A",
+   "ball_px": [
+    1407.0,
+    494.2
+   ],
+   "owner": "B"
+  },
+  {
+   "id": "c39",
+   "t": 5510.4,
+   "grade": "A",
+   "ball_px": [
+    909.8,
+    581.5
+   ],
+   "owner": "?"
   }
  ]
 }
