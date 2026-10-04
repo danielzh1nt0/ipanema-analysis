@@ -13,3 +13,4 @@ AIK full fixes
 # Sun Oct  4 07:16:03 UTC 2026 vall qa
 # Sun Oct  4 08:16:01 UTC 2026 fetch SFK-BP frame chunks
 # Sun Oct  4 08:54:17 UTC 2026 vallentuna join after retrack
+# Sun Oct  4 10:10:46 UTC 2026 aik re-export
