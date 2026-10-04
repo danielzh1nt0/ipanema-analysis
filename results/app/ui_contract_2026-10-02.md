@@ -86,7 +86,7 @@ Shape OK: `{id, t, type, team, title, subtitle, payload}`. Types we write (AIK c
 |---|---|
 | any | **no shirt key** (shirt / shirt_number / player_shirt are never written). Positions: `x_m`/`y_m` on shots & set pieces; `from_m`/`to_m` on passes; `ball_m_before_press` on losses. No `x/y`, `px/py`, `start_x`. |
 | turnover_lost | `time_to_press` (s or null), `near_at_2s`, `regained_within_5s` (bool), `ball_m_before_press`, `reactions {pressed[], jogged[], stood[]}` |
-| set_piece | `kind` ∈ `throw-in`, `free kick`, `goal kick`, `corner` (note the space and hyphen), `team`, `x_m`, `y_m`, `t` |
+| set_piece | `kind` ∈ `throw-in`, `stoppage`, `goal kick`, `corner` (since 3 Oct `stoppage` replaces `free kick`: we cannot tell a free kick from any other restart), `team`, `x_m`, `y_m`, `t` |
 | better_option | `from`, `to`, `best_to`, `from_m`, `to_m`, `best_gain_m`, `best_bypassed`, `best_space_m`, `best_open`, `played_value`, `best_value`. **No** `better_x/y`, `target_x/y`, `played_x/y`: the better receiver's position is not in the payload (look him up in the frame at `t`). |
 | shot / goal | `outcome` ("on target" / "goal"), `goal` (bool), `x_m`, `y_m`, `distance_m`, `source`. **No `on_target` bool** — derive from `outcome`. |
 
@@ -141,3 +141,7 @@ Tier 3 #16 (aerial duels): out of reach — no ball height from one camera. #18 
 | free kick | 8 | 27 | 8 (29%) |
 
 Only **goals and shots** are verified (they come from Veo's list). For the demo the match section should list goals and shots; `set_piece`, `turnover_*`, `sequence_end`, `better_option`, `high_turnover` hidden or behind a Beta toggle. Veo also lists fouls and offsides; we never produce them.
+
+## Clean exports in the app (4 Oct, tools/contract_check.py)
+
+Both first halves were re-exported on 4 Oct and pass every rule above: every event carries `tier` (`verified` = goals/shots, `beta` = turnovers, `hidden` = the rest) and `verified`; goals/shots only inside the period (no phantom goal at 0:28 on SFK-BP, no second-half goals); frames carry `pressed` = `pressure_m <= 2`; turnover payloads carry the per-event fields listed under Pressing. Full list: results/app/contract_check_2026-10-04.md.
