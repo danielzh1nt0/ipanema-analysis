@@ -1,2 +1,2 @@
-kaggle/spell_strips.py 25
-# Sun Oct  4 08:05:43 UTC 2026
+kaggle/spell_zoom.py 25
+# Sun Oct  4 08:25:57 UTC 2026
