@@ -35,7 +35,7 @@ The data files are correct as of Sun 4 Oct, 19:30. Don't change any numbers in t
 |---|---|---|---|---|
 | SFK – BP (1st half) | **1–0** | 3 / 4 | 46% | true |
 | SFK – AIK (1st half) | **0–2** | 9 / 7 | 34% | true |
-| SFK – Vallentuna (full) | **3–2** | 9 / 8 | hidden | false |
+| SFK – Vallentuna (full) | **3–2** | 8 / 9 | hidden | false |
 
 ---
 
@@ -84,7 +84,7 @@ Rules for **every** match, including BP and AIK:
 - With "SFK only" selected, show only `team == "A"` shots. With the opponent selected, only `team == "B"`. "Both" shows both teams, in two clearly different colours, with a legend.
 - Plot `x_m, y_m` as stored. SFK shoots towards the right goal. Opponent shots should cluster at the left goal. Don't mirror anything.
 - Goal = cream ring, on target = filled dot (as now).
-- Count under the map = the shots of the selected team only. For Vallentuna: 9 (SFK), 8 (VAL), 17 (both).
+- Count under the map = the shots of the selected team only. For Vallentuna: 8 (SFK), 9 (VAL), 17 (both).
 - Expected: SFK shots cluster near the right goal, opponent shots near the left goal.
 
 ## 6. Buttons and tabs blend into each other (design)
@@ -119,7 +119,7 @@ On the stats screen, the tab row (BALL · PRESSING · SHAPE · SHOOTING · PLAYE
 2. **Vallentuna:**
    - Header reads "SFK 3–2 Vallentuna".
    - The pressing, ball, pass and possession tabs are hidden with the note.
-   - Shot map: 9 SFK shots towards the right goal, 8 Vallentuna shots towards the left.
+   - Shot map: 8 SFK shots towards the right goal, 9 Vallentuna shots towards the left.
 3. **BP and AIK:**
    - Possession and pressing are visible.
    - The pass map and distance covered are hidden.
