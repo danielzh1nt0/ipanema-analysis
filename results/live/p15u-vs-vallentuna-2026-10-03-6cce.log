@@ -1,11 +1,24 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:02:51 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:04:34 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 4 first (CPU)
+canary passed: calibration from the line model, 20.2 players per frame
+
+## piece_000.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_001.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_002.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_003.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## piece_004.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -17,6 +30,46 @@ tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.5 candidates/frame
 ball: RF-DETR + WASB guesses fused, 15.2/frame
 p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
+
+## piece_005.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_006.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_007.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_008.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_009.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c009 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_010.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c010 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_011.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c011 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_012.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c012 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_013.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c013 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_014.log (2 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c014 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+
+## piece_015.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_017.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c017 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_018.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c018 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## train_ball.log (1 lines, last 60)
 
