@@ -1,1 +1,10 @@
 06:06:28 clip 0c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4: 168597 frames @ 29.97
+06:06:37 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+06:06:57 key-frame detections saved (129 people on 8 frames)
+06:08:02 kits: per-player classifier from 515 on-pitch people, 12 of 15 runs kept
+06:08:06 kits: learned from 300 people (271 off the pitch left out), group sizes [133, 93, 59, 15], light frame (shade spread 1.8), default fit leaves out a group at 1.08 x the team gap, far pair moves a team by 27.1, reading far/mean (neither-share tried: {'default/default': 0.183, 'far/mean': 0.023})
+06:08:06 off-pitch people dropped by the pitch-edge test: yes
+06:08:10   tracking frame 0
+06:09:28   tracking frame 50 (0.6 frames/s)
+06:10:47   tracking frame 100 (0.6 frames/s)
+06:12:05   tracking frame 150 (0.6 frames/s)
