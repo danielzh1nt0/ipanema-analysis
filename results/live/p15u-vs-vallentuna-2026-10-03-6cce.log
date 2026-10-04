@@ -1,22 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:17:15 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:18:56 UTC
 
 
-## run_full.log (60 lines, last 60)
-=== p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
-calibration: from the clip's own camera
-pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
-canary: piece 4 first (CPU)
-canary passed: calibration from the line model, 20.2 players per frame
-pieces: 20/20 done in 5.8 min
-tracking frame 178800
-  piece 00: p15u-vs-vallentuna-2026-10-03-6cce_c000: 8992 frames, 11.6 players/frame
-  piece 01: p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
-  piece 02: p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
-  piece 03: p15u-vs-vallentuna-2026-10-03-6cce_c003: 8992 frames, 17.8 players/frame
-  piece 04: p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
-  piece 05: p15u-vs-vallentuna-2026-10-03-6cce_c005: 8992 frames, 20.6 players/frame
-  piece 06: p15u-vs-vallentuna-2026-10-03-6cce_c006: 8992 frames, 21.5 players/frame
-  piece 07: p15u-vs-vallentuna-2026-10-03-6cce_c007: 8992 frames, 17.8 players/frame
+## run_full.log (75 lines, last 60)
   piece 08: p15u-vs-vallentuna-2026-10-03-6cce_c008: 8992 frames, 19.9 players/frame
   piece 09: p15u-vs-vallentuna-2026-10-03-6cce_c009: 8992 frames, 16.2 players/frame
   piece 10: p15u-vs-vallentuna-2026-10-03-6cce_c010: 8992 frames, 15.1 players/frame
@@ -62,6 +47,21 @@ players: 19829 short gaps filled (marked 'filled' in the export)
 ball v2: 141798/178800 frames on the path, 331 static-clutter candidates dropped
 ball: dropped 331 static-clutter candidates
 ball (global path): 128829/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 29% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.03 / B 0.02  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 657 -> 128 (1.3 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (5 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (9 s since the last step)
+  step: metrics (21 s since the last step)
+ball grade: accuracy None, near-player 0.64, possession withheld, events withheld
+ball reliability: 86% frames, 64% near a player, 29311 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (15 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
