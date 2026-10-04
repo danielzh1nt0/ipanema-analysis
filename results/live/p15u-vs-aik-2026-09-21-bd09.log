@@ -1,6 +1,11 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:02:27 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:04:00 UTC
 
 
-## run_full.log (2 lines, last 60)
+## run_full.log (4 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
+pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
+canary: piece 2 first (CPU)
+
+## train_ball.log (1 lines, last 60)
+
