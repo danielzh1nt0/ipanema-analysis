@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:41:53 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:43:26 UTC
 
 
-## run_full.log (38 lines, last 60)
+## run_full.log (53 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -40,6 +40,21 @@ players: 29744 short gaps filled (marked 'filled' in the export)
 ball v2: 140593/178800 frames on the path, 547 static-clutter candidates dropped
 ball: dropped 547 static-clutter candidates
 ball (global path): 114327/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 50% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.08 / B 0.01  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1159 -> 160 (1.6 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (4 s since the last step)
+  step: shapes (2 s since the last step)
+  step: stats (10 s since the last step)
+  step: metrics (20 s since the last step)
+ball grade: accuracy None, near-player 0.47, possession withheld, events withheld
+ball reliability: 86% frames, 47% near a player, 29213 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (13 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
 
 ## train_ball.log (1 lines, last 60)
 
