@@ -1,1 +1,12 @@
 09:16:39 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
+09:16:45 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+09:16:59 key-frame detections saved (88 people on 8 frames)
+09:17:42 kits: grass test keeps only 114 of 397 people -> pitch-edge test instead
+09:17:45 kits: per-player classifier from 340 on-pitch people, 8 of 15 runs kept
+09:17:48 kits: learned from 381 people (16 off the pitch left out), group sizes [194, 121, 51, 15], light frame (shade spread 1.8), default fit leaves out a group at 0.95 x the team gap, far pair moves a team by 0.0
+09:17:48 off-pitch people dropped by the pitch-edge test: yes
+09:17:51   tracking frame 0
+09:18:50   tracking frame 50 (0.8 frames/s)
+09:19:49   tracking frame 100 (0.8 frames/s)
+09:20:47   tracking frame 150 (0.8 frames/s)
+09:21:45   tracking frame 200 (0.8 frames/s)
