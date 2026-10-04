@@ -1,2 +1,2 @@
-tools/b3b_finder.py
-# Sat Oct  3 08:33:16 UTC 2026 B3b: our RF-DETR ball finder checks the 717 SoccerTrack labels (60 px around each projection, 1x + 2x zoom; free, CPU)
+tools/p2_track.py a
+# Sun Oct  4 04:38:29 UTC 2026 P2 group a: 20-s player tracking, 3 spots x 2 matches (free, CPU, no Modal)
