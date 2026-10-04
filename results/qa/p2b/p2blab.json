@@ -1,0 +1,770 @@
+{
+ "p09-norrviken-vs-solheim-2026-08-30_1856": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.0,
+    4.0,
+    3.0,
+    0.0
+   ],
+   "log": "learned from 88 people (25 off the pitch left out), group sizes [39, 29, 12, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 6.4"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    7.0,
+    4.0,
+    3.0,
+    0.0
+   ],
+   "log": "learned from 88 people (25 off the pitch left out), group sizes [39, 29, 12, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 6.4"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    7.0,
+    4.0,
+    3.0,
+    0.0
+   ],
+   "log": "learned from 112 people (1 off the pitch left out), group sizes [49, 35, 23, 5], light frame (shade spread 1.2), default fit leaves out a group at 0.53 x the team gap, far pair moves a team by 7.8"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    7.0,
+    4.0,
+    3.0,
+    0.0
+   ],
+   "log": "learned from 113 people (0 off the pitch left out), group sizes [49, 35, 23, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.53 x the team gap, far pair moves a team by 7.8"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_2931": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.0,
+    3.5,
+    3.0
+   ],
+   "log": "learned from 137 people (32 off the pitch left out), group sizes [59, 42, 29, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.5"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.0,
+    3.5,
+    3.0
+   ],
+   "log": "learned from 137 people (32 off the pitch left out), group sizes [59, 42, 29, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.5"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.0,
+    3.0,
+    3.0
+   ],
+   "log": "learned from 141 people (28 off the pitch left out), group sizes [57, 51, 27, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 7.6"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.5,
+    2.5,
+    3.0
+   ],
+   "log": "learned from 169 people (0 off the pitch left out), group sizes [71, 55, 30, 13], light frame (shade spread 1.2), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 7.6"
+  }
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_5081": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.0,
+    6.5,
+    3.0,
+    4.0
+   ],
+   "log": "learned from 108 people (60 off the pitch left out), group sizes [43, 31, 28, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 9.2"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    7.0,
+    6.5,
+    3.0,
+    4.0
+   ],
+   "log": "learned from 108 people (60 off the pitch left out), group sizes [43, 31, 28, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 9.2"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    7.0,
+    6.5,
+    3.0,
+    4.0
+   ],
+   "log": "learned from 134 people (34 off the pitch left out), group sizes [48, 41, 38, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.8"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    7.5,
+    1.0,
+    4.0
+   ],
+   "log": "learned from 168 people (0 off the pitch left out), group sizes [60, 57, 43, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.46 x the team gap, far pair moves a team by 7.8"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_2072": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "log": "learned from 134 people (23 off the pitch left out), group sizes [64, 49, 13, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "log": "learned from 134 people (23 off the pitch left out), group sizes [64, 49, 13, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "log": "learned from 157 people (0 off the pitch left out), group sizes [74, 49, 26, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.79 x the team gap, far pair moves a team by 0.0"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "log": "learned from 157 people (0 off the pitch left out), group sizes [74, 49, 26, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.79 x the team gap, far pair moves a team by 0.0"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_3272": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    8.0,
+    9.5,
+    13.0,
+    0.0
+   ],
+   "log": "learned from 219 people (29 off the pitch left out), group sizes [75, 69, 67, 8], light frame (shade spread 1.3), default fit leaves out a group at 0.89 x the team gap, far pair moves a team by 36.2, reading far/mean (neither-share tried: {'default/default': 0.361, 'far/mean': 0.352})"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    9.5,
+    13.0,
+    0.0
+   ],
+   "log": "learned from 219 people (29 off the pitch left out), group sizes [75, 69, 67, 8], light frame (shade spread 1.3), default fit leaves out a group at 0.89 x the team gap, far pair moves a team by 36.2, reading far/mean (neither-share tried: {'default/default': 0.361, 'far/mean': 0.352})"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    10.0,
+    9.5,
+    10.5,
+    0.0
+   ],
+   "log": "learned from 248 people (0 off the pitch left out), group sizes [94, 75, 69, 10], light frame (shade spread 1.3), default fit leaves out a group at 0.90 x the team gap, far pair moves a team by 39.9, reading far/mean (neither-share tried: {'default/default': 0.306, 'far/mean': 0.339})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    10.0,
+    9.5,
+    10.5,
+    0.0
+   ],
+   "log": "learned from 248 people (0 off the pitch left out), group sizes [94, 75, 69, 10], light frame (shade spread 1.3), default fit leaves out a group at 0.90 x the team gap, far pair moves a team by 39.9, reading far/mean (neither-share tried: {'default/default': 0.306, 'far/mean': 0.339})"
+  }
+ },
+ "p15u-vs-djursholm-2026-09-26_5072": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "log": "learned from 133 people (8 off the pitch left out), group sizes [50, 49, 27, 7], light frame (shade spread 1.4), default fit leaves out a group at 0.76 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "log": "learned from 133 people (8 off the pitch left out), group sizes [50, 49, 27, 7], light frame (shade spread 1.4), default fit leaves out a group at 0.76 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "log": "learned from 141 people (0 off the pitch left out), group sizes [50, 49, 34, 8], light frame (shade spread 1.4), default fit leaves out a group at 0.76 x the team gap, far pair moves a team by 0.0"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "log": "learned from 141 people (0 off the pitch left out), group sizes [50, 49, 34, 8], light frame (shade spread 1.4), default fit leaves out a group at 0.76 x the team gap, far pair moves a team by 0.0"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_2227": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    7.5,
+    5.0,
+    5.0
+   ],
+   "log": "learned from 21 people (174 off the pitch left out), group sizes [10, 7, 2, 2], light frame (shade spread 1.6), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 4.9",
+   "252 labelled night players": {
+    "team right": "173/252",
+    "whites in white team": "70/115",
+    "whites neither/off": "26/115",
+    "greens in green team": "103/137",
+    "others kept out": "37/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    7.5,
+    3.5,
+    5.0
+   ],
+   "log": "learned from 159 people (36 off the pitch left out), group sizes [63, 44, 37, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 10.5",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "76/115",
+    "whites neither/off": "17/115",
+    "greens in green team": "112/137",
+    "others kept out": "37/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    7.5,
+    3.5,
+    5.0
+   ],
+   "log": "learned from 159 people (36 off the pitch left out), group sizes [63, 44, 37, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 10.5",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "76/115",
+    "whites neither/off": "17/115",
+    "greens in green team": "112/137",
+    "others kept out": "37/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    9.5,
+    9.0,
+    2.0,
+    5.0
+   ],
+   "log": "learned from 195 people (0 off the pitch left out), group sizes [76, 63, 41, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "55/115",
+    "whites neither/off": "3/115",
+    "greens in green team": "133/137",
+    "others kept out": "36/39"
+   }
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_4227": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    3.0,
+    2.5,
+    3.0,
+    0.5
+   ],
+   "log": "learned from 29 people (59 off the pitch left out), group sizes [11, 10, 4, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.75 x the team gap, far pair moves a team by 6.7",
+   "252 labelled night players": {
+    "team right": "125/252",
+    "whites in white team": "40/115",
+    "whites neither/off": "22/115",
+    "greens in green team": "85/137",
+    "others kept out": "34/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    4.0,
+    4.0,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 83 people (5 off the pitch left out), group sizes [42, 26, 11, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "150/252",
+    "whites in white team": "44/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "106/137",
+    "others kept out": "26/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    4.0,
+    4.0,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 83 people (5 off the pitch left out), group sizes [42, 26, 11, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "150/252",
+    "whites in white team": "44/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "106/137",
+    "others kept out": "26/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    5.0,
+    3.5,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 88 people (0 off the pitch left out), group sizes [46, 25, 13, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.86 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "167/252",
+    "whites in white team": "46/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "121/137",
+    "others kept out": "26/39"
+   }
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_726": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    4.0,
+    6.5,
+    1.5,
+    10.0
+   ],
+   "log": "learned from 43 people (142 off the pitch left out), group sizes [22, 9, 7, 5], light frame (shade spread 1.6), default fit leaves out a group at 1.46 x the team gap, far pair moves a team by 0.0, reading far/mean (neither-share tried: {'default/default': 0.256, 'far/mean': 0.233})",
+   "252 labelled night players": {
+    "team right": "74/252",
+    "whites in white team": "2/115",
+    "whites neither/off": "40/115",
+    "greens in green team": "72/137",
+    "others kept out": "26/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "log": "learned from 111 people (74 off the pitch left out), group sizes [42, 38, 23, 8], light frame (shade spread 1.6), default fit leaves out a group at 1.53 x the team gap, far pair moves a team by 29.8, reading far/mean (neither-share tried: {'default/default': 0.216, 'far/mean': 0.036})",
+   "252 labelled night players": {
+    "team right": "220/252",
+    "whites in white team": "89/115",
+    "whites neither/off": "2/115",
+    "greens in green team": "131/137",
+    "others kept out": "26/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "log": "learned from 111 people (74 off the pitch left out), group sizes [42, 38, 23, 8], light frame (shade spread 1.6), default fit leaves out a group at 1.53 x the team gap, far pair moves a team by 29.8, reading far/mean (neither-share tried: {'default/default': 0.216, 'far/mean': 0.036})",
+   "252 labelled night players": {
+    "team right": "220/252",
+    "whites in white team": "89/115",
+    "whites neither/off": "2/115",
+    "greens in green team": "131/137",
+    "others kept out": "26/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    4.0,
+    6.5,
+    1.5,
+    10.0
+   ],
+   "log": "learned from 185 people (0 off the pitch left out), group sizes [79, 62, 25, 19], light frame (shade spread 1.6), default fit leaves out a group at 1.23 x the team gap, far pair moves a team by 0.0, reading far/mean (neither-share tried: {'default/default': 0.151, 'far/mean': 0.13})",
+   "252 labelled night players": {
+    "team right": "77/252",
+    "whites in white team": "3/115",
+    "whites neither/off": "46/115",
+    "greens in green team": "74/137",
+    "others kept out": "26/39"
+   }
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_1159": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    9.5,
+    4.0,
+    3.5,
+    2.0
+   ],
+   "log": "learned from 75 people (81 off the pitch left out), group sizes [25, 23, 16, 11], light frame (shade spread 1.9), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 8.9"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    9.5,
+    4.0,
+    3.5,
+    2.0
+   ],
+   "log": "learned from 75 people (81 off the pitch left out), group sizes [25, 23, 16, 11], light frame (shade spread 1.9), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 8.9"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    9.5,
+    7.0,
+    0.5,
+    2.0
+   ],
+   "log": "learned from 135 people (21 off the pitch left out), group sizes [42, 34, 30, 29], light frame (shade spread 1.9), default fit leaves out a group at 2.81 x the team gap, far pair moves a team by 58.0, reading far/mean (neither-share tried: {'default/default': 0.37, 'far/mean': 0.03})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    6.0,
+    1.5,
+    2.0
+   ],
+   "log": "learned from 156 people (0 off the pitch left out), group sizes [65, 36, 34, 21], light frame (shade spread 1.9), default fit leaves out a group at 3.04 x the team gap, far pair moves a team by 63.2, reading far/mean (neither-share tried: {'default/default': 0.353, 'far/mean': 0.147})"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_2576": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    8.5,
+    1.0,
+    4.0
+   ],
+   "log": "learned from 81 people (83 off the pitch left out), group sizes [32, 28, 15, 6], light frame (shade spread 1.9), default fit leaves out a group at 0.36 x the team gap, far pair moves a team by 9.2"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.0,
+    8.5,
+    1.0,
+    4.0
+   ],
+   "log": "learned from 81 people (83 off the pitch left out), group sizes [32, 28, 15, 6], light frame (shade spread 1.9), default fit leaves out a group at 0.36 x the team gap, far pair moves a team by 9.2"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    9.5,
+    6.5,
+    0.0,
+    4.0
+   ],
+   "log": "learned from 135 people (29 off the pitch left out), group sizes [50, 34, 32, 19], light frame (shade spread 1.9), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 42.4, reading far/mean (neither-share tried: {'default/default': 0.037, 'far/mean': 0.0})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    8.5,
+    7.0,
+    1.0,
+    4.0
+   ],
+   "log": "learned from 164 people (0 off the pitch left out), group sizes [57, 54, 34, 19], light frame (shade spread 1.9), default fit leaves out a group at 2.58 x the team gap, far pair moves a team by 61.7, reading far/mean (neither-share tried: {'default/default': 0.378, 'far/mean': 0.073})"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_3994": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.0,
+    0.0,
+    1.5
+   ],
+   "log": "learned from 72 people (57 off the pitch left out), group sizes [39, 17, 13, 3], light frame (shade spread 1.8), default fit leaves out a group at 1.01 x the team gap, far pair moves a team by 11.5, reading far/mean (neither-share tried: {'default/default': 0.181, 'far/mean': 0.028})"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.0,
+    0.0,
+    1.5
+   ],
+   "log": "learned from 72 people (57 off the pitch left out), group sizes [39, 17, 13, 3], light frame (shade spread 1.8), default fit leaves out a group at 1.01 x the team gap, far pair moves a team by 11.5, reading far/mean (neither-share tried: {'default/default': 0.181, 'far/mean': 0.028})"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    6.5,
+    0.0,
+    1.5
+   ],
+   "log": "learned from 119 people (10 off the pitch left out), group sizes [46, 32, 21, 20], light frame (shade spread 1.8), default fit leaves out a group at 2.94 x the team gap, far pair moves a team by 43.5, reading far/mean (neither-share tried: {'default/default': 0.42, 'far/mean': 0.008})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    6.5,
+    6.5,
+    2.0,
+    1.5
+   ],
+   "log": "learned from 129 people (0 off the pitch left out), group sizes [51, 32, 26, 20], light frame (shade spread 1.8), default fit leaves out a group at 2.64 x the team gap, far pair moves a team by 41.0, reading far/mean (neither-share tried: {'default/default': 0.388, 'far/mean': 0.124})"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_1164": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    6.5,
+    2.5,
+    10.5
+   ],
+   "log": "learned from 127 people (71 off the pitch left out), group sizes [63, 37, 15, 12], light frame (shade spread 1.1), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.0,
+    6.5,
+    2.5,
+    10.5
+   ],
+   "log": "learned from 127 people (71 off the pitch left out), group sizes [63, 37, 15, 12], light frame (shade spread 1.1), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    6.5,
+    8.0,
+    1.0,
+    10.5
+   ],
+   "log": "learned from 119 people (79 off the pitch left out), group sizes [47, 33, 26, 13], light frame (shade spread 1.1), default fit leaves out a group at 1.10 x the team gap, far pair moves a team by 0.0, reading far/mean (neither-share tried: {'default/default': 0.185, 'far/mean': 0.084})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    6.0,
+    3.0,
+    10.5
+   ],
+   "log": "learned from 198 people (0 off the pitch left out), group sizes [90, 43, 43, 22], light frame (shade spread 1.1), default fit leaves out a group at 0.79 x the team gap, far pair moves a team by 0.0"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_2113": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    5.5,
+    5.0,
+    1.0,
+    8.5
+   ],
+   "log": "learned from 70 people (80 off the pitch left out), group sizes [31, 30, 6, 3], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    5.5,
+    5.0,
+    1.0,
+    8.5
+   ],
+   "log": "learned from 70 people (80 off the pitch left out), group sizes [31, 30, 6, 3], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    5.0,
+    4.5,
+    2.0,
+    8.5
+   ],
+   "log": "learned from 91 people (59 off the pitch left out), group sizes [39, 33, 13, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.74 x the team gap, far pair moves a team by 0.0"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    5.5,
+    5.0,
+    1.0,
+    8.5
+   ],
+   "log": "learned from 150 people (0 off the pitch left out), group sizes [66, 48, 19, 17], light frame (shade spread 1.2), default fit leaves out a group at 0.93 x the team gap, far pair moves a team by 0.0"
+  }
+ },
+ "p15u-vs-vasalund-2026-09-20_4012": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    6.5,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "log": "learned from 82 people (98 off the pitch left out), group sizes [34, 31, 10, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.82 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    6.5,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "log": "learned from 82 people (98 off the pitch left out), group sizes [34, 31, 10, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.82 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "log": "learned from 125 people (55 off the pitch left out), group sizes [50, 45, 21, 9], light frame (shade spread 1.2), default fit leaves out a group at 0.88 x the team gap, far pair moves a team by 0.0"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    6.0,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "log": "learned from 180 people (0 off the pitch left out), group sizes [81, 53, 31, 15], light frame (shade spread 1.2), default fit leaves out a group at 0.90 x the team gap, far pair moves a team by 0.0"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_1500": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    7.0,
+    1.5,
+    14.5
+   ],
+   "log": "learned from 132 people (111 off the pitch left out), group sizes [58, 50, 18, 6], light frame (shade spread 1.3), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 0.0"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    7.5,
+    7.0,
+    1.5,
+    14.5
+   ],
+   "log": "learned from 132 people (111 off the pitch left out), group sizes [58, 50, 18, 6], light frame (shade spread 1.3), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 0.0"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    7.5,
+    6.5,
+    2.5,
+    14.5
+   ],
+   "log": "learned from 128 people (115 off the pitch left out), group sizes [58, 45, 18, 7], light frame (shade spread 1.3), default fit leaves out a group at 0.56 x the team gap, far pair moves a team by 0.0"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    1.0,
+    8.0,
+    7.5,
+    14.5
+   ],
+   "log": "learned from 243 people (0 off the pitch left out), group sizes [74, 74, 69, 26], light frame (shade spread 1.3), default fit leaves out a group at 1.06 x the team gap, far pair moves a team by 42.3, reading far/mean (neither-share tried: {'default/default': 0.342, 'far/mean': 0.317})"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_2723": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    8.0,
+    1.5,
+    3.5
+   ],
+   "log": "learned from 96 people (83 off the pitch left out), group sizes [41, 24, 22, 9], light frame (shade spread 1.3), default fit leaves out a group at 0.49 x the team gap, far pair moves a team by 19.4, reading far/mean (neither-share tried: {'default/default': 0.24, 'far/mean': 0.062})"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    7.5,
+    8.0,
+    1.5,
+    3.5
+   ],
+   "log": "learned from 96 people (83 off the pitch left out), group sizes [41, 24, 22, 9], light frame (shade spread 1.3), default fit leaves out a group at 0.49 x the team gap, far pair moves a team by 19.4, reading far/mean (neither-share tried: {'default/default': 0.24, 'far/mean': 0.062})"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    5.0,
+    7.0,
+    5.0,
+    3.5
+   ],
+   "log": "learned from 134 people (45 off the pitch left out), group sizes [55, 33, 28, 18], light frame (shade spread 1.3), default fit leaves out a group at 0.69 x the team gap, far pair moves a team by 9.3"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    1.0,
+    7.5,
+    8.5,
+    3.5
+   ],
+   "log": "learned from 179 people (0 off the pitch left out), group sizes [62, 57, 37, 23], light frame (shade spread 1.3), default fit leaves out a group at 1.36 x the team gap, far pair moves a team by 64.8, reading far/mean (neither-share tried: {'default/default': 0.285, 'far/mean': 0.391})"
+  }
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_4558": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    8.0,
+    2.0,
+    5.0
+   ],
+   "log": "learned from 124 people (58 off the pitch left out), group sizes [35, 34, 28, 27], light frame (shade spread 1.3), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 31.3, reading far/mean (neither-share tried: {'default/default': 0.218, 'far/mean': 0.073})"
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    7.5,
+    8.0,
+    2.0,
+    5.0
+   ],
+   "log": "learned from 124 people (58 off the pitch left out), group sizes [35, 34, 28, 27], light frame (shade spread 1.3), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 31.3, reading far/mean (neither-share tried: {'default/default': 0.218, 'far/mean': 0.073})"
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    7.5,
+    8.0,
+    2.0,
+    5.0
+   ],
+   "log": "learned from 133 people (49 off the pitch left out), group sizes [59, 39, 28, 7], light frame (shade spread 1.3), default fit leaves out a group at 0.66 x the team gap, far pair moves a team by 34.8, reading far/mean (neither-share tried: {'default/default': 0.218, 'far/mean': 0.12})"
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    1.0,
+    7.5,
+    8.5,
+    5.0
+   ],
+   "log": "learned from 182 people (0 off the pitch left out), group sizes [66, 43, 40, 33], light frame (shade spread 1.3), default fit leaves out a group at 1.25 x the team gap, far pair moves a team by 60.4, reading far/mean (neither-share tried: {'default/default': 0.302, 'far/mean': 0.335})"
+  }
+ }
+}

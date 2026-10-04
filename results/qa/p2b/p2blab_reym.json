@@ -1,0 +1,200 @@
+{
+ "p15u-vs-reymersholm-2026-09-18_2227": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    7.5,
+    7.5,
+    5.0,
+    5.0
+   ],
+   "log": "learned from 21 people (174 off the pitch left out), group sizes [10, 7, 2, 2], light frame (shade spread 1.6), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 4.9",
+   "252 labelled night players": {
+    "team right": "173/252",
+    "whites in white team": "70/115",
+    "whites neither/off": "26/115",
+    "greens in green team": "103/137",
+    "others kept out": "37/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    7.5,
+    3.5,
+    5.0
+   ],
+   "log": "learned from 159 people (36 off the pitch left out), group sizes [63, 44, 37, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 10.5",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "76/115",
+    "whites neither/off": "17/115",
+    "greens in green team": "112/137",
+    "others kept out": "37/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    7.5,
+    3.5,
+    5.0
+   ],
+   "log": "learned from 159 people (36 off the pitch left out), group sizes [63, 44, 37, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 10.5",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "76/115",
+    "whites neither/off": "17/115",
+    "greens in green team": "112/137",
+    "others kept out": "37/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    9.5,
+    9.0,
+    2.0,
+    5.0
+   ],
+   "log": "learned from 195 people (0 off the pitch left out), group sizes [76, 63, 41, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "188/252",
+    "whites in white team": "55/115",
+    "whites neither/off": "3/115",
+    "greens in green team": "133/137",
+    "others kept out": "36/39"
+   }
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_4227": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    3.0,
+    2.5,
+    3.0,
+    0.5
+   ],
+   "log": "learned from 29 people (59 off the pitch left out), group sizes [11, 10, 4, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.75 x the team gap, far pair moves a team by 6.7",
+   "252 labelled night players": {
+    "team right": "125/252",
+    "whites in white team": "40/115",
+    "whites neither/off": "22/115",
+    "greens in green team": "85/137",
+    "others kept out": "34/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    4.0,
+    4.0,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 83 people (5 off the pitch left out), group sizes [42, 26, 11, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "150/252",
+    "whites in white team": "44/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "106/137",
+    "others kept out": "26/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    4.0,
+    4.0,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 83 people (5 off the pitch left out), group sizes [42, 26, 11, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "150/252",
+    "whites in white team": "44/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "106/137",
+    "others kept out": "26/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    5.0,
+    3.5,
+    1.5,
+    0.5
+   ],
+   "log": "learned from 88 people (0 off the pitch left out), group sizes [46, 25, 13, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.86 x the team gap, far pair moves a team by 0.0",
+   "252 labelled night players": {
+    "team right": "167/252",
+    "whites in white team": "46/115",
+    "whites neither/off": "1/115",
+    "greens in green team": "121/137",
+    "others kept out": "26/39"
+   }
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_726": {
+  "now (grass test)": {
+   "per frame A/B/neither/off": [
+    4.0,
+    6.5,
+    1.5,
+    10.0
+   ],
+   "log": "learned from 43 people (142 off the pitch left out), group sizes [22, 9, 7, 5], light frame (shade spread 1.6), default fit leaves out a group at 1.46 x the team gap, far pair moves a team by 0.0, reading far/mean (neither-share tried: {'default/default': 0.256, 'far/mean': 0.233})",
+   "252 labelled night players": {
+    "team right": "74/252",
+    "whites in white team": "2/115",
+    "whites neither/off": "40/115",
+    "greens in green team": "72/137",
+    "others kept out": "26/39"
+   }
+  },
+  "fallback to edge test": {
+   "per frame A/B/neither/off": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "log": "learned from 111 people (74 off the pitch left out), group sizes [42, 38, 23, 8], light frame (shade spread 1.6), default fit leaves out a group at 1.53 x the team gap, far pair moves a team by 29.8, reading far/mean (neither-share tried: {'default/default': 0.216, 'far/mean': 0.036})",
+   "252 labelled night players": {
+    "team right": "220/252",
+    "whites in white team": "89/115",
+    "whites neither/off": "2/115",
+    "greens in green team": "131/137",
+    "others kept out": "26/39"
+   }
+  },
+  "edge test always": {
+   "per frame A/B/neither/off": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "log": "learned from 111 people (74 off the pitch left out), group sizes [42, 38, 23, 8], light frame (shade spread 1.6), default fit leaves out a group at 1.53 x the team gap, far pair moves a team by 29.8, reading far/mean (neither-share tried: {'default/default': 0.216, 'far/mean': 0.036})",
+   "252 labelled night players": {
+    "team right": "220/252",
+    "whites in white team": "89/115",
+    "whites neither/off": "2/115",
+    "greens in green team": "131/137",
+    "others kept out": "26/39"
+   }
+  },
+  "everyone (no pitch test)": {
+   "per frame A/B/neither/off": [
+    4.0,
+    6.5,
+    1.5,
+    10.0
+   ],
+   "log": "learned from 185 people (0 off the pitch left out), group sizes [79, 62, 25, 19], light frame (shade spread 1.6), default fit leaves out a group at 1.23 x the team gap, far pair moves a team by 0.0, reading far/mean (neither-share tried: {'default/default': 0.151, 'far/mean': 0.13})",
+   "252 labelled night players": {
+    "team right": "77/252",
+    "whites in white team": "3/115",
+    "whites neither/off": "46/115",
+    "greens in green team": "74/137",
+    "others kept out": "26/39"
+   }
+  }
+ }
+}
