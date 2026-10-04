@@ -1,20 +1,30 @@
 kernel danielmatros/ipanema-goals-check
-Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
-  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
+Kernel version 3 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
+  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.RUNNING"
+  1.0 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
 Output file downloaded to results/kaggle/goals_check/g0_0.jpg
 Output file downloaded to results/kaggle/goals_check/g0_1.jpg
-Output file downloaded to results/kaggle/goals_check/g0_2.jpg
 Output file downloaded to results/kaggle/goals_check/g1_0.jpg
 Output file downloaded to results/kaggle/goals_check/g1_1.jpg
+Output file downloaded to results/kaggle/goals_check/g2_0.jpg
+Output file downloaded to results/kaggle/goals_check/g2_1.jpg
+Output file downloaded to results/kaggle/goals_check/g3_0.jpg
+Output file downloaded to results/kaggle/goals_check/g3_1.jpg
+Output file downloaded to results/kaggle/goals_check/g4_0.jpg
+Output file downloaded to results/kaggle/goals_check/g4_1.jpg
 Output file downloaded to results/kaggle/goals_check/result.json
 Kernel log downloaded to results/kaggle/goals_check/ipanema-goals-check.log
-  g0_0.jpg 828542
-  g0_1.jpg 821205
+  g0_0.jpg 668282
+  g0_1.jpg 537781
   g0_2.jpg 724707
-  g1_0.jpg 767132
-  g1_1.jpg 681147
-  g2_0.jpg 763257
-  g2_1.jpg 721244
-  ipanema-goals-check.log 868
-  result.json 24
+  g1_0.jpg 748956
+  g1_1.jpg 400957
+  g2_0.jpg 719275
+  g2_1.jpg 366596
+  g3_0.jpg 651248
+  g3_1.jpg 472905
+  g4_0.jpg 678761
+  g4_1.jpg 528684
+  ipanema-goals-check.log 869
+  result.json 25
   run.json 156
