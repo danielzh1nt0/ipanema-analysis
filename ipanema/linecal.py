@@ -40,7 +40,7 @@ def calibration_for_clip(rows_path, n_frames, fps, w, h, offset_s=0.0, L=106.0, 
     better than borrowing a neighbour's camera, which put the ball off the pitch and invented dead balls / restarts).
     Lines are drawn for bridges up to draw_bridge_s; longer bridges and unbridgeable stretches (nearest confident camera
     borrowed, metres unreliable) are listed in cal["unsure"] and get no drawn lines."""
-    d = json.load(open(rows_path)); cam = d["camera"]; rows = sorted(d["rows"], key=lambda r: r["t"])
+    d = json.load(open(rows_path)); cam = d["camera"]; rows = sorted((r for r in d["rows"] if r.get("pose") is not None), key=lambda r: r["t"])   # 4 Oct: a second with no lines at all has no pose (Vallentuna: 5 of 5966)
     ts = np.array([r["t"] for r in rows]); ok = np.array([brave(r) for r in rows]); poses = np.array([r["pose"] for r in rows], float)
     conf_idx = np.nonzero(ok)[0]
     if not len(conf_idx): raise RuntimeError("line calibration: no confident second in this match")
