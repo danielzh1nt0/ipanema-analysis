@@ -7,7 +7,7 @@ import os, json, pickle, subprocess, numpy as np
 
 PIECE_S = 300
 ID_STRIDE = 100_000     # tracker ids of piece i become i * ID_STRIDE + id
-PIECE_FILE = "piece_v4.pkl"   # v4 (2 Oct): pieces use the match line calibration when there is one (v3 used panorama registration: only 32% of SFK-BP frames trusted). v3 (1 Oct): new players + new ball (rf_full) and the tuned picker inputs; v2 = old detectors. v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
+PIECE_FILE = "piece_v5.pkl"   # v5 (4 Oct, C3): camera rows marked "refine doubtful" count when forward/backward agree (Vallentuna 50% -> 70% usable rows); a piece is re-prepared on CPU at the next join (cents). v4 (2 Oct): pieces use the match line calibration when there is one (v3 used panorama registration: only 32% of SFK-BP frames trusted). v3 (1 Oct): new players + new ball (rf_full) and the tuned picker inputs; v2 = old detectors. v1 pieces were made with the fallback calibration (panorama registration crashed) and are not used
 
 def video_info(path):
     import cv2
