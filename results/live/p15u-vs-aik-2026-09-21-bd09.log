@@ -1,13 +1,17 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:05:34 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:07:11 UTC
 
 
-## run_full.log (4 lines, last 60)
+## run_full.log (5 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 2 first (CPU)
+canary passed: calibration from the panorama, 18.1 players per frame
 
-## piece_002.log (7 lines, last 60)
+## piece_001.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_002.log (9 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
 calibration: panorama registration cached (8992 frames)
@@ -15,6 +19,23 @@ calibration: from panorama, 8992/8992 frames registered
 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
 tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.5/frame
+p15u-vs-aik-2026-09-21-bd09_c002: 8992 frames, 18.1 players/frame
+
+## piece_004.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_005.log (1 lines, last 60)
+
+
+## piece_006.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_007.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+
+## piece_008.log (1 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## train_ball.log (1 lines, last 60)
 
