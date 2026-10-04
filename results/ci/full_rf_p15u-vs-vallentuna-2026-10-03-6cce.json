@@ -1,0 +1,43 @@
+{
+ "pieces": 20,
+ "video": "full.mp4",
+ "minutes_video": 99.4,
+ "cut_min": 9.6,
+ "kits": {
+  "ok": true,
+  "frames": 36,
+  "kit_groups": [
+   59,
+   54,
+   20,
+   15
+  ],
+  "dark_share": {
+   "A": 0.56,
+   "B": 0.88
+  },
+  "log": [
+   "   132s kits: per-player classifier from 333 on-pitch people, 13 of 15 runs kept",
+   "   135s kits: learned from 148 people (584 off the pitch left out), group sizes [59, 54, 20, 15], light local (shade spread 2.6), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 54.5, reading far/mean (neither-share tried: {'default/default': 0.128, 'far/mean': 0.007})"
+  ]
+ },
+ "canary": {
+  "pid": "p15u-vs-vallentuna-2026-10-03-6cce_c004",
+  "players_per_frame": 20.2,
+  "ok": true,
+  "ball_frames": 8992,
+  "minutes": 41.4,
+  "log": [
+   "  1719s   ball (RF-DETR): frame 3000, 7.8 frames/s",
+   "  1847s   ball (RF-DETR): frame 4000, 7.8 frames/s",
+   "  1974s   ball (RF-DETR): frame 5000, 7.8 frames/s",
+   "  2102s   ball (RF-DETR): frame 6000, 7.8 frames/s",
+   "  2229s   ball (RF-DETR): frame 7000, 7.8 frames/s",
+   "  2356s   ball (RF-DETR): frame 8000, 7.8 frames/s"
+  ]
+ },
+ "ok": true,
+ "done": 20,
+ "failed": [],
+ "minutes": 136.2
+}
