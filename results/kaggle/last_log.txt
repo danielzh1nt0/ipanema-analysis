@@ -1,92 +1,21 @@
-kernel danielmatros/ipanema-vall-ball-key2
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-ball-key2
-  0.5 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.RUNNING"
-  2.1 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.RUNNING"
-  3.6 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_ball_key2/c00.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c01.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c02.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c03.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c04.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c05.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c06.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c07.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c08.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c09.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c10.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c11.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c12.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c13.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c14.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c15.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c16.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c17.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c18.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c19.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c20.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c21.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c22.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c23.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c24.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c25.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c26.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c27.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c28.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c29.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c30.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c31.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c32.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c33.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c34.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c35.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c36.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c37.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c38.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/c39.jpg
-Output file downloaded to results/kaggle/vall_ball_key2/guesses.json
-Output file downloaded to results/kaggle/vall_ball_key2/result.json
-Kernel log downloaded to results/kaggle/vall_ball_key2/ipanema-vall-ball-key2.log
-  c00.jpg 202043
-  c01.jpg 186706
-  c02.jpg 104519
-  c03.jpg 154592
-  c04.jpg 154094
-  c05.jpg 200907
-  c06.jpg 205371
-  c07.jpg 210983
-  c08.jpg 174233
-  c09.jpg 169550
-  c10.jpg 150398
-  c11.jpg 176057
-  c12.jpg 190977
-  c13.jpg 191104
-  c14.jpg 161575
-  c15.jpg 210961
-  c16.jpg 157199
-  c17.jpg 149686
-  c18.jpg 197866
-  c19.jpg 103030
-  c20.jpg 117208
-  c21.jpg 109074
-  c22.jpg 155980
-  c23.jpg 156923
-  c24.jpg 167108
-  c25.jpg 187581
-  c26.jpg 123243
-  c27.jpg 97244
-  c28.jpg 190270
-  c29.jpg 185784
-  c30.jpg 145251
-  c31.jpg 186957
-  c32.jpg 194442
-  c33.jpg 189156
-  c34.jpg 194875
-  c35.jpg 138131
-  c36.jpg 99810
-  c37.jpg 138590
-  c38.jpg 128978
-  c39.jpg 133393
-  guesses.json 7005
-  ipanema-vall-ball-key2.log 5209
-  result.json 21
-  run.json 162
+kernel danielmatros/ipanema-goals-check
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
+  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.RUNNING"
+  1.0 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/goals_check/g0_0.jpg
+Output file downloaded to results/kaggle/goals_check/g0_1.jpg
+Output file downloaded to results/kaggle/goals_check/g1_0.jpg
+Output file downloaded to results/kaggle/goals_check/g1_1.jpg
+Output file downloaded to results/kaggle/goals_check/g2_0.jpg
+Output file downloaded to results/kaggle/goals_check/g2_1.jpg
+Output file downloaded to results/kaggle/goals_check/result.json
+Kernel log downloaded to results/kaggle/goals_check/ipanema-goals-check.log
+  g0_0.jpg 819453
+  g0_1.jpg 682276
+  g1_0.jpg 703027
+  g1_1.jpg 560291
+  g2_0.jpg 763257
+  g2_1.jpg 721244
+  ipanema-goals-check.log 868
+  result.json 24
+  run.json 156
