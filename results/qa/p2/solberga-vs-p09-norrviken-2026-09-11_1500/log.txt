@@ -1,1 +1,10 @@
 05:32:07 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+05:32:16 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+05:32:36 key-frame detections saved (245 people on 8 frames)
+05:33:44 kits: per-player classifier from 510 on-pitch people, 0 of 15 runs kept -> colour only
+05:33:44 kits: learned from 589 people (510 off the pitch left out), group sizes [244, 232, 77, 36], light frame (shade spread 1.3), default fit leaves out a group at 0.58 x the team gap, far pair moves a team by 0.0
+05:33:44 off-pitch people dropped by the pitch-edge test: yes
+05:33:49   tracking frame 0
+05:35:06   tracking frame 50 (0.6 frames/s)
+05:36:22   tracking frame 100 (0.7 frames/s)
+05:37:38   tracking frame 150 (0.7 frames/s)
