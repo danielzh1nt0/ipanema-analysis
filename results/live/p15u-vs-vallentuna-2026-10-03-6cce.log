@@ -1,24 +1,75 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 18:41:39 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 18:43:36 UTC
 
 
-## run_full.log (5 lines, last 60)
+## run_full.log (27 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 4 first (CPU)
 canary passed: calibration from the line model, 20.2 players per frame
+pieces: 20/20 done in 5.6 min
+tracking frame 178800
+  piece 00: p15u-vs-vallentuna-2026-10-03-6cce_c000: 8992 frames, 11.6 players/frame
+  piece 01: p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
+  piece 02: p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
+  piece 03: p15u-vs-vallentuna-2026-10-03-6cce_c003: 8992 frames, 17.8 players/frame
+  piece 04: p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
+  piece 05: p15u-vs-vallentuna-2026-10-03-6cce_c005: 8992 frames, 20.6 players/frame
+  piece 06: p15u-vs-vallentuna-2026-10-03-6cce_c006: 8992 frames, 21.5 players/frame
+  piece 07: p15u-vs-vallentuna-2026-10-03-6cce_c007: 8992 frames, 17.8 players/frame
+  piece 08: p15u-vs-vallentuna-2026-10-03-6cce_c008: 8992 frames, 19.9 players/frame
+  piece 09: p15u-vs-vallentuna-2026-10-03-6cce_c009: 8992 frames, 16.2 players/frame
+  piece 10: p15u-vs-vallentuna-2026-10-03-6cce_c010: 8992 frames, 15.1 players/frame
+  piece 11: p15u-vs-vallentuna-2026-10-03-6cce_c011: 8992 frames, 18.3 players/frame
+  piece 12: p15u-vs-vallentuna-2026-10-03-6cce_c012: 8992 frames, 20.0 players/frame
+  piece 13: p15u-vs-vallentuna-2026-10-03-6cce_c013: 8992 frames, 19.9 players/frame
+  piece 14: p15u-vs-vallentuna-2026-10-03-6cce_c014: 8992 frames, 19.4 players/frame
+  piece 15: p15u-vs-vallentuna-2026-10-03-6cce_c015: 8992 frames, 20.5 players/frame
+  piece 16: p15u-vs-vallentuna-2026-10-03-6cce_c016: 8992 frames, 20.2 players/frame
+  piece 17: p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
+  piece 18: p15u-vs-vallentuna-2026-10-03-6cce_c018: 8992 frames, 19.4 players/frame
+  piece 19: p15u-vs-vallentuna-2026-10-03-6cce_c019: 7971 frames, 16.2 players/frame
 
-## piece_000.log (1 lines, last 60)
+## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 93% of frames trusted (lines drawn); 628 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 6.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 11.1/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c000: 8992 frames, 11.6 players/frame
 
-## piece_001.log (1 lines, last 60)
+## piece_001.log (8 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c001 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 84% of frames trusted (lines drawn); 1437 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.9/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
 
-
-## piece_002.log (1 lines, last 60)
+## piece_002.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 49% of frames trusted (lines drawn); 4618 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 11.2 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.9/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
 
-## piece_003.log (1 lines, last 60)
+## piece_003.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c003 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 75% of frames trusted (lines drawn); 2278 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.2/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c003: 8992 frames, 17.8 players/frame
 
 ## piece_004.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
@@ -31,44 +82,157 @@ ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.5 candidates/frame
 ball: RF-DETR + WASB guesses fused, 15.2/frame
 p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
 
-## piece_005.log (1 lines, last 60)
+## piece_005.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c005 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 86% of frames trusted (lines drawn); 1258 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 12.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 16.3/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c005: 8992 frames, 20.6 players/frame
 
-## piece_006.log (1 lines, last 60)
+## piece_006.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c006 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 76% of frames trusted (lines drawn); 2129 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 12.6 candidates/frame
+ball: RF-DETR + WASB guesses fused, 17.0/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c006: 8992 frames, 21.5 players/frame
 
-## piece_007.log (1 lines, last 60)
+## piece_007.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c007 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 68% of frames trusted (lines drawn); 2846 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.3 candidates/frame
+ball: RF-DETR + WASB guesses fused, 14.0/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c007: 8992 frames, 17.8 players/frame
 
-## piece_008.log (1 lines, last 60)
+## piece_008.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c008 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 72% of frames trusted (lines drawn); 2517 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.9/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c008: 8992 frames, 19.9 players/frame
 
-## piece_009.log (1 lines, last 60)
+## piece_009.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c009 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 82% of frames trusted (lines drawn); 1588 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.5/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c009: 8992 frames, 16.2 players/frame
 
-## piece_011.log (1 lines, last 60)
+## piece_010.log (9 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c010 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 86% of frames trusted (lines drawn); 1258 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 5.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 10.8/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c010: 8992 frames, 15.1 players/frame
+
+## piece_011.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c011 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 59% of frames trusted (lines drawn); 3718 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.4 candidates/frame
+ball: RF-DETR + WASB guesses fused, 13.3/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c011: 8992 frames, 18.3 players/frame
 
-## piece_012.log (1 lines, last 60)
+## piece_012.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c012 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 62% of frames trusted (lines drawn); 3387 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.8/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c012: 8992 frames, 20.0 players/frame
 
-## piece_013.log (1 lines, last 60)
+## piece_013.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c013 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 66% of frames trusted (lines drawn); 3026 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.0 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.9/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c013: 8992 frames, 19.9 players/frame
 
-## piece_014.log (1 lines, last 60)
+## piece_014.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c014 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 60% of frames trusted (lines drawn); 3628 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.8 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.7/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c014: 8992 frames, 19.4 players/frame
 
-## piece_015.log (1 lines, last 60)
+## piece_015.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c015 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 61% of frames trusted (lines drawn); 3479 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.2 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.4/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c015: 8992 frames, 20.5 players/frame
 
-## piece_017.log (1 lines, last 60)
+## piece_016.log (9 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c016 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 53% of frames trusted (lines drawn); 4225 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.7/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c016: 8992 frames, 20.2 players/frame
+
+## piece_017.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c017 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 57% of frames trusted (lines drawn); 3837 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.0 candidates/frame
+ball: RF-DETR + WASB guesses fused, 12.0/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
 
-## piece_018.log (1 lines, last 60)
+## piece_018.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c018 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 67% of frames trusted (lines drawn); 2967 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 6.1 candidates/frame
+ball: RF-DETR + WASB guesses fused, 11.3/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c018: 8992 frames, 19.4 players/frame
 
-## piece_019.log (1 lines, last 60)
-
+## piece_019.log (8 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c019 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 7971 frames (266 s)
+calibration: from the line model, 78% of frames trusted (lines drawn); 1783 frames bridged or borrowed, no drawn lines
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 2.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 8.2/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c019: 7971 frames, 16.2 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
