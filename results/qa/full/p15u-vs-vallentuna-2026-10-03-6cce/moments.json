@@ -1,0 +1,17 @@
+{
+ "ok": true,
+ "moments": [
+  "t=652s possession=B phase=control ball=yes players A=3 B=15",
+  "t=1085s possession=None phase=loose ball=yes players A=0 B=13",
+  "t=1519s possession=None phase=loose ball=yes players A=2 B=15",
+  "t=1952s possession=B phase=control ball=yes players A=4 B=10",
+  "t=2385s possession=B phase=control ball=yes players A=1 B=17",
+  "t=2819s possession=B phase=control ball=yes players A=5 B=3",
+  "t=3582s possession=A phase=control ball=yes players A=11 B=4",
+  "t=4016s possession=None phase=loose ball=yes players A=18 B=4",
+  "t=4449s possession=B phase=control ball=yes players A=6 B=8",
+  "t=4882s possession=B phase=control ball=yes players A=5 B=16",
+  "t=5316s possession=None phase=loose ball=yes players A=5 B=1",
+  "t=5749s possession=None phase=loose ball=yes players A=15 B=2"
+ ]
+}
