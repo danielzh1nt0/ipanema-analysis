@@ -60,4 +60,7 @@ def test_reymersholm_and_sfk_keep_their_fit():
     for g in ("p15u-vs-reymersholm-2026-09-18", "SFKBP1109_s1200"):
         B = json.load(open(f"{R}/{g}/boxes.json"))
         tm = K.KitTeamModel().fit_frames([(cv2.imread(f"{R}/{g}/{fn}"), np.array(B[fn])) for fn in sorted(B)], log=lambda *a: None, player_cls=False)
-        assert len(tm.choice) == 1 and tm.choice_missed < 1.0, (g, tm.choice, tm.choice_missed)
+        if "reymersholm" in g:
+            # P2b (4 Oct): the pitch-edge fallback keeps 305 people instead of 93; the switch now fires and reads green vs white (by eye)
+            ta, tb = sorted(tm.model["teams"], key=lambda c: c[0]); assert ta[1] < -10 and tb[0] > 75, (g, tm.model["teams"])
+        else: assert len(tm.choice) == 1 and tm.choice_missed < 1.0, (g, tm.choice, tm.choice_missed)
