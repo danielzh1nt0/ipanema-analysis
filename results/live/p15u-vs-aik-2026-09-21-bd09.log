@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:12:16 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:13:57 UTC
 
 
-## run_full.log (32 lines, last 60)
+## run_full.log (48 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
@@ -34,6 +34,22 @@ players: 28438 short gaps filled (marked 'filled' in the export)
 ball v2: 79727/98902 frames on the path, 4278 static-clutter candidates dropped
 ball check: 26/39 correct, 13 wrong, 0 no pick (ceiling 39/39)
 ball: dropped 2388 static-clutter candidates
+ball (global path): 70580/98902 frames on the chosen path
+ball check (other picker, v1): 13/39 correct, ceiling 39/39
+ball: dropped 2388 static-clutter candidates
+ball (global path): 70580/98902 frames on the chosen path
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 18/62, other 9/62, ceiling 26
+possession: simple model (nearest feet in the picture); 42% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A ←  B →  confidence A 0.02 / B 0.01  WARNING low confidence
+direction: from reference labels -> A →
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1015 -> 105 (1.9 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (3 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (8 s since the last step)
+  step: metrics (15 s since the last step)
 
 ## piece_000.log (10 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
