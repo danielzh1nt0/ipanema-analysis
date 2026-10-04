@@ -32,4 +32,8 @@ Demo matches: untouched by construction (the app runs with the off-pitch test of
 **Not fixed (-> P2e):** the dim far whites (13/40 read green; P2c tried many colour readings, none better) and the pink
 referee read green in tracking (on the key frames all 12 keepers/referee read 'neither', so it is the track vote).
 
-**Free-runner re-track** (tools/p2d_track.py, same 20 s as P2/P2b/P2c, track/<piece>/): see below once it is back.
+**Free-runner re-track** (tools/p2d_track.py, same 20 s as P2/P2b/P2c, track/<piece>/, 16 min, $0): by eye
+(compare_*.jpg vs results/qa/p2c/track/..._4227) the fence spectators tracked on the key frames go 11 -> 3: frame 427
+3 -> 0, 512 4 -> 0 (dark 9 -> 5, every player kept), 598 4 -> 3 (still in there). Median per frame unchanged (dark 6 /
+light 3); the dark team's median track time 4.9 -> 1.5 s, because the standing spectators made the longest 'dark' tracks.
+Still wrong as in P2c: the pink referee and the dim far whites read as the green team.
