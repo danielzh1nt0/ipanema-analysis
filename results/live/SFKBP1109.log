@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 22:00:09 UTC
+# live log · SFKBP1109 · running · 22:01:44 UTC
 
 
-## run_full.log (21 lines, last 60)
+## run_full.log (30 lines, last 60)
 === SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -23,6 +23,15 @@ calibration: per-frame check skipped for this match (periods file: trust_all_cal
 calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
 ball check: 40 held-out test frames mapped into the full match
 clean: 66 still people by the lines dropped (bench, coaches)
+clean: keeper (left) from a non-team kit: track 200776, 2817 frames
+clean: keeper (right) from a non-team kit: track 800377, 1272 frames
+clean: removed 216896 rows of non-team kits (referee / staff)
+clean: dropped 218965 off-pitch, merged 8907 duplicates, stitched 2429 ids, keepers [200776, 800377] -> A defends left
+clean: players per frame median A 6 / B 6, max A 16 / B 13
+players: 11950 short gaps filled (marked 'filled' in the export)
+ball v2: 72762/98902 frames on the path, 4686 static-clutter candidates dropped
+ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
+ball: dropped 4005 static-clutter candidates
 
 ## train_ball.log (1 lines, last 60)
 
