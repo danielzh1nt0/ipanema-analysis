@@ -1,0 +1,28 @@
+{
+ "goal_windows": [
+  {
+   "label": "AIK goal 1",
+   "t0": 2740,
+   "t1": 2786,
+   "step": 2
+  },
+  {
+   "label": "AIK goal 2",
+   "t0": 3106,
+   "t1": 3152,
+   "step": 2
+  },
+  {
+   "label": "BP goal",
+   "t0": 2597,
+   "t1": 2643,
+   "step": 2
+  }
+ ],
+ "ball_moments": [],
+ "srcs": {
+  "AIK goal 1": "p15u-vs-aik-2026-09-21-bd09/video.mp4",
+  "AIK goal 2": "p15u-vs-aik-2026-09-21-bd09/video.mp4",
+  "BP goal": "SFKBP1109/video.mp4"
+ }
+}
