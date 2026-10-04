@@ -1,0 +1,10 @@
+# SFK vs Vallentuna P15U, 3 Oct: the Veo highlights zip in Drive is empty (0 bytes), so the goals were placed BY EYE (4 Oct)
+# from Veo's event minutes (a 2x40 match clock: video s = 435 + 60m for m < 41, else 3220 + 60(m-40)) and frame strips
+# every 4 s (results/kaggle/vall_goals_ball): goal = last attack at a goal before the teams line up for the kick-off.
+# Accuracy +-10 s, not clip-exact. Shots are NOT listed (Veo's minute precision would place them +-60 s).
+3616 goal
+3850 goal
+5525 goal
+5620 goal
+# VAL 2-1 lies in Veo's 52-64' gap (video 65:40-77:40); no kick-off line-up seen at 12-s steps; best candidate 67:10 - to be
+# confirmed with a finer strip before it is added.
