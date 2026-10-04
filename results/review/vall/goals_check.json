@@ -1,21 +1,42 @@
 {
  "goal_windows": [
   {
-   "label": "BP goal late",
-   "t0": 2641,
-   "t1": 2711,
-   "step": 2
+   "label": "goal 3604 kickoff",
+   "t0": 3619,
+   "t1": 3679,
+   "step": 3
   },
   {
-   "label": "AIK goal 2 late",
-   "t0": 3150,
-   "t1": 3196,
-   "step": 2
+   "label": "goal 3742 kickoff",
+   "t0": 3757,
+   "t1": 3817,
+   "step": 3
+  },
+  {
+   "label": "goal 3840 kickoff",
+   "t0": 3855,
+   "t1": 3915,
+   "step": 3
+  },
+  {
+   "label": "goal 5513 kickoff",
+   "t0": 5528,
+   "t1": 5588,
+   "step": 3
+  },
+  {
+   "label": "goal 5593 kickoff",
+   "t0": 5608,
+   "t1": 5668,
+   "step": 3
   }
  ],
  "ball_moments": [],
  "srcs": {
-  "BP goal late": "SFKBP1109/video.mp4",
-  "AIK goal 2 late": "p15u-vs-aik-2026-09-21-bd09/video.mp4"
+  "goal 3604 kickoff": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4",
+  "goal 3742 kickoff": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4",
+  "goal 3840 kickoff": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4",
+  "goal 5513 kickoff": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4",
+  "goal 5593 kickoff": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4"
  }
 }
