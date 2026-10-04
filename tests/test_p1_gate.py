@@ -35,9 +35,4 @@ def test_far_pick_prefers_colour_over_darkness():
     X = np.vstack([c + rng.normal(0, 1.5, (n, 3)) for c, n in ((white, 220), (red, 195), (dark, 185))])
     m = K.fit(list(X), pair="far"); tb = min(m["teams"], key=lambda c: c[0])
     assert np.linalg.norm(tb - red) < 5, m["teams"]
-    old = os.environ.get("IPANEMA_FAR_PICK"); os.environ["IPANEMA_FAR_PICK"] = "plain"
-    try: mp = K.fit(list(X), pair="far")
-    finally:
-        if old is None: os.environ.pop("IPANEMA_FAR_PICK", None)
-        else: os.environ["IPANEMA_FAR_PICK"] = old
-    assert np.linalg.norm(min(mp["teams"], key=lambda c: c[0]) - dark) < 5          # the old rule, for the record
+    # (the old plain-distance rule picked the dark coats; since 4 Oct's min_share 0.5 that record check no longer applies)

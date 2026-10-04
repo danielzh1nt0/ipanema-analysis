@@ -167,11 +167,13 @@ def _kmeans(X, k, seed=0, iters=40):
         C = C2
     return C, lab
 
-def _fit_far(X, C, lab, sizes, order, merge_d, min_share=0.25, l_weight=0.5):
+def _fit_far(X, C, lab, sizes, order, merge_d, min_share=0.5, l_weight=0.5):
     """P7 (29 Sep): team A = biggest colour group; team B = the big group (>= 25% of A's size) LEAST like A. Other groups join
     the nearer team if close, lightness counting half (sun/shade, floodlit/dark splits of one kit differ mainly in
     lightness), else they are 'other'. The old rule took the two biggest groups as the teams; at night on Reymersholm
     those were dark-green and floodlit-green players (same kit) and the whites were pushed out."""
+    # 4 Oct (Vallentuna, red vs black in hard sun): min_share 0.25 -> 0.5. A small group of sun-washed players was 'least
+    # like' the black team and became team B, and the red team was pushed in with the blacks (3 vs 11 on the pitch).
     a = order[0]; big = [j for j in order[1:] if sizes[j] >= min_share * sizes[a]] or order[1:2]
     w = np.array([l_weight, 1.0, 1.0] + [1.0] * (C.shape[1] - 3))
     # P1 (1 Oct): B is chosen with lightness counting half too (env IPANEMA_FAR_PICK=plain = old rule). Plain distance let a

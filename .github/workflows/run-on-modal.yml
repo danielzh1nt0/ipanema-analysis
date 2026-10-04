@@ -475,7 +475,7 @@ jobs:
           PY
           M=$(python -c "import os,re; print(re.search(r'\[match:([A-Za-z0-9_-]+):', os.environ['MSG']).group(1))")
           python scripts_watch.py full "$M"
-      - name: new players + new ball for every piece of a full match (commit tagged [full-rf:<match>], add [canary] to stop after one piece) - GPU
+      - name: new players + new ball for every piece of a full match (commit tagged [full-rf:<match>], add [canary] to stop after one piece, [retrack] to redo kits + players only) - GPU
         if: contains(github.event.head_commit.message, '[full-rf:')
         env:
           MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
@@ -486,7 +486,7 @@ jobs:
           python - <<'PY'
           import modal, os, re, json, time
           m = re.search(r"\[full-rf:([A-Za-z0-9_.-]+)\]", os.environ["MSG"]).group(1); canary = "[canary]" in os.environ["MSG"]
-          call = modal.Function.from_name("ipanema", "rf_full").spawn(m, canary, os.environ["R2_PUBLIC_URL"].rstrip("/") + f"/{m}/video.mp4")
+          call = modal.Function.from_name("ipanema", "rf_full").spawn(m, canary, os.environ["R2_PUBLIC_URL"].rstrip("/") + f"/{m}/video.mp4", "[retrack]" in os.environ["MSG"])
           print("spawned rf_full", m, call.object_id, flush=True); out = {"call": call.object_id, "status": "running (still on Modal after this job ends)"}
           t0 = time.time()
           while time.time() - t0 < 155 * 60:

@@ -623,13 +623,21 @@ def rf_piece(pid: str, kit_from: str):
         return {"pid": pid, "ok": False, "error": traceback.format_exc()[-3000:], "log": logs[-10:]}
 
 @app.function(timeout=6 * 60 * 60, volumes={"/data": vol}, cpu=8.0, memory=16384)
-def rf_full(match_id: str, canary_only: bool = False, video_url: str = ""):
+def rf_full(match_id: str, canary_only: bool = False, video_url: str = "", retrack: bool = False):
     """1 Oct: new players + new ball for every piece of a full match: cut the pieces, one kit model for the match, a canary
-    piece first, then the rest in parallel (10 GPUs). Then run_full (PIECE_FILE v3) joins and analyses them."""
-    import json, time
+    piece first, then the rest in parallel (10 GPUs). Then run_full (PIECE_FILE v3) joins and analyses them.
+    retrack (4 Oct, Vallentuna teams wrong): learn the kits again and track the players again in every piece (the saved
+    tracks are moved aside, the piece results removed; the ball guesses are kept, so a piece costs ~half)."""
+    import json, time, glob
     _setup()
     from ipanema import fullmatch as FM
     t0 = time.time(); full = _full_video(match_id)
+    if retrack:
+        moved = 0
+        for d in glob.glob(f"{ROOT}/cache/{match_id}_c*"):
+            for f in (f"{d}/tracks_rfdetr_v1.pkl", f"{d}/{FM.PIECE_FILE}"):
+                if os.path.exists(f): os.replace(f, f + ".before_retrack"); moved += 1
+        vol.commit(); print(f"retrack: moved {moved} saved track / piece files aside", flush=True)
     if full is None and video_url:                                             # same place run_full downloads to
         import requests
         full = f"{ROOT}/videos/{match_id}/full.mp4"; os.makedirs(os.path.dirname(full), exist_ok=True)

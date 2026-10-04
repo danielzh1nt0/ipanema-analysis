@@ -1,0 +1,47 @@
+{
+ "frame": {
+  "per frame on the pitch (A dark, B light, K neither)": {
+   "A": 3.22,
+   "B": 2.94,
+   "K": 4.39
+  },
+  "groups": [
+   60,
+   59,
+   27,
+   11
+  ],
+  "chosen": "frame",
+  "shade": null
+ },
+ "local": {
+  "per frame on the pitch (A dark, B light, K neither)": {
+   "A": 3.67,
+   "B": 3.39,
+   "K": 3.5
+  },
+  "groups": [
+   62,
+   59,
+   26,
+   10
+  ],
+  "chosen": "local",
+  "shade": null
+ },
+ "auto": {
+  "per frame on the pitch (A dark, B light, K neither)": {
+   "A": 3.67,
+   "B": 3.39,
+   "K": 3.5
+  },
+  "groups": [
+   62,
+   59,
+   26,
+   10
+  ],
+  "chosen": "local",
+  "shade": 2.4
+ }
+}
