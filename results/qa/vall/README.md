@@ -13,3 +13,12 @@ frames, so the loss is after the finder (picker choosing spare balls, or the end
 ball at the 29 key moments needs the exported frames from the server (a read, < 1 cent) - waiting for Daniel's go together
 with the join (~EUR 0.10) that puts the goals/shots and the corrected full time into the app.
 Players: the sun fix needs a GPU re-track (~EUR 5) - not done (no paid runs).
+
+## 4 Oct evening: after the sun-fix re-track (EUR 5, Daniel's go)
+- Players per frame 9 -> 11. Goals 3-2 (each scorer checked by who kicks off), shots 8/9.
+- Ball on 55 marked moments: 41 right (0.75). Possession on 29 clear moments: 18 right (0.62; was 0.52). SFK-BP: 0.82.
+- Misses (results/kaggle/vall_poss_misses): (a) a dark SFK player in deep shade by the touchline is not tracked at all
+  (c19) - detector/kit problem in hard shade; (b) the ball 1-2 m beside a standing player at the far side (c12) - the
+  'near' distance; widening it costs moments on the SFK-BP key (near 2.0/2.5 not in the top settings), so not changed;
+  (c) 4 moments where the ball pick itself is wrong.
+- Next: players in deep shade (detector confidence / kit reading in shade), then re-check. Multi-day.
