@@ -9,7 +9,7 @@ stats audit (claude/stats-audit-2026-10-02.md): SHOW / Beta / HIDE.
 | UI needs | What the export has | Action |
 |---|---|---|
 | `time_to_press` on `turnover_lost` | OK, `payload.time_to_press` (s) — set on 156 of 316 losses on AIK, `null` when no opponent came within 5 m | None. The median (1.17 s) is far too fast vs real football (3-5 s): it comes from picker flicker, so the Pressing headline is **HIDE** for the demo. |
-| `players[].state` on frames | Always `"observed"`. The pipeline never writes a guessed player position: a player is in a frame only when the detector saw him there. There is nothing to mark `stale`. | None. Treat absence as "not seen", not as stale. |
+| `players[].state` on frames | `"observed"` (conf 1.0) for ~97.5% of entries; `"filled"` (conf 0.5) for short gaps bridged between two sightings of the same player (AIK chunk 3: 998 of 39,177). No long guesses: a player absent from a frame was not seen. | Draw `filled` faint (like a bridged ball) or skip. Treat absence as "not seen", not as stale. (Corrected 4 Oct: was "always observed".) |
 | `block_length_median_m` | OK, in `teams[]` (AIK A 25.2 m) | Shape values only use the players in view (~30% of the pitch), so they are "shape of the visible group". Beta label or HIDE. |
 | `summary.ball_grade` | **Not in `stats.teams[]`.** It is in the Supabase `matches` row, column `summary` → `summary.ball_grade.{possession_ok, events_ok, accuracy, near_player_pct}`, and in `matches/<id>/summary.json`. Also `summary.ball_reliable`. | UI must read it from the matches row (or we add it to `teams[]` at the next run — one line, but needs a run). |
 
@@ -94,7 +94,7 @@ Shape OK: `{id, t, type, team, title, subtitle, payload}`. Types we write (AIK c
 
 `{t, players[], ball, possession, phase, carrier, pressure_m, near_opps, shape, lanes, pitch_lines, cal_ok}`
 
-- `players[]`: `{id, team, gk, state: "observed", conf, px, m}` (+ `kmh`, `dist_m` when the speed layer is on — it is off). Always observed; see §1.8.
+- `players[]`: `{id, team, gk, state: "observed" | "filled", conf (1.0 / 0.5), px, m}` (+ `kmh`, `dist_m` when the speed layer is on — it is off). Always observed; see §1.8.
 - `ball`: `{px, m, state, conf}` or `null`. **`state` is `observed` or `bridged`** — not predicted/stale. `bridged` = we did not see the ball and filled the gap between two sightings. Treat `bridged` as your `predicted` (draw faint or skip).
 - `shape.{A,B}`: `{hull_m, n, length, width, line_height}` (null when too few in view).
 - `pitch_lines`: the 3x3 calibration matrix flattened (9 numbers, pitch metres → pixels), or `null` when the frame's calibration is unsure; `cal_ok` says the same as a bool.
