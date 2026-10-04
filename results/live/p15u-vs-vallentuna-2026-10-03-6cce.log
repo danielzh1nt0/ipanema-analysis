@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:12:13 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:13:55 UTC
 
 
-## run_full.log (27 lines, last 60)
+## run_full.log (43 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
@@ -29,6 +29,22 @@ tracking frame 178800
   piece 17: p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
   piece 18: p15u-vs-vallentuna-2026-10-03-6cce_c018: 8992 frames, 19.4 players/frame
   piece 19: p15u-vs-vallentuna-2026-10-03-6cce_c019: 7971 frames, 16.2 players/frame
+  calibration check piece 4: {'mode': 'line calibration', 'trusted_pct': 55.0, 'i': 4}
+  calibration check piece 0: {'mode': 'line calibration', 'trusted_pct': 3.3, 'i': 0}
+  calibration check piece 1: {'mode': 'line calibration', 'trusted_pct': 56.0, 'i': 1}
+  calibration check piece 2: {'mode': 'line calibration', 'trusted_pct': 35.0, 'i': 2}
+  calibration check piece 3: {'mode': 'line calibration', 'trusted_pct': 72.0, 'i': 3}
+  calibration check piece 5: {'mode': 'line calibration', 'trusted_pct': 73.7, 'i': 5}
+  calibration check piece 6: {'mode': 'line calibration', 'trusted_pct': 72.0, 'i': 6}
+  calibration check piece 7: {'mode': 'line calibration', 'trusted_pct': 51.0, 'i': 7}
+  calibration check piece 8: {'mode': 'line calibration', 'trusted_pct': 55.3, 'i': 8}
+  calibration check piece 9: {'mode': 'line calibration', 'trusted_pct': 41.0, 'i': 9}
+  calibration check piece 10: {'mode': 'line calibration', 'trusted_pct': 55.7, 'i': 10}
+  calibration check piece 11: {'mode': 'line calibration', 'trusted_pct': 31.7, 'i': 11}
+  calibration check piece 12: {'mode': 'line calibration', 'trusted_pct': 29.4, 'i': 12}
+  calibration check piece 13: {'mode': 'line calibration', 'trusted_pct': 37.4, 'i': 13}
+  calibration check piece 14: {'mode': 'line calibration', 'trusted_pct': 28.0, 'i': 14}
+  calibration check piece 15: {'mode': 'line calibration', 'trusted_pct': 30.7, 'i': 15}
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
