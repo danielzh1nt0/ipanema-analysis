@@ -46,5 +46,6 @@
  "S6": "Sequences: stop the count flickering (one per spell of play)",
  "S3b": "Test if pasted balls make the ball finder better (free Kaggle training)",
  "B3b": "SoccerTrack ball labels, checked by our ball finder",
- "PC2": "PathCRF possession on our own footage (after one track per player)"
+ "PC2": "PathCRF possession on our own footage (after one track per player)",
+ "P2b": "Reymersholm whites vanish in tracking"
 }
