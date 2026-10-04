@@ -122,3 +122,16 @@ On the stats screen, the tab row (BALL · PRESSING · SHAPE · SHOOTING · PLAYE
    - Check: a pin should sit exactly at a player's feet in all four corners of the picture.
 4. **Shots without a position.** From now on shots have `x_m`/`y_m` = `null` until their origin is marked by eye. On the shot map, don't draw shots with a null position. Under the map write "8 shots · positions being added" (the count still includes them). Never place a null-position shot on the goal line.
 5. **"GK" labels:** show "GK" only where `players[].gk` is true. After tonight's data fix that is at most one player per team.
+
+---
+
+## 9. Monday 01:50: what Daniel still sees
+
+1. **The shot map reads an old file.** The app says "17 of 17 shots off the pitch, x_m −3 to 109". The files on the server (since Sun 23:30) have `x_m`/`y_m` = `null` for every shot.
+   - Bypass the cache: re-download `stats.json` and `match_data.json` when the match is opened (add `?v=<matches.updated_at>` to the file URL).
+   - Shots with null positions: list them in a simple **shot timeline** (minute, team, goal / on target), so there's still a visual. Show the pitch map only for shots that have `x_m`/`y_m`. Positions are being added by eye.
+2. **Don't hide anything.** Remove the notes "Pressing / Ball / Passes is still being verified for this match …". Show those tabs with their numbers for every match, with the Beta label (Daniel's decision, section 4).
+3. **The debrief quote "Press faster when we lose the ball."** appears on every match. Our data files never contain that text, so it comes from the app.
+   - Either build the debrief from this match's numbers, e.g. "We won the ball back within 5 s in X% of losses (opponent Y%)" using `teams[].regained_within_5s_pct`,
+   - or remove the quote.
+   - Never show the same fixed sentence on every match.
