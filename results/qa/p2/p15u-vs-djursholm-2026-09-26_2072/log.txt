@@ -12,3 +12,7 @@
 04:49:39   tracking frame 250 (0.6 frames/s)
 04:50:57   tracking frame 300 (0.6 frames/s)
 04:52:13   tracking frame 350 (0.6 frames/s)
+04:53:30   tracking frame 400 (0.6 frames/s)
+04:54:46   tracking frame 450 (0.6 frames/s)
+04:56:03   tracking frame 500 (0.6 frames/s)
+04:57:20   tracking frame 550 (0.6 frames/s)
