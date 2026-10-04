@@ -12,10 +12,15 @@ from . import lines as LN
 
 FB_PX = 15.0
 
+NOT_A_VETO = ("lines and paint", "forward/backward", "refine doubtful")
+
 def brave(q):
-    """the setting Daniel chose (25 Sep): forward/backward agree within 15 px; 'lines and paint disagree' is not a veto"""
+    """the setting Daniel chose (25 Sep): forward/backward agree within 15 px; 'lines and paint disagree' is not a veto.
+    4 Oct (C3, Vallentuna): 'refine doubtful' (the refined fit had a rival view or a high cost: long shadows, extra blue
+    lines) is not a veto either when forward and backward agree - 16/16 such rows drawn on the video sat on the real
+    lines, as well as the confident ones (results/kaggle/vall_calib_look). Coverage there 39% -> 60% of the rows."""
     return q.get("pose") is not None and (q.get("fwd_bwd_px") is None or q["fwd_bwd_px"] <= FB_PX) \
-        and all(w.startswith("lines and paint") or w.startswith("forward/backward") for w in q.get("why", []))
+        and all(w.startswith(NOT_A_VETO) for w in q.get("why", []))
 
 def homography(camera, pose, w, h, L=106.0, W=64.0):
     """exact, in double precision: pixel = K R (P - C) with P on z = 0  ->  H = K [r1 r2 | -R C]"""
