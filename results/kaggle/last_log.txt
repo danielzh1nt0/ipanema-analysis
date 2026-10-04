@@ -1,19 +1,18 @@
 kernel danielmatros/ipanema-goals-check
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
-  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
+  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
 Output file downloaded to results/kaggle/goals_check/g0_0.jpg
 Output file downloaded to results/kaggle/goals_check/g0_1.jpg
+Output file downloaded to results/kaggle/goals_check/g0_2.jpg
 Output file downloaded to results/kaggle/goals_check/g1_0.jpg
 Output file downloaded to results/kaggle/goals_check/g1_1.jpg
-Output file downloaded to results/kaggle/goals_check/g2_0.jpg
-Output file downloaded to results/kaggle/goals_check/g2_1.jpg
 Output file downloaded to results/kaggle/goals_check/result.json
 Kernel log downloaded to results/kaggle/goals_check/ipanema-goals-check.log
-  g0_0.jpg 819453
-  g0_1.jpg 682276
-  g1_0.jpg 703027
-  g1_1.jpg 560291
+  g0_0.jpg 828542
+  g0_1.jpg 821205
+  g0_2.jpg 724707
+  g1_0.jpg 767132
+  g1_1.jpg 681147
   g2_0.jpg 763257
   g2_1.jpg 721244
   ipanema-goals-check.log 868
