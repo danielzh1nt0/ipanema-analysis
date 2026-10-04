@@ -1,4 +1,4 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:01:16 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:02:51 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -6,6 +6,17 @@
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 4 first (CPU)
+
+## piece_004.log (9 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: from the line model, 67% of frames trusted (lines drawn); 2967 frames bridged or borrowed, no drawn lines
+  debug overlays -> /content/ipanema-analysis/results/debug
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.5 candidates/frame
+ball: RF-DETR + WASB guesses fused, 15.2/frame
+p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
 
 ## train_ball.log (1 lines, last 60)
 
