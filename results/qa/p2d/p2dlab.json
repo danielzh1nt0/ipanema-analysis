@@ -1,0 +1,446 @@
+{
+ "p09-norrviken-vs-solheim-2026-08-30_1856": {
+  "per frame A/B/neither/off old": [
+   7.0,
+   4.0,
+   3.0,
+   0.0
+  ],
+  "new": [
+   6.0,
+   4.0,
+   3.0,
+   1.0
+  ],
+  "people that change": 4,
+  "changes": [
+   "85: A->O",
+   "170: A->O",
+   "427: A->O",
+   "512: A->O"
+  ],
+  "frames with a side line": 5
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_2931": {
+  "per frame A/B/neither/off old": [
+   6.0,
+   7.0,
+   3.5,
+   3.0
+  ],
+  "new": [
+   6.0,
+   7.0,
+   3.5,
+   3.5
+  ],
+  "people that change": 1,
+  "changes": [
+   "598: A->O"
+  ],
+  "frames with a side line": 1
+ },
+ "p09-norrviken-vs-solheim-2026-08-30_5081": {
+  "per frame A/B/neither/off old": [
+   7.0,
+   6.5,
+   3.0,
+   4.0
+  ],
+  "new": [
+   7.0,
+   6.5,
+   3.0,
+   4.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-djursholm-2026-09-26_2072": {
+  "per frame A/B/neither/off old": [
+   8.0,
+   8.0,
+   4.0,
+   0.0
+  ],
+  "new": [
+   8.0,
+   8.0,
+   4.0,
+   0.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-djursholm-2026-09-26_3272": {
+  "per frame A/B/neither/off old": [
+   8.0,
+   9.5,
+   13.0,
+   0.0
+  ],
+  "new": [
+   8.0,
+   9.5,
+   13.0,
+   0.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-djursholm-2026-09-26_5072": {
+  "per frame A/B/neither/off old": [
+   6.0,
+   5.5,
+   5.0,
+   0.0
+  ],
+  "new": [
+   6.0,
+   5.5,
+   5.0,
+   0.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-reymersholm-2026-09-18_2227": {
+  "per frame A/B/neither/off old": [
+   8.0,
+   7.5,
+   3.5,
+   5.0
+  ],
+  "new": [
+   8.0,
+   7.5,
+   3.5,
+   5.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0,
+  "252 night key, side 0": {
+   "team right": "188/252",
+   "whites in white team": "76/115",
+   "whites neither/off": "17/115",
+   "greens in green team": "112/137",
+   "others kept out": "37/39"
+  },
+  "252 night key, side 1": {
+   "team right": "188/252",
+   "whites in white team": "76/115",
+   "whites neither/off": "17/115",
+   "greens in green team": "112/137",
+   "others kept out": "37/39"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_4227": {
+  "per frame A/B/neither/off old": [
+   5.5,
+   3.0,
+   1.5,
+   0.5
+  ],
+  "new": [
+   4.5,
+   3.0,
+   1.5,
+   1.5
+  ],
+  "people that change": 10,
+  "changes": [
+   "427: A->O",
+   "427: A->O",
+   "512: A->O",
+   "512: A->O",
+   "512: A->O",
+   "512: A->O",
+   "598: A->O",
+   "598: A->O",
+   "598: A->O",
+   "598: A->O"
+  ],
+  "frames with a side line": 3,
+  "88 labelled, old": {
+   "team right": "47/64",
+   "greens in green team": "22/24",
+   "greens in white team": "1/24",
+   "whites in white team": "25/40",
+   "whites in green team": "13/40",
+   "spectators/staff kept out": "0/11",
+   "keepers/referee not a team": "12/12",
+   "players dropped as off the pitch": "3/64"
+  },
+  "88 labelled, new": {
+   "team right": "47/64",
+   "greens in green team": "22/24",
+   "greens in white team": "1/24",
+   "whites in white team": "25/40",
+   "whites in green team": "13/40",
+   "spectators/staff kept out": "10/11",
+   "keepers/referee not a team": "12/12",
+   "players dropped as off the pitch": "3/64"
+  },
+  "252 night key, side 0": {
+   "team right": "204/252",
+   "whites in white team": "76/115",
+   "whites neither/off": "1/115",
+   "greens in green team": "128/137",
+   "others kept out": "26/39"
+  },
+  "252 night key, side 1": {
+   "team right": "204/252",
+   "whites in white team": "76/115",
+   "whites neither/off": "1/115",
+   "greens in green team": "128/137",
+   "others kept out": "28/39"
+  }
+ },
+ "p15u-vs-reymersholm-2026-09-18_726": {
+  "per frame A/B/neither/off old": [
+   8.0,
+   5.5,
+   0.5,
+   10.0
+  ],
+  "new": [
+   8.0,
+   5.5,
+   0.5,
+   10.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0,
+  "252 night key, side 0": {
+   "team right": "220/252",
+   "whites in white team": "89/115",
+   "whites neither/off": "2/115",
+   "greens in green team": "131/137",
+   "others kept out": "26/39"
+  },
+  "252 night key, side 1": {
+   "team right": "220/252",
+   "whites in white team": "89/115",
+   "whites neither/off": "2/115",
+   "greens in green team": "131/137",
+   "others kept out": "28/39"
+  }
+ },
+ "p15u-vs-spanga-2026-09-25_1159": {
+  "per frame A/B/neither/off old": [
+   9.5,
+   4.0,
+   3.5,
+   2.0
+  ],
+  "new": [
+   9.5,
+   4.0,
+   3.5,
+   2.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-spanga-2026-09-25_2576": {
+  "per frame A/B/neither/off old": [
+   10.5,
+   5.0,
+   1.0,
+   4.0
+  ],
+  "new": [
+   10.5,
+   5.0,
+   1.0,
+   4.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-spanga-2026-09-25_3994": {
+  "per frame A/B/neither/off old": [
+   6.0,
+   7.0,
+   0.0,
+   1.5
+  ],
+  "new": [
+   6.0,
+   7.0,
+   0.0,
+   1.5
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-vasalund-2026-09-20_1164": {
+  "per frame A/B/neither/off old": [
+   6.0,
+   6.5,
+   2.5,
+   10.5
+  ],
+  "new": [
+   6.0,
+   6.5,
+   2.5,
+   10.5
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-vasalund-2026-09-20_2113": {
+  "per frame A/B/neither/off old": [
+   5.5,
+   5.0,
+   1.0,
+   8.5
+  ],
+  "new": [
+   5.5,
+   5.0,
+   1.0,
+   8.5
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "p15u-vs-vasalund-2026-09-20_4012": {
+  "per frame A/B/neither/off old": [
+   6.5,
+   7.5,
+   2.5,
+   8.5
+  ],
+  "new": [
+   6.5,
+   7.5,
+   2.5,
+   8.5
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_1500": {
+  "per frame A/B/neither/off old": [
+   7.5,
+   7.0,
+   1.5,
+   14.5
+  ],
+  "new": [
+   7.5,
+   7.0,
+   1.5,
+   14.5
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_2723": {
+  "per frame A/B/neither/off old": [
+   7.5,
+   8.0,
+   1.5,
+   3.5
+  ],
+  "new": [
+   7.0,
+   8.0,
+   1.0,
+   4.5
+  ],
+  "people that change": 3,
+  "changes": [
+   "85: K->O",
+   "170: K->O",
+   "170: A->O"
+  ],
+  "frames with a side line": 2
+ },
+ "solberga-vs-p09-norrviken-2026-09-11_4558": {
+  "per frame A/B/neither/off old": [
+   7.5,
+   8.0,
+   2.0,
+   5.0
+  ],
+  "new": [
+   7.5,
+   8.0,
+   2.0,
+   5.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "kitprobe_p15u-vs-reymersholm-2026-09-18": {
+  "per frame A/B/neither/off old": [
+   6.5,
+   5.0,
+   1.0,
+   4.5
+  ],
+  "new": [
+   6.5,
+   5.0,
+   1.0,
+   4.5
+  ],
+  "people that change": 2,
+  "changes": [
+   "f09.jpg: B->O",
+   "f09.jpg: B->O"
+  ],
+  "frames with a side line": 1
+ },
+ "kitprobe_p15u-vs-spanga-2026-09-25": {
+  "per frame A/B/neither/off old": [
+   7.0,
+   6.0,
+   1.0,
+   2.0
+  ],
+  "new": [
+   7.0,
+   6.0,
+   1.0,
+   2.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ },
+ "kitprobe_SFKBP1109_s1200": {
+  "per frame A/B/neither/off old": [
+   6.0,
+   6.0,
+   2.0,
+   9.0
+  ],
+  "new": [
+   6.0,
+   6.0,
+   2.0,
+   9.0
+  ],
+  "people that change": 0,
+  "changes": [],
+  "frames with a side line": 0
+ }
+}

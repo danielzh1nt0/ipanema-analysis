@@ -38,6 +38,48 @@ def feet_on_pitch(frame, box, top=None, margin=0.011):
     x = int(min(len(t) - 1, max(0, (box[0] + box[2]) / 2)))
     return bool(box[3] - t[x] >= margin * frame.shape[0])
 
+def side_lines(frame, min_len=0.22, min_angle=35.0, max_beyond=0.2, max_band_grass=0.65, s=2):
+    """P2d (4 Oct): side touchlines, no calibration. Long, bright, colourless straight lines that are steep in the picture
+    (a side line, not the far line), with grass on the pitch side and only a small part of the pitch (< 20% of the grass
+    touching the frame's bottom) beyond them, and NOT mostly grass right beyond them (a band ~12-80 px past the line, within
+    the line's rows, must be < 65% grass: path, fence, net, bench). That last check is what tells a boundary from the
+    halfway line seen at the edge of the picture (players beyond it): beyond a halfway line it is 75-100% grass, beyond
+    Reymersholm 4227's boundary 21-61% (results/qa/p2d). Spectators / staff on the run-off strip by a side fence stand beyond such a
+    line on green ground, so the grass test and pitch_top keep them (Reymersholm 4227). Returns [(a, b, c, y0, y1)]:
+    a*x + b*y + c > 0 on the pitch side, y0..y1 = the line's rows in the picture."""
+    H, W = frame.shape[:2]; small = cv2.resize(frame, (W // s, H // s), interpolation=cv2.INTER_AREA); h, w = small.shape[:2]
+    lab = cv2.cvtColor(small, cv2.COLOR_BGR2LAB).astype(float); g = grass_lab(frame)
+    white = ((lab[..., 0] > g[0] + 35) & (np.abs(lab[..., 1] - 128) < 14) & (np.abs(lab[..., 2] - 128) < 20)).astype(np.uint8) * 255
+    grass = (np.hypot(lab[..., 1] - g[1], lab[..., 2] - g[2]) <= 14.0) & (lab[..., 0] >= 0.45 * g[0])
+    segs = cv2.HoughLinesP(white, 1, np.pi / 360, 60, minLineLength=int(min_len * h), maxLineGap=12)
+    if segs is None: return []
+    yy, xx = np.mgrid[0:h, 0:w]; gsum = max(1, int(grass.sum())); out = []
+    for x1, y1, x2, y2 in segs.reshape(-1, 4).astype(float):
+        if np.degrees(np.arctan2(abs(y2 - y1), abs(x2 - x1) + 1e-6)) < min_angle: continue
+        a, b = y2 - y1, x1 - x2; n = np.hypot(a, b); a, b = a / n, b / n; c = -(a * x1 + b * y1)
+        side = a * xx + b * yy + c > 0
+        if (grass & side).sum() < (grass & ~side).sum(): a, b, c = -a, -b, -c; side = ~side
+        if (grass & ~side).sum() / gsum > max_beyond: continue                    # too much pitch beyond: an inner line
+        t = np.linspace(0, 1, 25); px, py = x1 + t * (x2 - x1), y1 + t * (y2 - y1)
+        ins = [grass[int(min(h - 1, max(0, y + 8 * b))), int(min(w - 1, max(0, x + 8 * a)))] for x, y in zip(px, py)]
+        if np.mean(ins) < 0.6: continue                                          # no grass on the pitch side (fence wire, logo)
+        d = a * xx + b * yy + c; band = (d < -12) & (d > -80) & (yy >= min(y1, y2)) & (yy <= max(y1, y2))
+        if band.sum() == 0 or (grass & band).sum() / band.sum() >= max_band_grass: continue   # pitch continues: inner line
+        out.append((a, b, c * s, min(y1, y2) * s, max(y1, y2) * s))
+    return out
+
+def feet_inside_sides(box, lines, margin=0.006, H=1080, reach=0.15):
+    """P2d: False when the feet are beyond a side touchline by more than ~0.6% of the frame height (rows near the line's
+    picture span only, so a far extension does not drop anyone)."""
+    fx, fy = (box[0] + box[2]) / 2, box[3]
+    for a, b, c, y0, y1 in lines:
+        if y0 - reach * H <= fy <= y1 + reach * H and a * fx + b * fy + c < -margin * H: return False
+    return True
+
+def side_mode():
+    """P2d: IPANEMA_SIDE_LINES=1 (default) adds the side-touchline test to the uncalibrated off-pitch test; 0 = old"""
+    return os.environ.get("IPANEMA_SIDE_LINES", "1") == "1"
+
 def grass_lab(frame):
     """this pitch's grass colour: median Lab of the lower third of the frame (mostly pitch on the follow-cam)"""
     h = frame.shape[0]; lab = cv2.cvtColor(frame[int(0.66 * h):], cv2.COLOR_BGR2LAB).reshape(-1, 3)[::7].astype(float)
@@ -373,7 +415,8 @@ class KitTeamModel:
     def predict_batch(self, frame, xyxys):
         g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
         cls = getattr(self, "cls", None); lt = getattr(self, "light", "frame")
-        return ["O" if top is not None and not feet_on_pitch(frame, b, top) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None), light=lt), body_hist(frame, b, light=lt) if cls else None) for b in xyxys]
+        sl = side_lines(frame) if top is not None and side_mode() else []; H = frame.shape[0]
+        return ["O" if top is not None and (not feet_on_pitch(frame, b, top) or not feet_inside_sides(b, sl, H=H)) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None), light=lt), body_hist(frame, b, light=lt) if cls else None) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}

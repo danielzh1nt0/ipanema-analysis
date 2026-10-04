@@ -1,2 +1,2 @@
-tools/p2c_track.py
-# Sun Oct  4 13:29:07 UTC 2026 P2c: re-track Reymersholm 4227 with the kit classifier self-check (free, CPU)
+tools/p2d_track.py
+# Sun Oct  4 16:51:49 UTC 2026 P2d: re-track Reymersholm 4227 with the side-touchline test (free, CPU)
