@@ -184,6 +184,12 @@ def _ball_gt(S, match_id):
     return q if os.path.exists(q) else p
 
 
+def veo_in_window(t, duration_s, periods, slack_s=5.0):
+    """3 Oct: a Veo shot/goal counts only inside the analysed video and (when periods are set) inside a period +- slack.
+    SFK-BP: Veo's list had a 'goal' clip named 00:00:28 (before kick-off) and the second-half goals; a first-half cut must not show them."""
+    if t > duration_s: return False
+    return not periods or any(p["t_start"] - slack_s <= t <= p["t_end"] + slack_s for p in periods)
+
 def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     """from raw tracks + ball candidates to stats, events and the exported match (CPU)"""
     match_id, video, vi, H, L, W, cal, tm, per, fps, cands, t0 = (ctx[k] for k in ("match_id", "video", "vi", "H", "L", "W", "cal", "tm", "per", "fps", "cands", "t0"))
@@ -256,8 +262,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         if os.path.exists(vp):
             vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log)
             # 3 Oct: only shots inside the analysed video and its match periods (a first-half cut must not carry second-half goals)
-            _dur = len(per) / fps; _pers = ctx.get("periods") or []
-            _in = lambda t: t <= _dur and (not _pers or any(p["t_start"] - 5 <= t <= p["t_end"] + 5 for p in _pers))
+            _in = lambda t: veo_in_window(t, len(per) / fps, ctx.get("periods"))
             _drop = [x for x in vs if not _in(x["t"])]; vs = [x for x in vs if _in(x["t"])]
             if _drop: log(f"veo: {len(_drop)} shots/goals outside the analysed video or its periods left out ({sum(1 for x in _drop if x['goal'])} goals)")
             sc = VEO.score_detector(mx["shots"], vs)
