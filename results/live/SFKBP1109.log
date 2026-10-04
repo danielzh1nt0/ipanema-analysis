@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 16:44:56 UTC
+# live log · SFKBP1109 · running · 16:46:30 UTC
 
 
-## run_full.log (29 lines, last 60)
+## run_full.log (39 lines, last 60)
 === SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -31,6 +31,16 @@ clean: players per frame median A 6 / B 6, max A 16 / B 14
 players: 12123 short gaps filled (marked 'filled' in the export)
 ball v2: 72768/98902 frames on the path, 4686 static-clutter candidates dropped
 ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
+ball: dropped 4005 static-clutter candidates
+ball (global path): 66729/98902 frames on the chosen path
+ball check (other picker, v1): 17/34 correct, ceiling 33/34
+ball: dropped 4005 static-clutter candidates
+ball (global path): 66729/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 23/59, other 10/59, ceiling 28
+ball: dropped 4005 static-clutter candidates
+ball (global path): 66729/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 53/134, other 31/134, ceiling 59
+possession: simple model (nearest feet in the picture); 46% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
 
 ## train_ball.log (1 lines, last 60)
 
