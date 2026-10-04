@@ -1,4 +1,4 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:07:17 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 04:08:50 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -6,6 +6,9 @@
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 4 first (CPU)
+
+## piece_004.log (1 lines, last 60)
+=== p15u-vs-vallentuna-2026-10-03-6cce_c004 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
 
 ## train_ball.log (1 lines, last 60)
 
