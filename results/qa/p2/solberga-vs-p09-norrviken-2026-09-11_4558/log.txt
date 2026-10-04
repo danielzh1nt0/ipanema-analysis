@@ -16,3 +16,7 @@
 06:18:50   tracking frame 450 (0.7 frames/s)
 06:20:06   tracking frame 500 (0.7 frames/s)
 06:21:22   tracking frame 550 (0.7 frames/s)
+06:22:34 clean: removed 1033 rows of non-team kits (referee / staff)
+06:22:34 clean: dropped 0 off-pitch, merged 28 duplicates, stitched 16 ids, keepers [70] -> B defends left
+06:22:34 clean: players per frame median A 7 / B 8, max A 9 / B 13
+06:22:34 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 51, 'median_track_s': {'dark': 2.54, 'light': 3.4}, 'minutes': 16.6, 'filled_rows': 40}
