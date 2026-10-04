@@ -14,3 +14,8 @@ join of each match (CPU, cents); the demo halves in the app were not re-exported
 Real run (4 Oct, pieces re-prepared as v5, CPU 7 min): calibration coverage 0.43 -> 0.70, frozen frames 102,157 -> 53,574;
 players/possession unchanged (A 4 / B 5 per frame, 34/66). Still FAIL against the 0.95 bar; the remaining 30% are rows that
 disagree forward/backward or have no anchor (fast pans, zoom) - next step would be a Vallentuna-specific line model check.
+
+## C3b look (4 Oct): bridging 3-9 s gaps by sliding the camera between the confident rows
+16 gap midpoints drawn (results/kaggle/vall_bridge_look): about 7 sit on the lines, 9 are clearly off (40-100 px, centre
+circle drawn in the trees in two). The camera does not move smoothly enough during these pans/zooms, so the 2-s limit for
+"trusted" bridges stays. The remaining 30% needs line fits inside the gaps (the line model on that ground), not interpolation.
