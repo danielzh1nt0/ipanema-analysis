@@ -2,26 +2,26 @@
  "p15u-vs-reymersholm-2026-09-18": {
   "shade spread": 1.54,
   "frame": {
-   "team right": 239,
+   "team right": 238,
    "of": 252,
-   "wrong team": 11,
-   "players called neither": 2,
-   "others kept out": "29/39"
+   "wrong team": 13,
+   "players called neither": 1,
+   "others kept out": "24/39"
   },
   "local": {
-   "team right": 231,
+   "team right": 233,
    "of": 252,
-   "wrong team": 20,
-   "players called neither": 1,
-   "others kept out": "29/39"
+   "wrong team": 19,
+   "players called neither": 0,
+   "others kept out": "21/39"
   },
   "light chosen by auto": "frame",
   "auto": {
-   "team right": 239,
+   "team right": 238,
    "of": 252,
-   "wrong team": 11,
-   "players called neither": 2,
-   "others kept out": "29/39"
+   "wrong team": 13,
+   "players called neither": 1,
+   "others kept out": "24/39"
   },
   "people that change": 0,
   "people": 414,
@@ -30,26 +30,26 @@
  "p15u-vs-spanga-2026-09-25": {
   "shade spread": 1.96,
   "frame": {
-   "team right": 233,
+   "team right": 242,
    "of": 279,
-   "wrong team": 15,
-   "players called neither": 31,
-   "others kept out": "16/32"
+   "wrong team": 12,
+   "players called neither": 25,
+   "others kept out": "13/32"
   },
   "local": {
-   "team right": 229,
+   "team right": 243,
    "of": 279,
-   "wrong team": 9,
-   "players called neither": 41,
-   "others kept out": "13/32"
+   "wrong team": 12,
+   "players called neither": 24,
+   "others kept out": "14/32"
   },
   "light chosen by auto": "frame",
   "auto": {
-   "team right": 233,
+   "team right": 242,
    "of": 279,
-   "wrong team": 15,
-   "players called neither": 31,
-   "others kept out": "16/32"
+   "wrong team": 12,
+   "players called neither": 25,
+   "others kept out": "13/32"
   },
   "people that change": 0,
   "people": 430,
@@ -63,22 +63,22 @@
  "p15u-vs-aik-2026-09-21-bd09": {
   "frame": {
    "per frame on the pitch (A dark, B light, K neither)": {
-    "A": 5.1,
-    "B": 3.63,
-    "K": 4.77
+    "A": 6.33,
+    "B": 4.87,
+    "K": 2.3
    },
    "groups": [
-    49,
-    38,
-    22,
-    19
+    46,
+    32,
+    29,
+    21
    ],
    "key": {
-    "team right": 130,
+    "team right": 221,
     "of": 254,
-    "wrong team": 29,
-    "players called neither": 95,
-    "others kept out": "39/120"
+    "wrong team": 9,
+    "players called neither": 24,
+    "others kept out": "41/120"
    }
   },
   "local": {
@@ -123,15 +123,14 @@
     "others kept out": "34/120"
    }
   },
-  "people that change": 370,
+  "people that change": 123,
   "people": 678,
   "change kinds": {
-   "A->B": 25,
-   "A->K": 30,
-   "B->A": 91,
-   "B->K": 28,
-   "K->A": 10,
-   "K->B": 186
+   "A->B": 22,
+   "A->K": 19,
+   "B->K": 33,
+   "K->A": 18,
+   "K->B": 31
   }
  }
 }

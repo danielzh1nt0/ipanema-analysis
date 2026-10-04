@@ -62,6 +62,8 @@ def local_grass_L(frame, box, grass=None, hue_d=30.0, min_chroma=0.35, min_px=40
 LOCAL_REF_L = 110.0     # F1c: grass lightness every reading is brought to (a fixed value, so frames that are mostly shade
                         # and frames that are mostly sun give the same number for the same shirt)
 
+HUE_NEAR = 0.5
+HUE_KEEP = 15.0        # 4 Oct: a*b* gap between the two kits from which colour (not lightness) decides a doubtful person
 SHADE_SPREAD = 2.4     # F1c auto gate: p90/p10 of (grass at the feet / frame grass) over the fitting people
 
 def light_mode():
@@ -245,7 +247,17 @@ def classify(model, f, other_factor=2.0):
         sa, sb = [max(8.0, other_factor * x) for x in model["spreads"]]
         if da > sa and db > sb: return "other"
         return "A" if (da / sa if da > sa or db > sb else da) <= (db / sb if da > sa or db > sb else db) else "B"
-    if min(da, db) > max(8.0, other_factor * model["spread"]): return "other"
+    if min(da, db) > max(8.0, other_factor * model["spread"]):
+        # 4 Oct (Vallentuna, red vs black in hard sun): a sun-washed red shirt is far from both centres in lightness but
+        # still red. When the two kits differ clearly in colour (a*b* gap >= HUE_KEEP), a person whose colour is near one
+        # kit (within half the gap) joins it whatever the lightness. Black-vs-white matches (no colour gap) are untouched.
+        if os.environ.get("IPANEMA_KIT_HUE", "1") == "1" and model.get("light") == "local":     # hard sun + shade only
+            gap = float(np.linalg.norm(np.asarray(ta)[1:3] - np.asarray(tb)[1:3]))
+            if gap >= HUE_KEEP:
+                ha, hb = np.linalg.norm(np.asarray(f)[1:3] - np.asarray(ta)[1:3]), np.linalg.norm(np.asarray(f)[1:3] - np.asarray(tb)[1:3])
+                k, hk, tk = ("A", ha, ta) if ha <= hb else ("B", hb, tb)
+                if hk <= HUE_NEAR * gap and f[0] >= tk[0]: return k           # brighter than that kit (sun), same colour
+        return "other"
     return "A" if da <= db else "B"
 
 class KitTeamModel:
@@ -281,8 +293,13 @@ class KitTeamModel:
         # When it keeps less than this share, use the pitch-edge test instead. Other grounds keep 43-88% -> unchanged.
         fb_min = float(os.environ.get("IPANEMA_PITCH_FALLBACK", "0.35"))
         if pitch_only and pitch_test == "grass" and fb_min > 0 and (kept or dropped) and len(kept) / (len(kept) + dropped) < fb_min:
-            log(f"kits: grass test keeps only {len(kept)} of {len(kept) + dropped} people -> pitch-edge test instead")
-            dropped, kept = sample("edge"); self.pitch_test = "edge (fallback)"
+            # 4 Oct: only for evenly lit grounds (night). Vallentuna (hard sun + shade, spread 2.4-2.6) also keeps just 20% in
+            # the grass test, and the edge test there lets the bench and spectators in and the fit became sun vs shade.
+            sp = shade_spread([(f, b, grass_lab(f)) for f, bs in frames_boxes for b in bs if b[3] - b[1] >= 22])
+            if sp < SHADE_SPREAD:
+                log(f"kits: grass test keeps only {len(kept)} of {len(kept) + dropped} people (shade spread {sp:.1f}) -> pitch-edge test instead")
+                dropped, kept = sample("edge"); self.pitch_test = "edge (fallback)"
+            else: log(f"kits: grass test keeps only {len(kept)} of {len(kept) + dropped} people, but the light is uneven (shade spread {sp:.1f}): grass test kept")
         auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
         # F1c (2 Oct): in hard sun + shade read lightness relative to the grass at the feet (AIK full: 130 -> 234/254
         # players in the right team); night and even-light grounds stay on the old reading (gate below 2.4)
@@ -306,7 +323,7 @@ class KitTeamModel:
             with np.errstate(all="ignore"): self.pair_shift = round(max(_team_shift(m, fit(X, pair="far")), _team_shift(fit(Xm, pair="big"), fit(Xm, pair="far")) if len(Xm) >= 8 else 0.0), 1)
             if (self.choice_missed >= missed_max or self.pair_shift > shift_max) and len(Xm) >= 8:
                 mf = fit(Xm, pair="far"); self.choice["far/mean"] = share(mf, smm); best = (None, mf, smm, "mean", "far")
-        _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]
+        _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]; self.model["light"] = self.light
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
         self.cls = []

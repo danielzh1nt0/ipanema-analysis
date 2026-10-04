@@ -36,3 +36,11 @@ def test_fallback_off(monkeypatch):
     _patch(monkeypatch, 4); monkeypatch.setenv("IPANEMA_PITCH_FALLBACK", "0")
     m = K.KitTeamModel().fit_frames(_frames(np.random.default_rng(0)), log=lambda *a: None, player_cls=False)
     assert m.pitch_test == "grass" and len(m.samples) == 6 * 4
+
+def test_no_fallback_in_hard_sun(monkeypatch):
+    """4 Oct, Vallentuna: the grass test keeps 20% there too, but the light is uneven (sun + shade) and the edge test let the
+    bench in and the fit became sun vs shade. Uneven light -> grass test kept."""
+    _patch(monkeypatch, 4); monkeypatch.delenv("IPANEMA_PITCH_FALLBACK", raising=False); logs = []
+    monkeypatch.setattr(K, "shade_spread", lambda kept: 2.6)
+    m = K.KitTeamModel().fit_frames(_frames(np.random.default_rng(0)), log=logs.append, player_cls=False)
+    assert m.pitch_test == "grass" and any("light is uneven" in l for l in logs)
