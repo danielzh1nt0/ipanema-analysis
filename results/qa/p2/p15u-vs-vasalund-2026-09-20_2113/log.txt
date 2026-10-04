@@ -8,3 +8,7 @@
 05:00:55   tracking frame 50 (0.6 frames/s)
 05:02:12   tracking frame 100 (0.6 frames/s)
 05:03:28   tracking frame 150 (0.6 frames/s)
+05:04:44   tracking frame 200 (0.7 frames/s)
+05:06:01   tracking frame 250 (0.7 frames/s)
+05:07:18   tracking frame 300 (0.7 frames/s)
+05:08:34   tracking frame 350 (0.7 frames/s)
