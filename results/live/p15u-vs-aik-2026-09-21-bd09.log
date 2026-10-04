@@ -1,4 +1,4 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:04:00 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:05:34 UTC
 
 
 ## run_full.log (4 lines, last 60)
@@ -6,6 +6,15 @@
 calibration: from the clip's own camera
 pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
 canary: piece 2 first (CPU)
+
+## piece_002.log (7 lines, last 60)
+=== p15u-vs-aik-2026-09-21-bd09_c002 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
+video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+calibration: panorama registration cached (8992 frames)
+calibration: from panorama, 8992/8992 frames registered
+players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+tracking: RF-DETR tracks re-positioned with this calibration
+ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.8 candidates/frame
 
 ## train_ball.log (1 lines, last 60)
 
