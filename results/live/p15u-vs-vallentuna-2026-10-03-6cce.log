@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:10:11 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 12:12:01 UTC
 
 
-## run_full.log (40 lines, last 60)
+## run_full.log (58 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
@@ -42,6 +42,24 @@ players: 29865 short gaps filled (marked 'filled' in the export)
 ball v2: 140650/178800 frames on the path, 608 static-clutter candidates dropped
 ball: dropped 494 static-clutter candidates
 ball (global path): 114411/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 50% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.09 / B 0.01  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1144 -> 150 (1.5 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (3 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (8 s since the last step)
+  step: metrics (14 s since the last step)
+ball grade: accuracy None, near-player 0.47, possession withheld, events withheld
+ball reliability: 86% frames, 47% near a player, 29198 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (12 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 20 frame files (every 3 frames, 300 s each, largest 5.6 MB)
+  wrote match_data.json (0.8 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1236 events) · library.json updated · zip None
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
