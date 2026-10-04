@@ -1,0 +1,19 @@
+{
+ "new, RF-DETR": {
+  "observed_per_frame": {
+   "dark": 12.0,
+   "light": 1.0
+  },
+  "shown_per_frame": {
+   "dark": 13.0,
+   "light": 1.0
+  },
+  "tracks": 28,
+  "median_track_s": {
+   "dark": 7.86,
+   "light": 11.43
+  },
+  "minutes": 16.7,
+  "filled_rows": 72
+ }
+}
