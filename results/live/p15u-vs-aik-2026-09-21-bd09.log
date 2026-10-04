@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 10:24:34 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 10:26:08 UTC
 
 
-## run_full.log (33 lines, last 60)
+## run_full.log (56 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -35,6 +35,29 @@ ball: dropped 2388 static-clutter candidates
 ball (global path): 70580/98902 frames on the chosen path
 ball check (other picker, v1): 13/39 correct, ceiling 39/39
 ball: dropped 2388 static-clutter candidates
+ball (global path): 70580/98902 frames on the chosen path
+picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09, 62 frames; detection is optimistic here, the pick is the fair part): v2 18/62, other 9/62, ceiling 26
+possession: simple model (nearest feet in the picture); 42% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A ←  B →  confidence A 0.02 / B 0.01  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1015 -> 105 (1.9 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (3 s since the last step)
+  step: shapes (0 s since the last step)
+  step: stats (7 s since the last step)
+  step: metrics (14 s since the last step)
+veo: 30 shots incl. 7 goals imported; 0 goal tag(s) rejected; team from the ball for 16, from the players for 0, unknown for 14
+veo: 14 shots/goals outside the analysed video or its periods left out (5 goals)
+our shot detector vs Veo: found 0/16 of Veo's shots, 0/4 of ours are real (within 10 s)
+ball grade: accuracy 0.67, near-player 0.5, possession OK, events withheld
+ball reliability: 87% frames, 50% near a player, 20726 jumps -> OK
+  step: export (10 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 12 frame files (every 3 frames, 300 s each, largest 6.3 MB)
+  wrote match_data.json (0.6 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09 (889 events) · library.json updated · zip None
 
 ## train_ball.log (1 lines, last 60)
 
