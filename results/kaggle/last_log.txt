@@ -1,25 +1,89 @@
-kernel danielmatros/ipanema-vall-goals-fine
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-goals-fine
-  0.5 min: danielmatros/ipanema-vall-goals-fine has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-vall-goals-fine has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_goals_fine/goal0_00.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal0_01.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal1_00.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal1_01.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal2_00.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal2_01.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal2_02.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/goal2_03.jpg
-Output file downloaded to results/kaggle/vall_goals_fine/result.json
-Kernel log downloaded to results/kaggle/vall_goals_fine/ipanema-vall-goals-fine.log
-  goal0_00.jpg 535639
-  goal0_01.jpg 379786
-  goal1_00.jpg 513366
-  goal1_01.jpg 73449
-  goal2_00.jpg 700077
-  goal2_01.jpg 687952
-  goal2_02.jpg 620939
-  goal2_03.jpg 65696
-  ipanema-vall-goals-fine.log 1069
-  result.json 51
-  run.json 164
+kernel danielmatros/ipanema-vall-who
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-who
+  0.5 min: danielmatros/ipanema-vall-who has status "KernelWorkerStatus.RUNNING"
+  1.0 min: danielmatros/ipanema-vall-who has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_who/result.json
+Output file downloaded to results/kaggle/vall_who/w00.jpg
+Output file downloaded to results/kaggle/vall_who/w01.jpg
+Output file downloaded to results/kaggle/vall_who/w02.jpg
+Output file downloaded to results/kaggle/vall_who/w03.jpg
+Output file downloaded to results/kaggle/vall_who/w04.jpg
+Output file downloaded to results/kaggle/vall_who/w05.jpg
+Output file downloaded to results/kaggle/vall_who/w06.jpg
+Output file downloaded to results/kaggle/vall_who/w07.jpg
+Output file downloaded to results/kaggle/vall_who/w08.jpg
+Output file downloaded to results/kaggle/vall_who/w09.jpg
+Output file downloaded to results/kaggle/vall_who/w10.jpg
+Output file downloaded to results/kaggle/vall_who/w11.jpg
+Output file downloaded to results/kaggle/vall_who/w12.jpg
+Output file downloaded to results/kaggle/vall_who/w13.jpg
+Output file downloaded to results/kaggle/vall_who/w14.jpg
+Output file downloaded to results/kaggle/vall_who/w15.jpg
+Output file downloaded to results/kaggle/vall_who/w16.jpg
+Output file downloaded to results/kaggle/vall_who/w17.jpg
+Output file downloaded to results/kaggle/vall_who/w18.jpg
+Output file downloaded to results/kaggle/vall_who/w19.jpg
+Output file downloaded to results/kaggle/vall_who/w20.jpg
+Output file downloaded to results/kaggle/vall_who/w21.jpg
+Output file downloaded to results/kaggle/vall_who/w22.jpg
+Output file downloaded to results/kaggle/vall_who/w23.jpg
+Output file downloaded to results/kaggle/vall_who/w24.jpg
+Output file downloaded to results/kaggle/vall_who/w25.jpg
+Output file downloaded to results/kaggle/vall_who/w26.jpg
+Output file downloaded to results/kaggle/vall_who/w27.jpg
+Output file downloaded to results/kaggle/vall_who/w28.jpg
+Output file downloaded to results/kaggle/vall_who/w29.jpg
+Output file downloaded to results/kaggle/vall_who/w30.jpg
+Output file downloaded to results/kaggle/vall_who/w31.jpg
+Output file downloaded to results/kaggle/vall_who/w32.jpg
+Output file downloaded to results/kaggle/vall_who/w33.jpg
+Output file downloaded to results/kaggle/vall_who/w34.jpg
+Output file downloaded to results/kaggle/vall_who/w35.jpg
+Output file downloaded to results/kaggle/vall_who/w36.jpg
+Output file downloaded to results/kaggle/vall_who/w37.jpg
+Output file downloaded to results/kaggle/vall_who/w38.jpg
+Output file downloaded to results/kaggle/vall_who/w39.jpg
+Kernel log downloaded to results/kaggle/vall_who/ipanema-vall-who.log
+  ipanema-vall-who.log 3251
+  result.json 48
+  run.json 150
+  w00.jpg 400885
+  w01.jpg 391933
+  w02.jpg 202874
+  w03.jpg 303797
+  w04.jpg 289897
+  w05.jpg 415529
+  w06.jpg 420741
+  w07.jpg 418240
+  w08.jpg 373112
+  w09.jpg 348972
+  w10.jpg 280991
+  w11.jpg 343247
+  w12.jpg 385219
+  w13.jpg 383512
+  w14.jpg 291487
+  w15.jpg 407823
+  w16.jpg 268998
+  w17.jpg 268801
+  w18.jpg 409023
+  w19.jpg 231717
+  w20.jpg 246744
+  w21.jpg 223164
+  w22.jpg 354331
+  w23.jpg 283095
+  w24.jpg 355195
+  w25.jpg 402500
+  w26.jpg 274789
+  w27.jpg 188434
+  w28.jpg 363319
+  w29.jpg 392750
+  w30.jpg 266024
+  w31.jpg 402263
+  w32.jpg 410048
+  w33.jpg 374006
+  w34.jpg 401125
+  w35.jpg 258754
+  w36.jpg 282054
+  w37.jpg 308254
+  w38.jpg 207163
+  w39.jpg 264515
