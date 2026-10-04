@@ -1,125 +1,42 @@
-kernel danielmatros/ipanema-vall-goals-ball
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-goals-ball
-  0.5 min: danielmatros/ipanema-vall-goals-ball has status "KernelWorkerStatus.RUNNING"
-  1.5 min: danielmatros/ipanema-vall-goals-ball has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_goals_ball/b00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b03.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b04.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b05.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b06.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b07.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b08.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b09.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b10.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b11.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b12.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b13.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b14.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b15.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b16.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b17.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b18.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b19.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b20.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b21.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b22.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b23.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b24.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b25.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b26.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b27.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b28.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b29.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b30.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b31.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b32.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b33.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b34.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b35.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b36.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b37.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b38.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/b39.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal0_00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal0_01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal0_02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal1_00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal1_01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal1_02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal2_00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal2_01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal2_02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal3_00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal3_01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal3_02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_00.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_01.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_02.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_03.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_04.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/goal4_05.jpg
-Output file downloaded to results/kaggle/vall_goals_ball/result.json
-Kernel log downloaded to results/kaggle/vall_goals_ball/ipanema-vall-goals-ball.log
-  b00.jpg 507788
-  b01.jpg 400802
-  b02.jpg 434346
-  b03.jpg 456522
-  b04.jpg 476521
-  b05.jpg 518949
-  b06.jpg 432583
-  b07.jpg 397565
-  b08.jpg 437513
-  b09.jpg 540518
-  b10.jpg 509297
-  b11.jpg 527782
-  b12.jpg 378703
-  b13.jpg 484025
-  b14.jpg 425652
-  b15.jpg 421421
-  b16.jpg 529446
-  b17.jpg 452700
-  b18.jpg 522771
-  b19.jpg 493925
-  b20.jpg 470137
-  b21.jpg 356440
-  b22.jpg 427379
-  b23.jpg 537154
-  b24.jpg 464564
-  b25.jpg 355141
-  b26.jpg 440435
-  b27.jpg 517895
-  b28.jpg 388556
-  b29.jpg 365514
-  b30.jpg 439376
-  b31.jpg 524091
-  b32.jpg 525709
-  b33.jpg 341744
-  b34.jpg 534649
-  b35.jpg 326507
-  b36.jpg 449184
-  b37.jpg 427617
-  b38.jpg 510181
-  b39.jpg 524906
-  goal0_00.jpg 632204
-  goal0_01.jpg 729612
-  goal0_02.jpg 300586
-  goal1_00.jpg 502952
-  goal1_01.jpg 567493
-  goal1_02.jpg 291925
-  goal2_00.jpg 657397
-  goal2_01.jpg 576576
-  goal2_02.jpg 360124
-  goal3_00.jpg 755886
-  goal3_01.jpg 738314
-  goal3_02.jpg 370728
-  goal4_00.jpg 627064
-  goal4_01.jpg 594861
-  goal4_02.jpg 575180
-  goal4_03.jpg 652790
-  goal4_04.jpg 621006
-  goal4_05.jpg 269927
-  ipanema-vall-goals-ball.log 1213
-  result.json 52
-  run.json 164
+kernel danielmatros/ipanema-vall-bridge-look
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-bridge-look
+  0.5 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.RUNNING"
+  2.6 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_bridge_look/r00_bridge 4s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r01_bridge 5s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r02_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r03_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r04_bridge 4s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r05_bridge 4s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r06_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r07_bridge 5s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r08_bridge 5s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r09_bridge 5s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r10_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r11_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r12_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r13_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r14_bridge 4s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/r15_bridge 3s.jpg
+Output file downloaded to results/kaggle/vall_bridge_look/result.json
+Kernel log downloaded to results/kaggle/vall_bridge_look/ipanema-vall-bridge-look.log
+  ipanema-vall-bridge-look.log 875
+  r00_bridge 4s.jpg 123604
+  r01_bridge 5s.jpg 147202
+  r02_bridge 3s.jpg 193971
+  r03_bridge 3s.jpg 171620
+  r04_bridge 4s.jpg 151886
+  r05_bridge 4s.jpg 138323
+  r06_bridge 3s.jpg 121703
+  r07_bridge 5s.jpg 137878
+  r08_bridge 5s.jpg 179793
+  r09_bridge 5s.jpg 145547
+  r10_bridge 3s.jpg 191373
+  r11_bridge 3s.jpg 187727
+  r12_bridge 3s.jpg 162777
+  r13_bridge 3s.jpg 164740
+  r14_bridge 4s.jpg 135903
+  r15_bridge 3s.jpg 171680
+  result.json 26
+  run.json 166
