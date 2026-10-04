@@ -1,46 +1,67 @@
-# live log · SFKBP1109 · running · 16:07:31 UTC
+# live log · SFKBP1109 · finished · 16:08:44 UTC
 
 
-## run_full.log (39 lines, last 60)
-=== SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
-calibration: from the clip's own camera
-pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
-canary: piece 2 first (CPU)
-canary passed: calibration from the line model, 20.0 players per frame
-pieces: 11/11 done in 6.9 min
-tracking frame 98902
-  piece 00: SFKBP1109_c000: 8992 frames, 21.3 players/frame
-  piece 01: SFKBP1109_c001: 8992 frames, 28.4 players/frame
-  piece 02: SFKBP1109_c002: 8992 frames, 20.0 players/frame
-  piece 03: SFKBP1109_c003: 8992 frames, 17.2 players/frame
-  piece 04: SFKBP1109_c004: 8992 frames, 20.9 players/frame
-  piece 05: SFKBP1109_c005: 8992 frames, 20.7 players/frame
-  piece 06: SFKBP1109_c006: 8992 frames, 20.8 players/frame
-  piece 07: SFKBP1109_c007: 8992 frames, 19.6 players/frame
-  piece 08: SFKBP1109_c008: 8992 frames, 18.6 players/frame
-  piece 09: SFKBP1109_c009: 8992 frames, 19.5 players/frame
-  piece 10: SFKBP1109_c010: 8992 frames, 17.4 players/frame
-periods: [(554.99, 3059.99)] s; 41 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
-calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
-ball check: 40 held-out test frames mapped into the full match
-clean: 66 still people by the lines dropped (bench, coaches)
-clean: keeper (left) from a non-team kit: track 900838, 515 frames
-clean: keeper (right) from a non-team kit: track 300055, 1094 frames
-clean: removed 183473 rows of non-team kits (referee / staff)
-clean: dropped 218965 off-pitch, merged 8907 duplicates, stitched 2429 ids, keepers [200107, 200125, 200129, 200145, 200173, 200181, 200180, 200182, 200194, 200225, 200232, 200247, 200259, 200274, 200284, 200303, 200305, 200485, 200776, 200921, 201012, 300029, 300139, 300177, 300249, 300274, 300323, 300532, 300684, 300798, 300872, 400172, 400381, 400485, 400551, 400556, 400576, 400628, 400762, 400775, 400779, 400780, 400945, 500058, 500171, 500183, 500187, 500191, 500196, 500216, 500423, 500774, 600084, 600147, 600181, 600313, 600479, 600480, 600481, 600488, 600494, 600495, 600501, 600515, 600519, 600523, 600533, 600535, 600547, 600553, 600554, 600559, 600870, 600937, 600985, 700002, 700003, 700007, 700008, 700005, 700021, 700022, 700119, 700181, 700308, 700374, 700595, 700655, 700734, 700822, 700875, 700917, 700949, 700951, 700954, 700975, 700978, 700979, 700982, 700983, 700991, 700992, 800012, 800021, 800104, 800188, 800290, 800297, 800300, 800310, 800312, 800314, 800317, 800327, 800337, 800342, 800344, 800346, 800360, 800377, 800530, 800603, 800607, 800609, 900125, 900166, 900260, 900265, 900284, 900282, 900286, 900287, 900297, 900319, 900527, 900642, 900691, 900910, 1000046, 1000116, 1000120] -> A defends left
-clean: players per frame median A 6 / B 6, max A 16 / B 14
-players: 12123 short gaps filled (marked 'filled' in the export)
-ball v2: 72768/98902 frames on the path, 4686 static-clutter candidates dropped
-ball check: 28/34 correct, 6 wrong, 0 no pick (ceiling 33/34)
+## run_full.log (97 lines, last 60)
 ball: dropped 4005 static-clutter candidates
 ball (global path): 66729/98902 frames on the chosen path
-ball check (other picker, v1): 17/34 correct, ceiling 33/34
-ball: dropped 4005 static-clutter candidates
-ball (global path): 66729/98902 frames on the chosen path
-picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 23/59, other 10/59, ceiling 28
-ball: dropped 4005 static-clutter candidates
-ball (global path): 66729/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 53/134, other 31/134, ceiling 59
+possession: simple model (nearest feet in the picture); 46% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.05 / B 0.06  WARNING low confidence
+direction: from reference labels -> A ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 879 -> 124 (2.3 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (3 s since the last step)
+  step: shapes (0 s since the last step)
+  step: stats (5 s since the last step)
+  step: metrics (10 s since the last step)
+veo: 25 shots incl. 4 goals imported; 0 goal tag(s) rejected; team from the ball for 7, from the players for 0, unknown for 18
+veo: 18 shots/goals outside the analysed video or its periods left out (3 goals)
+our shot detector vs Veo: found 1/7 of Veo's shots, 1/25 of ours are real (within 10 s)
+ball grade: accuracy 0.82, near-player 0.5, possession OK, events withheld
+ball reliability: 76% frames, 50% near a player, 18376 jumps -> OK
+  step: export (7 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 12 frame files (every 3 frames, 300 s each, largest 6.9 MB)
+  wrote match_data.json (0.5 MB)
+export: /data/match_analysis/runs/matches/SFKBP1109 (799 events) · library.json updated · zip None
+upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, thumb)
+
+--- SUMMARY ---
+  match_id                   SFKBP1109
+  ball_reliable              True
+  ball_grade                 {'accuracy': 0.82, 'near_player_pct': 0.5, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  duration_s                 3300.0
+  calibration_coverage       0.9
+  calibration_frozen         10075
+  team_dark_share            {'A': 0.2, 'B': 0.86}
+  players_per_frame_median   {'A': 7.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              2505.0
+  periods                    [{'index': 1, 't_start': 554.99, 't_end': 3059.99, 'mirrored': False}]
+  ball_check                 {'correct': 28, 'total': 34, 'wrong': 6, 'ceiling': 33}
+  possession_pct             {'A': 46, 'B': 54}
+  loose_pct                  46
+  dead_pct                   15
+  possession_model           simple
+  attack_right               {'A': False, 'B': True}
+  direction_confidence       {'A': 0.05, 'B': 0.06}
+  turnovers                  152
+  passes                     685
+  restarts                   65
+  sequences                  252
+  shots                      {'A': 3, 'B': 4}
+  goals                      {'A': 1, 'B': 0}
+  high_turnovers             {'A': 29, 'B': 20}
+  field_tilt                 {'A': 42, 'B': 34}
+  runtime_min                9.9
+QA PASS: pieces processed (11/11)
+QA FAIL: calibration (coverage 0.9)
+QA PASS: players per frame (A 7.0 + B 7.0)
+QA PASS: team balance (A 7.0 vs B 7.0)
+QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})
+QA PASS: match time (2505.0 s of 3300 s)
 
 ## piece_000.log (9 lines, last 60)
 === SFKBP1109_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
