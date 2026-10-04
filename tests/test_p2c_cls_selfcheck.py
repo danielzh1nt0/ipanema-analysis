@@ -3,7 +3,8 @@ to the other team (Reymersholm 4227, Spånga 2576: it had learned something else
 with clear colour readings is kept."""
 import numpy as np
 from ipanema import kits as K
-from tests.test_p2b_pitch_fallback import _frames
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from test_p2b_pitch_fallback import _frames
 
 def _patch(monkeypatch, invert):
     monkeypatch.setattr(K, "on_grass", lambda f, b, g=None: True)
