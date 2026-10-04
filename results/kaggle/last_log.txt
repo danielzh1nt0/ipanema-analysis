@@ -1,89 +1,92 @@
-kernel danielmatros/ipanema-vall-who
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-who
-  0.5 min: danielmatros/ipanema-vall-who has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-vall-who has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_who/result.json
-Output file downloaded to results/kaggle/vall_who/w00.jpg
-Output file downloaded to results/kaggle/vall_who/w01.jpg
-Output file downloaded to results/kaggle/vall_who/w02.jpg
-Output file downloaded to results/kaggle/vall_who/w03.jpg
-Output file downloaded to results/kaggle/vall_who/w04.jpg
-Output file downloaded to results/kaggle/vall_who/w05.jpg
-Output file downloaded to results/kaggle/vall_who/w06.jpg
-Output file downloaded to results/kaggle/vall_who/w07.jpg
-Output file downloaded to results/kaggle/vall_who/w08.jpg
-Output file downloaded to results/kaggle/vall_who/w09.jpg
-Output file downloaded to results/kaggle/vall_who/w10.jpg
-Output file downloaded to results/kaggle/vall_who/w11.jpg
-Output file downloaded to results/kaggle/vall_who/w12.jpg
-Output file downloaded to results/kaggle/vall_who/w13.jpg
-Output file downloaded to results/kaggle/vall_who/w14.jpg
-Output file downloaded to results/kaggle/vall_who/w15.jpg
-Output file downloaded to results/kaggle/vall_who/w16.jpg
-Output file downloaded to results/kaggle/vall_who/w17.jpg
-Output file downloaded to results/kaggle/vall_who/w18.jpg
-Output file downloaded to results/kaggle/vall_who/w19.jpg
-Output file downloaded to results/kaggle/vall_who/w20.jpg
-Output file downloaded to results/kaggle/vall_who/w21.jpg
-Output file downloaded to results/kaggle/vall_who/w22.jpg
-Output file downloaded to results/kaggle/vall_who/w23.jpg
-Output file downloaded to results/kaggle/vall_who/w24.jpg
-Output file downloaded to results/kaggle/vall_who/w25.jpg
-Output file downloaded to results/kaggle/vall_who/w26.jpg
-Output file downloaded to results/kaggle/vall_who/w27.jpg
-Output file downloaded to results/kaggle/vall_who/w28.jpg
-Output file downloaded to results/kaggle/vall_who/w29.jpg
-Output file downloaded to results/kaggle/vall_who/w30.jpg
-Output file downloaded to results/kaggle/vall_who/w31.jpg
-Output file downloaded to results/kaggle/vall_who/w32.jpg
-Output file downloaded to results/kaggle/vall_who/w33.jpg
-Output file downloaded to results/kaggle/vall_who/w34.jpg
-Output file downloaded to results/kaggle/vall_who/w35.jpg
-Output file downloaded to results/kaggle/vall_who/w36.jpg
-Output file downloaded to results/kaggle/vall_who/w37.jpg
-Output file downloaded to results/kaggle/vall_who/w38.jpg
-Output file downloaded to results/kaggle/vall_who/w39.jpg
-Kernel log downloaded to results/kaggle/vall_who/ipanema-vall-who.log
-  ipanema-vall-who.log 3251
-  result.json 48
-  run.json 150
-  w00.jpg 400885
-  w01.jpg 391933
-  w02.jpg 202874
-  w03.jpg 303797
-  w04.jpg 289897
-  w05.jpg 415529
-  w06.jpg 420741
-  w07.jpg 418240
-  w08.jpg 373112
-  w09.jpg 348972
-  w10.jpg 280991
-  w11.jpg 343247
-  w12.jpg 385219
-  w13.jpg 383512
-  w14.jpg 291487
-  w15.jpg 407823
-  w16.jpg 268998
-  w17.jpg 268801
-  w18.jpg 409023
-  w19.jpg 231717
-  w20.jpg 246744
-  w21.jpg 223164
-  w22.jpg 354331
-  w23.jpg 283095
-  w24.jpg 355195
-  w25.jpg 402500
-  w26.jpg 274789
-  w27.jpg 188434
-  w28.jpg 363319
-  w29.jpg 392750
-  w30.jpg 266024
-  w31.jpg 402263
-  w32.jpg 410048
-  w33.jpg 374006
-  w34.jpg 401125
-  w35.jpg 258754
-  w36.jpg 282054
-  w37.jpg 308254
-  w38.jpg 207163
-  w39.jpg 264515
+kernel danielmatros/ipanema-vall-ball-key2
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-ball-key2
+  0.5 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.RUNNING"
+  2.1 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.RUNNING"
+  3.6 min: danielmatros/ipanema-vall-ball-key2 has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_ball_key2/c00.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c01.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c02.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c03.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c04.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c05.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c06.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c07.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c08.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c09.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c10.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c11.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c12.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c13.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c14.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c15.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c16.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c17.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c18.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c19.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c20.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c21.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c22.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c23.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c24.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c25.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c26.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c27.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c28.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c29.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c30.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c31.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c32.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c33.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c34.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c35.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c36.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c37.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c38.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/c39.jpg
+Output file downloaded to results/kaggle/vall_ball_key2/guesses.json
+Output file downloaded to results/kaggle/vall_ball_key2/result.json
+Kernel log downloaded to results/kaggle/vall_ball_key2/ipanema-vall-ball-key2.log
+  c00.jpg 202043
+  c01.jpg 186706
+  c02.jpg 104519
+  c03.jpg 154592
+  c04.jpg 154094
+  c05.jpg 200907
+  c06.jpg 205371
+  c07.jpg 210983
+  c08.jpg 174233
+  c09.jpg 169550
+  c10.jpg 150398
+  c11.jpg 176057
+  c12.jpg 190977
+  c13.jpg 191104
+  c14.jpg 161575
+  c15.jpg 210961
+  c16.jpg 157199
+  c17.jpg 149686
+  c18.jpg 197866
+  c19.jpg 103030
+  c20.jpg 117208
+  c21.jpg 109074
+  c22.jpg 155980
+  c23.jpg 156923
+  c24.jpg 167108
+  c25.jpg 187581
+  c26.jpg 123243
+  c27.jpg 97244
+  c28.jpg 190270
+  c29.jpg 185784
+  c30.jpg 145251
+  c31.jpg 186957
+  c32.jpg 194442
+  c33.jpg 189156
+  c34.jpg 194875
+  c35.jpg 138131
+  c36.jpg 99810
+  c37.jpg 138590
+  c38.jpg 128978
+  c39.jpg 133393
+  guesses.json 7005
+  ipanema-vall-ball-key2.log 5209
+  result.json 21
+  run.json 162
