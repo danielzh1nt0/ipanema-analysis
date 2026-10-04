@@ -1,0 +1,579 @@
+{
+ "p09-norrviken-vs-solheim-2026-08-30_1856": [
+  {
+   "track": 7,
+   "rows": 146,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "K": 7,
+    "A": 42
+   },
+   "changes": true,
+   "tile": 0
+  },
+  {
+   "track": 29,
+   "rows": 107,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "K": 4,
+    "B": 32
+   },
+   "changes": false
+  },
+  {
+   "track": 36,
+   "rows": 91,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "K": 6,
+    "A": 12
+   },
+   "changes": true,
+   "tile": 1
+  }
+ ],
+ "p09-norrviken-vs-solheim-2026-08-30_2931": [],
+ "p09-norrviken-vs-solheim-2026-08-30_5081": [
+  {
+   "track": 61,
+   "rows": 49,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "K": 4,
+    "A": 12
+   },
+   "changes": false
+  }
+ ],
+ "p15u-vs-djursholm-2026-09-26_2072": [
+  {
+   "track": 30,
+   "rows": 99,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 18
+   },
+   "changes": true,
+   "tile": 2
+  },
+  {
+   "track": 31,
+   "rows": 63,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 22
+   },
+   "changes": true,
+   "tile": 3
+  },
+  {
+   "track": 33,
+   "rows": 79,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 16,
+    "A": 3
+   },
+   "changes": true,
+   "tile": 4
+  },
+  {
+   "track": 56,
+   "rows": 98,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "A": 33
+   },
+   "changes": false
+  },
+  {
+   "track": 58,
+   "rows": 80,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "A": 27
+   },
+   "changes": false
+  },
+  {
+   "track": 59,
+   "rows": 72,
+   "old": "A",
+   "own_vote": "B",
+   "reads": {
+    "B": 25
+   },
+   "changes": true,
+   "tile": 5
+  },
+  {
+   "track": 60,
+   "rows": 46,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "K": 2,
+    "A": 13
+   },
+   "changes": false
+  }
+ ],
+ "p15u-vs-djursholm-2026-09-26_3272": [
+  {
+   "track": 39,
+   "rows": 362,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 115,
+    "K": 7
+   },
+   "changes": false
+  },
+  {
+   "track": 62,
+   "rows": 68,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 1
+   },
+   "changes": true,
+   "tile": 6
+  },
+  {
+   "track": 84,
+   "rows": 95,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 32
+   },
+   "changes": true,
+   "tile": 7
+  },
+  {
+   "track": 90,
+   "rows": 63,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 22
+   },
+   "changes": true,
+   "tile": 8
+  },
+  {
+   "track": 92,
+   "rows": 46,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "K": 2,
+    "B": 14
+   },
+   "changes": false
+  }
+ ],
+ "p15u-vs-djursholm-2026-09-26_5072": [
+  {
+   "track": 4,
+   "rows": 166,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 56
+   },
+   "changes": false
+  },
+  {
+   "track": 23,
+   "rows": 54,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 17,
+    "K": 1
+   },
+   "changes": false
+  },
+  {
+   "track": 41,
+   "rows": 267,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 37,
+    "K": 1
+   },
+   "changes": true,
+   "tile": 9
+  },
+  {
+   "track": 44,
+   "rows": 67,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 22,
+    "K": 1
+   },
+   "changes": false
+  },
+  {
+   "track": 46,
+   "rows": 84,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 29
+   },
+   "changes": false
+  },
+  {
+   "track": 65,
+   "rows": 38,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 9,
+    "A": 4
+   },
+   "changes": true,
+   "tile": 10
+  },
+  {
+   "track": 66,
+   "rows": 35,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 12
+   },
+   "changes": true,
+   "tile": 11
+  },
+  {
+   "track": 67,
+   "rows": 32,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 11
+   },
+   "changes": true,
+   "tile": 12
+  }
+ ],
+ "p15u-vs-reymersholm-2026-09-18_2227": [],
+ "p15u-vs-reymersholm-2026-09-18_4227": [
+  {
+   "track": 1,
+   "rows": 111,
+   "old": "A",
+   "own_vote": "B",
+   "reads": {
+    "B": 35,
+    "A": 1,
+    "K": 1
+   },
+   "changes": true,
+   "tile": 13
+  },
+  {
+   "track": 2,
+   "rows": 493,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "A": 137,
+    "K": 15,
+    "O": 9
+   },
+   "changes": false
+  },
+  {
+   "track": 14,
+   "rows": 285,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 96
+   },
+   "changes": true,
+   "tile": 14
+  },
+  {
+   "track": 19,
+   "rows": 77,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "K": 3,
+    "A": 20,
+    "B": 3
+   },
+   "changes": false
+  },
+  {
+   "track": 32,
+   "rows": 46,
+   "old": "A",
+   "own_vote": "B",
+   "reads": {
+    "K": 3,
+    "B": 10,
+    "A": 3
+   },
+   "changes": true,
+   "tile": 15
+  }
+ ],
+ "p15u-vs-reymersholm-2026-09-18_726": [
+  {
+   "track": 69,
+   "rows": 128,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 43
+   },
+   "changes": true,
+   "tile": 16
+  }
+ ],
+ "p15u-vs-spanga-2026-09-25_1159": [],
+ "p15u-vs-spanga-2026-09-25_2576": [
+  {
+   "track": 6,
+   "rows": 42,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "A": 14
+   },
+   "changes": false
+  },
+  {
+   "track": 49,
+   "rows": 109,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 25,
+    "O": 12
+   },
+   "changes": true,
+   "tile": 17
+  },
+  {
+   "track": 50,
+   "rows": 50,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "B": 3,
+    "A": 15
+   },
+   "changes": true,
+   "tile": 18
+  },
+  {
+   "track": 86,
+   "rows": 145,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "B": 3,
+    "K": 1,
+    "A": 44
+   },
+   "changes": true,
+   "tile": 19
+  },
+  {
+   "track": 93,
+   "rows": 72,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 18
+   },
+   "changes": true,
+   "tile": 20
+  }
+ ],
+ "p15u-vs-spanga-2026-09-25_3994": [
+  {
+   "track": 69,
+   "rows": 116,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 39
+   },
+   "changes": false
+  },
+  {
+   "track": 71,
+   "rows": 75,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "B": 1,
+    "A": 25
+   },
+   "changes": true,
+   "tile": 21
+  }
+ ],
+ "p15u-vs-vasalund-2026-09-20_1164": [
+  {
+   "track": 61,
+   "rows": 241,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "K": 2,
+    "A": 4
+   },
+   "changes": true,
+   "tile": 22
+  },
+  {
+   "track": 55,
+   "rows": 57,
+   "old": "A",
+   "own_vote": "K",
+   "reads": {
+    "K": 9,
+    "O": 10
+   },
+   "changes": true,
+   "tile": 23
+  }
+ ],
+ "p15u-vs-vasalund-2026-09-20_2113": [
+  {
+   "track": 10,
+   "rows": 59,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "A": 17,
+    "K": 3
+   },
+   "changes": false
+  },
+  {
+   "track": 47,
+   "rows": 218,
+   "old": "B",
+   "own_vote": "B",
+   "reads": {
+    "B": 44,
+    "K": 2,
+    "A": 7
+   },
+   "changes": false
+  },
+  {
+   "track": 98,
+   "rows": 33,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 1
+   },
+   "changes": true,
+   "tile": 24
+  }
+ ],
+ "p15u-vs-vasalund-2026-09-20_4012": [
+  {
+   "track": 39,
+   "rows": 358,
+   "old": "A",
+   "own_vote": "B",
+   "reads": {
+    "K": 16,
+    "B": 104
+   },
+   "changes": true,
+   "tile": 25
+  },
+  {
+   "track": 64,
+   "rows": 88,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "A": 29
+   },
+   "changes": true,
+   "tile": 26
+  },
+  {
+   "track": 66,
+   "rows": 75,
+   "old": "A",
+   "own_vote": "A",
+   "reads": {
+    "K": 2,
+    "A": 22
+   },
+   "changes": false
+  }
+ ],
+ "solberga-vs-p09-norrviken-2026-09-11_1500": [],
+ "solberga-vs-p09-norrviken-2026-09-11_2723": [
+  {
+   "track": 15,
+   "rows": 66,
+   "old": "B",
+   "own_vote": "K",
+   "reads": {
+    "K": 10,
+    "O": 12
+   },
+   "changes": true,
+   "tile": 27
+  },
+  {
+   "track": 103,
+   "rows": 42,
+   "old": "A",
+   "own_vote": "B",
+   "reads": {
+    "B": 11,
+    "K": 4
+   },
+   "changes": true,
+   "tile": 28
+  }
+ ],
+ "solberga-vs-p09-norrviken-2026-09-11_4558": [
+  {
+   "track": 70,
+   "rows": 353,
+   "old": "B",
+   "own_vote": "A",
+   "reads": {
+    "K": 2,
+    "A": 6
+   },
+   "changes": true,
+   "tile": 29
+  }
+ ]
+}
