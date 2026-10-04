@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 17:24:21 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 17:25:54 UTC
 
 
-## run_full.log (38 lines, last 60)
+## run_full.log (58 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -40,6 +40,26 @@ players: 27878 short gaps filled (marked 'filled' in the export)
 ball v2: 135617/178800 frames on the path, 608 static-clutter candidates dropped
 ball: dropped 494 static-clutter candidates
 ball (global path): 111470/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 52% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.10 / B 0.01  WARNING low confidence
+direction: from reference labels -> A →
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1096 -> 147 (1.5 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (3 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (8 s since the last step)
+  step: metrics (13 s since the last step)
+veo: 17 shots incl. 5 goals imported; 0 goal tag(s) rejected; team by eye for 5, from the ball for 12, from the players for 0, unknown for 0
+our shot detector vs Veo: found 1/17 of Veo's shots, 1/10 of ours are real (within 10 s)
+ball grade: accuracy None, near-player 0.48, possession withheld, events withheld
+ball reliability: 82% frames, 48% near a player, 28159 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (10 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 20 frame files (every 3 frames, 300 s each, largest 5.3 MB)
+  wrote match_data.json (0.8 MB)
+export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1219 events) · library.json updated · zip None
 
 ## train_ball.log (1 lines, last 60)
 
