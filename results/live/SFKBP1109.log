@@ -1,7 +1,7 @@
-# live log · SFKBP1109 · running · 10:03:30 UTC
+# live log · SFKBP1109 · running · 10:05:03 UTC
 
 
-## run_full.log (33 lines, last 60)
+## run_full.log (56 lines, last 60)
 === SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -35,6 +35,29 @@ ball: dropped 3890 static-clutter candidates
 ball (global path): 66740/98902 frames on the chosen path
 ball check (other picker, v1): 17/34 correct, ceiling 33/34
 ball: dropped 3890 static-clutter candidates
+ball (global path): 66740/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109, 59 frames; detection is optimistic here, the pick is the fair part): v2 23/59, other 10/59, ceiling 28
+ball: dropped 3890 static-clutter candidates
+ball (global path): 66740/98902 frames on the chosen path
+picker test on detector-training clicks (SFKBP1109b, 134 frames; detection is optimistic here, the pick is the fair part): v2 53/134, other 31/134, ceiling 59
+possession: simple model (nearest feet in the picture); 46% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.05 / B 0.06  WARNING low confidence
+direction (from keepers): A →  B ←
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 880 -> 124 (2.3 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (4 s since the last step)
+  step: shapes (0 s since the last step)
+  step: stats (6 s since the last step)
+  step: metrics (14 s since the last step)
+veo: 25 shots incl. 4 goals imported; 0 goal tag(s) rejected; team from the ball for 7, from the players for 0, unknown for 18
+veo: 18 shots/goals outside the analysed video or its periods left out (3 goals)
+our shot detector vs Veo: found 0/7 of Veo's shots, 0/7 of ours are real (within 10 s)
+ball grade: accuracy 0.82, near-player 0.5, possession OK, events withheld
+ball reliability: 76% frames, 50% near a player, 18367 jumps -> OK
+  step: export (10 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
 
 ## train_ball.log (1 lines, last 60)
 
