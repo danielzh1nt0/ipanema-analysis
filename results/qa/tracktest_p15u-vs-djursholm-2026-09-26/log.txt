@@ -34,14 +34,3 @@
 05:34:34   tracking frame 450 (0.8 frames/s)
 05:40:35 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
 05:43:03 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
-05:43:11 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
-05:44:04 kits: per-player classifier from 608 on-pitch people, 0 of 15 runs kept -> colour only
-05:44:04 kits: learned from 899 people (136 off the pitch left out), group sizes [306, 286, 276, 31], light frame (shade spread 1.4), default fit leaves out a group at 0.70 x the team gap, far pair moves a team by 0.0
-05:44:04 off-pitch people dropped by the pitch-edge test: yes
-05:44:08   tracking frame 0
-05:44:54   tracking frame 50 (1.1 frames/s)
-05:45:39   tracking frame 100 (1.1 frames/s)
-05:46:24   tracking frame 150 (1.1 frames/s)
-05:47:10   tracking frame 200 (1.1 frames/s)
-05:47:56   tracking frame 250 (1.1 frames/s)
-05:48:41   tracking frame 300 (1.1 frames/s)
