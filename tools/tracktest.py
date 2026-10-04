@@ -80,7 +80,9 @@ for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
     log(f"off-pitch people dropped by the pitch-edge test: {'yes' if tm.offpitch else 'no'}")
     per, _ = TR.track(piece, "player.pt", H, tm, 0.3, log=log, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False)
     per = {k: v for k, v in per.items()}; raw_rows = sum(len(v) for v in per.values())
-    per, cl = TR.clean(per, L, W, fps, log=log); per, nf = TR.fill_gaps(per, fps, 1.0, H=H)
+    zk = SFK or os.environ.get("IPANEMA_SCREEN_KEEPERS", "0") == "1"           # P2e 4 Oct: no calibration -> no goalmouth keepers (1 = old)
+    if not zk: log("no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)")
+    per, cl = TR.clean(per, L, W, fps, log=log, keepers_by_zone=zk); per, nf = TR.fill_gaps(per, fps, 1.0, H=H)
     ids = {}
     for k, rs in per.items():
         for r in rs:

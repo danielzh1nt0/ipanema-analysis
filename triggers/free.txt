@@ -1,2 +1,2 @@
-tools/p2d_track.py
-# Sun Oct  4 16:51:49 UTC 2026 P2d: re-track Reymersholm 4227 with the side-touchline test (free, CPU)
+tools/p2e_track.py
+# Sun Oct  4 20:33:51 UTC 2026 P2e: re-track Reymersholm 4227 with goalmouth keeper rules off on uncalibrated grounds (free, CPU)

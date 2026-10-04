@@ -216,7 +216,10 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
         if max_frames and k + 1 >= max_frames: break
     return per, fps
 
-def clean(per, L, W, fps, log=print):
+def clean(per, L, W, fps, log=print, keepers_by_zone=True):
+    """keepers_by_zone=False (P2e, 4 Oct): positions are screen positions, not metres (ground without calibration, tracktest),
+    so 'in a goalmouth' only means 'at the picture's left / right edge' - the keeper rules are skipped there (they made the
+    pink referee and near whites at the picture's edge into keepers of the green team on Reymersholm 4227)."""
     n = len(per)
     # 1) drop off-pitch
     dropped = 0
@@ -261,6 +264,7 @@ def clean(per, L, W, fps, log=print):
             if r[2][0] > L - 8 and abs(r[2][1] - W / 2) < 20: z[2] += 1
     # a keeper is whoever is in a goalmouth for most of the frames in which that goalmouth is on screen (follow-cam hides the goals often)
     keepers = {tid: ("left" if z[1] >= z[2] else "right") for tid, z in zone.items() if z[0] >= 10 and max(z[1], z[2]) >= 0.4 * z[0] and max(z[1], z[2]) >= 30}
+    if not keepers_by_zone: keepers = {}
     # which team defends which goal: the team with the lower median x over the clip defends left (works for clips showing both ends; else falls back to majority near goal)
     med = {}
     for tm in ("A", "B"):
@@ -278,7 +282,7 @@ def clean(per, L, W, fps, log=print):
             z = kz[r[0]]; z[0] += 1
             if abs(r[2][1] - W / 2) < 20.2: z[1] += r[2][0] < 16.5; z[2] += r[2][0] > L - 16.5
     for end, idx in (("left", 1), ("right", 2)):
-        cand = [(z[idx], tid) for tid, z in kz.items() if z[0] >= int(fps) and z[idx] >= 0.7 * z[0]]
+        cand = [(z[idx], tid) for tid, z in kz.items() if z[0] >= int(fps) and z[idx] >= 0.7 * z[0]] if keepers_by_zone else []
         if cand:
             tid = max(cand)[1]; team = left_team if end == "left" else right_team
             for k in range(n):
