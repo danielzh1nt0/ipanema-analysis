@@ -259,7 +259,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     step("lanes")
     ln = AN.lanes(per, frames_, attack_right, S.lane_half, S.max_lane)
     step("passes")
-    ps, tracks = AN.passes(per, frames_, tvs, ln, attack_right, fps)
+    # 4 Oct (S4b): passes only where the de-flickered possession (spell state) agrees. SFK-BP clip, 28 graded passes:
+    # fake 8 -> 2 kept, real 20 -> 14; 87 -> 59 passes (11.8/min, a plausible U15 rate; ~62 real by the key), completion 71 -> 78%.
+    ps, tracks = AN.passes(per, frames_, tvs, ln, attack_right, fps, state=(cstate if os.environ.get("IPANEMA_PASS_STATE", "spell") == "spell" else None))
     step("shapes")
     sh = AN.shapes(per, L, fps)
     step("stats")

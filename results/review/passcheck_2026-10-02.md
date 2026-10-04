@@ -17,3 +17,8 @@ Conclusion: the fake passes come from the ball picker, not the pass rule - a sti
 pick must not leave the pitch. That is picker work (B4c-style still-ball logic + an off-pitch veto), not for the demo.
 Pass COUNT stays hidden in the app; pass completion % and the pass map are kept (they are made from the same passes, so
 they carry the same ~30% noise - say so if asked).
+
+## 4 Oct: passes read the de-flickered possession (spell state)
+Same 28 graded passes: fake kept 8/8 -> 2/8, real kept 20/20 -> 14/20. Count 87 -> 59 on the 5-min clip (11.8/min both
+teams; ~62 real by the key, so the count is now ~5% low instead of ~40% high). Completion 71% -> 78%. Now the pipeline
+default (IPANEMA_PASS_STATE=raw = old behaviour).
