@@ -1,2 +1,2 @@
-tools/p2_track.py b
-# Sun Oct  4 04:38:51 UTC 2026 P2 group b: 20-s player tracking, 3 spots x 2 matches (free, CPU, no Modal)
+tools/p2_track.py c
+# Sun Oct  4 04:39:13 UTC 2026 P2 group c: 20-s player tracking, 3 spots x 2 matches (free, CPU, no Modal)
