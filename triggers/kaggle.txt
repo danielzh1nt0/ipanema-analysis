@@ -1,2 +1,2 @@
-kaggle/vall_ball_key.py 30
-# Sun Oct  4 13:24:54 UTC 2026
+kaggle/vall_goals_fine.py 25
+# Sun Oct  4 13:56:07 UTC 2026

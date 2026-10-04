@@ -1,0 +1,339 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "note": "4 Oct, graded by Claude by eye on the finder's top-3 zoom crops (results/kaggle/vall_ball_key). A/B/C = which guess is the match ball; '?' = two ball-like objects (spare balls by the fence/benches/goal, or the yellow match ball in deep shade); 'none' = ball elsewhere (b33: in the air at a header). Leans to balls the finder saw.",
+ "counts": {
+  "A": 29,
+  "?": 7,
+  "none": 2,
+  "after full time": 2
+ },
+ "items": [
+  {
+   "id": "b00",
+   "t": 565.3,
+   "grade": "A",
+   "ball_px": [
+    210.1,
+    514.7
+   ]
+  },
+  {
+   "id": "b01",
+   "t": 682.2,
+   "grade": "A",
+   "ball_px": [
+    1657.2,
+    491.4
+   ]
+  },
+  {
+   "id": "b02",
+   "t": 690.4,
+   "grade": "A",
+   "ball_px": [
+    912.8,
+    490.5
+   ]
+  },
+  {
+   "id": "b03",
+   "t": 907.3,
+   "grade": "A",
+   "ball_px": [
+    506.8,
+    697.2
+   ]
+  },
+  {
+   "id": "b04",
+   "t": 1191.6,
+   "grade": "A",
+   "ball_px": [
+    91.2,
+    499.1
+   ]
+  },
+  {
+   "id": "b05",
+   "t": 1548.4,
+   "grade": "A",
+   "ball_px": [
+    1031.7,
+    508.5
+   ]
+  },
+  {
+   "id": "b06",
+   "t": 1580.2,
+   "grade": "A",
+   "ball_px": [
+    784.1,
+    482.6
+   ]
+  },
+  {
+   "id": "b07",
+   "t": 1681.3,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b08",
+   "t": 1691.0,
+   "grade": "A",
+   "ball_px": [
+    1049.2,
+    505.8
+   ]
+  },
+  {
+   "id": "b09",
+   "t": 1805.7,
+   "grade": "A",
+   "ball_px": [
+    1513.8,
+    514.7
+   ]
+  },
+  {
+   "id": "b10",
+   "t": 1871.8,
+   "grade": "A",
+   "ball_px": [
+    1174.9,
+    494.7
+   ]
+  },
+  {
+   "id": "b11",
+   "t": 1939.3,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b12",
+   "t": 1973.6,
+   "grade": "A",
+   "ball_px": [
+    933.6,
+    489.8
+   ]
+  },
+  {
+   "id": "b13",
+   "t": 2031.1,
+   "grade": "A",
+   "ball_px": [
+    1737.8,
+    529.6
+   ]
+  },
+  {
+   "id": "b14",
+   "t": 2125.8,
+   "grade": "A",
+   "ball_px": [
+    776.7,
+    517.4
+   ]
+  },
+  {
+   "id": "b15",
+   "t": 2364.2,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b16",
+   "t": 2404.1,
+   "grade": "A",
+   "ball_px": [
+    1260.9,
+    515.5
+   ]
+  },
+  {
+   "id": "b17",
+   "t": 2678.5,
+   "grade": "A",
+   "ball_px": [
+    1391.8,
+    1043.8
+   ]
+  },
+  {
+   "id": "b18",
+   "t": 2775.6,
+   "grade": "A",
+   "ball_px": [
+    1395.5,
+    515.9
+   ]
+  },
+  {
+   "id": "b19",
+   "t": 2817.4,
+   "grade": "A",
+   "ball_px": [
+    561.0,
+    498.5
+   ]
+  },
+  {
+   "id": "b20",
+   "t": 3290.3,
+   "grade": "A",
+   "ball_px": [
+    1032.1,
+    522.3
+   ]
+  },
+  {
+   "id": "b21",
+   "t": 3330.8,
+   "grade": "A",
+   "ball_px": [
+    1096.0,
+    449.7
+   ]
+  },
+  {
+   "id": "b22",
+   "t": 3410.0,
+   "grade": "A",
+   "ball_px": [
+    1034.2,
+    467.0
+   ]
+  },
+  {
+   "id": "b23",
+   "t": 3673.0,
+   "grade": "A",
+   "ball_px": [
+    802.9,
+    512.3
+   ]
+  },
+  {
+   "id": "b24",
+   "t": 3760.9,
+   "grade": "A",
+   "ball_px": [
+    1088.5,
+    507.4
+   ]
+  },
+  {
+   "id": "b25",
+   "t": 3899.9,
+   "grade": "A",
+   "ball_px": [
+    590.1,
+    515.3
+   ]
+  },
+  {
+   "id": "b26",
+   "t": 3997.1,
+   "grade": "A",
+   "ball_px": [
+    1059.2,
+    590.5
+   ]
+  },
+  {
+   "id": "b27",
+   "t": 4433.3,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b28",
+   "t": 4478.4,
+   "grade": "A",
+   "ball_px": [
+    1088.8,
+    677.6
+   ]
+  },
+  {
+   "id": "b29",
+   "t": 4496.1,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b30",
+   "t": 4592.4,
+   "grade": "A",
+   "ball_px": [
+    647.2,
+    454.7
+   ]
+  },
+  {
+   "id": "b31",
+   "t": 4644.4,
+   "grade": "A",
+   "ball_px": [
+    274.0,
+    506.9
+   ]
+  },
+  {
+   "id": "b32",
+   "t": 4669.2,
+   "grade": "A",
+   "ball_px": [
+    1170.8,
+    544.8
+   ]
+  },
+  {
+   "id": "b33",
+   "t": 4969.8,
+   "grade": "none",
+   "ball_px": null
+  },
+  {
+   "id": "b34",
+   "t": 5029.3,
+   "grade": "A",
+   "ball_px": [
+    1204.8,
+    508.2
+   ]
+  },
+  {
+   "id": "b35",
+   "t": 5151.2,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b36",
+   "t": 5506.8,
+   "grade": "?",
+   "ball_px": null
+  },
+  {
+   "id": "b37",
+   "t": 5512.8,
+   "grade": "none",
+   "ball_px": null
+  },
+  {
+   "id": "b38",
+   "t": 5924.4,
+   "grade": "after full time",
+   "ball_px": null
+  },
+  {
+   "id": "b39",
+   "t": 5929.7,
+   "grade": "after full time",
+   "ball_px": null
+  }
+ ]
+}
