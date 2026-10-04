@@ -1,0 +1,21 @@
+{
+ "src_key": "p15u-vs-vallentuna-2026-10-03-6cce/video.mp4",
+ "goal_windows": [
+  {
+   "label": "VAL 2-1? (51' corner)",
+   "minute": 51,
+   "t0": 3885,
+   "t1": 3945,
+   "step": 3
+  },
+  {
+   "label": "SFK 2-2 exact",
+   "minute": 79,
+   "t0": 5495,
+   "t1": 5535,
+   "step": 3
+  }
+ ],
+ "ball_moments": [],
+ "note": "4 Oct: Veo clock is a 2x40 match clock -> video s = 435+60m (m<41) else 3220+60(m-40). Goal strips every 4 s from 30 s before to 90 s after the minute; the 2-1 goal lies in the 52-65' gap (every 12 s). 40 random in-play moments for the ball answer key (stage 1: full frame + 100 px grid)."
+}
