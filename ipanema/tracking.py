@@ -270,9 +270,25 @@ def clean(per, L, W, fps, log=print, keepers_by_zone=True):
     for tm in ("A", "B"):
         xs = [r[2][0] for k in range(n) for r in per[k] if r[1] == tm and r[0] not in keepers]; med[tm] = float(np.median(xs)) if xs else L / 2
     left_team = "A" if med["A"] < med["B"] else "B"; right_team = "B" if left_team == "A" else "A"
+    # 4 Oct (Vallentuna): the zone rule alone made 262 tracks 'keepers' over a full match (any outfield player standing in a
+    # goalmouth during a corner or attack) and REPAINTED them in the defending team's colour - Daniel saw red players with black
+    # pins and 'GK' on several players at once. Now a zone keeper keeps its kit team, is flagged GK only if its kit agrees with
+    # the team defending that goal, and only the track seen most in each goalmouth counts (one keeper per end).
+    best = {}
+    for tid, end in keepers.items():
+        z = zone[tid]; c = z[1] if end == "left" else z[2]
+        if end not in best or c > best[end][0]: best[end] = (c, tid)
+    keepers = {tid: end for end, (c, tid) in best.items()}
+    team_of = {}
     for k in range(n):
         for r in per[k]:
-            if r[0] in keepers: r[1] = left_team if keepers[r[0]] == "left" else right_team; r[5] = True
+            if r[0] in keepers: team_of.setdefault(r[0], []).append(r[1])
+    for k in range(n):
+        for r in per[k]:
+            if r[0] in keepers:
+                defend = left_team if keepers[r[0]] == "left" else right_team
+                kit = max(set(team_of[r[0]]), key=team_of[r[0]].count)
+                if kit == defend: r[5] = True
     # 28 Sep: a "neither team" track that lives in a penalty area is the keeper of that end (tracking test: keepers were removed
     # as staff); at most one per end, the one seen there most. The referee rarely stays in a box.
     kz = defaultdict(lambda: [0, 0, 0])

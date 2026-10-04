@@ -17,4 +17,4 @@ def test_shot_placed_after_clip_start():
     for k in range(0, 50): ballm[1000 + k] = np.array([15.0, 30.0])            # clip start: ball in the left third
     for k in range(60, 250): ballm[1000 + k] = np.array([90.0 + (k % 10), 32.0])  # 6-25 s later: attack at the right end
     out, _ = VEO.build([(100, "goal")], fps, ballm, {}, 106.0, 64.0, {"A": True, "B": False}, [], log=lambda *a: None)
-    assert out[0]["team"] == "A" and out[0]["x_m"] >= 99
+    assert out[0]["team"] == "A" and out[0]["x_m"] is None and out[0]["located_by"] == "end only"   # team from the end; no invented origin

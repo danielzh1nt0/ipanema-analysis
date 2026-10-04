@@ -26,22 +26,18 @@ def teams(path):
         if m: out[int(m.group(1))] = m.group(3)
     return out
 
-def _where(t, fps, ballm, per, L, window_s=(5.0, 25.0), players_s=(-20.0, 0.0), far_m=20.0):
-    """position of the action for a Veo clip starting at t. 4 Oct: Veo names a clip by its START, and the shot comes 5-25 s
-    later (SFK-BP goal clip 2619, ball in the net ~2636). The old window (-2..+1 s around the start) placed shots where the
-    play was before the attack and gave goals to the wrong team. Now: the ball positions 5-25 s after the start that are
-    more than far_m from the halfway line; the end where most of them are is the end of the shot, and the position is the
-    one nearest that goal line. 6/6 goals right on SFK-BP and Vallentuna (checked by eye from who kicks off after)."""
+def _where(t, fps, ballm, per, L, window_s=(5.0, 25.0), far_m=20.0):
+    """-> (end_x, how): which END the shot of a Veo clip starting at t went to (ball positions 5-25 s after the start, away
+    from halfway; 6/6 goals right). 4 Oct, late: the shot ORIGIN can't be read from our ball track (too jumpy: the 'closest to
+    goal' moment lands anywhere from +4 s to +28 s), and the version placing it at the extreme point put every shot on the
+    goal line (Daniel). So build() now writes the team and the end but no x/y: a shot map shows nothing rather than a wrong
+    place. Origins come from by-eye marks (reference/veo_highlights_<match>.txt "t shot A x y")."""
     k0 = int(t * fps)
     bs = [ballm[k] for k in range(k0 + int(window_s[0] * fps), k0 + int(window_s[1] * fps)) if k in ballm and -3 < ballm[k][0] < L + 3]
     far = [b for b in bs if abs(b[0] - L / 2) > far_m]
     if len(far) >= 10:
         right = np.mean([b[0] > L / 2 for b in far]) > 0.5
-        side = [b for b in far if (b[0] > L / 2) == right]
-        return np.asarray(max(side, key=lambda b: b[0]) if right else min(side, key=lambda b: b[0]), float), "ball"
-    for k in range(k0 + int(window_s[1] * fps), k0 + int(players_s[0] * fps), -1):   # most recent frame with players (goal areas may be 'unknown')
-        rows = per.get(k) or []
-        if len(rows) >= 4: return np.mean(np.array([r[2] for r in rows]), 0), "players"
+        return np.array([L if right else 0.0, np.nan]), "end only"
     return None, None
 
 def _attacking_end_team(x, L, attack_right):
@@ -71,8 +67,8 @@ def build(highlights, fps, ballm, per, L, W, attack_right, restarts_, periods=No
         kt = next((v for k, v in (known_teams or {}).items() if abs(k - t) <= 2), None)
         if kt: team, src = kt, ("by eye" if src is None else src + ", team by eye")
         gx = L if (team and attack_right.get(team)) else 0.0
-        out.append({"t": float(t), "team": team, "x_m": round(float(p[0]), 1) if p is not None else None, "y_m": round(float(p[1]), 1) if p is not None else None,
-                    "distance_m": round(float(np.hypot(p[0] - gx, p[1] - W / 2)), 1) if (p is not None and src == "ball") else None,
+        out.append({"t": float(t), "team": team, "x_m": None, "y_m": None,
+                    "distance_m": None,
                     "speed_ms": None, "outcome": "goal" if is_goal else "on target", "goal": is_goal, "source": "veo", "located_by": src})
     log(f"veo: {len(out)} shots incl. {sum(s['goal'] for s in out)} goals imported; {len(rejected)} goal tag(s) rejected; "
         f"team by eye for {sum(1 for s in out if 'by eye' in (s['located_by'] or ''))}, from the ball for {sum(1 for s in out if s['located_by'] == 'ball')}, from the players for {sum(1 for s in out if s['located_by'] == 'players')}, unknown for {sum(1 for s in out if s['team'] is None)}")

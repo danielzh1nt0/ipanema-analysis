@@ -17,7 +17,7 @@ def test_veo_build():
     assert by_t[28.0]["goal"] is False and by_t[28.0]["team"] == "B"                     # ...but the shot at 0:28 stays
     assert by_t[2619.0]["goal"] and by_t[2619.0]["team"] == "A" and 2618.0 not in by_t   # goal replaces its paired shot
     assert by_t[4422.0]["goal"] and by_t[4422.0]["team"] == "B"
-    assert by_t[5021.0]["team"] == "B" and by_t[5021.0]["located_by"] == "players" and by_t[5021.0]["distance_m"] is None
+    assert by_t[5021.0]["team"] is None and by_t[5021.0]["x_m"] is None             # 4 Oct: no ball after the clip start -> team unknown, no made-up place
     ev = extra_events({"shots": shots, "high_turnovers": []})
     assert any(e["type"] == "goal" and "from Veo" in e["subtitle"] for e in ev)
     assert VEO.score_detector([{"t": 601.0}, {"t": 900.0}], shots) == {"veo_shots": len(shots), "found": 1, "ours": 2, "real": 1}

@@ -19,7 +19,7 @@ def make():
 def test_zone_keepers_default_unchanged():
     per, info = TR.clean(make(), L, W, fps, log=lambda *a: None)
     ids = {r[0]: r for r in per[60]}
-    assert 50 in info["keepers"] and ids[50][1] == info["left_team"] == "A"      # old behaviour: edge player made the left keeper
+    assert ids[50][1] == "B" and not ids[50][5]                                     # 4 Oct: a B player in A's goalmouth keeps his team (was repainted as A's keeper)
     assert 99 in ids and ids[99][1] == "A"                                         # old behaviour: referee in the 'box' made a keeper
 
 def test_screen_positions_no_zone_keepers():
