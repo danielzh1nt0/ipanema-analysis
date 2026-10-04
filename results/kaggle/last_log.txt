@@ -1,81 +1,81 @@
-kernel danielmatros/ipanema-spell-strips
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-spell-strips
-  0.5 min: danielmatros/ipanema-spell-strips has status "KernelWorkerStatus.RUNNING"
-  1.5 min: danielmatros/ipanema-spell-strips has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/spell_strips/long24.jpg
-Output file downloaded to results/kaggle/spell_strips/long25.jpg
-Output file downloaded to results/kaggle/spell_strips/long26.jpg
-Output file downloaded to results/kaggle/spell_strips/long27.jpg
-Output file downloaded to results/kaggle/spell_strips/long28.jpg
-Output file downloaded to results/kaggle/spell_strips/long29.jpg
-Output file downloaded to results/kaggle/spell_strips/long30.jpg
-Output file downloaded to results/kaggle/spell_strips/long31.jpg
-Output file downloaded to results/kaggle/spell_strips/long32.jpg
-Output file downloaded to results/kaggle/spell_strips/long33.jpg
-Output file downloaded to results/kaggle/spell_strips/long34.jpg
-Output file downloaded to results/kaggle/spell_strips/long35.jpg
-Output file downloaded to results/kaggle/spell_strips/result.json
-Output file downloaded to results/kaggle/spell_strips/short00.jpg
-Output file downloaded to results/kaggle/spell_strips/short01.jpg
-Output file downloaded to results/kaggle/spell_strips/short02.jpg
-Output file downloaded to results/kaggle/spell_strips/short03.jpg
-Output file downloaded to results/kaggle/spell_strips/short04.jpg
-Output file downloaded to results/kaggle/spell_strips/short05.jpg
-Output file downloaded to results/kaggle/spell_strips/short06.jpg
-Output file downloaded to results/kaggle/spell_strips/short07.jpg
-Output file downloaded to results/kaggle/spell_strips/short08.jpg
-Output file downloaded to results/kaggle/spell_strips/short09.jpg
-Output file downloaded to results/kaggle/spell_strips/short10.jpg
-Output file downloaded to results/kaggle/spell_strips/short11.jpg
-Output file downloaded to results/kaggle/spell_strips/short12.jpg
-Output file downloaded to results/kaggle/spell_strips/short13.jpg
-Output file downloaded to results/kaggle/spell_strips/short14.jpg
-Output file downloaded to results/kaggle/spell_strips/short15.jpg
-Output file downloaded to results/kaggle/spell_strips/short16.jpg
-Output file downloaded to results/kaggle/spell_strips/short17.jpg
-Output file downloaded to results/kaggle/spell_strips/short18.jpg
-Output file downloaded to results/kaggle/spell_strips/short19.jpg
-Output file downloaded to results/kaggle/spell_strips/short20.jpg
-Output file downloaded to results/kaggle/spell_strips/short21.jpg
-Output file downloaded to results/kaggle/spell_strips/short22.jpg
-Output file downloaded to results/kaggle/spell_strips/short23.jpg
-Kernel log downloaded to results/kaggle/spell_strips/ipanema-spell-strips.log
-  ipanema-spell-strips.log 3193
-  long24.jpg 373644
-  long25.jpg 471890
-  long26.jpg 393946
-  long27.jpg 391453
-  long28.jpg 423873
-  long29.jpg 434059
-  long30.jpg 392002
-  long31.jpg 390706
-  long32.jpg 457657
-  long33.jpg 377812
-  long34.jpg 453499
-  long35.jpg 429486
-  result.json 53
-  run.json 158
-  short00.jpg 424657
-  short01.jpg 425494
-  short02.jpg 422162
-  short03.jpg 437342
-  short04.jpg 447727
-  short05.jpg 419903
-  short06.jpg 457225
-  short07.jpg 377064
-  short08.jpg 389628
-  short09.jpg 401755
-  short10.jpg 421069
-  short11.jpg 466965
-  short12.jpg 449919
-  short13.jpg 428940
-  short14.jpg 406247
-  short15.jpg 420698
-  short16.jpg 422959
-  short17.jpg 428800
-  short18.jpg 419700
-  short19.jpg 423715
-  short20.jpg 422798
-  short21.jpg 421298
-  short22.jpg 436436
-  short23.jpg 431267
+kernel danielmatros/ipanema-spell-zoom
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-spell-zoom
+  0.5 min: danielmatros/ipanema-spell-zoom has status "KernelWorkerStatus.RUNNING"
+  1.5 min: danielmatros/ipanema-spell-zoom has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/spell_zoom/long24.jpg
+Output file downloaded to results/kaggle/spell_zoom/long25.jpg
+Output file downloaded to results/kaggle/spell_zoom/long26.jpg
+Output file downloaded to results/kaggle/spell_zoom/long27.jpg
+Output file downloaded to results/kaggle/spell_zoom/long28.jpg
+Output file downloaded to results/kaggle/spell_zoom/long29.jpg
+Output file downloaded to results/kaggle/spell_zoom/long30.jpg
+Output file downloaded to results/kaggle/spell_zoom/long31.jpg
+Output file downloaded to results/kaggle/spell_zoom/long32.jpg
+Output file downloaded to results/kaggle/spell_zoom/long33.jpg
+Output file downloaded to results/kaggle/spell_zoom/long34.jpg
+Output file downloaded to results/kaggle/spell_zoom/long35.jpg
+Output file downloaded to results/kaggle/spell_zoom/result.json
+Output file downloaded to results/kaggle/spell_zoom/short00.jpg
+Output file downloaded to results/kaggle/spell_zoom/short01.jpg
+Output file downloaded to results/kaggle/spell_zoom/short02.jpg
+Output file downloaded to results/kaggle/spell_zoom/short03.jpg
+Output file downloaded to results/kaggle/spell_zoom/short04.jpg
+Output file downloaded to results/kaggle/spell_zoom/short05.jpg
+Output file downloaded to results/kaggle/spell_zoom/short06.jpg
+Output file downloaded to results/kaggle/spell_zoom/short07.jpg
+Output file downloaded to results/kaggle/spell_zoom/short08.jpg
+Output file downloaded to results/kaggle/spell_zoom/short09.jpg
+Output file downloaded to results/kaggle/spell_zoom/short10.jpg
+Output file downloaded to results/kaggle/spell_zoom/short11.jpg
+Output file downloaded to results/kaggle/spell_zoom/short12.jpg
+Output file downloaded to results/kaggle/spell_zoom/short13.jpg
+Output file downloaded to results/kaggle/spell_zoom/short14.jpg
+Output file downloaded to results/kaggle/spell_zoom/short15.jpg
+Output file downloaded to results/kaggle/spell_zoom/short16.jpg
+Output file downloaded to results/kaggle/spell_zoom/short17.jpg
+Output file downloaded to results/kaggle/spell_zoom/short18.jpg
+Output file downloaded to results/kaggle/spell_zoom/short19.jpg
+Output file downloaded to results/kaggle/spell_zoom/short20.jpg
+Output file downloaded to results/kaggle/spell_zoom/short21.jpg
+Output file downloaded to results/kaggle/spell_zoom/short22.jpg
+Output file downloaded to results/kaggle/spell_zoom/short23.jpg
+Kernel log downloaded to results/kaggle/spell_zoom/ipanema-spell-zoom.log
+  ipanema-spell-zoom.log 3195
+  long24.jpg 377399
+  long25.jpg 430528
+  long26.jpg 351277
+  long27.jpg 328656
+  long28.jpg 367404
+  long29.jpg 350388
+  long30.jpg 355628
+  long31.jpg 340894
+  long32.jpg 402643
+  long33.jpg 294512
+  long34.jpg 420159
+  long35.jpg 356703
+  result.json 26
+  run.json 154
+  short00.jpg 341270
+  short01.jpg 367913
+  short02.jpg 383691
+  short03.jpg 366048
+  short04.jpg 386751
+  short05.jpg 394487
+  short06.jpg 415717
+  short07.jpg 321173
+  short08.jpg 358361
+  short09.jpg 350177
+  short10.jpg 390887
+  short11.jpg 435773
+  short12.jpg 401904
+  short13.jpg 384163
+  short14.jpg 356434
+  short15.jpg 375816
+  short16.jpg 353791
+  short17.jpg 339948
+  short18.jpg 373327
+  short19.jpg 369818
+  short20.jpg 325633
+  short21.jpg 364585
+  short22.jpg 346373
+  short23.jpg 360340
