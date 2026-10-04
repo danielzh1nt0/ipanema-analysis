@@ -1,2 +1,2 @@
-kaggle/vall_bridge_look.py 20
-# Sun Oct  4 13:14:44 UTC 2026
+kaggle/vall_ball_key.py 30
+# Sun Oct  4 13:24:54 UTC 2026
