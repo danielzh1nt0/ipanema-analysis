@@ -1,2 +1,2 @@
-kaggle/goals_check.py 30
-# Sun Oct  4 21:06:20 UTC 2026
+kaggle/shot_origins.py 40
+# Sun Oct  4 23:29:52 UTC 2026
