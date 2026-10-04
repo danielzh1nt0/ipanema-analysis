@@ -38,4 +38,9 @@ Sheets: `4227_before_team*.jpg` (both teams mixed), `4227_now_teamB.jpg` (white 
 - Spectators by the right-hand fence (11 of 11) are read as the green team: they stand on the green run-off strip beyond
   the touchline, so both the grass test and the pitch-edge test keep them. Needs a touchline / side-edge cue.
 
-**Free-runner re-track** (tools/p2c_track.py, same 20 s as P2/P2b): see below.
+**Free-runner re-track** (tools/p2c_track.py, same 20 s as P2/P2b, track/<piece>/): the self-check fired on the real
+run too (classifier moved 33% -> dropped). Players per frame dark / light: P2 5 / 1, P2b 6 / 2, **now 6 / 3**.
+By eye (compare_*.jpg vs results/qa/p2b/track/..._4227): the greens near the goal (frames 427, 598) now all read green
+(before: most read white); whites near the camera read white. Still wrong: the dim far whites (frame 256: 4 of 5 whites
+red), the spectators by the right-hand fence (3-4 per frame at 427-598) and the pink referee read as the green team.
+Not in the app until the next app run (Modal, waits for Daniel).
