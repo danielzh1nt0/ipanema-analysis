@@ -69,6 +69,12 @@ for name in [x for x in os.environ.get("DETECTORS", "rfdetr").split(",") if x]:
         def detect(f):
             d, nm = TR.detect_tiled_batch(y, [f], 0.3, TR.FOLLOW_TILES, imgsz=960, half=False)[0]; ball = next((i for i, v in nm.items() if v.lower() == "ball"), -1)
             return [b for b, c in zip(d.xyxy, d.class_id) if int(c) != ball]
+    if os.environ.get("KEY_DETS") and not os.path.exists(f"{OUT}/keydets.json"):  # P2 4 Oct: the detector's own people on the 8 key frames (who did tracking drop?)
+        kd = {}
+        for j in KEYS:
+            c.set(cv2.CAP_PROP_POS_FRAMES, j); ok, f = c.read()
+            if ok: kd[str(j)] = [[round(float(v), 1) for v in b[:4]] for b in detect(f)]
+        json.dump(kd, open(f"{OUT}/keydets.json", "w")); log(f"key-frame detections saved ({sum(map(len, kd.values()))} people on {len(kd)} frames)")
     tm = K.KitTeamModel().fit_frames(sample_frames(detect), log=log)
     tm.offpitch = (not SFK) and os.environ.get("IPANEMA_OFFPITCH", "1") == "1"   # P7: no calibration -> drop people whose feet are off the pitch
     log(f"off-pitch people dropped by the pitch-edge test: {'yes' if tm.offpitch else 'no'}")
