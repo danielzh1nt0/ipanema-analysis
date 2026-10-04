@@ -25,17 +25,14 @@ The data files are correct as of Sun 4 Oct, 19:30. Don't change any numbers in t
   - `outcome`: "goal" / "on target"
 - Count only entries whose `t` is inside one of `match_data.periods[]` (`t_start - 5` to `t_end + 5`).
 - Direction: in the data, **team A always attacks towards x = 106 (right)** and team B towards x = 0. The second half is already mirrored in the data, so never flip it again.
-- What the app may show for a match is decided by `summary.ball_grade.possession_ok`, a field on the Supabase `matches` row:
-  - `true` for SFK–BP and SFK–AIK
-  - `false` for Vallentuna
 
 **Expected numbers:**
 
-| Match | Score (SFK–opponent) | Shots SFK / opp | Possession SFK | `possession_ok` |
-|---|---|---|---|---|
-| SFK – BP (1st half) | **1–0** | 3 / 4 | 46% | true |
-| SFK – AIK (1st half) | **0–2** | 9 / 7 | 34% | true |
-| SFK – Vallentuna (full) | **3–2** | 8 / 9 | hidden | false |
+| Match | Score (SFK–opponent) | Shots SFK / opp | Possession SFK |
+|---|---|---|---|
+| SFK – BP (1st half) | **1–0** | 3 / 4 | 46% |
+| SFK – AIK (1st half) | **0–2** | 9 / 7 | 34% |
+| SFK – Vallentuna (full) | **3–2** | 8 / 9 | 33% (being re-checked) |
 
 ---
 
@@ -54,30 +51,12 @@ The data files are correct as of Sun 4 Oct, 19:30. Don't change any numbers in t
 
 - Add `p15u-vs-vallentuna-2026-10-03-6cce` to `DEMO_MATCH_IDS` as the third match, titled "SFK – Vallentuna · full match", with the Beta label.
 
-## 4. Hide what isn't verified (Vallentuna today)
+## 4. Show every stat (Daniel, 4 Oct 19:31: "don't hide stuff")
 
-When `summary.ball_grade.possession_ok` is **false**:
-- **Hide** these tabs or cards:
-  - Ball (layer and stats)
-  - Pressing
-  - Possession %
-  - Losses / balls lost
-  - Turnovers
-  - Pass completion, passes, the pass map ("Where did our passes go?")
-  - Field tilt
-  - Set pieces
-- **Show** a short note in their place: "Possession, passing and pressing are still being verified for this match."
-- **Keep showing:**
-  - Score
-  - Shots and the shot map
-  - The player layer on the video
-  - Team heat maps
-  - Shape (length, width, line height)
-
-Rules for **every** match, including BP and AIK:
-- Hide the **pass map and pass counts** ("535 located passes"). About 30% of the passes are not real yet. Pass completion % may stay for BP and AIK only.
-- Hide **"Distance covered"** (50,541 m / 63,385 m). It only counts players while they are in the camera's view, so it is far below the real figure.
-- Pressing for BP and AIK may stay, using the 2‑metre rule already agreed (`frames[].pressed`).
+- Show all tabs and cards for all three matches: ball, pressing, possession, losses, turnovers, passes and the pass map, field tilt, set pieces, shape, distance.
+- Keep the **Beta** label on the match.
+- Don't add "not verified" notes and don't hide anything based on `ball_grade`. The data team is fixing the numbers at the source, and the app will pick up the new files automatically.
+- Rename "Distance covered" to **"Distance covered (while in camera view)"**. The camera follows the ball, so players out of shot are not counted.
 
 ## 5. Shot map ("Where did shots come from?")
 
@@ -118,10 +97,9 @@ On the stats screen, the tab row (BALL · PRESSING · SHAPE · SHOOTING · PLAYE
 1. **Library:** three cards showing 1–0, 0–2 and 3–2, team names "SFK" and the opponent, all "Ready" with Beta.
 2. **Vallentuna:**
    - Header reads "SFK 3–2 Vallentuna".
-   - The pressing, ball, pass and possession tabs are hidden with the note.
+   - All tabs are visible.
    - Shot map: 8 SFK shots towards the right goal, 9 Vallentuna shots towards the left.
 3. **BP and AIK:**
-   - Possession and pressing are visible.
-   - The pass map and distance covered are hidden.
+   - All tabs are visible.
    - The "2nd" half option is hidden.
 4. **On a phone:** the tabs don't overlap, and the active tab and toggle are obvious at a glance.
