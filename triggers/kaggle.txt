@@ -1,2 +1,2 @@
-kaggle/vall_goals_fine.py 25
-# Sun Oct  4 13:56:07 UTC 2026
+kaggle/vall_who.py 20
+# Sun Oct  4 15:03:10 UTC 2026

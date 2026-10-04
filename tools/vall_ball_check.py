@@ -4,7 +4,7 @@ spare-ball spot by the fence/goal, on a player, or nothing). Needs the fetched f
     PYTHONPATH=. python tools/vall_ball_check.py"""
 import json, glob, bisect, math, collections
 M = "p15u-vs-vallentuna-2026-10-03-6cce"; D = f"results/volume/runs/matches/{M}"
-key = json.load(open(f"reference/{M}/ball_gt.json"))["items"]; G = json.load(open("results/kaggle/vall_ball_key/guesses.json"))
+key = json.load(open(f"reference/{M}/ball_key_graded.json"))["items"]; G = json.load(open("results/kaggle/vall_ball_key/guesses.json"))
 frames = []
 for f in sorted(glob.glob(f"{D}/frames_*.json")): frames += json.load(open(f))["frames"]
 ts = [f["t"] for f in frames]; print("frames", len(frames))
