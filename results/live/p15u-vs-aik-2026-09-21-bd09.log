@@ -1,7 +1,7 @@
-# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:10:35 UTC
+# live log · p15u-vs-aik-2026-09-21-bd09 · running · 17:12:16 UTC
 
 
-## run_full.log (27 lines, last 60)
+## run_full.log (32 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 11 to finish on CPU (detections saved), 0 need a GPU
@@ -29,6 +29,11 @@ clean: keeper (left) from a non-team kit: track 400909, 927 frames
 clean: keeper (right) from a non-team kit: track 101293, 1134 frames
 clean: removed 382095 rows of non-team kits (referee / staff)
 clean: dropped 208802 off-pitch, merged 10929 duplicates, stitched 3773 ids, keepers [101311, 101331, 101381, 101449, 101454, 200046, 200027, 200836, 200916, 200919, 200929, 200953, 200955, 200956, 200961, 200968, 200978, 200987, 200989, 200991, 201000, 201008, 201016, 201019, 201056, 201061, 201064, 201084, 201090, 300835, 300848, 300853, 300883, 400365, 501382, 501434, 600048, 700924, 800398, 800524, 800531, 800553, 800810, 901069, 901272] -> A defends left
+clean: players per frame median A 5 / B 5, max A 14 / B 17
+players: 28438 short gaps filled (marked 'filled' in the export)
+ball v2: 79727/98902 frames on the path, 4278 static-clutter candidates dropped
+ball check: 26/39 correct, 13 wrong, 0 no pick (ceiling 39/39)
+ball: dropped 2388 static-clutter candidates
 
 ## piece_000.log (10 lines, last 60)
 === p15u-vs-aik-2026-09-21-bd09_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
