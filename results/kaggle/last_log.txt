@@ -1,42 +1,93 @@
-kernel danielmatros/ipanema-vall-bridge-look
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-bridge-look
-  0.5 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.RUNNING"
-  2.6 min: danielmatros/ipanema-vall-bridge-look has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_bridge_look/r00_bridge 4s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r01_bridge 5s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r02_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r03_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r04_bridge 4s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r05_bridge 4s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r06_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r07_bridge 5s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r08_bridge 5s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r09_bridge 5s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r10_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r11_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r12_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r13_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r14_bridge 4s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/r15_bridge 3s.jpg
-Output file downloaded to results/kaggle/vall_bridge_look/result.json
-Kernel log downloaded to results/kaggle/vall_bridge_look/ipanema-vall-bridge-look.log
-  ipanema-vall-bridge-look.log 875
-  r00_bridge 4s.jpg 123604
-  r01_bridge 5s.jpg 147202
-  r02_bridge 3s.jpg 193971
-  r03_bridge 3s.jpg 171620
-  r04_bridge 4s.jpg 151886
-  r05_bridge 4s.jpg 138323
-  r06_bridge 3s.jpg 121703
-  r07_bridge 5s.jpg 137878
-  r08_bridge 5s.jpg 179793
-  r09_bridge 5s.jpg 145547
-  r10_bridge 3s.jpg 191373
-  r11_bridge 3s.jpg 187727
-  r12_bridge 3s.jpg 162777
-  r13_bridge 3s.jpg 164740
-  r14_bridge 4s.jpg 135903
-  r15_bridge 3s.jpg 171680
-  result.json 26
-  run.json 166
+kernel danielmatros/ipanema-vall-ball-key
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-ball-key
+  0.5 min: danielmatros/ipanema-vall-ball-key has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-vall-ball-key has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-vall-ball-key has status "KernelWorkerStatus.RUNNING"
+  4.6 min: danielmatros/ipanema-vall-ball-key has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_ball_key/b00.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b01.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b02.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b03.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b04.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b05.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b06.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b07.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b08.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b09.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b10.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b11.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b12.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b13.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b14.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b15.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b16.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b17.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b18.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b19.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b20.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b21.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b22.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b23.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b24.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b25.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b26.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b27.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b28.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b29.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b30.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b31.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b32.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b33.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b34.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b35.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b36.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b37.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b38.jpg
+Output file downloaded to results/kaggle/vall_ball_key/b39.jpg
+Output file downloaded to results/kaggle/vall_ball_key/guesses.json
+Output file downloaded to results/kaggle/vall_ball_key/result.json
+Kernel log downloaded to results/kaggle/vall_ball_key/ipanema-vall-ball-key.log
+  b00.jpg 191376
+  b01.jpg 155183
+  b02.jpg 160506
+  b03.jpg 148878
+  b04.jpg 169172
+  b05.jpg 180859
+  b06.jpg 168770
+  b07.jpg 143955
+  b08.jpg 164231
+  b09.jpg 196596
+  b10.jpg 182494
+  b11.jpg 194690
+  b12.jpg 115806
+  b13.jpg 196106
+  b14.jpg 149831
+  b15.jpg 141391
+  b16.jpg 195274
+  b17.jpg 144416
+  b18.jpg 185859
+  b19.jpg 150294
+  b20.jpg 174080
+  b21.jpg 109572
+  b22.jpg 167424
+  b23.jpg 204141
+  b24.jpg 149263
+  b25.jpg 138968
+  b26.jpg 140277
+  b27.jpg 195194
+  b28.jpg 125636
+  b29.jpg 140264
+  b30.jpg 153554
+  b31.jpg 197428
+  b32.jpg 173666
+  b33.jpg 130557
+  b34.jpg 188017
+  b35.jpg 131472
+  b36.jpg 139391
+  b37.jpg 148681
+  b38.jpg 173540
+  b39.jpg 131758
+  guesses.json 6999
+  ipanema-vall-ball-key.log 5205
+  result.json 21
+  run.json 160

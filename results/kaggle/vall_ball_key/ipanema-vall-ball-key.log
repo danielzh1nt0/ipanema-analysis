@@ -1,0 +1,56 @@
+[{"stream_name":"stdout","time":128.604565834,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":129.239755656,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 13.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":129.288676727,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 397.5/397.5 kB 12.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":129.59885016,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 59.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":129.635448454,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 4.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":186.495443118,"data":"[2026-10-04 13:29:37] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":186.495491265,"data":"[2026-10-04 13:29:37] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":188.706096418,"data":"[2026-10-04 13:29:39] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":193.660458765,"data":"0\n"}
+,{"stream_name":"stdout","time":194.470549037,"data":"1\n"}
+,{"stream_name":"stdout","time":195.332167579,"data":"2\n"}
+,{"stream_name":"stdout","time":196.057546639,"data":"3\n"}
+,{"stream_name":"stdout","time":197.093772355,"data":"4\n"}
+,{"stream_name":"stdout","time":197.878083165,"data":"5\n"}
+,{"stream_name":"stdout","time":198.555560407,"data":"6\n"}
+,{"stream_name":"stdout","time":199.327741559,"data":"7\n"}
+,{"stream_name":"stdout","time":200.161280205,"data":"8\n"}
+,{"stream_name":"stdout","time":200.882129336,"data":"9\n"}
+,{"stream_name":"stdout","time":201.729700945,"data":"10\n"}
+,{"stream_name":"stdout","time":202.575072347,"data":"11\n"}
+,{"stream_name":"stdout","time":203.299138713,"data":"12\n"}
+,{"stream_name":"stdout","time":204.059719016,"data":"13\n"}
+,{"stream_name":"stdout","time":204.752128123,"data":"14\n"}
+,{"stream_name":"stdout","time":205.550330585,"data":"15\n"}
+,{"stream_name":"stdout","time":206.328442326,"data":"16\n"}
+,{"stream_name":"stdout","time":207.00121563,"data":"17\n"}
+,{"stream_name":"stdout","time":207.887233944,"data":"18\n"}
+,{"stream_name":"stdout","time":208.689473052,"data":"19\n"}
+,{"stream_name":"stdout","time":209.49837289,"data":"20\n"}
+,{"stream_name":"stdout","time":210.260837283,"data":"21\n"}
+,{"stream_name":"stdout","time":210.994232341,"data":"22\n"}
+,{"stream_name":"stdout","time":211.798359344,"data":"23\n"}
+,{"stream_name":"stdout","time":212.57433242,"data":"24\n"}
+,{"stream_name":"stdout","time":213.253208467,"data":"25\n"}
+,{"stream_name":"stdout","time":213.916592068,"data":"26\n"}
+,{"stream_name":"stdout","time":214.656687937,"data":"27\n"}
+,{"stream_name":"stdout","time":215.362642717,"data":"28\n"}
+,{"stream_name":"stdout","time":216.094954589,"data":"29\n"}
+,{"stream_name":"stdout","time":216.938194261,"data":"30\n"}
+,{"stream_name":"stdout","time":217.813848192,"data":"31\n"}
+,{"stream_name":"stdout","time":218.617254338,"data":"32\n"}
+,{"stream_name":"stdout","time":219.400637052,"data":"33\n"}
+,{"stream_name":"stdout","time":220.175758243,"data":"34\n"}
+,{"stream_name":"stdout","time":220.847637893,"data":"35\n"}
+,{"stream_name":"stdout","time":221.63740715,"data":"36\n"}
+,{"stream_name":"stdout","time":222.151232171,"data":"37\n"}
+,{"stream_name":"stdout","time":222.8530351,"data":"38\n"}
+,{"stream_name":"stdout","time":223.581330711,"data":"39\n"}
+,{"stream_name":"stdout","time":223.582841996,"data":"done 40\n"}
+,{"stream_name":"stderr","time":233.83394759,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":233.83400253,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":234.212023625,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":234.212051349,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":235.038159229,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":236.406171877,"data":"[NbConvertApp] Writing 291436 bytes to __results__.html\n"}
+]
