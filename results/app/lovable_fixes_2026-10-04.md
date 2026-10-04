@@ -103,3 +103,22 @@ On the stats screen, the tab row (BALL · PRESSING · SHAPE · SHOOTING · PLAYE
    - All tabs are visible.
    - The "2nd" half option is hidden.
 4. **On a phone:** the tabs don't overlap, and the active tab and toggle are obvious at a glance.
+
+
+---
+
+## 8. Bugs Daniel found on Sunday night (fix these first)
+
+1. **Score in the match header must be the score at the current video time,** not the final score.
+   - Count `metrics.shots[]` with `goal: true` and `t` up to the current playhead, per team.
+   - Vallentuna: 0–0 until 60:04, then 1–0, 1–1 (62:22), 1–2 (64:00), 2–2 (91:53), 3–2 (93:13).
+2. **The 2D view is empty** although the frames have positions.
+   - Draw every `frames[].players[]` entry at `m = [x, y]` (metres on a 106 × 64 pitch, x to the right), coloured by `team`. Draw the ball at `ball.m`.
+   - Second-half frames are already mirrored: don't flip them.
+   - Example: Vallentuna at 54:47 (t = 3287 s) has 5 players; the 2D view must show 5 dots.
+3. **Pins sit below the players,** more so near the bottom of the picture. The pin position is `players[].px`, in pixels of a **1920 × 1080** frame.
+   - Scale it with the *displayed* video rectangle: `x * shownWidth / 1920`, `y * shownHeight / 1080`, offset by the letterbox or crop.
+   - If the video element uses `object-fit: cover`, either switch it to `contain` or apply the same crop to the overlay.
+   - Check: a pin should sit exactly at a player's feet in all four corners of the picture.
+4. **Shots without a position.** From now on shots have `x_m`/`y_m` = `null` until their origin is marked by eye. On the shot map, don't draw shots with a null position. Under the map write "8 shots · positions being added" (the count still includes them). Never place a null-position shot on the goal line.
+5. **"GK" labels:** show "GK" only where `players[].gk` is true. After tonight's data fix that is at most one player per team.
