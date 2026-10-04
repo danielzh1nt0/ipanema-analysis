@@ -1,4 +1,4 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:18:41 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:20:25 UTC
 
 
 ## run_full.log (5 lines, last 60)
@@ -191,6 +191,9 @@ tracking: RF-DETR tracks re-positioned with this calibration
 ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.0 candidates/frame
 ball: RF-DETR + WASB guesses fused, 12.0/frame
 p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
+
+## piece_018.log (1 lines, last 60)
+
 
 ## piece_019.log (8 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c019 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
