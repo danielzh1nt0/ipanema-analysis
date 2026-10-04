@@ -1,0 +1,57 @@
+# Veo AI event list for SFK vs Vallentuna P15U (Edsbergs Sportfalt 3), pasted by Daniel 3 Oct (minute · team · event). Three scrolls:
+# 42-51, 24-32, 65-81. Minutes are Veo's match clock. Goals: SFK 1-0 (47'), VAL 1-1 (50'), SFK 2-2 (79'), SFK 3-2 (81') -> the 2-1 goal is in a gap.
+42 VAL Free kick
+43 VAL Throw-in
+44 SFK Throw-in
+44 SFK Foul
+45 VAL Free kick
+46 VAL Goal kick
+47 VAL Foul
+47 SFK Free kick
+47 SFK Goal 1-0
+48 VAL Kickoff
+50 VAL Goal 1-1
+50 SFK Kickoff
+51 VAL Corner
+24 VAL Free kick
+24 VAL Foul
+25 SFK Free kick
+25 SFK Throw-in
+27 VAL Shot
+27 VAL Throw-in
+28 VAL Corner
+28 VAL Shot
+28 SFK Goal kick
+29 SFK Foul
+30 VAL Free kick
+31 VAL Throw-in
+31 VAL Corner
+32 VAL Shot
+65 SFK Free kick
+65 VAL Goal kick
+66 VAL Foul
+66 SFK Free kick
+67 SFK Throw-in
+67 VAL Throw-in
+68 SFK Corner
+68 SFK Throw-in
+69 SFK Throw-in
+70 SFK Corner
+71 VAL Throw-in
+72 SFK Throw-in
+72 VAL Throw-in
+73 SFK Free kick
+73 SFK Shot
+75 VAL Throw-in
+76 SFK Throw-in
+76 SFK Shot
+77 VAL Foul
+77 SFK Free kick
+77 SFK Throw-in
+79 SFK Throw-in
+79 SFK Goal 2-2
+80 VAL Kickoff
+80 VAL Shot
+80 SFK Goal kick
+81 SFK Goal 3-2
+81 VAL Kickoff
