@@ -265,13 +265,24 @@ class KitTeamModel:
         v3 (1 Oct): new gate (see below), and when it fires the reading is always far pair + mean colour."""
         missed_max = 1.0; shift_max = 18.0
         pitch_test = pitch_test or os.environ.get("IPANEMA_PITCH_TEST", "grass")
-        self.green_kit = green_kit; dropped = 0; kept = []
-        for f, boxes in frames_boxes:
-            g = grass_lab(f); top = pitch_top(f) if (pitch_only and pitch_test == "edge") else None
-            for b in boxes:
-                if b[3] - b[1] < 22: continue
-                if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
-                kept.append((f, b, g))
+        self.green_kit = green_kit; self.pitch_test = pitch_test if pitch_only else "none"
+        def sample(test):
+            dropped, kept = 0, []
+            for f, boxes in frames_boxes:
+                g = grass_lab(f); top = pitch_top(f) if (pitch_only and test == "edge") else None
+                for b in boxes:
+                    if b[3] - b[1] < 22: continue
+                    if pitch_only and not (feet_on_pitch(f, b, top) if top is not None else on_grass(f, b, g)): dropped += 1; continue
+                    kept.append((f, b, g))
+            return dropped, kept
+        dropped, kept = sample(pitch_test)
+        # P2b (4 Oct): at night the grass test keeps only 12-29% of the people at Reymersholm (floodlit grass is far
+        # lighter than the reference) and the white team falls out of the kit groups -> tracked whites 1-2 per frame.
+        # When it keeps less than this share, use the pitch-edge test instead. Other grounds keep 43-88% -> unchanged.
+        fb_min = float(os.environ.get("IPANEMA_PITCH_FALLBACK", "0.35"))
+        if pitch_only and pitch_test == "grass" and fb_min > 0 and (kept or dropped) and len(kept) / (len(kept) + dropped) < fb_min:
+            log(f"kits: grass test keeps only {len(kept)} of {len(kept) + dropped} people -> pitch-edge test instead")
+            dropped, kept = sample("edge"); self.pitch_test = "edge (fallback)"
         auto = os.environ.get("IPANEMA_KIT_AUTO", "1") == "1"
         # F1c (2 Oct): in hard sun + shade read lightness relative to the grass at the feet (AIK full: 130 -> 234/254
         # players in the right team); night and even-light grounds stay on the old reading (gate below 2.4)

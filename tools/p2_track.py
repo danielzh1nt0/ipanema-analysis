@@ -31,6 +31,6 @@ if __name__ == "__main__":
                    SAVE_ALL_ROWS="1", KEY_DETS="1", TRACKTEST_OUT=d)
         if not first: env["SKIP_INSTALL"] = "1"
         first = False
-        r = subprocess.run([sys.executable, "tools/tracktest.py"], env=env)
+        r = subprocess.run([sys.executable, os.environ.get("TRACKTEST_PY", "tools/tracktest.py")], env=env)   # P2b: TRACKTEST_PY = stand-in for dry runs
         print(match, start, "returncode", r.returncode, flush=True); bad += r.returncode != 0
     sys.exit(1 if bad else 0)
