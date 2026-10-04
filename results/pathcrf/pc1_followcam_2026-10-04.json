@@ -1,0 +1,106 @@
+{
+ "pathcrf_commit": "1b7c6f85a6b78c92e4543fde72ca2b86a933f997",
+ "model": "trial 140 (dynamic masked CRF), state_dict_best_acc.pt",
+ "minutes": null,
+ "player_noise_m": 0.8,
+ "noise_smooth_s": 1.0,
+ "follow_cam_view_m": 35.0,
+ "games": {
+  "1": {
+   "1": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 52,
+      "Away": 48
+     },
+     "passes": {
+      "Home": 252,
+      "Away": 206
+     },
+     "balls_lost": {
+      "Home": 77,
+      "Away": 79
+     }
+    },
+    "frames_in_play": 39462,
+    "pathcrf_holder_share": 0.858,
+    "team_per_frame_agree": 0.939,
+    "frames_compared": 31078,
+    "players_seen_share": 0.571,
+    "passes_found": "238/369",
+    "passes_real": "238/458"
+   },
+   "2": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 53,
+      "Away": 47
+     },
+     "passes": {
+      "Home": 258,
+      "Away": 237
+     },
+     "balls_lost": {
+      "Home": 86,
+      "Away": 80
+     }
+    },
+    "frames_in_play": 44880,
+    "pathcrf_holder_share": 0.892,
+    "team_per_frame_agree": 0.93,
+    "frames_compared": 37655,
+    "players_seen_share": 0.588,
+    "passes_found": "301/430",
+    "passes_real": "301/495"
+   }
+  },
+  "2": {
+   "1": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 51,
+      "Away": 49
+     },
+     "passes": {
+      "Home": 300,
+      "Away": 275
+     },
+     "balls_lost": {
+      "Home": 95,
+      "Away": 95
+     }
+    },
+    "frames_in_play": 47914,
+    "pathcrf_holder_share": 0.871,
+    "team_per_frame_agree": 0.922,
+    "frames_compared": 39385,
+    "players_seen_share": 0.58,
+    "passes_found": "366/538",
+    "passes_real": "366/575"
+   },
+   "2": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 48,
+      "Away": 52
+     },
+     "passes": {
+      "Home": 216,
+      "Away": 207
+     },
+     "balls_lost": {
+      "Home": 76,
+      "Away": 75
+     }
+    },
+    "frames_in_play": 33531,
+    "pathcrf_holder_share": 0.868,
+    "team_per_frame_agree": 0.904,
+    "frames_compared": 27377,
+    "players_seen_share": 0.62,
+    "passes_found": "267/426",
+    "passes_real": "267/423"
+   }
+  }
+ }
+}

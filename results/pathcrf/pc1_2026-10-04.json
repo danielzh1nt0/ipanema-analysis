@@ -1,0 +1,272 @@
+{
+ "pathcrf_commit": "1b7c6f85a6b78c92e4543fde72ca2b86a933f997",
+ "model": "trial 140 (dynamic masked CRF), state_dict_best_acc.pt",
+ "minutes": null,
+ "player_noise_m": 0.0,
+ "games": {
+  "1": {
+   "1": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 54,
+      "Away": 46
+     },
+     "passes": {
+      "Home": 196,
+      "Away": 170
+     },
+     "balls_lost": {
+      "Home": 55,
+      "Away": 55
+     }
+    },
+    "frames_in_play": 39462,
+    "pathcrf_holder_share": 0.856,
+    "team_per_frame_agree": 0.95,
+    "frames_compared": 31866,
+    "passes_found": "253/369",
+    "passes_real": "253/366",
+    "truth": {
+     "passes": {
+      "Home": 187,
+      "Away": 182
+     },
+     "balls_lost": {
+      "Home": 72,
+      "Away": 70
+     },
+     "possession_pct": {
+      "Home": 55,
+      "Away": 45
+     },
+     "dead_pct": 20
+    },
+    "ours_clean": {
+     "passes": {
+      "Home": 186,
+      "Away": 209
+     },
+     "balls_lost": {
+      "Home": 26,
+      "Away": 29
+     },
+     "possession_pct": {
+      "Home": 49,
+      "Away": 51
+     }
+    },
+    "ours_noisy": {
+     "passes": {
+      "Home": 181,
+      "Away": 193
+     },
+     "balls_lost": {
+      "Home": 8,
+      "Away": 5
+     },
+     "possession_pct": {
+      "Home": 44,
+      "Away": 56
+     }
+    }
+   },
+   "2": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 54,
+      "Away": 46
+     },
+     "passes": {
+      "Home": 213,
+      "Away": 181
+     },
+     "balls_lost": {
+      "Home": 53,
+      "Away": 49
+     }
+    },
+    "frames_in_play": 44880,
+    "pathcrf_holder_share": 0.897,
+    "team_per_frame_agree": 0.93,
+    "frames_compared": 38425,
+    "passes_found": "302/430",
+    "passes_real": "302/394",
+    "truth": {
+     "passes": {
+      "Home": 250,
+      "Away": 180
+     },
+     "balls_lost": {
+      "Home": 57,
+      "Away": 58
+     },
+     "possession_pct": {
+      "Home": 57,
+      "Away": 43
+     },
+     "dead_pct": 13
+    },
+    "ours_clean": {
+     "passes": {
+      "Home": 274,
+      "Away": 188
+     },
+     "balls_lost": {
+      "Home": 29,
+      "Away": 34
+     },
+     "possession_pct": {
+      "Home": 62,
+      "Away": 38
+     }
+    },
+    "ours_noisy": {
+     "passes": {
+      "Home": 254,
+      "Away": 192
+     },
+     "balls_lost": {
+      "Home": 8,
+      "Away": 12
+     },
+     "possession_pct": {
+      "Home": 68,
+      "Away": 32
+     }
+    }
+   }
+  },
+  "2": {
+   "1": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 52,
+      "Away": 48
+     },
+     "passes": {
+      "Home": 258,
+      "Away": 225
+     },
+     "balls_lost": {
+      "Home": 55,
+      "Away": 59
+     }
+    },
+    "frames_in_play": 47914,
+    "pathcrf_holder_share": 0.87,
+    "team_per_frame_agree": 0.95,
+    "frames_compared": 39933,
+    "passes_found": "389/538",
+    "passes_real": "389/483",
+    "truth": {
+     "passes": {
+      "Home": 295,
+      "Away": 243
+     },
+     "balls_lost": {
+      "Home": 67,
+      "Away": 61
+     },
+     "possession_pct": {
+      "Home": 51,
+      "Away": 49
+     },
+     "dead_pct": 14
+    },
+    "ours_clean": {
+     "passes": {
+      "Home": 283,
+      "Away": 254
+     },
+     "balls_lost": {
+      "Home": 36,
+      "Away": 34
+     },
+     "possession_pct": {
+      "Home": 53,
+      "Away": 47
+     }
+    },
+    "ours_noisy": {
+     "passes": {
+      "Home": 275,
+      "Away": 249
+     },
+     "balls_lost": {
+      "Home": 9,
+      "Away": 11
+     },
+     "possession_pct": {
+      "Home": 56,
+      "Away": 44
+     }
+    }
+   },
+   "2": {
+    "pathcrf": {
+     "possession_pct": {
+      "Home": 49,
+      "Away": 51
+     },
+     "passes": {
+      "Home": 173,
+      "Away": 166
+     },
+     "balls_lost": {
+      "Home": 45,
+      "Away": 43
+     }
+    },
+    "frames_in_play": 33531,
+    "pathcrf_holder_share": 0.862,
+    "team_per_frame_agree": 0.935,
+    "frames_compared": 27431,
+    "passes_found": "276/426",
+    "passes_real": "276/339",
+    "truth": {
+     "passes": {
+      "Home": 248,
+      "Away": 178
+     },
+     "balls_lost": {
+      "Home": 53,
+      "Away": 52
+     },
+     "possession_pct": {
+      "Home": 54,
+      "Away": 46
+     },
+     "dead_pct": 14
+    },
+    "ours_clean": {
+     "passes": {
+      "Home": 231,
+      "Away": 181
+     },
+     "balls_lost": {
+      "Home": 24,
+      "Away": 30
+     },
+     "possession_pct": {
+      "Home": 55,
+      "Away": 45
+     }
+    },
+    "ours_noisy": {
+     "passes": {
+      "Home": 226,
+      "Away": 165
+     },
+     "balls_lost": {
+      "Home": 4,
+      "Away": 5
+     },
+     "possession_pct": {
+      "Home": 33,
+      "Away": 67
+     }
+    }
+   }
+  }
+ }
+}
