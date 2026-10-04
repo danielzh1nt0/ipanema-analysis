@@ -1,31 +1,49 @@
-kernel danielmatros/ipanema-vall-poss-misses
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-poss-misses
-  0.5 min: danielmatros/ipanema-vall-poss-misses has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-vall-poss-misses has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_poss_misses/b00.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/b20.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/b31.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c03.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c12.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c13.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c19.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c23.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c26.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c37.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/c38.jpg
-Output file downloaded to results/kaggle/vall_poss_misses/result.json
-Kernel log downloaded to results/kaggle/vall_poss_misses/ipanema-vall-poss-misses.log
-  b00.jpg 307672
-  b20.jpg 287060
-  b31.jpg 330828
-  c03.jpg 236317
-  c12.jpg 306394
-  c13.jpg 323075
-  c19.jpg 174401
-  c23.jpg 232463
-  c26.jpg 234675
-  c37.jpg 238759
-  c38.jpg 183851
-  ipanema-vall-poss-misses.log 1467
-  result.json 12
-  run.json 166
+kernel danielmatros/ipanema-goals-check
+Kernel version 4 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-goals-check
+  0.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.RUNNING"
+  1.5 min: danielmatros/ipanema-goals-check has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/goals_check/g0_0.jpg
+Output file downloaded to results/kaggle/goals_check/g10_0.jpg
+Output file downloaded to results/kaggle/goals_check/g11_0.jpg
+Output file downloaded to results/kaggle/goals_check/g12_0.jpg
+Output file downloaded to results/kaggle/goals_check/g13_0.jpg
+Output file downloaded to results/kaggle/goals_check/g14_0.jpg
+Output file downloaded to results/kaggle/goals_check/g15_0.jpg
+Output file downloaded to results/kaggle/goals_check/g16_0.jpg
+Output file downloaded to results/kaggle/goals_check/g1_0.jpg
+Output file downloaded to results/kaggle/goals_check/g2_0.jpg
+Output file downloaded to results/kaggle/goals_check/g3_0.jpg
+Output file downloaded to results/kaggle/goals_check/g4_0.jpg
+Output file downloaded to results/kaggle/goals_check/g5_0.jpg
+Output file downloaded to results/kaggle/goals_check/g6_0.jpg
+Output file downloaded to results/kaggle/goals_check/g7_0.jpg
+Output file downloaded to results/kaggle/goals_check/g8_0.jpg
+Output file downloaded to results/kaggle/goals_check/g9_0.jpg
+Output file downloaded to results/kaggle/goals_check/result.json
+Kernel log downloaded to results/kaggle/goals_check/ipanema-goals-check.log
+  g0_0.jpg 578395
+  g0_1.jpg 537781
+  g0_2.jpg 724707
+  g10_0.jpg 512234
+  g11_0.jpg 688864
+  g12_0.jpg 526841
+  g13_0.jpg 520716
+  g14_0.jpg 487117
+  g15_0.jpg 733330
+  g16_0.jpg 587820
+  g1_0.jpg 807153
+  g1_1.jpg 400957
+  g2_0.jpg 540904
+  g2_1.jpg 366596
+  g3_0.jpg 598680
+  g3_1.jpg 472905
+  g4_0.jpg 763298
+  g4_1.jpg 528684
+  g5_0.jpg 712955
+  g6_0.jpg 644248
+  g7_0.jpg 584707
+  g8_0.jpg 575627
+  g9_0.jpg 714892
+  ipanema-goals-check.log 867
+  result.json 25
+  run.json 156
