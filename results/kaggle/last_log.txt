@@ -1,81 +1,58 @@
-kernel danielmatros/ipanema-spell-zoom
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-spell-zoom
-  0.5 min: danielmatros/ipanema-spell-zoom has status "KernelWorkerStatus.RUNNING"
-  1.5 min: danielmatros/ipanema-spell-zoom has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/spell_zoom/long24.jpg
-Output file downloaded to results/kaggle/spell_zoom/long25.jpg
-Output file downloaded to results/kaggle/spell_zoom/long26.jpg
-Output file downloaded to results/kaggle/spell_zoom/long27.jpg
-Output file downloaded to results/kaggle/spell_zoom/long28.jpg
-Output file downloaded to results/kaggle/spell_zoom/long29.jpg
-Output file downloaded to results/kaggle/spell_zoom/long30.jpg
-Output file downloaded to results/kaggle/spell_zoom/long31.jpg
-Output file downloaded to results/kaggle/spell_zoom/long32.jpg
-Output file downloaded to results/kaggle/spell_zoom/long33.jpg
-Output file downloaded to results/kaggle/spell_zoom/long34.jpg
-Output file downloaded to results/kaggle/spell_zoom/long35.jpg
-Output file downloaded to results/kaggle/spell_zoom/result.json
-Output file downloaded to results/kaggle/spell_zoom/short00.jpg
-Output file downloaded to results/kaggle/spell_zoom/short01.jpg
-Output file downloaded to results/kaggle/spell_zoom/short02.jpg
-Output file downloaded to results/kaggle/spell_zoom/short03.jpg
-Output file downloaded to results/kaggle/spell_zoom/short04.jpg
-Output file downloaded to results/kaggle/spell_zoom/short05.jpg
-Output file downloaded to results/kaggle/spell_zoom/short06.jpg
-Output file downloaded to results/kaggle/spell_zoom/short07.jpg
-Output file downloaded to results/kaggle/spell_zoom/short08.jpg
-Output file downloaded to results/kaggle/spell_zoom/short09.jpg
-Output file downloaded to results/kaggle/spell_zoom/short10.jpg
-Output file downloaded to results/kaggle/spell_zoom/short11.jpg
-Output file downloaded to results/kaggle/spell_zoom/short12.jpg
-Output file downloaded to results/kaggle/spell_zoom/short13.jpg
-Output file downloaded to results/kaggle/spell_zoom/short14.jpg
-Output file downloaded to results/kaggle/spell_zoom/short15.jpg
-Output file downloaded to results/kaggle/spell_zoom/short16.jpg
-Output file downloaded to results/kaggle/spell_zoom/short17.jpg
-Output file downloaded to results/kaggle/spell_zoom/short18.jpg
-Output file downloaded to results/kaggle/spell_zoom/short19.jpg
-Output file downloaded to results/kaggle/spell_zoom/short20.jpg
-Output file downloaded to results/kaggle/spell_zoom/short21.jpg
-Output file downloaded to results/kaggle/spell_zoom/short22.jpg
-Output file downloaded to results/kaggle/spell_zoom/short23.jpg
-Kernel log downloaded to results/kaggle/spell_zoom/ipanema-spell-zoom.log
-  ipanema-spell-zoom.log 3195
-  long24.jpg 377399
-  long25.jpg 430528
-  long26.jpg 351277
-  long27.jpg 328656
-  long28.jpg 367404
-  long29.jpg 350388
-  long30.jpg 355628
-  long31.jpg 340894
-  long32.jpg 402643
-  long33.jpg 294512
-  long34.jpg 420159
-  long35.jpg 356703
+kernel danielmatros/ipanema-vall-calib-look
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-calib-look
+  0.5 min: danielmatros/ipanema-vall-calib-look has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-vall-calib-look has status "KernelWorkerStatus.RUNNING"
+  2.5 min: danielmatros/ipanema-vall-calib-look has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_calib_look/r00_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r01_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r02_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r03_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r04_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r05_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r06_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r07_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r08_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r09_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r10_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r11_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r12_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r13_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r14_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r15_doubtful.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r16_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r17_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r18_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r19_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r20_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r21_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r22_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/r23_confident.jpg
+Output file downloaded to results/kaggle/vall_calib_look/result.json
+Kernel log downloaded to results/kaggle/vall_calib_look/ipanema-vall-calib-look.log
+  ipanema-vall-calib-look.log 876
+  r00_doubtful.jpg 183939
+  r01_doubtful.jpg 172641
+  r02_doubtful.jpg 145065
+  r03_doubtful.jpg 199007
+  r04_doubtful.jpg 128307
+  r05_doubtful.jpg 162292
+  r06_doubtful.jpg 147190
+  r07_doubtful.jpg 140605
+  r08_doubtful.jpg 136825
+  r09_doubtful.jpg 129874
+  r10_doubtful.jpg 178790
+  r11_doubtful.jpg 149532
+  r12_doubtful.jpg 192492
+  r13_doubtful.jpg 196866
+  r14_doubtful.jpg 191493
+  r15_doubtful.jpg 173077
+  r16_confident.jpg 186192
+  r17_confident.jpg 174600
+  r18_confident.jpg 197040
+  r19_confident.jpg 191780
+  r20_confident.jpg 174870
+  r21_confident.jpg 153744
+  r22_confident.jpg 186900
+  r23_confident.jpg 197271
   result.json 26
-  run.json 154
-  short00.jpg 341270
-  short01.jpg 367913
-  short02.jpg 383691
-  short03.jpg 366048
-  short04.jpg 386751
-  short05.jpg 394487
-  short06.jpg 415717
-  short07.jpg 321173
-  short08.jpg 358361
-  short09.jpg 350177
-  short10.jpg 390887
-  short11.jpg 435773
-  short12.jpg 401904
-  short13.jpg 384163
-  short14.jpg 356434
-  short15.jpg 375816
-  short16.jpg 353791
-  short17.jpg 339948
-  short18.jpg 373327
-  short19.jpg 369818
-  short20.jpg 325633
-  short21.jpg 364585
-  short22.jpg 346373
-  short23.jpg 360340
+  run.json 164
