@@ -1,2 +1,2 @@
-kaggle/shot_origins.py 40
-# Sun Oct  4 23:29:52 UTC 2026
+kaggle/shot_origins.py 30
+# Sun Oct  4 23:59:45 UTC 2026
