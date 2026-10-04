@@ -1,14 +1,14 @@
 {
  "periods_s": [
   [
-   0,
-   2900
+   435,
+   2890
   ],
   [
-   3000,
+   3220,
    5966
   ]
  ],
- "note": "PLACEHOLDER until detect_periods + eyeball (3 Oct night). Veo: SFK 1-0 at 47', VAL 1-1 at 50', SFK 2-2 at 79', 3-2 at 81'.",
+ "note": "4 Oct by eye (results/kaggle/vall_periods): kick-off 7:15 (huddle until 6:30, lined up 7:00), first half ends 48:10 (players walk off 48:15, pitch empty 48:30-52:30), second-half kick-off 53:40, video ends 99:26 before the final whistle is visible. Veo clock: SFK 1-0 47', VAL 1-1 50', SFK 2-2 79', 3-2 81' (the 2-1 goal in a gap). Vallentuna red, Sollentuna black. trust_all_calibration like AIK (strict check 39%, strip looks right).",
  "trust_all_calibration": true
 }
