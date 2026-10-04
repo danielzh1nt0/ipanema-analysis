@@ -1,21 +1,81 @@
-kernel danielmatros/ipanema-vall-periods
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-periods
-  0.5 min: danielmatros/ipanema-vall-periods has status "KernelWorkerStatus.RUNNING"
-  1.5 min: danielmatros/ipanema-vall-periods has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_periods/half_0.jpg
-Output file downloaded to results/kaggle/vall_periods/half_1.jpg
-Output file downloaded to results/kaggle/vall_periods/half_2.jpg
-Output file downloaded to results/kaggle/vall_periods/half_3.jpg
-Output file downloaded to results/kaggle/vall_periods/result.json
-Output file downloaded to results/kaggle/vall_periods/start_0.jpg
-Output file downloaded to results/kaggle/vall_periods/start_1.jpg
-Kernel log downloaded to results/kaggle/vall_periods/ipanema-vall-periods.log
-  half_0.jpg 903693
-  half_1.jpg 973385
-  half_2.jpg 975052
-  half_3.jpg 127441
-  ipanema-vall-periods.log 802
-  result.json 12
+kernel danielmatros/ipanema-spell-strips
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-spell-strips
+  0.5 min: danielmatros/ipanema-spell-strips has status "KernelWorkerStatus.RUNNING"
+  1.5 min: danielmatros/ipanema-spell-strips has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/spell_strips/long24.jpg
+Output file downloaded to results/kaggle/spell_strips/long25.jpg
+Output file downloaded to results/kaggle/spell_strips/long26.jpg
+Output file downloaded to results/kaggle/spell_strips/long27.jpg
+Output file downloaded to results/kaggle/spell_strips/long28.jpg
+Output file downloaded to results/kaggle/spell_strips/long29.jpg
+Output file downloaded to results/kaggle/spell_strips/long30.jpg
+Output file downloaded to results/kaggle/spell_strips/long31.jpg
+Output file downloaded to results/kaggle/spell_strips/long32.jpg
+Output file downloaded to results/kaggle/spell_strips/long33.jpg
+Output file downloaded to results/kaggle/spell_strips/long34.jpg
+Output file downloaded to results/kaggle/spell_strips/long35.jpg
+Output file downloaded to results/kaggle/spell_strips/result.json
+Output file downloaded to results/kaggle/spell_strips/short00.jpg
+Output file downloaded to results/kaggle/spell_strips/short01.jpg
+Output file downloaded to results/kaggle/spell_strips/short02.jpg
+Output file downloaded to results/kaggle/spell_strips/short03.jpg
+Output file downloaded to results/kaggle/spell_strips/short04.jpg
+Output file downloaded to results/kaggle/spell_strips/short05.jpg
+Output file downloaded to results/kaggle/spell_strips/short06.jpg
+Output file downloaded to results/kaggle/spell_strips/short07.jpg
+Output file downloaded to results/kaggle/spell_strips/short08.jpg
+Output file downloaded to results/kaggle/spell_strips/short09.jpg
+Output file downloaded to results/kaggle/spell_strips/short10.jpg
+Output file downloaded to results/kaggle/spell_strips/short11.jpg
+Output file downloaded to results/kaggle/spell_strips/short12.jpg
+Output file downloaded to results/kaggle/spell_strips/short13.jpg
+Output file downloaded to results/kaggle/spell_strips/short14.jpg
+Output file downloaded to results/kaggle/spell_strips/short15.jpg
+Output file downloaded to results/kaggle/spell_strips/short16.jpg
+Output file downloaded to results/kaggle/spell_strips/short17.jpg
+Output file downloaded to results/kaggle/spell_strips/short18.jpg
+Output file downloaded to results/kaggle/spell_strips/short19.jpg
+Output file downloaded to results/kaggle/spell_strips/short20.jpg
+Output file downloaded to results/kaggle/spell_strips/short21.jpg
+Output file downloaded to results/kaggle/spell_strips/short22.jpg
+Output file downloaded to results/kaggle/spell_strips/short23.jpg
+Kernel log downloaded to results/kaggle/spell_strips/ipanema-spell-strips.log
+  ipanema-spell-strips.log 3193
+  long24.jpg 373644
+  long25.jpg 471890
+  long26.jpg 393946
+  long27.jpg 391453
+  long28.jpg 423873
+  long29.jpg 434059
+  long30.jpg 392002
+  long31.jpg 390706
+  long32.jpg 457657
+  long33.jpg 377812
+  long34.jpg 453499
+  long35.jpg 429486
+  result.json 53
   run.json 158
-  start_0.jpg 1202232
-  start_1.jpg 910923
+  short00.jpg 424657
+  short01.jpg 425494
+  short02.jpg 422162
+  short03.jpg 437342
+  short04.jpg 447727
+  short05.jpg 419903
+  short06.jpg 457225
+  short07.jpg 377064
+  short08.jpg 389628
+  short09.jpg 401755
+  short10.jpg 421069
+  short11.jpg 466965
+  short12.jpg 449919
+  short13.jpg 428940
+  short14.jpg 406247
+  short15.jpg 420698
+  short16.jpg 422959
+  short17.jpg 428800
+  short18.jpg 419700
+  short19.jpg 423715
+  short20.jpg 422798
+  short21.jpg 421298
+  short22.jpg 436436
+  short23.jpg 431267
