@@ -27,7 +27,7 @@ def test_halfway_line_drops_nobody():
 def test_predict_batch_switch():
     f = frame(beyond_grass=False); boxes = np.array([[1230, 300, 1260, 420], [400, 300, 430, 420]], float)
     m = K.KitTeamModel(); m.offpitch = True
-    m.model = None; m._lab = lambda feat, h=None: "A"                                   # colour part stubbed out
+    m.model = None; m._lab = lambda feat, h=None, frame=None, box=None: "A"                                   # colour part stubbed out
     old = os.environ.get("IPANEMA_SIDE_LINES")
     try:
         os.environ["IPANEMA_SIDE_LINES"] = "1"; assert m.predict_batch(f, boxes) == ["O", "A"]

@@ -290,6 +290,36 @@ def hue_mode(model):
     ta, tb = model["teams"]
     return float(np.linalg.norm(np.asarray(ta)[1:3] - np.asarray(tb)[1:3])) >= HUE_KEEP and abs(ta[1] - tb[1]) >= HUE_KEEP
 
+SHARE_HI, SHARE_LO, SHARE_DARK = 0.25, 0.10, 0.08   # K3c: kit-colour pixel share rules (see kit_share_label)
+
+def _kit_hue(model):
+    """(index 0/1 of the more colourful kit, its OpenCV hue 0-180) from the two team centres"""
+    ta, tb = model["teams"]; k = 0 if np.hypot(ta[1], ta[2]) > np.hypot(tb[1], tb[2]) else 1; t = (ta, tb)[k]
+    lab = np.uint8([[[np.clip(t[0] * 2.5, 0, 255), np.clip(t[1] + 128, 0, 255), np.clip(t[2] + 128, 0, 255)]]])
+    return k, int(cv2.cvtColor(cv2.cvtColor(lab, cv2.COLOR_LAB2BGR), cv2.COLOR_BGR2HSV)[0, 0, 0])
+
+def kit_share(frame, box, hue, lo=-6, hi=29, s_min=70, v_min=50, v_dark=70):
+    """share of shirt pixels in the coloured kit's hue window (strong colour only) and share of dark pixels"""
+    x1, y1, x2, y2 = [float(v) for v in box[:4]]; w, h = x2 - x1, y2 - y1
+    c = frame[int(max(0, y1 + 0.18 * h)):int(max(0, y1 + 0.5 * h)), int(max(0, x1 + 0.2 * w)):int(max(0, x2 - 0.2 * w))]
+    if c.size == 0: return None, None
+    hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(int); H, S, V = hsv[:, 0], hsv[:, 1], hsv[:, 2]
+    dh = (H - hue) % 180
+    inw = (dh <= hi) | (dh >= 180 + lo)
+    return float((inw & (S >= s_min) & (V >= v_min)).mean()), float((V < v_dark).mean())
+
+def kit_share_label(model, frame, box, f):
+    """K3c (5 Oct, Vallentuna): the hue mode's median a* overlaps between kits (sun-washed reds a* 8-19, blacks with pink
+    numbers up to 17): 1st K3b run put 17 of 18 people in the dark team. The share of strongly red shirt pixels separates
+    them (by eye on 389 people, results/qa/k3c): >= 25% coloured kit; 10-25% coloured kit unless >= 8% dark pixels;
+    < 10% the other kit. 'other' (white / yellow / green) still from the median colour. Index labels like classify()."""
+    c = classify(model, f)
+    if c in (None, "other"): return c
+    k, hue = _kit_hue(model); r, d = kit_share(frame, box, hue)
+    if r is None: return c
+    col = r >= SHARE_HI or (r >= SHARE_LO and d < SHARE_DARK)
+    return ("A" if k == 0 else "B") if col else ("B" if k == 0 else "A")
+
 def classify(model, f, other_factor=2.0):
     """'A' / 'B' (index of the team centre) or 'other' when far from both, or None when no colour could be read"""
     if f is None: return None
@@ -427,15 +457,15 @@ class KitTeamModel:
             self.cls_flip = {t: round(float(np.mean(v)), 2) if len(v) >= 5 else 0.0 for t, v in fl.items()}
             if max(self.cls_flip.values()) > mx:
                 log(f"kits: classifier moves {max(self.cls_flip.values()):.0%} of a team's clear colour readings (> {mx:.0%}) -> dropped, colour only"); self.cls = []
-    def _colour_lab(self, f):
-        c = classify(self.model, f)
+    def _colour_lab(self, f, frame=None, box=None):
+        c = kit_share_label(self.model, frame, box, f) if (frame is not None and os.environ.get("IPANEMA_KIT_SHARE", "1") == "1" and hue_mode(self.model)) else classify(self.model, f)
         if c is None: return None
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
-    def _lab(self, f, h=None):
+    def _lab(self, f, h=None, frame=None, box=None):
         """colour reading; with the P8 classifier the team (A/B) comes from the body histogram, 'other' still from colour.
         F1b: a piece model aligned to the match model may rename its teams (flip) so A/B mean the same team all match."""
-        c = self._colour_lab(f)
+        c = self._colour_lab(f, frame, box)
         if c in ("A", "B") and h is not None and getattr(self, "cls", None): c = "B" if player_cls_prob(self.cls, h) > 0.5 else "A"
         if c in ("A", "B") and getattr(self, "flip", False): c = "B" if c == "A" else "A"
         return c
@@ -443,7 +473,7 @@ class KitTeamModel:
         g = grass_lab(frame); top = pitch_top(frame) if self.offpitch and len(xyxys) else None; gk = getattr(self, "green_kit", False)
         cls = getattr(self, "cls", None); lt = getattr(self, "light", "frame")
         sl = side_lines(frame) if top is not None and side_mode() else []; H = frame.shape[0]
-        return ["O" if top is not None and (not feet_on_pitch(frame, b, top) or not feet_inside_sides(b, sl, H=H)) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None), light=lt), body_hist(frame, b, light=lt) if cls else None) for b in xyxys]
+        return ["O" if top is not None and (not feet_on_pitch(frame, b, top) or not feet_inside_sides(b, sl, H=H)) else self._lab(torso_feature(frame, b, g, green_kit=gk, stat=getattr(self, "stat", None), light=lt), body_hist(frame, b, light=lt) if cls else None, frame, b) for b in xyxys]
     def _strips(self):
         import cv2
         self.strips = {}
