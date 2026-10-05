@@ -1,86 +1,88 @@
-[{"stream_name":"stdout","time":0.72181219,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
-,{"stream_name":"stdout","time":0.765358466,"data":"name\n"}
-,{"stream_name":"stdout","time":0.765386742,"data":"Tesla T4\n"}
-,{"stream_name":"stdout","time":0.765391651,"data":"Tesla T4\n"}
-,{"stream_name":"stdout","time":0.765397591,"data":"\n"}
-,{"stream_name":"stdout","time":0.765405738,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
-,{"stream_name":"stdout","time":75.030445136,"data":"\n"}
-,{"stream_name":"stdout","time":75.030521025,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
-,{"stream_name":"stdout","time":87.730117329,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 3.8 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":87.730156777,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 32.4 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":87.730162824,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 397.5/397.5 kB 21.1 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":87.730167835,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 58.9 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":87.730172674,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.0 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":87.730183489,"data":"\n"}
-,{"stream_name":"stdout","time":87.730186613,"data":"+ wget -q -O /kaggle/temp/v.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-vallentuna-2026-10-03-6cce/video.mp4; ls -la /kaggle/temp/v.mp4\n"}
-,{"stream_name":"stdout","time":159.083316469,"data":"-rw-r--r-- 1 root root 3477004504 Oct  3 19:06 /kaggle/temp/v.mp4\n"}
-,{"stream_name":"stdout","time":159.083352157,"data":"\n"}
-,{"stream_name":"stdout","time":185.876894793,"data":"kit model: hue mode True cls 0\n"}
-,{"stream_name":"stdout","time":216.087750593,"data":"[2026-10-05 14:23:50] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-medium.pth\n"}
-,{"stream_name":"stdout","time":216.190580387,"data":"\n"}
-,{"stream_name":"stdout","time":216.29080279,"data":"/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00\u003c?, ?iB/s]\n"}
-,{"stream_name":"stdout","time":216.390829827,"data":"/root/.roboflow/models/rf-detr-medium.pth:   1%|          | 4.39M/386M [00:00\u003c00:08, 46.1MiB/s]\n"}
-,{"stream_name":"stdout","time":216.490811197,"data":"/root/.roboflow/models/rf-detr-medium.pth:   4%|▎         | 14.5M/386M [00:00\u003c00:04, 81.1MiB/s]\n"}
-,{"stream_name":"stdout","time":216.590935651,"data":"/root/.roboflow/models/rf-detr-medium.pth:   6%|▋         | 24.8M/386M [00:00\u003c00:04, 93.3MiB/s]\n"}
-,{"stream_name":"stdout","time":216.690825065,"data":"/root/.roboflow/models/rf-detr-medium.pth:   9%|▉         | 34.5M/386M [00:00\u003c00:03, 96.8MiB/s]\n"}
-,{"stream_name":"stdout","time":216.790833052,"data":"/root/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 44.9M/386M [00:00\u003c00:03, 101MiB/s] \n"}
-,{"stream_name":"stdout","time":216.890998101,"data":"/root/.roboflow/models/rf-detr-medium.pth:  14%|█▍        | 55.3M/386M [00:00\u003c00:03, 104MiB/s]\n"}
-,{"stream_name":"stdout","time":216.990874111,"data":"/root/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 65.6M/386M [00:00\u003c00:03, 105MiB/s]\n"}
-,{"stream_name":"stdout","time":217.090862275,"data":"/root/.roboflow/models/rf-detr-medium.pth:  20%|█▉        | 75.9M/386M [00:00\u003c00:03, 106MiB/s]\n"}
-,{"stream_name":"stdout","time":217.19088248,"data":"/root/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 86.1M/386M [00:00\u003c00:02, 106MiB/s]\n"}
-,{"stream_name":"stdout","time":217.290999537,"data":"/root/.roboflow/models/rf-detr-medium.pth:  25%|██▍       | 96.4M/386M [00:01\u003c00:02, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":217.390956157,"data":"/root/.roboflow/models/rf-detr-medium.pth:  28%|██▊       | 107M/386M [00:01\u003c00:02, 108MiB/s] \n"}
-,{"stream_name":"stdout","time":217.490906315,"data":"/root/.roboflow/models/rf-detr-medium.pth:  30%|███       | 117M/386M [00:01\u003c00:02, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":217.596004099,"data":"/root/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 127M/386M [00:01\u003c00:02, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":217.698861101,"data":"/root/.roboflow/models/rf-detr-medium.pth:  36%|███▌      | 138M/386M [00:01\u003c00:02, 106MiB/s]\n"}
-,{"stream_name":"stdout","time":217.799031223,"data":"/root/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 148M/386M [00:01\u003c00:02, 105MiB/s]\n"}
-,{"stream_name":"stdout","time":217.899048931,"data":"/root/.roboflow/models/rf-detr-medium.pth:  41%|████      | 158M/386M [00:01\u003c00:02, 105MiB/s]\n"}
-,{"stream_name":"stdout","time":217.999046603,"data":"/root/.roboflow/models/rf-detr-medium.pth:  44%|████▎     | 168M/386M [00:01\u003c00:02, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.099536102,"data":"/root/.roboflow/models/rf-detr-medium.pth:  46%|████▋     | 179M/386M [00:01\u003c00:02, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.199564159,"data":"/root/.roboflow/models/rf-detr-medium.pth:  49%|████▉     | 189M/386M [00:01\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.29960124,"data":"/root/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 199M/386M [00:02\u003c00:01, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":218.403082406,"data":"/root/.roboflow/models/rf-detr-medium.pth:  54%|█████▍    | 210M/386M [00:02\u003c00:01, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":218.503671985,"data":"/root/.roboflow/models/rf-detr-medium.pth:  57%|█████▋    | 220M/386M [00:02\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.604248074,"data":"/root/.roboflow/models/rf-detr-medium.pth:  60%|█████▉    | 230M/386M [00:02\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.704363175,"data":"/root/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 240M/386M [00:02\u003c00:01, 106MiB/s]\n"}
-,{"stream_name":"stdout","time":218.804831551,"data":"/root/.roboflow/models/rf-detr-medium.pth:  65%|██████▍   | 251M/386M [00:02\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":218.90487263,"data":"/root/.roboflow/models/rf-detr-medium.pth:  68%|██████▊   | 261M/386M [00:02\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":219.004812404,"data":"/root/.roboflow/models/rf-detr-medium.pth:  70%|███████   | 271M/386M [00:02\u003c00:01, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":219.105073045,"data":"/root/.roboflow/models/rf-detr-medium.pth:  73%|███████▎  | 282M/386M [00:02\u003c00:01, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":219.206441892,"data":"/root/.roboflow/models/rf-detr-medium.pth:  76%|███████▌  | 292M/386M [00:02\u003c00:00, 108MiB/s]\n"}
-,{"stream_name":"stdout","time":219.30867708,"data":"/root/.roboflow/models/rf-detr-medium.pth:  78%|███████▊  | 302M/386M [00:03\u003c00:00, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":219.427016736,"data":"/root/.roboflow/models/rf-detr-medium.pth:  81%|████████  | 313M/386M [00:03\u003c00:00, 107MiB/s]\n"}
-,{"stream_name":"stdout","time":219.531335514,"data":"/root/.roboflow/models/rf-detr-medium.pth:  84%|████████▎ | 323M/386M [00:03\u003c00:00, 101MiB/s]\n"}
-,{"stream_name":"stdout","time":219.670242983,"data":"/root/.roboflow/models/rf-detr-medium.pth:  86%|████████▌ | 332M/386M [00:03\u003c00:00, 100MiB/s]\n"}
-,{"stream_name":"stdout","time":219.770307613,"data":"/root/.roboflow/models/rf-detr-medium.pth:  89%|████████▊ | 342M/386M [00:03\u003c00:00, 90.2MiB/s]\n"}
-,{"stream_name":"stdout","time":219.870248983,"data":"/root/.roboflow/models/rf-detr-medium.pth:  91%|█████████ | 352M/386M [00:03\u003c00:00, 93.0MiB/s]\n"}
-,{"stream_name":"stdout","time":219.97032619,"data":"/root/.roboflow/models/rf-detr-medium.pth:  93%|█████████▎| 361M/386M [00:03\u003c00:00, 94.8MiB/s]\n"}
-,{"stream_name":"stdout","time":220.070261355,"data":"/root/.roboflow/models/rf-detr-medium.pth:  96%|█████████▌| 370M/386M [00:03\u003c00:00, 95.9MiB/s]\n"}
-,{"stream_name":"stdout","time":220.136122752,"data":"/root/.roboflow/models/rf-detr-medium.pth:  98%|█████████▊| 380M/386M [00:03\u003c00:00, 97.2MiB/s]\n"}
-,{"stream_name":"stdout","time":220.136166707,"data":"/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03\u003c00:00, 103MiB/s] \n"}
-,{"stream_name":"stdout","time":221.090288698,"data":"[2026-10-05 14:23:55] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-medium.pth\n"}
-,{"stream_name":"stdout","time":221.093852902,"data":"[2026-10-05 14:23:55] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stdout","time":221.093871599,"data":"[2026-10-05 14:23:55] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
-,{"stream_name":"stdout","time":222.722974065,"data":"[2026-10-05 14:23:57] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
-,{"stream_name":"stdout","time":262.998807896,"data":"[2026-10-05 14:24:37] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
-,{"stream_name":"stdout","time":547.480174276,"data":"   388s frame 25035 (2000 labelled frames)\n"}
-,{"stream_name":"stdout","time":833.590039746,"data":"   674s frame 37035 (4000 labelled frames)\n"}
-,{"stream_name":"stdout","time":1120.622697348,"data":"   961s frame 49035 (6000 labelled frames)\n"}
-,{"stream_name":"stdout","time":1409.987196799,"data":"  1250s frame 61035 (8000 labelled frames)\n"}
-,{"stream_name":"stdout","time":1694.849097475,"data":"  1535s frame 73035 (10000 labelled frames)\n"}
-,{"stream_name":"stdout","time":1981.296681661,"data":"  1821s frame 85035 (12000 labelled frames)\n"}
-,{"stream_name":"stdout","time":2294.869418584,"data":"  2135s frame 106929 (14000 labelled frames)\n"}
-,{"stream_name":"stdout","time":2579.207110571,"data":"  2419s frame 118929 (16000 labelled frames)\n"}
-,{"stream_name":"stdout","time":2864.855465113,"data":"  2705s frame 130977 (18000 labelled frames)\n"}
-,{"stream_name":"stdout","time":3155.458650946,"data":"  2996s frame 142977 (20000 labelled frames)\n"}
-,{"stream_name":"stdout","time":3438.929410202,"data":"  3279s frame 154977 (22000 labelled frames)\n"}
-,{"stream_name":"stdout","time":3723.503239423,"data":"  3564s frame 166977 (24000 labelled frames)\n"}
-,{"stream_name":"stdout","time":3775.596498891,"data":"{'players': 5573, 'with_votes': 4655, 'changed': 1068, 'old': Counter({'A': 4210, 'B': 1363}), 'new': Counter({'A': 3326, 'B': 2247}), 'labelled_frames': 24367, 'minutes': 60.3}\n"}
-,{"stream_name":"stdout","time":3780.83498221,"data":"done 0 63.0 min\n"}
-,{"stream_name":"stderr","time":3782.943092388,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":3782.943129164,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":3783.210037086,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":3783.210074325,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":3784.005538774,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":3784.999626105,"data":"[NbConvertApp] Writing 280283 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":0.612530207,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":0.655872638,"data":"name\n"}
+,{"stream_name":"stdout","time":0.65590664,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.655910727,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.655913232,"data":"\n"}
+,{"stream_name":"stdout","time":0.655915827,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":93.622143458,"data":"\n"}
+,{"stream_name":"stdout","time":93.622179678,"data":"+ pip install -q rfdetr==1.11.0 supervision\n"}
+,{"stream_name":"stdout","time":112.787695346,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.9/79.9 kB 2.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":112.787735446,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 739.5/739.5 kB 15.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":112.787742066,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 397.5/397.5 kB 19.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":112.787747894,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 60.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":112.787753384,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 5.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":112.787759112,"data":"\n"}
+,{"stream_name":"stdout","time":112.787764048,"data":"+ wget -q -O /kaggle/temp/v.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-vallentuna-2026-10-03-6cce/video.mp4; ls -la /kaggle/temp/v.mp4\n"}
+,{"stream_name":"stdout","time":184.786731455,"data":"-rw-r--r-- 1 root root 3477004504 Oct  3 19:06 /kaggle/temp/v.mp4\n"}
+,{"stream_name":"stdout","time":184.786763321,"data":"\n"}
+,{"stream_name":"stdout","time":212.85433556,"data":"kit model: hue mode True cls 0\n"}
+,{"stream_name":"stdout","time":239.678586193,"data":"[2026-10-05 15:35:22] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stdout","time":239.834186069,"data":"\n"}
+,{"stream_name":"stdout","time":240.00051592,"data":"/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00\u003c?, ?iB/s]\n"}
+,{"stream_name":"stdout","time":240.100402184,"data":"/root/.roboflow/models/rf-detr-medium.pth:   1%|          | 2.00M/386M [00:00\u003c00:31, 12.6MiB/s]\n"}
+,{"stream_name":"stdout","time":240.200416431,"data":"/root/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 9.34M/386M [00:00\u003c00:09, 42.4MiB/s]\n"}
+,{"stream_name":"stdout","time":240.300461964,"data":"/root/.roboflow/models/rf-detr-medium.pth:   5%|▍         | 18.8M/386M [00:00\u003c00:05, 64.9MiB/s]\n"}
+,{"stream_name":"stdout","time":240.400476756,"data":"/root/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 28.8M/386M [00:00\u003c00:04, 79.4MiB/s]\n"}
+,{"stream_name":"stdout","time":240.500419256,"data":"/root/.roboflow/models/rf-detr-medium.pth:  10%|█         | 38.8M/386M [00:00\u003c00:04, 88.3MiB/s]\n"}
+,{"stream_name":"stdout","time":240.600585961,"data":"/root/.roboflow/models/rf-detr-medium.pth:  13%|█▎        | 48.8M/386M [00:00\u003c00:03, 93.6MiB/s]\n"}
+,{"stream_name":"stdout","time":240.705242053,"data":"/root/.roboflow/models/rf-detr-medium.pth:  15%|█▌        | 58.6M/386M [00:00\u003c00:03, 96.4MiB/s]\n"}
+,{"stream_name":"stdout","time":240.807969932,"data":"/root/.roboflow/models/rf-detr-medium.pth:  18%|█▊        | 68.0M/386M [00:00\u003c00:03, 95.6MiB/s]\n"}
+,{"stream_name":"stdout","time":240.908062828,"data":"/root/.roboflow/models/rf-detr-medium.pth:  20%|█▉        | 77.2M/386M [00:00\u003c00:03, 95.3MiB/s]\n"}
+,{"stream_name":"stdout","time":241.027394053,"data":"/root/.roboflow/models/rf-detr-medium.pth:  23%|██▎       | 87.3M/386M [00:01\u003c00:03, 98.4MiB/s]\n"}
+,{"stream_name":"stdout","time":241.127406597,"data":"/root/.roboflow/models/rf-detr-medium.pth:  25%|██▌       | 96.8M/386M [00:01\u003c00:03, 93.2MiB/s]\n"}
+,{"stream_name":"stdout","time":241.22739514,"data":"/root/.roboflow/models/rf-detr-medium.pth:  28%|██▊       | 106M/386M [00:01\u003c00:03, 95.0MiB/s] \n"}
+,{"stream_name":"stdout","time":241.327471903,"data":"/root/.roboflow/models/rf-detr-medium.pth:  30%|██▉       | 116M/386M [00:01\u003c00:02, 95.8MiB/s]\n"}
+,{"stream_name":"stdout","time":241.427510583,"data":"/root/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 126M/386M [00:01\u003c00:02, 98.6MiB/s]\n"}
+,{"stream_name":"stdout","time":241.527454326,"data":"/root/.roboflow/models/rf-detr-medium.pth:  35%|███▌      | 136M/386M [00:01\u003c00:02, 100MiB/s] \n"}
+,{"stream_name":"stdout","time":241.627443989,"data":"/root/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 145M/386M [00:01\u003c00:02, 101MiB/s]\n"}
+,{"stream_name":"stdout","time":241.727635417,"data":"/root/.roboflow/models/rf-detr-medium.pth:  40%|████      | 156M/386M [00:01\u003c00:02, 103MiB/s]\n"}
+,{"stream_name":"stdout","time":241.82754516,"data":"/root/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 165M/386M [00:01\u003c00:02, 103MiB/s]\n"}
+,{"stream_name":"stdout","time":241.927489815,"data":"/root/.roboflow/models/rf-detr-medium.pth:  45%|████▌     | 175M/386M [00:01\u003c00:02, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.027599138,"data":"/root/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 186M/386M [00:02\u003c00:02, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.127973019,"data":"/root/.roboflow/models/rf-detr-medium.pth:  51%|█████     | 196M/386M [00:02\u003c00:01, 105MiB/s]\n"}
+,{"stream_name":"stdout","time":242.22957605,"data":"/root/.roboflow/models/rf-detr-medium.pth:  53%|█████▎    | 206M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.329576185,"data":"/root/.roboflow/models/rf-detr-medium.pth:  56%|█████▌    | 215M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.429799084,"data":"/root/.roboflow/models/rf-detr-medium.pth:  58%|█████▊    | 225M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.53153802,"data":"/root/.roboflow/models/rf-detr-medium.pth:  61%|██████    | 235M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.631647955,"data":"/root/.roboflow/models/rf-detr-medium.pth:  64%|██████▎   | 245M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.74458642,"data":"/root/.roboflow/models/rf-detr-medium.pth:  66%|██████▌   | 255M/386M [00:02\u003c00:01, 104MiB/s]\n"}
+,{"stream_name":"stdout","time":242.844508011,"data":"/root/.roboflow/models/rf-detr-medium.pth:  69%|██████▊   | 265M/386M [00:02\u003c00:01, 100MiB/s]\n"}
+,{"stream_name":"stdout","time":242.944599763,"data":"/root/.roboflow/models/rf-detr-medium.pth:  71%|███████▏  | 275M/386M [00:03\u003c00:01, 102MiB/s]\n"}
+,{"stream_name":"stdout","time":243.04451403,"data":"/root/.roboflow/models/rf-detr-medium.pth:  74%|███████▍  | 285M/386M [00:03\u003c00:01, 102MiB/s]\n"}
+,{"stream_name":"stdout","time":243.145733418,"data":"/root/.roboflow/models/rf-detr-medium.pth:  76%|███████▋  | 295M/386M [00:03\u003c00:00, 103MiB/s]\n"}
+,{"stream_name":"stdout","time":243.247580352,"data":"/root/.roboflow/models/rf-detr-medium.pth:  79%|███████▉  | 305M/386M [00:03\u003c00:00, 102MiB/s]\n"}
+,{"stream_name":"stdout","time":243.347660001,"data":"/root/.roboflow/models/rf-detr-medium.pth:  81%|████████▏ | 315M/386M [00:03\u003c00:00, 102MiB/s]\n"}
+,{"stream_name":"stdout","time":243.458135512,"data":"/root/.roboflow/models/rf-detr-medium.pth:  84%|████████▍ | 325M/386M [00:03\u003c00:00, 102MiB/s]\n"}
+,{"stream_name":"stdout","time":243.558258819,"data":"/root/.roboflow/models/rf-detr-medium.pth:  87%|████████▋ | 334M/386M [00:03\u003c00:00, 99.3MiB/s]\n"}
+,{"stream_name":"stdout","time":243.658273682,"data":"/root/.roboflow/models/rf-detr-medium.pth:  89%|████████▉ | 344M/386M [00:03\u003c00:00, 100MiB/s] \n"}
+,{"stream_name":"stdout","time":243.758498908,"data":"/root/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 354M/386M [00:03\u003c00:00, 100MiB/s]\n"}
+,{"stream_name":"stdout","time":243.921929418,"data":"/root/.roboflow/models/rf-detr-medium.pth:  94%|█████████▍| 364M/386M [00:03\u003c00:00, 101MiB/s]\n"}
+,{"stream_name":"stdout","time":244.022189584,"data":"/root/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 373M/386M [00:04\u003c00:00, 85.1MiB/s]\n"}
+,{"stream_name":"stdout","time":244.066552354,"data":"/root/.roboflow/models/rf-detr-medium.pth:  99%|█████████▉| 382M/386M [00:04\u003c00:00, 87.4MiB/s]\n"}
+,{"stream_name":"stdout","time":244.066580896,"data":"/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:04\u003c00:00, 95.7MiB/s]\n"}
+,{"stream_name":"stdout","time":245.077838719,"data":"[2026-10-05 15:35:27] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stdout","time":245.138176551,"data":"[2026-10-05 15:35:27] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":245.138203366,"data":"[2026-10-05 15:35:27] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":246.7953063,"data":"[2026-10-05 15:35:29] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stdout","time":289.908980296,"data":"[2026-10-05 15:36:12] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":589.770838821,"data":"   404s frame 25035 (2000 labelled frames)\n"}
+,{"stream_name":"stdout","time":893.741295675,"data":"   708s frame 37035 (4000 labelled frames)\n"}
+,{"stream_name":"stdout","time":1197.820162738,"data":"  1012s frame 49035 (6000 labelled frames)\n"}
+,{"stream_name":"stdout","time":1503.08325859,"data":"  1318s frame 61035 (8000 labelled frames)\n"}
+,{"stream_name":"stdout","time":1806.676178206,"data":"  1621s frame 73035 (10000 labelled frames)\n"}
+,{"stream_name":"stdout","time":2111.215997501,"data":"  1926s frame 85035 (12000 labelled frames)\n"}
+,{"stream_name":"stdout","time":2444.417251163,"data":"  2259s frame 106929 (14000 labelled frames)\n"}
+,{"stream_name":"stdout","time":2748.613329665,"data":"  2563s frame 118929 (16000 labelled frames)\n"}
+,{"stream_name":"stdout","time":3053.684138617,"data":"  2868s frame 130977 (18000 labelled frames)\n"}
+,{"stream_name":"stdout","time":3358.670511663,"data":"  3173s frame 142977 (20000 labelled frames)\n"}
+,{"stream_name":"stdout","time":3660.051091818,"data":"  3475s frame 154977 (22000 labelled frames)\n"}
+,{"stream_name":"stdout","time":3966.569657847,"data":"  3781s frame 166977 (24000 labelled frames)\n"}
+,{"stream_name":"stdout","time":4023.780019106,"data":"{'players': 5573, 'with_votes': 4655, 'changed': 1068, 'old': Counter({'A': 4210, 'B': 1363}), 'new': Counter({'A': 3326, 'B': 2247}), 'labelled_frames': 24367, 'minutes': 64.0}\n"}
+,{"stream_name":"stdout","time":4028.518846977,"data":"done 0 67.1 min\n"}
+,{"stream_name":"stderr","time":4030.817030863,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4030.817107914,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4031.084156897,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4031.084188576,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4031.974073545,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4033.063923908,"data":"[NbConvertApp] Writing 280283 bytes to __results__.html\n"}
 ]
