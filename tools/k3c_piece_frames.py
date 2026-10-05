@@ -3,7 +3,8 @@ the full video the kit model is learned on? For the 22 V3 carrier moments (resul
 from the full video), make the same frame the way rf_piece sees it: fullmatch.cut (x264 veryfast crf 20) then
 video.normalise (x264 fast crf 20 yuv420p), and save it next to a fresh full-video frame.
     R2_PUBLIC_URL=... python tools/k3c_piece_frames.py   -> results/qa/k3c/{full,piece}/mNN.png"""
-import os, sys, json, subprocess, cv2
+import os, sys, json, subprocess, shutil, cv2
+if not shutil.which("ffmpeg"): subprocess.run("sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg", shell=True, check=True)
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ipanema import fullmatch as FM, video as V
 M = "p15u-vs-vallentuna-2026-10-03-6cce"; R2 = (os.environ.get("R2_PUBLIC_URL") or "").rstrip("/"); OUT = "results/qa/k3c"
