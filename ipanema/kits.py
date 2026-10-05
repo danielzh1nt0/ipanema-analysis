@@ -284,6 +284,12 @@ def _team_spreads(X, lab, team_of, ta, tb):
         out.append(float(np.percentile(dd, 80)) if len(dd) else 10.0)
     return out
 
+def hue_mode(model):
+    """True when classify() decides by colour (a*) alone: hard sun + shade and two kits clearly different in colour"""
+    if os.environ.get("IPANEMA_KIT_HUEMODE", "1") != "1" or model.get("light") != "local": return False
+    ta, tb = model["teams"]
+    return float(np.linalg.norm(np.asarray(ta)[1:3] - np.asarray(tb)[1:3])) >= HUE_KEEP and abs(ta[1] - tb[1]) >= HUE_KEEP
+
 def classify(model, f, other_factor=2.0):
     """'A' / 'B' (index of the team centre) or 'other' when far from both, or None when no colour could be read"""
     if f is None: return None
@@ -387,6 +393,12 @@ class KitTeamModel:
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
+        if self.cls and hue_mode(self.model):
+            # K3b (5 Oct, Vallentuna after the K3 re-track): with hue mode on, the per-player classifier learned sun vs shade,
+            # not the kits: on 22 by-eye frames it moved 121 of 245 black (SFK) players to the red team and 4 the other way;
+            # colour alone had them right (results/qa/k3b). The P2c self-check missed it (it only counts readings that are
+            # clear in lightness too). Hue mode fires only on clearly differently COLOURED kits, where colour is enough.
+            log("kits: hue mode (kits differ in colour) -> per-player classifier not used, colour only"); self.cls = []
         self._strips(); log(f"kits: learned from {len(feats)} people ({dropped} off the pitch left out), group sizes {self.model['sizes']}"
                              + (f", light {self.light} (shade spread {self.shade:.1f})" if self.shade is not None else f", light {self.light}") + f", default fit leaves out a group at {self.choice_missed:.2f} x the team gap, far pair moves a team by {self.pair_shift}" + (f", reading {self.pair}/{self.stat} (neither-share tried: {self.choice})" if len(self.choice) > 1 else "")); return self
     def _fit_cls(self, frames_boxes, log=print):
