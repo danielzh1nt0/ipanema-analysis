@@ -1,14 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:19:51 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:21:38 UTC
 
 
-## run_full.log (50 lines, last 60)
-=== p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
-calibration: from the clip's own camera
-pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
-canary: piece 4 first (CPU)
-canary passed: calibration from the line model, 20.2 players per frame
-pieces: 20/20 done in 7.0 min
-tracking frame 178800
+## run_full.log (67 lines, last 60)
   piece 00: p15u-vs-vallentuna-2026-10-03-6cce_c000: 8992 frames, 11.6 players/frame
   piece 01: p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
   piece 02: p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
@@ -52,6 +45,23 @@ direction: from reference labels -> A →
   step: passes (8 s since the last step)
   step: shapes (1 s since the last step)
   step: stats (11 s since the last step)
+  step: metrics (28 s since the last step)
+veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0
+our shot detector vs Veo: found 0/16 of Veo's shots, 0/18 of ours are real (within 10 s)
+ball grade: accuracy None, near-player 0.62, possession withheld, events withheld
+ball reliability: 82% frames, 62% near a player, 28225 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (18 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 20 frame files (every 3 frames, 300 s each, largest 7.0 MB)
+  wrote match_data.json (1.0 MB)
+  upload checks: p15u-vs-vallentuna-2026-10-03-6cce: needs review -> players, possession, shot_map
+    FLAG players: median players per frame A 5, B 9
+    OK   keepers: 0 of 32026 frames with 2+ keepers in one team
+    OK   goals: 3604: A scored, B kicks off at 3634; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3882; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5628
+    FLAG shots: 11 of 16 shots have a spot on the pitch
+    OK   ball: 4686 of 48669 ball positions more than 3 m off the pitch
+    FLAG possession: 10 of 17 clear moments right (wrong: 853.4 ours None eye A, 1868.7 ours None eye B, 2864.1 ours None eye A, 3537.8 ours B eye A, 3800.2 ours A eye B, 5327.0 ours A eye B)
+export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1639 events) · library.json updated · zip None
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
