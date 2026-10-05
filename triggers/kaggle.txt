@@ -1,2 +1,2 @@
-kaggle/shot_clips.py 60
-# Mon Oct  5 07:36:11 UTC 2026
+kaggle/shot_clips.py 20 fetch
+# Mon Oct  5 07:47:46 UTC 2026

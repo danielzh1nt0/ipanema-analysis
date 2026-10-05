@@ -33,7 +33,7 @@ video{display:block;width:100%;max-width:100%;cursor:crosshair}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap">
 <h1>Shot Spot Marker</h1>
-<p class="lead">For each Veo shot: play the clip, pause on the frame where the ball is struck, and click the ball. Check who shot (our guess is pre-selected) and change it if it is wrong. The spot goes straight into the shot map data. "Can't tell" skips it. Clips start 2 s before Veo's clip start and run 30 s.</p>
+<p class="lead">For each Veo shot: play the clip, pause on the frame where the ball is struck, and click the ball. Check who shot (our guess is pre-selected) and change it if it is wrong. The spot goes straight into the shot map data. "Can't tell" skips it. Each clip starts 2 s before Veo's clip and runs 30 s.</p>
 <div class="wrap">
  <div class="panel">
   <label for="match" class="st">Match</label>
@@ -55,7 +55,8 @@ video{display:block;width:100%;max-width:100%;cursor:crosshair}
  </div>
 </div>
 <script>
-const R2="https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/";
+// clips published with the page: clips/<match>_<t>.mp4 covers t-2 .. t+28 s of the match video
+const CLIP0=2;
 const SHOTS={"p15u-vs-vallentuna-2026-10-03-6cce": {"name": "SFK \u2013 Vallentuna", "shots": [{"t": 662.0, "team": "B", "goal": false}, {"t": 1015.0, "team": "B", "goal": false}, {"t": 1253.0, "team": "A", "goal": false}, {"t": 1650.0, "team": "A", "goal": false}, {"t": 2019.0, "team": "B", "goal": false}, {"t": 2090.0, "team": "B", "goal": false}, {"t": 2310.0, "team": "B", "goal": false}, {"t": 2738.0, "team": "A", "goal": false}, {"t": 3604.0, "team": "A", "goal": true}, {"t": 3742.0, "team": "B", "goal": true}, {"t": 3840.0, "team": "B", "goal": true}, {"t": 4436.0, "team": "B", "goal": false}, {"t": 5132.0, "team": "A", "goal": false}, {"t": 5325.0, "team": "A", "goal": false}, {"t": 5513.0, "team": "A", "goal": true}, {"t": 5558.0, "team": "B", "goal": false}, {"t": 5593.0, "team": "A", "goal": true}]}, "SFKBP1109": {"name": "SFK \u2013 BP (1st half)", "shots": [{"t": 610.0, "team": "B", "goal": false}, {"t": 863.0, "team": "B", "goal": false}, {"t": 2183.0, "team": "B", "goal": false}, {"t": 2425.0, "team": "A", "goal": false}, {"t": 2619.0, "team": "A", "goal": true}, {"t": 2786.0, "team": "A", "goal": false}, {"t": 2865.0, "team": "B", "goal": false}]}, "p15u-vs-aik-2026-09-21-bd09": {"name": "SFK \u2013 AIK (1st half)", "shots": [{"t": 634.0, "team": "A", "goal": false}, {"t": 1049.0, "team": "B", "goal": false}, {"t": 1312.0, "team": "A", "goal": false}, {"t": 1395.0, "team": "B", "goal": false}, {"t": 1725.0, "team": "A", "goal": false}, {"t": 2050.0, "team": "A", "goal": false}, {"t": 2077.0, "team": "A", "goal": false}, {"t": 2384.0, "team": "B", "goal": false}, {"t": 2532.0, "team": "A", "goal": false}, {"t": 2615.0, "team": "B", "goal": false}, {"t": 2762.0, "team": "B", "goal": true}, {"t": 2937.0, "team": "A", "goal": false}, {"t": 2959.0, "team": "A", "goal": false}, {"t": 3070.0, "team": "A", "goal": false}, {"t": 3114.0, "team": "B", "goal": false}, {"t": 3128.0, "team": "B", "goal": true}]}};
 const $=id=>document.getElementById(id);
 const v=$("v"), mk=$("mk"); let cur=null, marks={}, db=null, team=null;
@@ -72,16 +73,17 @@ function render(){
 }
 function setTeam(t){team=t; $("tA").setAttribute("aria-pressed",t==="A"); $("tB").setAttribute("aria-pressed",t==="B")}
 function pick(m,i){const s=SHOTS[m].shots[i]; cur={m,i,s,k:key(m,s.t)}; const d=marks[key(m,s.t)]; setTeam((d&&d.team)||s.team||null);
- const src=R2+m+"/video.mp4"; if(v.dataset.src!==src){v.src=src; v.dataset.src=src}
- const go=()=>{v.currentTime=Math.max(0,s.t-2)}; if(v.readyState>=1)go(); else v.addEventListener("loadedmetadata",go,{once:true});
+ const src="clips/"+m+"_"+Math.round(s.t)+".mp4"; if(v.dataset.src!==src){v.src=src; v.dataset.src=src}
+ const go=()=>{v.currentTime=0}; if(v.readyState>=1)go(); else v.addEventListener("loadedmetadata",go,{once:true});
  mk.hidden=true; $("msg").textContent="Loading the clip…"; render()}
 v.addEventListener("seeked",()=>{$("msg").textContent=""; showMark()});
-v.addEventListener("timeupdate",()=>{$("tm").textContent=cur?`${fmt(v.currentTime)}  (+${(v.currentTime-cur.s.t).toFixed(1)} s)`:"--"; if(cur&&v.currentTime>cur.s.t+30)v.pause()});
+v.addEventListener("timeupdate",()=>{$("tm").textContent=cur?`${fmt(mt())}  (+${(mt()-cur.s.t).toFixed(1)} s)`:"--"});
 v.addEventListener("error",()=>{$("msg").textContent="The video did not load. Check your connection and pick the shot again."});
 $("play").onclick=()=>{v.paused?v.play():v.pause()};
 v.addEventListener("play",()=>$("play").textContent="Pause");v.addEventListener("pause",()=>$("play").textContent="Play");
 const step=d=>()=>{v.pause();v.currentTime=Math.max(0,v.currentTime+d)};
 $("back").onclick=step(-1);$("fwd").onclick=step(1);$("b02").onclick=step(-0.2);$("f02").onclick=step(0.2);
+function mt(){return cur?Math.max(0,cur.s.t-CLIP0)+v.currentTime:0}
 function box(){const r=v.getBoundingClientRect(), vw=v.videoWidth||1920, vh=v.videoHeight||1080, s=Math.min(r.width/vw,r.height/vh);
  const w=vw*s,h=vh*s; return {x:r.left+(r.width-w)/2,y:r.top+(r.height-h)/2,w,h,r}}
 function showMark(){if(!cur)return; const d=marks[cur.k]; if(!d||d.skip){mk.hidden=true;return}
@@ -89,7 +91,7 @@ function showMark(){if(!cur)return; const d=marks[cur.k]; if(!d||d.skip){mk.hidd
 async function save(doc){ if(!db){$("msg").textContent="Saving needs you to be signed in to claude.ai."; return}
  try{await db.collection("clicks").doc(cur.k).set(doc); $("msg").textContent=doc.skip?"Skipped.":"Saved."}catch(e){$("msg").textContent="Not saved ("+(e.code||"error")+"). Try again."}}
 v.addEventListener("click",e=>{ if(!cur)return; v.pause(); const b=box(); const x=(e.clientX-b.x)/b.w*1920, y=(e.clientY-b.y)/b.h*1080;
- if(x<0||y<0||x>1920||y>1080)return; const doc={match:cur.m,t:cur.s.t,team:team,team_guess:cur.s.team||null,video_t:+v.currentTime.toFixed(2),px:[+x.toFixed(1),+y.toFixed(1)],skip:false};
+ if(x<0||y<0||x>1920||y>1080)return; const doc={match:cur.m,t:cur.s.t,team:team,team_guess:cur.s.team||null,video_t:+mt().toFixed(2),px:[+x.toFixed(1),+y.toFixed(1)],skip:false};
  marks[cur.k]=doc; showMark(); render(); save(doc)});
 $("tA").onclick=()=>{setTeam("A"); if(cur&&marks[cur.k]&&!marks[cur.k].skip){marks[cur.k].team="A"; save(marks[cur.k])}};
 $("tB").onclick=()=>{setTeam("B"); if(cur&&marks[cur.k]&&!marks[cur.k].skip){marks[cur.k].team="B"; save(marks[cur.k])}};
