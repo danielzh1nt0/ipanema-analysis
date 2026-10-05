@@ -21,3 +21,14 @@ def test_lift_brightens_shade_and_keeps_shape():
 def test_standin_respects_conf():
     f = np.zeros((1080, 1920, 3), np.uint8); d = V.StandIn()
     assert len(d.detect_batch([f], 0.3, None)[0][0]) < len(d.detect_batch([f], 0.1, None)[0][0])
+
+
+def test_v3lab_carrier_and_extras():
+    import tools.v3lab as L
+    boxes = [[100, 100, 130, 180, 0.9], [500, 100, 530, 180, 0.12]]
+    assert L.carrier(boxes, (120, 178)) == 0                          # ball at his feet
+    assert L.carrier(boxes, (120, 110)) is None                       # ball at his head height: not on the ball
+    assert L.carrier(boxes, (515, 175)) == 1 and L.carrier(boxes, (515, 175), conf=0.15) is None
+    assert L.extras([boxes[0]], boxes, 0.1) == [boxes[1]] and L.extras([boxes[0]], boxes, 0.15) == []
+    fr = {"players": [{"px": [116, 181], "team": "B"}, {"px": [300, 300], "team": "A"}]}
+    assert L.exported_near(fr, boxes[0])["team"] == "B" and L.exported_near(fr, boxes[1]) is None
