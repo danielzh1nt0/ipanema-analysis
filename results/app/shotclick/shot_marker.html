@@ -74,10 +74,10 @@ function render(){
 function setTeam(t){team=t; $("tA").setAttribute("aria-pressed",t==="A"); $("tB").setAttribute("aria-pressed",t==="B")}
 function pick(m,i){const s=SHOTS[m].shots[i]; cur={m,i,s,k:key(m,s.t)}; const d=marks[key(m,s.t)]; setTeam((d&&d.team)||s.team||null);
  const src="clips/"+m+"_"+Math.round(s.t)+".mp4"; if(v.dataset.src!==src){v.src=src; v.dataset.src=src}
- const go=()=>{v.currentTime=0}; if(v.readyState>=1)go(); else v.addEventListener("loadedmetadata",go,{once:true});
+ const go=()=>{v.currentTime=(d&&!d.skip&&d.video_t!=null)?Math.max(0,d.video_t-Math.max(0,s.t-CLIP0)):0}; if(v.readyState>=1)go(); else v.addEventListener("loadedmetadata",go,{once:true});
  mk.hidden=true; $("msg").textContent="Loading the clip…"; render()}
 v.addEventListener("seeked",()=>{$("msg").textContent=""; showMark()});
-v.addEventListener("timeupdate",()=>{$("tm").textContent=cur?`${fmt(mt())}  (+${(mt()-cur.s.t).toFixed(1)} s)`:"--"});
+v.addEventListener("timeupdate",()=>{showMark();$("tm").textContent=cur?`${fmt(mt())}  (+${(mt()-cur.s.t).toFixed(1)} s)`:"--"});
 v.addEventListener("error",()=>{$("msg").textContent="The video did not load. Check your connection and pick the shot again."});
 $("play").onclick=()=>{v.paused?v.play():v.pause()};
 v.addEventListener("play",()=>$("play").textContent="Pause");v.addEventListener("pause",()=>$("play").textContent="Play");
@@ -86,7 +86,8 @@ $("back").onclick=step(-1);$("fwd").onclick=step(1);$("b02").onclick=step(-0.2);
 function mt(){return cur?Math.max(0,cur.s.t-CLIP0)+v.currentTime:0}
 function box(){const r=v.getBoundingClientRect(), vw=v.videoWidth||1920, vh=v.videoHeight||1080, s=Math.min(r.width/vw,r.height/vh);
  const w=vw*s,h=vh*s; return {x:r.left+(r.width-w)/2,y:r.top+(r.height-h)/2,w,h,r}}
-function showMark(){if(!cur)return; const d=marks[cur.k]; if(!d||d.skip){mk.hidden=true;return}
+// 5 Oct: the ring marks a spot in ONE picture; the camera moves, so show it only at the moment that was clicked
+function showMark(){if(!cur)return; const d=marks[cur.k]; if(!d||d.skip||!d.px||d.match!==cur.m||Math.round(d.t)!==Math.round(cur.s.t)||Math.abs(mt()-d.video_t)>0.35){mk.hidden=true;return}
  const b=box(); mk.style.left=(b.x-b.r.left+d.px[0]/1920*b.w)+"px"; mk.style.top=(b.y-b.r.top+d.px[1]/1080*b.h)+"px"; mk.hidden=false}
 async function save(doc){ if(!db){$("msg").textContent="Saving needs you to be signed in to claude.ai."; return}
  try{await db.collection("clicks").doc(cur.k).set(doc); $("msg").textContent=doc.skip?"Skipped.":"Saved."}catch(e){$("msg").textContent="Not saved ("+(e.code||"error")+"). Try again."}}
