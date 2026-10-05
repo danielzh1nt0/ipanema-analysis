@@ -1,0 +1,15 @@
+{
+ "players": 5573,
+ "with_votes": 4655,
+ "changed": 1068,
+ "old": {
+  "A": 4210,
+  "B": 1363
+ },
+ "new": {
+  "A": 3326,
+  "B": 2247
+ },
+ "labelled_frames": 24367,
+ "minutes": 60.3
+}
