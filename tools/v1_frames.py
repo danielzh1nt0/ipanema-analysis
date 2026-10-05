@@ -2,7 +2,7 @@
 
 Reads a spec (default results/review/v1/spec.json):
   {"jobs": [{"name": "bp_610_p1", "src_key": "SFKBP1109/video.mp4", "times": [612, 613, ...],
-             "crop": null | [x0, y0, w, h] (1920x1080 pixels), "tile_w": 640, "per_sheet": 12, "cols": 3}]}
+             "crop": null | [x0, y0, w, h] (1920x1080 pixels), or "centers": [[t, cx, cy], ...] + "size": [w, h], "tile_w": 640, "per_sheet": 12, "cols": 3}]}
 For every job: one tile per time (full frame or a full-resolution crop), a 100-px grid in 1920x1080 frame pixels (red
 every 500 px, small labels on the crop edges so a mark can be read back in frame pixels), time label, sheets of
 `per_sheet` tiles -> results/free/v1/<name>_<k>.jpg, plus results/free/v1/index.json.
@@ -42,6 +42,14 @@ def tile(frame, t, crop, tile_w, title):
     cv2.putText(g, title, (4, g.shape[0] - 6), 0, 0.5, (255, 255, 255), 1)
     return g
 
+def crop_at(job, t):
+    """fixed crop, or a crop of size job['size'] following centre keyframes job['centers'] = [[t, cx, cy], ...] (the
+    follow-cam pans; linear between keyframes, held outside them)"""
+    if not job.get("centers"): return job.get("crop")
+    k = sorted(job["centers"]); w, h = job.get("size", [960, 540])
+    cx = float(np.interp(t, [c[0] for c in k], [c[1] for c in k])); cy = float(np.interp(t, [c[0] for c in k], [c[2] for c in k]))
+    return [int(round(cx - w / 2)), int(round(cy - h / 2)), w, h]
+
 def run(spec, base=None):
     base = (base if base is not None else os.environ.get("R2_PUBLIC_URL", "")).rstrip("/")
     os.makedirs(OUT, exist_ok=True); index = {}
@@ -51,14 +59,14 @@ def run(spec, base=None):
         tiles = []
         for t in job["times"]:
             cap.set(cv2.CAP_PROP_POS_FRAMES, int(round(t * fps))); ok, f = cap.read()
-            tiles.append(tile(f if ok else None, t, job.get("crop"), job.get("tile_w", 640), f"{job['name']} t={t:.1f}s"))
+            tiles.append(tile(f if ok else None, t, crop_at(job, t), job.get("tile_w", 640), f"{job['name']} t={t:.2f}s"))
         per, cols = job.get("per_sheet", 12), job.get("cols", 3); sheets = []
         for i in range(0, len(tiles), per):
             ts = tiles[i:i + per]
             while len(ts) % cols: ts.append(np.zeros_like(tiles[0]))
             rows = [np.hstack(ts[r:r + cols]) for r in range(0, len(ts), cols)]
             p = f"{OUT}/{job['name']}_{i // per}.jpg"; cv2.imwrite(p, np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 88]); sheets.append(p)
-        index[job["name"]] = {"src_key": job["src_key"], "times": job["times"], "crop": job.get("crop"), "fps": fps, "sheets": sheets}
+        index[job["name"]] = {"src_key": job["src_key"], "times": job["times"], "crops": [crop_at(job, t) for t in job["times"]], "fps": fps, "sheets": sheets}
         print(job["name"], len(tiles), "tiles", flush=True)
     json.dump(index, open(f"{OUT}/index.json", "w"), indent=1)
     return index

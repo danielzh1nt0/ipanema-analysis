@@ -19,8 +19,15 @@ def test_sheets_from_local_video(tmp_path, monkeypatch):
     c = cv2.imread(idx["crop"]["sheets"][0]); assert c.shape == (540, 1920, 3)
     # crop at t=1.0 (frame 10): ball at x=500 -> 100 px into the crop, y 650 -> 250; full resolution kept
     assert c[245:256, 93:108].min(axis=2).max() > 200 and c[245:256, 310:390].max() < 120
-    assert json.load(open(os.path.join(m.OUT, "index.json")))["crop"]["crop"] == [400, 400, 960, 540]
+    assert json.load(open(os.path.join(m.OUT, "index.json")))["crop"]["crops"][0] == [400, 400, 960, 540]
 
 def test_crop_clamped_inside_frame():
     m = _load(); f = np.full((1080, 1920, 3), 50, np.uint8)
     g = m.tile(f, 0.0, [1800, 1000, 960, 540], 960, "x"); assert g.shape == (540, 960, 3)
+
+def test_moving_crop_follows_keyframes():
+    m = _load(); job = {"centers": [[10.0, 960, 540], [12.0, 1160, 640]], "size": [960, 540]}
+    assert m.crop_at(job, 9.0) == [480, 270, 960, 540]
+    assert m.crop_at(job, 11.0) == [580, 320, 960, 540]
+    assert m.crop_at(job, 13.0) == [680, 370, 960, 540]
+    assert m.crop_at({"crop": [1, 2, 3, 4]}, 5.0) == [1, 2, 3, 4]
