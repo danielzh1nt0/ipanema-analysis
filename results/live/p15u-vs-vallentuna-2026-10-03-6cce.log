@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:21:35 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:23:08 UTC
 
 
-## run_full.log (38 lines, last 60)
+## run_full.log (56 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -40,6 +40,24 @@ players: 29985 short gaps filled (marked 'filled' in the export)
 ball v2: 135893/178800 frames on the path, 488 static-clutter candidates dropped
 ball: dropped 374 static-clutter candidates
 ball (global path): 116102/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 47% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.08 / B 0.00  WARNING low confidence
+direction: from reference labels -> A →
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1361 -> 150 (1.5 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (4 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (9 s since the last step)
+  step: metrics (16 s since the last step)
+veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0
+our shot detector vs Veo: found 1/16 of Veo's shots, 1/12 of ours are real (within 10 s)
+ball grade: accuracy None, near-player 0.53, possession withheld, events withheld
+ball reliability: 82% frames, 53% near a player, 28101 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (10 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  wrote 20 frame files (every 3 frames, 300 s each, largest 5.7 MB)
 
 ## train_ball.log (1 lines, last 60)
 
