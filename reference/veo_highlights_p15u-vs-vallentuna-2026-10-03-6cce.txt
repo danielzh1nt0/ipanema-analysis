@@ -2,25 +2,27 @@
 # Daniel to Drive (Match analysis/videos/SFKVALLENTUNA) 4 Oct. 22 clips: 17 'shot on goal', 5 'goal'; every goal clip has a shot
 # clip within 1 s (same moment) -> 17 distinct shot events, 5 goals. Final score 3-2 to SFK.
 # (Replaces the by-eye placement of 4 Oct morning: 3616/3850/5525/5620 vs Veo 3604/3840/5513/5593; the 3742 goal was missed.)
-662 shot
-1015 shot
+# 5 Oct: shot spots from Daniel's clicks in the Shot Spot Marker (where the shooter stood at the strike), metres via the
+# line-calibrated camera at that moment (snapped); no spot where the camera lines were wrong in the click frame or the spot fell on/behind a line (1253, 1650, 3742, 4436, 5593).
+662 shot B 3.7 49.1
+1015 shot B 19.3 27.9
 1253 shot
 1650 shot
-2019 shot
-2090 shot
-2310 shot
-2738 shot
-3603 shot
-3604 goal A
+# 2019 shot  - removed 5 Oct: Daniel checked the clip, nobody shot on goal at 33:39 (Veo tagged it wrongly)
+2090 shot B 4.5 24.3
+2310 shot B 7.0 47.2
+2738 shot A 91.7 29.3
+3603 shot A 92.7 18.6
+3604 goal A 92.7 18.6
 3741 shot
 3742 goal B
-3839 shot
-3840 goal B
+3839 shot B 13.3 41.7
+3840 goal B 13.3 41.7
 4436 shot
-5132 shot
-5325 shot
-5512 shot
-5513 goal A
-5558 shot
+5132 shot A 104.4 19.3
+5325 shot A 96.8 33.2
+5512 shot A 97.9 20.1
+5513 goal A 97.9 20.1
+5558 shot B 21.9 43.4
 5592 shot
 5593 goal A
