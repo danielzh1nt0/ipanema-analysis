@@ -1,2 +1,1 @@
-tools/p3_crops.py
-# Mon Oct  5 12:26:32 UTC 2026 P3: player crops for tracklet-joining check (Reymersholm, Spanga, SFK-BP; free, CPU, no detector)
+tools/k3c_piece_frames.py
