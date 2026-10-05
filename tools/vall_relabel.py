@@ -23,11 +23,16 @@ def match_boxes(players, boxes):
         if best is not None: out[p["id"]] = best
     return out
 
-def label_frame(model, f, players, boxes):
-    """{player id: label} for one frame"""
+def label_frame(model, f, players, boxes, detail=None):
+    """{player id: label} for one frame; detail (list) gets (id, label, red share, dark share, box height) per player"""
     mb = match_boxes(players, boxes)
     if not mb: return {}
-    ids = list(mb); labs = model.predict_batch(f, [list(boxes[mb[i]][:4]) for i in ids])
+    ids = list(mb); bx = [list(boxes[mb[i]][:4]) for i in ids]; labs = model.predict_batch(f, bx)
+    if detail is not None:
+        from ipanema import kits as K
+        _, hue = K._kit_hue(model.model)
+        for i, b, lab in zip(ids, bx, labs):
+            r, d = K.kit_share(f, b, hue); detail.append((i, lab, None if r is None else round(r, 3), None if d is None else round(d, 3), round(b[3] - b[1], 1)))
     return dict(zip(ids, labs))
 
 def decide(votes, old):
@@ -55,15 +60,17 @@ def main():
     for j, fr in enumerate(frames):
         if j % STEP == 0 and fr["players"]: want[int(round(fr["t"] * fps))] = fr
     qa_k = {int(round(t * fps)): t for t in QA_T}
+    perlab = open(f"{OUT}/labels.jsonl", "w")      # [t, id, label, red share, dark share, box height] per labelled player
     votes = collections.defaultdict(collections.Counter); k = -1; last = max(list(want) + list(qa_k)); buf = []; done = 0
     def flush():
         nonlocal done
         if not buf: return
         res = det.detect_batch([b[1] for b in buf], 0.3, TR.FOLLOW_TILES)
         for (kk, f, fr), (d, _) in zip(buf, res):
-            bx = [list(map(float, x)) for x in d.xyxy]
-            for pid, lab in label_frame(model, f, fr["players"], bx).items():
+            bx = [list(map(float, x)) for x in d.xyxy]; det_ = []
+            for pid, lab in label_frame(model, f, fr["players"], bx, det_).items():
                 if lab in ("A", "B", "K"): votes[pid][lab] += 1
+            for row in det_: perlab.write(json.dumps([round(fr["t"], 2)] + list(row)) + "\n")
         done += len(buf); buf.clear()
     while k < last:
         ok = cap.grab(); k += 1
@@ -79,7 +86,7 @@ def main():
         if done and done % 2000 < BATCH and not buf:
             print(f"{time.time() - t0:6.0f}s frame {k} ({done} labelled frames)", flush=True)
             json.dump(votes, open(f"{OUT}/votes.json", "w"))
-    flush(); cap.release()
+    flush(); cap.release(); perlab.close()
     new = decide(votes, old)
     changed = sum(new[i] != old[i] for i in old)
     json.dump(votes, open(f"{OUT}/votes.json", "w")); json.dump({str(k): v for k, v in new.items()}, open(f"{OUT}/override.json", "w"))
