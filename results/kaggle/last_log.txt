@@ -1,69 +1,69 @@
-kernel danielmatros/ipanema-vall-poss-sample
-Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-poss-sample
-  0.5 min: danielmatros/ipanema-vall-poss-sample has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-vall-poss-sample has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p00.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p01.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p02.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p03.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p04.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p05.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p06.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p07.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p08.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p09.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p10.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p11.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p12.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p13.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p14.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p15.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p16.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p17.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p18.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p19.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p20.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p21.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p22.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p23.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p24.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p25.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p26.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p27.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p28.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p29.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p30.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p31.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p32.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p33.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p34.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p35.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p36.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p37.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p38.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p39.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p40.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p41.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p42.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p43.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p44.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p45.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p46.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p47.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p48.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p49.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p50.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p51.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p52.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p53.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p54.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p55.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p56.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p57.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p58.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/p59.jpg
-Output file downloaded to results/kaggle/vall_poss_sample/poss/times.json
-Kernel log downloaded to results/kaggle/vall_poss_sample/ipanema-vall-poss-sample.log
-  ipanema-vall-poss-sample.log 872
+kernel danielmatros/ipanema-aik-poss-sample
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-aik-poss-sample
+  0.5 min: danielmatros/ipanema-aik-poss-sample has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-aik-poss-sample has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p00.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p01.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p02.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p03.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p04.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p05.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p06.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p07.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p08.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p09.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p10.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p11.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p12.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p13.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p14.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p15.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p16.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p17.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p18.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p19.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p20.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p21.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p22.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p23.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p24.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p25.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p26.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p27.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p28.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p29.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p30.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p31.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p32.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p33.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p34.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p35.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p36.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p37.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p38.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p39.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p40.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p41.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p42.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p43.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p44.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p45.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p46.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p47.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p48.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p49.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p50.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p51.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p52.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p53.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p54.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p55.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p56.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p57.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p58.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/p59.jpg
+Output file downloaded to results/kaggle/aik_poss_sample/poss/times.json
+Kernel log downloaded to results/kaggle/aik_poss_sample/ipanema-aik-poss-sample.log
+  ipanema-aik-poss-sample.log 871
   poss 4096
-  run.json 166
+  run.json 164
