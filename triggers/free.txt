@@ -1,2 +1,2 @@
-tools/p2e_track.py
-# Sun Oct  4 20:33:51 UTC 2026 P2e: re-track Reymersholm 4227 with goalmouth keeper rules off on uncalibrated grounds (free, CPU)
+tools/v1_frames.py results/review/v1/spec_p1.json
+# Mon Oct  5 04:26:19 UTC 2026 V1 pass 1: 1-s sheets of the 7 SFK-BP and 16 AIK first-half Veo shots, to find the strike second (free, CPU)
