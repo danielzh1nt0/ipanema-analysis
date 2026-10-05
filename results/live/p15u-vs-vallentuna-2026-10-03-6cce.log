@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:14:35 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 11:16:21 UTC
 
 
-## run_full.log (27 lines, last 60)
+## run_full.log (37 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
@@ -29,6 +29,16 @@ tracking frame 178800
   piece 17: p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
   piece 18: p15u-vs-vallentuna-2026-10-03-6cce_c018: 8992 frames, 19.4 players/frame
   piece 19: p15u-vs-vallentuna-2026-10-03-6cce_c019: 7971 frames, 16.2 players/frame
+periods: [(435.0, 2889.99), (3219.98, 5645.01)] s; 81 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
+calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
+clean: 25 still people by the lines dropped (bench, coaches)
+clean: keeper (left) from a non-team kit: track 700769, 177 frames
+clean: keeper (right) from a non-team kit: track 500591, 1329 frames
+clean: removed 218669 rows of non-team kits (referee / staff)
+clean: dropped 553340 off-pitch, merged 25793 duplicates, stitched 3605 ids, keepers [300324, 500591] -> A defends left
+clean: players per frame median A 4 / B 8, max A 13 / B 20
+players: 21971 short gaps filled (marked 'filled' in the export)
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
