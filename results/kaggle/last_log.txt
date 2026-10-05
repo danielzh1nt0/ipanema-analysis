@@ -1,96 +1,44 @@
 kernel danielmatros/ipanema-shot-origins
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shot-origins
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shot-origins
   0.5 min: danielmatros/ipanema-shot-origins has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-shot-origins has status "KernelWorkerStatus.RUNNING"
-  2.6 min: danielmatros/ipanema-shot-origins has status "KernelWorkerStatus.COMPLETE"
+  1.5 min: danielmatros/ipanema-shot-origins has status "KernelWorkerStatus.COMPLETE"
 Output file downloaded to results/kaggle/shot_origins/result.json
-Output file downloaded to results/kaggle/shot_origins/s1015_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s1015_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s1015_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s1015_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s1015_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s1253_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s1253_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s1253_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s1253_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s1253_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s1650_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s1650_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s1650_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s1650_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s1650_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s2019_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s2019_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s2019_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s2019_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s2019_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s2090_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s2090_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s2090_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s2090_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s2090_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s2310_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s2310_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s2310_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s2310_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s2310_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s2738_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s2738_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s2738_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s2738_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s2738_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s3604_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s3604_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s3604_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s3604_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s3604_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s3742_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s3742_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s3742_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s3742_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s3742_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s3840_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s3840_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s3840_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s3840_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s3840_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s4436_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s4436_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s4436_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s4436_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s4436_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s5132_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s5132_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s5132_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s5132_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s5132_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s5325_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s5325_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s5325_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s5325_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s5325_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s5513_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s5513_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s5513_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s5513_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s5513_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s5558_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s5558_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s5558_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s5558_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s5558_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s5593_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s5593_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s5593_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s5593_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s5593_4.jpg
-Output file downloaded to results/kaggle/shot_origins/s662_0.jpg
-Output file downloaded to results/kaggle/shot_origins/s662_1.jpg
-Output file downloaded to results/kaggle/shot_origins/s662_2.jpg
-Output file downloaded to results/kaggle/shot_origins/s662_3.jpg
-Output file downloaded to results/kaggle/shot_origins/s662_4.jpg
+Output file downloaded to results/kaggle/shot_origins/s1015_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s1015_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s1253_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s1253_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s1650_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s1650_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s2019_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s2019_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s2090_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s2090_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s2310_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s2310_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s2738_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s2738_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s3604_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s3604_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s3742_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s3742_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s3840_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s3840_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s4436_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s4436_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s5132_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s5132_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s5325_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s5325_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s5513_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s5513_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s5558_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s5558_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s5593_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s5593_pre1.jpg
+Output file downloaded to results/kaggle/shot_origins/s662_pre0.jpg
+Output file downloaded to results/kaggle/shot_origins/s662_pre1.jpg
 Kernel log downloaded to results/kaggle/shot_origins/ipanema-shot-origins.log
-  ipanema-shot-origins.log 9592
+  ipanema-shot-origins.log 1923
   result.json 53
   run.json 158
   s1015_0.jpg 837326
@@ -98,83 +46,117 @@ Kernel log downloaded to results/kaggle/shot_origins/ipanema-shot-origins.log
   s1015_2.jpg 779537
   s1015_3.jpg 727934
   s1015_4.jpg 157592
+  s1015_pre0.jpg 809099
+  s1015_pre1.jpg 438552
   s1253_0.jpg 736890
   s1253_1.jpg 638345
   s1253_2.jpg 551201
   s1253_3.jpg 528061
   s1253_4.jpg 135626
+  s1253_pre0.jpg 792223
+  s1253_pre1.jpg 400758
   s1650_0.jpg 717503
   s1650_1.jpg 666534
   s1650_2.jpg 615150
   s1650_3.jpg 643016
   s1650_4.jpg 146014
+  s1650_pre0.jpg 755371
+  s1650_pre1.jpg 404929
   s2019_0.jpg 827047
   s2019_1.jpg 751513
   s2019_2.jpg 732503
   s2019_3.jpg 789459
   s2019_4.jpg 180565
+  s2019_pre0.jpg 825695
+  s2019_pre1.jpg 437268
   s2090_0.jpg 747993
   s2090_1.jpg 735947
   s2090_2.jpg 727473
   s2090_3.jpg 714656
   s2090_4.jpg 158385
+  s2090_pre0.jpg 730242
+  s2090_pre1.jpg 397196
   s2310_0.jpg 760894
   s2310_1.jpg 729216
   s2310_2.jpg 587154
   s2310_3.jpg 632238
   s2310_4.jpg 145758
+  s2310_pre0.jpg 744555
+  s2310_pre1.jpg 401487
   s2738_0.jpg 671509
   s2738_1.jpg 622532
   s2738_2.jpg 661162
   s2738_3.jpg 657938
   s2738_4.jpg 153997
+  s2738_pre0.jpg 817058
+  s2738_pre1.jpg 433631
   s3604_0.jpg 740078
   s3604_1.jpg 668967
   s3604_2.jpg 568805
   s3604_3.jpg 577645
   s3604_4.jpg 147361
+  s3604_pre0.jpg 799511
+  s3604_pre1.jpg 412435
   s3742_0.jpg 802493
   s3742_1.jpg 790598
   s3742_2.jpg 730167
   s3742_3.jpg 727137
   s3742_4.jpg 175961
+  s3742_pre0.jpg 667353
+  s3742_pre1.jpg 367272
   s3840_0.jpg 493671
   s3840_1.jpg 577256
   s3840_2.jpg 686040
   s3840_3.jpg 726576
   s3840_4.jpg 171921
+  s3840_pre0.jpg 492863
+  s3840_pre1.jpg 274318
   s4436_0.jpg 796568
   s4436_1.jpg 814988
   s4436_2.jpg 704383
   s4436_3.jpg 374579
   s4436_4.jpg 150522
+  s4436_pre0.jpg 805263
+  s4436_pre1.jpg 380341
   s5132_0.jpg 699393
   s5132_1.jpg 668040
   s5132_2.jpg 520130
   s5132_3.jpg 522150
   s5132_4.jpg 131217
+  s5132_pre0.jpg 630212
+  s5132_pre1.jpg 368946
   s5325_0.jpg 691433
   s5325_1.jpg 664096
   s5325_2.jpg 529714
   s5325_3.jpg 522677
   s5325_4.jpg 136468
+  s5325_pre0.jpg 696237
+  s5325_pre1.jpg 359940
   s5513_0.jpg 624713
   s5513_1.jpg 596759
   s5513_2.jpg 527040
   s5513_3.jpg 580398
   s5513_4.jpg 151001
+  s5513_pre0.jpg 624138
+  s5513_pre1.jpg 348918
   s5558_0.jpg 814599
   s5558_1.jpg 798509
   s5558_2.jpg 783941
   s5558_3.jpg 673099
   s5558_4.jpg 143871
+  s5558_pre0.jpg 829576
+  s5558_pre1.jpg 436455
   s5593_0.jpg 702230
   s5593_1.jpg 671026
   s5593_2.jpg 610108
   s5593_3.jpg 627566
   s5593_4.jpg 154231
+  s5593_pre0.jpg 690568
+  s5593_pre1.jpg 367859
   s662_0.jpg 608877
   s662_1.jpg 691700
   s662_2.jpg 632997
   s662_3.jpg 657934
   s662_4.jpg 156471
+  s662_pre0.jpg 696412
+  s662_pre1.jpg 328269

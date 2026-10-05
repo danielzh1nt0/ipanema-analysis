@@ -1,85 +1,25 @@
-[{"stream_name":"stdout","time":8.443196764,"data":"662\n"}
-,{"stream_name":"stdout","time":16.487965316,"data":"1015\n"}
-,{"stream_name":"stdout","time":22.212029796,"data":"1253\n"}
-,{"stream_name":"stdout","time":29.381756966,"data":"1650\n"}
-,{"stream_name":"stdout","time":37.244550194,"data":"2019\n"}
-,{"stream_name":"stdout","time":44.311451058,"data":"2090\n"}
-,{"stream_name":"stdout","time":50.128241329,"data":"2310\n"}
-,{"stream_name":"stdout","time":56.035464474,"data":"2738\n"}
-,{"stream_name":"stdout","time":62.234203193,"data":"3604\n"}
-,{"stream_name":"stdout","time":69.038728053,"data":"3742\n"}
-,{"stream_name":"stdout","time":75.272192358,"data":"3840\n"}
-,{"stream_name":"stderr","time":80.841639993,"data":"[tls @ 0x4d26b80] IO error: Connection reset by peer\n"}
-,{"stream_name":"stderr","time":80.843427645,"data":"[h264 @ 0x56ed280] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":80.843461455,"data":"[h264 @ 0x56ed280] missing picture in access unit with size 348\n"}
-,{"stream_name":"stderr","time":80.843465418,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af8c9ea: partial file\n"}
-,{"stream_name":"stderr","time":80.843628525,"data":"[h264 @ 0x4d47bc0] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":80.843648203,"data":"[h264 @ 0x4d47bc0] Error splitting the input into NAL units.\n"}
-,{"stream_name":"stderr","time":80.843707629,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af909e4: partial file\n"}
-,{"stream_name":"stderr","time":80.843716069,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af9374f: partial file\n"}
-,{"stream_name":"stderr","time":80.933118004,"data":"[tls @ 0x4d26b80] IO error: End of file\n"}
-,{"stream_name":"stderr","time":80.934061938,"data":"[https @ 0x4d24300] Stream ends prematurely at 2599980736, should be 3477004504\n"}
-,{"stream_name":"stderr","time":80.934078498,"data":"[h264 @ 0x56ed280] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":80.934083939,"data":"[h264 @ 0x56ed280] missing picture in access unit with size 348\n"}
-,{"stream_name":"stderr","time":80.934169612,"data":"[h264 @ 0x4d47bc0] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":80.934190117,"data":"[h264 @ 0x4d47bc0] Error splitting the input into NAL units.\n"}
-,{"stream_name":"stderr","time":80.935964657,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af8c9ea: partial file\n"}
-,{"stream_name":"stderr","time":80.939270718,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af909e4: partial file\n"}
-,{"stream_name":"stderr","time":80.939301844,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af9374f: partial file\n"}
-,{"stream_name":"stderr","time":80.941973269,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":80.942018582,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.024891518,"data":"[tls @ 0x4d26b80] IO error: End of file\n"}
-,{"stream_name":"stderr","time":81.024922344,"data":"[https @ 0x4d24300] Stream ends prematurely at 2599980736, should be 3477004504\n"}
-,{"stream_name":"stderr","time":81.024927943,"data":"[h264 @ 0x56ed280] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.024933098,"data":"[h264 @ 0x56ed280] missing picture in access unit with size 348\n"}
-,{"stream_name":"stderr","time":81.024938158,"data":"[h264 @ 0x4d47bc0] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.024960538,"data":"[h264 @ 0x4d47bc0] Error splitting the input into NAL units.\n"}
-,{"stream_name":"stderr","time":81.025206148,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af8c9ea: partial file\n"}
-,{"stream_name":"stderr","time":81.027044673,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af909e4: partial file\n"}
-,{"stream_name":"stderr","time":81.027062174,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af9374f: partial file\n"}
-,{"stream_name":"stderr","time":81.029789565,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.02980903,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.030521433,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.030642147,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.031036705,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.031094,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.111106179,"data":"[tls @ 0x4d26b80] IO error: End of file\n"}
-,{"stream_name":"stderr","time":81.111134421,"data":"[https @ 0x4d24300] Stream ends prematurely at 2599980736, should be 3477004504\n"}
-,{"stream_name":"stderr","time":81.111139035,"data":"[h264 @ 0x56ed280] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.111143183,"data":"[h264 @ 0x56ed280] missing picture in access unit with size 348\n"}
-,{"stream_name":"stderr","time":81.111146735,"data":"[h264 @ 0x4d47bc0] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.111151255,"data":"[h264 @ 0x4d47bc0] Error splitting the input into NAL units.\n"}
-,{"stream_name":"stderr","time":81.114288059,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af8c9ea: partial file\n"}
-,{"stream_name":"stderr","time":81.117606855,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af909e4: partial file\n"}
-,{"stream_name":"stderr","time":81.117623827,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af9374f: partial file\n"}
-,{"stream_name":"stderr","time":81.120772397,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.120788655,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.121465829,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.121620121,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.122050042,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.122058537,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.122251962,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b030842: partial file\n"}
-,{"stream_name":"stderr","time":81.122298295,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 1, offset 0x9b03097f: partial file\n"}
-,{"stream_name":"stderr","time":81.220146429,"data":"[tls @ 0x4d26b80] IO error: End of file\n"}
-,{"stream_name":"stderr","time":81.220166874,"data":"[https @ 0x4d24300] Stream ends prematurely at 2599980736, should be 3477004504\n"}
-,{"stream_name":"stderr","time":81.220180349,"data":"[h264 @ 0x56ed280] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.220217342,"data":"[h264 @ 0x56ed280] missing picture in access unit with size 348\n"}
-,{"stream_name":"stderr","time":81.220320994,"data":"[h264 @ 0x4d47bc0] Invalid NAL unit size (15484 \u003e 338).\n"}
-,{"stream_name":"stderr","time":81.220777046,"data":"[h264 @ 0x4d47bc0] Error splitting the input into NAL units.\n"}
-,{"stream_name":"stderr","time":81.224851002,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af8c9ea: partial file\n"}
-,{"stream_name":"stderr","time":81.227202655,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af909e4: partial file\n"}
-,{"stream_name":"stderr","time":81.22730388,"data":"[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4d13640] stream 0, offset 0x9af9374f: partial file\n"}
-,{"stream_name":"stdout","time":81.685590221,"data":"4436\n"}
-,{"stream_name":"stdout","time":87.934115036,"data":"5132\n"}
-,{"stream_name":"stdout","time":93.793122254,"data":"5325\n"}
-,{"stream_name":"stdout","time":99.266640937,"data":"5513\n"}
-,{"stream_name":"stdout","time":107.301507494,"data":"5558\n"}
-,{"stream_name":"stdout","time":113.846539319,"data":"5593\n"}
-,{"stream_name":"stdout","time":113.846731343,"data":"done 85\n"}
-,{"stream_name":"stderr","time":116.193159872,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":116.19319114,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":116.566311082,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":116.566355173,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":118.167026879,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":119.214152975,"data":"[NbConvertApp] Writing 286137 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":4.858702884,"data":"662\n"}
+,{"stream_name":"stdout","time":8.054998628,"data":"1015\n"}
+,{"stream_name":"stdout","time":10.679094033,"data":"1253\n"}
+,{"stream_name":"stdout","time":13.023971966,"data":"1650\n"}
+,{"stream_name":"stdout","time":15.90639194,"data":"2019\n"}
+,{"stream_name":"stdout","time":18.265018547,"data":"2090\n"}
+,{"stream_name":"stdout","time":21.271367613,"data":"2310\n"}
+,{"stream_name":"stdout","time":24.355559071,"data":"2738\n"}
+,{"stream_name":"stdout","time":27.576294056000002,"data":"3604\n"}
+,{"stream_name":"stdout","time":29.807929965,"data":"3742\n"}
+,{"stream_name":"stdout","time":31.649702314,"data":"3840\n"}
+,{"stream_name":"stdout","time":34.15672489,"data":"4436\n"}
+,{"stream_name":"stdout","time":36.001960009,"data":"5132\n"}
+,{"stream_name":"stdout","time":38.392282226,"data":"5325\n"}
+,{"stream_name":"stdout","time":41.090478059,"data":"5513\n"}
+,{"stream_name":"stdout","time":44.375642909,"data":"5558\n"}
+,{"stream_name":"stdout","time":47.376350598,"data":"5593\n"}
+,{"stream_name":"stdout","time":47.376611365,"data":"done 34\n"}
+,{"stream_name":"stderr","time":49.564747957,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":49.564775739,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":49.859786722,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":49.859811679,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":51.204260632,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":52.17164831,"data":"[NbConvertApp] Writing 286140 bytes to __results__.html\n"}
 ]
