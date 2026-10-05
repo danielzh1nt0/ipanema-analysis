@@ -1,70 +1,69 @@
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
-pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
-canary: piece 4 first (CPU)
-canary passed: calibration from the line model, 20.2 players per frame
-pieces: 20/20 done in 8.0 min
+pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
+pieces: 20/20 done in 2.3 min
 tracking frame 178800
-  piece 00: p15u-vs-vallentuna-2026-10-03-6cce_c000: 8992 frames, 11.6 players/frame
-  piece 01: p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
-  piece 02: p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
-  piece 03: p15u-vs-vallentuna-2026-10-03-6cce_c003: 8992 frames, 17.8 players/frame
-  piece 04: p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
-  piece 05: p15u-vs-vallentuna-2026-10-03-6cce_c005: 8992 frames, 20.6 players/frame
-  piece 06: p15u-vs-vallentuna-2026-10-03-6cce_c006: 8992 frames, 21.5 players/frame
-  piece 07: p15u-vs-vallentuna-2026-10-03-6cce_c007: 8992 frames, 17.8 players/frame
-  piece 08: p15u-vs-vallentuna-2026-10-03-6cce_c008: 8992 frames, 19.9 players/frame
-  piece 09: p15u-vs-vallentuna-2026-10-03-6cce_c009: 8992 frames, 16.2 players/frame
-  piece 10: p15u-vs-vallentuna-2026-10-03-6cce_c010: 8992 frames, 15.1 players/frame
-  piece 11: p15u-vs-vallentuna-2026-10-03-6cce_c011: 8992 frames, 18.3 players/frame
-  piece 12: p15u-vs-vallentuna-2026-10-03-6cce_c012: 8992 frames, 20.0 players/frame
-  piece 13: p15u-vs-vallentuna-2026-10-03-6cce_c013: 8992 frames, 19.9 players/frame
-  piece 14: p15u-vs-vallentuna-2026-10-03-6cce_c014: 8992 frames, 19.4 players/frame
-  piece 15: p15u-vs-vallentuna-2026-10-03-6cce_c015: 8992 frames, 20.5 players/frame
-  piece 16: p15u-vs-vallentuna-2026-10-03-6cce_c016: 8992 frames, 20.2 players/frame
-  piece 17: p15u-vs-vallentuna-2026-10-03-6cce_c017: 8992 frames, 18.1 players/frame
-  piece 18: p15u-vs-vallentuna-2026-10-03-6cce_c018: 8992 frames, 19.4 players/frame
-  piece 19: p15u-vs-vallentuna-2026-10-03-6cce_c019: 7971 frames, 16.2 players/frame
+  piece 00: cached
+  piece 01: cached
+  piece 02: cached
+  piece 03: cached
+  piece 04: cached
+  piece 05: cached
+  piece 06: cached
+  piece 07: cached
+  piece 08: cached
+  piece 09: cached
+  piece 10: cached
+  piece 11: cached
+  piece 12: cached
+  piece 13: cached
+  piece 14: cached
+  piece 15: cached
+  piece 16: cached
+  piece 17: cached
+  piece 18: cached
+  piece 19: cached
+teams: offline override p15u-vs-vallentuna-2026-10-03-6cce_teams.json changed 358274 player rows
 periods: [(435.0, 2889.99), (3219.98, 5645.01)] s; 81 min of match time kept, later halves mirrored so each team attacks the same way
 calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
 calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
 clean: 25 still people by the lines dropped (bench, coaches)
 clean: keeper (left) from a non-team kit: track 700769, 177 frames
 clean: keeper (right) from a non-team kit: track 500591, 1329 frames
-clean: removed 218669 rows of non-team kits (referee / staff)
-clean: dropped 553340 off-pitch, merged 27781 duplicates, stitched 3771 ids, keepers [300324, 500591] -> A defends left
-clean: players per frame median A 9 / B 3, max A 22 / B 11
-players: 22194 short gaps filled (marked 'filled' in the export)
-ball v2: 136328/178800 frames on the path, 417 static-clutter candidates dropped
+clean: removed 219080 rows of non-team kits (referee / staff)
+clean: dropped 553340 off-pitch, merged 22978 duplicates, stitched 3758 ids, keepers [300324, 500591] -> A defends left
+clean: players per frame median A 7 / B 5, max A 17 / B 12
+players: 22795 short gaps filled (marked 'filled' in the export)
+ball v2: 136329/178800 frames on the path, 417 static-clutter candidates dropped
 ball: dropped 303 static-clutter candidates
-ball (global path): 123185/178800 frames on the chosen path
+ball (global path): 123206/178800 frames on the chosen path
 possession: simple model (nearest feet in the picture); 30% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
-direction: A →  B ←  confidence A 0.05 / B 0.01  WARNING low confidence
+direction: A →  B ←  confidence A 0.06 / B 0.00  WARNING low confidence
 direction: from reference labels -> A →
   step: sequences (0 s since the last step)
-  spell state (take 1.5 s): possession flips 1604 -> 189 (1.9 per minute)
+  spell state (take 1.5 s): possession flips 2298 -> 305 (3.1 per minute)
   step: turnovers (0 s since the last step)
   step: lanes (0 s since the last step)
-  step: passes (8 s since the last step)
+  step: passes (6 s since the last step)
   step: shapes (1 s since the last step)
-  step: stats (12 s since the last step)
-  step: metrics (27 s since the last step)
+  step: stats (9 s since the last step)
+  step: metrics (19 s since the last step)
 veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0
-our shot detector vs Veo: found 1/16 of Veo's shots, 1/18 of ours are real (within 10 s)
+our shot detector vs Veo: found 0/16 of Veo's shots, 0/16 of ours are real (within 10 s)
 ball grade: accuracy None, near-player 0.62, possession withheld, events withheld
-ball reliability: 82% frames, 62% near a player, 28213 jumps -> UNRELIABLE (stats withheld in app)
-  step: export (17 s since the last step)
+ball reliability: 82% frames, 62% near a player, 28225 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (12 s since the last step)
 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
   wrote 20 frame files (every 3 frames, 300 s each, largest 7.0 MB)
-  wrote match_data.json (1.0 MB)
+  wrote match_data.json (1.2 MB)
   upload checks: p15u-vs-vallentuna-2026-10-03-6cce: needs review -> players, possession, shot_map
-    FLAG players: median players per frame A 10, B 4
+    FLAG players: median players per frame A 8, B 6
     OK   keepers: 0 of 32026 frames with 2+ keepers in one team
-    OK   goals: 3604: kick-off not seen; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3882; 5513: A scored, B kicks off at 5544; 5593: A scored (team checked by eye, kept) but our possession says A kicks off at 5628
+    OK   goals: 3604: A scored, B kicks off at 3634; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3882; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5628
     FLAG shots: 11 of 16 shots have a spot on the pitch
-    OK   ball: 4681 of 48669 ball positions more than 3 m off the pitch
-    FLAG possession: 6 of 17 clear moments right (wrong: 557.2 ours A eye B, 853.4 ours None eye A, 1015.9 ours A eye B, 1017.0 ours A eye B, 1868.7 ours None eye B, 1988.5 ours A eye B)
-export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1660 events) · library.json updated · zip None
+    OK   ball: 4677 of 48669 ball positions more than 3 m off the pitch
+    FLAG possession: 9 of 17 clear moments right (wrong: 557.2 ours A eye B, 853.4 ours None eye A, 1868.7 ours None eye B, 2864.1 ours None eye A, 3537.8 ours B eye A, 3800.2 ours A eye B)
+export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1982 events) · library.json updated · zip None
 upload: p15u-vs-vallentuna-2026-10-03-6cce -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, thumb)
 
 --- SUMMARY ---
@@ -75,32 +74,32 @@ upload: p15u-vs-vallentuna-2026-10-03-6cce -> Supabase + R2 (video, match_data, 
   calibration_coverage       0.7
   calibration_frozen         53574
   team_dark_share            {'A': 0.15, 'B': 0.43}
-  players_per_frame_median   {'A': 10.0, 'B': 4.0}
+  players_per_frame_median   {'A': 8.0, 'B': 6.0}
   ball_frames_pct            100
   match_seconds              4880.0
   periods                    [{'index': 1, 't_start': 435.0, 't_end': 2889.99, 'mirrored': False}, {'index': 2, 't_start': 3219.98, 't_end': 5645.01, 'mirrored': True}]
   ball_check                 None
-  possession_pct             {'A': 79, 'B': 21}
+  possession_pct             {'A': 55, 'B': 45}
   loose_pct                  30
   dead_pct                   17
   possession_model           simple
   attack_right               {'A': True, 'B': False}
-  direction_confidence       {'A': 0.05, 'B': 0.01}
-  turnovers                  237
-  passes                     1614
-  restarts                   114
-  sequences                  333
+  direction_confidence       {'A': 0.06, 'B': 0.0}
+  turnovers                  376
+  passes                     1406
+  restarts                   120
+  sequences                  473
   shots                      {'A': 8, 'B': 8}
   goals                      {'A': 3, 'B': 2}
-  high_turnovers             {'A': 39, 'B': 22}
-  field_tilt                 {'A': 33, 'B': 22}
-  runtime_min                14.1
+  high_turnovers             {'A': 56, 'B': 36}
+  field_tilt                 {'A': 30, 'B': 19}
+  runtime_min                6.4
 QA PASS: pieces processed (20/20)
 QA FAIL: calibration (coverage 0.7)
-QA PASS: players per frame (A 10.0 + B 4.0)
-QA FAIL: team balance (A 10.0 vs B 4.0)
+QA PASS: players per frame (A 8.0 + B 6.0)
+QA PASS: team balance (A 8.0 vs B 6.0)
 QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})
 QA PASS: match time (4880.0 s of 5966 s)
-SUMMARY {"match_id": "p15u-vs-vallentuna-2026-10-03-6cce", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.62, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "duration_s": 5966.0, "calibration_coverage": 0.7, "calibration_frozen": 53574, "team_dark_share": {"A": 0.15, "B": 0.43}, "players_per_frame_median": {"A": 10.0, "B": 4.0}, "ball_frames_pct": 100, "match_seconds": 4880.0, "periods": [{"index": 1, "t_start": 435.0, "t_end": 2889.99, "mirrored": false}, {"index": 2, "t_start": 3219.98, "t_end": 5645.01, "mirrored": true}], "ball_check": null, "possession_pct": {"A": 79, "B": 21}, "loose_pct": 30, "dead_pct": 17, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.01}, "turnovers": 237, "passes": 1614, "restarts": 114, "sequences": 333, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "high_turnovers": {"A": 39, "B": 22}, "field_tilt": {"A": 33, "B": 22}, "runtime_min": 14.1, "quality": {"pieces": {"ok": true, "detail": "20/20"}, "positions": {"ok": false, "detail": "coverage 0.7"}, "players": {"ok": true, "detail": "A 10.0 + B 4.0"}, "teams": {"ok": false, "detail": "A 10.0 vs B 4.0"}, "shots": {"ok": true, "detail": "shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2}"}, "match_time": {"ok": true, "detail": "4880.0 s of 5966 s"}, "ball": {"ok": false, "detail": "accuracy None, near a player 0.62"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (20/20)", "QA FAIL: calibration (coverage 0.7)", "QA PASS: players per frame (A 10.0 + B 4.0)", "QA FAIL: team balance (A 10.0 vs B 4.0)", "QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})", "QA PASS: match time (4880.0 s of 5966 s)"]}
+SUMMARY {"match_id": "p15u-vs-vallentuna-2026-10-03-6cce", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.62, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "duration_s": 5966.0, "calibration_coverage": 0.7, "calibration_frozen": 53574, "team_dark_share": {"A": 0.15, "B": 0.43}, "players_per_frame_median": {"A": 8.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 4880.0, "periods": [{"index": 1, "t_start": 435.0, "t_end": 2889.99, "mirrored": false}, {"index": 2, "t_start": 3219.98, "t_end": 5645.01, "mirrored": true}], "ball_check": null, "possession_pct": {"A": 55, "B": 45}, "loose_pct": 30, "dead_pct": 17, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.06, "B": 0.0}, "turnovers": 376, "passes": 1406, "restarts": 120, "sequences": 473, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "high_turnovers": {"A": 56, "B": 36}, "field_tilt": {"A": 30, "B": 19}, "runtime_min": 6.4, "quality": {"pieces": {"ok": true, "detail": "20/20"}, "positions": {"ok": false, "detail": "coverage 0.7"}, "players": {"ok": true, "detail": "A 8.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 8.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2}"}, "match_time": {"ok": true, "detail": "4880.0 s of 5966 s"}, "ball": {"ok": false, "detail": "accuracy None, near a player 0.62"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (20/20)", "QA FAIL: calibration (coverage 0.7)", "QA PASS: players per frame (A 8.0 + B 6.0)", "QA PASS: team balance (A 8.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})", "QA PASS: match time (4880.0 s of 5966 s)"]}
 
-SUMMARY {"match_id": "p15u-vs-vallentuna-2026-10-03-6cce", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.62, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "duration_s": 5966.0, "calibration_coverage": 0.7, "calibration_frozen": 53574, "team_dark_share": {"A": 0.15, "B": 0.43}, "players_per_frame_median": {"A": 10.0, "B": 4.0}, "ball_frames_pct": 100, "match_seconds": 4880.0, "periods": [{"index": 1, "t_start": 435.0, "t_end": 2889.99, "mirrored": false}, {"index": 2, "t_start": 3219.98, "t_end": 5645.01, "mirrored": true}], "ball_check": null, "possession_pct": {"A": 79, "B": 21}, "loose_pct": 30, "dead_pct": 17, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.01}, "turnovers": 237, "passes": 1614, "restarts": 114, "sequences": 333, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "high_turnovers": {"A": 39, "B": 22}, "field_tilt": {"A": 33, "B": 22}, "runtime_min": 14.1, "quality": {"pieces": {"ok": true, "detail": "20/20"}, "positions": {"ok": false, "detail": "coverage 0.7"}, "players": {"ok": true, "detail": "A 10.0 + B 4.0"}, "teams": {"ok": false, "detail": "A 10.0 vs B 4.0"}, "shots": {"ok": true, "detail": "shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2}"}, "match_time": {"ok": true, "detail": "4880.0 s of 5966 s"}, "ball": {"ok": false, "detail": "accuracy None, near a player 0.62"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (20/20)", "QA FAIL: calibration (coverage 0.7)", "QA PASS: players per frame (A 10.0 + B 4.0)", "QA FAIL: team balance (A 10.0 vs B 4.0)", "QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})", "QA PASS: match time (4880.0 s of 5966 s)"]}
+SUMMARY {"match_id": "p15u-vs-vallentuna-2026-10-03-6cce", "ball_reliable": false, "ball_grade": {"accuracy": null, "near_player_pct": 0.62, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "duration_s": 5966.0, "calibration_coverage": 0.7, "calibration_frozen": 53574, "team_dark_share": {"A": 0.15, "B": 0.43}, "players_per_frame_median": {"A": 8.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 4880.0, "periods": [{"index": 1, "t_start": 435.0, "t_end": 2889.99, "mirrored": false}, {"index": 2, "t_start": 3219.98, "t_end": 5645.01, "mirrored": true}], "ball_check": null, "possession_pct": {"A": 55, "B": 45}, "loose_pct": 30, "dead_pct": 17, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.06, "B": 0.0}, "turnovers": 376, "passes": 1406, "restarts": 120, "sequences": 473, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "high_turnovers": {"A": 56, "B": 36}, "field_tilt": {"A": 30, "B": 19}, "runtime_min": 6.4, "quality": {"pieces": {"ok": true, "detail": "20/20"}, "positions": {"ok": false, "detail": "coverage 0.7"}, "players": {"ok": true, "detail": "A 8.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 8.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2}"}, "match_time": {"ok": true, "detail": "4880.0 s of 5966 s"}, "ball": {"ok": false, "detail": "accuracy None, near a player 0.62"}, "possession": {"ok": false, "detail": "withheld: ball not reliable enough"}}, "qa": ["QA PASS: pieces processed (20/20)", "QA FAIL: calibration (coverage 0.7)", "QA PASS: players per frame (A 8.0 + B 6.0)", "QA PASS: team balance (A 8.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})", "QA PASS: match time (4880.0 s of 5966 s)"]}
