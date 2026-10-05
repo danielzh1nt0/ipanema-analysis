@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 13:09:04 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 13:10:53 UTC
 
 
-## run_full.log (40 lines, last 60)
+## run_full.log (57 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 0 already processed, 20 to finish on CPU (detections saved), 0 need a GPU
@@ -42,6 +42,23 @@ players: 22194 short gaps filled (marked 'filled' in the export)
 ball v2: 136328/178800 frames on the path, 417 static-clutter candidates dropped
 ball: dropped 303 static-clutter candidates
 ball (global path): 123185/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 30% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.05 / B 0.01  WARNING low confidence
+direction: from reference labels -> A →
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 1604 -> 189 (1.9 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (8 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (12 s since the last step)
+  step: metrics (27 s since the last step)
+veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0
+our shot detector vs Veo: found 1/16 of Veo's shots, 1/18 of ours are real (within 10 s)
+ball grade: accuracy None, near-player 0.62, possession withheld, events withheld
+ball reliability: 82% frames, 62% near a player, 28213 jumps -> UNRELIABLE (stats withheld in app)
+  step: export (17 s since the last step)
+motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
 
 ## piece_000.log (9 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce_c000 === (ipanema 0.27.0; ball: ball_finetuned.pt; pitch: football-pitch-detection.pt)
