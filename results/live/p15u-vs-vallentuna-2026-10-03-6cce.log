@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:20:02 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 09:21:35 UTC
 
 
-## run_full.log (35 lines, last 60)
+## run_full.log (38 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -37,6 +37,9 @@ clean: removed 667051 rows of non-team kits (referee / staff)
 clean: dropped 553401 off-pitch, merged 18202 duplicates, stitched 3479 ids, keepers [300257, 500591] -> A defends left
 clean: players per frame median A 4 / B 5, max A 14 / B 16
 players: 29985 short gaps filled (marked 'filled' in the export)
+ball v2: 135893/178800 frames on the path, 488 static-clutter candidates dropped
+ball: dropped 374 static-clutter candidates
+ball (global path): 116102/178800 frames on the chosen path
 
 ## train_ball.log (1 lines, last 60)
 
