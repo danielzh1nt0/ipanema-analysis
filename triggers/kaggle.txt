@@ -1,2 +1,2 @@
-kaggle/strike_crops.py 30
-# Mon Oct  5 00:54:30 UTC 2026
+kaggle/shot_clips.py 60
+# Mon Oct  5 07:36:11 UTC 2026
