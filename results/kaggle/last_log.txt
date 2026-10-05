@@ -1,41 +1,92 @@
-kernel danielmatros/ipanema-strike-crops
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-strike-crops
-  0.5 min: danielmatros/ipanema-strike-crops has status "KernelWorkerStatus.RUNNING"
-  1.0 min: danielmatros/ipanema-strike-crops has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/strike_crops/result.json
-Output file downloaded to results/kaggle/strike_crops/strike_1015.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_1253.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_1650.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_2019.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_2090.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_2310.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_2738.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_3604.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_3742.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_3840.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_4436.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_5132.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_5325.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_5513.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_5558.jpg
-Output file downloaded to results/kaggle/strike_crops/strike_662.jpg
-Kernel log downloaded to results/kaggle/strike_crops/ipanema-strike-crops.log
-  ipanema-strike-crops.log 1795
-  result.json 12
-  run.json 158
-  strike_1015.jpg 784922
-  strike_1253.jpg 254483
-  strike_1650.jpg 597183
-  strike_2019.jpg 788919
-  strike_2090.jpg 712580
-  strike_2310.jpg 628319
-  strike_2738.jpg 673499
-  strike_3604.jpg 572449
-  strike_3742.jpg 736830
-  strike_3840.jpg 279004
-  strike_4436.jpg 555492
-  strike_5132.jpg 488668
-  strike_5325.jpg 198835
-  strike_5513.jpg 394001
-  strike_5558.jpg 582935
-  strike_662.jpg 724636
+kernel danielmatros/ipanema-shot-clips
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shot-clips
+  0.5 min: danielmatros/ipanema-shot-clips has status "KernelWorkerStatus.RUNNING"
+  2.1 min: danielmatros/ipanema-shot-clips has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-shot-clips has status "KernelWorkerStatus.RUNNING"
+  6.2 min: danielmatros/ipanema-shot-clips has status "KernelWorkerStatus.RUNNING"
+  6.7 min: danielmatros/ipanema-shot-clips has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_2183.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_2425.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_2619.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_2786.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_2865.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_610.mp4
+Output file downloaded to results/kaggle/shot_clips/SFKBP1109_863.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_1049.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_1312.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_1395.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_1725.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2050.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2077.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2384.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2532.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2615.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2762.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2937.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_2959.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_3070.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_3114.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_3128.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-aik-2026-09-21-bd09_634.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_1015.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_1253.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_1650.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_2019.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_2090.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_2310.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_2738.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_3604.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_3742.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_3840.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_4436.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_5132.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_5325.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_5513.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_5558.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_5593.mp4
+Output file downloaded to results/kaggle/shot_clips/p15u-vs-vallentuna-2026-10-03-6cce_662.mp4
+Output file downloaded to results/kaggle/shot_clips/result.json
+Kernel log downloaded to results/kaggle/shot_clips/ipanema-shot-clips.log
+  SFKBP1109_2183.mp4 1728185
+  SFKBP1109_2425.mp4 1711220
+  SFKBP1109_2619.mp4 1746744
+  SFKBP1109_2786.mp4 1427884
+  SFKBP1109_2865.mp4 1875597
+  SFKBP1109_610.mp4 1593011
+  SFKBP1109_863.mp4 1408358
+  ipanema-shot-clips.log 4855
+  p15u-vs-aik-2026-09-21-bd09_1049.mp4 2039003
+  p15u-vs-aik-2026-09-21-bd09_1312.mp4 2096356
+  p15u-vs-aik-2026-09-21-bd09_1395.mp4 1856135
+  p15u-vs-aik-2026-09-21-bd09_1725.mp4 1727400
+  p15u-vs-aik-2026-09-21-bd09_2050.mp4 1739253
+  p15u-vs-aik-2026-09-21-bd09_2077.mp4 1446968
+  p15u-vs-aik-2026-09-21-bd09_2384.mp4 1696160
+  p15u-vs-aik-2026-09-21-bd09_2532.mp4 1954302
+  p15u-vs-aik-2026-09-21-bd09_2615.mp4 1561469
+  p15u-vs-aik-2026-09-21-bd09_2762.mp4 1938019
+  p15u-vs-aik-2026-09-21-bd09_2937.mp4 1586002
+  p15u-vs-aik-2026-09-21-bd09_2959.mp4 1726972
+  p15u-vs-aik-2026-09-21-bd09_3070.mp4 1652914
+  p15u-vs-aik-2026-09-21-bd09_3114.mp4 1792422
+  p15u-vs-aik-2026-09-21-bd09_3128.mp4 1560323
+  p15u-vs-aik-2026-09-21-bd09_634.mp4 2147798
+  p15u-vs-vallentuna-2026-10-03-6cce_1015.mp4 1573000
+  p15u-vs-vallentuna-2026-10-03-6cce_1253.mp4 1357479
+  p15u-vs-vallentuna-2026-10-03-6cce_1650.mp4 1602678
+  p15u-vs-vallentuna-2026-10-03-6cce_2019.mp4 1746764
+  p15u-vs-vallentuna-2026-10-03-6cce_2090.mp4 1397438
+  p15u-vs-vallentuna-2026-10-03-6cce_2310.mp4 1310819
+  p15u-vs-vallentuna-2026-10-03-6cce_2738.mp4 1364620
+  p15u-vs-vallentuna-2026-10-03-6cce_3604.mp4 1423021
+  p15u-vs-vallentuna-2026-10-03-6cce_3742.mp4 1651146
+  p15u-vs-vallentuna-2026-10-03-6cce_3840.mp4 920569
+  p15u-vs-vallentuna-2026-10-03-6cce_4436.mp4 1528698
+  p15u-vs-vallentuna-2026-10-03-6cce_5132.mp4 1223799
+  p15u-vs-vallentuna-2026-10-03-6cce_5325.mp4 1154536
+  p15u-vs-vallentuna-2026-10-03-6cce_5513.mp4 998453
+  p15u-vs-vallentuna-2026-10-03-6cce_5558.mp4 1470137
+  p15u-vs-vallentuna-2026-10-03-6cce_5593.mp4 1264379
+  p15u-vs-vallentuna-2026-10-03-6cce_662.mp4 1462752
+  result.json 31
+  run.json 154

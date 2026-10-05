@@ -1,0 +1,48 @@
+[{"stream_name":"stdout","time":11.188076014,"data":"p15u-vs-vallentuna-2026-10-03-6cce 662 1462752 \n"}
+,{"stream_name":"stdout","time":20.382846192,"data":"p15u-vs-vallentuna-2026-10-03-6cce 1015 1573000 \n"}
+,{"stream_name":"stdout","time":29.120165273,"data":"p15u-vs-vallentuna-2026-10-03-6cce 1253 1357479 \n"}
+,{"stream_name":"stdout","time":38.073099968,"data":"p15u-vs-vallentuna-2026-10-03-6cce 1650 1602678 \n"}
+,{"stream_name":"stdout","time":47.30373415,"data":"p15u-vs-vallentuna-2026-10-03-6cce 2019 1746764 \n"}
+,{"stream_name":"stdout","time":56.081628055,"data":"p15u-vs-vallentuna-2026-10-03-6cce 2090 1397438 \n"}
+,{"stream_name":"stdout","time":65.010207145,"data":"p15u-vs-vallentuna-2026-10-03-6cce 2310 1310819 \n"}
+,{"stream_name":"stdout","time":73.570402166,"data":"p15u-vs-vallentuna-2026-10-03-6cce 2738 1364620 \n"}
+,{"stream_name":"stdout","time":82.433185572,"data":"p15u-vs-vallentuna-2026-10-03-6cce 3604 1423021 \n"}
+,{"stream_name":"stdout","time":91.533638296,"data":"p15u-vs-vallentuna-2026-10-03-6cce 3742 1651146 \n"}
+,{"stream_name":"stdout","time":99.713928045,"data":"p15u-vs-vallentuna-2026-10-03-6cce 3840 920569 \n"}
+,{"stream_name":"stdout","time":108.947400248,"data":"p15u-vs-vallentuna-2026-10-03-6cce 4436 1528698 \n"}
+,{"stream_name":"stdout","time":117.880550111,"data":"p15u-vs-vallentuna-2026-10-03-6cce 5132 1223799 \n"}
+,{"stream_name":"stdout","time":126.294198824,"data":"p15u-vs-vallentuna-2026-10-03-6cce 5325 1154536 \n"}
+,{"stream_name":"stdout","time":134.485288736,"data":"p15u-vs-vallentuna-2026-10-03-6cce 5513 998453 \n"}
+,{"stream_name":"stdout","time":143.336324493,"data":"p15u-vs-vallentuna-2026-10-03-6cce 5558 1470137 \n"}
+,{"stream_name":"stdout","time":151.991821893,"data":"p15u-vs-vallentuna-2026-10-03-6cce 5593 1264379 \n"}
+,{"stream_name":"stdout","time":161.289792566,"data":"SFKBP1109 610 1593011 \n"}
+,{"stream_name":"stdout","time":169.900027139,"data":"SFKBP1109 863 1408358 \n"}
+,{"stream_name":"stdout","time":178.986115536,"data":"SFKBP1109 2183 1728185 \n"}
+,{"stream_name":"stdout","time":188.170256561,"data":"SFKBP1109 2425 1711220 \n"}
+,{"stream_name":"stdout","time":197.342053241,"data":"SFKBP1109 2619 1746744 \n"}
+,{"stream_name":"stdout","time":205.96984276,"data":"SFKBP1109 2786 1427884 \n"}
+,{"stream_name":"stdout","time":215.225098571,"data":"SFKBP1109 2865 1875597 \n"}
+,{"stream_name":"stdout","time":223.820151597,"data":"p15u-vs-aik-2026-09-21-bd09 634 2147798 \n"}
+,{"stream_name":"stdout","time":232.813383511,"data":"p15u-vs-aik-2026-09-21-bd09 1049 2039003 \n"}
+,{"stream_name":"stdout","time":241.848563334,"data":"p15u-vs-aik-2026-09-21-bd09 1312 2096356 \n"}
+,{"stream_name":"stdout","time":250.890165807,"data":"p15u-vs-aik-2026-09-21-bd09 1395 1856135 \n"}
+,{"stream_name":"stdout","time":259.759135938,"data":"p15u-vs-aik-2026-09-21-bd09 1725 1727400 \n"}
+,{"stream_name":"stdout","time":268.647028687,"data":"p15u-vs-aik-2026-09-21-bd09 2050 1739253 \n"}
+,{"stream_name":"stdout","time":277.033290462,"data":"p15u-vs-aik-2026-09-21-bd09 2077 1446968 \n"}
+,{"stream_name":"stdout","time":286.027986169,"data":"p15u-vs-aik-2026-09-21-bd09 2384 1696160 \n"}
+,{"stream_name":"stdout","time":295.206265618,"data":"p15u-vs-aik-2026-09-21-bd09 2532 1954302 \n"}
+,{"stream_name":"stdout","time":303.743186086,"data":"p15u-vs-aik-2026-09-21-bd09 2615 1561469 \n"}
+,{"stream_name":"stdout","time":312.858482706,"data":"p15u-vs-aik-2026-09-21-bd09 2762 1938019 \n"}
+,{"stream_name":"stdout","time":321.66308098,"data":"p15u-vs-aik-2026-09-21-bd09 2937 1586002 \n"}
+,{"stream_name":"stdout","time":330.290496822,"data":"p15u-vs-aik-2026-09-21-bd09 2959 1726972 \n"}
+,{"stream_name":"stdout","time":339.237273557,"data":"p15u-vs-aik-2026-09-21-bd09 3070 1652914 \n"}
+,{"stream_name":"stdout","time":348.069054736,"data":"p15u-vs-aik-2026-09-21-bd09 3114 1792422 \n"}
+,{"stream_name":"stdout","time":356.623268471,"data":"p15u-vs-aik-2026-09-21-bd09 3128 1560323 \n"}
+,{"stream_name":"stdout","time":356.623549543,"data":"done 63462783\n"}
+,{"stream_name":"stderr","time":359.064999759,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":359.065023675,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":359.462284453,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":359.462309934,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":361.359041502,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":362.439470444,"data":"[NbConvertApp] Writing 279695 bytes to __results__.html\n"}
+]
