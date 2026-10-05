@@ -2,7 +2,7 @@
 # "who has the ball" sample that measures possession independently -> /kaggle/working/poss/*.jpg + times.json
 import subprocess, os, json, random
 M = "p15u-vs-vallentuna-2026-10-03-6cce"; PER = [[435, 2890], [3220, 5645]]
-subprocess.run("wget -q -O /kaggle/temp/v.mp4 " + "{{R2}}" + "/" + M + "/video.mp4", shell=True)
+os.makedirs("/kaggle/temp", exist_ok=True); subprocess.run("wget -q -O /kaggle/temp/v.mp4 " + "{{R2}}" + "/" + M + "/video.mp4", shell=True)
 import cv2
 random.seed(7); ts = sorted(round(random.uniform(*random.choice(PER)), 1) for _ in range(60))
 os.makedirs("/kaggle/working/poss", exist_ok=True); cap = cv2.VideoCapture("/kaggle/temp/v.mp4"); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; ok_t = []
