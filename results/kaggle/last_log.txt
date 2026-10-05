@@ -1,61 +1,27 @@
 kernel danielmatros/ipanema-vall-relabel
-Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-relabel
-  0.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 18.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 20.4 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 24.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 26.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 28.0 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 30.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 32.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 34.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 36.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 38.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 40.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 42.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 44.3 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 46.4 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 48.4 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 50.4 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 52.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 54.0 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 56.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 58.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 60.1 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 62.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 64.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 66.2 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.RUNNING"
- 67.8 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_relabel/log.txt
-Output file downloaded to results/kaggle/vall_relabel/relabel/labels.jsonl
-Output file downloaded to results/kaggle/vall_relabel/relabel/override.json
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t1045.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t1452.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t1858.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t2265.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t2672.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t3408.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t3815.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t4222.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t4628.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t5035.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t5442.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/qa/t638.jpg
-Output file downloaded to results/kaggle/vall_relabel/relabel/summary.json
-Output file downloaded to results/kaggle/vall_relabel/relabel/votes.json
-Output file downloaded to results/kaggle/vall_relabel/run_info.json
+fetch only: no new version pushed
+  0.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.COMPLETE"
+log.txt: Skipping, found more recently modified local copy (use --force to force download)
+labels.jsonl: Skipping, found more recently modified local copy (use --force to force download)
+override.json: Skipping, found more recently modified local copy (use --force to force download)
+t1045.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t1452.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t1858.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t2265.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t2672.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t3408.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t3815.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t4222.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t4628.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t5035.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t5442.jpg: Skipping, found more recently modified local copy (use --force to force download)
+t638.jpg: Skipping, found more recently modified local copy (use --force to force download)
+summary.json: Skipping, found more recently modified local copy (use --force to force download)
+votes.json: Skipping, found more recently modified local copy (use --force to force download)
+run_info.json: Skipping, found more recently modified local copy (use --force to force download)
 Kernel log downloaded to results/kaggle/vall_relabel/ipanema-vall-relabel.log
   ipanema-vall-relabel.log 13110
   log.txt 6153
   relabel 4096
-  run.json 159
+  run.json 158
   run_info.json 34
