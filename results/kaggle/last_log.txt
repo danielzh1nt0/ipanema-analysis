@@ -1,27 +1,8 @@
-kernel danielmatros/ipanema-vall-relabel
-fetch only: no new version pushed
-  0.5 min: danielmatros/ipanema-vall-relabel has status "KernelWorkerStatus.COMPLETE"
-log.txt: Skipping, found more recently modified local copy (use --force to force download)
-labels.jsonl: Skipping, found more recently modified local copy (use --force to force download)
-override.json: Skipping, found more recently modified local copy (use --force to force download)
-t1045.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t1452.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t1858.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t2265.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t2672.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t3408.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t3815.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t4222.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t4628.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t5035.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t5442.jpg: Skipping, found more recently modified local copy (use --force to force download)
-t638.jpg: Skipping, found more recently modified local copy (use --force to force download)
-summary.json: Skipping, found more recently modified local copy (use --force to force download)
-votes.json: Skipping, found more recently modified local copy (use --force to force download)
-run_info.json: Skipping, found more recently modified local copy (use --force to force download)
-Kernel log downloaded to results/kaggle/vall_relabel/ipanema-vall-relabel.log
-  ipanema-vall-relabel.log 13110
-  log.txt 6153
-  relabel 4096
-  run.json 158
-  run_info.json 34
+kernel danielmatros/ipanema-vall-poss-sample
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-poss-sample
+  0.5 min: danielmatros/ipanema-vall-poss-sample has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_poss_sample/poss/times.json
+Kernel log downloaded to results/kaggle/vall_poss_sample/ipanema-vall-poss-sample.log
+  ipanema-vall-poss-sample.log 964
+  poss 4096
+  run.json 166
