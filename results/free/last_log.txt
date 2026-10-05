@@ -1,9 +1,16 @@
-reym_726 130 crops of 17 tracks
-reym_2227 224 crops of 29 tracks
-reym_4227 118 crops of 17 tracks
-spanga_1159 145 crops of 20 tracks
-spanga_2576 242 crops of 38 tracks
-spanga_3994 148 crops of 25 tracks
-sfk_900 105 crops of 19 tracks
-sfk_1800 47 crops of 7 tracks
-sfk_2700 199 crops of 34 tracks
+fps 29.970030639830654
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/k3c_piece_frames.py", line 19, in <module>
+    tmp = f"/tmp/k3c/{name}"; cutp = FM.cut(src, f"{tmp}/cut.mp4", st, 20.0); norm = V.normalise(cutp, f"{tmp}/norm.mp4")
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/fullmatch.py", line 28, in cut
+    subprocess.run(["ffmpeg", "-y", "-ss", f"{start_s:.3f}", "-i", full, "-t", f"{dur_s:.3f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-an", dst], check=True, capture_output=True)
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
+FAILED
