@@ -105,6 +105,7 @@ LOCAL_REF_L = 110.0     # F1c: grass lightness every reading is brought to (a fi
                         # and frames that are mostly sun give the same number for the same shirt)
 
 HUE_NEAR = 0.5
+HUE_FAR = 0.7           # 5 Oct hue mode: 'neither' beyond this share of the colour gap from both kits
 HUE_KEEP = 15.0        # 4 Oct: a*b* gap between the two kits from which colour (not lightness) decides a doubtful person
 CLS_MAX_FLIP = 0.25    # P2c: the P8 classifier is dropped when it moves more than this share of one team's clear colour readings
 CLS_CLEAR = 0.4        # P2c: a 'clear' colour reading: distance to the nearer team colour < 0.4 x distance to the other
@@ -291,6 +292,20 @@ def classify(model, f, other_factor=2.0):
         sa, sb = [max(8.0, other_factor * x) for x in model["spreads"]]
         if da > sa and db > sb: return "other"
         return "A" if (da / sa if da > sa or db > sb else da) <= (db / sb if da > sa or db > sb else db) else "B"
+    if os.environ.get("IPANEMA_KIT_HUEMODE", "1") == "1" and model.get("light") == "local":
+        # 5 Oct (V3, Vallentuna): in hard sun + shade with two kits of clearly different COLOUR (red vs black), lightness says
+        # more about the sun than the shirt: 28 of 44 'neither' were players and sunlit blacks read red. Decide by colour
+        # (a*, b*) alone; 'neither' only far from both colours or clearly yellow (referee / keepers).
+        gap = float(np.linalg.norm(np.asarray(ta)[1:3] - np.asarray(tb)[1:3]))
+        if gap >= HUE_KEEP and abs(ta[1] - tb[1]) >= HUE_KEEP:
+            # the kits differ in a* (red-green axis): on 26 Vallentuna 'neither' players the reds ran a* 21-52 with b* from
+            # -46 to +11 (sun turns red orange, shade turns it purple), blacks a* 2-12; b* is not stable, a* is.
+            fa = np.asarray(f, float); lo, hi = sorted([float(ta[1]), float(tb[1])]); mid = (lo + hi) / 2
+            if fa[0] > 90 and abs(fa[1]) < 8: return "other"                       # white: spectators, staff (L > 65 also dropped sunlit reds; people beside the pitch are removed later by the calibration)
+            if fa[2] > 12 and fa[1] < 12: return "other"                            # yellow: referee, keepers
+            if fa[1] < lo - 12: return "other"                                      # greenish: grass, bibs
+            low_is_a = ta[1] <= tb[1]
+            return ("A" if low_is_a else "B") if fa[1] < mid else ("B" if low_is_a else "A")
     if min(da, db) > max(8.0, other_factor * model["spread"]):
         # 4 Oct (Vallentuna, red vs black in hard sun): a sun-washed red shirt is far from both centres in lightness but
         # still red. When the two kits differ clearly in colour (a*b* gap >= HUE_KEEP), a person whose colour is near one
