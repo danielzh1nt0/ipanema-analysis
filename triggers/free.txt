@@ -1,2 +1,2 @@
-tools/v3_frames.py
-# Mon Oct  5 08:29:23 UTC 2026 V3: carrier frames + people boxes at 4 detector settings on Vallentuna (free, CPU)
+tools/p3_crops.py
+# Mon Oct  5 12:26:32 UTC 2026 P3: player crops for tracklet-joining check (Reymersholm, Spanga, SFK-BP; free, CPU, no detector)
