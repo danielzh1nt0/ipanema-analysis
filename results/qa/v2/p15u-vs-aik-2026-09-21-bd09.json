@@ -1,0 +1,71 @@
+{
+ "needs_review": [
+  "keepers",
+  "players",
+  "shot_map"
+ ],
+ "checks": [
+  {
+   "name": "players",
+   "ok": false,
+   "value": {
+    "median_A": 6,
+    "median_B": 6,
+    "ratio": 1.0,
+    "over11_share": 0.096,
+    "frames": 2997
+   },
+   "limit": {
+    "min_median": 4,
+    "ratio_min": 0.5,
+    "over11_share": 0.05
+   },
+   "detail": "median players per frame A 6, B 6"
+  },
+  {
+   "name": "keepers",
+   "ok": false,
+   "value": 0.027,
+   "limit": 0.02,
+   "detail": "82 of 2997 frames with 2+ keepers in one team"
+  },
+  {
+   "name": "goals",
+   "ok": null,
+   "value": {
+    "goals": 2,
+    "checks": 0,
+    "wrong": 0
+   },
+   "limit": {
+    "wrong": 0
+   },
+   "detail": "2762: kick-off not seen; 3128: kick-off not seen"
+  },
+  {
+   "name": "shots",
+   "ok": false,
+   "value": 0.0,
+   "limit": 0.8,
+   "detail": "0 of 16 shots have a spot on the pitch"
+  },
+  {
+   "name": "ball",
+   "ok": true,
+   "value": 0.014,
+   "limit": 0.1,
+   "detail": "43 of 2997 ball positions more than 3 m off the pitch"
+  },
+  {
+   "name": "possession",
+   "ok": null,
+   "value": {
+    "moments": 0
+   },
+   "limit": 0.7,
+   "detail": "only 0 by-eye moments (need 10)"
+  }
+ ],
+ "match_id": "p15u-vs-aik-2026-09-21-bd09",
+ "frames_checked": 2997
+}

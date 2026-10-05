@@ -1,0 +1,296 @@
+{
+ "match": "SFKBP1109",
+ "note": "5 Oct (V2): the who-has-the-ball moments of results/review/who_answers.json (graded by eye 28 Sep on the SFKBP1109_s1200 clip) moved to match time (clip t + 1200 s); dark -> A (SFK), white -> B (BP). Checked: this mapping agrees 44/58 with the full-half export, the reverse 4/58. loose/unsure moments left out.",
+ "items": [
+  {
+   "t": 1204.87,
+   "owner": "B",
+   "src": "who_answers n=0"
+  },
+  {
+   "t": 1220.35,
+   "owner": "B",
+   "src": "who_answers n=2"
+  },
+  {
+   "t": 1234.87,
+   "owner": "B",
+   "src": "who_answers n=4"
+  },
+  {
+   "t": 1245.51,
+   "owner": "B",
+   "src": "who_answers n=6"
+  },
+  {
+   "t": 1254.22,
+   "owner": "B",
+   "src": "who_answers n=7"
+  },
+  {
+   "t": 1259.06,
+   "owner": "B",
+   "src": "who_answers n=8"
+  },
+  {
+   "t": 1267.77,
+   "owner": "A",
+   "src": "who_answers n=9"
+  },
+  {
+   "t": 1318.08,
+   "owner": "B",
+   "src": "who_answers n=15"
+  },
+  {
+   "t": 1342.28,
+   "owner": "A",
+   "src": "who_answers n=18"
+  },
+  {
+   "t": 1373.24,
+   "owner": "A",
+   "src": "who_answers n=21"
+  },
+  {
+   "t": 1414.85,
+   "owner": "B",
+   "src": "who_answers n=28"
+  },
+  {
+   "t": 1419.69,
+   "owner": "B",
+   "src": "who_answers n=29"
+  },
+  {
+   "t": 1455.49,
+   "owner": "A",
+   "src": "who_answers n=34"
+  },
+  {
+   "t": 1461.29,
+   "owner": "A",
+   "src": "who_answers n=35"
+  },
+  {
+   "t": 1470.0,
+   "owner": "A",
+   "src": "who_answers n=36"
+  },
+  {
+   "t": 1207.6,
+   "owner": "B",
+   "src": "who_answers n=101"
+  },
+  {
+   "t": 1232.9,
+   "owner": "A",
+   "src": "who_answers n=107"
+  },
+  {
+   "t": 1249.0,
+   "owner": "B",
+   "src": "who_answers n=109"
+  },
+  {
+   "t": 1251.3,
+   "owner": "B",
+   "src": "who_answers n=110"
+  },
+  {
+   "t": 1262.8,
+   "owner": "B",
+   "src": "who_answers n=111"
+  },
+  {
+   "t": 1265.1,
+   "owner": "B",
+   "src": "who_answers n=112"
+  },
+  {
+   "t": 1269.7,
+   "owner": "A",
+   "src": "who_answers n=113"
+  },
+  {
+   "t": 1274.3,
+   "owner": "A",
+   "src": "who_answers n=115"
+  },
+  {
+   "t": 1276.6,
+   "owner": "A",
+   "src": "who_answers n=116"
+  },
+  {
+   "t": 1281.2,
+   "owner": "B",
+   "src": "who_answers n=117"
+  },
+  {
+   "t": 1292.7,
+   "owner": "A",
+   "src": "who_answers n=120"
+  },
+  {
+   "t": 1297.3,
+   "owner": "B",
+   "src": "who_answers n=121"
+  },
+  {
+   "t": 1304.2,
+   "owner": "B",
+   "src": "who_answers n=122"
+  },
+  {
+   "t": 1306.5,
+   "owner": "B",
+   "src": "who_answers n=123"
+  },
+  {
+   "t": 1313.4,
+   "owner": "B",
+   "src": "who_answers n=125"
+  },
+  {
+   "t": 1315.7,
+   "owner": "B",
+   "src": "who_answers n=126"
+  },
+  {
+   "t": 1338.7,
+   "owner": "B",
+   "src": "who_answers n=132"
+  },
+  {
+   "t": 1403.1,
+   "owner": "B",
+   "src": "who_answers n=149"
+  },
+  {
+   "t": 1416.9,
+   "owner": "B",
+   "src": "who_answers n=153"
+  },
+  {
+   "t": 1206.4,
+   "owner": "B",
+   "src": "who_answers n=201"
+  },
+  {
+   "t": 1221.7,
+   "owner": "B",
+   "src": "who_answers n=203"
+  },
+  {
+   "t": 1227.1,
+   "owner": "A",
+   "src": "who_answers n=205"
+  },
+  {
+   "t": 1236.3,
+   "owner": "B",
+   "src": "who_answers n=206"
+  },
+  {
+   "t": 1242.4,
+   "owner": "B",
+   "src": "who_answers n=208"
+  },
+  {
+   "t": 1244.0,
+   "owner": "B",
+   "src": "who_answers n=209"
+  },
+  {
+   "t": 1247.0,
+   "owner": "B",
+   "src": "who_answers n=210"
+  },
+  {
+   "t": 1255.5,
+   "owner": "B",
+   "src": "who_answers n=211"
+  },
+  {
+   "t": 1260.9,
+   "owner": "B",
+   "src": "who_answers n=213"
+  },
+  {
+   "t": 1299.2,
+   "owner": "B",
+   "src": "who_answers n=216"
+  },
+  {
+   "t": 1302.3,
+   "owner": "B",
+   "src": "who_answers n=217"
+  },
+  {
+   "t": 1383.7,
+   "owner": "B",
+   "src": "who_answers n=223"
+  },
+  {
+   "t": 1396.7,
+   "owner": "A",
+   "src": "who_answers n=226"
+  },
+  {
+   "t": 1418.2,
+   "owner": "B",
+   "src": "who_answers n=229"
+  },
+  {
+   "t": 1440.4,
+   "owner": "B",
+   "src": "who_answers n=232"
+  },
+  {
+   "t": 1447.3,
+   "owner": "A",
+   "src": "who_answers n=235"
+  },
+  {
+   "t": 1464.2,
+   "owner": "A",
+   "src": "who_answers n=242"
+  },
+  {
+   "t": 1481.1,
+   "owner": "A",
+   "src": "who_answers n=250"
+  },
+  {
+   "t": 1487.3,
+   "owner": "A",
+   "src": "who_answers n=253"
+  },
+  {
+   "t": 1488.8,
+   "owner": "A",
+   "src": "who_answers n=254"
+  },
+  {
+   "t": 1490.3,
+   "owner": "A",
+   "src": "who_answers n=255"
+  },
+  {
+   "t": 1491.9,
+   "owner": "B",
+   "src": "who_answers n=256"
+  },
+  {
+   "t": 1495.7,
+   "owner": "A",
+   "src": "who_answers n=257"
+  },
+  {
+   "t": 1498.8,
+   "owner": "B",
+   "src": "who_answers n=259"
+  }
+ ]
+}

@@ -108,6 +108,10 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
     for row in st.get("teams", []): row["summary"] = st["summary"]; row["duration_s"] = st["duration_s"]; row["attack_right"] = attack_right
     for sh in (st.get("metrics") or {}).get("shots", []):                   # aliases the app reads: x, y, on_target
         if "x_m" in sh: sh.setdefault("x", sh["x_m"]); sh.setdefault("y", sh["y_m"]); sh.setdefault("on_target", sh.get("outcome") in ("on target", "goal"))
+    # 5 Oct (V2): automatic checks; the app shows "needs review" for the parts listed in st["review"]["needs_review"]
+    from .uploadcheck import safe_run
+    rev = safe_run(dict(md, frames=frames_out), st, frames_out, match_id, log=log)
+    if rev is not None: st["review"] = rev; summary = dict(summary, review={"needs_review": rev["needs_review"]})
     _dump(st, f"{root}/stats.json")
     if team_model is not None and getattr(team_model, "strips", None):
         for ab, img in team_model.strips.items(): cv2.imwrite(f"{root}/kit_{ab}.png", img)

@@ -1,0 +1,70 @@
+{
+ "needs_review": [
+  "ball_map",
+  "goals",
+  "keepers",
+  "shot_map"
+ ],
+ "checks": [
+  {
+   "name": "players",
+   "ok": true,
+   "value": {
+    "median_A": 7,
+    "median_B": 7,
+    "ratio": 1.0,
+    "over11_share": 0.036,
+    "frames": 21747
+   },
+   "limit": {
+    "min_median": 4,
+    "ratio_min": 0.5,
+    "over11_share": 0.05
+   },
+   "detail": "median players per frame A 7, B 7"
+  },
+  {
+   "name": "keepers",
+   "ok": false,
+   "value": 0.181,
+   "limit": 0.02,
+   "detail": "3930 of 21747 frames with 2+ keepers in one team"
+  },
+  {
+   "name": "goals",
+   "ok": false,
+   "value": {
+    "goals": 1,
+    "checks": 1,
+    "wrong": 1
+   },
+   "limit": {
+    "wrong": 0
+   },
+   "detail": "stats.json goals [(2619, 'A')] but match_data goal events [(2619, 'B')]; 2619: A scored, B kicks off at 2657"
+  },
+  {
+   "name": "shots",
+   "ok": false,
+   "value": 0.0,
+   "limit": 0.8,
+   "detail": "0 of 7 shots have a spot on the pitch"
+  },
+  {
+   "name": "ball",
+   "ok": false,
+   "value": 0.192,
+   "limit": 0.1,
+   "detail": "4808 of 25025 ball positions more than 3 m off the pitch"
+  },
+  {
+   "name": "possession",
+   "ok": true,
+   "value": 0.76,
+   "limit": 0.7,
+   "detail": "44 of 58 clear moments right (wrong: 1220.3 ours A eye B, 1234.9 ours A eye B, 1255.5 ours None eye B, 1259.1 ours None eye B, 1304.2 ours None eye B, 1306.5 ours None eye B)"
+  }
+ ],
+ "match_id": "SFKBP1109",
+ "frames_checked": 29970
+}

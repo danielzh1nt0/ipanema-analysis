@@ -1,0 +1,68 @@
+{
+ "needs_review": [
+  "shot_map"
+ ],
+ "checks": [
+  {
+   "name": "players",
+   "ok": true,
+   "value": {
+    "median_A": 5.0,
+    "median_B": 6.0,
+    "ratio": 0.83,
+    "over11_share": 0.006,
+    "frames": 3814
+   },
+   "limit": {
+    "min_median": 4,
+    "ratio_min": 0.5,
+    "over11_share": 0.05
+   },
+   "detail": "median players per frame A 5, B 6"
+  },
+  {
+   "name": "keepers",
+   "ok": true,
+   "value": 0.0,
+   "limit": 0.02,
+   "detail": "0 of 3814 frames with 2+ keepers in one team"
+  },
+  {
+   "name": "goals",
+   "ok": true,
+   "value": {
+    "goals": 5,
+    "checks": 2,
+    "wrong": 0
+   },
+   "limit": {
+    "wrong": 0
+   },
+   "detail": "3604: kick-off not seen; 3742: kick-off not seen; 3840: kick-off not seen; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5628"
+  },
+  {
+   "name": "shots",
+   "ok": false,
+   "value": 0.0,
+   "limit": 0.8,
+   "detail": "0 of 17 shots have a spot on the pitch"
+  },
+  {
+   "name": "ball",
+   "ok": true,
+   "value": 0.086,
+   "limit": 0.1,
+   "detail": "539 of 6244 ball positions more than 3 m off the pitch"
+  },
+  {
+   "name": "possession",
+   "ok": null,
+   "value": {
+    "moments": 2
+   },
+   "limit": 0.7,
+   "detail": "only 2 by-eye moments inside the exported frames"
+  }
+ ],
+ "match_id": "vallentuna (re-fetched chunks 010/015/018 only)"
+}

@@ -1,0 +1,70 @@
+{
+ "needs_review": [
+  "ball_map",
+  "keepers",
+  "possession",
+  "shot_map"
+ ],
+ "checks": [
+  {
+   "name": "players",
+   "ok": true,
+   "value": {
+    "median_A": 5.0,
+    "median_B": 7.0,
+    "ratio": 0.71,
+    "over11_share": 0.024,
+    "frames": 32026
+   },
+   "limit": {
+    "min_median": 4,
+    "ratio_min": 0.5,
+    "over11_share": 0.05
+   },
+   "detail": "median players per frame A 5, B 7"
+  },
+  {
+   "name": "keepers",
+   "ok": false,
+   "value": 0.091,
+   "limit": 0.02,
+   "detail": "2915 of 32026 frames with 2+ keepers in one team"
+  },
+  {
+   "name": "goals",
+   "ok": true,
+   "value": {
+    "goals": 5,
+    "checks": 5,
+    "wrong": 0
+   },
+   "limit": {
+    "wrong": 0
+   },
+   "detail": "3604: A scored, B kicks off at 3634; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3882; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5628"
+  },
+  {
+   "name": "shots",
+   "ok": false,
+   "value": 0.0,
+   "limit": 0.8,
+   "detail": "0 of 17 shots have a spot on the pitch"
+  },
+  {
+   "name": "ball",
+   "ok": false,
+   "value": 0.104,
+   "limit": 0.1,
+   "detail": "5042 of 48665 ball positions more than 3 m off the pitch"
+  },
+  {
+   "name": "possession",
+   "ok": false,
+   "value": 0.59,
+   "limit": 0.7,
+   "detail": "10 of 17 clear moments right (wrong: 853.4 ours None eye A, 1868.7 ours None eye B, 2864.1 ours None eye A, 3537.8 ours B eye A, 3800.2 ours None eye B, 5327.0 ours A eye B)"
+  }
+ ],
+ "match_id": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "frames_checked": 53946
+}
