@@ -1,0 +1,23 @@
+[{"stream_name":"stdout","time":40.065159986,"data":"662\n"}
+,{"stream_name":"stdout","time":40.084394548,"data":"1015\n"}
+,{"stream_name":"stdout","time":40.090134686,"data":"1253\n"}
+,{"stream_name":"stdout","time":40.108253096,"data":"1650\n"}
+,{"stream_name":"stdout","time":40.127860039,"data":"2019\n"}
+,{"stream_name":"stdout","time":40.145960873,"data":"2090\n"}
+,{"stream_name":"stdout","time":40.164018012,"data":"2310\n"}
+,{"stream_name":"stdout","time":40.181629305,"data":"2738\n"}
+,{"stream_name":"stdout","time":40.200492817,"data":"3604\n"}
+,{"stream_name":"stdout","time":40.218711636,"data":"3742\n"}
+,{"stream_name":"stdout","time":40.225406514,"data":"3840\n"}
+,{"stream_name":"stdout","time":40.246000068,"data":"4436\n"}
+,{"stream_name":"stdout","time":40.263468665,"data":"5132\n"}
+,{"stream_name":"stdout","time":40.269984632,"data":"5325\n"}
+,{"stream_name":"stdout","time":40.283650072,"data":"5513\n"}
+,{"stream_name":"stdout","time":40.302075561,"data":"5558\n"}
+,{"stream_name":"stderr","time":42.792247925,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":42.792278607,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":43.139541638,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":43.139575668,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":44.683018948,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":45.762619485,"data":"[NbConvertApp] Writing 283657 bytes to __results__.html\n"}
+]

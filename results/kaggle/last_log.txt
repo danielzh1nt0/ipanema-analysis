@@ -1,26 +1,41 @@
-kernel danielmatros/ipanema-shot-ball-track
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-shot-ball-track
-  0.5 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 18.4 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 20.4 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 24.5 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 26.0 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 28.0 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 30.1 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.RUNNING"
- 31.1 min: danielmatros/ipanema-shot-ball-track has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/shot_ball_track/result.json
-Output file downloaded to results/kaggle/shot_ball_track/tracks.json
-Kernel log downloaded to results/kaggle/shot_ball_track/ipanema-shot-ball-track.log
-  ipanema-shot-ball-track.log 3931
+kernel danielmatros/ipanema-strike-crops
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-strike-crops
+  0.5 min: danielmatros/ipanema-strike-crops has status "KernelWorkerStatus.RUNNING"
+  1.0 min: danielmatros/ipanema-strike-crops has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/strike_crops/result.json
+Output file downloaded to results/kaggle/strike_crops/strike_1015.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_1253.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_1650.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_2019.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_2090.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_2310.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_2738.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_3604.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_3742.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_3840.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_4436.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_5132.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_5325.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_5513.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_5558.jpg
+Output file downloaded to results/kaggle/strike_crops/strike_662.jpg
+Kernel log downloaded to results/kaggle/strike_crops/ipanema-strike-crops.log
+  ipanema-strike-crops.log 1795
   result.json 12
-  run.json 165
-  tracks.json 418972
+  run.json 158
+  strike_1015.jpg 784922
+  strike_1253.jpg 254483
+  strike_1650.jpg 597183
+  strike_2019.jpg 788919
+  strike_2090.jpg 712580
+  strike_2310.jpg 628319
+  strike_2738.jpg 673499
+  strike_3604.jpg 572449
+  strike_3742.jpg 736830
+  strike_3840.jpg 279004
+  strike_4436.jpg 555492
+  strike_5132.jpg 488668
+  strike_5325.jpg 198835
+  strike_5513.jpg 394001
+  strike_5558.jpg 582935
+  strike_662.jpg 724636
