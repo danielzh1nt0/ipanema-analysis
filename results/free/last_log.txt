@@ -1,31 +1,9 @@
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
-  warnings.warn(
-[2026-10-05 08:31:17] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
-/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 6.39M/386M [00:00<00:05, 67.0MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   4%|▍         | 16.5M/386M [00:00<00:04, 90.1MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 26.7M/386M [00:00<00:03, 97.6MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  10%|▉         | 37.8M/386M [00:00<00:03, 105MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  13%|█▎        | 49.1M/386M [00:00<00:03, 110MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  16%|█▌        | 60.4M/386M [00:00<00:03, 113MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  19%|█▊        | 71.8M/386M [00:00<00:02, 115MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 83.1M/386M [00:00<00:02, 116MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  24%|██▍       | 94.4M/386M [00:00<00:02, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 106M/386M [00:01<00:02, 117MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  30%|███       | 117M/386M [00:01<00:02, 116MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 128M/386M [00:01<00:02, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  36%|███▌      | 139M/386M [00:01<00:02, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  39%|███▉      | 151M/386M [00:01<00:02, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  42%|████▏     | 162M/386M [00:01<00:02, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  45%|████▍     | 173M/386M [00:01<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 184M/386M [00:01<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  51%|█████     | 196M/386M [00:01<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  54%|█████▎    | 207M/386M [00:01<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  57%|█████▋    | 218M/386M [00:02<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  59%|█████▉    | 230M/386M [00:02<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 241M/386M [00:02<00:01, 119MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  65%|██████▌   | 252M/386M [00:02<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  68%|██████▊   | 264M/386M [00:02<00:01, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  71%|███████   | 275M/386M [00:02<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  74%|███████▍  | 286M/386M [00:02<00:00, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  77%|███████▋  | 297M/386M [00:02<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  80%|███████▉  | 309M/386M [00:02<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  83%|████████▎ | 320M/386M [00:02<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  86%|████████▌ | 331M/386M [00:03<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  89%|████████▊ | 343M/386M [00:03<00:00, 118MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 354M/386M [00:03<00:00, 116MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  95%|█████████▍| 365M/386M [00:03<00:00, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 376M/386M [00:03<00:00, 117MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 116MiB/s]
-[2026-10-05 08:31:21] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
-[2026-10-05 08:31:21] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-10-05 08:31:21] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-10-05 08:31:22] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
-[2026-10-05 08:31:25] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-     7s c01 t=557.2 base 27 low 51 gamma 54 clahe 51
-    14s b00 t=565.4 base 20 low 44 gamma 46 clahe 47
-    20s c03 t=853.4 base 17 low 22 gamma 22 clahe 23
-    27s c04 t=976.7 base 12 low 15 gamma 14 clahe 16
-    33s c05 t=1015.9 base 22 low 29 gamma 26 clahe 29
-    40s c06 t=1017.0 base 24 low 33 gamma 33 clahe 32
-    46s c12 t=1868.7 base 18 low 31 gamma 27 clahe 28
-    53s c13 t=1988.5 base 26 low 47 gamma 51 clahe 45
-    59s c14 t=2120.8 base 8 low 12 gamma 12 clahe 12
-    65s c19 t=2864.1 base 16 low 19 gamma 21 clahe 20
-    72s b20 t=3290.4 base 13 low 22 gamma 24 clahe 24
-    78s c21 t=3328.6 base 17 low 18 gamma 18 clahe 18
-    85s c23 t=3537.8 base 23 low 30 gamma 29 clahe 31
-    91s c26 t=3800.2 base 18 low 33 gamma 29 clahe 33
-    98s c29 t=4118.7 base 30 low 54 gamma 53 clahe 54
-   104s c31 t=4396.0 base 20 low 36 gamma 34 clahe 37
-   111s c33 t=4556.5 base 20 low 42 gamma 39 clahe 42
-   117s b31 t=4644.4 base 25 low 45 gamma 45 clahe 48
-   124s c37 t=5327.0 base 21 low 48 gamma 53 clahe 50
-   130s c38 t=5453.1 base 17 low 21 gamma 20 clahe 23
+reym_726 130 crops of 17 tracks
+reym_2227 224 crops of 29 tracks
+reym_4227 118 crops of 17 tracks
+spanga_1159 145 crops of 20 tracks
+spanga_2576 242 crops of 38 tracks
+spanga_3994 148 crops of 25 tracks
+sfk_900 105 crops of 19 tracks
+sfk_1800 47 crops of 7 tracks
+sfk_2700 199 crops of 34 tracks
