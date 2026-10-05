@@ -69,6 +69,16 @@ def join(pieces, plan_, n_total, fps):
                            "width": meta["width"], "height": meta["height"], "dark_share": meta["dark_share"], "strips": meta["strips"],
                            "unsure": unsure}
 
+def apply_team_override(per, teams):
+    """K3c (5 Oct): {player id: "A"|"B"} decided offline (tools/vall_relabel.py, by the kit-colour share on the exported
+    frames) replaces the team of those ids in the joined rows. Returns how many rows changed."""
+    n = 0; teams = {int(k): v for k, v in teams.items() if v in ("A", "B")}
+    for k, rows in per.items():
+        for r in rows:
+            t = teams.get(int(r[0]))
+            if t is not None and r[1] in ("A", "B") and r[1] != t: r[1] = t; n += 1
+    return n
+
 def remap_gt(src_gt, start_s, fps, dst):
     """labels of a segment cut at start_s -> the same frames in the full match"""
     gt = json.load(open(src_gt)); off = int(round(start_s * fps))

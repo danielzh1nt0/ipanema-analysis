@@ -277,6 +277,8 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     vol.reload()
     done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
+    _ov = next((p for p in (f"/content/ipanema-analysis/overrides/{match_id}_teams.json", f"{ROOT}/overrides/{match_id}_teams.json") if os.path.exists(p)), None)
+    if _ov: log(f"teams: offline override {os.path.basename(_ov)} changed {FM.apply_team_override(per, json.load(open(_ov)))} player rows")
     play_mask, periods = None, None
     pf = next((p for p in (f"{ROOT}/periods/{match_id}.json", f"/content/ipanema-analysis/periods/{match_id}.json") if os.path.exists(p)), f"/content/ipanema-analysis/periods/{match_id}.json")
     if os.path.exists(pf):
