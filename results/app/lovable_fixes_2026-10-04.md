@@ -135,3 +135,26 @@ On the stats screen, the tab row (BALL · PRESSING · SHAPE · SHOOTING · PLAYE
    - Either build the debrief from this match's numbers, e.g. "We won the ball back within 5 s in X% of losses (opponent Y%)" using `teams[].regained_within_5s_pct`,
    - or remove the quote.
    - Never show the same fixed sentence on every match.
+
+---
+
+## 10. Everything over time (Daniel, 5 Oct 23:02)
+
+Possession, pressing, shape and the other stats must be shown **over time** as well as totals. The data is already in `stats.json`, so no data change is needed. Add a "Match timeline" card at the top of the Stats screen, plus a small timeline inside each tab.
+
+- **Shared x-axis:** match time in minutes. Only draw the parts inside `match_data.periods[]`, with a gap at half time. Show goal markers (`metrics.goals[]`, a small ball icon at `t`, in the team's colour) on every timeline. Add a vertical playhead line at the current video time; tapping a point on the timeline jumps the video there.
+- **Possession over time:**
+  - Source: `metrics.tilt_windows[]`, which has `t`, `t_end` and `possession_A` (0–1, the SFK share in that 15 s window).
+  - Smooth over 5-minute rolling windows and draw an area chart around 50%: SFK above, opponent below, in the two team colours.
+  - Skip windows with `possession_A` null and windows outside the periods.
+  - Also show 5-minute bars: "SFK 58% · 0–5′".
+- **Field tilt over time:** same windows, `tilt_A`. Skip null values.
+- **Pressing over time:**
+  - Count `metrics.pressure_points[]` per 5 minutes for each `pressing_team`, as two lines.
+  - Add `metrics.high_turnovers[]` per 5 minutes per `team` as dots.
+- **Shape over time:** from `metrics.shape_timeline.A` and `.B` (`t`, `length`, `width`, `line_height`), take the 1-minute medians and draw three small line charts (team length, team width, defensive line height), SFK vs opponent.
+- **Passes over time:** count `passes[]` per 5 minutes per `team`, with the completed share (`completed`) as a thin line.
+- **Sequences:** a strip of coloured blocks from `sequences[]` (`t_start` to `t_end`, colour by `team`), showing who had the ball and for how long.
+- **Halves:** the Full / 1st / 2nd toggle filters every timeline.
+- **Design:** dark theme as now, team colours consistent everywhere, readable at 390 px wide, axis labels in minutes (0′, 15′, 30′ …).
+- **Check:** for Vallentuna, possession over time must show data in both halves (07:15–48:10 and 53:40–94:05), and the five goal markers must appear at 60:04, 62:22, 64:00, 91:53 and 93:13.
