@@ -41,7 +41,7 @@ def all_names(): return list(PIECES) + [f"sfk_{int(t)}" for t in SFK_WIN]
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--emb"); ap.add_argument("--max_app", type=float, default=None); ap.add_argument("--out", default="results/qa/p3/p3lab.json")
+    ap = argparse.ArgumentParser(); ap.add_argument("--emb"); ap.add_argument("--max_app", type=float, default=None); ap.add_argument("--out", default="results/qa/p3/p3lab.json"); ap.add_argument("--max_gap", type=float, default=5.0); ap.add_argument("--max_dist", type=float, default=99.0)
     a = ap.parse_args()
     EMB = json.load(open(a.emb)) if a.emb else {}
     rep = {}
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         rows, fps, t0, use_m = load_piece(name); n = len(rows)
         P = T.pieces(rows, fps)
         before = T.measure(P, fps, n)
-        C = T.candidates(P, fps, rows, use_m=use_m)
+        C = [c for c in T.candidates(P, fps, rows, use_m=use_m, max_gap_s=a.max_gap) if c[3] <= a.max_dist]
         emb = {int(i): np.asarray(v) / np.linalg.norm(v) for i, v in EMB.get(name, {}).items()} if EMB else None
         remap, used = T.join(P, C, emb=emb, max_app=a.max_app)
         after = T.measure(P, fps, n, remap)
