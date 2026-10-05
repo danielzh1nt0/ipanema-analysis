@@ -35,10 +35,11 @@ def runs_for(reads):
     return [[round(a, 2), round(b, 2), t] for a, b, t in runs]
 
 def main():
-    by = collections.defaultdict(list)
+    by = collections.defaultdict(list); kc = collections.Counter(); allc = collections.Counter()
     for line in open(IN):
-        t, pid, lab = json.loads(line)[:3]
+        t, pid, lab = json.loads(line)[:3]; allc[str(pid)] += 1
         if lab in ("A", "B"): by[str(pid)].append((t, lab))
+        elif lab == "K": kc[str(pid)] += 1
     old = json.load(open(OUT)) if OUT.endswith(".json") else {}
     out, split = dict(old), 0
     for pid, reads in by.items():
@@ -46,7 +47,9 @@ def main():
         reads.sort(); r = runs_for(reads)
         if len(r) == 1: out[pid] = r[0][2]
         else: out[pid] = r; split += 1
-    json.dump(out, open(OUT, "w")); print(f"{len(by)} tracks with readings, {split} split into pieces, {len(out)} in the override")
+    neither = [p for p in allc if allc[p] >= 10 and kc[p] >= 0.7 * allc[p]]      # referee / staff in white: not a player
+    for p in neither: out[p] = "K"
+    json.dump(out, open(OUT, "w")); print(f"{len(by)} tracks with readings, {split} split into pieces, {len(neither)} not players, {len(out)} in the override")
 
 if __name__ == "__main__":
     main()

@@ -52,3 +52,8 @@ def test_k3c_carriers():
         if i is None: continue
         right += m.predict_batch(cv2.imread(f"results/qa/v3/carriers/{mo['file']}"), [bx[i][:4]])[0] == mo["owner"]
     assert right >= 18
+
+def test_k3c_white_shirt_is_neither():
+    m = {"light": "local", "teams": [np.array([15.0, 6.2, -16.8]), np.array([37.4, 32.7, -10.4])]}
+    wht = np.zeros((200, 100, 3), np.uint8); wht[:] = (235, 235, 235)
+    assert K.kit_share_label(m, wht, [0, 0, 100, 200], np.array([30.0, 2.0, 0.0])) == "other"

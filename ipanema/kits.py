@@ -290,7 +290,7 @@ def hue_mode(model):
     ta, tb = model["teams"]
     return float(np.linalg.norm(np.asarray(ta)[1:3] - np.asarray(tb)[1:3])) >= HUE_KEEP and abs(ta[1] - tb[1]) >= HUE_KEEP
 
-SHARE_HI, SHARE_LO, SHARE_DARK = 0.25, 0.10, 0.08   # K3c: kit-colour pixel share rules (see kit_share_label)
+SHARE_HI, SHARE_LO, SHARE_DARK, SHARE_WHITE = 0.25, 0.10, 0.08, 0.6   # K3c: kit-colour pixel share rules (see kit_share_label)
 
 def _kit_hue(model):
     """(index 0/1 of the more colourful kit, its OpenCV hue 0-180) from the two team centres"""
@@ -298,15 +298,17 @@ def _kit_hue(model):
     lab = np.uint8([[[np.clip(t[0] * 2.5, 0, 255), np.clip(t[1] + 128, 0, 255), np.clip(t[2] + 128, 0, 255)]]])
     return k, int(cv2.cvtColor(cv2.cvtColor(lab, cv2.COLOR_LAB2BGR), cv2.COLOR_BGR2HSV)[0, 0, 0])
 
-def kit_share(frame, box, hue, lo=-6, hi=29, s_min=70, v_min=50, v_dark=70):
-    """share of shirt pixels in the coloured kit's hue window (strong colour only) and share of dark pixels"""
+def kit_share(frame, box, hue, lo=-6, hi=29, s_min=70, v_min=50, v_dark=70, white=False):
+    """share of shirt pixels in the coloured kit's hue window (strong colour only) and share of dark pixels
+    (white=True: also the share of white pixels, bright and grey)"""
     x1, y1, x2, y2 = [float(v) for v in box[:4]]; w, h = x2 - x1, y2 - y1
     c = frame[int(max(0, y1 + 0.18 * h)):int(max(0, y1 + 0.5 * h)), int(max(0, x1 + 0.2 * w)):int(max(0, x2 - 0.2 * w))]
-    if c.size == 0: return None, None
+    if c.size == 0: return (None, None, None) if white else (None, None)
     hsv = cv2.cvtColor(c, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(int); H, S, V = hsv[:, 0], hsv[:, 1], hsv[:, 2]
     dh = (H - hue) % 180
     inw = (dh <= hi) | (dh >= 180 + lo)
-    return float((inw & (S >= s_min) & (V >= v_min)).mean()), float((V < v_dark).mean())
+    out = (float((inw & (S >= s_min) & (V >= v_min)).mean()), float((V < v_dark).mean()))
+    return out + (float(((V >= 170) & (S <= 45)).mean()),) if white else out
 
 def kit_share_label(model, frame, box, f):
     """K3c (5 Oct, Vallentuna): the hue mode's median a* overlaps between kits (sun-washed reds a* 8-19, blacks with pink
@@ -315,8 +317,9 @@ def kit_share_label(model, frame, box, f):
     < 10% the other kit. 'other' (white / yellow / green) still from the median colour. Index labels like classify()."""
     c = classify(model, f)
     if c in (None, "other"): return c
-    k, hue = _kit_hue(model); r, d = kit_share(frame, box, hue)
+    k, hue = _kit_hue(model); r, d, wh = kit_share(frame, box, hue, white=True)
     if r is None: return c
+    if wh >= SHARE_WHITE and r < 0.08: return "other"        # white shirt (referee, staff, spectators): by eye 5 Oct, 30 of 32 such people were not players
     col = r >= SHARE_HI or (r >= SHARE_LO and d < SHARE_DARK)
     return ("A" if k == 0 else "B") if col else ("B" if k == 0 else "A")
 

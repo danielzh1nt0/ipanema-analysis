@@ -77,8 +77,8 @@ def apply_team_override(per, teams, fps=None):
     n = 0; whole, parts = {}, {}
     for k, v in teams.items():
         if isinstance(v, str):
-            if v in ("A", "B"): whole[int(k)] = v
-        elif v and fps: parts[int(k)] = [(float(a), float(b), t) for a, b, t in v if t in ("A", "B")]
+            if v in ("A", "B", "K"): whole[int(k)] = v                         # K: not a player (referee, staff), from the readings
+        elif v and fps: parts[int(k)] = [(float(a), float(b), t) for a, b, t in v if t in ("A", "B", "K")]
     for g, rows in per.items():
         for r in rows:
             i = int(r[0]); t = whole.get(i)
