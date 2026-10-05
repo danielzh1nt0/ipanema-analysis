@@ -1,2 +1,2 @@
-tools/v1_frames.py results/review/v1/spec_p2_vallgoals.json
-# Mon Oct  5 04:28:03 UTC 2026 V1 pass 2: full-resolution crops every 0.2 s around the 5 Vallentuna goals (free, CPU)
+tools/v3_frames.py
+# Mon Oct  5 08:29:23 UTC 2026 V3: carrier frames + people boxes at 4 detector settings on Vallentuna (free, CPU)
