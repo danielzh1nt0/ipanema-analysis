@@ -17,3 +17,11 @@
   players and players whose track switched between people often wrong; roughly 3 of 4 right overall (app now about half).
   t=638 is the worst (~7/14), t=1045 / 4628 / 5035 good (12-14 of 14-17).
 - Not in the app: needs one join on Modal (CPU, ~EUR 0.10) which reads the override file. Waiting for Daniel's go.
+
+## v2 (5 Oct evening, free): team per moment, not per track
+- Kaggle rerun kept every reading (labels.jsonl, 64 min). tools/k3c_segments.py: a track that switches between an SFK and a
+  Vallentuna player gets pieces (7-reading smoothing, pieces >= 3 s); 786 of 5222 tracks split.
+- Owner check 15/17 (v1 13/17, app now 9/17). Players per frame A 6.9 / B 7.0.
+- By eye (relabel_check_v2): near and mid players nearly all right; mistakes left are far players in clusters, the white
+  referee (shown as a player) and a few people beside the pitch. Roughly 4 of 5 right.
+- The join applies piece lists too (fullmatch.apply_team_override with fps; test_team_override). Still needs one Modal join (~EUR 0.10).
