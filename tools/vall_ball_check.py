@@ -10,7 +10,7 @@ for f in sorted(glob.glob(f"{D}/frames_*.json")): frames += json.load(open(f))["
 ts = [f["t"] for f in frames]; print("frames", len(frames))
 res = collections.Counter(); rows = []
 for it in key:
-    if it["grade"] != "A": continue
+    if it["grade"] != "A" or it["id"] not in G: continue
     i = min(bisect.bisect_left(ts, it["t"]), len(ts) - 1); fr = frames[i]
     if abs(fr["t"] - it["t"]) > 0.2: res["no frame"] += 1; rows.append((it["id"], "no frame")); continue
     b = fr.get("ball"); gx, gy = it["ball_px"]

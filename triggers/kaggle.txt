@@ -1,3 +1,2 @@
-kaggle/vall_relabel.py 20 fetch
-# retry Mon Oct  5 22:51:58 CEST 2026
-# retry2 Mon Oct  5 22:55:29 CEST 2026
+kaggle/vall_poss_sample.py 60
+# Mon Oct  5 23:17:22 CEST 2026
