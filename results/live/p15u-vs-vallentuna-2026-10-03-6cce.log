@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 22:21:46 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 22:23:21 UTC
 
 
-## run_full.log (36 lines, last 60)
+## run_full.log (49 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -38,6 +38,19 @@ clean: removed 219080 rows of non-team kits (referee / staff)
 clean: dropped 553340 off-pitch, merged 22978 duplicates, stitched 3758 ids, keepers [300324, 500591] -> A defends left
 clean: players per frame median A 7 / B 5, max A 17 / B 12
 players: 22795 short gaps filled (marked 'filled' in the export)
+ball v2: 136329/178800 frames on the path, 417 static-clutter candidates dropped
+ball: dropped 303 static-clutter candidates
+ball (global path): 123206/178800 frames on the chosen path
+possession: simple model (nearest feet in the picture); 30% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+direction: A →  B ←  confidence A 0.06 / B 0.00  WARNING low confidence
+direction: from reference labels -> A →
+  step: sequences (0 s since the last step)
+  spell state (take 1.5 s): possession flips 2298 -> 305 (3.1 per minute)
+  step: turnovers (0 s since the last step)
+  step: lanes (0 s since the last step)
+  step: passes (6 s since the last step)
+  step: shapes (1 s since the last step)
+  step: stats (9 s since the last step)
 
 ## train_ball.log (1 lines, last 60)
 
