@@ -9,3 +9,8 @@ def test_apply_team_override():
     assert n == 2 and per[0][0][1] == "B" and per[1][0][1] == "B" and per[0][1][1] == "B"
     assert per[0][2][1] == "K"           # neither stays neither
     assert per[1][1][1] == "A"
+
+def test_apply_team_override_pieces():
+    per = {0: [[7, "A", None]], 10: [[7, "A", None]], 20: [[7, "A", None]], 30: [[7, "A", None]]}   # fps 10 -> t 0, 1, 2, 3 s
+    n = FM.apply_team_override(per, {"7": [[0.9, 2.1, "B"]]}, fps=10)
+    assert n == 2 and [per[g][0][1] for g in (0, 10, 20, 30)] == ["A", "B", "B", "A"]

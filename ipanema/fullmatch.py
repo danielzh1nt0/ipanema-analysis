@@ -69,13 +69,21 @@ def join(pieces, plan_, n_total, fps):
                            "width": meta["width"], "height": meta["height"], "dark_share": meta["dark_share"], "strips": meta["strips"],
                            "unsure": unsure}
 
-def apply_team_override(per, teams):
-    """K3c (5 Oct): {player id: "A"|"B"} decided offline (tools/vall_relabel.py, by the kit-colour share on the exported
-    frames) replaces the team of those ids in the joined rows. Returns how many rows changed."""
-    n = 0; teams = {int(k): v for k, v in teams.items() if v in ("A", "B")}
-    for k, rows in per.items():
+def apply_team_override(per, teams, fps=None):
+    """K3c (5 Oct): team decisions made offline (tools/vall_relabel.py, kit-colour share on the exported frames) replace
+    the team of those ids in the joined rows. A value is "A"/"B" (the whole track) or a list of [t_start, t_end, team]
+    pieces in seconds (a track that switches between two people; needs fps; outside the pieces the track keeps its team).
+    Returns how many rows changed."""
+    n = 0; whole, parts = {}, {}
+    for k, v in teams.items():
+        if isinstance(v, str):
+            if v in ("A", "B"): whole[int(k)] = v
+        elif v and fps: parts[int(k)] = [(float(a), float(b), t) for a, b, t in v if t in ("A", "B")]
+    for g, rows in per.items():
         for r in rows:
-            t = teams.get(int(r[0]))
+            i = int(r[0]); t = whole.get(i)
+            if i in parts:
+                ts = g / fps; t = next((tt for a, b, tt in parts[i] if a <= ts <= b), t)
             if t is not None and r[1] in ("A", "B") and r[1] != t: r[1] = t; n += 1
     return n
 
