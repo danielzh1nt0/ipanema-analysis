@@ -243,3 +243,4 @@
 04:44:13 clean: dropped 77 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [] -> A defends left
 04:44:13 clean: players per frame median A 7 / B 6, max A 9 / B 9
 04:44:13 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 6.0}, 'shown_per_frame': {'dark': 7.0, 'light': 6.0}, 'tracks': 45, 'median_track_s': {'dark': 2.55, 'light': 3.24}, 'minutes': 19.6, 'filled_rows': 112}
+05:26:28 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
