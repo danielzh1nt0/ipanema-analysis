@@ -163,7 +163,7 @@ Possession, pressing, shape and the other stats must be shown **over time** as w
 
 ## 11. Pass map: replace the current graphic (Daniel, 6 Oct)
 
-The current pass map draws every pass as its own line, and that is unreadable. Replace it with **two views**, switched by a toggle above the pitch: "Routes" (default) and "Forward passes". The SFK / Opponent toggle picks the team; there is no "Both" here. Source: `stats.json → passes[]`, using only passes whose `t` is inside `match_data.periods[]`. Positions `from_m` and `to_m` are metres on a 106 × 64 pitch; the selected team always attacks to the right, so never mirror them. A picture of both views is attached (`passmap_SFKBP1109_A.png`).
+The current pass map draws every pass as its own line, and that is unreadable. Replace it with **two views**, switched by a toggle above the pitch: "Routes" (default) and "Into the final third". The SFK / Opponent toggle picks the team; there is no "Both" here. Source: `stats.json → passes[]`, using only passes whose `t` is inside `match_data.periods[]`. Positions `from_m` and `to_m` are metres on a 106 × 64 pitch; the selected team always attacks to the right, so never mirror them. A picture of both views is attached (`passmap_vallentuna_SFK.png`).
 
 **View 1, Routes (where the passes go):**
 - Split the pitch into a 6 × 3 grid of zones (each zone about 17.7 m × 21.3 m). Draw the zone lines faint and dotted.
@@ -173,10 +173,10 @@ The current pass map draws every pass as its own line, and that is unreadable. R
 - Title: "Where the passes go". Subtitle: "Top routes between zones · arrow width = number of passes".
 - On tap or hover, show the route with its count, e.g. "Own half left → middle left: 13 passes".
 
-**View 2, Forward passes:**
-- Draw only passes with `gain_m >= 10` as straight arrows from `from_m` to `to_m`.
+**View 2, Into the final third:**
+- Draw only passes that start before the final third and end inside it (`from_m[0] < 70.67` and `to_m[0] >= 70.67`), as straight arrows from `from_m` to `to_m`. Mark the final-third line with a faint dashed line. (All forward passes together are 150–200 lines on a full match, which is unreadable again.)
 - Completed passes: solid, in the team colour. Passes that did not arrive: grey and dashed.
-- Title: "Forward passes that gained 10 m or more". Subtitle: "N passes · M completed".
+- Title: "Passes into the final third". Subtitle: "N passes · M completed".
 
 **Both views:**
 - Draw the pitch markings (halfway line, centre circle, both boxes) in a light line colour on a calm grass tone.

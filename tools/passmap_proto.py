@@ -36,11 +36,11 @@ for z, n in inside.items():
     x, y = cen(z); a1.text(x, y, str(n), ha="center", va="center", fontsize=8, color="#5d6b63")
 a1.set_title(f"Where the passes go: top {len(top)} zone-to-zone routes (completed)\nArrow width = number of passes; grey number = short passes inside a zone", fontsize=10, color=INK, loc="left")
 # forward passes
-pitch(a2); fw = [p for p in P if p.get("gain_m") is not None and p["gain_m"] >= 10]
+pitch(a2); fw = [p for p in P if p["from_m"][0] < 2 * L / 3 <= p["to_m"][0]]
 for p in fw:
     ok = bool(p.get("completed"))
     a2.add_patch(FancyArrowPatch(tuple(p["from_m"]), tuple(p["to_m"]), arrowstyle="-|>", mutation_scale=8, lw=1.3, color=COL if ok else "#9aa8a0", alpha=0.8 if ok else 0.6, ls="-" if ok else (0, (3, 2))))
 n_ok = sum(bool(p.get("completed")) for p in fw)
-a2.set_title(f"Forward passes that gained 10 m or more: {len(fw)} ({n_ok} completed)\nSolid = completed, dashed grey = did not arrive", fontsize=10, color=INK, loc="left")
+a2.axvline(2 * L / 3, color="#d6ddd8", lw=1, ls="--"); a2.set_title(f"Passes into the final third: {len(fw)} ({n_ok} completed)\nSolid = completed, dashed grey = did not arrive", fontsize=10, color=INK, loc="left")
 fig.suptitle(f"{M} · team {T} · {len(P)} passes in the playing time", fontsize=11, x=0.01, ha="left", color="#5d6b63")
 plt.tight_layout(); out = f"results/app/passmap/{M}_{T}.png"; plt.savefig(out, dpi=110); print(out, len(P), len(fw), top[:3])
