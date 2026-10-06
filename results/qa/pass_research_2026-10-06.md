@@ -51,3 +51,14 @@ The cause is the same as before. On this second-half clip in low sun our ball ch
 - **"Which team?"** is not solved: about 65% right.
 
 **Running now:** the model on the full playing time of all 3 matches (Kaggle, free, about 3 h).
+
+## All 4 clips: our count vs the model (2 minutes each, model threshold 0.3)
+| clip | our current method | model | real (tapped) |
+|---|---|---|---|
+| SFK–BP 25:00 | 23 | 13 | – |
+| SFK–AIK 25:00 | 28 | 25 | – |
+| SFK–Vallentuna 20:00 | 36 | 14 | – |
+| SFK–Vallentuna 66:40 | 52 | 23 | 21 |
+
+- Our method is close to the model on the BP and AIK clips (dark against white kits, even light) and 2–2.5× too high on both Vallentuna clips (red against black, hard sun).
+- So the inflation is mainly a Vallentuna problem. That fits the colour and ball issues seen there.
