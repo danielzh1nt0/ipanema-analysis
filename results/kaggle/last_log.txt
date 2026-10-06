@@ -1,49 +1,18 @@
-kernel danielmatros/ipanema-vall-pass-count
-Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-pass-count
-  0.5 min: danielmatros/ipanema-vall-pass-count has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-vall-pass-count has status "KernelWorkerStatus.RUNNING"
-  2.6 min: danielmatros/ipanema-vall-pass-count has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s00.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s01.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s02.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s03.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s04.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s05.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s06.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s07.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s08.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s09.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s10.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s11.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s12.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s13.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s14.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s15.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s16.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s17.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s18.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w0_s19.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s00.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s01.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s02.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s03.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s04.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s05.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s06.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s07.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s08.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s09.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s10.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s11.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s12.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s13.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s14.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s15.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s16.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s17.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s18.jpg
-Output file downloaded to results/kaggle/vall_pass_count/pc/w1_s19.jpg
-Kernel log downloaded to results/kaggle/vall_pass_count/ipanema-vall-pass-count.log
-  ipanema-vall-pass-count.log 872
-  pc 4096
-  run.json 164
+kernel danielmatros/ipanema-pass-clips
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-pass-clips
+  0.5 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.RUNNING"
+  3.6 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/pass_clips/SFKBP1109_1500.mp4
+Output file downloaded to results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4
+Output file downloaded to results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4
+Output file downloaded to results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4
+Output file downloaded to results/kaggle/pass_clips/result.json
+Kernel log downloaded to results/kaggle/pass_clips/ipanema-pass-clips.log
+  SFKBP1109_1500.mp4 14037847
+  ipanema-pass-clips.log 1278
+  p15u-vs-aik-2026-09-21-bd09_1500.mp4 17214043
+  p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 14238123
+  p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 13629356
+  result.json 31
+  run.json 154
