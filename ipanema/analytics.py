@@ -250,3 +250,21 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                       "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]), "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
                       "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0})   # 3 Oct: the app reads it per team
     return {"players": players, "teams": teams, "heatmaps": heat, "grid": list(GRID)}
+
+def confirm_passes(ps, kicks, tol=0.7):
+    """P-PASS (6 Oct): keep only the passes that a video ball-action model also sees. kicks = video seconds of the model's
+    pass moments (SoccerNet ball-action spotting, T-DEED, PASS/HIGH PASS/CROSS/FREE KICK, score >= 0.2, merged < 0.8 s).
+    Each kick takes the nearest of our passes within tol s (one-to-one); our pass keeps its own team, players and positions.
+    Vallentuna 66:40 clip vs Daniel's 21 tapped passes: ours 52 (16 real) -> 22 (15 real, team right 13/15)."""
+    used, keep = set(), []
+    order = sorted(range(len(ps)), key=lambda i: ps[i]["t"])
+    ts = [ps[i]["t"] for i in order]
+    import bisect
+    for q in sorted(kicks):
+        j = bisect.bisect_left(ts, q - tol); best = None
+        while j < len(ts) and ts[j] <= q + tol:
+            i = order[j]
+            if i not in used and (best is None or abs(ts[j] - q) < abs(ps[best]["t"] - q)): best = i
+            j += 1
+        if best is not None: used.add(best); keep.append(best)
+    return [ps[i] for i in sorted(keep, key=lambda i: ps[i]["t"])]

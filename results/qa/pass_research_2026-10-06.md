@@ -62,3 +62,9 @@ The cause is the same as before. On this second-half clip in low sun our ball ch
 
 - Our method is close to the model on the BP and AIK clips (dark against white kits, even light) and 2–2.5× too high on both Vallentuna clips (red against black, hard sun).
 - So the inflation is mainly a Vallentuna problem. That fits the colour and ball issues seen there.
+
+## The fix that works: our passes, confirmed by the model
+- Keep only those of our passes that the model also sees (within 0.7 s, model score >= 0.2, one-to-one). Our pass keeps its own team, players and positions, so the pass map works.
+- Vallentuna 66:40 clip: our method alone gave 52 passes with 16 real. Confirmed by the model: **22 passes, 14–15 of them real, team right 12–13 of 14–15 (about 85%)**. The real number is 21.
+- In the pipeline: `analytics.confirm_passes`, used in `run.analyse` when `overrides/<match>_kicks.json` exists (env `IPANEMA_PASS_CONFIRM`; tolerance `IPANEMA_PASS_CONFIRM_TOL`). The kicks file is made from the full-match model run with `tools/make_kicks.py`.
+- Caveat: tuned on one tapped clip of 21 passes.
