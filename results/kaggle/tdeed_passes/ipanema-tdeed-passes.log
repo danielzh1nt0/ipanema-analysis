@@ -1,104 +1,427 @@
-[{"stream_name":"stdout","time":0.62320843,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
-,{"stream_name":"stdout","time":0.665566198,"data":"name\n"}
-,{"stream_name":"stdout","time":0.665593823,"data":"Tesla T4\n"}
-,{"stream_name":"stdout","time":0.665597967,"data":"Tesla T4\n"}
-,{"stream_name":"stdout","time":0.665601361,"data":"\n"}
-,{"stream_name":"stdout","time":0.665608647,"data":"+ git clone -q --depth 1 https://github.com/arturxe2/T-DEED.git /kaggle/temp/td\n"}
-,{"stream_name":"stdout","time":3.176697084,"data":"\n"}
-,{"stream_name":"stdout","time":3.176726908,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
-,{"stream_name":"stdout","time":95.579174344,"data":"\n"}
-,{"stream_name":"stdout","time":95.579209809,"data":"+ pip install -q timm==1.0.3 gdown wandb tabulate\n"}
-,{"stream_name":"stdout","time":107.961262362,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 kB 1.5 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":107.96130694,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 45.2 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":107.961313768,"data":"\n"}
-,{"stream_name":"stdout","time":107.961318857,"data":"+ cd /kaggle/temp \u0026\u0026 gdown -q --folder https://drive.google.com/drive/folders/1sxZalU_hCwL8ITZCU9VqSWE8dB94lJty -O ck || true; find /kaggle/temp/ck | head -40\n"}
-,{"stream_name":"stdout","time":163.622670538,"data":"/kaggle/temp/ck\n"}
-,{"stream_name":"stdout","time":163.622705503,"data":"/kaggle/temp/ck/Tennis\n"}
-,{"stream_name":"stdout","time":163.622711855,"data":"/kaggle/temp/ck/Tennis/Tennis_big\n"}
-,{"stream_name":"stdout","time":163.622723341,"data":"/kaggle/temp/ck/Tennis/Tennis_big/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622727285,"data":"/kaggle/temp/ck/Tennis/Tennis_small\n"}
-,{"stream_name":"stdout","time":163.622730519,"data":"/kaggle/temp/ck/Tennis/Tennis_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622733783,"data":"/kaggle/temp/ck/SoccerNet\n"}
-,{"stream_name":"stdout","time":163.622736983,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small\n"}
-,{"stream_name":"stdout","time":163.622740162,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622743402,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big\n"}
-,{"stream_name":"stdout","time":163.622746502,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622749752,"data":"/kaggle/temp/ck/SoccerNetBall\n"}
-,{"stream_name":"stdout","time":163.622752893,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1\n"}
-,{"stream_name":"stdout","time":163.622756074,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622759324,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2\n"}
-,{"stream_name":"stdout","time":163.622762581,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622765795,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test\n"}
-,{"stream_name":"stdout","time":163.622768994,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.62277215,"data":"/kaggle/temp/ck/SoccerNetTeamBall\n"}
-,{"stream_name":"stdout","time":163.622775304,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline\n"}
-,{"stream_name":"stdout","time":163.622787699,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622790558,"data":"/kaggle/temp/ck/FineDiving\n"}
-,{"stream_name":"stdout","time":163.622792983,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big\n"}
-,{"stream_name":"stdout","time":163.62279538,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622797798,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small\n"}
-,{"stream_name":"stdout","time":163.622800202,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.62280264,"data":"/kaggle/temp/ck/FigureSkatingPerf\n"}
-,{"stream_name":"stdout","time":163.622805017,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big\n"}
-,{"stream_name":"stdout","time":163.622807448,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622809922,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small\n"}
-,{"stream_name":"stdout","time":163.622812362,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622814842,"data":"/kaggle/temp/ck/FineGym\n"}
-,{"stream_name":"stdout","time":163.622817216,"data":"/kaggle/temp/ck/FineGym/FineGym_big\n"}
-,{"stream_name":"stdout","time":163.622819598,"data":"/kaggle/temp/ck/FineGym/FineGym_big/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622822205,"data":"/kaggle/temp/ck/FineGym/FineGym_small\n"}
-,{"stream_name":"stdout","time":163.622824618,"data":"/kaggle/temp/ck/FineGym/FineGym_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622827055,"data":"/kaggle/temp/ck/FigureSkatingComp\n"}
-,{"stream_name":"stdout","time":163.622829432,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small\n"}
-,{"stream_name":"stdout","time":163.62283187,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small/checkpoint_best.pt\n"}
-,{"stream_name":"stdout","time":163.622834469,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_big\n"}
-,{"stream_name":"stdout","time":163.622836911,"data":"\n"}
-,{"stream_name":"stdout","time":163.624150545,"data":"checkpoints ['/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt']\n"}
-,{"stream_name":"stdout","time":163.642199893,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/SFKBP1109_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/SFKBP1109_1500_25.mp4\n"}
-,{"stream_name":"stdout","time":206.042567684,"data":"\n"}
-,{"stream_name":"stdout","time":206.04260564,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/SFKBP1109_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
-,{"stream_name":"stdout","time":223.786976588,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stdout","time":223.787011973,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":223.787016463,"data":"    from util.eval import inference\n"}
-,{"stream_name":"stdout","time":223.787020366,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":223.787038254,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
-,{"stream_name":"stdout","time":223.787043229,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
-,{"stream_name":"stdout","time":223.787047819,"data":"\n"}
-,{"stream_name":"stdout","time":223.787052571,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4\n"}
-,{"stream_name":"stdout","time":264.677437228,"data":"\n"}
-,{"stream_name":"stdout","time":264.677473836,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
-,{"stream_name":"stdout","time":269.324228773,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stdout","time":269.32426924,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":269.324274027,"data":"    from util.eval import inference\n"}
-,{"stream_name":"stdout","time":269.324277102,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":269.324280446,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
-,{"stream_name":"stdout","time":269.324283487,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
-,{"stream_name":"stdout","time":269.32428655,"data":"\n"}
-,{"stream_name":"stdout","time":269.324289391,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4\n"}
-,{"stream_name":"stdout","time":307.46373062,"data":"\n"}
-,{"stream_name":"stdout","time":307.463779035,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
-,{"stream_name":"stdout","time":312.123050001,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stdout","time":312.123105889,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":312.123114151,"data":"    from util.eval import inference\n"}
-,{"stream_name":"stdout","time":312.123120118,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":312.123125682,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
-,{"stream_name":"stdout","time":312.123130355,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
-,{"stream_name":"stdout","time":312.123134917,"data":"\n"}
-,{"stream_name":"stdout","time":312.123139407,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4\n"}
-,{"stream_name":"stdout","time":351.741010971,"data":"\n"}
-,{"stream_name":"stdout","time":351.741048883,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
-,{"stream_name":"stdout","time":356.608610072,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stdout","time":356.60866519,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":356.608672436,"data":"    from util.eval import inference\n"}
-,{"stream_name":"stdout","time":356.608677681,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
-,{"stream_name":"stdout","time":356.60868224,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
-,{"stream_name":"stdout","time":356.608698517,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
-,{"stream_name":"stdout","time":356.6087019,"data":"\n"}
-,{"stream_name":"stdout","time":356.608926596,"data":"{'SFKBP1109_1500': 'failed rc 1', 'p15u-vs-aik-2026-09-21-bd09_1500': 'failed rc 1', 'p15u-vs-vallentuna-2026-10-03-6cce_1200': 'failed rc 1', 'p15u-vs-vallentuna-2026-10-03-6cce_4000': 'failed rc 1'}\n"}
-,{"stream_name":"stderr","time":358.390790048,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":358.390818492,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":358.633501373,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":358.63353755,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":359.371647145,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":360.270503851,"data":"[NbConvertApp] Writing 285300 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":0.796612344,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":0.840845635,"data":"name\n"}
+,{"stream_name":"stdout","time":0.840875102,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.840879925,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.840883707,"data":"\n"}
+,{"stream_name":"stdout","time":0.84089195,"data":"+ git clone -q --depth 1 https://github.com/arturxe2/T-DEED.git /kaggle/temp/td\n"}
+,{"stream_name":"stdout","time":3.383546942,"data":"\n"}
+,{"stream_name":"stdout","time":3.383573101,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":97.823234642,"data":"\n"}
+,{"stream_name":"stdout","time":97.823275476,"data":"+ pip install -q timm==1.0.3 gdown wandb tabulate SoccerNet\n"}
+,{"stream_name":"stdout","time":110.878980407,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 kB 1.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":110.879017821,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 27.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":110.879025304,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.6/92.6 kB 4.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":110.879032447,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.3/104.3 MB 19.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":110.879038884,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 69.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":110.87904583,"data":"WARNING: huggingface-hub 1.29.0 does not provide the extra 'cli'\n"}
+,{"stream_name":"stdout","time":110.879051483,"data":"\n"}
+,{"stream_name":"stdout","time":110.879056847,"data":"+ cd /kaggle/temp \u0026\u0026 gdown -q --folder https://drive.google.com/drive/folders/1sxZalU_hCwL8ITZCU9VqSWE8dB94lJty -O ck || true; find /kaggle/temp/ck | head -40\n"}
+,{"stream_name":"stdout","time":174.209607347,"data":"/kaggle/temp/ck\n"}
+,{"stream_name":"stdout","time":174.209642182,"data":"/kaggle/temp/ck/Tennis\n"}
+,{"stream_name":"stdout","time":174.209654129,"data":"/kaggle/temp/ck/Tennis/Tennis_big\n"}
+,{"stream_name":"stdout","time":174.209689759,"data":"/kaggle/temp/ck/Tennis/Tennis_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.20969442,"data":"/kaggle/temp/ck/Tennis/Tennis_small\n"}
+,{"stream_name":"stdout","time":174.209698919,"data":"/kaggle/temp/ck/Tennis/Tennis_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209703427,"data":"/kaggle/temp/ck/SoccerNet\n"}
+,{"stream_name":"stdout","time":174.209713741,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small\n"}
+,{"stream_name":"stdout","time":174.209717133,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209720131,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big\n"}
+,{"stream_name":"stdout","time":174.209722989,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209725859,"data":"/kaggle/temp/ck/SoccerNetBall\n"}
+,{"stream_name":"stdout","time":174.209728744,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1\n"}
+,{"stream_name":"stdout","time":174.209731701,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209743384,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2\n"}
+,{"stream_name":"stdout","time":174.209746009,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209748395,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test\n"}
+,{"stream_name":"stdout","time":174.209750823,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209753199,"data":"/kaggle/temp/ck/SoccerNetTeamBall\n"}
+,{"stream_name":"stdout","time":174.209755481,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline\n"}
+,{"stream_name":"stdout","time":174.209757839,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209760229,"data":"/kaggle/temp/ck/FineDiving\n"}
+,{"stream_name":"stdout","time":174.209762499,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big\n"}
+,{"stream_name":"stdout","time":174.209764791,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209767113,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small\n"}
+,{"stream_name":"stdout","time":174.209769486,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209771807,"data":"/kaggle/temp/ck/FigureSkatingPerf\n"}
+,{"stream_name":"stdout","time":174.209774155,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big\n"}
+,{"stream_name":"stdout","time":174.209776493,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209778947,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small\n"}
+,{"stream_name":"stdout","time":174.209781314,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209783695,"data":"/kaggle/temp/ck/FineGym\n"}
+,{"stream_name":"stdout","time":174.209785968,"data":"/kaggle/temp/ck/FineGym/FineGym_big\n"}
+,{"stream_name":"stdout","time":174.209788336,"data":"/kaggle/temp/ck/FineGym/FineGym_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209790647,"data":"/kaggle/temp/ck/FineGym/FineGym_small\n"}
+,{"stream_name":"stdout","time":174.209792939,"data":"/kaggle/temp/ck/FineGym/FineGym_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209795253,"data":"/kaggle/temp/ck/FigureSkatingComp\n"}
+,{"stream_name":"stdout","time":174.209797561,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small\n"}
+,{"stream_name":"stdout","time":174.209799893,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":174.209802301,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_big\n"}
+,{"stream_name":"stdout","time":174.209805066,"data":"\n"}
+,{"stream_name":"stdout","time":174.211061113,"data":"checkpoints ['/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt']\n"}
+,{"stream_name":"stdout","time":174.22770474,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/SFKBP1109_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/SFKBP1109_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":217.487036252,"data":"\n"}
+,{"stream_name":"stdout","time":217.487068508,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/SFKBP1109_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":320.558392627,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":320.558449321,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":320.55845623,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":320.558461711,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":320.558467181,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":320.558472685,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":320.558478173,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":320.558483651,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558489163,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558494654,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558500151,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558505647,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558511107,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":320.558516648,"data":"Model params: 12310330\n"}
+,{"stream_name":"stdout","time":320.558522179,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":320.558527671,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":320.558533217,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":320.558538752,"data":"START INFERENCE\n"}
+,{"stream_name":"stdout","time":320.558544319,"data":"Storing predictions with SNMS\n"}
+,{"stream_name":"stdout","time":320.558549844,"data":"CORRECTLY FINISHED INFERENCE STEP\n"}
+,{"stream_name":"stdout","time":320.558555315,"data":"\n"}
+,{"stream_name":"stdout","time":320.558560885,"data":"0it [00:00, ?it/s]/kaggle/temp/td/model/model.py:346: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":320.558566234,"data":"  with torch.cuda.amp.autocast() if use_amp else nullcontext():\n"}
+,{"stream_name":"stdout","time":320.558571634,"data":"\n"}
+,{"stream_name":"stdout","time":320.55857726,"data":"1it [00:15, 15.17s/it]\n"}
+,{"stream_name":"stdout","time":320.558582749,"data":"2it [00:16,  6.81s/it]\n"}
+,{"stream_name":"stdout","time":320.558588272,"data":"3it [00:17,  4.15s/it]\n"}
+,{"stream_name":"stdout","time":320.558593772,"data":"4it [00:18,  2.93s/it]\n"}
+,{"stream_name":"stdout","time":320.55859931,"data":"5it [00:19,  2.22s/it]\n"}
+,{"stream_name":"stdout","time":320.558604795,"data":"6it [00:20,  1.82s/it]\n"}
+,{"stream_name":"stdout","time":320.558610349,"data":"7it [00:21,  1.54s/it]\n"}
+,{"stream_name":"stdout","time":320.558615875,"data":"8it [00:22,  1.41s/it]\n"}
+,{"stream_name":"stdout","time":320.55862131599997,"data":"9it [00:23,  1.28s/it]\n"}
+,{"stream_name":"stdout","time":320.558626918,"data":"10it [00:24,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":320.558632432,"data":"11it [00:25,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":320.558637963,"data":"12it [00:26,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":320.558643507,"data":"13it [00:27,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":320.558649028,"data":"14it [00:28,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":320.558654509,"data":"15it [00:29,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.5586765,"data":"16it [00:30,  1.03s/it]\n"}
+,{"stream_name":"stdout","time":320.558685185,"data":"17it [00:31,  1.03s/it]\n"}
+,{"stream_name":"stdout","time":320.558690623,"data":"18it [00:32,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558694623,"data":"19it [00:33,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558699921,"data":"20it [00:34,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558705481,"data":"21it [00:35,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558711038,"data":"22it [00:36,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558716576,"data":"23it [00:37,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558722115,"data":"24it [00:38,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.55872767,"data":"25it [00:39,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558733193,"data":"26it [00:40,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558738741,"data":"27it [00:41,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558744273,"data":"28it [00:43,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558749793,"data":"29it [00:44,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":320.558753888,"data":"30it [00:45,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558759208,"data":"31it [00:46,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558764763,"data":"32it [00:47,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558770315,"data":"33it [00:48,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558774491,"data":"34it [00:49,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558779773,"data":"35it [00:50,  1.04s/it]\n"}
+,{"stream_name":"stdout","time":320.558785192,"data":"36it [00:51,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.55879072,"data":"37it [00:52,  1.07s/it]\n"}
+,{"stream_name":"stdout","time":320.558796256,"data":"38it [00:53,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558801802,"data":"39it [00:54,  1.07s/it]\n"}
+,{"stream_name":"stdout","time":320.558807325,"data":"40it [00:55,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558813029,"data":"41it [00:56,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558820201,"data":"42it [00:57,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.55882571,"data":"43it [00:58,  1.05s/it]\n"}
+,{"stream_name":"stdout","time":320.558831255,"data":"44it [00:59,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.5588369,"data":"45it [01:01,  1.06s/it]\n"}
+,{"stream_name":"stdout","time":320.558842432,"data":"46it [01:02,  1.07s/it]\n"}
+,{"stream_name":"stdout","time":320.558848004,"data":"47it [01:03,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":320.55885356,"data":"48it [01:04,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":320.558860577,"data":"49it [01:05,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":320.558864975,"data":"50it [01:06,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":320.558870086,"data":"51it [01:07,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":320.558875636,"data":"52it [01:08,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":320.55888115,"data":"53it [01:09,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":320.558886706,"data":"54it [01:10,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":320.558892211,"data":"55it [01:11,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":320.558897729,"data":"56it [01:13,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":320.558903244,"data":"57it [01:16,  1.77s/it]\n"}
+,{"stream_name":"stdout","time":320.558907225,"data":"58it [01:16,  1.33s/it]\n"}
+,{"stream_name":"stdout","time":320.558912685,"data":"59it [01:17,  1.01s/it]\n"}
+,{"stream_name":"stdout","time":320.55891821,"data":"60it [01:17,  1.27it/s]\n"}
+,{"stream_name":"stdout","time":320.558927305,"data":"60it [01:17,  1.29s/it]\n"}
+,{"stream_name":"stdout","time":320.558932824,"data":"\n"}
+,{"stream_name":"stdout","time":320.55915658,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":361.431827236,"data":"\n"}
+,{"stream_name":"stdout","time":361.432098758,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":448.491987711,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":448.492042616,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":448.492046991,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":448.492049967,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":448.49205284,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":448.492055574,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":448.492058691,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":448.492061458,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.492064225,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.492066897,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.49206986,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.492072561,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.492075259,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":448.492078093,"data":"Model params: 12310330\n"}
+,{"stream_name":"stdout","time":448.492080824,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":448.492083481,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":448.492086155,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":448.492088822,"data":"START INFERENCE\n"}
+,{"stream_name":"stdout","time":448.492091534,"data":"Storing predictions with SNMS\n"}
+,{"stream_name":"stdout","time":448.492094325,"data":"CORRECTLY FINISHED INFERENCE STEP\n"}
+,{"stream_name":"stdout","time":448.492097056,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":448.492099957,"data":"\n"}
+,{"stream_name":"stdout","time":448.492102603,"data":"0it [00:00, ?it/s]/kaggle/temp/td/model/model.py:346: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":448.492105563,"data":"  with torch.cuda.amp.autocast() if use_amp else nullcontext():\n"}
+,{"stream_name":"stdout","time":448.492108321,"data":"\n"}
+,{"stream_name":"stdout","time":448.492110906,"data":"1it [00:13, 13.09s/it]\n"}
+,{"stream_name":"stdout","time":448.492113582,"data":"2it [00:14,  6.01s/it]\n"}
+,{"stream_name":"stdout","time":448.492116211,"data":"3it [00:15,  3.75s/it]\n"}
+,{"stream_name":"stdout","time":448.492119769,"data":"4it [00:16,  2.69s/it]\n"}
+,{"stream_name":"stdout","time":448.492132574,"data":"5it [00:17,  2.11s/it]\n"}
+,{"stream_name":"stdout","time":448.492144343,"data":"6it [00:18,  1.77s/it]\n"}
+,{"stream_name":"stdout","time":448.492146699,"data":"7it [00:19,  1.55s/it]\n"}
+,{"stream_name":"stdout","time":448.492148818,"data":"8it [00:20,  1.41s/it]\n"}
+,{"stream_name":"stdout","time":448.492150932,"data":"9it [00:21,  1.31s/it]\n"}
+,{"stream_name":"stdout","time":448.492153167,"data":"10it [00:22,  1.24s/it]\n"}
+,{"stream_name":"stdout","time":448.492155314,"data":"11it [00:23,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":448.492157446,"data":"12it [00:25,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":448.492159573,"data":"13it [00:26,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":448.492161771,"data":"14it [00:27,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.492163874,"data":"15it [00:28,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.492165986,"data":"16it [00:29,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.492168189,"data":"17it [00:30,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.492170295,"data":"18it [00:31,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.49217241,"data":"19it [00:33,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":448.492174514,"data":"20it [00:34,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":448.492176703,"data":"21it [00:35,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":448.492178816,"data":"22it [00:36,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":448.492180916,"data":"23it [00:37,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":448.492183038,"data":"24it [00:39,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":448.492185223,"data":"25it [00:40,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":448.492187334,"data":"26it [00:41,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":448.492189456,"data":"27it [00:42,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":448.492191573,"data":"28it [00:43,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":448.492193677,"data":"29it [00:45,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":448.492195789,"data":"30it [00:46,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":448.492197904,"data":"31it [00:47,  1.21s/it]\n"}
+,{"stream_name":"stdout","time":448.492200081,"data":"32it [00:48,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":448.492202194,"data":"33it [00:49,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":448.492204318,"data":"34it [00:51,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":448.492206423,"data":"35it [00:52,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":448.492208556,"data":"36it [00:53,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":448.492210679,"data":"37it [00:54,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":448.492212792,"data":"38it [00:55,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":448.49221492,"data":"39it [00:56,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":448.492217029,"data":"40it [00:57,  1.14s/it]\n"}
+,{"stream_name":"stdout","time":448.492219141,"data":"41it [00:59,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":448.492221256,"data":"42it [01:00,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":448.492226832,"data":"43it [01:01,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":448.492229178,"data":"44it [01:02,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":448.492231296,"data":"45it [01:03,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":448.492233457,"data":"46it [01:04,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":448.492235631,"data":"47it [01:05,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":448.492237753,"data":"48it [01:06,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":448.492239867,"data":"49it [01:07,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":448.492244681,"data":"50it [01:08,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":448.492246878,"data":"51it [01:10,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":448.492249101,"data":"52it [01:11,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":448.492251234,"data":"53it [01:12,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":448.492253347,"data":"54it [01:13,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":448.492255469,"data":"55it [01:14,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":448.492257591,"data":"56it [01:15,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":448.492259711,"data":"57it [01:18,  1.73s/it]\n"}
+,{"stream_name":"stdout","time":448.492261822,"data":"58it [01:18,  1.30s/it]\n"}
+,{"stream_name":"stdout","time":448.492263934,"data":"59it [01:19,  1.02it/s]\n"}
+,{"stream_name":"stdout","time":448.492266044,"data":"60it [01:19,  1.31it/s]\n"}
+,{"stream_name":"stdout","time":448.492268192,"data":"60it [01:19,  1.32s/it]\n"}
+,{"stream_name":"stdout","time":448.492270331,"data":"\n"}
+,{"stream_name":"stdout","time":448.493058775,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4\n"}
+,{"stream_name":"stdout","time":486.69100634,"data":"\n"}
+,{"stream_name":"stdout","time":486.691262261,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":573.180724454,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":573.180777549,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":573.180785102,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":573.180790125,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":573.18079522,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":573.180799965,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":573.180804176,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":573.180808244,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.180812518,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.180816622,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.18082083,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.180830074,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.180833116,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":573.180835848,"data":"Model params: 12310330\n"}
+,{"stream_name":"stdout","time":573.180838536,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":573.180841199,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":573.180843924,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":573.180846585,"data":"START INFERENCE\n"}
+,{"stream_name":"stdout","time":573.180849223,"data":"Storing predictions with SNMS\n"}
+,{"stream_name":"stdout","time":573.180851902,"data":"CORRECTLY FINISHED INFERENCE STEP\n"}
+,{"stream_name":"stdout","time":573.180854729,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":573.180883116,"data":"\n"}
+,{"stream_name":"stdout","time":573.180887624,"data":"0it [00:00, ?it/s]/kaggle/temp/td/model/model.py:346: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":573.1808922,"data":"  with torch.cuda.amp.autocast() if use_amp else nullcontext():\n"}
+,{"stream_name":"stdout","time":573.180895632,"data":"\n"}
+,{"stream_name":"stdout","time":573.18089881,"data":"1it [00:13, 13.04s/it]\n"}
+,{"stream_name":"stdout","time":573.180902018,"data":"2it [00:14,  5.98s/it]\n"}
+,{"stream_name":"stdout","time":573.180905189,"data":"3it [00:15,  3.71s/it]\n"}
+,{"stream_name":"stdout","time":573.180908384,"data":"4it [00:16,  2.66s/it]\n"}
+,{"stream_name":"stdout","time":573.180911572,"data":"5it [00:17,  2.08s/it]\n"}
+,{"stream_name":"stdout","time":573.180914762,"data":"6it [00:18,  1.73s/it]\n"}
+,{"stream_name":"stdout","time":573.180918284,"data":"7it [00:19,  1.53s/it]\n"}
+,{"stream_name":"stdout","time":573.180921634,"data":"8it [00:20,  1.38s/it]\n"}
+,{"stream_name":"stdout","time":573.180924829,"data":"9it [00:21,  1.31s/it]\n"}
+,{"stream_name":"stdout","time":573.18092803,"data":"10it [00:22,  1.23s/it]\n"}
+,{"stream_name":"stdout","time":573.180931202,"data":"11it [00:23,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":573.18093444,"data":"12it [00:24,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":573.180939304,"data":"13it [00:25,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":573.180945195,"data":"14it [00:26,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":573.180947342,"data":"15it [00:28,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":573.180949546,"data":"16it [00:29,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.180951642,"data":"17it [00:30,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.180953806,"data":"18it [00:31,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":573.180955923,"data":"19it [00:32,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":573.180958542,"data":"20it [00:33,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":573.180974005,"data":"21it [00:34,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.180978194,"data":"22it [00:35,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.180981817,"data":"23it [00:36,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.180985423,"data":"24it [00:37,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":573.180989318,"data":"25it [00:39,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":573.180992514,"data":"26it [00:40,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":573.180995741,"data":"27it [00:41,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":573.180998996,"data":"28it [00:42,  1.14s/it]\n"}
+,{"stream_name":"stdout","time":573.181002228,"data":"29it [00:43,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":573.181005432,"data":"30it [00:44,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":573.181008643,"data":"31it [00:46,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":573.181011782,"data":"32it [00:47,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":573.181014959,"data":"33it [00:48,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":573.18101812,"data":"34it [00:49,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":573.181021311,"data":"35it [00:50,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181024494,"data":"36it [00:51,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181027679,"data":"37it [00:53,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181034692,"data":"38it [00:54,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181037994,"data":"39it [00:55,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.18104113,"data":"40it [00:56,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181044392,"data":"41it [00:57,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":573.181052625,"data":"42it [00:59,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":573.181056667,"data":"43it [01:00,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":573.1810711,"data":"44it [01:01,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":573.181074999,"data":"45it [01:02,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":573.181078839,"data":"46it [01:03,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":573.181082611,"data":"47it [01:04,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":573.181086262,"data":"48it [01:06,  1.14s/it]\n"}
+,{"stream_name":"stdout","time":573.181089467,"data":"49it [01:07,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":573.181092699,"data":"50it [01:08,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":573.181095898,"data":"51it [01:09,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":573.18109909,"data":"52it [01:10,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":573.181102291,"data":"53it [01:11,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":573.181105475,"data":"54it [01:12,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.181108643,"data":"55it [01:13,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":573.181111827,"data":"56it [01:14,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":573.181115021,"data":"57it [01:18,  1.74s/it]\n"}
+,{"stream_name":"stdout","time":573.181118205,"data":"58it [01:18,  1.31s/it]\n"}
+,{"stream_name":"stdout","time":573.181121403,"data":"59it [01:18,  1.01it/s]\n"}
+,{"stream_name":"stdout","time":573.181130355,"data":"60it [01:18,  1.30it/s]\n"}
+,{"stream_name":"stdout","time":573.1811336,"data":"60it [01:18,  1.31s/it]\n"}
+,{"stream_name":"stdout","time":573.181136777,"data":"\n"}
+,{"stream_name":"stdout","time":573.181341737,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4\n"}
+,{"stream_name":"stdout","time":612.521522901,"data":"\n"}
+,{"stream_name":"stdout","time":612.521787578,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":699.018010563,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":699.018069888,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":699.018077202,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":699.018082137,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":699.018086449,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":699.018090612,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":699.018095158,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":699.018099285,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018103451,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018107603,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018138137,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018141066,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018143339,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":699.018146359,"data":"Model params: 12310330\n"}
+,{"stream_name":"stdout","time":699.018161253,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":699.018165119,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":699.018169219,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":699.018173039,"data":"START INFERENCE\n"}
+,{"stream_name":"stdout","time":699.018176739,"data":"Storing predictions with SNMS\n"}
+,{"stream_name":"stdout","time":699.018179995,"data":"CORRECTLY FINISHED INFERENCE STEP\n"}
+,{"stream_name":"stdout","time":699.018183419,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":699.018186993,"data":"\n"}
+,{"stream_name":"stdout","time":699.018190144,"data":"0it [00:00, ?it/s]/kaggle/temp/td/model/model.py:346: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.\n"}
+,{"stream_name":"stdout","time":699.018193836,"data":"  with torch.cuda.amp.autocast() if use_amp else nullcontext():\n"}
+,{"stream_name":"stdout","time":699.018197506,"data":"\n"}
+,{"stream_name":"stdout","time":699.018200636,"data":"1it [00:13, 13.25s/it]\n"}
+,{"stream_name":"stdout","time":699.018203841,"data":"2it [00:14,  6.06s/it]\n"}
+,{"stream_name":"stdout","time":699.018206962,"data":"3it [00:15,  3.76s/it]\n"}
+,{"stream_name":"stdout","time":699.018210176,"data":"4it [00:16,  2.68s/it]\n"}
+,{"stream_name":"stdout","time":699.018213302,"data":"5it [00:17,  2.08s/it]\n"}
+,{"stream_name":"stdout","time":699.018216442,"data":"6it [00:18,  1.72s/it]\n"}
+,{"stream_name":"stdout","time":699.018219577,"data":"7it [00:19,  1.49s/it]\n"}
+,{"stream_name":"stdout","time":699.018222708,"data":"8it [00:20,  1.35s/it]\n"}
+,{"stream_name":"stdout","time":699.018225841,"data":"9it [00:21,  1.26s/it]\n"}
+,{"stream_name":"stdout","time":699.01822908,"data":"10it [00:22,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.018254313,"data":"11it [00:23,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":699.018259007,"data":"12it [00:24,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":699.018262906,"data":"13it [00:25,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":699.018266952,"data":"14it [00:26,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":699.018270791,"data":"15it [00:27,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":699.018273982,"data":"16it [00:28,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":699.018277167,"data":"17it [00:30,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":699.018280378,"data":"18it [00:31,  1.08s/it]\n"}
+,{"stream_name":"stdout","time":699.018283535,"data":"19it [00:32,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":699.018286739,"data":"20it [00:33,  1.09s/it]\n"}
+,{"stream_name":"stdout","time":699.018289927,"data":"21it [00:34,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":699.018293158,"data":"22it [00:35,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":699.018296336,"data":"23it [00:36,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":699.018299517,"data":"24it [00:37,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":699.018302696,"data":"25it [00:38,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":699.01830588,"data":"26it [00:40,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":699.018313371,"data":"27it [00:41,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":699.018316687,"data":"28it [00:42,  1.14s/it]\n"}
+,{"stream_name":"stdout","time":699.018319872,"data":"29it [00:43,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":699.018324907,"data":"30it [00:44,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":699.018331343,"data":"31it [00:45,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":699.018333763,"data":"32it [00:47,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":699.018348448,"data":"33it [00:48,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":699.018352204,"data":"34it [00:49,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":699.018356056,"data":"35it [00:50,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":699.018387277,"data":"36it [00:51,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":699.018390865,"data":"37it [00:53,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.018394252,"data":"38it [00:54,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.018397639,"data":"39it [00:55,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.01840104,"data":"40it [00:56,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.018404425,"data":"41it [00:57,  1.20s/it]\n"}
+,{"stream_name":"stdout","time":699.018407828,"data":"42it [00:59,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":699.018412764,"data":"43it [01:00,  1.19s/it]\n"}
+,{"stream_name":"stdout","time":699.018416224,"data":"44it [01:01,  1.18s/it]\n"}
+,{"stream_name":"stdout","time":699.01841965,"data":"45it [01:02,  1.17s/it]\n"}
+,{"stream_name":"stdout","time":699.018422974,"data":"46it [01:03,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":699.018426322,"data":"47it [01:04,  1.16s/it]\n"}
+,{"stream_name":"stdout","time":699.018429731,"data":"48it [01:05,  1.15s/it]\n"}
+,{"stream_name":"stdout","time":699.018433179,"data":"49it [01:07,  1.14s/it]\n"}
+,{"stream_name":"stdout","time":699.018436636,"data":"50it [01:08,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":699.018444951,"data":"51it [01:09,  1.13s/it]\n"}
+,{"stream_name":"stdout","time":699.018447955,"data":"52it [01:10,  1.12s/it]\n"}
+,{"stream_name":"stdout","time":699.018462167,"data":"53it [01:11,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":699.018466333,"data":"54it [01:12,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":699.018471167,"data":"55it [01:13,  1.11s/it]\n"}
+,{"stream_name":"stdout","time":699.018475164,"data":"56it [01:14,  1.10s/it]\n"}
+,{"stream_name":"stdout","time":699.018479195,"data":"57it [01:18,  1.75s/it]\n"}
+,{"stream_name":"stdout","time":699.01848297,"data":"58it [01:18,  1.31s/it]\n"}
+,{"stream_name":"stdout","time":699.018486404,"data":"59it [01:18,  1.00it/s]\n"}
+,{"stream_name":"stdout","time":699.018489848,"data":"60it [01:18,  1.29it/s]\n"}
+,{"stream_name":"stdout","time":699.018493312,"data":"60it [01:18,  1.32s/it]\n"}
+,{"stream_name":"stdout","time":699.018496728,"data":"\n"}
+,{"stream_name":"stdout","time":699.01914135,"data":"{'SFKBP1109_1500': 43, 'p15u-vs-aik-2026-09-21-bd09_1500': 82, 'p15u-vs-vallentuna-2026-10-03-6cce_1200': 46, 'p15u-vs-vallentuna-2026-10-03-6cce_4000': 93}\n"}
+,{"stream_name":"stderr","time":700.883118125,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":700.88314158,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":701.177701629,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":701.177741622,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":701.949025059,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":702.956092289,"data":"[NbConvertApp] Writing 285310 bytes to __results__.html\n"}
 ]

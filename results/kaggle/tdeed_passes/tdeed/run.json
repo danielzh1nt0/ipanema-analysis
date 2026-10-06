@@ -1,1 +1,1 @@
-{"ok": true, "model": "SoccerNetBall_challenge1", "events": {"SFKBP1109_1500": "failed rc 1", "p15u-vs-aik-2026-09-21-bd09_1500": "failed rc 1", "p15u-vs-vallentuna-2026-10-03-6cce_1200": "failed rc 1", "p15u-vs-vallentuna-2026-10-03-6cce_4000": "failed rc 1"}, "minutes": 5.9}
+{"ok": true, "model": "SoccerNetBall_challenge1", "events": {"SFKBP1109_1500": 43, "p15u-vs-aik-2026-09-21-bd09_1500": 82, "p15u-vs-vallentuna-2026-10-03-6cce_1200": 46, "p15u-vs-vallentuna-2026-10-03-6cce_4000": 93}, "minutes": 11.6}
