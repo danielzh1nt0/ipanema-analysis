@@ -35,3 +35,19 @@ At 0.3 the model's count is about right (23 vs 21) and more than twice as precis
 2. Add the team from our tracking and score again.
 3. If it holds: run the model on the 3 full matches (Kaggle, free) and use its passes in the export, which needs one join per match on Modal. Later, fine-tune on our own taps.
 4. The licence is GPL-3.0: fine for running on our own server, but check before shipping the code to customers.
+
+## Which team passed (6 Oct afternoon)
+Score: the 16 model passes that match a tap, counting how often the team is right.
+
+| method | team right |
+|---|---|
+| Team head of the SoccerNet 2025 team model (left/right in the picture) | 9 of 14, near chance. Its passes were also slightly worse (12–14 of 21 found) |
+| Our app's "who has the ball" field around the kick | 10 |
+| Our nearest player to the exported ball | 8–9 |
+| Player nearest our raw ball candidates at the kick (best of 36 settings, so optimistic) | 11 |
+
+The cause is the same as before. On this second-half clip in low sun our ball choice is often wrong (the ball picked on a spectator at the fence), and some players have the wrong team colour.
+- **"When is a pass?"** is solved well enough: the model gives 23 passes against 21 real.
+- **"Which team?"** is not solved: about 65% right.
+
+**Running now:** the model on the full playing time of all 3 matches (Kaggle, free, about 3 h).
