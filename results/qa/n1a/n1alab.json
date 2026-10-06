@@ -1,0 +1,1044 @@
+{
+ "settings": [
+  "0",
+  "0.5",
+  "0.6"
+ ],
+ "pieces": {
+  "p09-norrviken-vs-solheim-2026-08-30_1856": {
+   "model": [
+    "learned from 88 people (25 off the pitch left out), group sizes [39, 29, 12, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 6.4"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.0,
+     4.0,
+     3.0,
+     1.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.0,
+     4.0,
+     3.0,
+     1.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.0,
+     4.0,
+     3.0,
+     1.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_2931": {
+   "model": [
+    "learned from 137 people (32 off the pitch left out), group sizes [59, 42, 29, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.5"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     3.5,
+     3.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     3.5,
+     3.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     3.5,
+     3.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_5081": {
+   "model": [
+    "learned from 108 people (60 off the pitch left out), group sizes [43, 31, 28, 6], light frame (shade spread 1.2), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 9.2"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     7.0,
+     6.5,
+     3.0,
+     4.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     7.0,
+     6.5,
+     3.0,
+     4.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     7.0,
+     6.5,
+     3.0,
+     4.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-djursholm-2026-09-26_2072": {
+   "model": [
+    "learned from 134 people (23 off the pitch left out), group sizes [64, 49, 13, 8], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     8.0,
+     8.0,
+     4.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     8.0,
+     8.0,
+     4.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     8.0,
+     8.0,
+     4.0,
+     0.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-djursholm-2026-09-26_3272": {
+   "model": [
+    "learned from 219 people (29 off the pitch left out), group sizes [75, 69, 67, 8], light frame (shade spread 1.3), default fit leaves out a group at 0.89 x the team gap, far pair moves a team by 36.2, reading far/mean (neither-share tried: {'default/default': 0.361, 'far/mean': 0.352})"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     8.0,
+     9.5,
+     13.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     8.0,
+     9.5,
+     13.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     8.0,
+     9.5,
+     13.0,
+     0.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-djursholm-2026-09-26_5072": {
+   "model": [
+    "learned from 133 people (8 off the pitch left out), group sizes [50, 49, 27, 7], light frame (shade spread 1.4), default fit leaves out a group at 0.76 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.0,
+     5.5,
+     5.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.0,
+     5.5,
+     5.0,
+     0.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.0,
+     5.5,
+     5.0,
+     0.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-reymersholm-2026-09-18_2227": {
+   "model": [
+    "learned from 159 people (36 off the pitch left out), group sizes [63, 44, 37, 15], light frame (shade spread 1.6), default fit leaves out a group at 0.41 x the team gap, far pair moves a team by 10.5"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     8.0,
+     7.5,
+     3.5,
+     5.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "188/252"
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     8.0,
+     7.5,
+     3.5,
+     5.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "188/252"
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     8.0,
+     7.5,
+     3.5,
+     5.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "188/252"
+   }
+  },
+  "p15u-vs-reymersholm-2026-09-18_4227": {
+   "model": [
+    "learned from 83 people (5 off the pitch left out), group sizes [42, 26, 11, 4], light frame (shade spread 1.7), default fit leaves out a group at 0.91 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     4.5,
+     3.0,
+     1.5,
+     1.5
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "204/252",
+    "88 labelled people": {
+     "team right": "47/64",
+     "greens in green team": "22/24",
+     "greens in white team": "1/24",
+     "whites in white team": "25/40",
+     "whites in green team": "13/40",
+     "spectators/staff kept out": "10/11",
+     "keepers/referee not a team": "12/12",
+     "players dropped as off the pitch": "3/64"
+    }
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     4.5,
+     3.0,
+     1.5,
+     1.5
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "204/252",
+    "88 labelled people": {
+     "team right": "47/64",
+     "greens in green team": "22/24",
+     "greens in white team": "1/24",
+     "whites in white team": "25/40",
+     "whites in green team": "13/40",
+     "spectators/staff kept out": "10/11",
+     "keepers/referee not a team": "12/12",
+     "players dropped as off the pitch": "3/64"
+    }
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     4.5,
+     3.0,
+     1.5,
+     1.5
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "204/252",
+    "88 labelled people": {
+     "team right": "47/64",
+     "greens in green team": "22/24",
+     "greens in white team": "1/24",
+     "whites in white team": "25/40",
+     "whites in green team": "13/40",
+     "spectators/staff kept out": "10/11",
+     "keepers/referee not a team": "12/12",
+     "players dropped as off the pitch": "3/64"
+    }
+   }
+  },
+  "p15u-vs-reymersholm-2026-09-18_726": {
+   "model": [
+    "learned from 111 people (74 off the pitch left out), group sizes [42, 38, 23, 8], light frame (shade spread 1.6), default fit leaves out a group at 1.53 x the team gap, far pair moves a team by 29.8, reading far/mean (neither-share tried: {'default/default': 0.216, 'far/mean': 0.036})"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     8.0,
+     5.5,
+     0.5,
+     10.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "220/252"
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     8.0,
+     5.5,
+     0.5,
+     10.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "220/252"
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     8.0,
+     5.5,
+     0.5,
+     10.0
+    ],
+    "changed vs off": 0,
+    "252 labelled night players": "220/252"
+   }
+  },
+  "p15u-vs-spanga-2026-09-25_1159": {
+   "model": [
+    "learned from 75 people (81 off the pitch left out), group sizes [25, 23, 16, 11], light frame (shade spread 1.9), default fit leaves out a group at 0.45 x the team gap, far pair moves a team by 8.9"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     9.5,
+     4.0,
+     3.5,
+     2.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     9.5,
+     4.5,
+     3.0,
+     2.0
+    ],
+    "changed vs off": 3
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     9.5,
+     5.0,
+     2.5,
+     2.0
+    ],
+    "changed vs off": 8
+   }
+  },
+  "p15u-vs-spanga-2026-09-25_2576": {
+   "model": [
+    "learned from 81 people (83 off the pitch left out), group sizes [32, 28, 15, 6], light frame (shade spread 1.9), default fit leaves out a group at 0.36 x the team gap, far pair moves a team by 9.2"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     10.5,
+     5.0,
+     1.0,
+     4.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     10.5,
+     5.0,
+     1.0,
+     4.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     10.5,
+     5.0,
+     1.0,
+     4.0
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-spanga-2026-09-25_3994": {
+   "model": [
+    "learned from 72 people (57 off the pitch left out), group sizes [39, 17, 13, 3], light frame (shade spread 1.8), default fit leaves out a group at 1.01 x the team gap, far pair moves a team by 11.5, reading far/mean (neither-share tried: {'default/default': 0.181, 'far/mean': 0.028})"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     0.0,
+     1.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     0.0,
+     1.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.0,
+     7.0,
+     0.0,
+     1.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-vasalund-2026-09-20_1164": {
+   "model": [
+    "learned from 127 people (71 off the pitch left out), group sizes [63, 37, 15, 12], light frame (shade spread 1.1), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.0,
+     6.5,
+     2.5,
+     10.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.0,
+     6.5,
+     2.5,
+     10.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.0,
+     6.5,
+     2.5,
+     10.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-vasalund-2026-09-20_2113": {
+   "model": [
+    "learned from 70 people (80 off the pitch left out), group sizes [31, 30, 6, 3], light frame (shade spread 1.2), default fit leaves out a group at 0.00 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     5.5,
+     5.0,
+     1.0,
+     8.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     5.5,
+     5.0,
+     1.0,
+     8.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     5.5,
+     5.0,
+     1.0,
+     8.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "p15u-vs-vasalund-2026-09-20_4012": {
+   "model": [
+    "learned from 82 people (98 off the pitch left out), group sizes [34, 31, 10, 7], light frame (shade spread 1.2), default fit leaves out a group at 0.82 x the team gap, far pair moves a team by 0.0"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     6.5,
+     7.5,
+     2.5,
+     8.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     6.5,
+     7.5,
+     2.5,
+     8.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     6.5,
+     7.5,
+     2.5,
+     8.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_1500": {
+   "model": [
+    "learned from 134 people (109 off the pitch left out), group sizes [59, 50, 18, 7], light frame (shade spread 1.3), default fit leaves out a group at 0.62 x the team gap, far pair moves a team by 3.8"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     7.0,
+     7.0,
+     2.0,
+     14.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     7.0,
+     8.0,
+     1.0,
+     14.5
+    ],
+    "changed vs off": 9
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     7.0,
+     8.0,
+     1.0,
+     14.5
+    ],
+    "changed vs off": 12
+   }
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_2723": {
+   "model": [
+    "learned from 96 people (83 off the pitch left out), group sizes [41, 24, 22, 9], light frame (shade spread 1.3), default fit leaves out a group at 0.49 x the team gap, far pair moves a team by 19.4, reading far/mean (neither-share tried: {'default/default': 0.24, 'far/mean': 0.062})"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     7.0,
+     8.0,
+     1.0,
+     4.5
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     7.0,
+     8.0,
+     1.0,
+     4.5
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     7.0,
+     8.0,
+     1.0,
+     4.5
+    ],
+    "changed vs off": 0
+   }
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_4558": {
+   "model": [
+    "learned from 124 people (58 off the pitch left out), group sizes [35, 34, 28, 27], light frame (shade spread 1.3), default fit leaves out a group at 0.57 x the team gap, far pair moves a team by 31.3, reading far/mean (neither-share tried: {'default/default': 0.218, 'far/mean': 0.073})"
+   ],
+   "0": {
+    "per frame A/B/neither/off": [
+     7.5,
+     8.0,
+     2.0,
+     5.0
+    ],
+    "changed vs off": 0
+   },
+   "0.5": {
+    "per frame A/B/neither/off": [
+     7.5,
+     8.0,
+     2.0,
+     5.0
+    ],
+    "changed vs off": 0
+   },
+   "0.6": {
+    "per frame A/B/neither/off": [
+     7.5,
+     8.0,
+     2.0,
+     5.0
+    ],
+    "changed vs off": 0
+   }
+  }
+ },
+ "changed people 0.5": [
+  {
+   "n": 0,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 0,
+   "box": [
+    1225.0,
+    642.2,
+    1316.2,
+    821.0
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 1,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 0,
+   "box": [
+    1702.0,
+    513.0,
+    1765.3,
+    628.7
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 2,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 85,
+   "box": [
+    1336.2,
+    847.3,
+    1437.6,
+    1079.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 3,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 0,
+   "box": [
+    1670.3,
+    490.2,
+    1727.5,
+    599.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 4,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 0,
+   "box": [
+    350.4,
+    469.1,
+    397.7,
+    589.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 5,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 85,
+   "box": [
+    438.6,
+    484.6,
+    490.1,
+    590.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 6,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 256,
+   "box": [
+    386.7,
+    493.9,
+    430.4,
+    603.0
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 7,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 341,
+   "box": [
+    1736.8,
+    464.6,
+    1769.5,
+    548.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 8,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 427,
+   "box": [
+    446.0,
+    510.1,
+    500.5,
+    631.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 9,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 512,
+   "box": [
+    649.1,
+    504.0,
+    703.6,
+    621.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 10,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 598,
+   "box": [
+    840.8,
+    489.4,
+    876.7,
+    596.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 11,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 598,
+   "box": [
+    1785.8,
+    453.6,
+    1808.7,
+    529.5
+   ],
+   "from": "K",
+   "to": "B"
+  }
+ ],
+ "changed people 0.6": [
+  {
+   "n": 0,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 0,
+   "box": [
+    1225.0,
+    642.2,
+    1316.2,
+    821.0
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 1,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 0,
+   "box": [
+    822.4,
+    473.4,
+    860.6,
+    566.7
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 2,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 0,
+   "box": [
+    1702.0,
+    513.0,
+    1765.3,
+    628.7
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 3,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 85,
+   "box": [
+    1336.2,
+    847.3,
+    1437.6,
+    1079.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 4,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 170,
+   "box": [
+    997.0,
+    866.0,
+    1088.0,
+    1079.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 5,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 256,
+   "box": [
+    649.8,
+    761.0,
+    727.1,
+    983.3
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 6,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 341,
+   "box": [
+    386.2,
+    668.3,
+    447.6,
+    848.8
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 7,
+   "piece": "p15u-vs-spanga-2026-09-25_1159",
+   "frame": 427,
+   "box": [
+    196.0,
+    637.9,
+    292.3,
+    802.8
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 8,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 0,
+   "box": [
+    1670.3,
+    490.2,
+    1727.5,
+    599.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 9,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 0,
+   "box": [
+    350.4,
+    469.1,
+    397.7,
+    589.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 10,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 85,
+   "box": [
+    438.6,
+    484.6,
+    490.1,
+    590.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 11,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 170,
+   "box": [
+    382.0,
+    482.1,
+    412.3,
+    583.6
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 12,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 256,
+   "box": [
+    386.7,
+    493.9,
+    430.4,
+    603.0
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 13,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 256,
+   "box": [
+    1825.3,
+    486.0,
+    1867.2,
+    591.2
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 14,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 341,
+   "box": [
+    357.4,
+    505.0,
+    401.9,
+    625.8
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 15,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 341,
+   "box": [
+    1736.8,
+    464.6,
+    1769.5,
+    548.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 16,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 427,
+   "box": [
+    446.0,
+    510.1,
+    500.5,
+    631.5
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 17,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 512,
+   "box": [
+    649.1,
+    504.0,
+    703.6,
+    621.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 18,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 598,
+   "box": [
+    840.8,
+    489.4,
+    876.7,
+    596.4
+   ],
+   "from": "K",
+   "to": "B"
+  },
+  {
+   "n": 19,
+   "piece": "solberga-vs-p09-norrviken-2026-09-11_1500",
+   "frame": 598,
+   "box": [
+    1785.8,
+    453.6,
+    1808.7,
+    529.5
+   ],
+   "from": "K",
+   "to": "B"
+  }
+ ]
+}

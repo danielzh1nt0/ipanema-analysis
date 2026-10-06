@@ -111,6 +111,34 @@ CLS_MAX_FLIP = 0.25    # P2c: the P8 classifier is dropped when it moves more th
 CLS_CLEAR = 0.4        # P2c: a 'clear' colour reading: distance to the nearer team colour < 0.4 x distance to the other
 SHADE_SPREAD = 2.4     # F1c auto gate: p90/p10 of (grass at the feet / frame grass) over the fitting people
 
+BRIGHT_NEAR = 0.6      # N1a: an uncalibrated-ground 'neither' reading this close (share of the kits' colour gap) to a kit's colour, and brighter, joins it
+
+def bright_team(model, f, near=None):
+    """N1a (6 Oct, Solberga at night): under floodlights the nearest white players read far brighter than the white team's
+    centre (L ~97 vs ~73), so classify() calls them 'other' (referee / staff) and tracking removes them. A reading that
+    classify() calls 'other' but whose COLOUR (a*b*) is near one kit - within `near` x the gap between the two kits'
+    colours, and nearer that kit than the other - and that is at least as light as that kit, is that kit: same shirt,
+    more light. Returns 'A' / 'B' (model team index letters, like classify) or None. Needs kits that differ in colour
+    (a*b* gap >= HUE_KEEP); a dark referee (darker than the kit) or a referee in another colour stays 'other'."""
+    if f is None: return None
+    near = BRIGHT_NEAR if near is None else near
+    ta, tb = (np.asarray(t, float) for t in model["teams"]); fa = np.asarray(f, float)
+    gap = float(np.linalg.norm(ta[1:3] - tb[1:3]))
+    if gap < HUE_KEEP: return None
+    ha, hb = float(np.linalg.norm(fa[1:3] - ta[1:3])), float(np.linalg.norm(fa[1:3] - tb[1:3]))
+    k, hk, tk = ("A", ha, ta) if ha <= hb else ("B", hb, tb)
+    # only the LIGHTER kit: floodlights wash a light shirt out further; 'brighter than the dark kit' is true of almost
+    # anyone (on Vasalund red players and on Spånga striped players joined the black team, on Spånga a goal post did)
+    if tk[0] < (tb if k == "A" else ta)[0]: return None
+    return k if hk <= near * gap and fa[0] >= tk[0] else None
+
+def bright_mode():
+    """N1a: share of the colour gap for bright_team on grounds without calibration (KitTeamModel.offpitch); env
+    IPANEMA_KIT_BRIGHT, '0' = off (the reading before 6 Oct). The app (calibrated grounds, offpitch False) never uses it."""
+    v = os.environ.get("IPANEMA_KIT_BRIGHT", str(BRIGHT_NEAR))
+    try: return float(v)
+    except ValueError: return 0.0
+
 def light_mode():
     """F1c: 'auto' (default for KitTeamModel: 'local' when the match has hard sun/shade, else 'frame'), 'frame' (torso
     lightness as is, the reading before 2 Oct) or 'local' (relative to the grass at the feet). Env IPANEMA_KIT_LIGHT.
@@ -463,6 +491,8 @@ class KitTeamModel:
     def _colour_lab(self, f, frame=None, box=None):
         c = kit_share_label(self.model, frame, box, f) if (frame is not None and os.environ.get("IPANEMA_KIT_SHARE", "1") == "1" and hue_mode(self.model)) else classify(self.model, f)
         if c is None: return None
+        if c == "other" and self.offpitch and bright_mode() > 0 and not hue_mode(self.model):   # N1a: uncalibrated grounds only (tracktest)
+            c = bright_team(self.model, f, bright_mode()) or "other"
         if c == "other": return "K"
         return {"A": "B", "B": "A"}[c] if self.swap else c
     def _lab(self, f, h=None, frame=None, box=None):

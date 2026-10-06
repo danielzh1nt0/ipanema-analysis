@@ -1,2 +1,2 @@
-tools/app_pull.py
-# Mon Oct  5 23:06:14 CEST 2026
+tools/n1a_track.py
+# Tue Oct  6 03:10:29 CEST 2026 N1a re-track Solberga 1500 + Spanga 1159 with the bright-kit rule
