@@ -1,18 +1,17 @@
-kernel danielmatros/ipanema-tdeed-passes
-Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-tdeed-passes
-  0.5 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/tdeed_passes/tdeed/SFKBP1109_1500.json
-Output file downloaded to results/kaggle/tdeed_passes/tdeed/p15u-vs-aik-2026-09-21-bd09_1500.json
-Output file downloaded to results/kaggle/tdeed_passes/tdeed/p15u-vs-vallentuna-2026-10-03-6cce_1200.json
-Output file downloaded to results/kaggle/tdeed_passes/tdeed/p15u-vs-vallentuna-2026-10-03-6cce_4000.json
-Output file downloaded to results/kaggle/tdeed_passes/tdeed/run.json
-Kernel log downloaded to results/kaggle/tdeed_passes/ipanema-tdeed-passes.log
-  ipanema-tdeed-passes.log 40383
-  run.json 159
-  tdeed 4096
+kernel danielmatros/ipanema-tdeed-team
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-tdeed-team
+  0.5 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.RUNNING"
+  9.7 min: danielmatros/ipanema-tdeed-team has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/tdeed_team/tdt/SFKBP1109_1500.npz
+Output file downloaded to results/kaggle/tdeed_team/tdt/p15u-vs-aik-2026-09-21-bd09_1500.npz
+Output file downloaded to results/kaggle/tdeed_team/tdt/p15u-vs-vallentuna-2026-10-03-6cce_1200.npz
+Output file downloaded to results/kaggle/tdeed_team/tdt/p15u-vs-vallentuna-2026-10-03-6cce_4000.npz
+Output file downloaded to results/kaggle/tdeed_team/tdt/run.json
+Kernel log downloaded to results/kaggle/tdeed_team/ipanema-tdeed-team.log
+  ipanema-tdeed-team.log 8701
+  run.json 154
+  tdt 4096

@@ -1,0 +1,71 @@
+[{"stream_name":"stdout","time":0.746738773,"data":"+ git clone -q --depth 1 https://github.com/SoccerNet/sn-teamspotting.git /kaggle/temp/ts\n"}
+,{"stream_name":"stdout","time":1.822771093,"data":"\n"}
+,{"stream_name":"stdout","time":1.822814129,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":87.061838935,"data":"\n"}
+,{"stream_name":"stdout","time":87.061876324,"data":"+ pip install -q timm==1.0.3 gdown wandb tabulate SoccerNet\n"}
+,{"stream_name":"stdout","time":101.910398956,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 kB 1.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":101.910439347,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 38.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":101.910444744,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.6/92.6 kB 3.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":101.910449567,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.3/104.3 MB 19.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":101.910454162,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 78.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":101.910458779,"data":"WARNING: huggingface-hub 1.29.0 does not provide the extra 'cli'\n"}
+,{"stream_name":"stdout","time":101.910464689,"data":"\n"}
+,{"stream_name":"stdout","time":101.910472132,"data":"+ cd /kaggle/temp \u0026\u0026 gdown -q --folder https://drive.google.com/drive/folders/16IqSkctIGp76ZYKKvJvMB_ggHcQsessM -O tck || true; find /kaggle/temp/tck | head\n"}
+,{"stream_name":"stdout","time":105.448045001,"data":"/kaggle/temp/tck\n"}
+,{"stream_name":"stdout","time":105.448076582,"data":"/kaggle/temp/tck/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":105.448082169,"data":"\n"}
+,{"stream_name":"stdout","time":105.448507718,"data":"ckpt ['/kaggle/temp/tck/checkpoint_best.pt']\n"}
+,{"stream_name":"stdout","time":124.961728929,"data":"head shapes {'_pred_fine._fc1._fc_out.weight': (13, 368), '_pred_fine._fc2._fc_out.weight': (18, 368), '_pred_displ._fc_out.weight': (1, 368), '_pred_team._fc_out.weight': (1, 368)}\n"}
+,{"stream_name":"stderr","time":125.30999761,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":126.398616858,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":126.399609571,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":126.400414621,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":126.401202102,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":126.401960318,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":126.402082673,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":126.402809014,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":126.403532305,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.404600156,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.405335273,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.406157532,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.406960107,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.407684727,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":126.498827435,"data":"Model params: 12310699\n"}
+,{"stream_name":"stdout","time":126.500228202,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":126.501395025,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":126.501627553,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":127.141511767,"data":"heads [13, 9] failed: RuntimeError('Error(s) in loading state_dict for Impl:\\n\\tsize mismatch for _pred_fine._fc2._fc_out.weight: copying a param with shape torch.Size([18, 368]) from checkpoint, the shape in current model is torch.Size([9, 368]).\\n\\tsize mismatch for _pred_fine._fc2._fc_out.bias: copying a param with sh\n"}
+,{"stream_name":"stdout","time":127.288309356,"data":"=\u003e Processing stage with 4 blocks residual\n"}
+,{"stream_name":"stdout","time":127.289140167,"data":"=\u003e Using GSM/GSF, fold dim: 16 / 56\n"}
+,{"stream_name":"stdout","time":127.28983362,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":127.290502436,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":127.291198061,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":127.29128876,"data":"=\u003e Processing stage with 7 blocks residual\n"}
+,{"stream_name":"stdout","time":127.292036707,"data":"=\u003e Using GSM/GSF, fold dim: 40 / 152\n"}
+,{"stream_name":"stdout","time":127.292727829,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.293424828,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.294173447,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.294819625,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.29567948,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.296409927,"data":"=\u003e Using GSM/GSF, fold dim: 92 / 368\n"}
+,{"stream_name":"stdout","time":127.380315663,"data":"Model params: 12310699\n"}
+,{"stream_name":"stdout","time":127.381412169,"data":"  CNN features: 2815548\n"}
+,{"stream_name":"stdout","time":127.38189479,"data":"  Temporal: 9452816\n"}
+,{"stream_name":"stdout","time":127.382045624,"data":"  Head: 4797\n"}
+,{"stream_name":"stdout","time":127.447456117,"data":"loaded with heads [13, 18]\n"}
+,{"stream_name":"stdout","time":127.447877963,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/SFKBP1109_1500.mp4 -r 25 -an /kaggle/temp/SFKBP1109_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":204.359035128,"data":"\n"}
+,{"stream_name":"stdout","time":238.307204637,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4 -r 25 -an /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":314.206508429,"data":"\n"}
+,{"stream_name":"stdout","time":342.07928,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 -r 25 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4\n"}
+,{"stream_name":"stdout","time":415.141328555,"data":"\n"}
+,{"stream_name":"stdout","time":443.248492834,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 -r 25 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4\n"}
+,{"stream_name":"stdout","time":518.336989887,"data":"\n"}
+,{"stream_name":"stdout","time":546.079599426,"data":"{'SFKBP1109_1500': [1502, 25], 'p15u-vs-aik-2026-09-21-bd09_1500': [1502, 25], 'p15u-vs-vallentuna-2026-10-03-6cce_1200': [1502, 25], 'p15u-vs-vallentuna-2026-10-03-6cce_4000': [1502, 25]}\n"}
+,{"stream_name":"stderr","time":552.694555747,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":552.694589814,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":552.979757664,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":552.979807104,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":553.744874402,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":554.771080279,"data":"[NbConvertApp] Writing 295553 bytes to __results__.html\n"}
+]
