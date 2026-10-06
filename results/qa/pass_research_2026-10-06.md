@@ -1,0 +1,37 @@
+# Passes: what's wrong and what fixes it (6 Oct)
+
+## Answer key
+Daniel tapped every pass in the Vallentuna clip at 66:40–68:40: **21 passes**.
+
+## Our current method (track the ball and players, then count changes of the player on the ball)
+- Counts **52 passes**. 16 of them are real, so 31% of what we count is a real pass.
+- Rebuilt offline from the match's own tracking data (`tools/passlab_taps.py`), and tried 108 settings of the counting rule. The best setting gives 41 passes with 15 real. The counting rule is not the problem.
+- The causes are upstream:
+  - The ball dot jumps, by up to 80 m in 1.5 s.
+  - During a dribble, "the player on the ball" flips between teammates who stand close together.
+  - In two moments the team colours were wrong.
+
+## Research
+- **SoccerNet Ball Action Spotting** (CVPR challenge, 2023–25) spots 12 ball actions straight from the video, among them PASS, DRIVE, HIGH PASS, CROSS, SHOT and THROW IN. It is trained on broadcast EFL video and reaches about 0.6 mAP@1 s.
+- **T-DEED** (CVsports 2024, GPL-3.0 code) publishes a checkpoint for that challenge.
+- **dude.k** (2025) is a refined T-DEED. No public weights.
+- **FOOTPASS** (2026) adds who passed (team and shirt number). Its videos are under NDA.
+- **PathCRF** (2026) detects events from player tracks only, with no ball: F1 0.76 on full 22-player tracking. We see only about 7 players per team, so it is a weaker fit for us.
+
+## Test: T-DEED on our footage, unchanged, no training (Kaggle, free)
+Same clip, model passes = PASS + HIGH PASS + CROSS + FREE KICK, merged when less than 0.8 s apart, a match counts within 1.5 s.
+
+| model threshold | model passes | real passes found (of 21) | model passes that are real |
+|---|---|---|---|
+| 0.2 | 39 | 19 | 49% |
+| **0.3** | **23** | **16** | **70%** |
+| 0.4 | 19 | 13 | 68% |
+| current method | 52 | 16 | 31% |
+
+At 0.3 the model's count is about right (23 vs 21) and more than twice as precise as our current method, with no work on our side. It does not say which team passed. That comes from our tracking: the team of the player nearest the ball at the moment of the kick.
+
+## Next
+1. Daniel taps the other 3 clips (SFK–BP, SFK–AIK, Vallentuna 20:00) to check that this holds on other matches and pitches. The model's output for those clips is already in `results/kaggle/tdeed_passes/tdeed/`.
+2. Add the team from our tracking and score again.
+3. If it holds: run the model on the 3 full matches (Kaggle, free) and use its passes in the export, which needs one join per match on Modal. Later, fine-tune on our own taps.
+4. The licence is GPL-3.0: fine for running on our own server, but check before shipping the code to customers.
