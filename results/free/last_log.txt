@@ -1,89 +1,116 @@
-SFKBP1109 stats.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 match_data.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_000.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_001.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_002.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_003.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_004.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_005.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_006.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_007.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_008.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_009.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_010.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_011.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_012.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_013.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_014.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_015.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_016.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_017.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_018.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_019.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_020.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_021.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_022.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_023.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_024.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_025.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_026.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_027.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_028.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_029.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_030.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_031.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_032.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_033.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_034.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_035.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_036.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_037.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_038.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 frames_039.json <HTTPError 400: 'Bad Request'>
-SFKBP1109 0 files
-p15u-vs-aik-2026-09-21-bd09 stats.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 match_data.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_000.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_001.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_002.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_003.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_004.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_005.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_006.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_007.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_008.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_009.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_010.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_011.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_012.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_013.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_014.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_015.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_016.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_017.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_018.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_019.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_020.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_021.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_022.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_023.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_024.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_025.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_026.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_027.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_028.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_029.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_030.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_031.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_032.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_033.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_034.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_035.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_036.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_037.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_038.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 frames_039.json <HTTPError 400: 'Bad Request'>
-p15u-vs-aik-2026-09-21-bd09 0 files
-p15u-vs-vallentuna-2026-10-03-6cce stats.json <HTTPError 400: 'Bad Request'>
-p15u-vs-vallentuna-2026-10-03-6cce match_data.json <HTTPError 400: 'Bad Request'>
-p15u-vs-vallentuna-2026-10-03-6cce 0 files
+01:13:59 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:14:09 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-06 01:14:14] [INFO] rf-detr - Downloading pretrained weights for /home/runner/.roboflow/models/rf-detr-medium.pth
+/home/runner/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 8.60M/386M [00:00<00:04, 90.2MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:   6%|▌         | 21.5M/386M [00:00<00:03, 117MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:   9%|▉         | 34.6M/386M [00:00<00:02, 126MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 46.7M/386M [00:00<00:03, 119MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  15%|█▌        | 59.8M/386M [00:00<00:02, 125MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  19%|█▉        | 72.8M/386M [00:00<00:02, 129MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 86.0M/386M [00:00<00:02, 132MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  26%|██▌       | 99.3M/386M [00:00<00:02, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  29%|██▉       | 112M/386M [00:00<00:02, 135MiB/s] /home/runner/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 126M/386M [00:01<00:02, 136MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  36%|███▌      | 139M/386M [00:01<00:02, 128MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  39%|███▉      | 152M/386M [00:01<00:01, 131MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 165M/386M [00:01<00:01, 133MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  46%|████▌     | 178M/386M [00:01<00:01, 135MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  50%|████▉     | 192M/386M [00:01<00:01, 137MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  53%|█████▎    | 205M/386M [00:01<00:01, 137MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  56%|█████▋    | 218M/386M [00:01<00:01, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  60%|█████▉    | 231M/386M [00:01<00:01, 138MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  63%|██████▎   | 245M/386M [00:01<00:01, 139MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  67%|██████▋   | 258M/386M [00:02<00:00, 135MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  70%|███████   | 271M/386M [00:02<00:00, 136MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  74%|███████▎  | 284M/386M [00:02<00:00, 131MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  77%|███████▋  | 297M/386M [00:02<00:00, 126MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  80%|████████  | 310M/386M [00:02<00:00, 130MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  84%|████████▎ | 323M/386M [00:02<00:00, 132MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  87%|████████▋ | 336M/386M [00:02<00:00, 134MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  90%|█████████ | 349M/386M [00:02<00:00, 131MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  94%|█████████▍| 363M/386M [00:02<00:00, 133MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth:  97%|█████████▋| 375M/386M [00:02<00:00, 129MiB/s]/home/runner/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:03<00:00, 131MiB/s]
+[2026-10-06 01:14:18] [INFO] rf-detr - MD5 validation successful for /home/runner/.roboflow/models/rf-detr-medium.pth
+[2026-10-06 01:14:18] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:14:18] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:14:19] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-06 01:14:21] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+01:14:33 key-frame detections saved (245 people on 8 frames)
+01:15:43 kits: per-player classifier from 510 on-pitch people, 0 of 15 runs kept -> colour only
+01:15:43 kits: learned from 589 people (510 off the pitch left out), group sizes [244, 232, 77, 36], light frame (shade spread 1.3), default fit leaves out a group at 0.58 x the team gap, far pair moves a team by 0.0
+01:15:43 off-pitch people dropped by the pitch-edge test: yes
+[2026-10-06 01:15:43] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-06 01:15:43] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:15:43] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:15:45] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+/home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
+  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+[2026-10-06 01:15:46] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+01:15:48   tracking frame 0
+01:17:06   tracking frame 50 (0.6 frames/s)
+01:18:24   tracking frame 100 (0.6 frames/s)
+01:19:42   tracking frame 150 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:21:01   tracking frame 200 (0.6 frames/s)
+01:22:19   tracking frame 250 (0.6 frames/s)
+01:23:36   tracking frame 300 (0.6 frames/s)
+01:24:53   tracking frame 350 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:26:11   tracking frame 400 (0.6 frames/s)
+01:27:29   tracking frame 450 (0.6 frames/s)
+01:28:47   tracking frame 500 (0.6 frames/s)
+01:30:04   tracking frame 550 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:31:19 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+01:31:19 clean: 1 still people by the lines dropped (bench, coaches)
+01:31:19 clean: removed 406 rows of non-team kits (referee / staff)
+01:31:19 clean: dropped 77 off-pitch, merged 102 duplicates, stitched 15 ids, keepers [] -> A defends left
+01:31:19 clean: players per frame median A 7 / B 8, max A 10 / B 11
+01:31:19 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 47, 'median_track_s': {'dark': 2.7, 'light': 3.37}, 'minutes': 17.2, 'filled_rows': 127}
+| | new, RF-DETR |
+|---|---|
+| dark players per frame (seen) | 7.0 |
+| light players per frame (seen) | 8.0 |
+| dark per frame incl. filled | 7.0 |
+| light per frame incl. filled | 8.0 |
+| dark: median time a player stays tracked (s) | 2.7 |
+| light: median time tracked (s) | 3.37 |
+| track ids in 20 s | 47 |
+solberga-vs-p09-norrviken-2026-09-11 1500 returncode 0
+01:31:21 clip 0c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4: 168597 frames @ 29.97
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:31:30 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-06 01:31:35] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-06 01:31:35] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:31:35] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:31:36] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-06 01:31:37] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+01:31:50 key-frame detections saved (157 people on 8 frames)
+01:32:57 kits: per-player classifier from 614 on-pitch people, 1 of 15 runs kept
+01:33:01 kits: learned from 327 people (387 off the pitch left out), group sizes [99, 90, 89, 49], light frame (shade spread 2.0), default fit leaves out a group at 2.71 x the team gap, far pair moves a team by 61.3, reading far/mean (neither-share tried: {'default/default': 0.431, 'far/mean': 0.003})
+01:33:01 off-pitch people dropped by the pitch-edge test: yes
+[2026-10-06 01:33:01] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-06 01:33:01] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:33:01] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-06 01:33:02] [INFO] rf-detr - File /home/runner/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+/home/runner/work/ipanema-analysis/ipanema-analysis/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.
+  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+[2026-10-06 01:33:04] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+01:33:06   tracking frame 0
+01:34:25   tracking frame 50 (0.6 frames/s)
+01:35:45   tracking frame 100 (0.6 frames/s)
+01:37:05   tracking frame 150 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:38:24   tracking frame 200 (0.6 frames/s)
+01:39:43   tracking frame 250 (0.6 frames/s)
+01:41:03   tracking frame 300 (0.6 frames/s)
+01:42:22   tracking frame 350 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:43:41   tracking frame 400 (0.6 frames/s)
+01:44:59   tracking frame 450 (0.6 frames/s)
+01:46:17   tracking frame 500 (0.6 frames/s)
+01:47:35   tracking frame 550 (0.6 frames/s)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+01:48:50 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+01:48:50 clean: dropped 0 off-pitch, merged 34 duplicates, stitched 19 ids, keepers [] -> A defends left
+01:48:50 clean: players per frame median A 9 / B 7, max A 17 / B 13
+01:48:50 new, RF-DETR: {'observed_per_frame': {'dark': 9.0, 'light': 7.0}, 'shown_per_frame': {'dark': 9.0, 'light': 7.0}, 'tracks': 49, 'median_track_s': {'dark': 5.97, 'light': 6.36}, 'minutes': 17.3, 'filled_rows': 92}
+| | new, RF-DETR |
+|---|---|
+| dark players per frame (seen) | 9.0 |
+| light players per frame (seen) | 7.0 |
+| dark per frame incl. filled | 9.0 |
+| light per frame incl. filled | 7.0 |
+| dark: median time a player stays tracked (s) | 5.97 |
+| light: median time tracked (s) | 6.36 |
+| track ids in 20 s | 49 |
+p15u-vs-spanga-2026-09-25 1159 returncode 0
