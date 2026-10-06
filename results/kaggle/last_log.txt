@@ -1,18 +1,11 @@
-kernel danielmatros/ipanema-pass-clips
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-pass-clips
-  0.5 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.RUNNING"
-  3.6 min: danielmatros/ipanema-pass-clips has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/pass_clips/SFKBP1109_1500.mp4
-Output file downloaded to results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4
-Output file downloaded to results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4
-Output file downloaded to results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4
-Output file downloaded to results/kaggle/pass_clips/result.json
-Kernel log downloaded to results/kaggle/pass_clips/ipanema-pass-clips.log
-  SFKBP1109_1500.mp4 14037847
-  ipanema-pass-clips.log 1278
-  p15u-vs-aik-2026-09-21-bd09_1500.mp4 17214043
-  p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 14238123
-  p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 13629356
-  result.json 31
-  run.json 154
+kernel danielmatros/ipanema-tdeed-passes
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-tdeed-passes
+  0.5 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-tdeed-passes has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/tdeed_passes/tdeed/run.json
+Kernel log downloaded to results/kaggle/tdeed_passes/ipanema-tdeed-passes.log
+  ipanema-tdeed-passes.log 12404
+  run.json 158
+  tdeed 4096

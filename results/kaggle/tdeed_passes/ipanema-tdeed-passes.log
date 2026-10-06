@@ -1,0 +1,104 @@
+[{"stream_name":"stdout","time":0.62320843,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":0.665566198,"data":"name\n"}
+,{"stream_name":"stdout","time":0.665593823,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.665597967,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.665601361,"data":"\n"}
+,{"stream_name":"stdout","time":0.665608647,"data":"+ git clone -q --depth 1 https://github.com/arturxe2/T-DEED.git /kaggle/temp/td\n"}
+,{"stream_name":"stdout","time":3.176697084,"data":"\n"}
+,{"stream_name":"stdout","time":3.176726908,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":95.579174344,"data":"\n"}
+,{"stream_name":"stdout","time":95.579209809,"data":"+ pip install -q timm==1.0.3 gdown wandb tabulate\n"}
+,{"stream_name":"stdout","time":107.961262362,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.6/43.6 kB 1.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":107.96130694,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 45.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":107.961313768,"data":"\n"}
+,{"stream_name":"stdout","time":107.961318857,"data":"+ cd /kaggle/temp \u0026\u0026 gdown -q --folder https://drive.google.com/drive/folders/1sxZalU_hCwL8ITZCU9VqSWE8dB94lJty -O ck || true; find /kaggle/temp/ck | head -40\n"}
+,{"stream_name":"stdout","time":163.622670538,"data":"/kaggle/temp/ck\n"}
+,{"stream_name":"stdout","time":163.622705503,"data":"/kaggle/temp/ck/Tennis\n"}
+,{"stream_name":"stdout","time":163.622711855,"data":"/kaggle/temp/ck/Tennis/Tennis_big\n"}
+,{"stream_name":"stdout","time":163.622723341,"data":"/kaggle/temp/ck/Tennis/Tennis_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622727285,"data":"/kaggle/temp/ck/Tennis/Tennis_small\n"}
+,{"stream_name":"stdout","time":163.622730519,"data":"/kaggle/temp/ck/Tennis/Tennis_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622733783,"data":"/kaggle/temp/ck/SoccerNet\n"}
+,{"stream_name":"stdout","time":163.622736983,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small\n"}
+,{"stream_name":"stdout","time":163.622740162,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622743402,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big\n"}
+,{"stream_name":"stdout","time":163.622746502,"data":"/kaggle/temp/ck/SoccerNet/SoccerNet_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622749752,"data":"/kaggle/temp/ck/SoccerNetBall\n"}
+,{"stream_name":"stdout","time":163.622752893,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1\n"}
+,{"stream_name":"stdout","time":163.622756074,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622759324,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2\n"}
+,{"stream_name":"stdout","time":163.622762581,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge2/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622765795,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test\n"}
+,{"stream_name":"stdout","time":163.622768994,"data":"/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_test/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.62277215,"data":"/kaggle/temp/ck/SoccerNetTeamBall\n"}
+,{"stream_name":"stdout","time":163.622775304,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline\n"}
+,{"stream_name":"stdout","time":163.622787699,"data":"/kaggle/temp/ck/SoccerNetTeamBall/SoccerNetBall_baseline/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622790558,"data":"/kaggle/temp/ck/FineDiving\n"}
+,{"stream_name":"stdout","time":163.622792983,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big\n"}
+,{"stream_name":"stdout","time":163.62279538,"data":"/kaggle/temp/ck/FineDiving/FineDiving_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622797798,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small\n"}
+,{"stream_name":"stdout","time":163.622800202,"data":"/kaggle/temp/ck/FineDiving/FineDiving_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.62280264,"data":"/kaggle/temp/ck/FigureSkatingPerf\n"}
+,{"stream_name":"stdout","time":163.622805017,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big\n"}
+,{"stream_name":"stdout","time":163.622807448,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622809922,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small\n"}
+,{"stream_name":"stdout","time":163.622812362,"data":"/kaggle/temp/ck/FigureSkatingPerf/FigureSkatingPerf_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622814842,"data":"/kaggle/temp/ck/FineGym\n"}
+,{"stream_name":"stdout","time":163.622817216,"data":"/kaggle/temp/ck/FineGym/FineGym_big\n"}
+,{"stream_name":"stdout","time":163.622819598,"data":"/kaggle/temp/ck/FineGym/FineGym_big/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622822205,"data":"/kaggle/temp/ck/FineGym/FineGym_small\n"}
+,{"stream_name":"stdout","time":163.622824618,"data":"/kaggle/temp/ck/FineGym/FineGym_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622827055,"data":"/kaggle/temp/ck/FigureSkatingComp\n"}
+,{"stream_name":"stdout","time":163.622829432,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small\n"}
+,{"stream_name":"stdout","time":163.62283187,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_small/checkpoint_best.pt\n"}
+,{"stream_name":"stdout","time":163.622834469,"data":"/kaggle/temp/ck/FigureSkatingComp/FigureSkatingComp_big\n"}
+,{"stream_name":"stdout","time":163.622836911,"data":"\n"}
+,{"stream_name":"stdout","time":163.624150545,"data":"checkpoints ['/kaggle/temp/ck/SoccerNetBall/SoccerNetBall_challenge1/checkpoint_best.pt']\n"}
+,{"stream_name":"stdout","time":163.642199893,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/SFKBP1109_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/SFKBP1109_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":206.042567684,"data":"\n"}
+,{"stream_name":"stdout","time":206.04260564,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/SFKBP1109_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":223.786976588,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":223.787011973,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":223.787016463,"data":"    from util.eval import inference\n"}
+,{"stream_name":"stdout","time":223.787020366,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":223.787038254,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
+,{"stream_name":"stdout","time":223.787043229,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
+,{"stream_name":"stdout","time":223.787047819,"data":"\n"}
+,{"stream_name":"stdout","time":223.787052571,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-aik-2026-09-21-bd09_1500.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4\n"}
+,{"stream_name":"stdout","time":264.677437228,"data":"\n"}
+,{"stream_name":"stdout","time":264.677473836,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-aik-2026-09-21-bd09_1500_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":269.324228773,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":269.32426924,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":269.324274027,"data":"    from util.eval import inference\n"}
+,{"stream_name":"stdout","time":269.324277102,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":269.324280446,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
+,{"stream_name":"stdout","time":269.324283487,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
+,{"stream_name":"stdout","time":269.32428655,"data":"\n"}
+,{"stream_name":"stdout","time":269.324289391,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_1200.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4\n"}
+,{"stream_name":"stdout","time":307.46373062,"data":"\n"}
+,{"stream_name":"stdout","time":307.463779035,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_1200_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":312.123050001,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":312.123105889,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":312.123114151,"data":"    from util.eval import inference\n"}
+,{"stream_name":"stdout","time":312.123120118,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":312.123125682,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
+,{"stream_name":"stdout","time":312.123130355,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
+,{"stream_name":"stdout","time":312.123134917,"data":"\n"}
+,{"stream_name":"stdout","time":312.123139407,"data":"+ ffmpeg -loglevel error -y -i /kaggle/temp/ia/results/kaggle/pass_clips/p15u-vs-vallentuna-2026-10-03-6cce_4000.mp4 -r 25 -vf scale=796:448 -an /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4\n"}
+,{"stream_name":"stdout","time":351.741010971,"data":"\n"}
+,{"stream_name":"stdout","time":351.741048883,"data":"+ cd /kaggle/temp/td \u0026\u0026 python3 inference.py --model SoccerNetBall_challenge1 --video_path /kaggle/temp/p15u-vs-vallentuna-2026-10-03-6cce_4000_25.mp4 --frame_width 796 --frame_height 448 --inference_threshold 0.2\n"}
+,{"stream_name":"stdout","time":356.608610072,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":356.60866519,"data":"  File \"/kaggle/temp/td/inference.py\", line 21, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":356.608672436,"data":"    from util.eval import inference\n"}
+,{"stream_name":"stdout","time":356.608677681,"data":"  File \"/kaggle/temp/td/util/eval.py\", line 13, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":356.60868224,"data":"    from SoccerNet.Evaluation.ActionSpotting import average_mAP\n"}
+,{"stream_name":"stdout","time":356.608698517,"data":"ModuleNotFoundError: No module named 'SoccerNet'\n"}
+,{"stream_name":"stdout","time":356.6087019,"data":"\n"}
+,{"stream_name":"stdout","time":356.608926596,"data":"{'SFKBP1109_1500': 'failed rc 1', 'p15u-vs-aik-2026-09-21-bd09_1500': 'failed rc 1', 'p15u-vs-vallentuna-2026-10-03-6cce_1200': 'failed rc 1', 'p15u-vs-vallentuna-2026-10-03-6cce_4000': 'failed rc 1'}\n"}
+,{"stream_name":"stderr","time":358.390790048,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":358.390818492,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":358.633501373,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":358.63353755,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":359.371647145,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":360.270503851,"data":"[NbConvertApp] Writing 285300 bytes to __results__.html\n"}
+]
