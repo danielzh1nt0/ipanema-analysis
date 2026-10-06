@@ -1,0 +1,45 @@
+{
+ "date": "2026-10-06",
+ "take_s": 1.5,
+ "join_s": 3.0,
+ "clips": {
+  "SFKBP1109_s1200": {
+   "minutes": 5.0,
+   "raw": {
+    "flips_per_min": 27.2,
+    "sequences_per_5min": 81.0,
+    "turnovers_per_5min": 20.0,
+    "passes_per_5min": 87.0,
+    "graded_passes_real_fake_kept": [
+     20,
+     8
+    ]
+   },
+   "counted": {
+    "flips_per_min": 3.2,
+    "sequences_per_5min": 32.0,
+    "turnovers_per_5min": 21.0,
+    "passes_per_5min": 59.0,
+    "graded_passes_real_fake_kept": [
+     14,
+     2
+    ]
+   }
+  },
+  "p15u-vs-aik-2026-09-21-bd09_s2520": {
+   "minutes": 5.0,
+   "raw": {
+    "flips_per_min": 33.2,
+    "sequences_per_5min": 93.0,
+    "turnovers_per_5min": 13.0,
+    "passes_per_5min": 107.0
+   },
+   "counted": {
+    "flips_per_min": 2.0,
+    "sequences_per_5min": 24.0,
+    "turnovers_per_5min": 17.0,
+    "passes_per_5min": 79.0
+   }
+  }
+ }
+}

@@ -26,7 +26,8 @@ def canvas_features(sift, canvas, covered, scale=0.5):
     return np.float32([k.pt for k in kp]) / scale, np.clip(d, 0, 255).astype(np.uint8)
 
 def _convex(q):
-    s = [np.cross(q[(i + 1) % 4] - q[i], q[(i + 2) % 4] - q[(i + 1) % 4]) for i in range(4)]
+    def _z(a, b): return float(a[0] * b[1] - a[1] * b[0])     # 2D cross (np.cross on 2D vectors is gone in numpy 2.5)
+    s = [_z(q[(i + 1) % 4] - q[i], q[(i + 2) % 4] - q[(i + 1) % 4]) for i in range(4)]
     return all(v > 0 for v in s) or all(v < 0 for v in s)
 
 def canvas_matcher(cf):
