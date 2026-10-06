@@ -7,7 +7,7 @@ t0 = time.time(); W = "/kaggle/working/tdeed"; os.makedirs(W, exist_ok=True)
 sh("nvidia-smi --query-gpu=name --format=csv")
 sh("git clone -q --depth 1 https://github.com/arturxe2/T-DEED.git /kaggle/temp/td")
 sh("git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia")
-sh("pip install -q timm==1.0.3 gdown wandb tabulate")
+sh("pip install -q timm==1.0.3 gdown wandb tabulate SoccerNet")
 sh("cd /kaggle/temp && gdown -q --folder https://drive.google.com/drive/folders/1sxZalU_hCwL8ITZCU9VqSWE8dB94lJty -O ck || true; find /kaggle/temp/ck | head -40")
 ck = [p for p in glob.glob("/kaggle/temp/ck/**/*.pt", recursive=True) if "SoccerNetBall_challenge1" in p] or [p for p in glob.glob("/kaggle/temp/ck/**/*.pt", recursive=True) if "SoccerNetBall" in p]
 print("checkpoints", ck, flush=True)
