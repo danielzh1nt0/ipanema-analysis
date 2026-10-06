@@ -184,3 +184,15 @@ The current pass map draws every pass as its own line, and that is unreadable. R
 - Add the Full / 1st / 2nd filter.
 - Keep it readable at 390 px wide.
 - Under the map, add this text: "Passes are detected automatically from the video and are still being calibrated (Beta)."
+
+### 11b. Highlight the lanes that worked best (add to the Routes view)
+
+- For every route between two different zones, count **all** passes (`completed` true or false) and the completed ones. Success rate = completed / all.
+- Rank only **forward routes**, where the end zone is further towards the opponent's goal than the start zone (end column > start column), and only routes with **at least 5 passes**. Backward and sideways passes are nearly always completed, so ranking them would make "pass back to the defender" the best lane.
+- **Best lanes:** the 3 forward routes with the highest success rate (ties: more passes first). Draw them in a bright success green, on top of the other arrows, with a small label at the arrow head: "8/9 · 89%".
+- **Hardest lanes:** the 2 forward routes with the lowest success rate. Draw them in a warm red, dashed, with the same label.
+- All other routes stay in the team colour, muted.
+- Add a legend under the map: "Green = best forward lanes (most passes arrived) · Red = forward lanes where most passes were lost · Grey = other routes".
+- Add a short sentence card next to the map, built from the data, e.g. "Best lane: from own half left to midfield left, 8 of 9 passes arrived (89%)." Describe a zone as own half / midfield / attacking third and left / centre / right: x columns 0–1 = own half, 2–3 = midfield, 4–5 = attacking third; y rows 0 = left (the top of the pitch, the far side), 1 = centre, 2 = right. Never use a fixed sentence.
+- If there are fewer than 3 qualifying routes, show what there is and write "Too few forward passes to rank lanes" when there are none.
+- On tap: route, passes, completed, success %.
