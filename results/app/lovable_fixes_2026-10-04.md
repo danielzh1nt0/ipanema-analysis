@@ -158,3 +158,29 @@ Possession, pressing, shape and the other stats must be shown **over time** as w
 - **Halves:** the Full / 1st / 2nd toggle filters every timeline.
 - **Design:** dark theme as now, team colours consistent everywhere, readable at 390 px wide, axis labels in minutes (0′, 15′, 30′ …).
 - **Check:** for Vallentuna, possession over time must show data in both halves (07:15–48:10 and 53:40–94:05), and the five goal markers must appear at 60:04, 62:22, 64:00, 91:53 and 93:13.
+
+---
+
+## 11. Pass map: replace the current graphic (Daniel, 6 Oct)
+
+The current pass map draws every pass as its own line, and that is unreadable. Replace it with **two views**, switched by a toggle above the pitch: "Routes" (default) and "Forward passes". The SFK / Opponent toggle picks the team; there is no "Both" here. Source: `stats.json → passes[]`, using only passes whose `t` is inside `match_data.periods[]`. Positions `from_m` and `to_m` are metres on a 106 × 64 pitch; the selected team always attacks to the right, so never mirror them. A picture of both views is attached (`passmap_SFKBP1109_A.png`).
+
+**View 1, Routes (where the passes go):**
+- Split the pitch into a 6 × 3 grid of zones (each zone about 17.7 m × 21.3 m). Draw the zone lines faint and dotted.
+- Count completed passes (`completed: true`) by start zone → end zone.
+- Draw the **14 most used routes between different zones** as curved arrows from zone centre to zone centre. Make the arrow width and opacity grow with the count.
+- Passes that start and end in the same zone get no arrow. Show their count as a small grey number in the middle of that zone.
+- Title: "Where the passes go". Subtitle: "Top routes between zones · arrow width = number of passes".
+- On tap or hover, show the route with its count, e.g. "Own half left → middle left: 13 passes".
+
+**View 2, Forward passes:**
+- Draw only passes with `gain_m >= 10` as straight arrows from `from_m` to `to_m`.
+- Completed passes: solid, in the team colour. Passes that did not arrive: grey and dashed.
+- Title: "Forward passes that gained 10 m or more". Subtitle: "N passes · M completed".
+
+**Both views:**
+- Draw the pitch markings (halfway line, centre circle, both boxes) in a light line colour on a calm grass tone.
+- Put an "attacking direction →" arrow under the pitch.
+- Add the Full / 1st / 2nd filter.
+- Keep it readable at 390 px wide.
+- Under the map, add this text: "Passes are detected automatically from the video and are still being calibrated (Beta)."
