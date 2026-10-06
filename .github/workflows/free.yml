@@ -19,6 +19,8 @@ jobs:
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
           MATCHES: ${{ vars.MATCHES }}
           WHO: ${{ contains(github.event.head_commit.message, '[who3]') && 'results/review/who_moments3.json' || contains(github.event.head_commit.message, '[who2]') && 'results/review/who_moments2.json' || 'results/review/who_moments.json' }}
           WHO_OUT: ${{ contains(github.event.head_commit.message, '[who3]') && 'results/qa/who3' || contains(github.event.head_commit.message, '[who2]') && 'results/qa/who2' || 'results/qa/who' }}

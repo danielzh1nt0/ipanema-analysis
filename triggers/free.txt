@@ -1,2 +1,2 @@
-tools/n1a_track.py
-# Tue Oct  6 03:10:29 CEST 2026 N1a re-track Solberga 1500 + Spanga 1159 with the bright-kit rule
+tools/d5_dryrun.py
+# Tue Oct  6 08:30:27 UTC 2026 D5 dry run: what the app cleanup would delete with the 3 demo matches kept (nothing deleted)

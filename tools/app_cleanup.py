@@ -6,6 +6,16 @@ Needs SUPABASE_URL + SUPABASE_SERVICE_KEY in the environment (GitHub secrets on 
 The logic is in plan()/apply() with a tiny client interface so it is unit-tested with a fake (tests/test_app_cleanup.py)."""
 import os, sys, json, argparse
 
+# the three matches shown at the 6 Oct demo (results/app, demo run-sheet); --apply refuses to run unless all are kept
+DEMO_KEEP = ["SFKBP1109", "p15u-vs-aik-2026-09-21-bd09", "p15u-vs-vallentuna-2026-10-03-6cce"]
+
+def check_keep(keep, rows, apply):
+    """-> list of problems that block --apply: a demo match not in keep, or a keep id not found in the app
+    (a typo there would delete the real match). Dry runs only warn."""
+    probs = [f"demo match {d} is not in --keep" for d in DEMO_KEEP if d not in keep]
+    ids = {r.get("id") for r in rows}; probs += [f"keep id {k} not found in the app" for k in keep if k not in ids]
+    return probs
+
 def plan(rows, keep):
     """rows: [{id, ...}] -> ids to delete (everything not in keep), sorted"""
     keep = set(keep); return sorted(r["id"] for r in rows if r.get("id") and r["id"] not in keep)
@@ -37,12 +47,16 @@ class Supabase:
     def delete_rows(self, table, column, value): return self.db.table(table).delete().eq(column, value).execute()
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--keep", required=True, help="comma-separated match ids to keep"); ap.add_argument("--apply", action="store_true"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--keep", default=",".join(DEMO_KEEP), help="comma-separated match ids to keep (default: the 3 demo matches)"); ap.add_argument("--apply", action="store_true"); a = ap.parse_args()
     keep = [k.strip() for k in a.keep.split(",") if k.strip()]
     if not all(os.environ.get(k) for k in ("SUPABASE_URL", "SUPABASE_SERVICE_KEY")): sys.exit("SUPABASE_URL and SUPABASE_SERVICE_KEY are not set")
     c = Supabase(); rows = c.rows(); ids = plan(rows, keep)
     print(f"{len(rows)} matches in the app; keeping {len(keep)}; {'deleting' if a.apply else 'would delete'} {len(ids)}: {ids}")
-    missing = [k for k in keep if k not in {r['id'] for r in rows}]
-    if missing: print("WARNING: keep ids not found in the app:", missing)
+    probs = check_keep(keep, rows, a.apply)
+    for p in probs: print("WARNING:", p)
+    os.makedirs("results/app", exist_ok=True)
+    json.dump({"matches_in_app": rows, "keep": keep, "would_delete": ids, "problems": probs, "applied": bool(a.apply and not probs)},
+              open("results/app/cleanup_plan.json", "w"), indent=1, default=str)
+    if a.apply and probs: sys.exit("refusing --apply: " + "; ".join(probs))
     if a.apply:
         rep = apply(c, ids); os.makedirs("results/app", exist_ok=True); json.dump(rep, open("results/app/cleanup_report.json", "w"), indent=1); print(json.dumps(rep, indent=1))
