@@ -266,3 +266,26 @@
 05:39:07 clean: dropped 77 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [] -> A defends left
 05:39:07 clean: players per frame median A 7 / B 6, max A 9 / B 9
 05:39:08 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 6.0}, 'shown_per_frame': {'dark': 7.0, 'light': 6.0}, 'tracks': 44, 'median_track_s': {'dark': 2.6, 'light': 3.19}, 'minutes': 12.5, 'filled_rows': 112}
+01:13:40 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+01:13:50 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+01:15:12 kits: per-player classifier from 493 on-pitch people, 0 of 15 runs kept -> colour only
+01:15:12 kits: learned from 583 people (515 off the pitch left out), group sizes [244, 225, 79, 35], light frame (shade spread 1.3), default fit leaves out a group at 0.64 x the team gap, far pair moves a team by 0.0
+01:15:12 off-pitch people dropped by the pitch-edge test: yes
+01:15:17   tracking frame 0
+01:16:35   tracking frame 50 (0.6 frames/s)
+01:17:53   tracking frame 100 (0.6 frames/s)
+01:19:11   tracking frame 150 (0.6 frames/s)
+01:20:30   tracking frame 200 (0.6 frames/s)
+01:21:49   tracking frame 250 (0.6 frames/s)
+01:23:07   tracking frame 300 (0.6 frames/s)
+01:24:25   tracking frame 350 (0.6 frames/s)
+01:25:42   tracking frame 400 (0.6 frames/s)
+01:27:00   tracking frame 450 (0.6 frames/s)
+01:28:17   tracking frame 500 (0.6 frames/s)
+01:29:35   tracking frame 550 (0.6 frames/s)
+01:30:51 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+01:30:51 clean: 1 still people by the lines dropped (bench, coaches)
+01:30:51 clean: removed 377 rows of non-team kits (referee / staff)
+01:30:51 clean: dropped 77 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [] -> A defends left
+01:30:51 clean: players per frame median A 7 / B 8, max A 9 / B 10
+01:30:51 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.67, 'light': 3.5}, 'minutes': 17.0, 'filled_rows': 112}
