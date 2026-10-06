@@ -1830,11 +1830,21 @@ def ball_restore_v1():
     shutil.copy(src, f"{ROOT}/models/ball/clicks_latest.pt"); _js.dump({"correct": 66, "of": 108, "weights": "clicks_v1.pt"}, open(f"{ROOT}/models/ball/best.json", "w")); vol.commit()
     return {"restored": "clicks_v1.pt -> clicks_latest.pt (66/108)", "models": sorted(os.listdir(f"{ROOT}/models/ball"))}
 
-@app.function(timeout=5 * 60, volumes={"/data": vol}, cpu=1.0)
+@app.function(timeout=10 * 60, volumes={"/data": vol}, cpu=1.0, memory=8192)
 def fetch_file(rel: str, part: int = 0, chunk: int = 6 << 20):
     """a file from the volume as base64, in `chunk`-byte parts (weights for offline analysis)"""
     import base64, glob as _g
+    win = None
+    if "@" in rel:                                                             # 6 Oct: "<pickle>@t0-t1" = a time slice of picker_inputs.pkl, frames renumbered from 0
+        rel, w = rel.split("@"); win = [float(x) for x in w.split("-")]
     p = f"{ROOT}/{rel}"
+    if win and part == 0 and os.path.exists(p):
+        import pickle
+        P_ = pickle.load(open(p, "rb")); fps = P_["fps"]; k0, k1 = int(win[0] * fps), int(win[1] * fps)
+        cut = lambda d: {k - k0: v for k, v in d.items() if k0 <= k < k1} if isinstance(d, dict) else d
+        out = {k: cut(v) for k, v in P_.items()}; out["offset_frames"] = k0; out["window_s"] = win
+        os.makedirs(f"{ROOT}/slices", exist_ok=True); p = f"{ROOT}/slices/{rel.replace('/', '_')}_{int(win[0])}_{int(win[1])}.pkl"; pickle.dump(out, open(p, "wb")); vol.commit(); rel = f"{rel}@{int(win[0])}-{int(win[1])}"
+    elif win: vol.reload(); p = f"{ROOT}/slices/{rel.replace('/', '_')}_{int(win[0])}_{int(win[1])}.pkl"; rel = f"{rel}@{int(win[0])}-{int(win[1])}"
     if any(ch in rel for ch in "*?["):                                          # a pattern: the newest match
         hits = sorted(_g.glob(p), key=os.path.getmtime); p = hits[-1] if hits else p; rel = os.path.relpath(p, ROOT)
     if not os.path.exists(p): return {"error": f"missing {rel}"}
