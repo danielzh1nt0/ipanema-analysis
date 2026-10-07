@@ -312,3 +312,18 @@
 06:22:58 clean: dropped 77 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [] -> A defends left
 06:22:58 clean: players per frame median A 7 / B 8, max A 9 / B 10
 06:22:58 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.67, 'light': 3.5}, 'minutes': 11.3, 'filled_rows': 112}
+05:46:39 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+05:53:28   tracking frame 200 (0.6 frames/s)
+05:54:46   tracking frame 250 (0.6 frames/s)
+05:56:04   tracking frame 300 (0.6 frames/s)
+05:57:21   tracking frame 350 (0.6 frames/s)
+05:58:39   tracking frame 400 (0.6 frames/s)
+05:59:57   tracking frame 450 (0.6 frames/s)
+06:01:14   tracking frame 500 (0.6 frames/s)
+06:02:31   tracking frame 550 (0.6 frames/s)
+06:03:46 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+06:03:46 clean: 1 still people by the lines dropped (bench, coaches)
+06:03:46 clean: removed 377 rows of non-team kits (referee / staff)
+06:03:46 clean: dropped 77 off-pitch, merged 97 duplicates, stitched 12 ids, keepers [] -> A defends left
+06:03:46 clean: players per frame median A 7 / B 8, max A 9 / B 10
+06:03:47 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.67, 'light': 3.5}, 'minutes': 17.0, 'filled_rows': 112}
