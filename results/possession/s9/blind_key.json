@@ -1,0 +1,357 @@
+{
+ "match": "SFKBP1109",
+ "src_key": "SFKBP1109/video.mp4",
+ "note": "S9 blind check: 20 random dropped + 15 random kept SFK-BP turnovers, shuffled; strips show no rule result",
+ "items": [
+  {
+   "t": 2639.7,
+   "t_won": 2644.07,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 9.9,
+   "id": "s9_00"
+  },
+  {
+   "t": 2320.89,
+   "t_won": 2321.05,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 16.0,
+   "id": "s9_01"
+  },
+  {
+   "t": 1402.1,
+   "t_won": 1404.47,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 2.6 s",
+   "kept_s": 2.6,
+   "id": "s9_02"
+  },
+  {
+   "t": 789.26,
+   "t_won": 789.29,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_03"
+  },
+  {
+   "t": 1684.42,
+   "t_won": 1686.48,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_04"
+  },
+  {
+   "t": 1330.13,
+   "t_won": 1330.43,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_05"
+  },
+  {
+   "t": 1087.05,
+   "t_won": 1089.12,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, winner kept it 2.0 s",
+   "kept_s": 2.0,
+   "id": "s9_06"
+  },
+  {
+   "t": 748.11,
+   "t_won": 749.22,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 29.3,
+   "id": "s9_07"
+  },
+  {
+   "t": 2661.43,
+   "t_won": 2662.63,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 22.6,
+   "id": "s9_08"
+  },
+  {
+   "t": 1874.07,
+   "t_won": 1875.74,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 2.1 s",
+   "kept_s": 2.1,
+   "id": "s9_09"
+  },
+  {
+   "t": 913.38,
+   "t_won": 916.42,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 38.0,
+   "id": "s9_10"
+  },
+  {
+   "t": 2503.83,
+   "t_won": 2505.64,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_11"
+  },
+  {
+   "t": 1071.84,
+   "t_won": 1071.94,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 15.1,
+   "id": "s9_12"
+  },
+  {
+   "t": 1121.52,
+   "t_won": 1121.55,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_13"
+  },
+  {
+   "t": 1067.8,
+   "t_won": 1070.37,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 3.8,
+   "id": "s9_14"
+  },
+  {
+   "t": 1328.13,
+   "t_won": 1328.16,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_15"
+  },
+  {
+   "t": 873.94,
+   "t_won": 873.97,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_16"
+  },
+  {
+   "t": 987.62,
+   "t_won": 987.72,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 18.2,
+   "id": "s9_17"
+  },
+  {
+   "t": 1281.01,
+   "t_won": 1283.05,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 3.2,
+   "id": "s9_18"
+  },
+  {
+   "t": 2536.33,
+   "t_won": 2543.17,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 5.8,
+   "id": "s9_19"
+  },
+  {
+   "t": 2339.3,
+   "t_won": 2339.34,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_20"
+  },
+  {
+   "t": 1635.7,
+   "t_won": 1635.73,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 9.0,
+   "id": "s9_21"
+  },
+  {
+   "t": 2059.19,
+   "t_won": 2059.22,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_22"
+  },
+  {
+   "t": 873.84,
+   "t_won": 874.97,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_23"
+  },
+  {
+   "t": 2103.84,
+   "t_won": 2106.2,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 15.7,
+   "id": "s9_24"
+  },
+  {
+   "t": 2625.79,
+   "t_won": 2626.19,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_25"
+  },
+  {
+   "t": 1224.69,
+   "t_won": 1227.26,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_26"
+  },
+  {
+   "t": 1405.84,
+   "t_won": 1406.2,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, ball straight back",
+   "kept_s": null,
+   "id": "s9_27"
+  },
+  {
+   "t": 928.89,
+   "t_won": 933.7,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 25.4,
+   "id": "s9_28"
+  },
+  {
+   "t": 1766.06,
+   "t_won": 1767.3,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "dropped",
+   "why": "duel, winner kept it 2.6 s",
+   "kept_s": 2.6,
+   "id": "s9_29"
+  },
+  {
+   "t": 816.45,
+   "t_won": 821.05,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "hold",
+   "kept_s": 15.7,
+   "id": "s9_30"
+  },
+  {
+   "t": 1886.68,
+   "t_won": 1887.49,
+   "lost_by": "B",
+   "won_by": "A",
+   "rule": "kept",
+   "why": "pass",
+   "kept_s": 2.2,
+   "id": "s9_31"
+  },
+  {
+   "t": 2057.69,
+   "t_won": 2058.72,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, winner kept it 1.4 s",
+   "kept_s": 1.4,
+   "id": "s9_32"
+  },
+  {
+   "t": 2277.58,
+   "t_won": 2277.68,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, winner kept it 0.0 s",
+   "kept_s": 0.0,
+   "id": "s9_33"
+  },
+  {
+   "t": 2336.93,
+   "t_won": 2338.1,
+   "lost_by": "A",
+   "won_by": "B",
+   "rule": "dropped",
+   "why": "duel, winner kept it 2.3 s",
+   "kept_s": 2.3,
+   "id": "s9_34"
+  }
+ ]
+}
