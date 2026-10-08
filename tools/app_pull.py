@@ -2,7 +2,8 @@
 for the three demo matches, for a free audit of every stat. Free runner (this sandbox cannot reach supabase.co).
     SUPABASE_URL=... SUPABASE_SERVICE_KEY=... python tools/app_pull.py -> results/free/app_files/<id>/"""
 import os, urllib.request, json
-URL = os.environ["SUPABASE_URL"].rstrip("/"); KEY = os.environ["SUPABASE_SERVICE_KEY"]
+URL = (os.environ.get("SUPABASE_URL") or "https://qnfjmzlwazqxhvveiovg.supabase.co").rstrip("/"); KEY = os.environ.get("SUPABASE_SERVICE_KEY") or ""
+if not KEY: raise SystemExit("no SUPABASE_SERVICE_KEY on this runner")
 MATCHES = os.environ.get("PULL", "p15u-vs-vallentuna-2026-10-03-6cce").split(",")
 for m in MATCHES:
     d = f"results/free/app_files/{m}"; os.makedirs(d, exist_ok=True); got = []

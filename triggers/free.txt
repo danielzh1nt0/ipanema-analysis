@@ -1,2 +1,2 @@
 tools/app_pull.py
-# Thu Oct  8 23:32:22 UTC 2026 pull the Vallentuna files the app shows (signed, 9 Oct join)
+# Thu Oct  8 23:40:38 UTC 2026 pull the Vallentuna files the app shows (signed, 9 Oct join), url hardcoded
