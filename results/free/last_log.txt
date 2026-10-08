@@ -1,5 +1,37 @@
-# D5 dry run (nothing deleted)
-
-keep: SFKBP1109, p15u-vs-aik-2026-09-21-bd09, p15u-vs-vallentuna-2026-10-03-6cce
-
-NOT RUN: secrets missing on this runner: ['SUPABASE_URL', 'SUPABASE_SERVICE_KEY']
+video ok 29.970030618346996 frames 29970
+s9_00
+s9_01
+s9_02
+s9_03
+s9_04
+s9_05
+s9_06
+s9_07
+s9_08
+s9_09
+s9_10
+s9_11
+s9_12
+s9_13
+s9_14
+s9_15
+s9_16
+s9_17
+s9_18
+s9_19
+s9_20
+s9_21
+s9_22
+s9_23
+s9_24
+s9_25
+s9_26
+s9_27
+s9_28
+s9_29
+s9_30
+s9_31
+s9_32
+s9_33
+s9_34
+done 35
