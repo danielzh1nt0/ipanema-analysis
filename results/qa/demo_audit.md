@@ -12,10 +12,10 @@ Sources: SFKBP1109: results/volume/runs/matches/SFKBP1109, p15u-vs-aik-2026-09-2
 | SFK-BP (1st half) | GK labels per team per picture (max) | 8 | WRONG | at most one keeper per team |
 | SFK-BP (1st half) | Pictures with a ball position | 84% | OK |  |
 | SFK-BP (1st half) | Who has the ball (by-eye moments) | 47 right / 4 wrong / 7 none | OK | 58 moments checked by eye |
-| SFK-BP (1st half) | Passes SFK | 261 (85% completed) | OK | 281 per 45 min |
-| SFK-BP (1st half) | Passes opp | 208 (78% completed) | OK | 224 per 45 min |
-| SFK-BP (1st half) | Losses / recoveries SFK | 74 / 72 | OK | SFK losses should equal opponent recoveries |
-| SFK-BP (1st half) | Regained within 5 s SFK / opp | 22% / 35% |  |  |
+| SFK-BP (1st half) | Passes SFK | 92 (86% completed) | OK | 99 per 45 min |
+| SFK-BP (1st half) | Passes opp | 75 (81% completed) | OK | 81 per 45 min |
+| SFK-BP (1st half) | Losses / recoveries SFK | 60 / 58 | OK | SFK losses should equal opponent recoveries |
+| SFK-BP (1st half) | Regained within 5 s SFK / opp | 13% / 24% |  |  |
 | SFK-BP (1st half) | Pressures applied SFK / opp | 112 / 132 |  |  |
 | SFK-BP (1st half) | Defensive line height SFK / opp | 30.77 / 41.87 m | OK | metres from own goal |
 | SFK-BP (1st half) | Distance (in camera view) SFK | 37.1 km |  | only players the camera sees |
@@ -24,13 +24,13 @@ Sources: SFKBP1109: results/volume/runs/matches/SFKBP1109, p15u-vs-aik-2026-09-2
 | SFK-AIK (1st half) | Shots SFK / opp | 9 / 7 | OK | 16 Veo shot clips in the playing time |
 | SFK-AIK (1st half) | Shot map spots | 0 of 16 | PARTLY | spots only where clicked by eye; others listed without a spot |
 | SFK-AIK (1st half) | Possession SFK | 35% |  |  |
-| SFK-AIK (1st half) | Players per picture SFK / opp | 6.4 / 6.6 | OK | both teams should be about equal on a follow-cam |
+| SFK-AIK (1st half) | Players per picture SFK / opp | 6.0 / 6.7 | OK | both teams should be about equal on a follow-cam |
 | SFK-AIK (1st half) | GK labels per team per picture (max) | 3 | WRONG | at most one keeper per team |
 | SFK-AIK (1st half) | Pictures with a ball position | 100% | OK |  |
-| SFK-AIK (1st half) | Passes SFK | 239 (74% completed) | OK | 226 per 45 min |
-| SFK-AIK (1st half) | Passes opp | 459 (86% completed) | CHECK | 433 per 45 min |
-| SFK-AIK (1st half) | Losses / recoveries SFK | 77 / 85 | OK | SFK losses should equal opponent recoveries |
-| SFK-AIK (1st half) | Regained within 5 s SFK / opp | 18% / 36% |  |  |
+| SFK-AIK (1st half) | Passes SFK | 94 (78% completed) | OK | 89 per 45 min |
+| SFK-AIK (1st half) | Passes opp | 131 (82% completed) | OK | 124 per 45 min |
+| SFK-AIK (1st half) | Losses / recoveries SFK | 63 / 70 | OK | SFK losses should equal opponent recoveries |
+| SFK-AIK (1st half) | Regained within 5 s SFK / opp | 11% / 29% |  |  |
 | SFK-AIK (1st half) | Pressures applied SFK / opp | 118 / 64 |  |  |
 | SFK-AIK (1st half) | Defensive line height SFK / opp | 60.79 / 29.18 m | OK | metres from own goal |
 | SFK-AIK (1st half) | Distance (in camera view) SFK | 29.9 km |  | only players the camera sees |
@@ -43,10 +43,10 @@ Sources: SFKBP1109: results/volume/runs/matches/SFKBP1109, p15u-vs-aik-2026-09-2
 | SFK-Vallentuna (full) | GK labels per team per picture (max) | 1 | OK | at most one keeper per team |
 | SFK-Vallentuna (full) | Pictures with a ball position | 90% | OK |  |
 | SFK-Vallentuna (full) | Who has the ball (by-eye moments) | 9 right / 4 wrong / 4 none | WRONG | 17 moments checked by eye |
-| SFK-Vallentuna (full) | Passes SFK | 872 (88% completed) | CHECK | 482 per 45 min |
-| SFK-Vallentuna (full) | Passes opp | 534 (80% completed) | OK | 295 per 45 min |
-| SFK-Vallentuna (full) | Losses / recoveries SFK | 188 / 188 | OK | SFK losses should equal opponent recoveries |
-| SFK-Vallentuna (full) | Regained within 5 s SFK / opp | 40% / 33% |  |  |
+| SFK-Vallentuna (full) | Passes SFK | 294 (87% completed) | OK | 163 per 45 min |
+| SFK-Vallentuna (full) | Passes opp | 197 (82% completed) | OK | 109 per 45 min |
+| SFK-Vallentuna (full) | Losses / recoveries SFK | 150 / 151 | OK | SFK losses should equal opponent recoveries |
+| SFK-Vallentuna (full) | Regained within 5 s SFK / opp | 32% / 24% |  |  |
 | SFK-Vallentuna (full) | Pressures applied SFK / opp | 253 / 246 |  |  |
 | SFK-Vallentuna (full) | Defensive line height SFK / opp | 42.81 / 34.09 m | OK | metres from own goal |
 | SFK-Vallentuna (full) | Distance (in camera view) SFK | 100.2 km |  | only players the camera sees |
