@@ -278,7 +278,11 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     done = sorted(ok, key=lambda r: r["i"]); pieces = [pickle.load(open(r["path"], "rb")) for r in done]; pl = [plan_[r["i"]] for r in done]
     per, H, cands, meta = FM.join(pieces, pl, n, fps); del pieces
     _ov = next((p for p in (f"/content/ipanema-analysis/overrides/{match_id}_teams.json", f"{ROOT}/overrides/{match_id}_teams.json") if os.path.exists(p)), None)
-    if _ov: log(f"teams: offline override {os.path.basename(_ov)} changed {FM.apply_team_override(per, json.load(open(_ov)), fps)} player rows")
+    # 9 Oct: applied inside analyse() AFTER track cleaning, not here. The override's ids are the exported ids, which clean()
+    # makes by stitching raw tracks (same team, nearby); applying it to the raw rows reached only the root track of each
+    # stitched set and changed the stitching itself, so 14% of Vallentuna's exported rows missed their team.
+    team_override = json.load(open(_ov)) if _ov else None
+    if _ov: log(f"teams: offline override {os.path.basename(_ov)} ({len(team_override)} tracks) will be applied after track cleaning")
     play_mask, periods = None, None
     pf = next((p for p in (f"{ROOT}/periods/{match_id}.json", f"/content/ipanema-analysis/periods/{match_id}.json") if os.path.exists(p)), f"/content/ipanema-analysis/periods/{match_id}.json")
     if os.path.exists(pf):
@@ -300,6 +304,7 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     ctx = {"match_id": match_id, "video": full, "vi": {"n": n, "fps": fps, "width": meta["width"], "height": meta["height"]}, "H": H, "L": meta["L"], "W": meta["W"],
            "cal": {"coverage": meta["coverage"], "frozen": meta["frozen"], "unsure": meta.get("unsure", set())}, "tm": types.SimpleNamespace(dark_share=meta["dark_share"], strips=meta["strips"]),
            "per": per, "fps": fps, "cands": cands, "t0": t0, "play_mask": play_mask, "periods": periods,
+           "team_override": team_override,
            "picker_gt": [p for p in (f"{ROOT}/reference/{match_id}/ball_gt.json", f"{ROOT}/reference/{match_id}b/ball_gt.json") if os.path.exists(p)]}
     # honest ball score: the held-out test frames of this match's segments, mapped into the full timeline (never the training labels)
     gt = {}

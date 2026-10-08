@@ -18,3 +18,21 @@ def test_apply_team_override_pieces():
 def test_apply_team_override_neither():
     per = {0: [[5, "A", None]]}
     assert FM.apply_team_override(per, {"5": "K"}) == 1 and per[0][0][1] == "K"
+
+def test_override_reaches_stitched_tracks_when_applied_after_clean():
+    """9 Oct: the override's ids are exported ids = the root of each stitched set. Applied before clean() it reached only
+    the raw root track; applied after, every row of the stitched player changes."""
+    import numpy as np
+    from ipanema import tracking as TR
+    fps = 10; per = {}
+    for k in range(0, 20): per[k] = [[1, "A", np.array([30.0 + 0.2 * k, 30.0]), (0, 0), (0, 0, 10, 20), False]]      # track 1: 0-1.9 s
+    for k in range(25, 60): per[k] = [[2, "A", np.array([34.0 + 0.2 * (k - 25), 30.0]), (0, 0), (0, 0, 10, 20), False]]   # track 2: 2.5-5.9 s, same place
+    for k in range(60): per.setdefault(k, [])
+    per2, _ = TR.clean({k: [list(r) for r in v] for k, v in per.items()}, 100.0, 64.0, fps, log=lambda *a: None, keepers_by_zone=False)
+    ids = {r[0] for v in per2.values() for r in v}
+    assert ids == {1}, ids                                                  # stitched into the root id 1
+    n = FM.apply_team_override(per2, {"1": "B"}, fps)
+    assert n == 20 + 35 and all(r[1] == "B" for v in per2.values() for r in v)
+    # the old order (override first, by root id) would have left track 2's 35 rows as "A" even if stitching still happened
+    raw = {k: [list(r) for r in v] for k, v in per.items()}; FM.apply_team_override(raw, {"1": "B"}, fps)
+    assert sum(1 for v in raw.values() for r in v if r[1] == "A") == 35
