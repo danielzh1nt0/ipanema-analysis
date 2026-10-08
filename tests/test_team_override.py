@@ -36,3 +36,14 @@ def test_override_reaches_stitched_tracks_when_applied_after_clean():
     # the old order (override first, by root id) would have left track 2's 35 rows as "A" even if stitching still happened
     raw = {k: [list(r) for r in v] for k, v in per.items()}; FM.apply_team_override(raw, {"1": "B"}, fps)
     assert sum(1 for v in raw.values() for r in v if r[1] == "A") == 35
+
+def test_clean_drops_people_living_on_the_line():
+    """9 Oct: a track that spends its life within 1 m of a line (stand behind the far touchline) is not a player"""
+    import numpy as np
+    from ipanema import tracking as TR
+    fps = 10; per = {}
+    for k in range(40):
+        per[k] = [[1, "A", np.array([30.0 + 0.3 * k, 63.6 + 0.2 * np.sin(k)]), (0, 0), (0, 0, 10, 20), False],   # on the far touchline, moving
+                  [2, "A", np.array([30.0 + 0.3 * k, 40.0]), (0, 0), (0, 0, 10, 20), False]]                        # a real player
+    per2, _ = TR.clean(per, 106.0, 64.0, fps, log=lambda *a: None, keepers_by_zone=False)
+    assert {r[0] for v in per2.values() for r in v} == {2}

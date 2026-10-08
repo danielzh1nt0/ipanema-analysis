@@ -233,9 +233,16 @@ def clean(per, L, W, fps, log=print, keepers_by_zone=True):
         for r in per[k]: life.setdefault(r[0], []).append(r[2])
     still = {t for t, pts in life.items() if len(pts) >= int(2 * fps) and all(min(p[0], L - p[0], p[1], W - p[1]) < edge_m for p in pts)
              and float(np.linalg.norm(np.max(pts, axis=0) - np.min(pts, axis=0))) < still_m}
+    # 9 Oct: people in a stand or on a bench just BEHIND a line land a few cm inside it (calibration error) and do move
+    # in metres as the camera pans, so the still rule missed them: on Vallentuna 138 tracks (0.6% of rows, 7 of 8 "SFK")
+    # lived on the far touchline. A track seen >= 1 s whose rows are mostly (>= 70%) within line_m of a line is not a player.
+    line_m = 1.0
+    for t, pts in life.items():
+        if t in still or len(pts) < int(1.0 * fps): continue
+        if sum(1 for p in pts if min(p[0], L - p[0], p[1], W - p[1]) < line_m) >= 0.7 * len(pts): still.add(t)
     for k in per:
         keep = [r for r in per[k] if r[0] not in still]; dropped += len(per[k]) - len(keep); per[k] = keep
-    if still: log(f"clean: {len(still)} still people by the lines dropped (bench, coaches)")
+    if still: log(f"clean: {len(still)} people living on or by the lines dropped (bench, coaches, stand)")
     # 2) duplicates: same team within 1 m in one frame -> keep the bigger box
     merged = 0
     for k in per:
