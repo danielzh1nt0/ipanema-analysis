@@ -1,7 +1,7 @@
 === p15u-vs-aik-2026-09-21-bd09 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
-pieces: 11/11 done in 1.5 min
+pieces: 11/11 done in 1.9 min
 tracking frame 98902
   piece 00: cached
   piece 01: cached
@@ -41,10 +41,12 @@ direction: from reference labels -> A →
   step: turnovers (0 s since the last step)
   step: lanes (0 s since the last step)
   step: passes (2 s since the last step)
-  step: shapes (0 s since the last step)
-  step: stats (5 s since the last step)
-  step: metrics (9 s since the last step)
-veo: 30 shots incl. 7 goals imported; 0 goal tag(s) rejected; team by eye for 2, from the ball for 0, from the players for 0, unknown for 14
+passes: 698 -> 225 confirmed by the video ball-action model (p15u-vs-aik-2026-09-21-bd09_kicks.json)
+lost balls: 162 -> 133 (duels dropped: winner kept it < 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)
+  step: shapes (1 s since the last step)
+  step: stats (7 s since the last step)
+  step: metrics (10 s since the last step)
+veo: 30 shots incl. 7 goals imported; 0 goal tag(s) rejected; origin by eye for 0, team by eye for 2, from the ball for 0, from the players for 0, unknown for 14
 veo: 14 shots/goals outside the analysed video or its periods left out (5 goals)
 our shot detector vs Veo: found 0/16 of Veo's shots, 0/4 of ours are real (within 10 s)
 ball grade: accuracy 0.67, near-player 0.5, possession OK, events withheld
@@ -52,8 +54,15 @@ ball reliability: 87% frames, 50% near a player, 20736 jumps -> OK
   step: export (7 s since the last step)
 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
   wrote 12 frame files (every 3 frames, 300 s each, largest 6.3 MB)
-  wrote match_data.json (0.5 MB)
-export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09 (838 events) · library.json updated · zip None
+  wrote match_data.json (0.4 MB)
+  upload checks: p15u-vs-aik-2026-09-21-bd09: needs review -> shot_map
+    OK   players: median players per frame A 5, B 6
+    OK   keepers: 0 of 28561 frames with 2+ keepers in one team
+    OK   goals: 2762: B scored (team checked by eye, kept) but our possession says B kicks off at 2800; 3128: B scored (team checked by eye, kept) but our possession says B kicks off at 3161
+    FLAG shots: 0 of 16 shots have a spot on the pitch
+    OK   ball: 1573 of 28561 ball positions more than 3 m off the pitch
+    ??   possession: only 0 by-eye moments (need 10)
+export: /data/match_analysis/runs/matches/p15u-vs-aik-2026-09-21-bd09 (583 events) · library.json updated · zip None
 upload: p15u-vs-aik-2026-09-21-bd09 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, thumb)
 
 --- SUMMARY ---
@@ -75,21 +84,21 @@ upload: p15u-vs-aik-2026-09-21-bd09 -> Supabase + R2 (video, match_data, stats, 
   possession_model           simple
   attack_right               {'A': True, 'B': False}
   direction_confidence       {'A': 0.03, 'B': 0.01}
-  turnovers                  162
-  passes                     698
+  turnovers                  133
+  passes                     225
   restarts                   42
   sequences                  254
   shots                      {'A': 9, 'B': 7}
   goals                      {'A': 0, 'B': 2}
-  high_turnovers             {'A': 32, 'B': 11}
+  high_turnovers             {'A': 27, 'B': 10}
   field_tilt                 {'A': 35, 'B': 16}
-  runtime_min                4.2
+  runtime_min                5.0
 QA PASS: pieces processed (11/11)
 QA PASS: calibration (coverage 1.0)
 QA FAIL: players per frame (A 6.0 + B 6.0)
 QA PASS: team balance (A 6.0 vs B 6.0)
 QA PASS: shots and goals from Veo (shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2})
 QA PASS: match time (2859.0 s of 3300 s)
-SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": true, "ball_grade": {"accuracy": 0.67, "near_player_pct": 0.5, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 2859.0, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3224.99, "mirrored": false}], "ball_check": {"correct": 26, "total": 39, "wrong": 13, "ceiling": 39}, "possession_pct": {"A": 35, "B": 65}, "loose_pct": 42, "dead_pct": 6, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.03, "B": 0.01}, "turnovers": 162, "passes": 698, "restarts": 42, "sequences": 254, "shots": {"A": 9, "B": 7}, "goals": {"A": 0, "B": 2}, "high_turnovers": {"A": 32, "B": 11}, "field_tilt": {"A": 35, "B": 16}, "runtime_min": 4.2, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": true, "detail": "coverage 1.0"}, "players": {"ok": false, "detail": "A 6.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2}"}, "match_time": {"ok": true, "detail": "2859.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.67, near a player 0.5"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA PASS: calibration (coverage 1.0)", "QA FAIL: players per frame (A 6.0 + B 6.0)", "QA PASS: team balance (A 6.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2})", "QA PASS: match time (2859.0 s of 3300 s)"]}
+SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": true, "ball_grade": {"accuracy": 0.67, "near_player_pct": 0.5, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 2859.0, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3224.99, "mirrored": false}], "ball_check": {"correct": 26, "total": 39, "wrong": 13, "ceiling": 39}, "possession_pct": {"A": 35, "B": 65}, "loose_pct": 42, "dead_pct": 6, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.03, "B": 0.01}, "turnovers": 133, "passes": 225, "restarts": 42, "sequences": 254, "shots": {"A": 9, "B": 7}, "goals": {"A": 0, "B": 2}, "high_turnovers": {"A": 27, "B": 10}, "field_tilt": {"A": 35, "B": 16}, "runtime_min": 5.0, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": true, "detail": "coverage 1.0"}, "players": {"ok": false, "detail": "A 6.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2}"}, "match_time": {"ok": true, "detail": "2859.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.67, near a player 0.5"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA PASS: calibration (coverage 1.0)", "QA FAIL: players per frame (A 6.0 + B 6.0)", "QA PASS: team balance (A 6.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2})", "QA PASS: match time (2859.0 s of 3300 s)"]}
 
-SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": true, "ball_grade": {"accuracy": 0.67, "near_player_pct": 0.5, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 2859.0, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3224.99, "mirrored": false}], "ball_check": {"correct": 26, "total": 39, "wrong": 13, "ceiling": 39}, "possession_pct": {"A": 35, "B": 65}, "loose_pct": 42, "dead_pct": 6, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.03, "B": 0.01}, "turnovers": 162, "passes": 698, "restarts": 42, "sequences": 254, "shots": {"A": 9, "B": 7}, "goals": {"A": 0, "B": 2}, "high_turnovers": {"A": 32, "B": 11}, "field_tilt": {"A": 35, "B": 16}, "runtime_min": 4.2, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": true, "detail": "coverage 1.0"}, "players": {"ok": false, "detail": "A 6.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2}"}, "match_time": {"ok": true, "detail": "2859.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.67, near a player 0.5"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA PASS: calibration (coverage 1.0)", "QA FAIL: players per frame (A 6.0 + B 6.0)", "QA PASS: team balance (A 6.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2})", "QA PASS: match time (2859.0 s of 3300 s)"]}
+SUMMARY {"match_id": "p15u-vs-aik-2026-09-21-bd09", "ball_reliable": true, "ball_grade": {"accuracy": 0.67, "near_player_pct": 0.5, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 1.0, "calibration_frozen": 0, "team_dark_share": {"A": 0.21, "B": 0.94}, "players_per_frame_median": {"A": 6.0, "B": 6.0}, "ball_frames_pct": 100, "match_seconds": 2859.0, "periods": [{"index": 1, "t_start": 366.0, "t_end": 3224.99, "mirrored": false}], "ball_check": {"correct": 26, "total": 39, "wrong": 13, "ceiling": 39}, "possession_pct": {"A": 35, "B": 65}, "loose_pct": 42, "dead_pct": 6, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.03, "B": 0.01}, "turnovers": 133, "passes": 225, "restarts": 42, "sequences": 254, "shots": {"A": 9, "B": 7}, "goals": {"A": 0, "B": 2}, "high_turnovers": {"A": 27, "B": 10}, "field_tilt": {"A": 35, "B": 16}, "runtime_min": 5.0, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": true, "detail": "coverage 1.0"}, "players": {"ok": false, "detail": "A 6.0 + B 6.0"}, "teams": {"ok": true, "detail": "A 6.0 vs B 6.0"}, "shots": {"ok": true, "detail": "shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2}"}, "match_time": {"ok": true, "detail": "2859.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.67, near a player 0.5"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA PASS: calibration (coverage 1.0)", "QA FAIL: players per frame (A 6.0 + B 6.0)", "QA PASS: team balance (A 6.0 vs B 6.0)", "QA PASS: shots and goals from Veo (shots {'A': 9, 'B': 7}, goals {'A': 0, 'B': 2})", "QA PASS: match time (2859.0 s of 3300 s)"]}
