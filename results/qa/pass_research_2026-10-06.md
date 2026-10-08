@@ -68,3 +68,13 @@ The cause is the same as before. On this second-half clip in low sun our ball ch
 - Vallentuna 66:40 clip: our method alone gave 52 passes with 16 real. Confirmed by the model: **22 passes, 14–15 of them real, team right 12–13 of 14–15 (about 85%)**. The real number is 21.
 - In the pipeline: `analytics.confirm_passes`, used in `run.analyse` when `overrides/<match>_kicks.json` exists (env `IPANEMA_PASS_CONFIRM`; tolerance `IPANEMA_PASS_CONFIRM_TOL`). The kicks file is made from the full-match model run with `tools/make_kicks.py`.
 - Caveat: tuned on one tapped clip of 21 passes.
+
+## In the app (8 Oct, Daniel's go, 3 joins of about €0.30 each)
+| match | passes before | passes now (confirmed) | per min | SFK passes (completed) | opponent passes (completed) |
+|---|---|---|---|---|---|
+| SFK–BP, 1st half | 469 | 167 | 4.0 | 92 (86%) | 75 (81%) |
+| SFK–AIK, 1st half | 698 | 225 | 4.7 | 94 (78%) | 131 (82%) |
+| SFK–Vallentuna, full | 1406 | 491 | 6.0 | 294 (87%) | 197 (82%) |
+
+- Scores and possession are unchanged.
+- On the tapped clip the confirmed count was about right (22–23 against 21 real), but it found only about 2 of 3 real passes. The whole-match numbers may therefore be a little low rather than too high.
