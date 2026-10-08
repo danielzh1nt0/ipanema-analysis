@@ -1,2 +1,2 @@
-tools/s9_strips.py
-# Thu Oct  8 04:31:13 UTC 2026 S9 blind lost-ball strips (free runner, no Modal)
+tools/c3b_look.py
+# Thu Oct  8 08:29:53 UTC 2026 C3b Vallentuna untrusted camera rows drawn on the video, blind (free runner, no Modal)

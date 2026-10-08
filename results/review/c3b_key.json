@@ -1,0 +1,682 @@
+{
+ "c00": {
+  "group": "fb25-40",
+  "t": 3485.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 30.5,
+  "hard": []
+ },
+ "c01": {
+  "group": "jump_anchor",
+  "t": 1045.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c02": {
+  "group": "fb25-40",
+  "t": 4327.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 37.4,
+  "hard": []
+ },
+ "c03": {
+  "group": "brave",
+  "t": 2102.0,
+  "why": [
+   "lines and paint disagree"
+  ],
+  "fb": 10.9,
+  "hard": []
+ },
+ "c04": {
+  "group": "fb100+",
+  "t": 752.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 143.7,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c05": {
+  "group": "fb15-25",
+  "t": 1509.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 18.1,
+  "hard": []
+ },
+ "c06": {
+  "group": "jump_anchor",
+  "t": 1557.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c07": {
+  "group": "fb100+",
+  "t": 1282.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 1413460.8,
+  "hard": [
+   "zoom"
+  ]
+ },
+ "c08": {
+  "group": "fb15-25",
+  "t": 4162.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 19.5,
+  "hard": []
+ },
+ "c09": {
+  "group": "fb15-25",
+  "t": 3902.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 17.1,
+  "hard": []
+ },
+ "c10": {
+  "group": "fb15-25",
+  "t": 4006.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 16.8,
+  "hard": []
+ },
+ "c11": {
+  "group": "fb100+",
+  "t": 5043.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 145.7,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c12": {
+  "group": "fb25-40",
+  "t": 5343.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 26.0,
+  "hard": []
+ },
+ "c13": {
+  "group": "fb100+",
+  "t": 5464.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 150.4,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c14": {
+  "group": "fb25-40",
+  "t": 3321.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 29.2,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c15": {
+  "group": "fb25-40",
+  "t": 4583.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 30.7,
+  "hard": []
+ },
+ "c16": {
+  "group": "jump_anchor",
+  "t": 3726.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c17": {
+  "group": "brave",
+  "t": 5249.0,
+  "why": [],
+  "fb": 6.8,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c18": {
+  "group": "jump_anchor",
+  "t": 2288.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c19": {
+  "group": "fb25-40",
+  "t": 714.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 30.1,
+  "hard": []
+ },
+ "c20": {
+  "group": "fb15-25",
+  "t": 1426.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 24.4,
+  "hard": []
+ },
+ "c21": {
+  "group": "fb25-40",
+  "t": 5078.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 37.9,
+  "hard": []
+ },
+ "c22": {
+  "group": "brave",
+  "t": 2524.0,
+  "why": [
+   "lines and paint disagree"
+  ],
+  "fb": 11.5,
+  "hard": []
+ },
+ "c23": {
+  "group": "fb15-25",
+  "t": 720.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 16.5,
+  "hard": []
+ },
+ "c24": {
+  "group": "fb25-40",
+  "t": 1769.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 39.1,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c25": {
+  "group": "jump_anchor",
+  "t": 4466.0,
+  "why": [
+   "lines and paint disagree",
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c26": {
+  "group": "jump_anchor",
+  "t": 1502.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c27": {
+  "group": "brave",
+  "t": 3414.0,
+  "why": [
+   "refine doubtful"
+  ],
+  "fb": 6.8,
+  "hard": []
+ },
+ "c28": {
+  "group": "brave",
+  "t": 4117.0,
+  "why": [],
+  "fb": 8.2,
+  "hard": []
+ },
+ "c29": {
+  "group": "fb15-25",
+  "t": 4693.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 18.1,
+  "hard": []
+ },
+ "c30": {
+  "group": "fb15-25",
+  "t": 3857.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 24.5,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c31": {
+  "group": "fb15-25",
+  "t": 4965.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 17.9,
+  "hard": []
+ },
+ "c32": {
+  "group": "brave",
+  "t": 4289.0,
+  "why": [],
+  "fb": 5.6,
+  "hard": []
+ },
+ "c33": {
+  "group": "fb25-40",
+  "t": 5160.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 29.0,
+  "hard": []
+ },
+ "c34": {
+  "group": "jump_anchor",
+  "t": 2870.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c35": {
+  "group": "fb15-25",
+  "t": 2306.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 20.4,
+  "hard": []
+ },
+ "c36": {
+  "group": "fb15-25",
+  "t": 4668.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 17.4,
+  "hard": []
+ },
+ "c37": {
+  "group": "jump_anchor",
+  "t": 3352.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c38": {
+  "group": "fb15-25",
+  "t": 4916.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 24.2,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c39": {
+  "group": "brave",
+  "t": 3481.0,
+  "why": [
+   "lines and paint disagree"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c40": {
+  "group": "jump_anchor",
+  "t": 921.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c41": {
+  "group": "fb15-25",
+  "t": 2085.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 22.0,
+  "hard": []
+ },
+ "c42": {
+  "group": "fb100+",
+  "t": 857.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 1413523.9,
+  "hard": []
+ },
+ "c43": {
+  "group": "fb15-25",
+  "t": 5577.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 17.3,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c44": {
+  "group": "jump_anchor",
+  "t": 2323.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c45": {
+  "group": "fb100+",
+  "t": 4682.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 2671.7,
+  "hard": []
+ },
+ "c46": {
+  "group": "fb15-25",
+  "t": 5075.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 24.3,
+  "hard": []
+ },
+ "c47": {
+  "group": "fb15-25",
+  "t": 4164.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 19.2,
+  "hard": []
+ },
+ "c48": {
+  "group": "fb15-25",
+  "t": 651.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 18.4,
+  "hard": []
+ },
+ "c49": {
+  "group": "jump_anchor",
+  "t": 2044.0,
+  "why": [
+   "lines and paint disagree",
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c50": {
+  "group": "jump_anchor",
+  "t": 766.0,
+  "why": [
+   "lines and paint disagree",
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c51": {
+  "group": "fb25-40",
+  "t": 1614.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 28.1,
+  "hard": []
+ },
+ "c52": {
+  "group": "jump_anchor",
+  "t": 5142.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c53": {
+  "group": "fb25-40",
+  "t": 2829.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 27.9,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c54": {
+  "group": "brave",
+  "t": 4242.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree"
+  ],
+  "fb": 8.2,
+  "hard": []
+ },
+ "c55": {
+  "group": "fb25-40",
+  "t": 1425.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 32.2,
+  "hard": []
+ },
+ "c56": {
+  "group": "jump_anchor",
+  "t": 4356.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c57": {
+  "group": "jump_anchor",
+  "t": 4113.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c58": {
+  "group": "fb15-25",
+  "t": 1051.0,
+  "why": [
+   "forward/backward disagree"
+  ],
+  "fb": 15.1,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c59": {
+  "group": "jump_anchor",
+  "t": 733.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": [
+   "fast pan"
+  ]
+ },
+ "c60": {
+  "group": "fb100+",
+  "t": 1275.0,
+  "why": [
+   "refine doubtful",
+   "forward/backward disagree"
+  ],
+  "fb": 1413764.5,
+  "hard": []
+ },
+ "c61": {
+  "group": "fb15-25",
+  "t": 2165.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 22.8,
+  "hard": []
+ },
+ "c62": {
+  "group": "fb15-25",
+  "t": 2406.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 20.1,
+  "hard": []
+ },
+ "c63": {
+  "group": "fb100+",
+  "t": 2208.0,
+  "why": [
+   "refine doubtful",
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 125.3,
+  "hard": [
+   "fast pan"
+  ]
+ }
+}
