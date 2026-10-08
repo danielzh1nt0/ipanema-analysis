@@ -1,4 +1,27 @@
-video ok 29.970030639830654
-results/qa/c3c/frames_vall frames 40 missing []
-video ok 29.970030618346996
-results/qa/c3c/frames_sfk frames 20 missing []
+results/qa/c3d/vall video ok 29.970030639830654 178800
+  500 seconds 65 s
+  1000 seconds 132 s
+  1500 seconds 198 s
+  2000 seconds 265 s
+  2500 seconds 332 s
+  3000 seconds 397 s
+  3500 seconds 462 s
+  4000 seconds 529 s
+  4500 seconds 595 s
+  5000 seconds 666 s
+  5500 seconds 748 s
+results/qa/c3d/vall seconds 5961 of 5961 look 60 in 13.5 min
+results/qa/c3d/sfk video ok 29.970030618346996 184725
+  500 seconds 63 s
+  1000 seconds 127 s
+  1500 seconds 190 s
+  2000 seconds 253 s
+  2500 seconds 318 s
+  3000 seconds 381 s
+  3500 seconds 446 s
+  4000 seconds 510 s
+  4500 seconds 578 s
+  5000 seconds 646 s
+  5500 seconds 715 s
+  6000 seconds 782 s
+results/qa/c3d/sfk seconds 6299 of 6304 look 13 in 13.7 min
