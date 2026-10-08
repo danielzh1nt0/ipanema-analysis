@@ -4,7 +4,7 @@ import os, urllib.request, json
 SUPA = "https://savbsnvusqbogdzvkjaf.supabase.co/storage/v1/object/public/matches"
 for m in ("SFKBP1109", "p15u-vs-aik-2026-09-21-bd09", "p15u-vs-vallentuna-2026-10-03-6cce"):
     d = f"results/free/app_files/{m}"; os.makedirs(d, exist_ok=True); got = []
-    names = ["stats.json", "match_data.json"] + ([] if "vallentuna" in m else [f"frames_{i:03d}.json" for i in range(40)])   # Vallentuna frames: already fetched 5 Oct 16:30
+    names = ["stats.json", "match_data.json"] + [f"frames_{i:03d}.json" for i in range(40)]
     for n in names:
         try:
             with urllib.request.urlopen(f"{SUPA}/{m}/{n}", timeout=120) as r: open(f"{d}/{n}", "wb").write(r.read()); got.append(n)

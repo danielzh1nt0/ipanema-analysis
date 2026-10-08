@@ -1,2 +1,2 @@
-tools/c3c_frames.py grab results/qa/c3d/vall_raw
-# Thu Oct  8 21:04:17 UTC 2026 C3d raw frames of the 60 graded Vallentuna seconds (for a shade-aware cost) - free runner, no Modal
+tools/app_pull.py
+# Thu Oct  8 23:25:02 UTC 2026 pull the Vallentuna files the app now shows (after the 9 Oct join) for a free audit
