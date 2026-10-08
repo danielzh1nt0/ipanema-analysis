@@ -35,3 +35,13 @@ def test_run_dry(tmp_path):
     good = [r["far"] for r in res if r["t"] % 2 == 0]; bad = [r["far"] for r in res if r["t"] % 2]
     assert max(good) < 2.0 < 6.0 < min(bad)
     assert all(os.path.exists(d / "look" / f"{i}.jpg") for i in key) and len(key) >= 4
+
+def test_veto_separation_and_shade_frame():
+    import c3d_veto as V
+    rows = [{"grade": "o", "s": 6.0}, {"grade": "o", "s": 8.0}, {"grade": "g", "s": 1.0}, {"grade": "g", "s": 7.0}, {"grade": "r", "s": 6.5}, {"grade": "?", "s": 9.0}]
+    s = V.separation(rows, "s")
+    assert s["thr"] == 6.0 and s["good_vetoed"] == 1 and s["good"] == 2 and s["rough_vetoed"] == 1
+    assert V.separation([{"grade": "g", "s": 1.0}], "s") is None
+    cam, pose = _camera_pose(); far, near = V.model_pts(cam, 106.0, 64.0); img = _frame(cam, pose)
+    sc = V.scores(img, cam, pose, far, near)
+    assert sc["far_shade"] < 1.5 and sc["move_px"] < 3
