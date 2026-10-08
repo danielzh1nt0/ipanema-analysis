@@ -1,2 +1,2 @@
-tools/c3b_look.py results/qa/c3b_sfk
-# Thu Oct  8 12:29:07 UTC 2026 C3b SFK-BP jump-from-track anchors drawn on the video, blind (free runner, no Modal)
+tools/c3c_frames.py grab results/qa/c3c/frames_vall results/qa/c3c/frames_sfk
+# Thu Oct  8 16:26:02 UTC 2026 C3c raw frames with the near touchline in view (Vallentuna 40, SFK-BP 20) - free runner, no Modal
