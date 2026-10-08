@@ -1,7 +1,7 @@
 === SFKBP1109 full match === video: 98902 frames (3300 s) @ 29.970 fps -> 11 pieces
 calibration: from the clip's own camera
 pieces: 11 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
-pieces: 11/11 done in 2.9 min
+pieces: 11/11 done in 2.1 min
 tracking frame 98902
   piece 00: cached
   piece 01: cached
@@ -43,20 +43,29 @@ direction: from reference labels -> A →
   spell state (take 1.5 s): possession flips 884 -> 117 (2.1 per minute)
   step: turnovers (0 s since the last step)
   step: lanes (0 s since the last step)
-  step: passes (4 s since the last step)
-  step: shapes (1 s since the last step)
-  step: stats (7 s since the last step)
-  step: metrics (15 s since the last step)
-veo: 25 shots incl. 4 goals imported; 0 goal tag(s) rejected; team by eye for 1, from the ball for 0, from the players for 0, unknown for 18
+  step: passes (3 s since the last step)
+passes: 469 -> 167 confirmed by the video ball-action model (SFKBP1109_kicks.json)
+lost balls: 146 -> 118 (duels dropped: winner kept it < 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)
+  step: shapes (0 s since the last step)
+  step: stats (6 s since the last step)
+  step: metrics (12 s since the last step)
+veo: 25 shots incl. 4 goals imported; 0 goal tag(s) rejected; origin by eye for 0, team by eye for 1, from the ball for 0, from the players for 0, unknown for 18
 veo: 18 shots/goals outside the analysed video or its periods left out (3 goals)
 our shot detector vs Veo: found 0/7 of Veo's shots, 0/8 of ours are real (within 10 s)
 ball grade: accuracy 0.82, near-player 0.47, possession OK, events withheld
 ball reliability: 76% frames, 47% near a player, 18437 jumps -> OK
-  step: export (11 s since the last step)
+  step: export (8 s since the last step)
 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
   wrote 12 frame files (every 3 frames, 300 s each, largest 6.8 MB)
-  wrote match_data.json (0.5 MB)
-export: /data/match_analysis/runs/matches/SFKBP1109 (751 events) · library.json updated · zip None
+  wrote match_data.json (0.3 MB)
+  upload checks: SFKBP1109: needs review -> ball_map, shot_map
+    OK   players: median players per frame A 7, B 7
+    OK   keepers: 0 of 22007 frames with 2+ keepers in one team
+    OK   goals: 2619: A scored, B kicks off at 2657
+    FLAG shots: 0 of 7 shots have a spot on the pitch
+    FLAG ball: 4960 of 25025 ball positions more than 3 m off the pitch
+    OK   possession: 42 of 58 clear moments right (wrong: 1220.3 ours A eye B, 1234.9 ours A eye B, 1255.5 ours None eye B, 1259.1 ours None eye B, 1304.2 ours None eye B, 1306.5 ours None eye B)
+export: /data/match_analysis/runs/matches/SFKBP1109 (553 events) · library.json updated · zip None
 upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, thumb)
 
 --- SUMMARY ---
@@ -78,21 +87,21 @@ upload: SFKBP1109 -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, fram
   possession_model           simple
   attack_right               {'A': True, 'B': False}
   direction_confidence       {'A': 0.05, 'B': 0.06}
-  turnovers                  146
-  passes                     469
+  turnovers                  118
+  passes                     167
   restarts                   66
   sequences                  264
   shots                      {'A': 3, 'B': 4}
   goals                      {'A': 1, 'B': 0}
-  high_turnovers             {'A': 17, 'B': 20}
+  high_turnovers             {'A': 13, 'B': 16}
   field_tilt                 {'A': 24, 'B': 35}
-  runtime_min                7.3
+  runtime_min                5.7
 QA PASS: pieces processed (11/11)
 QA FAIL: calibration (coverage 0.9)
 QA PASS: players per frame (A 7.0 + B 7.0)
 QA PASS: team balance (A 7.0 vs B 7.0)
 QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})
 QA PASS: match time (2505.0 s of 3300 s)
-SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.82, "near_player_pct": 0.47, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 0.9, "calibration_frozen": 10075, "team_dark_share": {"A": 0.2, "B": 0.86}, "players_per_frame_median": {"A": 7.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 2505.0, "periods": [{"index": 1, "t_start": 554.99, "t_end": 3059.99, "mirrored": false}], "ball_check": {"correct": 28, "total": 34, "wrong": 6, "ceiling": 33}, "possession_pct": {"A": 45, "B": 55}, "loose_pct": 49, "dead_pct": 15, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.06}, "turnovers": 146, "passes": 469, "restarts": 66, "sequences": 264, "shots": {"A": 3, "B": 4}, "goals": {"A": 1, "B": 0}, "high_turnovers": {"A": 17, "B": 20}, "field_tilt": {"A": 24, "B": 35}, "runtime_min": 7.3, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": false, "detail": "coverage 0.9"}, "players": {"ok": true, "detail": "A 7.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 7.0 vs B 7.0"}, "shots": {"ok": true, "detail": "shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0}"}, "match_time": {"ok": true, "detail": "2505.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.82, near a player 0.47"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA FAIL: calibration (coverage 0.9)", "QA PASS: players per frame (A 7.0 + B 7.0)", "QA PASS: team balance (A 7.0 vs B 7.0)", "QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})", "QA PASS: match time (2505.0 s of 3300 s)"]}
+SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.82, "near_player_pct": 0.47, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 0.9, "calibration_frozen": 10075, "team_dark_share": {"A": 0.2, "B": 0.86}, "players_per_frame_median": {"A": 7.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 2505.0, "periods": [{"index": 1, "t_start": 554.99, "t_end": 3059.99, "mirrored": false}], "ball_check": {"correct": 28, "total": 34, "wrong": 6, "ceiling": 33}, "possession_pct": {"A": 45, "B": 55}, "loose_pct": 49, "dead_pct": 15, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.06}, "turnovers": 118, "passes": 167, "restarts": 66, "sequences": 264, "shots": {"A": 3, "B": 4}, "goals": {"A": 1, "B": 0}, "high_turnovers": {"A": 13, "B": 16}, "field_tilt": {"A": 24, "B": 35}, "runtime_min": 5.7, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": false, "detail": "coverage 0.9"}, "players": {"ok": true, "detail": "A 7.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 7.0 vs B 7.0"}, "shots": {"ok": true, "detail": "shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0}"}, "match_time": {"ok": true, "detail": "2505.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.82, near a player 0.47"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA FAIL: calibration (coverage 0.9)", "QA PASS: players per frame (A 7.0 + B 7.0)", "QA PASS: team balance (A 7.0 vs B 7.0)", "QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})", "QA PASS: match time (2505.0 s of 3300 s)"]}
 
-SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.82, "near_player_pct": 0.47, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 0.9, "calibration_frozen": 10075, "team_dark_share": {"A": 0.2, "B": 0.86}, "players_per_frame_median": {"A": 7.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 2505.0, "periods": [{"index": 1, "t_start": 554.99, "t_end": 3059.99, "mirrored": false}], "ball_check": {"correct": 28, "total": 34, "wrong": 6, "ceiling": 33}, "possession_pct": {"A": 45, "B": 55}, "loose_pct": 49, "dead_pct": 15, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.06}, "turnovers": 146, "passes": 469, "restarts": 66, "sequences": 264, "shots": {"A": 3, "B": 4}, "goals": {"A": 1, "B": 0}, "high_turnovers": {"A": 17, "B": 20}, "field_tilt": {"A": 24, "B": 35}, "runtime_min": 7.3, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": false, "detail": "coverage 0.9"}, "players": {"ok": true, "detail": "A 7.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 7.0 vs B 7.0"}, "shots": {"ok": true, "detail": "shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0}"}, "match_time": {"ok": true, "detail": "2505.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.82, near a player 0.47"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA FAIL: calibration (coverage 0.9)", "QA PASS: players per frame (A 7.0 + B 7.0)", "QA PASS: team balance (A 7.0 vs B 7.0)", "QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})", "QA PASS: match time (2505.0 s of 3300 s)"]}
+SUMMARY {"match_id": "SFKBP1109", "ball_reliable": true, "ball_grade": {"accuracy": 0.82, "near_player_pct": 0.47, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "duration_s": 3300.0, "calibration_coverage": 0.9, "calibration_frozen": 10075, "team_dark_share": {"A": 0.2, "B": 0.86}, "players_per_frame_median": {"A": 7.0, "B": 7.0}, "ball_frames_pct": 100, "match_seconds": 2505.0, "periods": [{"index": 1, "t_start": 554.99, "t_end": 3059.99, "mirrored": false}], "ball_check": {"correct": 28, "total": 34, "wrong": 6, "ceiling": 33}, "possession_pct": {"A": 45, "B": 55}, "loose_pct": 49, "dead_pct": 15, "possession_model": "simple", "attack_right": {"A": true, "B": false}, "direction_confidence": {"A": 0.05, "B": 0.06}, "turnovers": 118, "passes": 167, "restarts": 66, "sequences": 264, "shots": {"A": 3, "B": 4}, "goals": {"A": 1, "B": 0}, "high_turnovers": {"A": 13, "B": 16}, "field_tilt": {"A": 24, "B": 35}, "runtime_min": 5.7, "quality": {"pieces": {"ok": true, "detail": "11/11"}, "positions": {"ok": false, "detail": "coverage 0.9"}, "players": {"ok": true, "detail": "A 7.0 + B 7.0"}, "teams": {"ok": true, "detail": "A 7.0 vs B 7.0"}, "shots": {"ok": true, "detail": "shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0}"}, "match_time": {"ok": true, "detail": "2505.0 s of 3300 s"}, "ball": {"ok": true, "detail": "accuracy 0.82, near a player 0.47"}, "possession": {"ok": true, "detail": "unlocked"}}, "qa": ["QA PASS: pieces processed (11/11)", "QA FAIL: calibration (coverage 0.9)", "QA PASS: players per frame (A 7.0 + B 7.0)", "QA PASS: team balance (A 7.0 vs B 7.0)", "QA PASS: shots and goals from Veo (shots {'A': 3, 'B': 4}, goals {'A': 1, 'B': 0})", "QA PASS: match time (2505.0 s of 3300 s)"]}
