@@ -1,2 +1,2 @@
-tools/c3c_frames.py grab results/qa/c3c/frames_vall results/qa/c3c/frames_sfk
-# Thu Oct  8 16:26:02 UTC 2026 C3c raw frames with the near touchline in view (Vallentuna 40, SFK-BP 20) - free runner, no Modal
+tools/c3d_farcost.py run results/qa/c3d/vall results/qa/c3d/sfk
+# Thu Oct  8 20:31:29 UTC 2026 C3d far-paint cost of every posed second (Vallentuna + SFK-BP control) - free runner, no Modal
