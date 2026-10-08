@@ -208,6 +208,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     if ctx.get("team_override"):                                               # 9 Oct: offline team decisions keyed by the EXPORTED ids, so after clean()'s stitching
         from .fullmatch import apply_team_override
         log(f"teams: offline override changed {apply_team_override(per, ctx['team_override'], fps)} player rows (after track cleaning)")
+        _k = 0
+        for _g in per: _keep = [r for r in per[_g] if r[1] in ("A", "B")]; _k += len(per[_g]) - len(_keep); per[_g] = _keep   # "K" = not a player (referee, staff); clean() already dropped its own
+        if _k: log(f"teams: {_k} rows marked 'not a player' by the override removed")
     per, _nf = TR.fill_gaps(per, fps, 1.0, H=H)                              # 28 Sep: players the detector drops for < 1 s (dark kits blink: median track 0.8 s)
     log(f"players: {_nf} short gaps filled (marked 'filled' in the export)")
     try:                                                                       # 1 Oct: the picker's exact inputs, so it can be tuned for free offline ([fetch:cache/<match>/picker_inputs.pkl])

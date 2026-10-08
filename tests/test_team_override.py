@@ -47,3 +47,10 @@ def test_clean_drops_people_living_on_the_line():
                   [2, "A", np.array([30.0 + 0.3 * k, 40.0]), (0, 0), (0, 0, 10, 20), False]]                        # a real player
     per2, _ = TR.clean(per, 106.0, 64.0, fps, log=lambda *a: None, keepers_by_zone=False)
     assert {r[0] for v in per2.values() for r in v} == {2}
+
+def test_override_K_rows_do_not_reach_analytics():
+    """9 Oct: the join failed with KeyError('K') once the override ran after clean(): rows it marks K must go"""
+    import re
+    src = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ipanema", "run.py")).read()
+    block = src[src.index("apply_team_override(per, ctx['team_override']"):][:600]
+    assert 'r[1] in ("A", "B")' in block
