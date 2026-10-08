@@ -1,0 +1,196 @@
+{
+ "c00": {
+  "group": "jump_anchor",
+  "t": 5487.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c01": {
+  "group": "jump_anchor",
+  "t": 954.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c02": {
+  "group": "brave",
+  "t": 2446.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 10.5,
+  "hard": []
+ },
+ "c03": {
+  "group": "brave",
+  "t": 1465.0,
+  "why": [
+   "lines and paint disagree",
+   "forward/backward disagree"
+  ],
+  "fb": 15.0,
+  "hard": []
+ },
+ "c04": {
+  "group": "brave",
+  "t": 5244.0,
+  "why": [],
+  "fb": 2.3,
+  "hard": []
+ },
+ "c05": {
+  "group": "jump_anchor",
+  "t": 2749.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c06": {
+  "group": "jump_anchor",
+  "t": 1796.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c07": {
+  "group": "brave",
+  "t": 3958.0,
+  "why": [],
+  "fb": 0.6,
+  "hard": []
+ },
+ "c08": {
+  "group": "jump_anchor",
+  "t": 5502.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c09": {
+  "group": "jump_anchor",
+  "t": 2619.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c10": {
+  "group": "jump_anchor",
+  "t": 4908.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c11": {
+  "group": "jump_anchor",
+  "t": 4638.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c12": {
+  "group": "jump_anchor",
+  "t": 809.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c13": {
+  "group": "jump_anchor",
+  "t": 1328.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c14": {
+  "group": "brave",
+  "t": 5570.0,
+  "why": [],
+  "fb": 0.3,
+  "hard": []
+ },
+ "c15": {
+  "group": "jump_anchor",
+  "t": 5731.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c16": {
+  "group": "brave",
+  "t": 2897.0,
+  "why": [
+   "lines and paint disagree"
+  ],
+  "fb": 7.3,
+  "hard": []
+ },
+ "c17": {
+  "group": "jump_anchor",
+  "t": 3746.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c18": {
+  "group": "jump_anchor",
+  "t": 2874.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c19": {
+  "group": "jump_anchor",
+  "t": 1906.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c20": {
+  "group": "jump_anchor",
+  "t": 4773.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ },
+ "c21": {
+  "group": "jump_anchor",
+  "t": 4703.0,
+  "why": [
+   "jump from track"
+  ],
+  "fb": null,
+  "hard": []
+ }
+}

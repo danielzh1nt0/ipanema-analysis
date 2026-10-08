@@ -1,2 +1,2 @@
-tools/c3b_look.py
-# Thu Oct  8 08:29:53 UTC 2026 C3b Vallentuna untrusted camera rows drawn on the video, blind (free runner, no Modal)
+tools/c3b_look.py results/qa/c3b_sfk
+# Thu Oct  8 12:29:07 UTC 2026 C3b SFK-BP jump-from-track anchors drawn on the video, blind (free runner, no Modal)

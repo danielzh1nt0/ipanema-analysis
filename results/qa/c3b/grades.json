@@ -1,0 +1,8 @@
+{"_note": "C3b grades by eye (8 Oct). g = far lines (boxes, circle, halfway) within ~10 px of the painted lines; r = 10-30 px off somewhere; o = >30 px off or clearly wrong place; '?' = can't tell. near_off = near touchline drawn clearly away from the painted one (not used by the fit). c00-c09 were graded after their groups had been seen (not blind).",
+"c00":["r",1],"c01":["g",0],"c02":["?",1],"c03":["g",0],"c04":["g",0],"c05":["r",0],"c06":["g",0],"c07":["o",0],"c08":["o",1],"c09":["r",1],
+"c10":["r",0],"c11":["o",1],"c12":["o",0],"c13":["o",0],"c14":["o",1],"c15":["r",0],"c16":["r",0],"c17":["r",0],"c18":["r",1],"c19":["g",0],
+"c20":["r",1],"c21":["r",0],"c22":["r",1],"c23":["g",0],"c24":["g",1],"c25":["r",0],"c26":["g",0],"c27":["g",0],"c28":["g",0],"c29":["g",1],
+"c30":["r",0],"c31":["r",1],"c32":["g",0],"c33":["o",1],"c34":["g",0],"c35":["o",0],"c36":["r",0],"c37":["r",0],"c38":["o",1],"c39":["g",1],
+"c40":["r",0],"c41":["r",0],"c42":["o",1],"c43":["r",0],"c44":["g",0],"c45":["o",1],"c46":["g",0],"c47":["o",1],"c48":["r",0],"c49":["g",0],
+"c50":["g",0],"c51":["o",0],"c52":["r",0],"c53":["o",1],"c54":["g",0],"c55":["g",1],"c56":["g",0],"c57":["g",0],"c58":["g",0],"c59":["g",0],
+"c60":["o",1],"c61":["r",0],"c62":["o",0],"c63":["o",1]}

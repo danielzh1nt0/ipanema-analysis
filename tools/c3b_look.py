@@ -2,6 +2,7 @@
 full-size Vallentuna frame at that second. Title shows only the id and time, never the group.
     python tools/c3b_look.py                              (free runner: video from R2_PUBLIC_URL)
     VIDEO=/path/to.mp4 OUT=dir python tools/c3b_look.py   (dry run on a local file)
+    python tools/c3b_look.py results/qa/c3b_sfk           (another sample folder; pictures go next to its sample.json)
 -> results/qa/c3b/<id>.jpg (1280x720) + results/qa/c3b/result.json"""
 import os, sys, json, cv2, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -13,7 +14,8 @@ def draw(f, camera, pose, title):
     return g
 
 def main():
-    S = json.load(open("results/qa/c3b/sample.json")); out = os.environ.get("OUT", "results/qa/c3b"); os.makedirs(out, exist_ok=True)
+    d = sys.argv[1] if len(sys.argv) > 1 else "results/qa/c3b"
+    S = json.load(open(f"{d}/sample.json")); out = os.environ.get("OUT", d); os.makedirs(out, exist_ok=True)
     src = os.environ.get("VIDEO") or f"{os.environ['R2_PUBLIC_URL'].rstrip('/')}/{S['src_key']}"
     cap = cv2.VideoCapture(src); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97; n = 0; miss = []
     print("video", "ok" if cap.isOpened() else "NOT OPEN", fps, flush=True)

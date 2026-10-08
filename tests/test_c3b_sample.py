@@ -24,3 +24,12 @@ def test_committed_sample_has_no_group():
     p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results/qa/c3b/sample.json")
     if os.path.exists(p):
         assert all(set(r) == {"id", "t", "pose"} for r in json.load(open(p))["rows"])
+
+def test_jump_without_anchor_flag():
+    # SFK-BP rows have no 'anchor' key; 'jump from track' is only set on anchors (matchcal.run_chunk)
+    assert CS.group({"pose": P, "fwd_bwd_px": None, "why": ["jump from track"]}) == "jump_anchor"
+
+def test_custom_groups():
+    rows = [{"t": float(t), "pose": P, "fwd_bwd_px": None, "why": ["jump from track"] if t % 3 == 0 else []} for t in range(0, 400)]
+    a = CS.pick(rows, [[0, 400]], groups=[("jump_anchor", 5), ("brave", 2)])
+    assert sorted(q["group"] for q in a) == ["brave"] * 2 + ["jump_anchor"] * 5
