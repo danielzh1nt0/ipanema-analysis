@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 22:48:23 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 22:49:57 UTC
 
 
-## run_full.log (25 lines, last 60)
+## run_full.log (30 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -27,6 +27,11 @@ tracking frame 178800
   piece 17: cached
   piece 18: cached
   piece 19: cached
+teams: offline override p15u-vs-vallentuna-2026-10-03-6cce_teams.json (5573 tracks) will be applied after track cleaning
+periods: [(435.0, 2889.99), (3219.98, 5645.01)] s; 81 min of match time kept, later halves mirrored so each team attacks the same way
+calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
+calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
+clean: 206 people living on or by the lines dropped (bench, coaches, stand)
 
 ## train_ball.log (1 lines, last 60)
 
