@@ -40,16 +40,16 @@ def truth_losses(ev, per, fps, keep_s=3.0):
         if (nxt["end"] - nxt["start"]) >= keep_s * fps or any(nxt["start"] <= f <= nxt["end"] for f in passes[wi]): s9.append((e["f0"], tm))
     return allx, s9
 
-def metrica(d):
+def metrica(d, games=("Sample_Game_1", "Sample_Game_2"), halves=(1, 2), noises=(False, "streak"), keeps=(0.0, 3.0)):
     import metricalab as ML
     rows = []
-    for g in ("Sample_Game_1", "Sample_Game_2"):
+    for g in games:
         gd = f"{d}/{g}"; home = ML.load_tracking(f"{gd}/{g}_RawTrackingData_Home_Team.csv", 100); away = ML.load_tracking(f"{gd}/{g}_RawTrackingData_Away_Team.csv", 200)
         fr = {k: (home[k][0], home[k][1] + away[k][1], home[k][2]) for k in home}; ev = ML.load_events(f"{gd}/{g}_RawEventsData.csv")
-        for per in (1, 2):
+        for per in halves:
             tall, ts9 = truth_losses(ev, per, ML.FPS)
-            for noisy in (False, "streak", "flicker"):
-                for keep in (0.0, 2.0, 3.0, 4.0):
+            for noisy in noises:
+                for keep in keeps:
                     O = ML.ours(fr, per, noisy, loss_keep_s=keep); lf = O["loss_frames"]; tol = 2 * ML.FPS
                     rows.append({"game": g[-1], "half": per, "noise": str(noisy), "keep_s": keep, "ours": len(lf), "truth": len(tall), "truth_s9": len(ts9),
                                  "real": match_pairs(lf, tall, tol), "found": match_pairs(tall, lf, tol), "found_s9": match_pairs(ts9, lf, tol), "real_s9": match_pairs(lf, ts9, tol)})
@@ -103,6 +103,9 @@ if __name__ == "__main__":
     if os.path.exists(f"{OUT}/eye_grades.json"):
         rep["spells"] = spells(ex["SFKBP1109"])
         for r in rep["spells"]: print(r)
+    if len(sys.argv) > 2 and sys.argv[2] == "--one":     # one game/half (parallel runs): s9lab.py <dir> --one <game> <half>
+        json.dump(metrica(sys.argv[1], (sys.argv[3],), (int(sys.argv[4]),)), open(f"{OUT}/metrica_{sys.argv[3][-1]}_{sys.argv[4]}.json", "w"), indent=0); sys.exit()
     if len(sys.argv) > 1: rep["metrica"] = metrica(sys.argv[1])
+    rep["metrica_parts"] = [r for f in sorted(glob.glob(f"{OUT}/metrica_*_*.json")) for r in json.load(open(f))]
     json.dump(rep, open(f"{OUT}/s9lab.json", "w"), indent=1)
     json.dump({m: {"kept": r["kept"], "dropped": r["dropped"]} for m, r in ex.items() if r}, open(f"{OUT}/export_turnovers.json", "w"), indent=0, default=str)

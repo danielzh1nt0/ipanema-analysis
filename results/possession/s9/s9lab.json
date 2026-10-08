@@ -1,0 +1,600 @@
+{
+ "exports": {
+  "SFKBP1109": {
+   "match": "SFKBP1109",
+   "minutes_covered": 41.8,
+   "fps": 10.0,
+   "state_agrees_at_win": 0.92,
+   "before": {
+    "A": 74,
+    "B": 72
+   },
+   "after": {
+    "A": 55,
+    "B": 54
+   },
+   "confirmed_by": {
+    "hold": 107,
+    "pass": 2,
+    "clip end": 0
+   },
+   "dropped_back": 14
+  },
+  "p15u-vs-aik-2026-09-21-bd09": {
+   "match": "p15u-vs-aik-2026-09-21-bd09",
+   "minutes_covered": 14.7,
+   "fps": 10.0,
+   "state_agrees_at_win": 0.83,
+   "before": {
+    "A": 29,
+    "B": 31
+   },
+   "after": {
+    "A": 18,
+    "B": 20
+   },
+   "confirmed_by": {
+    "hold": 38,
+    "pass": 0,
+    "clip end": 0
+   },
+   "dropped_back": 9
+  },
+  "p15u-vs-vallentuna-2026-10-03-6cce": {
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "minutes_covered": 81.3,
+   "fps": 10.0,
+   "state_agrees_at_win": 0.96,
+   "before": {
+    "A": 188,
+    "B": 188
+   },
+   "after": {
+    "A": 146,
+    "B": 151
+   },
+   "confirmed_by": {
+    "hold": 288,
+    "pass": 9,
+    "clip end": 0
+   },
+   "dropped_back": 36
+  }
+ },
+ "spells": [
+  {
+   "id": "short00",
+   "team": "B",
+   "dur": 1.9,
+   "change": "B>B>A",
+   "eye": "unclear",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short01",
+   "team": "B",
+   "dur": 2.9,
+   "change": "B>B>B",
+   "eye": "real, no change",
+   "turnover_in": "none",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short02",
+   "team": "A",
+   "dur": 2.8,
+   "change": "A>A>B",
+   "eye": "real",
+   "turnover_in": "none",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short03",
+   "team": "A",
+   "dur": 2.7,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "dropped",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short04",
+   "team": "A",
+   "dur": 2.0,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "kept",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short05",
+   "team": "A",
+   "dur": 1.6,
+   "change": "B>A>B",
+   "eye": "noise",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short06",
+   "team": "A",
+   "dur": 1.5,
+   "change": "B>A>B",
+   "eye": "real",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short07",
+   "team": "B",
+   "dur": 2.5,
+   "change": "A>B>A",
+   "eye": "unclear",
+   "turnover_in": "kept",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short08",
+   "team": "B",
+   "dur": 1.6,
+   "change": "B>B>B",
+   "eye": "real, no change",
+   "turnover_in": "none",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short09",
+   "team": "A",
+   "dur": 1.9,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short10",
+   "team": "A",
+   "dur": 1.8,
+   "change": "B>A>B",
+   "eye": "noise",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short11",
+   "team": "A",
+   "dur": 2.2,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short12",
+   "team": "A",
+   "dur": 1.5,
+   "change": "B>A>B",
+   "eye": "noise",
+   "turnover_in": "kept",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short13",
+   "team": "B",
+   "dur": 1.9,
+   "change": "A>B>A",
+   "eye": "duel",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short14",
+   "team": "B",
+   "dur": 2.5,
+   "change": "A>B>A",
+   "eye": "noise",
+   "turnover_in": "none",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short15",
+   "team": "B",
+   "dur": 2.0,
+   "change": "A>B>A",
+   "eye": "duel",
+   "turnover_in": "none",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short16",
+   "team": "B",
+   "dur": 1.7,
+   "change": "A>B>A",
+   "eye": "duel",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short17",
+   "team": "A",
+   "dur": 2.0,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "none",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short18",
+   "team": "A",
+   "dur": 1.9,
+   "change": "B>A>A",
+   "eye": "duel",
+   "turnover_in": "kept",
+   "turnover_out": "none"
+  },
+  {
+   "id": "short19",
+   "team": "A",
+   "dur": 1.7,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "dropped",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short20",
+   "team": "B",
+   "dur": 2.3,
+   "change": "A>B>A",
+   "eye": "unclear",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short21",
+   "team": "A",
+   "dur": 2.1,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "none",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "short22",
+   "team": "A",
+   "dur": 1.9,
+   "change": "A>A>B",
+   "eye": "duel",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "short23",
+   "team": "A",
+   "dur": 2.2,
+   "change": "B>A>B",
+   "eye": "duel",
+   "turnover_in": "kept",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long24",
+   "team": "B",
+   "dur": 3.6,
+   "change": "A>B>A",
+   "eye": "?",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long25",
+   "team": "A",
+   "dur": 4.4,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long26",
+   "team": "A",
+   "dur": 6.9,
+   "change": "B>A>A",
+   "eye": "?",
+   "turnover_in": "none",
+   "turnover_out": "none"
+  },
+  {
+   "id": "long27",
+   "team": "B",
+   "dur": 7.5,
+   "change": "A>B>B",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "none"
+  },
+  {
+   "id": "long28",
+   "team": "A",
+   "dur": 3.5,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long29",
+   "team": "A",
+   "dur": 3.8,
+   "change": "B>A>A",
+   "eye": "?",
+   "turnover_in": "dropped",
+   "turnover_out": "none"
+  },
+  {
+   "id": "long30",
+   "team": "A",
+   "dur": 4.1,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long31",
+   "team": "A",
+   "dur": 3.3,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "dropped",
+   "turnover_out": "dropped"
+  },
+  {
+   "id": "long32",
+   "team": "A",
+   "dur": 4.7,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "none"
+  },
+  {
+   "id": "long33",
+   "team": "B",
+   "dur": 3.8,
+   "change": "A>B>A",
+   "eye": "?",
+   "turnover_in": "kept",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long34",
+   "team": "B",
+   "dur": 7.1,
+   "change": "A>B>A",
+   "eye": "?",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  },
+  {
+   "id": "long35",
+   "team": "A",
+   "dur": 3.3,
+   "change": "B>A>B",
+   "eye": "?",
+   "turnover_in": "none",
+   "turnover_out": "kept"
+  }
+ ],
+ "metrica_parts": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "keep_s": 0.0,
+   "ours": 55,
+   "truth": 142,
+   "truth_s9": 79,
+   "real": 46,
+   "found": 46,
+   "found_s9": 38,
+   "real_s9": 38
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "keep_s": 3.0,
+   "ours": 49,
+   "truth": 142,
+   "truth_s9": 79,
+   "real": 42,
+   "found": 42,
+   "found_s9": 35,
+   "real_s9": 35
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "keep_s": 0.0,
+   "ours": 23,
+   "truth": 142,
+   "truth_s9": 79,
+   "real": 14,
+   "found": 14,
+   "found_s9": 11,
+   "real_s9": 11
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "keep_s": 3.0,
+   "ours": 23,
+   "truth": 142,
+   "truth_s9": 79,
+   "real": 14,
+   "found": 14,
+   "found_s9": 11,
+   "real_s9": 11
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "keep_s": 0.0,
+   "ours": 63,
+   "truth": 115,
+   "truth_s9": 77,
+   "real": 44,
+   "found": 44,
+   "found_s9": 38,
+   "real_s9": 38
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "keep_s": 3.0,
+   "ours": 57,
+   "truth": 115,
+   "truth_s9": 77,
+   "real": 40,
+   "found": 40,
+   "found_s9": 34,
+   "real_s9": 34
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "keep_s": 0.0,
+   "ours": 23,
+   "truth": 115,
+   "truth_s9": 77,
+   "real": 11,
+   "found": 11,
+   "found_s9": 10,
+   "real_s9": 10
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "keep_s": 3.0,
+   "ours": 23,
+   "truth": 115,
+   "truth_s9": 77,
+   "real": 11,
+   "found": 11,
+   "found_s9": 10,
+   "real_s9": 10
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "keep_s": 0.0,
+   "ours": 70,
+   "truth": 128,
+   "truth_s9": 88,
+   "real": 53,
+   "found": 53,
+   "found_s9": 44,
+   "real_s9": 44
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "keep_s": 3.0,
+   "ours": 66,
+   "truth": 128,
+   "truth_s9": 88,
+   "real": 50,
+   "found": 50,
+   "found_s9": 41,
+   "real_s9": 41
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "keep_s": 0.0,
+   "ours": 27,
+   "truth": 128,
+   "truth_s9": 88,
+   "real": 20,
+   "found": 20,
+   "found_s9": 16,
+   "real_s9": 16
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "keep_s": 3.0,
+   "ours": 27,
+   "truth": 128,
+   "truth_s9": 88,
+   "real": 20,
+   "found": 20,
+   "found_s9": 16,
+   "real_s9": 16
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "keep_s": 0.0,
+   "ours": 54,
+   "truth": 105,
+   "truth_s9": 66,
+   "real": 39,
+   "found": 39,
+   "found_s9": 28,
+   "real_s9": 28
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "keep_s": 3.0,
+   "ours": 52,
+   "truth": 105,
+   "truth_s9": 66,
+   "real": 37,
+   "found": 37,
+   "found_s9": 28,
+   "real_s9": 28
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "keep_s": 0.0,
+   "ours": 22,
+   "truth": 105,
+   "truth_s9": 66,
+   "real": 12,
+   "found": 12,
+   "found_s9": 12,
+   "real_s9": 12
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "keep_s": 3.0,
+   "ours": 22,
+   "truth": 105,
+   "truth_s9": 66,
+   "real": 12,
+   "found": 12,
+   "found_s9": 12,
+   "real_s9": 12
+  }
+ ]
+}

@@ -266,6 +266,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     if os.path.exists(_kf) and os.environ.get("IPANEMA_PASS_CONFIRM", "1") == "1":   # P-PASS (6 Oct): passes confirmed by the video ball-action model
         _n = len(ps); ps = AN.confirm_passes(ps, json.load(open(_kf))["kicks"], float(os.environ.get("IPANEMA_PASS_CONFIRM_TOL", "0.7")))
         log(f"passes: {_n} -> {len(ps)} confirmed by the video ball-action model ({os.path.basename(_kf)})")
+    _keep = float(os.environ.get("IPANEMA_LOSS_KEEP_S", P.LOSS_KEEP_S)); _nt = len(tvs)   # S9 (8 Oct): a duel is a lost ball only if the winner keeps it / passes
+    tvs, _duels = P.confirm_losses(tvs, cstate, ps, fps, _keep)
+    log(f"lost balls: {_nt} -> {len(tvs)} (duels dropped: winner kept it < {_keep} s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)")
     step("shapes")
     sh = AN.shapes(per, L, fps)
     step("stats")

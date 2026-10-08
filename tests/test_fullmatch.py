@@ -58,6 +58,7 @@ def test_full_match_join_and_export(capsys):
     summary, folder, z = analyse(ctx, S, log=lambda *a: logs.append(" ".join(map(str, a))), export_kw={"frame_stride": 3, "split_s": 30, "copy_video": False, "make_zip": False, "video_url": "https://r2/TEST/video.mp4"}, gt_path="/tmp/gt_full_t.json")
     print([l for l in logs if l.startswith("clean:") or "frame files" in l or "match_data" in l or l.startswith("ball check") or l.startswith("picker test")])
     md = json.load(open(f"{folder}/match_data.json")); lib = json.load(open(f"{root}/runs/library.json"))["matches"][-1]
+    assert any(l.startswith("lost balls:") for l in logs), "S9: the duel filter on lost balls did not run"
     print("frame_chunks:", [(c["key"], c["t_start"], c["t_end"]) for c in md["frame_chunks"]])
     f1 = json.load(open(f"{folder}/frames_001.json"))["frames"]; fr = f1[0]
     g = int(round(fr["t"] * fps)); truth = {f"{t}{j}": m for (n_, t, m) in world(g) for j in [int(n_[1:])] if n_ == f"{t}{j}"}

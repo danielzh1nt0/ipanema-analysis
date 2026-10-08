@@ -1,0 +1,6 @@
+{"_note": "graded by eye on results/qa/s9/*.jpg BEFORE opening the rule's verdicts (worker, 8 Oct). real = the winner really got the ball and kept it / cleared / keeper took it; duel = contest, the ball goes back or stays with the 'loser'; noise = no real change (ball dead, loser kept it); unclear.",
+ "s9_00": "real", "s9_01": "real", "s9_02": "duel", "s9_03": "noise", "s9_04": "unclear", "s9_05": "duel", "s9_06": "duel", "s9_07": "unclear",
+ "s9_08": "real", "s9_09": "duel", "s9_10": "real", "s9_11": "duel", "s9_12": "duel", "s9_13": "noise", "s9_14": "duel", "s9_15": "unclear",
+ "s9_16": "duel", "s9_17": "duel", "s9_18": "real", "s9_19": "real", "s9_20": "duel", "s9_21": "real", "s9_22": "real", "s9_23": "duel",
+ "s9_24": "real", "s9_25": "noise", "s9_26": "unclear", "s9_27": "unclear", "s9_28": "real", "s9_29": "noise", "s9_30": "real", "s9_31": "noise",
+ "s9_32": "unclear", "s9_33": "real", "s9_34": "duel"}

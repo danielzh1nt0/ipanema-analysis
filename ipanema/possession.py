@@ -343,6 +343,35 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
         last = cur
     return out
 
+LOSS_KEEP_S = 3.0   # S9 (8 Oct): a lost ball counts only when the winner keeps it this long or plays a pass; 0 = off
+
+def confirm_losses(tvs, cstate, passes_, fps, keep_s=LOSS_KEEP_S):
+    """S9 (8 Oct): ~half of the short (1.5-3 s) possession spells are duels, so 'balls lost' ran ~20-30% high
+    (results/review/spells/README.md). A turnover is kept only when the winner keeps the ball >= keep_s (the loser does
+    not get it back in the counted state; the clip ending counts as kept) or plays a pass (any attempt) before the loser
+    gets it back. When a turnover is dropped as a duel, the turnover that hands the ball straight back (lost_by = the
+    duel winner, at the moment the loser regains) is dropped too, so a duel counts zero, not one loss for each side.
+    -> (kept, dropped); every turnover gets 'winner_kept_s' and kept ones 'confirmed' ('hold' / 'pass' / 'clip end')."""
+    if not keep_s: return list(tvs), []
+    st = np.asarray(cstate); n = len(st); idx = {"A": 0, "B": 1}
+    pt = {"A": sorted(p["t"] for p in passes_ if p.get("team") == "A"), "B": sorted(p["t"] for p in passes_ if p.get("team") == "B")}
+    tvs = sorted(tvs, key=lambda t: t["frame"]); kept, dropped = [], []; back_at = None
+    for tv in tvs:
+        k0 = int(tv["frame"]); lo, wi = tv["lost_by"], tv["won_by"]
+        if back_at is not None and lo == back_at[0] and back_at[1] - fps <= k0 <= back_at[1] + 3.5 * fps:   # turnovers() times the win up to 3 s after the change
+            tv["winner_kept_s"] = None; tv["dropped"] = "duel, ball straight back"; dropped.append(tv); back_at = None; continue
+        back_at = None
+        kl = int(tv.get("frame_lost", k0)); kw = next((q for q in range(kl + 1, min(n, k0 + 1)) if st[q] == idx[wi]), min(k0, n - 1))   # hold counts from
+        j = next((q for q in range(kw, n) if st[q] == idx[lo]), None)                                                         # the change, not from
+        hold = ((j if j is not None else n) - kw) / fps; tv["winner_kept_s"] = round(hold, 2)                              # the (later) win time
+        t0, t1 = kw / fps, (j if j is not None else n) / fps
+        passed = any(t0 - 0.2 <= t < t1 for t in pt[wi])
+        if hold >= keep_s or j is None or passed:
+            tv["confirmed"] = "pass" if (passed and hold < keep_s and j is not None) else "clip end" if (j is None and hold < keep_s) else "hold"; kept.append(tv)
+        else:
+            tv["dropped"] = "duel, winner kept it %.1f s" % hold; dropped.append(tv); back_at = (wi, j)
+    return kept, dropped
+
 def team_speed(per, fps, window_s=1.0):
     """28 Sep: median player speed (m/s) per frame, from each player's displacement over window_s (robust to jitter and
     to players dropping in and out of view). During a stoppage nearly everyone walks or stands."""

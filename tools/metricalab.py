@@ -67,8 +67,9 @@ def truth_sequences(ev, per):
     if cur: out.append(cur)
     return out
 
-def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True, mode=None, spell_take=None, spell_join=None):
-    """S6 (2 Oct): sequences and balls lost read P.spell_state like ipanema/run.py since S8 (spell_take=0 = raw state,
+def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwich=True, mode=None, spell_take=None, spell_join=None, loss_keep_s=None):
+    """S9 (8 Oct): loss_keep_s = P.confirm_losses on the balls lost (None = the pipeline default, 0 = off).
+    S6 (2 Oct): sequences and balls lost read P.spell_state like ipanema/run.py since S8 (spell_take=0 = raw state,
     None = the pipeline default). E5 (29 Sep): the possession state comes from P.pipeline_state, as in ipanema/run.py (default possession_simple,
     'feet' = metres because H = identity; mode='viterbi' or IPANEMA_POSSESSION=viterbi = the old model, which the
     nightly scored until 29 Sep). Set pieces and dead time come from the old model's dead runs, as in the pipeline."""
@@ -116,11 +117,12 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
     seqs = P.sequences(cstate, bm, bspeed, FPS, L, ar, **info["seq"])
     ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich)
+    tvs, _drop = P.confirm_losses(tvs, cstate, ps, FPS, P.LOSS_KEEP_S if loss_keep_s is None else loss_keep_s)
     st = np.asarray(state)
     live = np.isin(st, [0, 1]).sum()
     return {"set_pieces": len(rst), "set_piece_frames": [k0 + int(r["t"] * FPS) for r in rst],
             "passes": {"Home": sum(p["completed"] for p in ps if p["team"] == "A"), "Away": sum(p["completed"] for p in ps if p["team"] == "B")},
-            "balls_lost": {"Home": sum(t["lost_by"] == "A" for t in tvs), "Away": sum(t["lost_by"] == "B" for t in tvs)},
+            "balls_lost": {"Home": sum(t["lost_by"] == "A" for t in tvs), "Away": sum(t["lost_by"] == "B" for t in tvs)}, "loss_frames": [(k0 + t["frame_lost"], t["lost_by"]) for t in tvs],
             "possession_pct": {"Home": round(100 * (st == 0).sum() / max(1, live)), "Away": round(100 * (st == 1).sum() / max(1, live))},
             "dead_pct": round(100 * (np.asarray(dstate) == 3).mean()), "mode": info["mode"],
             "sequences": len(seqs), "sequence_starts": [(k0 + s["start"], s["team"]) for s in seqs],

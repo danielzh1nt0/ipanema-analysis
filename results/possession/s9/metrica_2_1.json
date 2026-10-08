@@ -1,0 +1,54 @@
+[
+{
+"game": "2",
+"half": 1,
+"noise": "False",
+"keep_s": 0.0,
+"ours": 70,
+"truth": 128,
+"truth_s9": 88,
+"real": 53,
+"found": 53,
+"found_s9": 44,
+"real_s9": 44
+},
+{
+"game": "2",
+"half": 1,
+"noise": "False",
+"keep_s": 3.0,
+"ours": 66,
+"truth": 128,
+"truth_s9": 88,
+"real": 50,
+"found": 50,
+"found_s9": 41,
+"real_s9": 41
+},
+{
+"game": "2",
+"half": 1,
+"noise": "streak",
+"keep_s": 0.0,
+"ours": 27,
+"truth": 128,
+"truth_s9": 88,
+"real": 20,
+"found": 20,
+"found_s9": 16,
+"real_s9": 16
+},
+{
+"game": "2",
+"half": 1,
+"noise": "streak",
+"keep_s": 3.0,
+"ours": 27,
+"truth": 128,
+"truth_s9": 88,
+"real": 20,
+"found": 20,
+"found_s9": 16,
+"real_s9": 16
+}
+]
