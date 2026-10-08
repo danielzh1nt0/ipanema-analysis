@@ -49,3 +49,18 @@ def test_committed_samples_are_trusted_rows():
         p = f"{ROOT}/results/qa/c3c/frames_{m}/sample.json"
         if os.path.exists(p):
             S = json.load(open(p)); assert len(S["rows"]) >= 10 and all(FR.near_len_px(S["camera"], q["pose"]) >= 500 for q in S["rows"])
+
+def test_fit_prefers_the_painted_pitch_width():
+    """paint a 106 x 65 pitch (near touchline sky-blue and wide, like Vallentuna's in shade); with poses re-fitted, the
+    65 m hypothesis must explain the near line better than 64 m and the far lines at least as well"""
+    import c3c_fit as FIT
+    img = np.zeros((720, 1280, 3), np.uint8); img[:] = (40, 140, 40)
+    S = LN.projected_segments(CAM, np.array(POSE), 1280, 720, 106.0, 65.0, LN.class_segments(106.0, 65.0))
+    for k, segs in S.items():
+        for x0, y0, x1, y1 in segs:
+            ok, p1, p2 = cv2.clipLine((0, 0, 1280, 720), (int(x0), int(y0)), (int(x1), int(y1)))
+            if ok: cv2.line(img, p1, p2, (250, 200, 150) if k == 1 else (245, 245, 245), 8 if k == 1 else 2)
+    fr = [FIT.Frame(img)]; po = [np.array(POSE)]
+    r64 = FIT.evaluate(fr, po, CAM, W=64.0); r65 = FIT.evaluate(fr, po, CAM, W=65.0)
+    assert r65["near"] < r64["near"] and r65["far"] <= r64["far"] + 0.2
+    assert NL.measure(img, CAM, POSE)["y_med"] > 64.6

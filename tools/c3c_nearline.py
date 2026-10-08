@@ -5,11 +5,20 @@ pitch) they land on. The model says y = 64 (106 x 64). If the paint lands at, sa
 near line is off because the camera base / pitch width is off for this ground, not because a pose is wrong.
 
     python tools/c3c_nearline.py results/qa/c3b [results/qa/c3b_sfk ...]   -> results/qa/c3c/nearline_<folder>.json
-Pictures are the C3b ones (thin 1 px yellow model lines drawn on them; yellow is not white, so line_mask ignores it)."""
+Works on the C3b pictures (thin 1 px yellow model lines drawn on them; yellow is neither grey nor blue) and on raw frames.
+The painted near line is found with paint_mask (calcheck.line_mask misses it: in shade it is sky-blue and wide)."""
 import os, sys, json, cv2, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ipanema import lines as LN
 from ipanema.calcheck import line_mask
+
+def paint_mask(img):
+    """painted lines incl. lines in deep shade, which read sky-blue, not white (Vallentuna's near touchline: hue ~100-110,
+    saturation 160-240): bright against the grass around (31 px top-hat), bright, and grey or blue - not green."""
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV); g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    th = cv2.morphologyEx(g, cv2.MORPH_TOPHAT, np.ones((31, 31), np.uint8)) > 25
+    col = (hsv[..., 1] < 80) | ((hsv[..., 0] >= 95) & (hsv[..., 0] <= 125))
+    return (th & (hsv[..., 2] > 150) & col).astype(np.uint8)
 
 def backproject(camera, pose, uv, w=1280, h=720):
     """pixels (N,2) -> ground points (N,2) in pitch metres (NaN for rays that miss the ground in front)"""
@@ -24,7 +33,7 @@ def near_line_pixels(img, camera, pose, band=120, W=LN.W_DEF):
     all of it in view); returns (uv (N,2), drawn distance (N,))"""
     h, w = img.shape[:2]; S = LN.projected_segments(camera, pose, w, h)[1]
     if not len(S): return np.zeros((0, 2)), np.zeros(0)
-    m = line_mask(img); m[: int(0.40 * h)] = 0                             # the near line is in the lower part; skip fence/sky
+    m = paint_mask(img); m[: int(0.40 * h)] = 0                             # the near line is in the lower part; skip fence/sky
     ys, xs = np.nonzero(m)
     if not len(xs): return np.zeros((0, 2)), np.zeros(0)
     P = np.c_[xs, ys].astype(float); d = LN._pt_seg_dist(P, S); k = d <= band

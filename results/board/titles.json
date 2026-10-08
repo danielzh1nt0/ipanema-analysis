@@ -60,5 +60,6 @@
  "N0": "Every morning: read the nightly card's \"worse than yesterday\" row",
  "S9": "Don't count quick duels as lost balls",
  "C3b": "Trust more of Vallentuna's camera (pans)",
- "C3c": "Check Vallentuna's near touchline"
+ "C3c": "Check Vallentuna's near touchline",
+ "C3d": "Find wrong trusted camera seconds"
 }
