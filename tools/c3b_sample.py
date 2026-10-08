@@ -16,7 +16,7 @@ GROUPS = [("fb15-25", 20), ("fb25-40", 12), ("jump_anchor", 16), ("fb100+", 8), 
 
 def group(r):
     if r.get("pose") is None: return None
-    if LC.brave(r): return "brave"
+    if LC.brave(r) and "jump from track" not in r.get("why", []): return "brave"     # groups are relative to the 7 Oct rule
     why = r.get("why", []); fb = r.get("fwd_bwd_px")
     if (r.get("anchor") or "jump from track" in why) and why and all(w.startswith(LC.NOT_A_VETO + ("jump from track",)) for w in why): return "jump_anchor"
     if fb is None or any(not w.startswith(LC.NOT_A_VETO) for w in why): return None

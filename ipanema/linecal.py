@@ -19,8 +19,15 @@ def brave(q):
     4 Oct (C3, Vallentuna): 'refine doubtful' (the refined fit had a rival view or a high cost: long shadows, extra blue
     lines) is not a veto either when forward and backward agree - 16/16 such rows drawn on the video sat on the real
     lines, as well as the confident ones (results/kaggle/vall_calib_look). Coverage there 39% -> 60% of the rows."""
+    ok_why = NOT_A_VETO + (("jump from track",) if trust_jump() else ())
     return q.get("pose") is not None and (q.get("fwd_bwd_px") is None or q["fwd_bwd_px"] <= FB_PX) \
-        and all(w.startswith(NOT_A_VETO) for w in q.get("why", []))
+        and all(w.startswith(ok_why) for w in q.get("why", []))
+
+def trust_jump():
+    """8 Oct (C3b): 'jump from track' = a fresh anchor placement more than 60 px away from the pose tracked up to it. By eye
+    the fresh placement is the right one (the tracking drifted in a fast pan): Vallentuna 16/16 on the lines (10 good,
+    6 within 10-30 px), as good as trusted rows (results/qa/c3b/README.md). IPANEMA_TRUST_JUMP=0 = old."""
+    return os.environ.get("IPANEMA_TRUST_JUMP", "1") != "0"
 
 def homography(camera, pose, w, h, L=106.0, W=64.0):
     """exact, in double precision: pixel = K R (P - C) with P on z = 0  ->  H = K [r1 r2 | -R C]"""

@@ -1,0 +1,22 @@
+{
+ "p15u-vs-vallentuna-2026-10-03-6cce trust_jump=0": {
+  "frames": 9760,
+  "unsure": 2954,
+  "trusted_share": 0.697
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce trust_jump=1": {
+  "frames": 9760,
+  "unsure": 2702,
+  "trusted_share": 0.723
+ },
+ "SFKBP1109 trust_jump=0": {
+  "frames": 9424,
+  "unsure": 1083,
+  "trusted_share": 0.885
+ },
+ "SFKBP1109 trust_jump=1": {
+  "frames": 9424,
+  "unsure": 781,
+  "trusted_share": 0.917
+ }
+}

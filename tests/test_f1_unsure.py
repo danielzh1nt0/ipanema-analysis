@@ -30,7 +30,8 @@ def test_sfk_clip_inputs_blanking_costs_balls():
     assert r["clip (nothing blanked)"]["sfk34"] == 29 and r["clip (nothing blanked)"]["b4"] == 284   # reproduces the app clip run
     assert now["sfk34"] < keep["sfk34"] and now["b4"] < keep["b4"]
     # 4 Oct (C3): frame 1383's camera row was 'refine doubtful' with fwd/bwd agreement and is trusted now, so it is no longer blanked
-    assert {2536, 4150} <= set(now["missed"]) and not ({2536, 4150} & set(keep["missed"]))
+    # 8 Oct (C3b): the 'jump from track' anchor near frame 4150 is trusted now too (IPANEMA_TRUST_JUMP=0 = old: 27/246, both missed)
+    assert 2536 in now["missed"] and not ({2536, 4150} & set(keep["missed"]))
 
 def test_f1_check_dry_run(tmp_path):
     """the free-runner script runs end to end with a stand-in detector on a short synthetic video"""
