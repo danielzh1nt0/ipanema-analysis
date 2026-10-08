@@ -1,24 +1,4 @@
+video ok 29.970030639830654
+results/qa/c3c/frames_vall frames 40 missing []
 video ok 29.970030618346996
-c00
-c01
-c02
-c03
-c04
-c05
-c06
-c07
-c08
-c09
-c10
-c11
-c12
-c13
-c14
-c15
-c16
-c17
-c18
-c19
-c20
-c21
-done 22
+results/qa/c3c/frames_sfk frames 20 missing []
