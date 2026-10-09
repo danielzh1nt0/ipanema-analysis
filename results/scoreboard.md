@@ -63,3 +63,4 @@ Ball check = correct picks on held-out labelled frames; ceiling = frames where t
 | 2026-10-08 07:20 | 2034033 | SFKBP1109_full | ? | 28/34 | 33 | — | OK | withheld | {'A': 7.0, 'B': 7.0} |  · other picker v1: 16/34 · picker test SFKBP1109: v2 23/59, other 9/59 · picker test SFKBP1109b: v2 54/134, other 30/134 |
 | 2026-10-08 07:22 | 70f48da | p15u-vs-vallentuna-2026-10-03-6cce_full | ? | —/— | — | — | withheld | withheld | {'A': 8.0, 'B': 6.0} |  |
 | 2026-10-08 23:23 | 08b5fe7 | p15u-vs-vallentuna-2026-10-03-6cce_full | ? | —/— | — | — | withheld | withheld | {'A': 7.0, 'B': 7.0} |  |
+| 2026-10-09 13:21 | 446bb35 | p15u-vs-vallentuna-2026-10-03-6cce_full | ? | —/— | — | — | withheld | withheld | {'A': 7.0, 'B': 7.0} |  |
