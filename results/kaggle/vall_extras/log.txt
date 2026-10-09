@@ -1,0 +1,69 @@
+kit model: hue mode True
+[2026-10-09 10:28:45] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-medium.pth
+
+/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00<?, ?iB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 6.27M/386M [00:00<00:06, 65.8MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   4%|▍         | 15.7M/386M [00:00<00:04, 85.2MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 25.5M/386M [00:00<00:04, 93.4MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:   9%|▉         | 35.0M/386M [00:00<00:03, 95.8MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 44.7M/386M [00:00<00:03, 98.0MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  14%|█▍        | 54.5M/386M [00:00<00:03, 99.5MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 64.0M/386M [00:00<00:04, 80.7MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  19%|█▉        | 73.6M/386M [00:00<00:03, 86.2MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 83.2M/386M [00:00<00:03, 90.2MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  24%|██▍       | 93.0M/386M [00:01<00:03, 93.9MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 103M/386M [00:01<00:03, 95.8MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:  29%|██▉       | 112M/386M [00:01<00:02, 97.4MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  32%|███▏      | 122M/386M [00:01<00:02, 98.2MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  34%|███▍      | 132M/386M [00:01<00:02, 99.8MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  37%|███▋      | 142M/386M [00:01<00:02, 101MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:  39%|███▉      | 151M/386M [00:01<00:02, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  42%|████▏     | 161M/386M [00:01<00:02, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  44%|████▍     | 171M/386M [00:01<00:02, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  47%|████▋     | 181M/386M [00:01<00:02, 102MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  49%|████▉     | 190M/386M [00:02<00:02, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 200M/386M [00:02<00:01, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  54%|█████▍    | 210M/386M [00:02<00:01, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  57%|█████▋    | 219M/386M [00:02<00:01, 102MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  59%|█████▉    | 229M/386M [00:02<00:01, 102MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 239M/386M [00:02<00:01, 102MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  64%|██████▍   | 249M/386M [00:02<00:01, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  67%|██████▋   | 259M/386M [00:02<00:01, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  70%|██████▉   | 269M/386M [00:02<00:01, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  72%|███████▏  | 278M/386M [00:02<00:01, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  75%|███████▍  | 288M/386M [00:03<00:00, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  77%|███████▋  | 298M/386M [00:03<00:00, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  80%|███████▉  | 308M/386M [00:03<00:00, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  82%|████████▏ | 318M/386M [00:03<00:00, 103MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  85%|████████▍ | 327M/386M [00:03<00:00, 93.2MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  87%|████████▋ | 337M/386M [00:03<00:00, 96.4MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  90%|████████▉ | 347M/386M [00:03<00:00, 98.4MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  92%|█████████▏| 357M/386M [00:03<00:00, 100MiB/s] 
+/root/.roboflow/models/rf-detr-medium.pth:  95%|█████████▌| 367M/386M [00:03<00:00, 101MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth:  98%|█████████▊| 377M/386M [00:04<00:00, 102MiB/s]
+/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:04<00:00, 98.6MiB/s]
+[2026-10-09 10:28:50] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-medium.pth
+[2026-10-09 10:28:50] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-09 10:28:50] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-09 10:28:52] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.
+[2026-10-09 10:28:55] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+   448s frame 8997 (3000 frames) {'boxes': 40916, 'matched': 0, 'unmatched_A': 14174, 'extra': 15089, 'unmatched_K': 11824, 'unmatched_B': 14918, 'unmatched_offpitch': 13107}
+   838s frame 17994 (6000 frames) {'boxes': 103147, 'matched': 25469, 'unmatched_A': 28188, 'extra': 29242, 'unmatched_K': 26692, 'unmatched_B': 22798, 'unmatched_offpitch': 19595}
+  1232s frame 26991 (9000 frames) {'boxes': 159872, 'matched': 66647, 'unmatched_A': 32979, 'extra': 31022, 'unmatched_K': 34688, 'unmatched_B': 25555, 'unmatched_offpitch': 21843, 'unmatched_None': 3}
+  1627s frame 35988 (12000 frames) {'boxes': 217748, 'matched': 106734, 'unmatched_A': 38424, 'extra': 34058, 'unmatched_K': 44745, 'unmatched_B': 27839, 'unmatched_offpitch': 25324, 'unmatched_None': 6}
+  2024s frame 44985 (15000 frames) {'boxes': 283406, 'matched': 148239, 'unmatched_A': 47174, 'extra': 37206, 'unmatched_K': 57671, 'unmatched_B': 30312, 'unmatched_offpitch': 30408, 'unmatched_None': 10}
+  2426s frame 53985 (18000 frames) {'boxes': 350984, 'matched': 191133, 'unmatched_A': 54901, 'extra': 40108, 'unmatched_K': 71759, 'unmatched_B': 33178, 'unmatched_offpitch': 37287, 'unmatched_None': 13}
+  2830s frame 62982 (21000 frames) {'boxes': 419624, 'matched': 234357, 'unmatched_A': 62607, 'extra': 42816, 'unmatched_K': 85812, 'unmatched_B': 36835, 'unmatched_offpitch': 43494, 'unmatched_None': 13}
+  3222s frame 71982 (24000 frames) {'boxes': 477026, 'matched': 273863, 'unmatched_A': 68800, 'extra': 45778, 'unmatched_K': 95161, 'unmatched_B': 39186, 'unmatched_offpitch': 47319, 'unmatched_None': 16}
+  3625s frame 80982 (27000 frames) {'boxes': 542301, 'matched': 316747, 'unmatched_A': 77239, 'extra': 48157, 'unmatched_K': 107476, 'unmatched_B': 40811, 'unmatched_offpitch': 52375, 'unmatched_None': 28}
+  4010s frame 89982 (30000 frames) {'boxes': 599420, 'matched': 340257, 'unmatched_A': 89416, 'extra': 52754, 'unmatched_K': 122160, 'unmatched_B': 47551, 'unmatched_offpitch': 65756, 'unmatched_None': 36}
+  4391s frame 98982 (33000 frames) {'boxes': 654161, 'matched': 350672, 'unmatched_A': 105872, 'extra': 65207, 'unmatched_K': 140514, 'unmatched_B': 57065, 'unmatched_offpitch': 77723, 'unmatched_None': 38}
+  4787s frame 107976 (36000 frames) {'boxes': 715726, 'matched': 390804, 'unmatched_A': 114280, 'extra': 67609, 'unmatched_K': 152460, 'unmatched_B': 58114, 'unmatched_offpitch': 82403, 'unmatched_None': 68}
+  5184s frame 116976 (39000 frames) {'boxes': 781947, 'matched': 430128, 'unmatched_A': 123245, 'extra': 70008, 'unmatched_K': 167757, 'unmatched_B': 60726, 'unmatched_offpitch': 88488, 'unmatched_None': 91}
+  5586s frame 125976 (42000 frames) {'boxes': 849705, 'matched': 474131, 'unmatched_A': 131784, 'extra': 73196, 'unmatched_K': 180494, 'unmatched_B': 63196, 'unmatched_offpitch': 92978, 'unmatched_None': 100}
+  5985s frame 134976 (45000 frames) {'boxes': 913765, 'matched': 514991, 'unmatched_A': 141488, 'extra': 75653, 'unmatched_K': 191755, 'unmatched_B': 65419, 'unmatched_offpitch': 98845, 'unmatched_None': 112}
+  6387s frame 143976 (48000 frames) {'boxes': 980636, 'matched': 556853, 'unmatched_A': 150008, 'extra': 78122, 'unmatched_K': 206060, 'unmatched_B': 67601, 'unmatched_offpitch': 103518, 'unmatched_None': 114}
+  6782s frame 152976 (51000 frames) {'boxes': 1046892, 'matched': 597688, 'unmatched_A': 159879, 'extra': 80659, 'unmatched_K': 218982, 'unmatched_B': 70228, 'unmatched_offpitch': 109125, 'unmatched_None': 115}
+  7175s frame 161976 (54000 frames) {'boxes': 1105854, 'matched': 637769, 'unmatched_A': 166742, 'extra': 82540, 'unmatched_K': 229359, 'unmatched_B': 71866, 'unmatched_offpitch': 112748, 'unmatched_None': 118}
+  7573s frame 170973 (57000 frames) {'boxes': 1169618, 'matched': 670574, 'unmatched_A': 179453, 'extra': 94773, 'unmatched_K': 242301, 'unmatched_B': 77166, 'unmatched_offpitch': 116538, 'unmatched_None': 124}
+{'boxes': 1220964, 'matched': 670574, 'unmatched_A': 208853, 'extra': 117967, 'unmatched_K': 254496, 'unmatched_B': 86916, 'unmatched_offpitch': 126681, 'unmatched_None': 125, 'frames': 59608, 'minutes': 131.8}

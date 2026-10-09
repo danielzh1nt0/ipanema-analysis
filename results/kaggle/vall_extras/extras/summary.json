@@ -1,0 +1,12 @@
+{
+ "boxes": 1220964,
+ "matched": 670574,
+ "unmatched_A": 208853,
+ "extra": 117967,
+ "unmatched_K": 254496,
+ "unmatched_B": 86916,
+ "unmatched_offpitch": 126681,
+ "unmatched_None": 125,
+ "frames": 59608,
+ "minutes": 131.8
+}

@@ -1,80 +1,92 @@
-kernel danielmatros/ipanema-tdeed-full
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-tdeed-full
-  0.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 12.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 16.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 18.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 20.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 22.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 24.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 26.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 28.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 30.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 32.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 34.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 36.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 38.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 40.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 42.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 44.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 46.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 48.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 50.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 52.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 54.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 56.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 58.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 60.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 62.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 64.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 66.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 68.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 70.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 72.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 74.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 76.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 78.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 80.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 82.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 84.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 86.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 88.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 90.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 92.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 94.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 96.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
- 98.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-100.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-102.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-104.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-106.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-108.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-110.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-112.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-114.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-116.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-118.3 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-120.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-122.4 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-124.5 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-126.0 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-128.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-130.1 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-132.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-134.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.RUNNING"
-136.2 min: danielmatros/ipanema-tdeed-full has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/tdeed_full/tdf/SFKBP1109_555.json
-Output file downloaded to results/kaggle/tdeed_full/tdf/p15u-vs-aik-2026-09-21-bd09_366.json
-Output file downloaded to results/kaggle/tdeed_full/tdf/p15u-vs-vallentuna-2026-10-03-6cce_3220.json
-Output file downloaded to results/kaggle/tdeed_full/tdf/p15u-vs-vallentuna-2026-10-03-6cce_435.json
-Output file downloaded to results/kaggle/tdeed_full/tdf/run.json
-Kernel log downloaded to results/kaggle/tdeed_full/ipanema-tdeed-full.log
-  ipanema-tdeed-full.log 26006
-  run.json 156
-  tdf 4096
+kernel danielmatros/ipanema-vall-extras
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-vall-extras
+  0.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+  8.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 12.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 16.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 18.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 20.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 22.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 24.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 26.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 28.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 30.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 32.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 34.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 36.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 38.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 40.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 42.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 44.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 46.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 48.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 50.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 52.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 54.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 56.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 58.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 60.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 62.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 64.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 66.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 68.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 70.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 72.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 74.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 76.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 78.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 80.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 82.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 84.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 86.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 88.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 90.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 92.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 94.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 96.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+ 98.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+100.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+102.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+104.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+106.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+108.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+110.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+114.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+116.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+118.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+120.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+122.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+124.2 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+126.3 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+128.4 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+130.5 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+132.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+134.0 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.RUNNING"
+136.1 min: danielmatros/ipanema-vall-extras has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/vall_extras/extras/extras.jsonl
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t1146.0.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t1332.8.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t1851.8.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t3363.3.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t3415.4.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t3537.8.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t3910.1.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t4015.4.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t4910.3.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t549.4.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t5542.5.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/qa/t724.9.jpg
+Output file downloaded to results/kaggle/vall_extras/extras/summary.json
+Output file downloaded to results/kaggle/vall_extras/log.txt
+Output file downloaded to results/kaggle/vall_extras/run_info.json
+Kernel log downloaded to results/kaggle/vall_extras/ipanema-vall-extras.log
+  extras 4096
+  ipanema-vall-extras.log 16742
+  log.txt 9427
+  run.json 158
+  run_info.json 35
