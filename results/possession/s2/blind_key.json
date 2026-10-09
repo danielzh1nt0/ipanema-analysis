@@ -1,0 +1,256 @@
+{
+ "match": "SFKBP1109",
+ "src_key": "SFKBP1109/video.mp4",
+ "note": "S2 blind check: 14 of 16 both-rule, 16 of 30 ball-only, 16 of 28 motion-only (thr 1.4 / 3 s) restarts in Veo-covered minutes, shuffled; sheets show no rule",
+ "pool": {
+  "both": 16,
+  "ball only": 30,
+  "motion only": 28
+ },
+ "items": [
+  {
+   "t": 2855.9,
+   "rule": "ball only",
+   "id": "s2_00"
+  },
+  {
+   "t": 1396.4,
+   "rule": "ball only",
+   "id": "s2_01"
+  },
+  {
+   "t": 1681.3,
+   "rule": "both",
+   "motion_t": 1684.1,
+   "id": "s2_02"
+  },
+  {
+   "t": 1613.1,
+   "rule": "both",
+   "motion_t": 1608.9,
+   "id": "s2_03"
+  },
+  {
+   "t": 1708.1,
+   "rule": "motion only",
+   "id": "s2_04"
+  },
+  {
+   "t": 2738.0,
+   "rule": "motion only",
+   "id": "s2_05"
+  },
+  {
+   "t": 1190.9,
+   "rule": "motion only",
+   "id": "s2_06"
+  },
+  {
+   "t": 1795.4,
+   "rule": "motion only",
+   "id": "s2_07"
+  },
+  {
+   "t": 1440.6,
+   "rule": "ball only",
+   "id": "s2_08"
+  },
+  {
+   "t": 782.6,
+   "rule": "ball only",
+   "id": "s2_09"
+  },
+  {
+   "t": 2747.7,
+   "rule": "both",
+   "motion_t": 2744.7,
+   "id": "s2_10"
+  },
+  {
+   "t": 1272.2,
+   "rule": "motion only",
+   "id": "s2_11"
+  },
+  {
+   "t": 2994.8,
+   "rule": "ball only",
+   "id": "s2_12"
+  },
+  {
+   "t": 2731.3,
+   "rule": "motion only",
+   "id": "s2_13"
+  },
+  {
+   "t": 1374.2,
+   "rule": "motion only",
+   "id": "s2_14"
+  },
+  {
+   "t": 1414.3,
+   "rule": "motion only",
+   "id": "s2_15"
+  },
+  {
+   "t": 1150.2,
+   "rule": "ball only",
+   "id": "s2_16"
+  },
+  {
+   "t": 1463.0,
+   "rule": "both",
+   "motion_t": 1465.6,
+   "id": "s2_17"
+  },
+  {
+   "t": 665.5,
+   "rule": "both",
+   "motion_t": 661.6,
+   "id": "s2_18"
+  },
+  {
+   "t": 1042.0,
+   "rule": "ball only",
+   "id": "s2_19"
+  },
+  {
+   "t": 870.6,
+   "rule": "motion only",
+   "id": "s2_20"
+  },
+  {
+   "t": 2820.1,
+   "rule": "ball only",
+   "id": "s2_21"
+  },
+  {
+   "t": 1452.4,
+   "rule": "motion only",
+   "id": "s2_22"
+  },
+  {
+   "t": 2787.1,
+   "rule": "ball only",
+   "id": "s2_23"
+  },
+  {
+   "t": 1723.2,
+   "rule": "ball only",
+   "id": "s2_24"
+  },
+  {
+   "t": 1700.3,
+   "rule": "ball only",
+   "id": "s2_25"
+  },
+  {
+   "t": 889.1,
+   "rule": "both",
+   "motion_t": 891.6,
+   "id": "s2_26"
+  },
+  {
+   "t": 1051.0,
+   "rule": "both",
+   "motion_t": 1054.3,
+   "id": "s2_27"
+  },
+  {
+   "t": 3020.7,
+   "rule": "ball only",
+   "id": "s2_28"
+  },
+  {
+   "t": 2678.9,
+   "rule": "motion only",
+   "id": "s2_29"
+  },
+  {
+   "t": 3052.9,
+   "rule": "both",
+   "motion_t": 3049.2,
+   "id": "s2_30"
+  },
+  {
+   "t": 1303.1,
+   "rule": "motion only",
+   "id": "s2_31"
+  },
+  {
+   "t": 1576.1,
+   "rule": "both",
+   "motion_t": 1570.1,
+   "id": "s2_32"
+  },
+  {
+   "t": 1220.2,
+   "rule": "motion only",
+   "id": "s2_33"
+  },
+  {
+   "t": 702.6,
+   "rule": "motion only",
+   "id": "s2_34"
+  },
+  {
+   "t": 2898.5,
+   "rule": "both",
+   "motion_t": 2898.5,
+   "id": "s2_35"
+  },
+  {
+   "t": 805.9,
+   "rule": "ball only",
+   "id": "s2_36"
+  },
+  {
+   "t": 1084.8,
+   "rule": "ball only",
+   "id": "s2_37"
+  },
+  {
+   "t": 1590.2,
+   "rule": "both",
+   "motion_t": 1587.3,
+   "id": "s2_38"
+  },
+  {
+   "t": 1554.3,
+   "rule": "both",
+   "motion_t": 1549.7,
+   "id": "s2_39"
+  },
+  {
+   "t": 967.0,
+   "rule": "motion only",
+   "id": "s2_40"
+  },
+  {
+   "t": 861.2,
+   "rule": "ball only",
+   "id": "s2_41"
+  },
+  {
+   "t": 1020.1,
+   "rule": "both",
+   "motion_t": 1020.4,
+   "id": "s2_42"
+  },
+  {
+   "t": 1760.2,
+   "rule": "ball only",
+   "id": "s2_43"
+  },
+  {
+   "t": 2912.6,
+   "rule": "both",
+   "motion_t": 2913.4,
+   "id": "s2_44"
+  },
+  {
+   "t": 2847.9,
+   "rule": "motion only",
+   "id": "s2_45"
+  }
+ ]
+}
