@@ -1,0 +1,189 @@
+{
+ "note": "graded by eye from results/qa/s2/<id>.jpg BEFORE opening the key; yes = a set piece / restart is set up or taken in the window, no = open play, unsure = play looks stopped/slow but no taker or ball seen",
+ "grades": {
+  "s2_00": [
+   "no",
+   "attack at the far goal, everyone running"
+  ],
+  "s2_01": [
+   "no",
+   "open play, ball in the air midfield"
+  ],
+  "s2_02": [
+   "unsure",
+   "players standing/walking, then moving towards the far touchline"
+  ],
+  "s2_03": [
+   "yes",
+   "goal kick: defender at the ball by the six-yard box, others spread out waiting"
+  ],
+  "s2_04": [
+   "no",
+   "open play, ball in the air"
+  ],
+  "s2_05": [
+   "unsure",
+   "slow play, a player waving, no taker seen"
+  ],
+  "s2_06": [
+   "yes",
+   "goal kick: keeper's area, players standing waiting, ball played at t+2"
+  ],
+  "s2_07": [
+   "unsure",
+   "players walking, then running at t+2"
+  ],
+  "s2_08": [
+   "unsure",
+   "everyone standing near the left box"
+  ],
+  "s2_09": [
+   "no",
+   "open play, ball in the air"
+  ],
+  "s2_10": [
+   "no",
+   "attack at the far goal"
+  ],
+  "s2_11": [
+   "unsure",
+   "slow build-up, ball rolling, players jogging"
+  ],
+  "s2_12": [
+   "yes",
+   "white player takes the ball at the near touchline, others waiting (throw-in / restart)"
+  ],
+  "s2_13": [
+   "no",
+   "open play, slow"
+  ],
+  "s2_14": [
+   "unsure",
+   "a player at the far touchline with the ball, others waiting - maybe a throw-in"
+  ],
+  "s2_15": [
+   "no",
+   "open play, ball rolling, players running"
+  ],
+  "s2_16": [
+   "yes",
+   "goal kick: keeper places the ball, players spread waiting"
+  ],
+  "s2_17": [
+   "yes",
+   "goal kick: keeper at the ball, played at t+2"
+  ],
+  "s2_18": [
+   "yes",
+   "corner: crowd in the goalmouth at t-4, cleared after"
+  ],
+  "s2_19": [
+   "yes",
+   "ball out over the near touchline, fetched from the spectators at t+2 (throw-in coming)"
+  ],
+  "s2_20": [
+   "unsure",
+   "players gathered near the far box at t-4, then attack"
+  ],
+  "s2_21": [
+   "no",
+   "open play midfield, ball in the air"
+  ],
+  "s2_22": [
+   "unsure",
+   "keeper with the ball near his goal, then play on"
+  ],
+  "s2_23": [
+   "yes",
+   "corner: black player fetches the ball at the far corner flag, takes it at t+2"
+  ],
+  "s2_24": [
+   "yes",
+   "throw-in: black #3 holds the ball at the near touchline, plays it at t+2"
+  ],
+  "s2_25": [
+   "unsure",
+   "players standing in midfield, something at the far touchline"
+  ],
+  "s2_26": [
+   "yes",
+   "goal kick: keeper crouched at the ball in the box"
+  ],
+  "s2_27": [
+   "yes",
+   "throw-in: black player holds the ball at the near touchline, ball in play at t+2"
+  ],
+  "s2_28": [
+   "yes",
+   "free kick: ball placed, wall, white taker runs up at t+2"
+  ],
+  "s2_29": [
+   "unsure",
+   "players standing around the centre circle, then a ball played - maybe a restart in midfield"
+  ],
+  "s2_30": [
+   "no",
+   "open play, attack running"
+  ],
+  "s2_31": [
+   "no",
+   "slow midfield play"
+  ],
+  "s2_32": [
+   "unsure",
+   "crowd near the far goal, players walking - after a corner/scramble"
+  ],
+  "s2_33": [
+   "no",
+   "open play midfield"
+  ],
+  "s2_34": [
+   "no",
+   "open play, ball rolling in midfield"
+  ],
+  "s2_35": [
+   "no",
+   "keeper long ball, then open play"
+  ],
+  "s2_36": [
+   "no",
+   "attack in the box, open play"
+  ],
+  "s2_37": [
+   "no",
+   "open play"
+  ],
+  "s2_38": [
+   "yes",
+   "corner / box scramble at t-4 (crowd at the goal), cleared"
+  ],
+  "s2_39": [
+   "unsure",
+   "a player at the near touchline with the ball at t-4 (throw-in?), then play"
+  ],
+  "s2_40": [
+   "no",
+   "open play, slow build-up"
+  ],
+  "s2_41": [
+   "no",
+   "open play at the far box"
+  ],
+  "s2_42": [
+   "yes",
+   "goal kick: ball placed at the six-yard box, keeper plays it"
+  ],
+  "s2_43": [
+   "no",
+   "open play"
+  ],
+  "s2_44": [
+   "no",
+   "slow play in front of the far box"
+  ],
+  "s2_45": [
+   "no",
+   "open play"
+  ]
+ }
+}
