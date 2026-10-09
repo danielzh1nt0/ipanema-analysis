@@ -1,7 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 13:16:30 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 13:18:05 UTC
 
 
-## run_full.log (30 lines, last 60)
+## run_full.log (39 lines, last 60)
 === p15u-vs-vallentuna-2026-10-03-6cce full match === video: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces
 calibration: from the clip's own camera
 pieces: 20 already processed, 0 to finish on CPU (detections saved), 0 need a GPU
@@ -32,6 +32,15 @@ teams: offline override p15u-vs-vallentuna-2026-10-03-6cce_teams.json (5573 trac
 periods: [(435.0, 2889.99), (3219.98, 5645.01)] s; 81 min of match time kept, later halves mirrored so each team attacks the same way
 calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
 calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
+clean: 206 people living on or by the lines dropped (bench, coaches, stand)
+clean: keeper (left) from a non-team kit: track 700769, 177 frames
+clean: keeper (right) from a non-team kit: track 500591, 1329 frames
+clean: removed 216033 rows of non-team kits (referee / staff)
+clean: dropped 566382 off-pitch, merged 28233 duplicates, stitched 3931 ids, keepers [300324, 500591] -> A defends left
+clean: players per frame median A 9 / B 3, max A 22 / B 11
+teams: offline override changed 463118 player rows (after track cleaning)
+teams: 2124 rows marked 'not a player' by the override removed
+players: 29555 short gaps filled (marked 'filled' in the export)
 
 ## train_ball.log (1 lines, last 60)
 
