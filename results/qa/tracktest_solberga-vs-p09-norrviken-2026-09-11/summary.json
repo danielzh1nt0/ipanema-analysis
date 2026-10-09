@@ -10,10 +10,10 @@
   },
   "tracks": 44,
   "median_track_s": {
-   "dark": 2.6,
-   "light": 3.54
+   "dark": 2.67,
+   "light": 3.5
   },
-  "minutes": 12.2,
+  "minutes": 11.1,
   "filled_rows": 112
  }
 }
