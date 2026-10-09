@@ -61,5 +61,8 @@
  "S9": "Don't count quick duels as lost balls",
  "C3b": "Trust more of Vallentuna's camera (pans)",
  "C3c": "Check Vallentuna's near touchline",
- "C3d": "Find wrong trusted camera seconds"
+ "C3d": "Find wrong trusted camera seconds",
+ "D3": "Spånga in the demo (closed: no)",
+ "D4": "Bundesliga clip in the app",
+ "D5": "Delete old matches from the app"
 }
