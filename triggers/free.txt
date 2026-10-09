@@ -1,2 +1,2 @@
-tools/app_pull.py
-# Thu Oct  8 23:40:38 UTC 2026 pull the Vallentuna files the app shows (signed, 9 Oct join), url hardcoded
+tools/p2f_track.py
+# Fri Oct 09 01:03:50 UTC 2026 P2f: re-track Reymersholm 4227 (20 s) with the dim-light-kit rule, free runner, no Modal
