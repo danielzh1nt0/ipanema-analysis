@@ -160,3 +160,18 @@ def apply_unknown(per, cands, ok):
     for k in range(len(ok)):
         if not ok[k]: per[k] = []; cands[k] = []
     return per, cands
+
+
+def add_extra_rows(per, extras, fps, width=None, height=None):
+    """K4 (9 Oct): people the export was missing (tools/vall_extras.py on Kaggle: dark shirts the pipeline dropped as
+    'neither team'), added to the joined rows at the frame nearest each detection. Rows carry the detection's own kit
+    label, metres and feet; ids 9,000,000+ never collide with piece ids. Returns the number of rows added."""
+    import numpy as np
+    n = 0
+    for r in extras.get("rows", []):
+        g = int(round(float(r["t"]) * fps))
+        if g not in per: continue
+        if any(int(q[0]) == int(r["id"]) for q in per[g]): continue
+        b = r.get("box") or [r["px"][0] - 10, r["px"][1] - 40, r["px"][0] + 10, r["px"][1]]
+        per[g].append([int(r["id"]), r["team"], np.asarray(r["m"], float), np.asarray(r["px"], float), np.asarray(b, float), False]); n += 1
+    return n

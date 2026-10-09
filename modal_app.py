@@ -282,6 +282,8 @@ def run_full(match_id: str, video_url: str, log_tail: int = 500):
     # makes by stitching raw tracks (same team, nearby); applying it to the raw rows reached only the root track of each
     # stitched set and changed the stitching itself, so 14% of Vallentuna's exported rows missed their team.
     team_override = json.load(open(_ov)) if _ov else None
+    _ex = next((p for p in (f"/content/ipanema-analysis/overrides/{match_id}_extras.json", f"{ROOT}/overrides/{match_id}_extras.json") if os.path.exists(p)), None)
+    if _ex: log(f"players: {FM.add_extra_rows(per, json.load(open(_ex)), fps)} rows of people the export was missing added from {os.path.basename(_ex)} (K4)")
     if _ov: log(f"teams: offline override {os.path.basename(_ov)} ({len(team_override)} tracks) will be applied after track cleaning")
     play_mask, periods = None, None
     pf = next((p for p in (f"{ROOT}/periods/{match_id}.json", f"/content/ipanema-analysis/periods/{match_id}.json") if os.path.exists(p)), f"/content/ipanema-analysis/periods/{match_id}.json")

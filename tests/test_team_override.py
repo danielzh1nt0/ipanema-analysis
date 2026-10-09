@@ -54,3 +54,16 @@ def test_override_K_rows_do_not_reach_analytics():
     src = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "ipanema", "run.py")).read()
     block = src[src.index("apply_team_override(per, ctx['team_override']"):][:600]
     assert 'r[1] in ("A", "B")' in block
+
+def test_add_extra_rows_and_link():
+    import numpy as np, json, os, sys
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+    import make_extras as ME
+    rows = [[10.0, "A", 100.0, 500.0, 30.0, 20.0, [90, 440, 110, 500]], [10.1, "A", 102.0, 501.0, 30.4, 20.1, [92, 441, 112, 501]],
+            [10.1, "B", 800.0, 600.0, 60.0, 40.0, [790, 540, 810, 600]], [12.0, "A", 100.0, 500.0, 30.0, 20.0, [90, 440, 110, 500]]]
+    linked = ME.link(rows)
+    assert linked[0]["id"] == linked[1]["id"] and linked[2]["id"] != linked[0]["id"] and linked[3]["id"] != linked[0]["id"]   # same person, other team, too late
+    per = {k: [] for k in range(0, 400)}; per[300] = [[1, "B", np.array([1.0, 1.0]), np.array([5.0, 5.0]), np.array([0, 0, 1, 1.0]), False]]
+    n = FM.add_extra_rows(per, {"rows": linked}, fps=30)
+    assert n == 4 and len(per[300]) == 2 and per[300][1][0] >= 9_000_000 and per[300][1][1] == "A"
+    assert FM.add_extra_rows(per, {"rows": linked}, fps=30) == 0        # not twice
