@@ -1,2 +1,2 @@
 tools/press_clips.py
-# Fri Oct  9 20:26:16 UTC 2026 pressing answer key: 24 SFK-BP loss clips for the Press Tapper (free runner)
+# Fri Oct  9 20:34:12 UTC 2026 pressing answer key clips, retry with mp4s allowed in git

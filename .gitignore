@@ -6,3 +6,4 @@ results/kaggle/ballfinder_train/*.pt
 !results/kaggle/*/cands_*.pkl
 !results/kaggle/shot_clips/*.mp4
 !results/kaggle/pass_clips/*.mp4
+!results/qa/press/**/*.mp4
