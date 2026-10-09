@@ -100,6 +100,16 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
             _dump({"t_start": part[0]["t"], "t_end": part[-1]["t"], "frames": part}, f"{root}/{key}.json", separators=(",", ":"))
             md["frame_chunks"].append({"key": key, "t_start": part[0]["t"], "t_end": part[-1]["t"]}); chunk_files[key] = f"matches/{match_id}/{key}.json"
         log(f"  wrote {len(chunk_files)} frame files (every {frame_stride} frames, {split_s:.0f} s each, largest {max(os.path.getsize(f'{root}/{k}.json') for k in chunk_files)/1e6:.1f} MB)")
+        # 9 Oct: one thinned file of the whole match for the stats/phases pages (3 frames a second, no lanes or pitch
+        # lines, players without boxes): the app otherwise downloads every 5-min file (~120 MB) to draw a heat map
+        lite_stride = max(1, int(round(10 / 3))); lite = []
+        for f in frames_out[::lite_stride]:
+            g = {k: v for k, v in f.items() if k not in ("lanes", "pitch_lines")}
+            g["players"] = [{k: v for k, v in p.items() if k != "box"} for p in f["players"]]
+            lite.append(g)
+        _dump({"stride_s": round(lite_stride * frame_stride / fps, 2), "frames": lite}, f"{root}/frames_lite.json", separators=(",", ":"))
+        md["frames_lite"] = {"key": "frames_lite", "n": len(lite)}; chunk_files["frames_lite"] = f"matches/{match_id}/frames_lite.json"
+        log(f"  wrote frames_lite.json ({len(lite)} frames, {os.path.getsize(f'{root}/frames_lite.json')/1e6:.1f} MB)")
     tmp = os.path.join(tempfile.gettempdir(), f"{match_id}_match_data.json"); _dump(md, tmp); shutil.copy(tmp, f"{root}/match_data.json"); log(f"  wrote match_data.json ({os.path.getsize(tmp)/1e6:.1f} MB)")
     st = dict(stats_); st["passes"] = passes_; st["sequences"] = sequences_; st["restarts"] = restarts_; st["pitch"] = {"length": L, "width": W}
     # 3 Oct (UI contract): what the app reads but could not find - the ball grade, duration and direction, in stats.json too
