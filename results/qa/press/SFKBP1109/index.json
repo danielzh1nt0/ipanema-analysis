@@ -1,0 +1,342 @@
+{
+ "match": "SFKBP1109",
+ "team": "A",
+ "clips": [
+  {
+   "id": "l00",
+   "event": "lost_17743",
+   "t": 591.96,
+   "clip_t0": 590.96,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 2.87,
+    "pressed_within_2s": false,
+    "near_at_2s": 1,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l01",
+   "event": "lost_18323",
+   "t": 611.28,
+   "clip_t0": 610.28,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 5.31,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l02",
+   "event": "lost_30971",
+   "t": 1033.2,
+   "clip_t0": 1032.2,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.0,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l03",
+   "event": "lost_32641",
+   "t": 1087.05,
+   "clip_t0": 1086.05,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 2.37,
+    "pressed_within_2s": false,
+    "near_at_2s": 0,
+    "regained_within_5s": true
+   },
+   "ok": true
+  },
+  {
+   "id": "l04",
+   "event": "lost_35239",
+   "t": 1170.17,
+   "clip_t0": 1169.17,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l05",
+   "event": "lost_36473",
+   "t": 1215.75,
+   "clip_t0": 1214.75,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 1.33,
+    "pressed_within_2s": true,
+    "near_at_2s": 1,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l06",
+   "event": "lost_38905",
+   "t": 1293.29,
+   "clip_t0": 1292.29,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l07",
+   "event": "lost_39873",
+   "t": 1330.13,
+   "clip_t0": 1329.13,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.0,
+    "pressed_within_2s": true,
+    "near_at_2s": 1,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l08",
+   "event": "lost_40947",
+   "t": 1364.53,
+   "clip_t0": 1363.53,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.0,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l09",
+   "event": "lost_41885",
+   "t": 1394.76,
+   "clip_t0": 1393.76,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.0,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l10",
+   "event": "lost_44657",
+   "t": 1489.22,
+   "clip_t0": 1488.22,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": 0,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l11",
+   "event": "lost_49598",
+   "t": 1654.89,
+   "clip_t0": 1653.89,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 4.24,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l12",
+   "event": "lost_50436",
+   "t": 1682.65,
+   "clip_t0": 1681.65,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.0,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": true
+   },
+   "ok": true
+  },
+  {
+   "id": "l13",
+   "event": "lost_50590",
+   "t": 1687.72,
+   "clip_t0": 1686.72,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 4.77,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l14",
+   "event": "lost_53854",
+   "t": 1796.83,
+   "clip_t0": 1795.83,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.33,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l15",
+   "event": "lost_54622",
+   "t": 1822.39,
+   "clip_t0": 1821.39,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": 0,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l16",
+   "event": "lost_56620",
+   "t": 1888.92,
+   "clip_t0": 1887.92,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 0.2,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l17",
+   "event": "lost_56945",
+   "t": 1899.63,
+   "clip_t0": 1898.63,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l18",
+   "event": "lost_60311",
+   "t": 2009.74,
+   "clip_t0": 2008.74,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 1.1,
+    "pressed_within_2s": true,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l19",
+   "event": "lost_66826",
+   "t": 2229.16,
+   "clip_t0": 2228.16,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": 4.77,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l20",
+   "event": "lost_68262",
+   "t": 2277.58,
+   "clip_t0": 2276.58,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l21",
+   "event": "lost_68932",
+   "t": 2300.0,
+   "clip_t0": 2299.0,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l22",
+   "event": "lost_69373",
+   "t": 2314.45,
+   "clip_t0": 2313.45,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  },
+  {
+   "id": "l23",
+   "event": "lost_79243",
+   "t": 2639.7,
+   "clip_t0": 2638.7,
+   "loss_at_s": 1.0,
+   "pipeline": {
+    "time_to_press": null,
+    "pressed_within_2s": false,
+    "near_at_2s": null,
+    "regained_within_5s": false
+   },
+   "ok": true
+  }
+ ]
+}
