@@ -1,2 +1,2 @@
-tools/s2_strips.py
-# Fri Oct  9 04:24:52 UTC 2026 S2: blind restart sheets for the SFK-BP first half (46 moments), free runner, no Modal
+tools/press_clips.py
+# Fri Oct  9 20:26:16 UTC 2026 pressing answer key: 24 SFK-BP loss clips for the Press Tapper (free runner)
