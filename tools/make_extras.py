@@ -22,8 +22,29 @@ def link(rows, gap_s=0.35, max_m=1.2):
         out.append({"t": t, "id": i, "team": team, "px": [fx, fy], "m": [mx, my], "box": box})
     return out
 
+def filtered(rows, frames, L, W):
+    """drop detections that are an exported player after all (the pipeline's feet point sits up to ~30 px below the
+    detector's box bottom, so the Kaggle match missed some) and people on the lines (stand, bench): (kept, counts)"""
+    import bisect
+    ts = [f["t"] for f in frames]; c = collections.Counter(); keep = []
+    for r in rows:
+        t, team, fx, fy, mx, my, box = r
+        f = frames[min(bisect.bisect_left(ts, t), len(frames) - 1)]
+        if abs(f["t"] - t) > 0.06: c["no frame"] += 1; continue
+        x1, y1, x2, y2 = box; w, h = x2 - x1, y2 - y1
+        if any(p.get("px") and x1 - 0.3 * w <= p["px"][0] <= x2 + 0.3 * w and y2 - 0.6 * h <= p["px"][1] <= y2 + 30 for p in f["players"]):
+            c["already exported"] += 1; continue
+        if not (0.5 <= mx <= L - 0.5 and 1.0 <= my <= W - 1.0): c["on a line"] += 1; continue
+        c["kept"] += 1; keep.append(r)
+    return keep, c
+
 def main():
+    import glob
     rows = sorted(json.loads(l) for l in open(SRC) if l.strip())
+    frames = []
+    for fn in sorted(glob.glob(f"results/volume/runs/matches/{M}/frames_*.json")): frames += json.load(open(fn))["frames"]
+    md = json.load(open(f"results/volume/runs/matches/{M}/match_data.json")); L, W = md["pitch"]["length"], md["pitch"]["width"]
+    rows, counts = filtered(rows, frames, L, W); print("filter:", dict(counts))
     linked = link(rows); life = collections.defaultdict(list)
     for r in linked: life[r["id"]].append(r["t"])
     keep = {i for i, ts in life.items() if ts[-1] - ts[0] >= MIN_S}
