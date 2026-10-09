@@ -1,0 +1,601 @@
+{
+ "pieces": {
+  "p09-norrviken-vs-solheim-2026-08-30_1856": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.0,
+    4.0,
+    3.0,
+    1.0
+   ],
+   "per frame A/B/neither/off now": [
+    6.0,
+    4.0,
+    3.0,
+    1.0
+   ],
+   "people that change": 0
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_2931": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.0,
+    7.0,
+    3.5,
+    3.5
+   ],
+   "per frame A/B/neither/off now": [
+    6.0,
+    7.0,
+    3.5,
+    3.5
+   ],
+   "people that change": 0
+  },
+  "p09-norrviken-vs-solheim-2026-08-30_5081": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    7.0,
+    6.5,
+    3.0,
+    4.0
+   ],
+   "per frame A/B/neither/off now": [
+    7.0,
+    6.5,
+    3.0,
+    4.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-djursholm-2026-09-26_2072": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "per frame A/B/neither/off now": [
+    8.0,
+    8.0,
+    4.0,
+    0.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-djursholm-2026-09-26_3272": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    8.0,
+    9.5,
+    13.0,
+    0.0
+   ],
+   "per frame A/B/neither/off now": [
+    8.0,
+    9.5,
+    13.0,
+    0.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-djursholm-2026-09-26_5072": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "per frame A/B/neither/off now": [
+    6.0,
+    5.5,
+    5.0,
+    0.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-reymersholm-2026-09-18_2227": {
+   "core hue (coloured kit index, deg)": [
+    1,
+    138.4
+   ],
+   "per frame A/B/neither/off before": [
+    8.0,
+    7.5,
+    3.5,
+    5.0
+   ],
+   "per frame A/B/neither/off now": [
+    7.5,
+    8.5,
+    3.5,
+    5.0
+   ],
+   "people that change": 4,
+   "252 labelled night players before/now": [
+    "188/252",
+    "199/252"
+   ]
+  },
+  "p15u-vs-reymersholm-2026-09-18_4227": {
+   "core hue (coloured kit index, deg)": [
+    0,
+    136.9
+   ],
+   "per frame A/B/neither/off before": [
+    4.5,
+    3.0,
+    1.5,
+    1.5
+   ],
+   "per frame A/B/neither/off now": [
+    3.0,
+    5.0,
+    1.5,
+    1.5
+   ],
+   "people that change": 12,
+   "252 labelled night players before/now": [
+    "204/252",
+    "217/252"
+   ],
+   "88 labelled before": {
+    "team right": "47/64",
+    "greens in green team": "22/24",
+    "greens in white team": "1/24",
+    "whites in white team": "25/40",
+    "whites in green team": "13/40",
+    "spectators/staff kept out": "10/11",
+    "keepers/referee not a team": "12/12",
+    "players dropped as off the pitch": "3/64"
+   },
+   "88 labelled now": {
+    "team right": "59/64",
+    "greens in green team": "22/24",
+    "greens in white team": "1/24",
+    "whites in white team": "37/40",
+    "whites in green team": "1/40",
+    "spectators/staff kept out": "10/11",
+    "keepers/referee not a team": "12/12",
+    "players dropped as off the pitch": "3/64"
+   }
+  },
+  "p15u-vs-reymersholm-2026-09-18_726": {
+   "core hue (coloured kit index, deg)": [
+    0,
+    130.0
+   ],
+   "per frame A/B/neither/off before": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "per frame A/B/neither/off now": [
+    8.0,
+    5.5,
+    0.5,
+    10.0
+   ],
+   "people that change": 0,
+   "252 labelled night players before/now": [
+    "220/252",
+    "220/252"
+   ]
+  },
+  "p15u-vs-spanga-2026-09-25_1159": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    9.5,
+    5.0,
+    2.5,
+    2.0
+   ],
+   "per frame A/B/neither/off now": [
+    9.5,
+    5.0,
+    2.5,
+    2.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-spanga-2026-09-25_2576": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    10.5,
+    5.0,
+    1.0,
+    4.0
+   ],
+   "per frame A/B/neither/off now": [
+    10.5,
+    5.0,
+    1.0,
+    4.0
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-spanga-2026-09-25_3994": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.0,
+    7.0,
+    0.0,
+    1.5
+   ],
+   "per frame A/B/neither/off now": [
+    6.0,
+    7.0,
+    0.0,
+    1.5
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-vasalund-2026-09-20_1164": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.0,
+    6.5,
+    2.5,
+    10.5
+   ],
+   "per frame A/B/neither/off now": [
+    6.0,
+    6.5,
+    2.5,
+    10.5
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-vasalund-2026-09-20_2113": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    5.5,
+    5.0,
+    1.0,
+    8.5
+   ],
+   "per frame A/B/neither/off now": [
+    5.5,
+    5.0,
+    1.0,
+    8.5
+   ],
+   "people that change": 0
+  },
+  "p15u-vs-vasalund-2026-09-20_4012": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    6.5,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "per frame A/B/neither/off now": [
+    6.5,
+    7.5,
+    2.5,
+    8.5
+   ],
+   "people that change": 0
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_1500": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    7.5,
+    8.0,
+    1.0,
+    14.5
+   ],
+   "per frame A/B/neither/off now": [
+    7.5,
+    8.0,
+    1.0,
+    14.5
+   ],
+   "people that change": 0
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_2723": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    7.0,
+    8.0,
+    1.0,
+    4.5
+   ],
+   "per frame A/B/neither/off now": [
+    7.0,
+    8.0,
+    1.0,
+    4.5
+   ],
+   "people that change": 0
+  },
+  "solberga-vs-p09-norrviken-2026-09-11_4558": {
+   "core hue (coloured kit index, deg)": null,
+   "per frame A/B/neither/off before": [
+    7.5,
+    8.0,
+    2.0,
+    5.0
+   ],
+   "per frame A/B/neither/off now": [
+    7.5,
+    8.0,
+    2.0,
+    5.0
+   ],
+   "people that change": 0
+  }
+ },
+ "sweep_4227": {
+  "0": {
+   "88: team right": "47/64",
+   "whites in green team": "13/40",
+   "greens in white team": "1/24",
+   "252 key": "204/252"
+  },
+  "10": {
+   "88: team right": "58/64",
+   "whites in green team": "0/40",
+   "greens in white team": "3/24",
+   "252 key": "220/252"
+  },
+  "14": {
+   "88: team right": "58/64",
+   "whites in green team": "1/40",
+   "greens in white team": "2/24",
+   "252 key": "219/252"
+  },
+  "16": {
+   "88: team right": "59/64",
+   "whites in green team": "1/40",
+   "greens in white team": "1/24",
+   "252 key": "220/252"
+  },
+  "18": {
+   "88: team right": "59/64",
+   "whites in green team": "1/40",
+   "greens in white team": "1/24",
+   "252 key": "217/252"
+  },
+  "20": {
+   "88: team right": "58/64",
+   "whites in green team": "2/40",
+   "greens in white team": "1/24",
+   "252 key": "216/252"
+  },
+  "22": {
+   "88: team right": "56/64",
+   "whites in green team": "4/40",
+   "greens in white team": "1/24",
+   "252 key": "212/252"
+  },
+  "26": {
+   "88: team right": "52/64",
+   "whites in green team": "8/40",
+   "greens in white team": "1/24",
+   "252 key": "210/252"
+  },
+  "30": {
+   "88: team right": "51/64",
+   "whites in green team": "9/40",
+   "greens in white team": "1/24",
+   "252 key": "205/252"
+  }
+ },
+ "changed": [
+  {
+   "n": 0,
+   "piece": "p15u-vs-reymersholm-2026-09-18_2227",
+   "frame": "85",
+   "person": 28,
+   "before": "A",
+   "now": "B",
+   "label_4227": ""
+  },
+  {
+   "n": 1,
+   "piece": "p15u-vs-reymersholm-2026-09-18_2227",
+   "frame": "85",
+   "person": 36,
+   "before": "A",
+   "now": "B",
+   "label_4227": ""
+  },
+  {
+   "n": 2,
+   "piece": "p15u-vs-reymersholm-2026-09-18_2227",
+   "frame": "170",
+   "person": 61,
+   "before": "A",
+   "now": "B",
+   "label_4227": ""
+  },
+  {
+   "n": 3,
+   "piece": "p15u-vs-reymersholm-2026-09-18_2227",
+   "frame": "427",
+   "person": 126,
+   "before": "A",
+   "now": "B",
+   "label_4227": ""
+  },
+  {
+   "n": 4,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "0",
+   "person": 1,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 5,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "0",
+   "person": 2,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 6,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "85",
+   "person": 11,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 7,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "85",
+   "person": 12,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 8,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "85",
+   "person": 13,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 9,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "170",
+   "person": 18,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 10,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "341",
+   "person": 37,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 11,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "341",
+   "person": 38,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 12,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "341",
+   "person": 42,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 13,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "427",
+   "person": 52,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 14,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "427",
+   "person": 53,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  },
+  {
+   "n": 15,
+   "piece": "p15u-vs-reymersholm-2026-09-18_4227",
+   "frame": "512",
+   "person": 73,
+   "before": "A",
+   "now": "B",
+   "label_4227": "W"
+  }
+ ],
+ "kitprobe": {
+  "p15u-vs-reymersholm-2026-09-18": {
+   "off": {
+    "people that change vs off": 0,
+    "core": [
+     0,
+     130.8
+    ],
+    "labelled players": {
+     "team right": 236,
+     "of": 252,
+     "wrong team": 13,
+     "players called neither": 3,
+     "others kept out": "28/39"
+    }
+   },
+   "on": {
+    "people that change vs off": 0,
+    "core": [
+     0,
+     130.8
+    ],
+    "labelled players": {
+     "team right": 236,
+     "of": 252,
+     "wrong team": 13,
+     "players called neither": 3,
+     "others kept out": "28/39"
+    }
+   }
+  },
+  "p15u-vs-spanga-2026-09-25": {
+   "off": {
+    "people that change vs off": 0,
+    "core": null,
+    "labelled players": {
+     "team right": 242,
+     "of": 279,
+     "wrong team": 12,
+     "players called neither": 25,
+     "others kept out": "13/32"
+    }
+   },
+   "on": {
+    "people that change vs off": 0,
+    "core": null,
+    "labelled players": {
+     "team right": 242,
+     "of": 279,
+     "wrong team": 12,
+     "players called neither": 25,
+     "others kept out": "13/32"
+    }
+   }
+  },
+  "SFKBP1109_s1200": {
+   "off": {
+    "people that change vs off": 0,
+    "core": null
+   },
+   "on": {
+    "people that change vs off": 0,
+    "core": null
+   }
+  }
+ }
+}

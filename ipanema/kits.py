@@ -132,6 +132,45 @@ def bright_team(model, f, near=None):
     if tk[0] < (tb if k == "A" else ta)[0]: return None
     return k if hk <= near * gap and fa[0] >= tk[0] else None
 
+DIM_LIGHT = 18.0       # P2f: degrees a coloured-kit reading's hue must lean from that kit's core hue towards yellow to join the light kit
+
+def dim_light_mode():
+    """P2f: IPANEMA_DIM_LIGHT = degrees (default 18), '0' = off (the reading before 9 Oct). Uncalibrated grounds only (tracktest)."""
+    try: return float(os.environ.get("IPANEMA_DIM_LIGHT", str(DIM_LIGHT)))
+    except ValueError: return 0.0
+
+def _hue(a, b): return float(np.degrees(np.arctan2(b, a)))
+
+def core_hue(model, feats, light_max=8.0, col_min=12.0, cool_lo=100.0, cool_hi=300.0):
+    """P2f (9 Oct, Reymersholm 4227 at night): for a light, colourless kit vs a coloured kit, the coloured kit's 'core'
+    hue = median a*b* hue of its more colourful half of readings. None when the kits are not light-vs-coloured or the
+    coloured kit is warm (red / orange / yellow).
+    -> (index 0/1 of the coloured kit, core hue in degrees) or None"""
+    ta, tb = (np.asarray(t, float) for t in model["teams"]); ca, cb = np.hypot(*ta[1:3]), np.hypot(*tb[1:3])
+    k = 0 if ca >= cb else 1; tc, tl = (ta, tb) if k == 0 else (tb, ta)
+    if max(ca, cb) < col_min or min(ca, cb) >= light_max or tl[0] <= tc[0]: return None
+    mine = [np.asarray(f, float) for f in feats if f is not None and classify(model, f) == ("A" if k == 0 else "B")]
+    if len(mine) < 8: return None
+    ch = np.array([np.hypot(f[1], f[2]) for f in mine]); hu = np.array([_hue(f[1], f[2]) for f in mine])
+    core = float(np.median(hu[ch >= np.median(ch)]))
+    # cool kits only (green / blue / purple, hue 100-300 deg): a warm kit (red, orange) itself turns towards yellow under
+    # warm light, so a lean towards yellow says nothing there (first version moved 8 orange Solberga players and 5 red
+    # Djursholm players into the white team, results/qa/p2f)
+    if not (cool_lo <= core % 360.0 <= cool_hi): return None
+    return k, core
+
+def dim_light_team(core, f, deg, min_chroma=8.0):
+    """P2f: floodlit at night, far white shirts read cream (L 42-65, a* -4..-12, b* +10..+26) and their median torso colour
+    lands nearer the dim green kit centre than the bright white one (13-15 of 40 labelled whites on 4227). Their hue,
+    though, leans from the green kit's towards yellow (cream: 98-124 deg vs greens 122-172, core 137). A reading in the
+    coloured kit whose hue leans at least `deg` from that kit's core hue towards yellow (90 deg) is the light kit.
+    -> True when it should move to the light kit"""
+    if core is None or f is None: return False
+    a, b = float(f[1]), float(f[2])
+    if np.hypot(a, b) < min_chroma: return False                                 # hue of a near-grey reading is noise
+    d = (_hue(a, b) - core[1] + 180.0) % 360.0 - 180.0; toward = np.sign((90.0 - core[1] + 180.0) % 360.0 - 180.0)
+    return bool(toward != 0 and toward * d >= deg)
+
 def bright_mode():
     """N1a: share of the colour gap for bright_team on grounds without calibration (KitTeamModel.offpitch); env
     IPANEMA_KIT_BRIGHT, '0' = off (the reading before 6 Oct). The app (calibrated grounds, offpitch False) never uses it."""
@@ -452,6 +491,7 @@ class KitTeamModel:
         _, self.model, self.samples, self.stat, self.pair = best; feats = [x[2] for x in self.samples]; ta, tb = self.model["teams"]; self.model["light"] = self.light
         self.swap = ta[0] > tb[0]                                              # teams[0] lighter -> it is "B"
         self.dark_share = {"A": round(float(min(ta[0], tb[0]) * 2.5 / 255), 2), "B": round(float(max(ta[0], tb[0]) * 2.5 / 255), 2)}
+        self.core = core_hue(self.model, feats)                                    # P2f: used on uncalibrated grounds only
         self.cls = []
         if (os.environ.get("IPANEMA_KIT_CLS", "1") if player_cls is None else ("1" if player_cls else "0")) == "1": self._fit_cls(frames_boxes, log)
         if self.cls and hue_mode(self.model):
@@ -494,6 +534,9 @@ class KitTeamModel:
         if c == "other" and self.offpitch and bright_mode() > 0 and not hue_mode(self.model):   # N1a: uncalibrated grounds only (tracktest)
             c = bright_team(self.model, f, bright_mode()) or "other"
         if c == "other": return "K"
+        dl = dim_light_mode() if self.offpitch and not hue_mode(self.model) else 0.0
+        if dl > 0 and c in ("A", "B") and dim_light_team(getattr(self, "core", None), f, dl) and c == ("A" if self.core[0] == 0 else "B"):
+            c = "B" if c == "A" else "A"                                           # P2f: uncalibrated grounds only (tracktest)
         return {"A": "B", "B": "A"}[c] if self.swap else c
     def _lab(self, f, h=None, frame=None, box=None):
         """colour reading; with the P8 classifier the team (A/B) comes from the body histogram, 'other' still from colour.
