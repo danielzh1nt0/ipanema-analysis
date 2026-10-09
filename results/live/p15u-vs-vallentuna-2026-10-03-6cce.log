@@ -1,43 +1,7 @@
-# live log · p15u-vs-vallentuna-2026-10-03-6cce · running · 13:21:14 UTC
+# live log · p15u-vs-vallentuna-2026-10-03-6cce · finished · 13:21:38 UTC
 
 
-## run_full.log (72 lines, last 60)
-  piece 07: cached
-  piece 08: cached
-  piece 09: cached
-  piece 10: cached
-  piece 11: cached
-  piece 12: cached
-  piece 13: cached
-  piece 14: cached
-  piece 15: cached
-  piece 16: cached
-  piece 17: cached
-  piece 18: cached
-  piece 19: cached
-players: 62372 rows of people the export was missing added from p15u-vs-vallentuna-2026-10-03-6cce_extras.json (K4)
-teams: offline override p15u-vs-vallentuna-2026-10-03-6cce_teams.json (5573 tracks) will be applied after track cleaning
-periods: [(435.0, 2889.99), (3219.98, 5645.01)] s; 81 min of match time kept, later halves mirrored so each team attacks the same way
-calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
-calibration: 100.0% of match frames placed confidently; the rest are marked unknown and excluded
-clean: 206 people living on or by the lines dropped (bench, coaches, stand)
-clean: keeper (left) from a non-team kit: track 700769, 177 frames
-clean: keeper (right) from a non-team kit: track 500591, 1329 frames
-clean: removed 216033 rows of non-team kits (referee / staff)
-clean: dropped 566382 off-pitch, merged 28233 duplicates, stitched 3931 ids, keepers [300324, 500591] -> A defends left
-clean: players per frame median A 9 / B 3, max A 22 / B 11
-teams: offline override changed 463118 player rows (after track cleaning)
-teams: 2124 rows marked 'not a player' by the override removed
-players: 29555 short gaps filled (marked 'filled' in the export)
-ball v2: 136338/178800 frames on the path, 417 static-clutter candidates dropped
-ball: dropped 303 static-clutter candidates
-ball (global path): 123235/178800 frames on the chosen path
-possession: simple model (nearest feet in the picture); 30% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
-direction: A →  B ←  confidence A 0.07 / B 0.01  WARNING low confidence
-direction: from reference labels -> A →
-  step: sequences (0 s since the last step)
-  spell state (take 1.5 s): possession flips 2279 -> 289 (2.9 per minute)
-  step: turnovers (0 s since the last step)
+## run_full.log (108 lines, last 60)
   step: lanes (0 s since the last step)
   step: passes (6 s since the last step)
 passes: 1380 -> 486 confirmed by the video ball-action model (p15u-vs-vallentuna-2026-10-03-6cce_kicks.json)
@@ -62,6 +26,42 @@ motion skipped (StopIteration('off until speeds pass the by-eye check (results/r
     OK   ball: 4679 of 48686 ball positions more than 3 m off the pitch
     FLAG possession: 11 of 17 clear moments right (wrong: 853.4 ours None eye A, 1868.7 ours None eye B, 2864.1 ours None eye A, 3537.8 ours B eye A, 3800.2 ours A eye B, 5453.1 ours A eye B)
 export: /data/match_analysis/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1328 events) · library.json updated · zip None
+upload: p15u-vs-vallentuna-2026-10-03-6cce -> Supabase + R2 (video, match_data, stats, kit_A, kit_B, frames_000, frames_001, frames_002, frames_003, frames_004, frames_005, frames_006, frames_007, frames_008, frames_009, frames_010, frames_011, frames_012, frames_013, frames_014, frames_015, frames_016, frames_017, frames_018, frames_019, frames_lite, thumb)
+
+--- SUMMARY ---
+  match_id                   p15u-vs-vallentuna-2026-10-03-6cce
+  ball_reliable              False
+  ball_grade                 {'accuracy': None, 'near_player_pct': 0.62, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}
+  duration_s                 5966.0
+  calibration_coverage       0.7
+  calibration_frozen         53574
+  team_dark_share            {'A': 0.15, 'B': 0.43}
+  players_per_frame_median   {'A': 7.0, 'B': 7.0}
+  ball_frames_pct            100
+  match_seconds              4880.0
+  periods                    [{'index': 1, 't_start': 435.0, 't_end': 2889.99, 'mirrored': False}, {'index': 2, 't_start': 3219.98, 't_end': 5645.01, 'mirrored': True}]
+  ball_check                 None
+  possession_pct             {'A': 37, 'B': 63}
+  loose_pct                  30
+  dead_pct                   17
+  possession_model           simple
+  attack_right               {'A': True, 'B': False}
+  direction_confidence       {'A': 0.07, 'B': 0.01}
+  turnovers                  279
+  passes                     486
+  restarts                   118
+  sequences                  454
+  shots                      {'A': 8, 'B': 8}
+  goals                      {'A': 3, 'B': 2}
+  high_turnovers             {'A': 34, 'B': 28}
+  field_tilt                 {'A': 26, 'B': 18}
+  runtime_min                7.0
+QA PASS: pieces processed (20/20)
+QA FAIL: calibration (coverage 0.7)
+QA PASS: players per frame (A 7.0 + B 7.0)
+QA PASS: team balance (A 7.0 vs B 7.0)
+QA PASS: shots and goals from Veo (shots {'A': 8, 'B': 8}, goals {'A': 3, 'B': 2})
+QA PASS: match time (4880.0 s of 5966 s)
 
 ## train_ball.log (1 lines, last 60)
 
