@@ -18,3 +18,4 @@
 15:35:08 clean: dropped 0 off-pitch, merged 2 duplicates, stitched 15 ids, keepers [74, 76, 77] -> B defends left
 15:35:08 clean: players per frame median A 6 / B 4, max A 14 / B 8
 15:35:08 new, RF-DETR: {'observed_per_frame': {'dark': 6.0, 'light': 4.0}, 'shown_per_frame': {'dark': 6.0, 'light': 4.0}, 'tracks': 60, 'median_track_s': {'dark': 1.79, 'light': 2.54}, 'minutes': 15.7, 'filled_rows': 49}
+05:41:47 clip .dev/p15u-vs-reymersholm-2026-09-18/video.mp4: 178424 frames @ 29.97
