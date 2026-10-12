@@ -526,3 +526,11 @@
 04:59:17   tracking frame 350 (0.8 frames/s)
 05:00:16   tracking frame 400 (0.8 frames/s)
 05:01:16   tracking frame 450 (0.8 frames/s)
+05:02:16   tracking frame 500 (0.8 frames/s)
+05:03:14   tracking frame 550 (0.8 frames/s)
+05:04:11 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+05:04:11 clean: 1 people living on or by the lines dropped (bench, coaches, stand)
+05:04:11 clean: removed 377 rows of non-team kits (referee / staff)
+05:04:11 clean: dropped 77 off-pitch, merged 100 duplicates, stitched 12 ids, keepers [] -> A defends left
+05:04:11 clean: players per frame median A 7 / B 8, max A 9 / B 11
+05:04:11 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.6, 'light': 3.54}, 'minutes': 13.1, 'filled_rows': 112}
