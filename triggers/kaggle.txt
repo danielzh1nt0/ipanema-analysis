@@ -1,2 +1,2 @@
-kaggle/vall_extras.py 300
-# Fri Oct  9 12:22:32 CEST 2026 K4: people the Vallentuna export is missing (free Kaggle GPU)
+kaggle/wasb_selftrain.py 300
+# Fri Oct 16 00:37:50 CEST 2026 K5: self-train WASB on Vallentuna pseudo-labels, no human labels (free Kaggle GPU)
