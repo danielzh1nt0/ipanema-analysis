@@ -1,0 +1,99 @@
+{
+ "match": "SFKBP1109_s1200",
+ "stage": "all",
+ "pieces_done": [
+  {
+   "i": 0,
+   "minutes": 111.0,
+   "trusted_pct": 93.0
+  }
+ ],
+ "pieces_failed": [],
+ "n": 8992,
+ "fps": 29.97002997002997,
+ "n_pieces": 1,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   167,
+   166,
+   58,
+   23
+  ],
+  "dark_share": {
+   "A": 0.22,
+   "B": 0.87
+  }
+ },
+ "minutes": 119.1,
+ "pieces_present": [
+  0
+ ],
+ "summary": {
+  "match_id": "SFKBP1109_s1200",
+  "ball_reliable": true,
+  "ball_grade": {
+   "accuracy": 0.79,
+   "near_player_pct": 0.48,
+   "frames_pct": 1.0,
+   "possession_ok": true,
+   "events_ok": false
+  },
+  "duration_s": 300.0,
+  "calibration_coverage": 0.93,
+  "calibration_frozen": 630,
+  "team_dark_share": {
+   "A": 0.22,
+   "B": 0.87
+  },
+  "players_per_frame_median": {
+   "A": 8.0,
+   "B": 8.0
+  },
+  "ball_frames_pct": 100,
+  "match_seconds": 300.0,
+  "periods": null,
+  "ball_check": {
+   "correct": 27,
+   "total": 34,
+   "wrong": 7,
+   "ceiling": 33
+  },
+  "possession_pct": {
+   "A": 45,
+   "B": 55
+  },
+  "loose_pct": 33,
+  "dead_pct": 19,
+  "possession_model": "simple",
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "direction_confidence": {
+   "A": 0.0,
+   "B": 0.06
+  },
+  "turnovers": 17,
+  "passes": 55,
+  "restarts": 9,
+  "sequences": 32,
+  "shots": {
+   "A": 0,
+   "B": 1
+  },
+  "goals": {
+   "A": 0,
+   "B": 0
+  },
+  "high_turnovers": {
+   "A": 1,
+   "B": 2
+  },
+  "field_tilt": {
+   "A": 11,
+   "B": 44
+  },
+  "runtime_min": 119.0
+ }
+}
