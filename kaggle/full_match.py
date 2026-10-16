@@ -41,9 +41,13 @@ result = {"match": M, "stage": STAGE, "pieces_done": [], "pieces_failed": []}
 def save(): result["minutes"] = round((time.time() - t0) / 60, 1); json.dump(result, open(f"{W}/result.json", "w"), indent=1, default=str)
 
 def mount_sources():
-    for d in [x for x in "{{SOURCES_DIRS}}".split(",") if x]:                      # outputs of earlier kernels (kits, pieces)
-        for c in glob.glob(f"{d}/root/cache/*"): shutil.copytree(c, f"{ROOT}/cache/{os.path.basename(c)}", dirs_exist_ok=True)
-        log(f"mounted {d}: {len(glob.glob(f'{d}/root/cache/*'))} cache folders")
+    srcs = [x for x in "{{SOURCES_DIRS}}".split(",") if x]                        # outputs of earlier kernels (kits, pieces)
+    if srcs: log("inputs: " + "; ".join(f"{d}: {sorted(os.listdir(d))[:8]}" for d in glob.glob("/kaggle/input/*") if os.path.isdir(d)))
+    for d in srcs:
+        found = glob.glob(f"{d}/root/cache/*") or glob.glob(f"{d}/*/root/cache/*") or glob.glob(f"{d}/cache/*")   # Kaggle may nest the output one level
+        for c in found: shutil.copytree(c, f"{ROOT}/cache/{os.path.basename(c)}", dirs_exist_ok=True)
+        log(f"mounted {d}: {len(found)} cache folders")
+        if not found: raise SystemExit(f"input {d} has no cache folders (listing above): not running without it")
 
 if STAGE in ("kits", "pieces", "all"):                                           # all = pieces + join in one kernel (a short clip)
     import numpy as np, cv2
