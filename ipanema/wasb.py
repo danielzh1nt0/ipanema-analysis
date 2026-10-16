@@ -112,7 +112,8 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None
         nonlocal pend_x, pend_meta
         if not pend_x: return
         x = torch.from_numpy(np.stack(pend_x)).to(device)
-        with torch.no_grad():
+        from .ballrf import autocast
+        with torch.no_grad(), autocast():
             pred = net(x)
             if isinstance(pred, dict): pred = list(pred.values())[0]
             elif isinstance(pred, (list, tuple)): pred = pred[0]

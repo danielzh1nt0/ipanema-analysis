@@ -106,7 +106,8 @@ class RFDetrPerson:
         import supervision as sv, cv2
         h, w = fs[0].shape[:2]; rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]
         crops = [cv2.cvtColor(f[b:d, a:c], cv2.COLOR_BGR2RGB) for f in fs for a, b, c, d in rects]
-        res = self.m.predict(crops, threshold=conf)
+        from .ballrf import autocast
+        with autocast(): res = self.m.predict(crops, threshold=conf)
         if not isinstance(res, list): res = [res]
         out = []
         for i in range(len(fs)):

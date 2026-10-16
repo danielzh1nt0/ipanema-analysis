@@ -30,6 +30,12 @@ def _fp16():
     import torch
     return {"compile": False, "dtype": torch.float16} if os.environ.get("IPANEMA_RF_FP16") == "1" and torch.cuda.is_available() else {}
 
+def autocast():
+    """F1 (16 Oct, speed probe on a T4): rfdetr 1.11 has no optimize_for_inference; torch.autocast fp16 gives the ball finder
+    7.6 instead of 3.4 frames/s, WASB 6.1 instead of 3.8, same answers. On with IPANEMA_RF_FP16=1, a no-op otherwise / on CPU."""
+    import torch, contextlib
+    return torch.autocast("cuda", dtype=torch.float16) if os.environ.get("IPANEMA_RF_FP16") == "1" and torch.cuda.is_available() else contextlib.nullcontext()
+
 
 def tiles(w, h):
     return [(x, y) for y in [min(y, h - CROP) for y in TY] for x in [min(x, w - CROP) for x in TX]]
@@ -41,7 +47,7 @@ def detect_many(model, frames, floor=0.05):
     h, w = frames[0].shape[:2]; tl = tiles(w, h); crops = []
     for f in frames:
         rgb = f[:, :, ::-1]; crops += [np.ascontiguousarray(rgb[y:y + CROP, x:x + CROP]) for x, y in tl]
-    res = model.predict(crops, threshold=floor)
+    with autocast(): res = model.predict(crops, threshold=floor)
     if not isinstance(res, list): res = [res]
     out = []
     for i in range(len(frames)):

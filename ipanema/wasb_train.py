@@ -102,7 +102,8 @@ def tiled_predict(net, dev, frames_base):
     from .wasb import tile_boxes, crop_stack, tiled_heatmaps_to_peaks
     boxes = tile_boxes()
     x = torch.from_numpy(np.stack([crop_stack(frames_base, bx) for bx in boxes])).to(dev)
-    with torch.no_grad():
+    from .ballrf import autocast
+    with torch.no_grad(), autocast():
         pred = net(x)
         if isinstance(pred, dict): pred = list(pred.values())[0]
         elif isinstance(pred, (list, tuple)): pred = pred[0]
