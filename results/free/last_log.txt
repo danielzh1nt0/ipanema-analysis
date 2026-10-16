@@ -1,25 +1,21 @@
-l00 592.0 ok
-l01 611.3 ok
-l02 1033.2 ok
-l03 1087.0 ok
-l04 1170.2 ok
-l05 1215.8 ok
-l06 1293.3 ok
-l07 1330.1 ok
-l08 1364.5 ok
-l09 1394.8 ok
-l10 1489.2 ok
-l11 1654.9 ok
-l12 1682.7 ok
-l13 1687.7 ok
-l14 1796.8 ok
-l15 1822.4 ok
-l16 1888.9 ok
-l17 1899.6 ok
-l18 2009.7 ok
-l19 2229.2 ok
-l20 2277.6 ok
-l21 2300.0 ok
-l22 2314.4 ok
-l23 2639.7 ok
-24 clips
+p02 t=549.4 eye=A ours=B (control) ball=observed A=4 B=8
+c01 t=557.2 eye=B ours=A (control) ball=observed A=6 B=10
+p08 t=724.9 eye=A ours=None (loose) ball=observed A=8 B=7
+c03 t=853.4 eye=A ours=None (loose) ball=observed A=6 B=3
+p12 t=1146.0 eye=A ours=None (loose) ball=observed A=4 B=8
+p13 t=1332.8 eye=A ours=B (control) ball=observed A=11 B=7
+p19 t=1851.8 eye=A ours=B (control) ball=observed A=2 B=5
+c12 t=1868.7 eye=B ours=None (loose) ball=observed A=5 B=8
+p26 t=2754.2 eye=A ours=None (loose) ball=observed A=6 B=7
+c19 t=2864.1 eye=A ours=B (control) ball=observed A=4 B=5
+p29 t=3340.3 eye=B ours=A (control) ball=observed A=13 B=5
+p30 t=3363.3 eye=A ours=B (control) ball=observed A=4 B=6
+p32 t=3415.4 eye=A ours=None (loose) ball=observed A=6 B=4
+c23 t=3537.8 eye=A ours=B (control) ball=observed A=7 B=8
+c26 t=3800.2 eye=B ours=None (loose) ball=observed A=8 B=6
+p35 t=3910.1 eye=A ours=None (loose) ball=observed A=5 B=10
+p51 t=4910.3 eye=A ours=B (control) ball=observed A=9 B=5
+c37 t=5327.0 eye=B ours=A (control) ball=observed A=9 B=8
+p58 t=5518.6 eye=B ours=A (control) ball=bridged A=6 B=9
+p59 t=5542.5 eye=A ours=None (loose) ball=observed A=8 B=8
+20 pictures -> results/qa/poss/full_match_vjoin
