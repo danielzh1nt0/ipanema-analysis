@@ -97,10 +97,14 @@ if STAGE in ("join", "all"):
     if len(done) < 0.8 * len(plan_): save(); raise SystemExit("too many pieces missing")
     pieces = [pickle.load(open(f"{cdir(p)}/{FM.PIECE_FILE}", "rb")) for p in done]
     per, H, cands, meta = FM.join(pieces, done, n, fps); del pieces
-    _ov = f"{ROOT}/overrides/{M}_teams.json"; team_override = json.load(open(_ov)) if os.path.exists(_ov) else None
-    _ex = f"{ROOT}/overrides/{M}_extras.json"
-    if os.path.exists(_ex): log(f"players: {FM.add_extra_rows(per, json.load(open(_ex)), fps)} extra rows (K4)")
-    if team_override: log(f"teams: offline override ({len(team_override)} tracks) applied after track cleaning - NOTE: its ids belong to the tracks it was made from; after a re-track they may not match")
+    # overrides/<match>_teams.json and _extras.json (K3c / K4) are keyed by the track ids of the Modal run they were made from;
+    # a Kaggle re-track makes new ids, so they would hit the wrong tracks. Off unless USE_OVERRIDE=1 (pieces copied from that run).
+    _ov = f"{ROOT}/overrides/{M}_teams.json"; _ex = f"{ROOT}/overrides/{M}_extras.json"; team_override = None
+    if "{{USE_OVERRIDE}}" == "1":
+        team_override = json.load(open(_ov)) if os.path.exists(_ov) else None
+        if os.path.exists(_ex): log(f"players: {FM.add_extra_rows(per, json.load(open(_ex)), fps)} extra rows (K4)")
+        if team_override: log(f"teams: offline override ({len(team_override)} tracks) applied after track cleaning")
+    elif os.path.exists(_ov) or os.path.exists(_ex): log("teams: the offline override / extras of the Modal run are NOT applied (new track ids); the live K3c kit rule decides")
     play_mask, periods = None, None; pf = f"{ROOT}/periods/{M}.json"
     if os.path.exists(pf):
         spec = json.load(open(pf)); per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
