@@ -1,25 +1,23 @@
    5.8 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
-   5.8 inputs: /kaggle/input/notebooks: ['danielmatros']
+   5.9 inputs: /kaggle/input/notebooks: ['danielmatros']
    5.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vkits: 1 cache folders
    7.0 video: 3.48 GB
    7.0 === p15u-vs-vallentuna-2026-10-03-6cce: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces; this kernel: pieces [17, 18]
    7.0 kits: mounted from the kits kernel
-  19.8 PIECE 17 FAILED: Traceback (most recent call last):
+  19.2 PIECE 17 FAILED: Traceback (most recent call last):
   File "/kaggle/src/script.py", line 79, in <module>
     per, pfps = TR.track(video, None, Hs, tm, 0.3, log=log, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False); pickle.dump((per, pfps), open(f"{cache}/tracks_rfdetr_v1.pkl", "wb"))
                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/kaggle/temp/ia/ipanema/tracking.py", line 154, in track
-    tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-              ^^^^^^^^^^^^
-AttributeError: module 'supervision' has no attribute 'ByteTrack'
+  File "/kaggle/temp/ia/ipanema/tracking.py", line 139, in track
+    import supervision as sv
+ModuleNotFoundError: No module named 'supervision'
 
-  32.0 PIECE 18 FAILED: Traceback (most recent call last):
+  31.4 PIECE 18 FAILED: Traceback (most recent call last):
   File "/kaggle/src/script.py", line 79, in <module>
     per, pfps = TR.track(video, None, Hs, tm, 0.3, log=log, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False); pickle.dump((per, pfps), open(f"{cache}/tracks_rfdetr_v1.pkl", "wb"))
                 ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/kaggle/temp/ia/ipanema/tracking.py", line 154, in track
-    tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
-              ^^^^^^^^^^^^
-AttributeError: module 'supervision' has no attribute 'ByteTrack'
+  File "/kaggle/temp/ia/ipanema/tracking.py", line 139, in track
+    import supervision as sv
+ModuleNotFoundError: No module named 'supervision'
 
-  32.0 done: pieces in 32.0 min
+  31.4 done: pieces in 31.4 min

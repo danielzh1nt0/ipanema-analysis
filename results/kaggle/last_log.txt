@@ -1,5 +1,5 @@
 kernel danielmatros/ipanema-full-match-ve
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-ve
+Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-ve
   0.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
   2.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
   4.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
@@ -7,17 +7,18 @@ Kernel version 1 successfully pushed.  Please check progress at https://www.kagg
   8.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  10.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  12.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 14.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  16.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  18.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 20.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 20.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  22.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
  24.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 26.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 28.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 32.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
- 32.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.COMPLETE"
+ 26.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 28.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 30.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 32.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 32.6 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.COMPLETE"
 output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-ve.log', 'log.txt', 'result.json', 'root']
-  log.txt 1825
-  result.json 1636
+  log.txt 1515
+  result.json 1324
   run.json 161
