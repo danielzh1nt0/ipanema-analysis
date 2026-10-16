@@ -34,7 +34,7 @@ jobs:
           for lib in results/kaggle/*/export/library.json; do
             [ -f "$lib" ] || continue
             d="$(dirname "$lib")"; python tools/export_qa.py "$d" "" "$(dirname "$d")/qa.json" | tee -a results/kaggle/last_log.txt || echo "export QA failed" >> results/kaggle/last_log.txt
-            cp "$d"/*/summary.json "$(dirname "$d")/summary.json" 2>/dev/null || true; cp "$d"/*/stats.json "$(dirname "$d")/stats.json" 2>/dev/null || true
+            for f in summary.json stats.json kit_A.png kit_B.png thumb.jpg; do cp "$d"/*/$f "$(dirname "$d")/$f" 2>/dev/null || true; done
             pip install -q supabase; python tools/app_push.py "$d" | tee -a results/kaggle/last_log.txt || echo "app push skipped/failed" >> results/kaggle/last_log.txt
           done
       - name: commit
