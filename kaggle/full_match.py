@@ -92,6 +92,41 @@ if STAGE in ("kits", "pieces", "all"):                                          
         save()
     if STAGE != "all": os.remove(full)                                            # the output must stay small: the video is on R2
 
+if STAGE == "relabel":
+    # K3c on the new tracks (17 Oct): the live track vote files a sunlit black player as "K" (neither team) when more than
+    # 60% of his reads say "neither" -> 3-5 K rows per frame on Vallentuna, removed at the join, SFK possession 34% vs 56% by
+    # eye. Here every track is re-read from the video with the match kit model and decided by the majority of its A/B
+    # reads (at least MIN_AB), as tools/vall_relabel.py did for the Modal run. No detection: the boxes are in the pieces.
+    import numpy as np, cv2, collections
+    from ipanema import kits as KT
+    mount_sources(); get_video(); n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
+    STEP = int("{{STEP}}" or "6"); MIN_AB = int("{{MIN_AB}}" or "3")
+    tm = pickle.load(open(f"{ROOT}/cache/{M}/kits_rfdetr_v1.pkl", "rb")); votes = collections.defaultdict(collections.Counter); old = {}
+    cap = cv2.VideoCapture(full); n_fr = 0
+    for p in plan_:
+        pid = FM.piece_id(M, p["i"]); pf_ = f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}"
+        if not os.path.exists(pf_): continue
+        per = pickle.load(open(pf_, "rb"))["per"]; off = p["offset"]
+        for k in sorted(per):
+            if k % STEP or not per[k]: continue
+            cap.set(cv2.CAP_PROP_POS_FRAMES, off + k); ok, f = cap.read()
+            if not ok: continue
+            rows = [r for r in per[k] if r[4] is not None]; labs = tm.predict_batch(f, [list(map(float, r[4])) for r in rows]); n_fr += 1
+            for r, lab in zip(rows, labs):
+                tid = int(r[0]) + p["i"] * FM.ID_STRIDE if r[0] >= 0 else int(r[0])   # the id this track has after FM.join
+                votes[tid][lab] += 1; old[tid] = r[1]
+        log(f"relabel: {pid} read ({n_fr} frames so far, {len(votes)} tracks)")
+    cap.release(); teams = {}; changed = collections.Counter()
+    for tid, v in votes.items():
+        a, b = v.get("A", 0), v.get("B", 0)
+        if a + b >= MIN_AB: new = "A" if a >= b else "B"
+        else: continue
+        if new != old.get(tid): changed[f"{old.get(tid)}->{new}"] += 1
+        teams[str(tid)] = new
+    os.makedirs(f"{ROOT}/overrides", exist_ok=True); json.dump(teams, open(f"{ROOT}/overrides/{M}_teams.json", "w"))
+    result["relabel"] = {"tracks_read": len(votes), "decided": len(teams), "changed": dict(changed), "frames": n_fr, "step": STEP}; log(f"relabel: {result['relabel']}")
+    os.remove(full)
+
 if STAGE in ("join", "all"):
     import numpy as np, types
     from ipanema.run import analyse
@@ -105,6 +140,11 @@ if STAGE in ("join", "all"):
     # overrides/<match>_teams.json and _extras.json (K3c / K4) are keyed by the track ids of the Modal run they were made from;
     # a Kaggle re-track makes new ids, so they would hit the wrong tracks. Off unless USE_OVERRIDE=1 (pieces copied from that run).
     _ov = f"{ROOT}/overrides/{M}_teams.json"; _ex = f"{ROOT}/overrides/{M}_extras.json"; team_override = None
+    for slug in [x for x in "{{SOURCES_DIRS}}".split(",") if x]:                  # a relabel kernel's override: keyed by the joined (pre-clean) ids, applied here
+        for d in glob.glob(f"/kaggle/input/*/*/{slug}") + glob.glob(f"/kaggle/input/*/{slug}") + glob.glob(f"/kaggle/input/{slug}"):
+            if os.path.exists(f"{d}/root/overrides/{M}_teams.json"):
+                rl = json.load(open(f"{d}/root/overrides/{M}_teams.json")); nch = FM.apply_team_override(per, rl, fps, from_k=True)
+                log(f"teams: relabel from {slug} ({len(rl)} tracks) changed {nch} rows before track cleaning"); _ov = "/nonexistent"; _ex = "/nonexistent"
     if "{{USE_OVERRIDE}}" == "1":
         team_override = json.load(open(_ov)) if os.path.exists(_ov) else None
         if os.path.exists(_ex): log(f"players: {FM.add_extra_rows(per, json.load(open(_ex)), fps)} extra rows (K4)")
