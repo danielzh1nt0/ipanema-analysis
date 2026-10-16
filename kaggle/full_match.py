@@ -19,7 +19,7 @@ def log(*a):
     except Exception: pass
 sh("nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'")
 sh(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {IA}"); sh(f"cd {IA} && git log -1 --format='repo at %h %s'")
-sh("pip install -q rfdetr==1.11.0 supervision==0.25.1 omegaconf gdown 'numpy<2' scipy scikit-learn pandas ultralytics==8.3.40")   # ultralytics only as a fallback import (calibration.py) - not used with a line calibration
+sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31' omegaconf gdown 'numpy<2' scipy scikit-learn pandas ultralytics==8.3.40")   # ultralytics only as a fallback import (calibration.py) - not used with a line calibration
 sh("which ffmpeg || (apt-get install -y -q ffmpeg > /dev/null 2>&1 && which ffmpeg)")
 os.makedirs(f"{ROOT}/cache", exist_ok=True); os.makedirs(f"{ROOT}/models", exist_ok=True); os.makedirs(f"{ROOT}/videos", exist_ok=True); os.makedirs(f"{T}/work", exist_ok=True)
 sys.path.insert(0, IA); os.environ["WASB_DIR"] = f"{T}/WASB-SBDT"; os.environ["IPANEMA_DETECTOR"] = "rfdetr"; os.environ["IPANEMA_RF_FP16"] = "1"; os.environ.setdefault("IPANEMA_DET_BATCH", "8"); os.environ.setdefault("IPANEMA_LOG_EVERY", "2000")

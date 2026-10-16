@@ -1,2 +1,2 @@
 kaggle/full_match.py 200 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=pieces PIECES=17-18 NAME=ve SOURCES=ipanema-full-match-vkits DOWNLOAD=0 BUDGET=400 WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Fri Oct 16 22:22:18 CEST 2026 F1 Vallentuna pieces 17-18 (ve) take 2: supervision pinned (a newer release lost ByteTrack)
+# Fri Oct 16 22:59:17 CEST 2026 F1 Vallentuna pieces 17-18 (ve) take 3: supervision <0.31 (0.31.0 released today dropped ByteTrack; rfdetr needs >=0.29)
