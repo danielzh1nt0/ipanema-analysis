@@ -95,6 +95,8 @@ Output file downloaded to results/kaggle/full_match_vjoin/root/runs/matches/p15u
 Kernel log downloaded to results/kaggle/full_match_vjoin/ipanema-full-match-vjoin.log
   export 4096
   ipanema-full-match-vjoin.log 17610
+  kit_A.png 144335
+  kit_B.png 153858
   log.txt 6428
   qa.json 675
   result.json 1477
@@ -102,6 +104,7 @@ Kernel log downloaded to results/kaggle/full_match_vjoin/ipanema-full-match-vjoi
   run.json 166
   stats.json 5942273
   summary.json 1210
+  thumb.jpg 132706
 ball: 39 of 55 by-eye positions within 30 px (39 within 60 px); the export had a seen ball at 54 of them
 who has the ball: 19 of 39 by-eye moments agree (A 8/22, B 11/17)
 possession: {'A': 34, 'B': 66}  passes 460  turnovers 279  ball grade {'accuracy': None, 'near_player_pct': 0.67, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}
