@@ -1,0 +1,19 @@
+{
+ "ball fp32 optimized": "False dtype None",
+ "ball fp32 batch 4": 3.47,
+ "ball fp32 batch 8": 3.39,
+ "ball fp32 batch 16": 3.23,
+ "ball fp32 model + autocast batch 8": 7.62,
+ "ball fp32 raw forward 32 crops": 26.2,
+ "ball fp16 optimized": "False dtype None",
+ "ball fp16 batch 4": 2.79,
+ "ball fp16 batch 8": 2.87,
+ "ball fp16 batch 16": 2.94,
+ "ball fp16 raw forward 32 crops": 24.8,
+ "players fp32 batch 8": 9.56,
+ "players fp32 batch 16": 9.42,
+ "players fp16 batch 8": 8.96,
+ "players fp16 batch 16": 9.3,
+ "wasb tiled_predict (3 frames each)": 3.84,
+ "wasb tiled_predict autocast fp16": 6.12
+}

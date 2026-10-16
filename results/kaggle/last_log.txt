@@ -1,127 +1,14 @@
-kernel danielmatros/ipanema-full-match-smoke2
-The following are not valid kernel sources and could not be added to the kernel: ['danielmatros/ipanema-full-match-smoke']
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-smoke2
-  0.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 18.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 20.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 24.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 28.0 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 30.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 32.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 34.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 36.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 38.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 40.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 42.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 44.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 46.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 48.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 50.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 52.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 54.0 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 56.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 58.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 60.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 62.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 64.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 66.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 68.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 70.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 72.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 74.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 76.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 80.0 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 82.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 84.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 86.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 88.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 90.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 92.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 94.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 96.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
- 98.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-100.4 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-102.5 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-106.0 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-108.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-110.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-112.1 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-114.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-116.2 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-118.3 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.RUNNING"
-119.8 min: danielmatros/ipanema-full-match-smoke2 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/full_match_smoke2/ballcheck.jpg
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/frames_000.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/frames_001.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/frames_lite.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/kit_A.png
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/kit_B.png
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/match_data.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/stats.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/summary.json
-Output file downloaded to results/kaggle/full_match_smoke2/export/SFKBP1109_s1200/thumb.jpg
-Output file downloaded to results/kaggle/full_match_smoke2/export/library.json
-Output file downloaded to results/kaggle/full_match_smoke2/log.txt
-Output file downloaded to results/kaggle/full_match_smoke2/result.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/models/wasb_finetuned.pth
-Output file downloaded to results/kaggle/full_match_smoke2/root/models/wasb_soccer_best.pth.tar
-Output file downloaded to results/kaggle/full_match_smoke2/root/models/wasb_train_manifest.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/overrides/SFKBP1109_kicks.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/overrides/p15u-vs-aik-2026-09-21-bd09_kicks.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_extras.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_kicks.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_teams.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/periods/SFKBP1109.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/periods/p15u-vs-aik-2026-09-21-bd09.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/periods/p15u-vs-bp-2026-09-22-2000.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/SFKBP1109/ball_gt.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/SFKBP1109/owner_key.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/SFKBP1109/pitch_points_s1.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/SFKBP1109_s1200/ball_gt.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/soccertrack/132831_keypoints.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/training_matches.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_events_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_events_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_events_SFKVALLENTUNA.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_highlights_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_highlights_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/library.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/frames_000.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/frames_001.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/frames_lite.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/kit_A.png
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/kit_B.png
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/match_data.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/stats.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/summary.json
-Output file downloaded to results/kaggle/full_match_smoke2/root/runs/matches/SFKBP1109_s1200/thumb.jpg
-Kernel log downloaded to results/kaggle/full_match_smoke2/ipanema-full-match-smoke2.log
-  ballcheck.jpg 498689
-  export 4096
-  ipanema-full-match-smoke2.log 28842
-  log.txt 7291
-  result.json 1466
-  root 4096
-  run.json 170
-app_push: SUPABASE_URL / SUPABASE_SERVICE_KEY not set - nothing pushed
+kernel danielmatros/ipanema-speed-probe
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-speed-probe
+  0.5 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+  8.1 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.RUNNING"
+ 11.7 min: danielmatros/ipanema-speed-probe has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/speed_probe/speed.json
+Kernel log downloaded to results/kaggle/speed_probe/ipanema-speed-probe.log
+  ipanema-speed-probe.log 24956
+  run.json 157
+  speed.json 600
