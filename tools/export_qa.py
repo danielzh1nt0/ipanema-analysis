@@ -15,6 +15,7 @@ def load_export(folder):
     frames.sort(key=lambda f: f["t"]); return md, frames
 
 def nearest(frames, ts, t):
+    if not ts: return None
     i = bisect.bisect_left(ts, t); c = [j for j in (i - 1, i) if 0 <= j < len(ts)]
     j = min(c, key=lambda j: abs(ts[j] - t)); return frames[j] if abs(ts[j] - t) <= 0.2 else None
 
