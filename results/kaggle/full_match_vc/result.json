@@ -1,0 +1,31 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "pieces",
+ "pieces_done": [
+  {
+   "i": 9,
+   "minutes": 51.2,
+   "trusted_pct": 85.3
+  },
+  {
+   "i": 10,
+   "minutes": 49.8,
+   "trusted_pct": 86.3
+  },
+  {
+   "i": 11,
+   "minutes": 51.6,
+   "trusted_pct": 61.0
+  },
+  {
+   "i": 12,
+   "minutes": 51.0,
+   "trusted_pct": 63.7
+  }
+ ],
+ "pieces_failed": [],
+ "n": 178800,
+ "fps": 29.970030639830654,
+ "n_pieces": 20,
+ "minutes": 210.4
+}
