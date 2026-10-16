@@ -1,0 +1,19 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "pieces",
+ "pieces_done": [],
+ "pieces_failed": [
+  {
+   "i": 17,
+   "error": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 79, in <module>\n    per, pfps = TR.track(video, None, Hs, tm, 0.3, log=log, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False); pickle.dump((per, pfps), open(f\"{cache}/tracks_rfdetr_v1.pkl\", \"wb\"))\n                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/temp/ia/ipanema/tracking.py\", line 154, in track\n    tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)\n              ^^^^^^^^^^^^\nAttributeError: module 'supervision' has no attribute 'ByteTrack'\n"
+  },
+  {
+   "i": 18,
+   "error": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 79, in <module>\n    per, pfps = TR.track(video, None, Hs, tm, 0.3, log=log, tiles=TR.FOLLOW_TILES, imgsz=960, pano=False); pickle.dump((per, pfps), open(f\"{cache}/tracks_rfdetr_v1.pkl\", \"wb\"))\n                ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/temp/ia/ipanema/tracking.py\", line 154, in track\n    tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)\n              ^^^^^^^^^^^^\nAttributeError: module 'supervision' has no attribute 'ByteTrack'\n"
+  }
+ ],
+ "n": 178800,
+ "fps": 29.970030639830654,
+ "n_pieces": 20,
+ "minutes": 32.0
+}

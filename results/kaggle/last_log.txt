@@ -1,146 +1,23 @@
-kernel danielmatros/ipanema-full-match-vd
-Kernel push error: Maximum batch GPU session count of 2 reached.
-  0.0 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
-  3.0 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
-  6.1 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
-  9.1 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 12.1 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 15.1 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 18.1 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 21.2 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 24.2 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 27.2 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 30.2 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 33.2 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 36.3 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 39.3 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 42.3 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel push error: Maximum batch GPU session count of 2 reached.
- 45.3 min: both Kaggle GPU slots busy, retrying in 3 min
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vd
-  0.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 14.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 18.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 20.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 24.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 26.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 28.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 32.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 34.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 36.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 38.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 40.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 42.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 44.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 46.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 48.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 50.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 52.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 54.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 56.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 58.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 60.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 62.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 64.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 66.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 68.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 70.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 72.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 74.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 76.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 78.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 80.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 82.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 84.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 86.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 88.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 90.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 92.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 94.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 96.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
- 98.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-100.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-102.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-104.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-106.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-108.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-110.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-112.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-114.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-116.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-118.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-120.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-122.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-124.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-126.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-128.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-130.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-132.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-134.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-136.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-138.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-140.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-142.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-144.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-146.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-148.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-150.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-152.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-154.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-156.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-158.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-160.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-162.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-164.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-166.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-168.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-170.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-172.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-174.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-176.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-178.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-180.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-182.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-184.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-186.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-188.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-190.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-192.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-194.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-196.3 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-198.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-200.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-202.4 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-204.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-206.5 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-208.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-210.0 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-212.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-214.1 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.RUNNING"
-216.2 min: danielmatros/ipanema-full-match-vd has status "KernelWorkerStatus.COMPLETE"
-output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-vd.log', 'log.txt', 'result.json', 'root']
-  log.txt 7589
-  result.json 447
-  run.json 162
+kernel danielmatros/ipanema-full-match-ve
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-ve
+  0.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+  8.1 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 12.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 14.2 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 16.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 18.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 20.3 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 22.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 24.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 26.4 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 28.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 32.0 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.RUNNING"
+ 32.5 min: danielmatros/ipanema-full-match-ve has status "KernelWorkerStatus.COMPLETE"
+output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-ve.log', 'log.txt', 'result.json', 'root']
+  log.txt 1825
+  result.json 1636
+  run.json 161
