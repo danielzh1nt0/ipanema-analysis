@@ -1,0 +1,3 @@
+   5.4 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   5.4 inputs: /kaggle/input/notebooks: ['danielmatros']
+   5.4 mounted /kaggle/input/ipanema-full-match-vkits: 0 cache folders

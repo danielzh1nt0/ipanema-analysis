@@ -1,12 +1,9 @@
-kernel danielmatros/ipanema-full-match-vkits
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vkits
-  0.5 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-vkits has status "KernelWorkerStatus.COMPLETE"
-output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-vkits.log', 'log.txt', 'result.json', 'root']
-  log.txt 827
-  result.json 316
-  run.json 167
+kernel danielmatros/ipanema-full-match-vb
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vb
+  0.5 min: danielmatros/ipanema-full-match-vb has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-full-match-vb has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-full-match-vb has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-full-match-vb has status "KernelWorkerStatus.ERROR"
+output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-vb.log', 'log.txt', 'root']
+  log.txt 188
+  run.json 157
