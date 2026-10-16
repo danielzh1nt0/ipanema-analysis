@@ -27,7 +27,7 @@ def test_tiled_geometry(monkeypatch):
     class Net:
         def __call__(self, x): return net(x)
         def eval(self): pass
-    monkeypatch.setattr(W, "ensure", lambda root, log=print: None); monkeypatch.setattr(W, "_model", lambda root, dev, finetuned=True: net)
+    monkeypatch.setattr(W, "ensure", lambda root, log=print: None); monkeypatch.setattr(W, "_model", lambda root, dev, finetuned=True, weights=None: net)
     monkeypatch.setattr(WT, "ensure_finetuned", lambda root, vd, log=print: False)
     d = tempfile.mkdtemp(); path = f"{d}/v.mp4"; truth = {}
     vw = cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*"mp4v"), 25, (1920, 1080))

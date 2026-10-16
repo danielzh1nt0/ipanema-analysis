@@ -60,14 +60,22 @@ def ensure(root, log=print):
         os.makedirs(os.path.dirname(w), exist_ok=True); import gdown; gdown.download(id=WEIGHT_ID, output=w, quiet=True); log(f"wasb: downloaded weights -> {w}")
     return w
 
-def _model(root, device, finetuned=True):
+def weights_for(root, match_id=None):
+    """K8b (16 Oct): one weight file per match when models/wasb_by_match/<match>.pth exists (sun grounds get the
+    self-trained weights, SFK-BP keeps the click fine-tune), else the shared models/wasb_finetuned.pth"""
+    if match_id:
+        p = os.path.join(root, "models", "wasb_by_match", f"{match_id}.pth")
+        if os.path.exists(p): return p
+    return os.path.join(root, "models", "wasb_finetuned.pth")
+
+def _model(root, device, finetuned=True, weights=None):
     import torch, yaml
     sys.path.insert(0, f"{WASB_DIR}/src")
     from models import build_model
     from omegaconf import OmegaConf
     cfg = OmegaConf.create({"model": yaml.safe_load(open(f"{WASB_DIR}/src/configs/model/wasb.yaml"))})
     m = build_model(cfg)
-    ft = os.path.join(root, "models", "wasb_finetuned.pth")
+    ft = weights or os.path.join(root, "models", "wasb_finetuned.pth")
     if finetuned and os.path.exists(ft): m.load_state_dict(torch.load(ft, map_location=device))
     else:
         ck = torch.load(weights_path(root), map_location=device); m.load_state_dict(ck["model_state_dict"] if "model_state_dict" in ck else ck)
@@ -92,10 +100,11 @@ def candidates(video, root, cache, log=print, batch=8, thr=0.25, videos_dir=None
         if train and ensure_finetuned(root, videos_dir or os.path.join(root, "videos"), log=log):
             for c in [cache] + [p for p in os.listdir(os.path.dirname(cache)) if False]: pass
     except Exception as e: log(f"wasb fine-tune skipped: {e!r}")
-    ft = os.path.join(root, "models", "wasb_finetuned.pth"); tag = str(int(os.path.getmtime(ft))) if os.path.exists(ft) else "pre"
+    pid = os.path.basename(os.path.dirname(cache)); ft = weights_for(root, pid.rsplit("_c", 1)[0] if "_c" in pid else pid)
+    tag = (("m" if "wasb_by_match" in ft else "") + str(int(os.path.getmtime(ft)))) if os.path.exists(ft) else "pre"
     cache = cache.replace(".pkl", f"_{tag}_{TAG}" + ("" if abs(thr - 0.25) < 1e-9 else f"_thr{thr:.2f}") + ("" if peaks == "blobs" else f"_lp{max_n}") + ".pkl")   # a different cut-off is a different cache
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
-    device = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, device); log(f"wasb: using {'fine-tuned' if tag != 'pre' else 'pretrained'} weights, {TILES[0]}x{TILES[1]} tiles")
+    device = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, device, weights=ft); log(f"wasb: using {'fine-tuned' if tag != 'pre' else 'pretrained'} weights ({os.path.relpath(ft, root)}), {TILES[0]}x{TILES[1]} tiles")
     cap = cv2.VideoCapture(video); W, H = int(cap.get(3)), int(cap.get(4)); fx, fy = W / BASE[0], H / BASE[1]
     boxes = tile_boxes(); nt = len(boxes)
     out = {}; buf = []; idx = []; k = 0; stats = []; pend_x = []; pend_meta = []
