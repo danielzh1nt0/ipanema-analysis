@@ -1837,6 +1837,16 @@ def ball_restore_v1():
     shutil.copy(src, f"{ROOT}/models/ball/clicks_latest.pt"); _js.dump({"correct": 66, "of": 108, "weights": "clicks_v1.pt"}, open(f"{ROOT}/models/ball/best.json", "w")); vol.commit()
     return {"restored": "clicks_v1.pt -> clicks_latest.pt (66/108)", "models": sorted(os.listdir(f"{ROOT}/models/ball"))}
 
+@app.function(timeout=10 * 60, volumes={"/data": vol}, cpu=1.0, memory=4096)
+def put_file(rel: str, b64: str, part: int = 0, parts: int = 1):
+    """K7 (16 Oct): write a repo file onto the volume in base64 parts (part 0 starts the file); commits on the last part.
+    Used to put Kaggle-trained weights (free GPU) under models/ without a paid training run."""
+    import base64
+    p = f"{ROOT}/{rel}"; os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, "ab" if part else "wb") as fh: fh.write(base64.b64decode(b64))
+    if part == parts - 1: vol.commit()
+    return {"rel": rel, "part": part, "bytes": os.path.getsize(p)}
+
 @app.function(timeout=10 * 60, volumes={"/data": vol}, cpu=1.0, memory=8192)
 def fetch_file(rel: str, part: int = 0, chunk: int = 6 << 20):
     """a file from the volume as base64, in `chunk`-byte parts (weights for offline analysis)"""

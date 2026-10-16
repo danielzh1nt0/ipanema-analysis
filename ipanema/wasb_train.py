@@ -173,6 +173,7 @@ def ensure_finetuned(root, videos_dir, log=print):
     RECIPE = "tiles2x2-base960-e40-lr3e-4-earlystop-v1"
     labels = glob.glob(f"{root}/reference/*/ball_gt.json"); n = sum(len(json.load(open(p))) for p in labels)
     mf = json.load(open(manifest_path(root))) if os.path.exists(manifest_path(root)) else {}
+    if mf.get("pinned"): return False                                        # K7: weights trained elsewhere (Kaggle) and put on the volume by hand; never retrain over them
     if labels and (not os.path.exists(weights_path(root)) or n != mf.get("n") or mf.get("recipe") != RECIPE):
         if train_best_of(root, videos_dir, log=log): json.dump({"n": n, "recipe": RECIPE}, open(manifest_path(root), "w")); return True
     return False
