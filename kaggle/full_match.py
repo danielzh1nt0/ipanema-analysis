@@ -43,8 +43,9 @@ def save(): result["minutes"] = round((time.time() - t0) / 60, 1); json.dump(res
 def mount_sources():
     srcs = [x for x in "{{SOURCES_DIRS}}".split(",") if x]                        # outputs of earlier kernels (kits, pieces)
     if srcs: log("inputs: " + "; ".join(f"{d}: {sorted(os.listdir(d))[:8]}" for d in glob.glob("/kaggle/input/*") if os.path.isdir(d)))
-    for d in srcs:
-        found = glob.glob(f"{d}/root/cache/*") or glob.glob(f"{d}/*/root/cache/*") or glob.glob(f"{d}/cache/*")   # Kaggle may nest the output one level
+    for slug in srcs:
+        d = next((x for x in glob.glob(f"/kaggle/input/{slug}") + glob.glob(f"/kaggle/input/*/{slug}") + glob.glob(f"/kaggle/input/*/*/{slug}") if os.path.isdir(x)), f"/kaggle/input/{slug}")   # notebooks/<user>/<slug>
+        found = glob.glob(f"{d}/root/cache/*") or glob.glob(f"{d}/*/root/cache/*") or glob.glob(f"{d}/cache/*")
         for c in found: shutil.copytree(c, f"{ROOT}/cache/{os.path.basename(c)}", dirs_exist_ok=True)
         log(f"mounted {d}: {len(found)} cache folders")
         if not found: raise SystemExit(f"input {d} has no cache folders (listing above): not running without it")

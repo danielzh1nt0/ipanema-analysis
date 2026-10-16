@@ -34,7 +34,7 @@ u = user(); slug = f"ipanema-{name}".replace("_", "-").lower(); kid = f"{u}/{slu
 d = f"/tmp/kaggle_{name}"; shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
 sources = [x for x in KV.get("SOURCES", "").split(",") if x]
 code = open(script).read().replace("{{R2}}", os.environ.get("R2_PUBLIC_URL", "").rstrip("/"))
-code = code.replace("{{SOURCES_DIRS}}", ",".join(f"/kaggle/input/{x}" for x in sources))
+code = code.replace("{{SOURCES_DIRS}}", ",".join(sources))                   # slugs; the script finds them under /kaggle/input (notebooks/<user>/<slug>)
 for k, v in KV.items(): code = code.replace("{{" + k + "}}", v)
 code = re.sub(r"\{\{[A-Z_0-9]+\}\}", "", code)                                 # unfilled placeholders -> "" (the script's defaults)
 open(f"{d}/{name}.py", "w").write(code)
