@@ -97,6 +97,11 @@ class RFDetrPerson:
     def __init__(self, size="medium"):
         import rfdetr
         self.m = {"small": rfdetr.RFDETRSmall, "medium": rfdetr.RFDETRMedium, "base": getattr(rfdetr, "RFDETRBase", rfdetr.RFDETRMedium)}[size]()
+        if os.environ.get("IPANEMA_RF_FP16") == "1":                              # F1 (16 Oct, Kaggle T4): half precision, ~2-3x faster
+            try:
+                import torch
+                if torch.cuda.is_available(): self.m.optimize_for_inference(compile=False, dtype=torch.float16)
+            except Exception as e: print(f"rfdetr fp16 skipped: {e!r}", flush=True)
     def detect_batch(self, fs, conf, tiles):
         import supervision as sv, cv2
         h, w = fs[0].shape[:2]; rects = [(int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)) for x0, y0, x1, y1 in tiles]

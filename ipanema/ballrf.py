@@ -21,9 +21,14 @@ def load(weights, device=None):
     kw = dict(pretrain_weights=tmp, num_classes=len(ck.get("classes", ["ball"])), resolution=int(ck.get("resolution", 640)))
     if device: kw["device"] = device
     m = Model(**kw)
-    try: m.optimize_for_inference()
+    try: m.optimize_for_inference(**_fp16())
     except Exception: pass
     return m
+
+def _fp16():
+    """F1 (16 Oct, Kaggle T4): IPANEMA_RF_FP16=1 -> half precision, no compile (the clip ran at 2.7 frames/s in fp32)"""
+    import torch
+    return {"compile": False, "dtype": torch.float16} if os.environ.get("IPANEMA_RF_FP16") == "1" and torch.cuda.is_available() else {}
 
 
 def tiles(w, h):
