@@ -1,2 +1,2 @@
-kaggle/full_match.py 340 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=pieces PIECES=5-8 NAME=vb SOURCES=ipanema-full-match-vkits DOWNLOAD=0 BUDGET=400 WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Fri Oct 16 14:08:17 CEST 2026 F1 Vallentuna pieces 5-8 (vb)
+kaggle/full_match.py 340 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=pieces PIECES=1-4 NAME=va SOURCES=ipanema-full-match-vkits DOWNLOAD=0 BUDGET=400 WASB=results/kaggle/wasb_warm/wasb_warm.pth
+# Fri Oct 16 14:18:27 CEST 2026 F1 Vallentuna pieces 1-4 (va), take 2
