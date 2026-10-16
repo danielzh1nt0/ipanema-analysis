@@ -1,2 +1,2 @@
-kaggle/wasb_allgrounds.py 300
-# Fri Oct 16 04:31:10 CEST 2026 K6: WASB on all grounds vs the app weights (free Kaggle GPU)
+kaggle/wasb_balanced.py 300
+# Fri Oct 16 06:26:08 CEST 2026 K7: balanced WASB (clicks + AIK + capped Vallentuna pseudo) vs app weights
