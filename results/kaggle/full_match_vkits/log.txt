@@ -1,0 +1,9 @@
+   5.1 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   8.3 video: 3.48 GB
+   8.3 === p15u-vs-vallentuna-2026-10-03-6cce: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces; this kernel: kits []
+   9.1 kits: grass test keeps only 182 of 790 people, but the light is uneven (shade spread 2.5): grass test kept
+   9.4 kits: per-player classifier from 336 on-pitch people, 13 of 15 runs kept
+   9.4 kits: hue mode (kits differ in colour) -> per-player classifier not used, colour only
+   9.4 kits: learned from 182 people (608 off the pitch left out), group sizes [75, 68, 25, 14], light local (shade spread 2.5), default fit leaves out a group at 0.80 x the team gap, far pair moves a team by 8.9
+   9.4 kits: {'frames': 36, 'kit_groups': [75, 68, 25, 14], 'dark_share': {'A': 0.13, 'B': 0.36}}
+   9.4 done: kits in 9.4 min

@@ -1,0 +1,23 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "kits",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "n": 178800,
+ "fps": 29.970030639830654,
+ "n_pieces": 20,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   75,
+   68,
+   25,
+   14
+  ],
+  "dark_share": {
+   "A": 0.13,
+   "B": 0.36
+  }
+ },
+ "minutes": 9.4
+}
