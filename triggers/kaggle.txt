@@ -1,2 +1,2 @@
-kaggle/wasb_balanced.py 300
-# Fri Oct 16 06:26:08 CEST 2026 K7: balanced WASB (clicks + AIK + capped Vallentuna pseudo) vs app weights
+kaggle/wasb_warm.py 300
+# Fri Oct 16 08:12:25 CEST 2026 K8: K7 + warm start from app weights + volume SFK-BP labels

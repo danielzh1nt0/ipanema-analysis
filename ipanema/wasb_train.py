@@ -122,10 +122,12 @@ def hit_rate(net, dev, S, ids, tol_base=7.5):
 _LAST_BEST = {}
 _SAMPLES = {}
 
-def train(root, videos_dir, epochs=40, lr=3e-4, log=print, seed=0, eval_every=2, patience=5):
+def train(root, videos_dir, epochs=40, lr=3e-4, log=print, seed=0, eval_every=2, patience=5, init=None):
+    """init: path of weights to start from (K8: the weights the app runs today) instead of the pretrained soccer weights"""
     import torch
     from .wasb import ensure, _model
     ensure(root, log=log); dev = "cuda" if torch.cuda.is_available() else "cpu"; net = _model(root, dev, finetuned=False)
+    if init: net.load_state_dict(torch.load(init, map_location=dev)); log(f"wasb train: warm start from {os.path.basename(init)}")
     if "S" not in _SAMPLES: _SAMPLES["S"] = load_samples(root, videos_dir, log=log)
     S = _SAMPLES["S"]
     if len(S) < 30: log("wasb train: too few samples"); return None
@@ -156,12 +158,12 @@ def train(root, videos_dir, epochs=40, lr=3e-4, log=print, seed=0, eval_every=2,
     torch.save(best_state, weights_path(root)); log(f"wasb train: saved (best held-out {best}/{t0})")
     return weights_path(root)
 
-def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print):
+def train_best_of(root, videos_dir, seeds=(0, 1, 2), log=print, init=None):
     """small training sets swing run to run: train a few seeds from the pretrained weights, keep the best held-out model"""
     import shutil
     best_h, best_path = -1, None
     for s in seeds:
-        p = train(root, videos_dir, log=log, seed=s)
+        p = train(root, videos_dir, log=log, seed=s, init=init)
         if p is None: continue
         h = _LAST_BEST.get("hits", -1); log(f"wasb seed {s}: held-out {h}")
         if h > best_h: best_h = h; shutil.copy(p, p + f".seed{s}"); best_path = p + f".seed{s}"
