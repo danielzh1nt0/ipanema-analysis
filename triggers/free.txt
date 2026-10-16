@@ -1,2 +1,2 @@
-tools/press_clips.py
-# Fri Oct  9 20:34:12 UTC 2026 pressing answer key clips, retry with mp4s allowed in git
+tools/poss_sheet.py results/kaggle/full_match_vjoin p15u-vs-vallentuna-2026-10-03-6cce
+# Sat Oct 17 01:12:59 CEST 2026 F1: picture sheet of the possession misses in the new Vallentuna export
