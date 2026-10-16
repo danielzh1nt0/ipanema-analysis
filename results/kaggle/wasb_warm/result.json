@@ -1,0 +1,69 @@
+{
+ "pretrained": {
+  "Vallentuna by-eye keys (held out)": {
+   "top1": 5,
+   "top3": 7,
+   "n": 55
+  },
+  "AIK clicks (in training, 80%)": {
+   "top1": 1,
+   "top3": 1,
+   "n": 39
+  },
+  "SFK-BP exam clicks (held out)": {
+   "top1": 1,
+   "top3": 2,
+   "n": 26
+  },
+  "SFK-BP clip moments (held out)": {
+   "top1": 0,
+   "top3": 3,
+   "n": 33
+  }
+ },
+ "app today (clicks fine-tune)": {
+  "Vallentuna by-eye keys (held out)": {
+   "top1": 9,
+   "top3": 14,
+   "n": 55
+  },
+  "AIK clicks (in training, 80%)": {
+   "top1": 13,
+   "top3": 16,
+   "n": 39
+  },
+  "SFK-BP exam clicks (held out)": {
+   "top1": 18,
+   "top3": 20,
+   "n": 26
+  },
+  "SFK-BP clip moments (held out)": {
+   "top1": 23,
+   "top3": 24,
+   "n": 33
+  }
+ },
+ "self-trained": {
+  "Vallentuna by-eye keys (held out)": {
+   "top1": 21,
+   "top3": 26,
+   "n": 55
+  },
+  "AIK clicks (in training, 80%)": {
+   "top1": 31,
+   "top3": 34,
+   "n": 39
+  },
+  "SFK-BP exam clicks (held out)": {
+   "top1": 16,
+   "top3": 20,
+   "n": 26
+  },
+  "SFK-BP clip moments (held out)": {
+   "top1": 21,
+   "top3": 24,
+   "n": 33
+  }
+ },
+ "minutes": 120.2
+}
