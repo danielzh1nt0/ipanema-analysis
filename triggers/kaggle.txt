@@ -1,2 +1,2 @@
-kaggle/wasb_warm.py 300
-# Fri Oct 16 08:12:25 CEST 2026 K8: K7 + warm start from app weights + volume SFK-BP labels
+kaggle/full_match.py 200 MATCH=SFKBP1109_s1200 STAGE=all NAME=smoke
+# Fri Oct 16 09:56:51 CEST 2026 F1 smoke: whole pipeline on Kaggle, no Modal, on the 5-min SFK-BP clip

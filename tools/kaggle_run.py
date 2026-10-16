@@ -6,7 +6,11 @@ Pushes a private GPU+internet script kernel, waits (log every 2 min), downloads 
 '{{R2}}' in the script is replaced by the R2 public URL (a public bucket; the kernel is private)."""
 import os, sys, json, time, subprocess, shutil, re
 script = sys.argv[1]; max_min = float(sys.argv[2]) if len(sys.argv) > 2 else 300
-name = os.path.splitext(os.path.basename(script))[0]; OUT = f"results/kaggle/{name}"; os.makedirs(OUT, exist_ok=True)
+# 16 Oct (F1, no Modal): extra KEY=VALUE args fill {{KEY}} in the script. Special keys: NAME=<suffix> (a second kernel of the
+# same script: slug and results folder get the suffix), SOURCES=<slug,slug> (outputs of earlier kernels mounted under
+# /kaggle/input/<slug>; filled into {{SOURCES_DIRS}}), GPU=0 (CPU kernel), DOWNLOAD=0 (leave the output on Kaggle; only run.json)
+KV = dict(a.split("=", 1) for a in sys.argv[3:] if "=" in a)
+name = os.path.splitext(os.path.basename(script))[0] + (f"_{KV['NAME']}" if KV.get("NAME") else ""); OUT = f"results/kaggle/{name}"; os.makedirs(OUT, exist_ok=True)
 def sh(c, check=False):
     r = subprocess.run(c, shell=True, capture_output=True, text=True); txt = (r.stdout + r.stderr).strip()
     if check and r.returncode: print(txt); sys.exit(f"failed: {c}")
@@ -28,10 +32,15 @@ def user():
     sys.exit("could not find the Kaggle username: set KAGGLE_USERNAME")
 u = user(); slug = f"ipanema-{name}".replace("_", "-").lower(); kid = f"{u}/{slug}"; print("kernel", kid, flush=True)
 d = f"/tmp/kaggle_{name}"; shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
+sources = [x for x in KV.get("SOURCES", "").split(",") if x]
 code = open(script).read().replace("{{R2}}", os.environ.get("R2_PUBLIC_URL", "").rstrip("/"))
+code = code.replace("{{SOURCES_DIRS}}", ",".join(f"/kaggle/input/{x}" for x in sources))
+for k, v in KV.items(): code = code.replace("{{" + k + "}}", v)
+code = re.sub(r"\{\{[A-Z_0-9]+\}\}", "", code)                                 # unfilled placeholders -> "" (the script's defaults)
 open(f"{d}/{name}.py", "w").write(code)
+gpu = KV.get("GPU", "1") != "0"
 json.dump({"id": kid, "title": slug, "code_file": f"{name}.py", "language": "python", "kernel_type": "script", "is_private": True,
-           "enable_gpu": True, "enable_internet": True, "machine_shape": os.environ.get("KAGGLE_GPU", "NvidiaTeslaT4"), "dataset_sources": [], "competition_sources": [], "kernel_sources": []},
+           "enable_gpu": gpu, "enable_internet": True, "machine_shape": os.environ.get("KAGGLE_GPU", "NvidiaTeslaT4") if gpu else "None", "dataset_sources": [], "competition_sources": [], "kernel_sources": [f"{u}/{x}" for x in sources]},
           open(f"{d}/kernel-metadata.json", "w"), indent=1)
 if "fetch" in sys.argv[3:]: print("fetch only: no new version pushed", flush=True)
 else:
@@ -50,6 +59,11 @@ while True:
     if "404" in low and time.time() - t0 < 600: continue                      # a just-pushed kernel can 404 for a while
     if any(w in low for w in ("complete", "error", "cancel")): break
     if time.time() - t0 > max_min * 60: print("gave up waiting (the kernel may still be running on Kaggle)"); break
-print(sh(f"kaggle kernels output {kid} -p {OUT}"), flush=True)
+if KV.get("DOWNLOAD", "1") == "0":
+    sh(f"kaggle kernels output {kid} -p /tmp/kout_{name}")                        # the log / result.json only; big files stay on Kaggle
+    for f in ("result.json", "log.txt"):
+        if os.path.exists(f"/tmp/kout_{name}/{f}"): shutil.copy(f"/tmp/kout_{name}/{f}", OUT)
+    print("output left on Kaggle (DOWNLOAD=0):", sorted(os.listdir(f"/tmp/kout_{name}")) if os.path.isdir(f"/tmp/kout_{name}") else "nothing", flush=True)
+else: print(sh(f"kaggle kernels output {kid} -p {OUT}"), flush=True)
 json.dump({"kernel": kid, "status": st, "minutes": round((time.time() - t0) / 60, 1)}, open(f"{OUT}/run.json", "w"), indent=1)
 for f in sorted(os.listdir(OUT)): print(" ", f, os.path.getsize(f"{OUT}/{f}"))

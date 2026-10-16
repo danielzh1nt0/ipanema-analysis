@@ -7,3 +7,7 @@ results/kaggle/ballfinder_train/*.pt
 !results/kaggle/shot_clips/*.mp4
 !results/kaggle/pass_clips/*.mp4
 !results/qa/press/**/*.mp4
+
+# F1: Kaggle match exports are pushed to the app, not kept in git
+results/kaggle/**/export/**
+results/kaggle/**/root/**

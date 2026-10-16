@@ -26,6 +26,15 @@ jobs:
           if python -c "import os,re,sys; sys.exit(0 if re.fullmatch(r'[0-9a-f]{32}', os.environ.get('KAGGLE_API_TOKEN','')) else 1)"; then export KAGGLE_KEY="$KAGGLE_API_TOKEN"; unset KAGGLE_API_TOKEN; echo "using old-style key + username"; fi
           set -o pipefail; python tools/kaggle_run.py $(head -1 triggers/kaggle.txt) 2>&1 | tail -300 > results/kaggle/last_log.txt || echo "FAILED" >> results/kaggle/last_log.txt
           cat results/kaggle/last_log.txt
+      - name: push an exported match into the app (needs the SUPABASE secrets; skipped without them)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          for lib in results/kaggle/*/export/library.json; do
+            [ -f "$lib" ] || continue
+            pip install -q supabase; python tools/app_push.py "$(dirname "$lib")" | tee -a results/kaggle/last_log.txt || echo "app push skipped/failed" >> results/kaggle/last_log.txt
+          done
       - name: commit
         if: always()
         run: |
