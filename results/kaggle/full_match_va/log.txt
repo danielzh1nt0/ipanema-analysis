@@ -1,3 +1,129 @@
-   6.0 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
-   6.0 inputs: /kaggle/input/notebooks: ['danielmatros']
-   6.0 mounted /kaggle/input/ipanema-full-match-vkits: 0 cache folders
+   5.4 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   5.4 inputs: /kaggle/input/notebooks: ['danielmatros']
+   5.5 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vkits: 1 cache folders
+   7.3 video: 3.48 GB
+   7.3 === p15u-vs-vallentuna-2026-10-03-6cce: 178800 frames (5966 s) @ 29.970 fps -> 20 pieces; this kernel: pieces [1, 2, 3, 4]
+   7.4 kits: mounted from the kits kernel
+  19.1   tracking frame 0
+  21.0   tracking frame 2000 (16.9 frames/s)
+  23.0   tracking frame 4000 (16.8 frames/s)
+  25.1   tracking frame 6000 (16.6 frames/s)
+  27.2   tracking frame 8000 (16.4 frames/s)
+  28.2   p15u-vs-vallentuna-2026-10-03-6cce_c001: 18.4 players/frame
+  30.6   ball (RF-DETR): frame 1000, 7.0 frames/s
+  33.0   ball (RF-DETR): frame 2000, 7.1 frames/s
+  35.3   ball (RF-DETR): frame 3000, 7.1 frames/s
+  37.6   ball (RF-DETR): frame 4000, 7.1 frames/s
+  39.9   ball (RF-DETR): frame 5000, 7.1 frames/s
+  42.3   ball (RF-DETR): frame 6000, 7.1 frames/s
+  44.7   ball (RF-DETR): frame 7000, 7.1 frames/s
+  47.0   ball (RF-DETR): frame 8000, 7.1 frames/s
+  49.4 === p15u-vs-vallentuna-2026-10-03-6cce_c001 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+  49.4 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+  49.4 calibration: from the line model, 87% of frames trusted (lines drawn); 1137 frames bridged or borrowed, no drawn lines
+  49.4 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+  49.4 tracking: RF-DETR tracks re-positioned with this calibration
+  49.4 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.2 candidates/frame
+  49.5 wasb: downloaded weights -> /kaggle/working/root/models/wasb_soccer_best.pth.tar
+  49.5 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+  51.3   wasb frame 1500
+  53.2   wasb frame 3000
+  55.2   wasb frame 4500
+  57.4   wasb frame 6000
+  59.7   wasb frame 7500
+  62.0 wasb: 8983/8992 frames with a ball peak, 5.7 peaks/frame; heatmap max p50/p90/p99 = 0.36/0.72/0.86
+  62.0 ball: RF-DETR + WASB guesses fused, 13.9/frame
+  62.1 p15u-vs-vallentuna-2026-10-03-6cce_c001: 8992 frames, 18.4 players/frame
+  62.1 piece 1 done in 54.7 min, 87% frames trusted
+  72.3   tracking frame 0
+  74.2   tracking frame 2000 (17.7 frames/s)
+  76.1   tracking frame 4000 (17.4 frames/s)
+  78.1   tracking frame 6000 (17.2 frames/s)
+  80.0   tracking frame 8000 (17.2 frames/s)
+  81.0   p15u-vs-vallentuna-2026-10-03-6cce_c002: 17.9 players/frame
+  83.3   ball (RF-DETR): frame 1000, 7.2 frames/s
+  85.6   ball (RF-DETR): frame 2000, 7.2 frames/s
+  88.0   ball (RF-DETR): frame 3000, 7.2 frames/s
+  90.3   ball (RF-DETR): frame 4000, 7.1 frames/s
+  92.6   ball (RF-DETR): frame 5000, 7.1 frames/s
+  95.0   ball (RF-DETR): frame 6000, 7.1 frames/s
+  97.3   ball (RF-DETR): frame 7000, 7.1 frames/s
+  99.6   ball (RF-DETR): frame 8000, 7.2 frames/s
+ 101.9 === p15u-vs-vallentuna-2026-10-03-6cce_c002 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 101.9 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 101.9 calibration: from the line model, 50% of frames trusted (lines drawn); 4468 frames bridged or borrowed, no drawn lines
+ 101.9 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 102.0 tracking: RF-DETR tracks re-positioned with this calibration
+ 102.0 ball: RF-DETR ball finder (rfdetr_ball_20260929), 11.0 candidates/frame
+ 102.0 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 103.9   wasb frame 1500
+ 106.1   wasb frame 3000
+ 108.4   wasb frame 4500
+ 110.6   wasb frame 6000
+ 112.8   wasb frame 7500
+ 114.7 wasb: 8983/8992 frames with a ball peak, 5.9 peaks/frame; heatmap max p50/p90/p99 = 0.48/0.75/0.86
+ 114.7 ball: RF-DETR + WASB guesses fused, 14.5/frame
+ 114.7 p15u-vs-vallentuna-2026-10-03-6cce_c002: 8992 frames, 17.9 players/frame
+ 114.7 piece 2 done in 52.7 min, 50% frames trusted
+ 125.9   tracking frame 0
+ 127.8   tracking frame 2000 (17.9 frames/s)
+ 129.7   tracking frame 4000 (17.5 frames/s)
+ 131.7   tracking frame 6000 (17.3 frames/s)
+ 133.7   tracking frame 8000 (17.0 frames/s)
+ 134.7   p15u-vs-vallentuna-2026-10-03-6cce_c003: 17.8 players/frame
+ 137.0   ball (RF-DETR): frame 1000, 7.1 frames/s
+ 139.4   ball (RF-DETR): frame 2000, 7.1 frames/s
+ 141.7   ball (RF-DETR): frame 3000, 7.1 frames/s
+ 144.1   ball (RF-DETR): frame 4000, 7.1 frames/s
+ 146.4   ball (RF-DETR): frame 5000, 7.1 frames/s
+ 148.8   ball (RF-DETR): frame 6000, 7.1 frames/s
+ 151.1   ball (RF-DETR): frame 7000, 7.1 frames/s
+ 153.5   ball (RF-DETR): frame 8000, 7.1 frames/s
+ 155.8 === p15u-vs-vallentuna-2026-10-03-6cce_c003 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 155.8 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 155.9 calibration: from the line model, 80% of frames trusted (lines drawn); 1829 frames bridged or borrowed, no drawn lines
+ 155.9 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 155.9 tracking: RF-DETR tracks re-positioned with this calibration
+ 155.9 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.6 candidates/frame
+ 155.9 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 158.0   wasb frame 1500
+ 160.1   wasb frame 3000
+ 162.6   wasb frame 4500
+ 164.8   wasb frame 6000
+ 167.1   wasb frame 7500
+ 169.3 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.57/0.80/0.87
+ 169.3 ball: RF-DETR + WASB guesses fused, 14.0/frame
+ 169.4 p15u-vs-vallentuna-2026-10-03-6cce_c003: 8992 frames, 17.8 players/frame
+ 169.4 piece 3 done in 54.7 min, 80% frames trusted
+ 179.8   tracking frame 0
+ 181.8   tracking frame 2000 (17.0 frames/s)
+ 183.7   tracking frame 4000 (17.0 frames/s)
+ 185.8   tracking frame 6000 (16.8 frames/s)
+ 187.7   tracking frame 8000 (17.0 frames/s)
+ 188.7   p15u-vs-vallentuna-2026-10-03-6cce_c004: 20.2 players/frame
+ 191.0   ball (RF-DETR): frame 1000, 7.1 frames/s
+ 193.4   ball (RF-DETR): frame 2000, 7.1 frames/s
+ 195.7   ball (RF-DETR): frame 3000, 7.1 frames/s
+ 198.1   ball (RF-DETR): frame 4000, 7.1 frames/s
+ 200.5   ball (RF-DETR): frame 5000, 7.1 frames/s
+ 202.8   ball (RF-DETR): frame 6000, 7.1 frames/s
+ 205.2   ball (RF-DETR): frame 7000, 7.1 frames/s
+ 207.5   ball (RF-DETR): frame 8000, 7.1 frames/s
+ 209.9 === p15u-vs-vallentuna-2026-10-03-6cce_c004 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 209.9 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 209.9 calibration: from the line model, 71% of frames trusted (lines drawn); 2637 frames bridged or borrowed, no drawn lines
+ 210.0   debug overlays -> /content/ipanema-analysis/results/debug
+ 210.0 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 210.0 tracking: RF-DETR tracks re-positioned with this calibration
+ 210.0 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.5 candidates/frame
+ 210.0 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 212.3   wasb frame 1500
+ 214.4   wasb frame 3000
+ 216.5   wasb frame 4500
+ 218.9   wasb frame 6000
+ 221.0   wasb frame 7500
+ 223.4 wasb: 8988/8992 frames with a ball peak, 5.9 peaks/frame; heatmap max p50/p90/p99 = 0.52/0.78/0.87
+ 223.4 ball: RF-DETR + WASB guesses fused, 13.9/frame
+ 223.5 p15u-vs-vallentuna-2026-10-03-6cce_c004: 8992 frames, 20.2 players/frame
+ 223.5 piece 4 done in 54.1 min, 71% frames trusted
+ 223.5 done: pieces in 223.5 min
