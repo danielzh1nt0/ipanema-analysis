@@ -22,7 +22,7 @@ def load(weights, device=None):
     if device: kw["device"] = device
     m = Model(**kw)
     try: m.optimize_for_inference(**_fp16())
-    except Exception: pass
+    except Exception as e: print(f"rfdetr optimize_for_inference skipped: {e!r}", flush=True)
     return m
 
 def _fp16():
