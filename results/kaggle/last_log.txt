@@ -1,14 +1,6 @@
 kernel danielmatros/ipanema-full-match-vjoin
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vjoin
-  0.5 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.RUNNING"
- 15.8 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.COMPLETE"
+fetch only: no new version pushed
+  0.5 min: danielmatros/ipanema-full-match-vjoin has status "KernelWorkerStatus.COMPLETE"
 Output file downloaded to results/kaggle/full_match_vjoin/export/library.json
 Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_000.json
 Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_001.json
@@ -37,8 +29,8 @@ Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallent
 Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallentuna-2026-10-03-6cce/stats.json
 Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallentuna-2026-10-03-6cce/summary.json
 Output file downloaded to results/kaggle/full_match_vjoin/export/p15u-vs-vallentuna-2026-10-03-6cce/thumb.jpg
-Output file downloaded to results/kaggle/full_match_vjoin/log.txt
-Output file downloaded to results/kaggle/full_match_vjoin/result.json
+log.txt: Skipping, found more recently modified local copy (use --force to force download)
+result.json: Skipping, found more recently modified local copy (use --force to force download)
 Output file downloaded to results/kaggle/full_match_vjoin/root/models/wasb_finetuned.pth
 Output file downloaded to results/kaggle/full_match_vjoin/root/models/wasb_train_manifest.json
 Output file downloaded to results/kaggle/full_match_vjoin/root/overrides/SFKBP1109_kicks.json
@@ -104,9 +96,12 @@ Kernel log downloaded to results/kaggle/full_match_vjoin/ipanema-full-match-vjoi
   export 4096
   ipanema-full-match-vjoin.log 17610
   log.txt 6428
+  qa.json 675
   result.json 1477
   root 4096
-  run.json 167
+  run.json 166
+  stats.json 5942273
+  summary.json 1210
 ball: 39 of 55 by-eye positions within 30 px (39 within 60 px); the export had a seen ball at 54 of them
 who has the ball: 19 of 39 by-eye moments agree (A 8/22, B 11/17)
 possession: {'A': 34, 'B': 66}  passes 460  turnovers 279  ball grade {'accuracy': None, 'near_player_pct': 0.67, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}
