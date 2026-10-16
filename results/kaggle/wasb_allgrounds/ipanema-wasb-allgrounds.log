@@ -1,0 +1,57 @@
+[{"stream_name":"stdout","time":0.545308262,"data":"+ nvidia-smi --query-gpu=name --format=csv\n"}
+,{"stream_name":"stdout","time":0.586609377,"data":"name\n"}
+,{"stream_name":"stdout","time":0.586630414,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.586649961,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":0.586654174,"data":"\n"}
+,{"stream_name":"stdout","time":0.586657795,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":127.518258622,"data":"\n"}
+,{"stream_name":"stdout","time":127.518295137,"data":"+ pip install -q omegaconf gdown\n"}
+,{"stream_name":"stdout","time":139.274524794,"data":"\n"}
+,{"stream_name":"stdout","time":139.275287735,"data":"+ wget -q -O /kaggle/temp/videos/SFKBP1109.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109/video.mp4; ls -la /kaggle/temp/videos/SFKBP1109.mp4\n"}
+,{"stream_name":"stdout","time":319.323691006,"data":"-rw-r--r-- 1 root root 3589482814 Sep 20 22:03 /kaggle/temp/videos/SFKBP1109.mp4\n"}
+,{"stream_name":"stdout","time":319.323722291,"data":"\n"}
+,{"stream_name":"stdout","time":319.324217138,"data":"+ wget -q -O /kaggle/temp/videos/SFKBP1109_s1200.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4; ls -la /kaggle/temp/videos/SFKBP1109_s1200.mp4\n"}
+,{"stream_name":"stdout","time":335.807052994,"data":"-rw-r--r-- 1 root root 300815323 Sep 17 20:13 /kaggle/temp/videos/SFKBP1109_s1200.mp4\n"}
+,{"stream_name":"stdout","time":335.807083875,"data":"\n"}
+,{"stream_name":"stdout","time":335.807091361,"data":"+ wget -q -O /kaggle/temp/videos/p15u-vs-vallentuna-2026-10-03-6cce.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-vallentuna-2026-10-03-6cce/video.mp4; ls -la /kaggle/temp/videos/p15u-vs-vallentuna-2026-10-03-6cce.mp4\n"}
+,{"stream_name":"stdout","time":511.172751275,"data":"-rw-r--r-- 1 root root 3477004504 Oct  3 19:06 /kaggle/temp/videos/p15u-vs-vallentuna-2026-10-03-6cce.mp4\n"}
+,{"stream_name":"stdout","time":511.172799453,"data":"\n"}
+,{"stream_name":"stdout","time":511.172806178,"data":"+ wget -q -O /kaggle/temp/videos/p15u-vs-aik-2026-09-21-bd09_s2520.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-aik-2026-09-21-bd09_s2520/video.mp4; ls -la /kaggle/temp/videos/p15u-vs-aik-2026-09-21-bd09_s2520.mp4\n"}
+,{"stream_name":"stdout","time":523.487007474,"data":"-rw-r--r-- 1 root root 297841356 Sep 21 13:48 /kaggle/temp/videos/p15u-vs-aik-2026-09-21-bd09_s2520.mp4\n"}
+,{"stream_name":"stdout","time":523.487035077,"data":"\n"}
+,{"stream_name":"stdout","time":729.032060568,"data":"{'Vallentuna by-eye keys (held out)': 55, 'AIK clicks (in training, 80%)': 39, 'SFK-BP clip moments (held out)': 33}\n"}
+,{"stream_name":"stdout","time":734.668004344,"data":"wasb: downloaded weights -\u003e /kaggle/temp/root/models/wasb_soccer_best.pth.tar\n"}
+,{"stream_name":"stdout","time":766.241957259,"data":"pretrained {'Vallentuna by-eye keys (held out)': {'top1': np.int64(5), 'top3': 7, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(1), 'top3': 1, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(0), 'top3': 3, 'n': 33}}\n"}
+,{"stream_name":"stdout","time":796.28297733,"data":"app today {'Vallentuna by-eye keys (held out)': {'top1': np.int64(9), 'top3': 14, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(13), 'top3': 16, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(23), 'top3': 24, 'n': 33}}\n"}
+,{"stream_name":"stdout","time":850.850467937,"data":"wasb train: SFKBP1109: 99 of 100 labels loaded (SFKBP1109.mp4)\n"}
+,{"stream_name":"stdout","time":850.850507633,"data":"wasb train: SFKBP1109_s1200 held out as a test set\n"}
+,{"stream_name":"stdout","time":927.561754465,"data":"wasb train: p15u-vs-aik-2026-09-21-bd09_s2520: 39 of 39 labels loaded (p15u-vs-aik-2026-09-21-bd09_s2520.mp4)\n"}
+,{"stream_name":"stdout","time":1819.511110525,"data":"wasb train: p15u-vs-vallentuna-2026-10-03-6cce: 1692 of 1692 labels loaded (p15u-vs-vallentuna-2026-10-03-6cce.mp4)\n"}
+,{"stream_name":"stdout","time":1819.511447439,"data":"wasb train: 1830 samples (1790 with a visible ball)\n"}
+,{"stream_name":"stdout","time":1845.599637019,"data":"wasb train: samples cached (8.5 GB)\n"}
+,{"stream_name":"stdout","time":1939.891820757,"data":"wasb train: pretrained, held-out hit rate 25/355\n"}
+,{"stream_name":"stderr","time":1941.500085464,"data":"/kaggle/temp/ia/ipanema/wasb_train.py:148: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":1941.500128232,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":1941.500134191,"data":"  loss = wbce(pred[:, 1], tb); opt.zero_grad(); loss.backward(); opt.step(); tot_loss += float(loss); nb += 1\n"}
+,{"stream_name":"stdout","time":2448.392663659,"data":"  wasb epoch 2: loss 0.000087, held-out hit rate 268/355\n"}
+,{"stream_name":"stdout","time":2955.388141744,"data":"  wasb epoch 4: loss 0.000070, held-out hit rate 277/355\n"}
+,{"stream_name":"stdout","time":3462.186370596,"data":"  wasb epoch 6: loss 0.000067, held-out hit rate 273/355\n"}
+,{"stream_name":"stdout","time":3968.578196344,"data":"  wasb epoch 8: loss 0.000061, held-out hit rate 286/355\n"}
+,{"stream_name":"stdout","time":4475.012482204,"data":"  wasb epoch 10: loss 0.000058, held-out hit rate 272/355\n"}
+,{"stream_name":"stdout","time":4980.968808892,"data":"  wasb epoch 12: loss 0.000054, held-out hit rate 269/355\n"}
+,{"stream_name":"stdout","time":5487.190191122,"data":"  wasb epoch 14: loss 0.000053, held-out hit rate 281/355\n"}
+,{"stream_name":"stdout","time":5993.706906405,"data":"  wasb epoch 16: loss 0.000048, held-out hit rate 276/355\n"}
+,{"stream_name":"stdout","time":6499.495666928,"data":"  wasb epoch 18: loss 0.000047, held-out hit rate 278/355\n"}
+,{"stream_name":"stdout","time":6499.495711338,"data":"  wasb early stop at epoch 18 (best 286/355)\n"}
+,{"stream_name":"stdout","time":6499.532106506,"data":"wasb train: saved (best held-out 286/355)\n"}
+,{"stream_name":"stdout","time":6499.535607919,"data":"wasb seed 0: held-out 286\n"}
+,{"stream_name":"stdout","time":6499.541305551,"data":"wasb: kept best seed, held-out 286\n"}
+,{"stream_name":"stdout","time":6529.556069236,"data":"self-trained {'Vallentuna by-eye keys (held out)': {'top1': np.int64(24), 'top3': 26, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(21), 'top3': 27, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(12), 'top3': 19, 'n': 33}}\n"}
+,{"stream_name":"stdout","time":6529.558994044,"data":"{'pretrained': {'Vallentuna by-eye keys (held out)': {'top1': np.int64(5), 'top3': 7, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(1), 'top3': 1, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(0), 'top3': 3, 'n': 33}}, 'app today (clicks fine-tune)': {'Vallentuna by-eye keys (held out)': {'top1': np.int64(9), 'top3': 14, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(13), 'top3': 16, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(23), 'top3': 24, 'n': 33}}, 'self-trained': {'Vallentuna by-eye keys (held out)': {'top1': np.int64(24), 'top3': 26, 'n': 55}, 'AIK clicks (in training, 80%)': {'top1': np.int64(21), 'top3': 27, 'n': 39}, 'SFK-BP clip moments (held out)': {'top1': np.int64(12), 'top3': 19, 'n': 33}}, 'minutes': 108.8}\n"}
+,{"stream_name":"stderr","time":6534.816928402,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6534.816968884,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6535.052550552,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6535.05257292,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6535.800590967,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6536.673939943,"data":"[NbConvertApp] Writing 306882 bytes to __results__.html\n"}
+]
