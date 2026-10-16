@@ -1,0 +1,29 @@
+{
+ "match": "SFKBP1109_s1200",
+ "stage": "all",
+ "pieces_done": [],
+ "pieces_failed": [
+  {
+   "i": 0,
+   "error": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 77, in <module>\n    path = FM.process_piece(full, M, p, S, log=log)                         # prepare(): line calibration, WASB fused with RF-DETR ball -> piece_v5.pkl\n  File \"/kaggle/temp/ia/ipanema/fullmatch.py\", line 37, in process_piece\n    ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece[\"i\"] in (0, 4, 10, 16)))\n  File \"/kaggle/temp/ia/ipanema/run.py\", line 82, in prepare\n    cal = C.calibrate(video, S.weights[\"pitch\"], S.sports_dir, S.kp_conf, cache=f\"{cache}/calibration.pkl\", log=log)\n  File \"/kaggle/temp/ia/ipanema/calibration.py\", line 15, in calibrate\n    from ultralytics import YOLO\nModuleNotFoundError: No module named 'ultralytics'\n"
+  }
+ ],
+ "n": 8992,
+ "fps": 29.97002997002997,
+ "n_pieces": 1,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   162,
+   160,
+   56,
+   23
+  ],
+  "dark_share": {
+   "A": 0.22,
+   "B": 0.87
+  }
+ },
+ "minutes": 91.6,
+ "pieces_present": []
+}

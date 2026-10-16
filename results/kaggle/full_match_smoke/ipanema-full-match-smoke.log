@@ -1,0 +1,104 @@
+[{"stream_name":"stdout","time":0.939763624,"data":"+ nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":13.530669222,"data":"name\n"}
+,{"stream_name":"stdout","time":13.530705488,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":13.5307099,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":13.530713203,"data":"2.11.0+cu128 True\n"}
+,{"stream_name":"stdout","time":13.530716439999999,"data":"\n"}
+,{"stream_name":"stdout","time":13.530719721,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":97.158385309,"data":"\n"}
+,{"stream_name":"stdout","time":97.158418902,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":97.161910762,"data":"repo at 80e945f F1: never apply the Modal run's id-keyed team override to re-tracked pieces\n"}
+,{"stream_name":"stdout","time":97.161932158,"data":"\n"}
+,{"stream_name":"stdout","time":97.161936986,"data":"+ pip install -q rfdetr==1.11.0 supervision omegaconf gdown 'numpy\u003c2' scipy scikit-learn pandas\n"}
+,{"stream_name":"stdout","time":310.87715841199997,"data":"aviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stdout","time":310.877202843,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":310.877209308,"data":"opencv-python-headless 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877219565,"data":"kaggle-environments 1.27.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877222823,"data":"mne 1.13.2 requires numpy\u003c3,\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877225807,"data":"opencv-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877228978,"data":"bayesian-optimization 3.3.0 requires numpy\u003e=2.1.3; python_full_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877232124,"data":"cesium 0.12.4 requires numpy\u003c3.0,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877235367,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877238251,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877241065,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877243908,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877246771,"data":"cupy-cuda12x 14.0.1 requires numpy\u003c2.6,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877249669,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877253744,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.0.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877269852,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877288922,"data":"tobler 0.14.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877293167,"data":"jax 0.11.1 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.87729665,"data":"opencv-contrib-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877300463,"data":"dm-tree 0.1.10 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877316283,"data":"jaxlib 0.11.1 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.87731997,"data":"xarray-einstats 0.11.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.87732351,"data":"tifffile 2026.8.23 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877328667,"data":"pytensor 2.38.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877335132,"data":"shap 0.52.0 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877337476,"data":"rasterio 1.5.1 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":310.877339813,"data":"\n"}
+,{"stream_name":"stdout","time":310.877344517,"data":"+ which ffmpeg || (apt-get install -y -q ffmpeg \u003e /dev/null 2\u003e\u00261 \u0026\u0026 which ffmpeg)\n"}
+,{"stream_name":"stdout","time":310.881214239,"data":"/usr/bin/ffmpeg\n"}
+,{"stream_name":"stdout","time":310.881230851,"data":"\n"}
+,{"stream_name":"stdout","time":310.883948653,"data":"wasb weights: results/volume/models/wasb_finetuned.pth\n"}
+,{"stream_name":"stdout","time":311.523082636,"data":"+ wget -q -O /kaggle/working/root/videos/SFKBP1109_s1200/full.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4\n"}
+,{"stream_name":"stdout","time":317.990428116,"data":"\n"}
+,{"stream_name":"stdout","time":317.990473307,"data":"video: 0.30 GB\n"}
+,{"stream_name":"stdout","time":318.136139707,"data":"=== SFKBP1109_s1200: 8992 frames (300 s) @ 29.970 fps -\u003e 1 pieces; this kernel: all [0]\n"}
+,{"stream_name":"stdout","time":343.747593025,"data":"[2026-10-16 08:03:41] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stderr","time":348.444695226,"data":"\r/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00\u003c?, ?iB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   1%|          | 3.04M/386M [00:00\u003c00:12, 31.9MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   3%|▎         | 10.1M/386M [00:00\u003c00:06, 56.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   5%|▍         | 18.4M/386M [00:00\u003c00:05, 70.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 26.6M/386M [00:00\u003c00:04, 76.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   9%|▉         | 35.6M/386M [00:00\u003c00:04, 83.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 45.3M/386M [00:00\u003c00:04, 89.3MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  14%|█▍        | 54.9M/386M [00:00\u003c00:03, 93.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 64.7M/386M [00:00\u003c00:03, 96.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  19%|█▉        | 74.1M/386M [00:00\u003c00:03, 97.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 83.9M/386M [00:01\u003c00:03, 98.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  24%|██▍       | 93.3M/386M [00:01\u003c00:03, 96.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  27%|██▋       | 103M/386M [00:01\u003c00:03, 96.3MiB/s] \r/root/.roboflow/models/rf-detr-medium.pth:  29%|██▉       | 112M/386M [00:01\u003c00:03, 91.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  31%|███▏      | 121M/386M [00:01\u003c00:03, 92.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  34%|███▎      | 130M/386M [00:01\u003c00:02, 93.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  36%|███▌      | 139M/386M [00:01\u003c00:02, 95.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  38%|███▊      | 149M/386M [00:01\u003c00:02, 93.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  41%|████      | 158M/386M [00:01\u003c00:02, 94.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  43%|████▎     | 167M/386M [00:01\u003c00:02, 95.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  46%|████▌     | 177M/386M [00:02\u003c00:02, 98.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  48%|████▊     | 187M/386M [00:02\u003c00:02, 99.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  51%|█████     | 197M/386M [00:02\u003c00:01, 100MiB/s] \r/root/.roboflow/models/rf-detr-medium.pth:  53%|█████▎    | 206M/386M [00:02\u003c00:01, 101MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  56%|█████▌    | 216M/386M [00:02\u003c00:02, 62.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  59%|█████▊    | 227M/386M [00:02\u003c00:02, 72.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  61%|██████    | 236M/386M [00:02\u003c00:01, 79.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  64%|██████▎   | 245M/386M [00:02\u003c00:01, 78.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  66%|██████▌   | 254M/386M [00:03\u003c00:01, 83.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  68%|██████▊   | 263M/386M [00:03\u003c00:01, 72.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  70%|███████   | 272M/386M [00:03\u003c00:01, 77.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  73%|███████▎  | 281M/386M [00:03\u003c00:01, 82.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  75%|███████▌  | 290M/386M [00:03\u003c00:01, 86.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  78%|███████▊  | 300M/386M [00:03\u003c00:01, 89.3MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  80%|████████  | 309M/386M [00:03\u003c00:00, 91.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  82%|████████▏ | 318M/386M [00:03\u003c00:00, 93.3MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  85%|████████▍ | 327M/386M [00:03\u003c00:00, 80.9MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  88%|████████▊ | 338M/386M [00:04\u003c00:00, 88.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  90%|█████████ | 349M/386M [00:04\u003c00:00, 94.9MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  93%|█████████▎| 359M/386M [00:04\u003c00:00, 98.8MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  96%|█████████▌| 369M/386M [00:04\u003c00:00, 102MiB/s] \r/root/.roboflow/models/rf-detr-medium.pth:  98%|█████████▊| 380M/386M [00:04\u003c00:00, 105MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:04\u003c00:00, 89.1MiB/s]\n"}
+,{"stream_name":"stdout","time":349.344110223,"data":"[2026-10-16 08:03:47] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stderr","time":349.347768299,"data":"[2026-10-16 08:03:47] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":349.347811491,"data":"[2026-10-16 08:03:47] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":350.974443344,"data":"[2026-10-16 08:03:48] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stderr","time":355.350087895,"data":"[2026-10-16 08:03:53] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":400.568622117,"data":"kits: per-player classifier from 427 on-pitch people, 0 of 15 runs kept -\u003e colour only\n"}
+,{"stream_name":"stdout","time":400.615113232,"data":"kits: learned from 401 people (376 off the pitch left out), group sizes [162, 160, 56, 23], light frame (shade spread 1.2), default fit leaves out a group at 0.52 x the team gap, far pair moves a team by 5.3\n"}
+,{"stream_name":"stdout","time":400.877336054,"data":"kits: {'frames': 36, 'kit_groups': [162, 160, 56, 23], 'dark_share': {'A': 0.22, 'B': 0.87}}\n"}
+,{"stream_name":"stdout","time":1089.829089645,"data":"[2026-10-16 08:16:07] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stderr","time":1089.830331523,"data":"[2026-10-16 08:16:07] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":1089.830405036,"data":"[2026-10-16 08:16:07] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":1091.240780612,"data":"[2026-10-16 08:16:09] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stderr","time":1093.088883618,"data":"/kaggle/temp/ia/ipanema/tracking.py:148: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.\n"}
+,{"stream_name":"stderr","time":1093.088911982,"data":"  tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)\n"}
+,{"stream_name":"stderr","time":1093.286022346,"data":"[2026-10-16 08:16:11] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":1094.234721841,"data":"  tracking frame 0\n"}
+,{"stream_name":"stdout","time":1347.416083176,"data":"  tracking frame 2000 (7.9 frames/s)\n"}
+,{"stream_name":"stdout","time":1595.784566101,"data":"  tracking frame 4000 (8.0 frames/s)\n"}
+,{"stream_name":"stdout","time":1844.924659068,"data":"  tracking frame 6000 (8.0 frames/s)\n"}
+,{"stream_name":"stdout","time":2093.085550618,"data":"  tracking frame 8000 (8.0 frames/s)\n"}
+,{"stream_name":"stdout","time":2218.947134307,"data":"  SFKBP1109_s1200_c000: 20.9 players/frame\n"}
+,{"stream_name":"stderr","time":2219.110795381,"data":"[2026-10-16 08:34:56] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":2219.110825187,"data":"[2026-10-16 08:34:56] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":2219.872784868,"data":"[2026-10-16 08:34:57] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":2583.971891772,"data":"  ball (RF-DETR): frame 1000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":2949.01939092,"data":"  ball (RF-DETR): frame 2000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":3313.423621973,"data":"  ball (RF-DETR): frame 3000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":3677.697628354,"data":"  ball (RF-DETR): frame 4000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":4042.286410238,"data":"  ball (RF-DETR): frame 5000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":4406.180444884,"data":"  ball (RF-DETR): frame 6000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":4770.324224666,"data":"  ball (RF-DETR): frame 7000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":5134.715493229,"data":"  ball (RF-DETR): frame 8000, 2.7 frames/s\n"}
+,{"stream_name":"stdout","time":5496.052746392,"data":"=== SFKBP1109_s1200_c000 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)\n"}
+,{"stream_name":"stdout","time":5496.089413863,"data":"video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)\n"}
+,{"stream_name":"stdout","time":5496.09793668,"data":"calibration: no panorama calibration for SFKBP1109_s1200\n"}
+,{"stream_name":"stdout","time":5496.102313208,"data":"PIECE 0 FAILED: Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":5496.102325546,"data":"  File \"/kaggle/src/script.py\", line 77, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":5496.102329933,"data":"    path = FM.process_piece(full, M, p, S, log=log)                         # prepare(): line calibration, WASB fused with RF-DETR ball -\u003e piece_v5.pkl\n"}
+,{"stream_name":"stdout","time":5496.102333269,"data":"  File \"/kaggle/temp/ia/ipanema/fullmatch.py\", line 37, in process_piece\n"}
+,{"stream_name":"stdout","time":5496.10233643,"data":"    ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece[\"i\"] in (0, 4, 10, 16)))\n"}
+,{"stream_name":"stdout","time":5496.102339499,"data":"  File \"/kaggle/temp/ia/ipanema/run.py\", line 82, in prepare\n"}
+,{"stream_name":"stdout","time":5496.102342467,"data":"    cal = C.calibrate(video, S.weights[\"pitch\"], S.sports_dir, S.kp_conf, cache=f\"{cache}/calibration.pkl\", log=log)\n"}
+,{"stream_name":"stdout","time":5496.102345492,"data":"  File \"/kaggle/temp/ia/ipanema/calibration.py\", line 15, in calibrate\n"}
+,{"stream_name":"stdout","time":5496.102348347,"data":"    from ultralytics import YOLO\n"}
+,{"stream_name":"stdout","time":5496.102351079,"data":"ModuleNotFoundError: No module named 'ultralytics'\n"}
+,{"stream_name":"stdout","time":5496.102353963,"data":"\n"}
+,{"stream_name":"stdout","time":5496.169980322,"data":"=== SFKBP1109_s1200 join: 0/1 pieces present\n"}
+,{"stream_name":"stderr","time":5496.170497585,"data":"too many pieces missing\n"}
+,{"stream_name":"stderr","time":5500.723823264,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":5500.723853094,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":5500.976955577,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":5500.976993155,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5501.807702396,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":5502.892922073,"data":"[NbConvertApp] Writing 361923 bytes to __results__.html\n"}
+]
