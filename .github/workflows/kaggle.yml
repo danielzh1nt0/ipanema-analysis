@@ -35,6 +35,7 @@ jobs:
             [ -f "$lib" ] || continue
             d="$(dirname "$lib")"; python tools/export_qa.py "$d" "" "$(dirname "$d")/qa.json" | tee -a results/kaggle/last_log.txt || echo "export QA failed" >> results/kaggle/last_log.txt
             for f in summary.json stats.json kit_A.png kit_B.png thumb.jpg; do cp "$d"/*/$f "$(dirname "$d")/$f" 2>/dev/null || true; done
+            for f in "$d"/*/frames_lite.json; do [ -f "$f" ] && gzip -c "$f" > "$(dirname "$d")/frames_lite.json.gz"; done   # 3 frames/s whole match (~6 MB gz) for offline checks
             pip install -q supabase; python tools/app_push.py "$d" | tee -a results/kaggle/last_log.txt || echo "app push skipped/failed" >> results/kaggle/last_log.txt
           done
       - name: commit
