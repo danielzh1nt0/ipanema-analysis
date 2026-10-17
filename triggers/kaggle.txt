@@ -1,2 +1,2 @@
-kaggle/full_match.py 300 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin4 GPU=0 SOURCES=ipanema-full-match-va,ipanema-full-match-vb,ipanema-full-match-vc,ipanema-full-match-vd,ipanema-full-match-ve,ipanema-full-match-vrelabel2 WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Sat Oct 17 07:14:06 CEST 2026 F1 Vallentuna join 4 with time-segmented teams (1710 split tracks)
+kaggle/full_match.py 90 MATCH=SFKBP1109_s1200 STAGE=join NAME=sjoin15 GPU=0 SOURCES=ipanema-full-match-smoke2 NEAR=1.5
+# Sat Oct 17 07:36:06 CEST 2026 T1: SFK-BP clip join with nearness 1.5 m (possession moments check)
