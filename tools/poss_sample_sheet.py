@@ -9,9 +9,9 @@ def main():
     name = os.path.basename(src.rstrip("/")); out = f"results/qa/poss_sample/{name}"; os.makedirs(out, exist_ok=True)
     d = json.load(gzip.open(f"{src}/frames_lite.json.gz")); fr = d["frames"]; ts = [f["t"] for f in fr]
     per = json.load(open(f"periods/{M}.json"))["periods_s"] if os.path.exists(f"periods/{M}.json") else [[0, 1e9]]
-    rng = random.Random(seed); times = []
-    while len(times) < N:
-        a, b = rng.choice(per); t = round(rng.uniform(a, b), 1)
+    rng = random.Random(seed); times = []; tries = 0
+    while len(times) < N and tries < 200 * N:   # 17 Oct (worker): a short match can't fit N moments 5 s apart -> stop instead of looping forever
+        tries += 1; a, b = rng.choice(per); t = round(rng.uniform(a, b), 1)
         if all(abs(t - x) > 5 for x in times): times.append(t)
     times.sort(); cap = cv2.VideoCapture(f"{os.environ['R2_PUBLIC_URL'].rstrip('/')}/{M}/video.mp4"); fps = cap.get(cv2.CAP_PROP_FPS) or 29.97
     if not cap.isOpened(): sys.exit("video not reachable")
