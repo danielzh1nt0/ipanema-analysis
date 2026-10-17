@@ -101,7 +101,7 @@ if STAGE == "relabel":
     from ipanema import kits as KT
     mount_sources(); get_video(); n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
     STEP = int("{{STEP}}" or "6"); MIN_AB = int("{{MIN_AB}}" or "3")
-    tm = pickle.load(open(f"{ROOT}/cache/{M}/kits_rfdetr_v1.pkl", "rb")); votes = collections.defaultdict(collections.Counter); old = {}
+    tm = pickle.load(open(f"{ROOT}/cache/{M}/kits_rfdetr_v1.pkl", "rb")); votes = collections.defaultdict(collections.Counter); old = {}; series = collections.defaultdict(list)
     cap = cv2.VideoCapture(full); n_fr = 0
     for p in plan_:
         pid = FM.piece_id(M, p["i"]); pf_ = f"{ROOT}/cache/{pid}/{FM.PIECE_FILE}"
@@ -115,16 +115,33 @@ if STAGE == "relabel":
             for r, lab in zip(rows, labs):
                 tid = int(r[0]) + p["i"] * FM.ID_STRIDE if r[0] >= 0 else int(r[0])   # the id this track has after FM.join
                 votes[tid][lab] += 1; old[tid] = r[1]
+                if lab in ("A", "B"): series[tid].append((off + k, lab))
         log(f"relabel: {pid} read ({n_fr} frames so far, {len(votes)} tracks)")
-    cap.release(); teams = {}; changed = collections.Counter()
+    cap.release(); teams = {}; changed = collections.Counter(); n_split = 0
     for tid, v in votes.items():
         a, b = v.get("A", 0), v.get("B", 0)
         if a + b >= MIN_AB: new = "A" if a >= b else "B"
         else: continue
+        # a track that switches between two people (tracker id swap, black <-> red): segments of >= SEG consecutive
+        # smoothed reads of the other team get their own team, as [t_start, t_end, team] pieces (fullmatch.apply_team_override)
+        sr = sorted(series[tid]); labs_ = [x[1] for x in sr]; SEG = int("{{SEG}}" or "4")
+        if len(sr) >= 2 * SEG:
+            sm = [max(set(labs_[max(0, i - 2):i + 3]), key=labs_[max(0, i - 2):i + 3].count) for i in range(len(labs_))]
+            segs = []; st = 0
+            for i in range(1, len(sm) + 1):
+                if i == len(sm) or sm[i] != sm[st]:
+                    segs.append((st, i - 1, sm[st])); st = i
+            segs = [(a_, b_, t_) for a_, b_, t_ in segs if b_ - a_ + 1 >= SEG]
+            if len({t_ for _, _, t_ in segs}) > 1:
+                parts = []
+                for j, (a_, b_, t_) in enumerate(segs):
+                    t0 = sr[a_][0] / fps if j else 0.0; t1 = sr[b_][0] / fps if j < len(segs) - 1 else 1e9   # first/last segment stretch to the track ends
+                    parts.append([round(t0, 2), round(t1, 2), t_])
+                teams[str(tid)] = parts; n_split += 1; changed[f"{old.get(tid)}->split"] += 1; continue
         if new != old.get(tid): changed[f"{old.get(tid)}->{new}"] += 1
         teams[str(tid)] = new
     os.makedirs(f"{ROOT}/overrides", exist_ok=True); json.dump(teams, open(f"{ROOT}/overrides/{M}_teams.json", "w"))
-    result["relabel"] = {"tracks_read": len(votes), "decided": len(teams), "changed": dict(changed), "frames": n_fr, "step": STEP}; log(f"relabel: {result['relabel']}")
+    result["relabel"] = {"tracks_read": len(votes), "decided": len(teams), "changed": dict(changed), "split": n_split, "frames": n_fr, "step": STEP}; log(f"relabel: {result['relabel']}")
     os.remove(full)
 
 if STAGE == "kitprobe":
