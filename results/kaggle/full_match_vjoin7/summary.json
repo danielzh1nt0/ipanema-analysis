@@ -1,0 +1,87 @@
+{
+ "match_id": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "ball_reliable": true,
+ "ball_grade": {
+  "accuracy": 0.73,
+  "near_player_pct": 0.69,
+  "frames_pct": 1.0,
+  "possession_ok": true,
+  "events_ok": false
+ },
+ "duration_s": 5966.0,
+ "calibration_coverage": 0.71,
+ "calibration_frozen": 46995,
+ "team_dark_share": {
+  "A": 0.13,
+  "B": 0.36
+ },
+ "players_per_frame_median": {
+  "A": 8.0,
+  "B": 7.0
+ },
+ "ball_frames_pct": 100,
+ "match_seconds": 4880.0,
+ "periods": [
+  {
+   "index": 1,
+   "t_start": 435.0,
+   "t_end": 2889.99,
+   "mirrored": false
+  },
+  {
+   "index": 2,
+   "t_start": 3219.98,
+   "t_end": 5645.01,
+   "mirrored": true
+  }
+ ],
+ "ball_check": {
+  "correct": 40,
+  "total": 55,
+  "wrong": 15,
+  "ceiling": 55
+ },
+ "possession_pct": {
+  "A": 43,
+  "B": 57
+ },
+ "loose_pct": 24,
+ "dead_pct": 7,
+ "possession_model": "simple",
+ "attack_right": {
+  "A": true,
+  "B": false
+ },
+ "direction_confidence": {
+  "A": 0.07,
+  "B": 0.0
+ },
+ "turnovers": 278,
+ "passes": 464,
+ "restarts": 87,
+ "sequences": 429,
+ "shots": {
+  "A": 8,
+  "B": 8
+ },
+ "goals": {
+  "A": 3,
+  "B": 2
+ },
+ "high_turnovers": {
+  "A": 34,
+  "B": 23
+ },
+ "field_tilt": {
+  "A": 29,
+  "B": 17
+ },
+ "runtime_min": 18.1,
+ "review": {
+  "needs_review": [
+   "players",
+   "possession",
+   "shot_map"
+  ]
+ }
+}

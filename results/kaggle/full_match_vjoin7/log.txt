@@ -1,0 +1,90 @@
+   6.7 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   6.8 inputs: /kaggle/input/notebooks: ['danielmatros']
+   7.1 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-va: 5 cache folders
+   7.4 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vb: 5 cache folders
+   7.7 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vc: 5 cache folders
+   8.0 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vd: 5 cache folders
+   8.2 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-ve: 3 cache folders
+   9.3 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vrelabel2: 19 cache folders
+  10.6 video: 3.48 GB
+  10.6 === p15u-vs-vallentuna-2026-10-03-6cce join: 18/20 pieces present
+  11.1 teams: relabel from ipanema-full-match-vrelabel2 (9749 tracks) changed 470479 rows before track cleaning
+  11.3 periods: [(435.0, 2889.99), (3219.98, 5645.01)] s
+  11.3 calibration: 100.0% of match frames placed confidently
+  11.4 clean: 190 people living on or by the lines dropped (bench, coaches, stand)
+  12.1 clean: keeper (left) from a non-team kit: track 101439, 29 frames
+  12.1 clean: keeper (right) from a non-team kit: track 1700901, 392 frames
+  12.1 clean: removed 48884 rows of non-team kits (referee / staff)
+  12.1 clean: dropped 564246 off-pitch, merged 21294 duplicates, stitched 3853 ids, keepers [700584, 500639] -> A defends left
+  12.1 clean: players per frame median A 7 / B 7, max A 18 / B 17
+  12.2 players: 15150 short gaps filled (marked 'filled' in the export)
+  13.6 ball v2: 138800/178800 frames on the path, 478 static-clutter candidates dropped
+  13.9 ball check: 40/55 correct, 15 wrong, 0 no pick (ceiling 55/55)
+  14.5 ball: dropped 364 static-clutter candidates
+  14.7 ball (global path): 130725/178800 frames on the chosen path
+  14.8 ball check (other picker, v1): 21/55 correct, ceiling 55/55
+  15.3 ball: dropped 364 static-clutter candidates
+  15.6 ball (global path): 130725/178800 frames on the chosen path
+  15.6 picker test on detector-training clicks (p15u-vs-vallentuna-2026-10-03-6cce, 55 frames; detection is optimistic here, the pick is the fair part): v2 40/55, other 21/55, ceiling 55
+  16.3 possession: simple model (nearest feet in the picture); 24% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+  16.3 direction: A →  B ←  confidence A 0.07 / B 0.00  WARNING low confidence
+  16.3 direction: from reference labels -> A →
+  16.3   step: sequences (0 s since the last step)
+  16.3   spell state (take 1.5 s): possession flips 2321 -> 299 (3.0 per minute)
+  16.3   step: turnovers (1 s since the last step)
+  16.3   step: lanes (0 s since the last step)
+  16.6   step: passes (14 s since the last step)
+  16.6 passes: 1335 -> 464 confirmed by the video ball-action model (p15u-vs-vallentuna-2026-10-03-6cce_kicks.json)
+  16.6 lost balls: 360 -> 278 (duels dropped: winner kept it < 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)
+  16.6   step: shapes (2 s since the last step)
+  17.0   step: stats (21 s since the last step)
+  17.7   step: metrics (42 s since the last step)
+  17.9 veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0
+  17.9 our shot detector vs Veo: found 1/16 of Veo's shots, 1/14 of ours are real (within 10 s)
+  18.1 ball grade: accuracy 0.73, near-player 0.69, possession OK, events withheld
+  18.1 ball reliability: 82% frames, 69% near a player, 24613 jumps -> OK
+  18.1   step: export (24 s since the last step)
+  18.1 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  18.6   wrote 20 frame files (every 3 frames, 300 s each, largest 7.3 MB)
+  18.7   wrote frames_lite.json (19867 frames, 34.0 MB)
+  18.7   wrote match_data.json (0.8 MB)
+  18.7   upload checks: p15u-vs-vallentuna-2026-10-03-6cce: needs review -> players, possession, shot_map
+    FLAG players: median players per frame A 8, B 8
+    OK   keepers: 0 of 33405 frames with 2+ keepers in one team
+    OK   goals: 3604: A scored, B kicks off at 3634; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3991; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5626
+    FLAG shots: 11 of 16 shots have a spot on the pitch
+    OK   ball: 3240 of 48697 ball positions more than 3 m off the pitch
+    FLAG possession: 11 of 17 clear moments right (wrong: 557.2 ours A eye B, 853.4 ours None eye A, 1868.7 ours None eye B, 2864.1 ours None eye A, 3537.8 ours B eye A, 3800.2 ours None eye B)
+  18.8 export: /kaggle/working/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1272 events) · library.json updated · zip None
+  18.8 upload: no Supabase/R2 credentials found — skipped
+  18.8 
+--- SUMMARY ---
+  18.8   match_id                   p15u-vs-vallentuna-2026-10-03-6cce
+  18.8   ball_reliable              True
+  18.8   ball_grade                 {'accuracy': 0.73, 'near_player_pct': 0.69, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  18.8   duration_s                 5966.0
+  18.8   calibration_coverage       0.71
+  18.8   calibration_frozen         46995
+  18.8   team_dark_share            {'A': 0.13, 'B': 0.36}
+  18.8   players_per_frame_median   {'A': 8.0, 'B': 7.0}
+  18.8   ball_frames_pct            100
+  18.8   match_seconds              4880.0
+  18.8   periods                    [{'index': 1, 't_start': 435.0, 't_end': 2889.99, 'mirrored': False}, {'index': 2, 't_start': 3219.98, 't_end': 5645.01, 'mirrored': True}]
+  18.8   ball_check                 {'correct': 40, 'total': 55, 'wrong': 15, 'ceiling': 55}
+  18.8   possession_pct             {'A': 43, 'B': 57}
+  18.8   loose_pct                  24
+  18.8   dead_pct                   7
+  18.8   possession_model           simple
+  18.8   attack_right               {'A': True, 'B': False}
+  18.8   direction_confidence       {'A': 0.07, 'B': 0.0}
+  18.8   turnovers                  278
+  18.8   passes                     464
+  18.8   restarts                   87
+  18.8   sequences                  429
+  18.8   shots                      {'A': 8, 'B': 8}
+  18.8   goals                      {'A': 3, 'B': 2}
+  18.8   high_turnovers             {'A': 34, 'B': 23}
+  18.8   field_tilt                 {'A': 29, 'B': 17}
+  18.8   runtime_min                18.1
+  18.8 export: frames_000.json, frames_001.json, frames_002.json, frames_003.json, frames_004.json, frames_005.json, frames_006.json, frames_007.json, frames_008.json, frames_009.json, frames_010.json, frames_011.json, frames_012.json, frames_013.json, frames_014.json, frames_015.json, frames_016.json, frames_017.json, frames_018.json, frames_019.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg
+  18.8 done: join in 18.8 min
