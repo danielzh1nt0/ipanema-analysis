@@ -1,10 +1,11 @@
-"""Full-game handling: cut segments of videos/<match>/full.mp4 into videos/<match>_segN.mp4 so the normal loop processes them."""
+"""Full-game handling: cut segments of videos/<match>/full.mp4 into videos/<match>_s<start>.mp4 so the normal loop processes them."""
 import os, subprocess, json
 
 DEFAULT_SEGMENTS = {"SFKBP1109": [(1200, 300)]}   # 20 min in: real football, calibration transfers via panorama matching     # (start_s, duration_s); more segments are added once the first one is checked
 
 def prepare_segments(root, log=print):
     vids = os.path.join(root, "videos"); made = []
+    if not os.path.isdir(vids): return made                 # nothing to cut (e.g. a cloud job with only clips)
     for match in sorted(d for d in os.listdir(vids) if os.path.isdir(os.path.join(vids, d))):
         cands = [os.path.join(vids, match, f) for f in os.listdir(os.path.join(vids, match)) if f.lower().endswith((".mp4", ".mov", ".mkv"))]
         if not cands: continue
@@ -17,5 +18,7 @@ def prepare_segments(root, log=print):
             log(f"segment: {match} {start}s +{dur}s -> {os.path.basename(out)}")
             r = subprocess.run(["ffmpeg", "-y", "-ss", str(start), "-i", full, "-t", str(dur), "-c:v", "libx264", "-preset", "fast", "-crf", "20", "-pix_fmt", "yuv420p", "-an", out + ".tmp.mp4"], capture_output=True)
             if r.returncode == 0: os.replace(out + ".tmp.mp4", out); made.append(out)
-            else: log(f"  ffmpeg failed: {r.stderr[-200:]}")
+            else:
+                log(f"  ffmpeg failed: {r.stderr[-200:]}")
+                if os.path.exists(out + ".tmp.mp4"): os.remove(out + ".tmp.mp4")   # a half-written .mp4 in videos/ would be picked up as a clip
     return made
