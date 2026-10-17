@@ -1,0 +1,468 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "note": "17 Oct, Claude by eye, BLIND (no pipeline marks drawn): 150 random in-play frames (tools/poss_sample_sheet.py seed 11, results/qa/poss_sample/full_match_vjoin5). owner A = black SFK, B = red Vallentuna. 'sure' = ball clearly at a player's feet; the other 74 frames were loose, in the air, a duel, a keeper or not visible and are left out. Share: sure only A 20/45 = 44%; sure + likely A 32/76 = 42%. The 5 Oct estimate of 56% SFK (39 moments, half of them chosen from the ball finder's own crops) was biased; the pipeline's 43-44% (joins 4-5) agrees with this blind sample.",
+ "counts": {
+  "A_sure": 20,
+  "B_sure": 25,
+  "A_likely": 12,
+  "B_likely": 19
+ },
+ "items": [
+  {
+   "id": "s009",
+   "t": 657.5,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s014",
+   "t": 765.4,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s019",
+   "t": 924.4,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s023",
+   "t": 1097.3,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s025",
+   "t": 1122.9,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s026",
+   "t": 1182.4,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s030",
+   "t": 1338.3,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s033",
+   "t": 1418.0,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s041",
+   "t": 1588.8,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s042",
+   "t": 1600.6,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s059",
+   "t": 2172.7,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s062",
+   "t": 2250.3,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s077",
+   "t": 2812.5,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s083",
+   "t": 3502.5,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s100",
+   "t": 4121.4,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s101",
+   "t": 4139.5,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s107",
+   "t": 4288.3,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s127",
+   "t": 4885.0,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s135",
+   "t": 5213.0,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s140",
+   "t": 5422.9,
+   "owner": "A",
+   "sure": true
+  },
+  {
+   "id": "s000",
+   "t": 461.9,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s005",
+   "t": 581.2,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s013",
+   "t": 745.3,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s024",
+   "t": 1117.8,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s027",
+   "t": 1196.6,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s028",
+   "t": 1237.7,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s029",
+   "t": 1290.6,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s034",
+   "t": 1444.2,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s035",
+   "t": 1464.2,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s038",
+   "t": 1533.4,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s045",
+   "t": 1655.8,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s048",
+   "t": 1709.4,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s050",
+   "t": 1883.1,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s051",
+   "t": 1896.8,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s057",
+   "t": 2109.5,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s067",
+   "t": 2345.3,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s073",
+   "t": 2594.3,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s074",
+   "t": 2622.3,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s075",
+   "t": 2716.3,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s087",
+   "t": 3701.4,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s090",
+   "t": 3798.1,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s092",
+   "t": 3843.2,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s099",
+   "t": 4073.2,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s109",
+   "t": 4323.0,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s141",
+   "t": 5464.9,
+   "owner": "B",
+   "sure": true
+  },
+  {
+   "id": "s007",
+   "t": 619.8,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s022",
+   "t": 970.9,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s049",
+   "t": 1718.4,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s054",
+   "t": 1974.9,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s085",
+   "t": 3535.0,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s086",
+   "t": 3563.9,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s089",
+   "t": 3752.5,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s112",
+   "t": 4431.9,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s113",
+   "t": 4497.2,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s131",
+   "t": 5058.1,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s137",
+   "t": 5319.4,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s138",
+   "t": 5359.3,
+   "owner": "A",
+   "sure": false
+  },
+  {
+   "id": "s020",
+   "t": 952.3,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s031",
+   "t": 1360.1,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s039",
+   "t": 1541.3,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s043",
+   "t": 1618.9,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s053",
+   "t": 1964.8,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s055",
+   "t": 2008.6,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s065",
+   "t": 2295.5,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s072",
+   "t": 2562.3,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s078",
+   "t": 2853.9,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s081",
+   "t": 3292.1,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s091",
+   "t": 3824.0,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s105",
+   "t": 4223.4,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s115",
+   "t": 4522.1,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s117",
+   "t": 4554.5,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s119",
+   "t": 4603.7,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s129",
+   "t": 4985.9,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s133",
+   "t": 5152.8,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s136",
+   "t": 5233.5,
+   "owner": "B",
+   "sure": false
+  },
+  {
+   "id": "s149",
+   "t": 5639.9,
+   "owner": "B",
+   "sure": false
+  }
+ ]
+}
