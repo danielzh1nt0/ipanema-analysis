@@ -1,0 +1,3 @@
+   6.8 wasb weights: results/volume/models/wasb_finetuned.pth
+   6.8 inputs: /kaggle/input/notebooks: ['danielmatros']
+   6.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-smoke2: 0 cache folders
