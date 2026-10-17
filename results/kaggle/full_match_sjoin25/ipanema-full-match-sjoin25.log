@@ -1,51 +1,129 @@
-[{"stream_name":"stdout","time":0.69805375,"data":"+ nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
-,{"stream_name":"stdout","time":5.462936324,"data":"2.11.0+cpu False\n"}
-,{"stream_name":"stdout","time":5.462986467,"data":"/bin/sh: 1: nvidia-smi: not found\n"}
-,{"stream_name":"stdout","time":5.46299198,"data":"\n"}
-,{"stream_name":"stdout","time":5.462995607,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
-,{"stream_name":"stdout","time":97.061328798,"data":"\n"}
-,{"stream_name":"stdout","time":97.061375461,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
-,{"stream_name":"stdout","time":97.065025434,"data":"repo at 161903e T1 clip join nearness 2.5\n"}
-,{"stream_name":"stdout","time":97.065044529,"data":"\n"}
-,{"stream_name":"stdout","time":97.065048806,"data":"+ pip install -q rfdetr==1.11.0 'supervision\u003e=0.29,\u003c0.31' omegaconf gdown 'numpy\u003c2' scipy scikit-learn pandas ultralytics==8.3.40\n"}
-,{"stream_name":"stdout","time":343.864276681,"data":"MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":343.864320739,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 4.7 MB/s eta 0:00:00\n"}
-,{"stream_name":"stdout","time":343.864326296,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
-,{"stream_name":"stdout","time":343.864329855,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
-,{"stream_name":"stdout","time":343.864333728,"data":"opencv-python-headless 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.86433711,"data":"kaggle-environments 1.27.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864340315,"data":"mne 1.13.2 requires numpy\u003c3,\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.86434351,"data":"bayesian-optimization 3.3.0 requires numpy\u003e=2.1.3; python_full_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864346752,"data":"cesium 0.12.4 requires numpy\u003c3.0,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864349777,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864352806,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.86435576,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864358888,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864361813,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864364872,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.0.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864367875,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.86438271,"data":"tobler 0.14.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.86438541,"data":"jax 0.11.1 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864388311,"data":"opencv-contrib-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864394607,"data":"dm-tree 0.1.10 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864398762,"data":"jaxlib 0.11.1 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864402351,"data":"xarray-einstats 0.11.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864405752,"data":"tifffile 2026.8.23 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864409187,"data":"pytensor 2.38.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864412741,"data":"shap 0.52.0 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864416411,"data":"rasterio 1.5.1 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
-,{"stream_name":"stdout","time":343.864420273,"data":"\n"}
-,{"stream_name":"stdout","time":343.864423547,"data":"+ which ffmpeg || (apt-get install -y -q ffmpeg \u003e /dev/null 2\u003e\u00261 \u0026\u0026 which ffmpeg)\n"}
-,{"stream_name":"stdout","time":343.867790209,"data":"/usr/bin/ffmpeg\n"}
-,{"stream_name":"stdout","time":343.867814333,"data":"\n"}
-,{"stream_name":"stdout","time":343.870696471,"data":"wasb weights: results/volume/models/wasb_finetuned.pth\n"}
-,{"stream_name":"stdout","time":345.290801553,"data":"inputs: /kaggle/input/notebooks: ['danielmatros']\n"}
-,{"stream_name":"stdout","time":345.319542714,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-smoke2: 0 cache folders\n"}
-,{"stream_name":"stderr","time":345.319950541,"data":"input /kaggle/input/notebooks/danielmatros/ipanema-full-match-smoke2 has no cache folders (listing above): not running without it\n"}
-,{"stream_name":"stderr","time":347.78005972,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":347.78008898,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":348.075068267,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":348.075096007,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":348.962643654,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":350.185424308,"data":"[NbConvertApp] Writing 417434 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":0.862359592,"data":"+ nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":6.68882742,"data":"2.11.0+cpu False\n"}
+,{"stream_name":"stdout","time":6.68886114,"data":"/bin/sh: 1: nvidia-smi: not found\n"}
+,{"stream_name":"stdout","time":6.68886504,"data":"\n"}
+,{"stream_name":"stdout","time":6.68886809,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":251.315229447,"data":"\n"}
+,{"stream_name":"stdout","time":251.315274687,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":251.333452826,"data":"repo at 6de4275 T1 clip join nearness 2.5 (take 2)\n"}
+,{"stream_name":"stdout","time":251.333478367,"data":"\n"}
+,{"stream_name":"stdout","time":251.333483657,"data":"+ pip install -q rfdetr==1.11.0 'supervision\u003e=0.29,\u003c0.31' omegaconf gdown 'numpy\u003c2' scipy scikit-learn pandas ultralytics==8.3.40\n"}
+,{"stream_name":"stdout","time":515.485699453,"data":"MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":515.485782693,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 1.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":515.485797384,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stdout","time":515.485801383,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":515.485804833,"data":"opencv-python-headless 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485808083,"data":"kaggle-environments 1.27.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485811003,"data":"mne 1.13.2 requires numpy\u003c3,\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485814063,"data":"bayesian-optimization 3.3.0 requires numpy\u003e=2.1.3; python_full_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485817063,"data":"cesium 0.12.4 requires numpy\u003c3.0,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485820003,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485822863,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485825663,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485828453,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485831293,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485834253,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.0.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485837103,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485854513,"data":"tobler 0.14.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485856763,"data":"jax 0.11.1 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485858843,"data":"opencv-contrib-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485864503,"data":"dm-tree 0.1.10 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485866783,"data":"jaxlib 0.11.1 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485868813,"data":"xarray-einstats 0.11.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485870803,"data":"tifffile 2026.8.23 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485872793,"data":"pytensor 2.38.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485874723,"data":"shap 0.52.0 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485877193,"data":"rasterio 1.5.1 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":515.485880203,"data":"\n"}
+,{"stream_name":"stdout","time":515.485882894,"data":"+ which ffmpeg || (apt-get install -y -q ffmpeg \u003e /dev/null 2\u003e\u00261 \u0026\u0026 which ffmpeg)\n"}
+,{"stream_name":"stdout","time":515.490381532,"data":"/usr/bin/ffmpeg\n"}
+,{"stream_name":"stdout","time":515.490411162,"data":"\n"}
+,{"stream_name":"stdout","time":515.493892661,"data":"wasb weights: results/volume/models/wasb_finetuned.pth\n"}
+,{"stream_name":"stdout","time":517.364800317,"data":"inputs: /kaggle/input/ipanema-full-match-spieces: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']\n"}
+,{"stream_name":"stdout","time":522.723023939,"data":"mounted /kaggle/input/ipanema-full-match-spieces: 2 cache folders\n"}
+,{"stream_name":"stdout","time":522.723166109,"data":"+ wget -q -O /kaggle/working/root/videos/SFKBP1109_s1200/full.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4\n"}
+,{"stream_name":"stdout","time":529.865110935,"data":"\n"}
+,{"stream_name":"stdout","time":529.865143485,"data":"video: 0.30 GB\n"}
+,{"stream_name":"stdout","time":529.902845007,"data":"=== SFKBP1109_s1200 join: 1/1 pieces present\n"}
+,{"stream_name":"stdout","time":531.328339401,"data":"calibration: 100.0% of match frames placed confidently\n"}
+,{"stream_name":"stdout","time":531.582255385,"data":"clean: 27 people living on or by the lines dropped (bench, coaches, stand)\n"}
+,{"stream_name":"stdout","time":533.758246063,"data":"clean: keeper (left) from a non-team kit: track 754, 1227 frames\n"}
+,{"stream_name":"stdout","time":533.76872381,"data":"clean: keeper (right) from a non-team kit: track 381, 97 frames\n"}
+,{"stream_name":"stdout","time":533.797568534,"data":"clean: removed 25563 rows of non-team kits (referee / staff)\n"}
+,{"stream_name":"stdout","time":533.808807102,"data":"clean: dropped 24057 off-pitch, merged 626 duplicates, stitched 274 ids, keepers [754, 381] -\u003e A defends left\n"}
+,{"stream_name":"stdout","time":533.838184765,"data":"clean: players per frame median A 8 / B 8, max A 14 / B 12\n"}
+,{"stream_name":"stdout","time":534.299802113,"data":"players: 1276 short gaps filled (marked 'filled' in the export)\n"}
+,{"stream_name":"stdout","time":538.583853124,"data":"ball v2: 8708/8992 frames on the path, 935 static-clutter candidates dropped\n"}
+,{"stream_name":"stdout","time":563.140041824,"data":"ball check: 27/34 correct, 7 wrong, 0 no pick (ceiling 33/34)\n"}
+,{"stream_name":"stdout","time":565.136781765,"data":"ball: dropped 935 static-clutter candidates\n"}
+,{"stream_name":"stdout","time":566.166899011,"data":"ball (global path): 7969/8992 frames on the chosen path\n"}
+,{"stream_name":"stdout","time":566.202944373,"data":"ball check (other picker, v1): 16/34 correct, ceiling 33/34\n"}
+,{"stream_name":"stdout","time":568.183956673,"data":"ball: dropped 935 static-clutter candidates\n"}
+,{"stream_name":"stdout","time":569.2351788,"data":"ball (global path): 7969/8992 frames on the chosen path\n"}
+,{"stream_name":"stdout","time":569.273555499,"data":"picker test on detector-training clicks (SFKBP1109_s1200, 34 frames; detection is optimistic here, the pick is the fair part): v2 27/34, other 16/34, ceiling 33\n"}
+,{"stream_name":"stdout","time":571.319574498,"data":"possession: simple model (nearest feet in the picture); 21% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)\n"}
+,{"stream_name":"stdout","time":571.327793713,"data":"direction: A →  B ←  confidence A 0.01 / B 0.05  WARNING low confidence\n"}
+,{"stream_name":"stdout","time":571.338337793,"data":"direction (from keepers): A →  B ←\n"}
+,{"stream_name":"stdout","time":571.338378363,"data":"  step: sequences (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":571.351336659,"data":"  spell state (take 1.5 s): possession flips 177 -\u003e 18 (3.6 per minute)\n"}
+,{"stream_name":"stdout","time":571.357262598,"data":"  step: turnovers (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":571.362773877,"data":"  step: lanes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":571.813909695,"data":"  step: passes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":571.867036196,"data":"lost balls: 20 -\u003e 20 (duels dropped: winner kept it \u003c 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)\n"}
+,{"stream_name":"stdout","time":571.867075676,"data":"  step: shapes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":572.395712848,"data":"  step: stats (1 s since the last step)\n"}
+,{"stream_name":"stdout","time":574.391352131,"data":"  step: metrics (2 s since the last step)\n"}
+,{"stream_name":"stdout","time":575.575370771,"data":"ball grade: accuracy 0.79, near-player 0.49, possession OK, events withheld\n"}
+,{"stream_name":"stdout","time":575.57540081,"data":"ball reliability: 100% frames, 49% near a player, 2143 jumps -\u003e OK\n"}
+,{"stream_name":"stdout","time":575.607332101,"data":"  step: export (1 s since the last step)\n"}
+,{"stream_name":"stdout","time":575.610241086,"data":"motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))\n"}
+,{"stream_name":"stdout","time":577.011612709,"data":"  wrote 2 frame files (every 3 frames, 300 s each, largest 6.8 MB)\n"}
+,{"stream_name":"stdout","time":577.300967968,"data":"  wrote frames_lite.json (1000 frames, 2.0 MB)\n"}
+,{"stream_name":"stdout","time":577.30529494,"data":"  wrote match_data.json (0.1 MB)\n"}
+,{"stream_name":"stdout","time":577.34289514,"data":"  upload checks: SFKBP1109_s1200: needs review -\u003e ball_map\n"}
+,{"stream_name":"stdout","time":577.34293498,"data":"    OK   players: median players per frame A 8, B 8\n"}
+,{"stream_name":"stdout","time":577.34294042,"data":"    OK   keepers: 0 of 2788 frames with 2+ keepers in one team\n"}
+,{"stream_name":"stdout","time":577.34296816,"data":"    ??   goals: no goals\n"}
+,{"stream_name":"stdout","time":577.34297103,"data":"    ??   shots: no shots\n"}
+,{"stream_name":"stdout","time":577.34297291,"data":"    FLAG ball: 486 of 2998 ball positions more than 3 m off the pitch\n"}
+,{"stream_name":"stdout","time":577.34297507,"data":"    OK   possession: 42 of 58 clear moments right (wrong: 7.6 ours A eye B, 20.4 ours None eye B, 27.1 ours B eye A, 34.9 ours A eye B, 55.5 ours A eye B, 67.8 ours B eye A)\n"}
+,{"stream_name":"stdout","time":578.365314471,"data":"export: /kaggle/working/root/runs/matches/SFKBP1109_s1200 (97 events) · library.json updated · zip None\n"}
+,{"stream_name":"stdout","time":579.971931061,"data":"upload: no Supabase/R2 credentials found — skipped\n"}
+,{"stream_name":"stdout","time":579.971960491,"data":"\n"}
+,{"stream_name":"stdout","time":579.972010491,"data":"--- SUMMARY ---\n"}
+,{"stream_name":"stdout","time":579.97201993,"data":"  match_id                   SFKBP1109_s1200\n"}
+,{"stream_name":"stdout","time":579.97202383,"data":"  ball_reliable              True\n"}
+,{"stream_name":"stdout","time":579.97211728,"data":"  ball_grade                 {'accuracy': 0.79, 'near_player_pct': 0.49, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}\n"}
+,{"stream_name":"stdout","time":579.97215518,"data":"  duration_s                 300.0\n"}
+,{"stream_name":"stdout","time":579.97221905,"data":"  calibration_coverage       0.93\n"}
+,{"stream_name":"stdout","time":579.97228498,"data":"  calibration_frozen         630\n"}
+,{"stream_name":"stdout","time":579.97230566,"data":"  team_dark_share            {'A': 0.22, 'B': 0.87}\n"}
+,{"stream_name":"stdout","time":579.97238483,"data":"  players_per_frame_median   {'A': 8.0, 'B': 8.0}\n"}
+,{"stream_name":"stdout","time":579.972483599,"data":"  ball_frames_pct            100\n"}
+,{"stream_name":"stdout","time":579.9725798,"data":"  match_seconds              300.0\n"}
+,{"stream_name":"stdout","time":579.972689259,"data":"  periods                    None\n"}
+,{"stream_name":"stdout","time":579.972816749,"data":"  ball_check                 {'correct': 27, 'total': 34, 'wrong': 7, 'ceiling': 33}\n"}
+,{"stream_name":"stdout","time":579.972826259,"data":"  possession_pct             {'A': 46, 'B': 54}\n"}
+,{"stream_name":"stdout","time":579.972830499,"data":"  loose_pct                  21\n"}
+,{"stream_name":"stdout","time":579.972889349,"data":"  dead_pct                   19\n"}
+,{"stream_name":"stdout","time":579.972925819,"data":"  possession_model           simple\n"}
+,{"stream_name":"stdout","time":579.973037658,"data":"  attack_right               {'A': True, 'B': False}\n"}
+,{"stream_name":"stdout","time":579.973049078,"data":"  direction_confidence       {'A': 0.01, 'B': 0.05}\n"}
+,{"stream_name":"stdout","time":579.973106268,"data":"  turnovers                  20\n"}
+,{"stream_name":"stdout","time":579.973158508,"data":"  passes                     43\n"}
+,{"stream_name":"stdout","time":579.973211788,"data":"  restarts                   8\n"}
+,{"stream_name":"stdout","time":579.973270718,"data":"  sequences                  31\n"}
+,{"stream_name":"stdout","time":579.973334208,"data":"  shots                      {'A': 0, 'B': 0}\n"}
+,{"stream_name":"stdout","time":579.973393158,"data":"  goals                      {'A': 0, 'B': 0}\n"}
+,{"stream_name":"stdout","time":579.973444688,"data":"  high_turnovers             {'A': 2, 'B': 4}\n"}
+,{"stream_name":"stdout","time":579.973534888,"data":"  field_tilt                 {'A': 16, 'B': 47}\n"}
+,{"stream_name":"stdout","time":579.973553818,"data":"  runtime_min                9.6\n"}
+,{"stream_name":"stdout","time":580.019902221,"data":"export: frames_000.json, frames_001.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg\n"}
+,{"stream_name":"stdout","time":580.098909464,"data":"done: join in 9.7 min\n"}
+,{"stream_name":"stderr","time":582.825174012,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":582.825214312,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":583.096972324,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":583.096998954,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":584.064511807,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":584.632786746,"data":"[NbConvertApp] Writing 417437 bytes to __results__.html\n"}
 ]
