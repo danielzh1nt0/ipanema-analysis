@@ -1,47 +1,40 @@
-kernel danielmatros/ipanema-full-match-sjoin15
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-sjoin15
-  0.5 min: danielmatros/ipanema-full-match-sjoin15 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-sjoin15 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-sjoin15 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-sjoin15 has status "KernelWorkerStatus.RUNNING"
-  7.7 min: danielmatros/ipanema-full-match-sjoin15 has status "KernelWorkerStatus.ERROR"
-Output file downloaded to results/kaggle/full_match_sjoin15/log.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/models/wasb_finetuned.pth
-Output file downloaded to results/kaggle/full_match_sjoin15/root/models/wasb_train_manifest.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/overrides/SFKBP1109_kicks.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/overrides/p15u-vs-aik-2026-09-21-bd09_kicks.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_extras.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_kicks.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_teams.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/periods/SFKBP1109.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/periods/p15u-vs-aik-2026-09-21-bd09.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/periods/p15u-vs-bp-2026-09-22-2000.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/SFKBP1109/ball_gt.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/SFKBP1109/owner_key.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/SFKBP1109/pitch_points_s1.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/SFKBP1109_s1200/ball_gt.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/SFKBP1109_s1200/owner_key.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/soccertrack/132831_keypoints.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/training_matches.json
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_events_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_events_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_events_SFKVALLENTUNA.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_highlights_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_highlights_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
-Output file downloaded to results/kaggle/full_match_sjoin15/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Kernel log downloaded to results/kaggle/full_match_sjoin15/ipanema-full-match-sjoin15.log
-  ipanema-full-match-sjoin15.log 7066
-  log.txt 214
-  root 4096
-  run.json 167
+kernel danielmatros/ipanema-full-match-spieces
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-spieces
+  0.5 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+  8.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 12.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 16.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 18.4 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 20.4 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 22.5 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 24.5 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 26.0 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 28.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 30.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 32.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 34.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 36.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 38.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 40.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 42.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 44.4 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 46.4 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 48.4 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 50.5 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 52.0 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 54.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 56.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 58.1 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 60.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 62.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 64.2 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.RUNNING"
+ 66.3 min: danielmatros/ipanema-full-match-spieces has status "KernelWorkerStatus.COMPLETE"
+output left on Kaggle (DOWNLOAD=0): ['ipanema-full-match-spieces.log', 'log.txt', 'result.json', 'root']
+  log.txt 2443
+  result.json 362
+  run.json 171

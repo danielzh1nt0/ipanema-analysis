@@ -1,0 +1,29 @@
+{
+ "match": "SFKBP1109_s1200",
+ "stage": "pieces",
+ "pieces_done": [
+  {
+   "i": 0,
+   "minutes": 57.5,
+   "trusted_pct": 93.0
+  }
+ ],
+ "pieces_failed": [],
+ "n": 8992,
+ "fps": 29.97002997002997,
+ "n_pieces": 1,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   168,
+   166,
+   58,
+   23
+  ],
+  "dark_share": {
+   "A": 0.22,
+   "B": 0.87
+  }
+ },
+ "minutes": 65.6
+}
