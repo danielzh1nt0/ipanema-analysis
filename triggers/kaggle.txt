@@ -1,2 +1,2 @@
-kaggle/full_match.py 300 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin3 GPU=0 SOURCES=ipanema-full-match-va,ipanema-full-match-vb,ipanema-full-match-vc,ipanema-full-match-vd,ipanema-full-match-ve,ipanema-full-match-vrelabel WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Sat Oct 17 04:04:01 CEST 2026 F1 Vallentuna join 3: only the relabel kernel override (join 2 also applied the stale old-id override carried by the piece kernels)
+kaggle/full_match.py 120 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=kitprobe NAME=vkitprobe GPU=0 NTRACKS=96 SOURCES=ipanema-full-match-vkits,ipanema-full-match-va,ipanema-full-match-vb,ipanema-full-match-vc,ipanema-full-match-vd,ipanema-full-match-ve
+# Sat Oct 17 04:35:08 CEST 2026 T1: kit reader probe - crops + features of 96 tracks, judged by eye

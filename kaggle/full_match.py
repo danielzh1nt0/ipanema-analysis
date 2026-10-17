@@ -127,6 +127,42 @@ if STAGE == "relabel":
     result["relabel"] = {"tracks_read": len(votes), "decided": len(teams), "changed": dict(changed), "frames": n_fr, "step": STEP}; log(f"relabel: {result['relabel']}")
     os.remove(full)
 
+if STAGE == "kitprobe":
+    # T1 (17 Oct): what the kit reader sees per track - 4 crops of each sampled track + its colour features + reads,
+    # to judge by eye (Claude) and fit a better rule for sun + shade. CPU. Output: sheets/*.jpg + probe.json
+    import numpy as np, cv2, collections, random
+    from ipanema import kits as KT
+    mount_sources(); get_video(); n, fps = FM.video_info(full); plan_ = FM.plan(n, fps)
+    tm = pickle.load(open(f"{ROOT}/cache/{M}/kits_rfdetr_v1.pkl", "rb")); NT = int("{{NTRACKS}}" or "96")
+    occ = collections.defaultdict(list)                                           # tid -> [(global frame, box, team)]
+    for p in plan_:
+        pf_ = f"{ROOT}/cache/{FM.piece_id(M, p['i'])}/{FM.PIECE_FILE}"
+        if not os.path.exists(pf_): continue
+        for k, rows in pickle.load(open(pf_, "rb"))["per"].items():
+            for r in rows:
+                if r[4] is not None and r[0] >= 0: occ[int(r[0]) + p["i"] * FM.ID_STRIDE].append((p["offset"] + k, [float(v) for v in r[4]], r[1]))
+    long = [t for t, v in occ.items() if len(v) >= 60]; random.Random(3).shuffle(long); picks = long[:NT]; log(f"kitprobe: {len(occ)} tracks, {len(long)} with >= 2 s, probing {len(picks)}")
+    cap = cv2.VideoCapture(full); probe = []; strips = []
+    for tid in picks:
+        v = sorted(occ[tid]); idx = [v[int(i)] for i in np.linspace(0, len(v) - 1, 4)]; crops = []; feats = []
+        for k, box, team in idx:
+            cap.set(cv2.CAP_PROP_POS_FRAMES, k); ok, f = cap.read()
+            if not ok: continue
+            g = KT.grass_lab(f); fe = KT.torso_feature(f, box, g, light=getattr(tm, "light", "frame")); lab = tm.predict_batch(f, [box])[0]
+            _, hue = KT._kit_hue(tm.model); r, d, wh = KT.kit_share(f, box, hue, white=True)
+            feats.append({"frame": k, "L": None if fe is None else round(float(fe[0]), 1), "a": None if fe is None else round(float(fe[1]), 1), "b": None if fe is None else round(float(fe[2]), 1), "red": None if r is None else round(float(r), 3), "dark": None if d is None else round(float(d), 3), "white": None if wh is None else round(float(wh), 3), "read": lab, "track_team": team})
+            x1, y1, x2, y2 = [int(z) for z in box]; h = y2 - y1; cx = (x1 + x2) // 2; w = max(24, int(h * 0.6))
+            c = f[max(0, y1 - 4):min(f.shape[0], y2 + 4), max(0, cx - w // 2):min(f.shape[1], cx + w // 2)]
+            crops.append(cv2.resize(c, (72, 144)) if c.size else np.zeros((144, 72, 3), np.uint8))
+        while len(crops) < 4: crops.append(np.zeros((144, 72, 3), np.uint8))
+        strip = np.hstack(crops); cv2.putText(strip, str(tid)[-5:], (2, 12), 0, 0.4, (255, 255, 255), 1)
+        strips.append(strip); probe.append({"tid": tid, "n": len(v), "feats": feats, "votes": dict(collections.Counter(fx["read"] for fx in feats))})
+    cap.release(); os.makedirs(f"{W}/sheets", exist_ok=True)
+    for si in range(0, len(strips), 24):                                           # 24 tracks per sheet, 4 columns
+        rows_ = [np.hstack(strips[si + r * 4: si + r * 4 + 4] + [np.zeros((144, 288, 3), np.uint8)] * (4 - len(strips[si + r * 4: si + r * 4 + 4]))) for r in range(6) if si + r * 4 < len(strips)]
+        cv2.imwrite(f"{W}/sheets/sheet_{si // 24:02d}.jpg", np.vstack(rows_), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    json.dump(probe, open(f"{W}/probe.json", "w")); result["kitprobe"] = {"tracks": len(probe), "sheets": len(range(0, len(strips), 24)), "light": getattr(tm, "light", None)}; os.remove(full)
+
 if STAGE in ("join", "all"):
     import numpy as np, types
     from ipanema.run import analyse
