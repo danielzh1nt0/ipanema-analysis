@@ -1,2 +1,2 @@
-kaggle/full_match.py 200 MATCH=SFKBP1109_s1200 STAGE=pieces PIECES=all NAME=spieces DOWNLOAD=0
-# Sat Oct 17 07:55:15 CEST 2026 SFK-BP clip pieces kept on Kaggle (for the possession-radius check on both grounds)
+kaggle/full_match.py 90 MATCH=SFKBP1109_s1200 STAGE=join NAME=sjoin15 GPU=0 SOURCES=ipanema-full-match-spieces NEAR=1.5
+# Sat Oct 17 09:06:44 CEST 2026 T1: SFK-BP clip join with nearness 1.5 m
