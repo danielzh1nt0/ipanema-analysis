@@ -13,6 +13,7 @@ def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_
 t0 = time.time(); R2 = "{{R2}}".rstrip("/"); M = "{{MATCH}}"; STAGE = "{{STAGE}}" or "pieces"; PIECES = "{{PIECES}}" or "all"; WASB_W = "{{WASB}}" or "results/volume/models/wasb_finetuned.pth"
 W = "/kaggle/working"; T = "/kaggle/temp"; IA = f"{T}/ia"; ROOT = f"{W}/root"; BUDGET_MIN = float("{{BUDGET}}" or "690")   # Kaggle stops a kernel at 12 h
 log_lines = []
+if "{{NEAR}}": os.environ["IPANEMA_NEAR_M"] = "{{NEAR}}"                            # T1: possession nearness in metres (default 1.5 in ipanema.possession)
 def log(*a):
     s = " ".join(str(x) for x in a); log_lines.append(f"{(time.time() - t0) / 60:6.1f} {s}"); print(s, flush=True)
     try: open(f"{W}/log.txt", "a").write(log_lines[-1] + "\n")

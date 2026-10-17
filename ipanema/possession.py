@@ -116,12 +116,13 @@ def pixel_dist(per, ball_px, H, max_m=30.0, boxh=None, body_m=1.75):
         out[k] = d
     return out
 
-def possession_simple(per, ball_px, H, n, near_m=1.5, smooth=6, boxh=None):
+def possession_simple(per, ball_px, H, n, near_m=None, smooth=6, boxh=None):
     """28 Sep (E2): who has the ball = the team whose nearest player's feet are closest to the ball IN THE PICTURE,
     if within near_m (pixel distance x side-to-side scale), else loose (2); majority over +-smooth frames.
     On 61 graded moments of our SFK-BP clip: 51/61 right (the viterbi model: 27/61); held on both halves of the key
     (22-23/24 and 28-29/37). No ball-speed rule: our speed estimate is too noisy (it cost 9-10 moments).
     Frames without a ball pick keep the previous state. Not yet checked on other grounds (no answer key there)."""
+    near_m = float(os.environ.get("IPANEMA_NEAR_M", "1.5")) if near_m is None else near_m   # 17 Oct (T1): Vallentuna moments 18 -> 28/39 offline at 3.0; checked on SFK-BP before changing the default
     D = pixel_dist(per, ball_px, H, boxh=boxh); raw = np.full(n, -1)
     for k, d in D.items():
         if 0 <= k < n: t = min(d, key=d.get); raw[k] = 2 if d[t] > near_m else (0 if t == "A" else 1)
