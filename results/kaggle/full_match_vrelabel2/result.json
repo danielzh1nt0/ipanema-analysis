@@ -1,0 +1,23 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "relabel",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "relabel": {
+  "tracks_read": 17273,
+  "decided": 9749,
+  "changed": {
+   "K->A": 686,
+   "K->B": 190,
+   "B->split": 742,
+   "A->split": 871,
+   "A->B": 110,
+   "K->split": 97,
+   "B->A": 52
+  },
+  "split": 1710,
+  "frames": 26982,
+  "step": 6
+ },
+ "minutes": 29870134.2
+}
