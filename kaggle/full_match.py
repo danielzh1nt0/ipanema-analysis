@@ -213,7 +213,9 @@ if STAGE in ("join", "all"):
     gt = {}
     for d in glob.glob(f"{ROOT}/reference/{M}_s*/ball_gt.json"):
         start = int(d.split("_s")[-1].split("/")[0]); tmp = f"/tmp/gt_{start}.json"; FM.remap_gt(d, start, fps, tmp); gt.update(json.load(open(tmp)))
-    gt_path = f"{ROOT}/reference/{M}/ball_gt.json" if os.path.exists(f"{ROOT}/reference/{M}/ball_gt.json") and "_s" in M else None   # a labelled clip: its own key
+    # the match's own by-eye key grades the ball (Modal never did: there the key could be WASB training labels; on Kaggle the
+    # weights are pinned and never trained on it, see the manifest)
+    gt_path = f"{ROOT}/reference/{M}/ball_gt.json" if os.path.exists(f"{ROOT}/reference/{M}/ball_gt.json") else None
     if gt: gt_path = "/tmp/gt_full.json"; json.dump(gt, open(gt_path, "w")); log(f"ball check: {len(gt)} held-out test frames mapped into the full match")
     summary, folder, _ = analyse(ctx, S, log=log, export_kw={"frame_stride": 3, "split_s": 300, "copy_video": False, "make_zip": False, "video_url": f"{R2}/{M}/video.mp4"}, gt_path=gt_path or "/nonexistent")
     safe = json.loads(json.dumps(summary, default=lambda o: o.item() if hasattr(o, "item") else str(o))); result["summary"] = safe
