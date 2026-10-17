@@ -1,0 +1,11 @@
+   6.6 wasb weights: results/volume/models/wasb_finetuned.pth
+   6.6 inputs: /kaggle/input/notebooks: ['danielmatros']
+   6.7 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vkits: 1 cache folders
+   7.0 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-va: 5 cache folders
+   7.3 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vb: 5 cache folders
+   7.5 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vc: 5 cache folders
+   7.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vd: 5 cache folders
+   7.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-ve: 3 cache folders
+   9.1 video: 3.48 GB
+   9.8 kitprobe: 21068 tracks, 8260 with >= 2 s, probing 96
+  11.4 done: kitprobe in 11.4 min

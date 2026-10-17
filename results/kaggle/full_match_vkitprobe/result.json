@@ -1,0 +1,12 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "kitprobe",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "kitprobe": {
+  "tracks": 96,
+  "sheets": 4,
+  "light": "local"
+ },
+ "minutes": 11.4
+}

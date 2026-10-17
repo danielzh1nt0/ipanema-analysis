@@ -1,118 +1,149 @@
-kernel danielmatros/ipanema-full-match-vjoin3
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vjoin3
-  0.5 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
-  8.1 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 18.3 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 20.4 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 22.4 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.RUNNING"
- 23.9 min: danielmatros/ipanema-full-match-vjoin3 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/full_match_vjoin3/export/library.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_000.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_001.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_002.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_003.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_004.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_005.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_006.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_007.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_008.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_009.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_010.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_011.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_012.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_013.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_014.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_015.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_016.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_017.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_018.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_019.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_lite.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/kit_A.png
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/kit_B.png
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/match_data.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/stats.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/summary.json
-Output file downloaded to results/kaggle/full_match_vjoin3/export/p15u-vs-vallentuna-2026-10-03-6cce/thumb.jpg
-Output file downloaded to results/kaggle/full_match_vjoin3/log.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/result.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/models/wasb_finetuned.pth
-Output file downloaded to results/kaggle/full_match_vjoin3/root/models/wasb_train_manifest.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/overrides/SFKBP1109_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/overrides/p15u-vs-aik-2026-09-21-bd09_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_extras.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_teams.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/periods/SFKBP1109.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/periods/p15u-vs-aik-2026-09-21-bd09.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/periods/p15u-vs-bp-2026-09-22-2000.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/SFKBP1109/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/SFKBP1109/owner_key.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/SFKBP1109/pitch_points_s1.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/SFKBP1109_s1200/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/soccertrack/132831_keypoints.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/training_matches.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_events_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_events_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_events_SFKVALLENTUNA.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_highlights_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_highlights_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/library.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_000.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_001.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_002.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_003.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_004.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_005.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_006.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_007.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_008.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_009.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_010.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_011.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_012.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_013.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_014.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_015.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_016.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_017.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_018.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_019.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_lite.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/kit_A.png
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/kit_B.png
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/match_data.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/stats.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/summary.json
-Output file downloaded to results/kaggle/full_match_vjoin3/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/thumb.jpg
-Kernel log downloaded to results/kaggle/full_match_vjoin3/ipanema-full-match-vjoin3.log
-  export 4096
-  ipanema-full-match-vjoin3.log 17937
-  log.txt 6519
-  result.json 1476
+kernel danielmatros/ipanema-full-match-vkitprobe
+Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vkitprobe
+  0.5 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+  2.0 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+  4.1 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+  6.1 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+  8.1 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+ 10.2 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+ 12.2 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.RUNNING"
+ 14.3 min: danielmatros/ipanema-full-match-vkitprobe has status "KernelWorkerStatus.COMPLETE"
+Output file downloaded to results/kaggle/full_match_vkitprobe/log.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/probe.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/result.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c001/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c001/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c001/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c001/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c001/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c002/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c002/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c002/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c002/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c002/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c003/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c003/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c003/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c003/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c003/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c004/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c004/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c004/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c004/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c004/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c005/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c005/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c005/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c005/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c005/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c006/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c006/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c006/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c006/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c006/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c007/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c007/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c007/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c007/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c007/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c008/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c008/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c008/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c008/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c008/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c009/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c009/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c009/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c009/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c009/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c010/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c010/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c010/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c010/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c010/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c011/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c011/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c011/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c011/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c011/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c012/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c012/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c012/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c012/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c012/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c013/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c013/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c013/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c013/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c013/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c014/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c014/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c014/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c014/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c014/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c015/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c015/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c015/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c015/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c015/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c016/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c016/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c016/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c016/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c016/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c017/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c017/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c017/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c017/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c017/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c018/ball_cands_rfdetr_ball_20260929.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c018/calib_ok_v3.npy
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c018/kits_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c018/piece_v5.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/cache/p15u-vs-vallentuna-2026-10-03-6cce_c018/tracks_rfdetr_v1.pkl
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/models/wasb_finetuned.pth
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/models/wasb_train_manifest.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/overrides/SFKBP1109_kicks.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/overrides/p15u-vs-aik-2026-09-21-bd09_kicks.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_extras.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_kicks.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_teams.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/periods/SFKBP1109.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/periods/p15u-vs-aik-2026-09-21-bd09.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/periods/p15u-vs-bp-2026-09-22-2000.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/SFKBP1109/ball_gt.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/SFKBP1109/owner_key.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/SFKBP1109/pitch_points_s1.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/SFKBP1109_s1200/ball_gt.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/soccertrack/132831_keypoints.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/training_matches.json
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_events_SFKAIK.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_events_SFKBP1109.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_events_SFKVALLENTUNA.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_highlights_SFKAIK.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_highlights_SFKBP1109.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Output file downloaded to results/kaggle/full_match_vkitprobe/sheets/sheet_00.jpg
+Output file downloaded to results/kaggle/full_match_vkitprobe/sheets/sheet_01.jpg
+Output file downloaded to results/kaggle/full_match_vkitprobe/sheets/sheet_02.jpg
+Output file downloaded to results/kaggle/full_match_vkitprobe/sheets/sheet_03.jpg
+Kernel log downloaded to results/kaggle/full_match_vkitprobe/ipanema-full-match-vkitprobe.log
+  ipanema-full-match-vkitprobe.log 8227
+  log.txt 784
+  probe.json 54451
+  result.json 201
   root 4096
-  run.json 169
-ball: 39 of 55 by-eye positions within 30 px (39 within 60 px); the export had a seen ball at 54 of them
-who has the ball: 19 of 39 by-eye moments agree (A 8/22, B 11/17)
-possession: {'A': 42, 'B': 58}  passes 489  turnovers 292  ball grade {'accuracy': None, 'near_player_pct': 0.69, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}
-{"n_frames": 59600, "ball": {"hit30": 39, "hit60": 39, "seen": 54, "n": 55}, "owner": {"agree": 19, "n": 39, "by_team": {"A": [8, 22], "B": [11, 17]}}, "possession_pct": {"A": 42, "B": 58}, "summary": {"ball_grade": {"accuracy": null, "near_player_pct": 0.69, "frames_pct": 1.0, "possession_ok": false, "events_ok": false}, "passes": 489, "turnovers": 292, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "players_per_frame_median": {"A": 8.0, "B": 8.0}, "calibration_coverage": 0.71}, "match": "p15u-vs-vallentuna-2026-10-03-6cce"}
-app_push: SUPABASE_URL / SUPABASE_SERVICE_KEY not set - nothing pushed
+  run.json 175
+  sheets 4096
