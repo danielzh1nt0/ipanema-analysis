@@ -1,0 +1,52 @@
+{
+ "n_frames": 59600,
+ "ball": {
+  "hit30": 39,
+  "hit60": 39,
+  "seen": 54,
+  "n": 55
+ },
+ "owner": {
+  "agree": 25,
+  "n": 39,
+  "by_team": {
+   "A": [
+    12,
+    22
+   ],
+   "B": [
+    13,
+    17
+   ]
+  }
+ },
+ "possession_pct": {
+  "A": 44,
+  "B": 56
+ },
+ "summary": {
+  "ball_grade": {
+   "accuracy": null,
+   "near_player_pct": 0.69,
+   "frames_pct": 1.0,
+   "possession_ok": false,
+   "events_ok": false
+  },
+  "passes": 468,
+  "turnovers": 325,
+  "shots": {
+   "A": 8,
+   "B": 8
+  },
+  "goals": {
+   "A": 3,
+   "B": 2
+  },
+  "players_per_frame_median": {
+   "A": 8.0,
+   "B": 7.0
+  },
+  "calibration_coverage": 0.71
+ },
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce"
+}

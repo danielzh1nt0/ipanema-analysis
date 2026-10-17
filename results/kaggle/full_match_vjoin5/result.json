@@ -1,0 +1,102 @@
+{
+ "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+ "stage": "join",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "pieces_present": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18
+ ],
+ "summary": {
+  "match_id": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "ball_reliable": false,
+  "ball_grade": {
+   "accuracy": null,
+   "near_player_pct": 0.69,
+   "frames_pct": 1.0,
+   "possession_ok": false,
+   "events_ok": false
+  },
+  "duration_s": 5966.0,
+  "calibration_coverage": 0.71,
+  "calibration_frozen": 46995,
+  "team_dark_share": {
+   "A": 0.13,
+   "B": 0.36
+  },
+  "players_per_frame_median": {
+   "A": 8.0,
+   "B": 7.0
+  },
+  "ball_frames_pct": 100,
+  "match_seconds": 4880.0,
+  "periods": [
+   {
+    "index": 1,
+    "t_start": 435.0,
+    "t_end": 2889.99,
+    "mirrored": false
+   },
+   {
+    "index": 2,
+    "t_start": 3219.98,
+    "t_end": 5645.01,
+    "mirrored": true
+   }
+  ],
+  "ball_check": null,
+  "possession_pct": {
+   "A": 44,
+   "B": 56
+  },
+  "loose_pct": 17,
+  "dead_pct": 7,
+  "possession_model": "simple",
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "direction_confidence": {
+   "A": 0.06,
+   "B": 0.01
+  },
+  "turnovers": 325,
+  "passes": 468,
+  "restarts": 87,
+  "sequences": 489,
+  "shots": {
+   "A": 8,
+   "B": 8
+  },
+  "goals": {
+   "A": 3,
+   "B": 2
+  },
+  "high_turnovers": {
+   "A": 45,
+   "B": 25
+  },
+  "field_tilt": {
+   "A": 30,
+   "B": 17
+  },
+  "runtime_min": 16.1
+ },
+ "minutes": 16.9
+}

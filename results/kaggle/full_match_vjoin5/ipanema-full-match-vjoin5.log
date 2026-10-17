@@ -1,0 +1,134 @@
+[{"stream_name":"stdout","time":0.764227737,"data":"+ nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":5.5949527230000005,"data":"2.11.0+cpu False\n"}
+,{"stream_name":"stdout","time":5.595048214,"data":"/bin/sh: 1: nvidia-smi: not found\n"}
+,{"stream_name":"stdout","time":5.595057399,"data":"\n"}
+,{"stream_name":"stdout","time":5.595061376,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":111.476608338,"data":"\n"}
+,{"stream_name":"stdout","time":111.476648375,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":111.481247194,"data":"repo at b30ba63 Vallentuna join 5 with nearness 2.5 m\n"}
+,{"stream_name":"stdout","time":111.481274164,"data":"\n"}
+,{"stream_name":"stdout","time":111.481280074,"data":"+ pip install -q rfdetr==1.11.0 'supervision\u003e=0.29,\u003c0.31' omegaconf gdown 'numpy\u003c2' scipy scikit-learn pandas ultralytics==8.3.40\n"}
+,{"stream_name":"stdout","time":382.69380711,"data":"MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":382.69390957,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.7/102.7 kB 3.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":382.693916878,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stdout","time":382.693922791,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":382.69392891,"data":"opencv-python-headless 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693934575,"data":"kaggle-environments 1.27.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693940593,"data":"mne 1.13.2 requires numpy\u003c3,\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.69394683,"data":"bayesian-optimization 3.3.0 requires numpy\u003e=2.1.3; python_full_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693952568,"data":"cesium 0.12.4 requires numpy\u003c3.0,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.69395779,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693963016,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.69396807,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693973122,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693978209,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693983376,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.0.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.693988669,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694010767,"data":"tobler 0.14.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694014431,"data":"jax 0.11.1 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694018569,"data":"opencv-contrib-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694032725,"data":"dm-tree 0.1.10 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694038432,"data":"jaxlib 0.11.1 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694042488,"data":"xarray-einstats 0.11.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.69404692,"data":"tifffile 2026.8.23 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694051415,"data":"pytensor 2.38.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694055472,"data":"shap 0.52.0 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694059508,"data":"rasterio 1.5.1 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":382.694063572,"data":"\n"}
+,{"stream_name":"stdout","time":382.694067293,"data":"+ which ffmpeg || (apt-get install -y -q ffmpeg \u003e /dev/null 2\u003e\u00261 \u0026\u0026 which ffmpeg)\n"}
+,{"stream_name":"stdout","time":382.698271063,"data":"/usr/bin/ffmpeg\n"}
+,{"stream_name":"stdout","time":382.69830353,"data":"\n"}
+,{"stream_name":"stdout","time":382.702340397,"data":"wasb weights: results/kaggle/wasb_warm/wasb_warm.pth\n"}
+,{"stream_name":"stdout","time":384.155297452,"data":"inputs: /kaggle/input/notebooks: ['danielmatros']\n"}
+,{"stream_name":"stdout","time":404.758748139,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-va: 5 cache folders\n"}
+,{"stream_name":"stdout","time":425.455892762,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vb: 5 cache folders\n"}
+,{"stream_name":"stdout","time":447.903326988,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vc: 5 cache folders\n"}
+,{"stream_name":"stdout","time":468.460089465,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vd: 5 cache folders\n"}
+,{"stream_name":"stdout","time":478.721952834,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-ve: 3 cache folders\n"}
+,{"stream_name":"stdout","time":536.663266713,"data":"mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vrelabel2: 19 cache folders\n"}
+,{"stream_name":"stdout","time":536.669613699,"data":"+ wget -q -O /kaggle/working/root/videos/p15u-vs-vallentuna-2026-10-03-6cce/full.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-vallentuna-2026-10-03-6cce/video.mp4\n"}
+,{"stream_name":"stdout","time":603.301022186,"data":"\n"}
+,{"stream_name":"stdout","time":603.301069253,"data":"video: 3.48 GB\n"}
+,{"stream_name":"stdout","time":603.685190567,"data":"=== p15u-vs-vallentuna-2026-10-03-6cce join: 18/20 pieces present\n"}
+,{"stream_name":"stdout","time":637.886411757,"data":"teams: relabel from ipanema-full-match-vrelabel2 (9749 tracks) changed 470479 rows before track cleaning\n"}
+,{"stream_name":"stdout","time":645.245022853,"data":"periods: [(435.0, 2889.99), (3219.98, 5645.01)] s\n"}
+,{"stream_name":"stdout","time":645.321692333,"data":"calibration: 100.0% of match frames placed confidently\n"}
+,{"stream_name":"stdout","time":650.919192505,"data":"clean: 190 people living on or by the lines dropped (bench, coaches, stand)\n"}
+,{"stream_name":"stdout","time":690.78553367,"data":"clean: keeper (left) from a non-team kit: track 101439, 29 frames\n"}
+,{"stream_name":"stdout","time":690.98380003,"data":"clean: keeper (right) from a non-team kit: track 1700901, 392 frames\n"}
+,{"stream_name":"stdout","time":691.338325941,"data":"clean: removed 48884 rows of non-team kits (referee / staff)\n"}
+,{"stream_name":"stdout","time":691.357099458,"data":"clean: dropped 564246 off-pitch, merged 21294 duplicates, stitched 3853 ids, keepers [700584, 500639] -\u003e A defends left\n"}
+,{"stream_name":"stdout","time":691.968137211,"data":"clean: players per frame median A 7 / B 7, max A 18 / B 17\n"}
+,{"stream_name":"stdout","time":699.397859047,"data":"players: 15150 short gaps filled (marked 'filled' in the export)\n"}
+,{"stream_name":"stdout","time":784.775955037,"data":"ball v2: 138800/178800 frames on the path, 478 static-clutter candidates dropped\n"}
+,{"stream_name":"stdout","time":816.327807627,"data":"ball: dropped 364 static-clutter candidates\n"}
+,{"stream_name":"stdout","time":829.583985504,"data":"ball (global path): 130725/178800 frames on the chosen path\n"}
+,{"stream_name":"stdout","time":874.634077255,"data":"possession: simple model (nearest feet in the picture); 17% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)\n"}
+,{"stream_name":"stdout","time":874.810987877,"data":"direction: A →  B ←  confidence A 0.06 / B 0.01  WARNING low confidence\n"}
+,{"stream_name":"stdout","time":874.811943628,"data":"direction: from reference labels -\u003e A →\n"}
+,{"stream_name":"stdout","time":874.811967424,"data":"  step: sequences (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":875.18811235,"data":"  spell state (take 1.5 s): possession flips 2771 -\u003e 404 (4.1 per minute)\n"}
+,{"stream_name":"stdout","time":875.310381114,"data":"  step: turnovers (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":875.439935496,"data":"  step: lanes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":889.222919059,"data":"  step: passes (14 s since the last step)\n"}
+,{"stream_name":"stdout","time":890.315076647,"data":"passes: 1354 -\u003e 468 confirmed by the video ball-action model (p15u-vs-vallentuna-2026-10-03-6cce_kicks.json)\n"}
+,{"stream_name":"stdout","time":890.349171705,"data":"lost balls: 438 -\u003e 325 (duels dropped: winner kept it \u003c 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)\n"}
+,{"stream_name":"stdout","time":890.349235952,"data":"  step: shapes (1 s since the last step)\n"}
+,{"stream_name":"stdout","time":904.70540603,"data":"  step: stats (14 s since the last step)\n"}
+,{"stream_name":"stdout","time":945.070255872,"data":"  step: metrics (40 s since the last step)\n"}
+,{"stream_name":"stdout","time":957.434180321,"data":"veo: 16 shots incl. 5 goals imported; 0 goal tag(s) rejected; origin by eye for 11, team by eye for 13, from the ball for 0, from the players for 0, unknown for 0\n"}
+,{"stream_name":"stdout","time":957.434447011,"data":"our shot detector vs Veo: found 1/16 of Veo's shots, 1/16 of ours are real (within 10 s)\n"}
+,{"stream_name":"stdout","time":968.296936805,"data":"ball grade: accuracy None, near-player 0.69, possession withheld, events withheld\n"}
+,{"stream_name":"stdout","time":968.297022794,"data":"ball reliability: 82% frames, 69% near a player, 24613 jumps -\u003e UNRELIABLE (stats withheld in app)\n"}
+,{"stream_name":"stdout","time":968.854617913,"data":"  step: export (24 s since the last step)\n"}
+,{"stream_name":"stdout","time":968.864167363,"data":"motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))\n"}
+,{"stream_name":"stdout","time":1000.956487174,"data":"  wrote 20 frame files (every 3 frames, 300 s each, largest 7.3 MB)\n"}
+,{"stream_name":"stdout","time":1007.529819985,"data":"  wrote frames_lite.json (19867 frames, 34.0 MB)\n"}
+,{"stream_name":"stdout","time":1007.60995073,"data":"  wrote match_data.json (0.9 MB)\n"}
+,{"stream_name":"stdout","time":1008.314356873,"data":"  upload checks: p15u-vs-vallentuna-2026-10-03-6cce: needs review -\u003e players, shot_map\n"}
+,{"stream_name":"stdout","time":1008.31439874,"data":"    FLAG players: median players per frame A 8, B 8\n"}
+,{"stream_name":"stdout","time":1008.314406871,"data":"    OK   keepers: 0 of 33405 frames with 2+ keepers in one team\n"}
+,{"stream_name":"stdout","time":1008.314415158,"data":"    OK   goals: 3604: A scored, B kicks off at 3634; 3742: B scored, A kicks off at 3769; 3840: B scored (team checked by eye, kept) but our possession says B kicks off at 3991; 5513: A scored, B kicks off at 5544; 5593: A scored, B kicks off at 5626\n"}
+,{"stream_name":"stdout","time":1008.31442569,"data":"    FLAG shots: 11 of 16 shots have a spot on the pitch\n"}
+,{"stream_name":"stdout","time":1008.314432798,"data":"    OK   ball: 3240 of 48697 ball positions more than 3 m off the pitch\n"}
+,{"stream_name":"stdout","time":1008.314440517,"data":"    OK   possession: 12 of 17 clear moments right (wrong: 557.2 ours A eye B, 853.4 ours None eye A, 2864.1 ours B eye A, 3537.8 ours B eye A, 3800.2 ours A eye B)\n"}
+,{"stream_name":"stdout","time":1009.780641067,"data":"export: /kaggle/working/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce (1473 events) · library.json updated · zip None\n"}
+,{"stream_name":"stdout","time":1011.763116503,"data":"upload: no Supabase/R2 credentials found — skipped\n"}
+,{"stream_name":"stdout","time":1011.763147319,"data":"\n"}
+,{"stream_name":"stdout","time":1011.763151827,"data":"--- SUMMARY ---\n"}
+,{"stream_name":"stdout","time":1011.763237549,"data":"  match_id                   p15u-vs-vallentuna-2026-10-03-6cce\n"}
+,{"stream_name":"stdout","time":1011.763364908,"data":"  ball_reliable              False\n"}
+,{"stream_name":"stdout","time":1011.763434779,"data":"  ball_grade                 {'accuracy': None, 'near_player_pct': 0.69, 'frames_pct': 1.0, 'possession_ok': False, 'events_ok': False}\n"}
+,{"stream_name":"stdout","time":1011.763546524,"data":"  duration_s                 5966.0\n"}
+,{"stream_name":"stdout","time":1011.763622028,"data":"  calibration_coverage       0.71\n"}
+,{"stream_name":"stdout","time":1011.763687772,"data":"  calibration_frozen         46995\n"}
+,{"stream_name":"stdout","time":1011.763777004,"data":"  team_dark_share            {'A': 0.13, 'B': 0.36}\n"}
+,{"stream_name":"stdout","time":1011.763823394,"data":"  players_per_frame_median   {'A': 8.0, 'B': 7.0}\n"}
+,{"stream_name":"stdout","time":1011.76393532,"data":"  ball_frames_pct            100\n"}
+,{"stream_name":"stdout","time":1011.763988681,"data":"  match_seconds              4880.0\n"}
+,{"stream_name":"stdout","time":1011.764059088,"data":"  periods                    [{'index': 1, 't_start': 435.0, 't_end': 2889.99, 'mirrored': False}, {'index': 2, 't_start': 3219.98, 't_end': 5645.01, 'mirrored': True}]\n"}
+,{"stream_name":"stdout","time":1011.764129677,"data":"  ball_check                 None\n"}
+,{"stream_name":"stdout","time":1011.764213192,"data":"  possession_pct             {'A': 44, 'B': 56}\n"}
+,{"stream_name":"stdout","time":1011.7642737,"data":"  loose_pct                  17\n"}
+,{"stream_name":"stdout","time":1011.764380264,"data":"  dead_pct                   7\n"}
+,{"stream_name":"stdout","time":1011.76444656,"data":"  possession_model           simple\n"}
+,{"stream_name":"stdout","time":1011.764505552,"data":"  attack_right               {'A': True, 'B': False}\n"}
+,{"stream_name":"stdout","time":1011.764635205,"data":"  direction_confidence       {'A': 0.06, 'B': 0.01}\n"}
+,{"stream_name":"stdout","time":1011.764696176,"data":"  turnovers                  325\n"}
+,{"stream_name":"stdout","time":1011.764781568,"data":"  passes                     468\n"}
+,{"stream_name":"stdout","time":1011.765319483,"data":"  restarts                   87\n"}
+,{"stream_name":"stdout","time":1011.765339229,"data":"  sequences                  489\n"}
+,{"stream_name":"stdout","time":1011.765344769,"data":"  shots                      {'A': 8, 'B': 8}\n"}
+,{"stream_name":"stdout","time":1011.765347652,"data":"  goals                      {'A': 3, 'B': 2}\n"}
+,{"stream_name":"stdout","time":1011.765350308,"data":"  high_turnovers             {'A': 45, 'B': 25}\n"}
+,{"stream_name":"stdout","time":1011.765353918,"data":"  field_tilt                 {'A': 30, 'B': 17}\n"}
+,{"stream_name":"stdout","time":1011.765357712,"data":"  runtime_min                16.1\n"}
+,{"stream_name":"stdout","time":1012.6352871,"data":"export: frames_000.json, frames_001.json, frames_002.json, frames_003.json, frames_004.json, frames_005.json, frames_006.json, frames_007.json, frames_008.json, frames_009.json, frames_010.json, frames_011.json, frames_012.json, frames_013.json, frames_014.json, frames_015.json, frames_016.json, frames_017.json, frames_018.json, frames_019.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg\n"}
+,{"stream_name":"stdout","time":1013.008662043,"data":"done: join in 16.9 min\n"}
+,{"stream_name":"stderr","time":1020.432023017,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1020.432074108,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1020.718485962,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1020.718518131,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1021.836344532,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1022.626108569,"data":"[NbConvertApp] Writing 417887 bytes to __results__.html\n"}
+]
