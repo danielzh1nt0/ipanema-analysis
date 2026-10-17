@@ -113,6 +113,13 @@ def remap_gt(src_gt, start_s, fps, dst):
     json.dump({str(off + int(k)): v for k, v in gt.items()}, open(dst, "w")); return dst
 
 
+def ball_key_path(root, match_id):
+    """the match's own by-eye ball key, or None (17 Oct: any match with reference/<id>/ball_gt.json is graded on it;
+    Kaggle weights are pinned and never trained on it). Held-out clip keys (reference/<id>_s<start>/) still win in the caller."""
+    p = f"{root}/reference/{match_id}/ball_gt.json"
+    return p if os.path.exists(p) else None
+
+
 def canary_index(plan_, todo_ids):
     """a piece from the middle of the first half (not warm-up), among those still to run"""
     if not todo_ids: return None
