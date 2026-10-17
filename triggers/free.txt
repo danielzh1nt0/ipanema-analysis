@@ -1,2 +1,2 @@
-tools/poss_sheet.py results/kaggle/full_match_vjoin3 p15u-vs-vallentuna-2026-10-03-6cce
-# Sat Oct 17 04:32:08 CEST 2026 possession-miss sheet after the relabel
+tools/poss_sample_sheet.py results/kaggle/full_match_vjoin5 p15u-vs-vallentuna-2026-10-03-6cce 150 11
+# Sat Oct 17 09:41:16 CEST 2026 150 random in-play Vallentuna frames for a blind by-eye possession share
