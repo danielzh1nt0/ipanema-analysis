@@ -142,7 +142,8 @@ if STAGE in ("join", "all"):
     _ov = f"{ROOT}/overrides/{M}_teams.json"; _ex = f"{ROOT}/overrides/{M}_extras.json"; team_override = None
     for slug in [x for x in "{{SOURCES_DIRS}}".split(",") if x]:                  # a relabel kernel's override: keyed by the joined (pre-clean) ids, applied here
         for d in glob.glob(f"/kaggle/input/*/*/{slug}") + glob.glob(f"/kaggle/input/*/{slug}") + glob.glob(f"/kaggle/input/{slug}"):
-            if os.path.exists(f"{d}/root/overrides/{M}_teams.json"):
+            rj = f"{d}/result.json"
+            if os.path.exists(f"{d}/root/overrides/{M}_teams.json") and os.path.exists(rj) and json.load(open(rj)).get("stage") == "relabel":   # only a relabel kernel's file (a piece kernel carries the repo's stale, old-id override)
                 rl = json.load(open(f"{d}/root/overrides/{M}_teams.json")); nch = FM.apply_team_override(per, rl, fps, from_k=True)
                 log(f"teams: relabel from {slug} ({len(rl)} tracks) changed {nch} rows before track cleaning"); _ov = "/nonexistent"; _ex = "/nonexistent"
     if "{{USE_OVERRIDE}}" == "1":
