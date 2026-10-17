@@ -1,2 +1,2 @@
-kaggle/full_match.py 90 MATCH=SFKBP1109_s1200 STAGE=join NAME=sjoin15 GPU=0 SOURCES=ipanema-full-match-spieces NEAR=1.5
-# Sat Oct 17 09:06:44 CEST 2026 T1: SFK-BP clip join with nearness 1.5 m
+kaggle/full_match.py 90 MATCH=SFKBP1109_s1200 STAGE=join NAME=sjoin25 GPU=0 SOURCES=ipanema-full-match-spieces NEAR=2.5
+# Sat Oct 17 09:07:10 CEST 2026 T1: SFK-BP clip join with nearness 2.5 m
