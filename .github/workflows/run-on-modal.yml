@@ -2,7 +2,7 @@ name: run on modal
 on:
   push:
     branches: [main]
-    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py", "periods/**", "triggers/**"]
+    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py", "periods/**", "triggers/modal.txt"]   # 17 Oct: not on the Kaggle / free-runner trigger files (every Kaggle job started a test run and, since supervision 0.31, a failure mail)
   workflow_dispatch:
     inputs:
       match_id: { description: "match id", default: "SFKBP1109_s1200" }
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless pandas scipy pytest pyyaml supervision ultralytics torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
+      - run: pip install -q "numpy<2" opencv-python-headless pandas scipy pytest pyyaml "supervision>=0.25,<0.31" ultralytics torch --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
       - name: tests (a failure stops everything below — no deploy, no run, no spend)
         run: python -m pytest -q tests
       - name: model evals (scored on stored labelled data; a drop below a floor stops everything)
