@@ -69,6 +69,26 @@ def join(pieces, plan_, n_total, fps):
                            "width": meta["width"], "height": meta["height"], "dark_share": meta["dark_share"], "strips": meta["strips"],
                            "unsure": unsure}
 
+def team_segments(series, fps, seg=4):
+    """T1 relabel (17 Oct): a track's A/B reads [(global frame, team), ...] -> [[t_start, t_end, team], ...] when the
+    track switches between two people (tracker id swap, black <-> red), else None. Reads are smoothed by a 5-read
+    majority; stretches of >= seg smoothed reads count; the first/last piece stretch to the track ends (0 / 1e9 s).
+    The value goes into overrides/<match>_teams.json and apply_team_override reads it."""
+    sr = sorted(series); labs_ = [x[1] for x in sr]
+    if len(sr) < 2 * seg: return None
+    sm = [max(set(labs_[max(0, i - 2):i + 3]), key=labs_[max(0, i - 2):i + 3].count) for i in range(len(labs_))]
+    segs = []; st = 0
+    for i in range(1, len(sm) + 1):
+        if i == len(sm) or sm[i] != sm[st]:
+            segs.append((st, i - 1, sm[st])); st = i
+    segs = [(a_, b_, t_) for a_, b_, t_ in segs if b_ - a_ + 1 >= seg]
+    if len({t_ for _, _, t_ in segs}) <= 1: return None
+    parts = []
+    for j, (a_, b_, t_) in enumerate(segs):
+        t0 = sr[a_][0] / fps if j else 0.0; t1 = sr[b_][0] / fps if j < len(segs) - 1 else 1e9
+        parts.append([round(t0, 2), round(t1, 2), t_])
+    return parts
+
 def apply_team_override(per, teams, fps=None, from_k=False):
     """K3c (5 Oct): team decisions made offline (tools/vall_relabel.py, kit-colour share on the exported frames) replace
     the team of those ids in the joined rows. A value is "A"/"B" (the whole track) or a list of [t_start, t_end, team]

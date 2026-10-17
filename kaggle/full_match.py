@@ -124,20 +124,9 @@ if STAGE == "relabel":
         else: continue
         # a track that switches between two people (tracker id swap, black <-> red): segments of >= SEG consecutive
         # smoothed reads of the other team get their own team, as [t_start, t_end, team] pieces (fullmatch.apply_team_override)
-        sr = sorted(series[tid]); labs_ = [x[1] for x in sr]; SEG = int("{{SEG}}" or "4")
-        if len(sr) >= 2 * SEG:
-            sm = [max(set(labs_[max(0, i - 2):i + 3]), key=labs_[max(0, i - 2):i + 3].count) for i in range(len(labs_))]
-            segs = []; st = 0
-            for i in range(1, len(sm) + 1):
-                if i == len(sm) or sm[i] != sm[st]:
-                    segs.append((st, i - 1, sm[st])); st = i
-            segs = [(a_, b_, t_) for a_, b_, t_ in segs if b_ - a_ + 1 >= SEG]
-            if len({t_ for _, _, t_ in segs}) > 1:
-                parts = []
-                for j, (a_, b_, t_) in enumerate(segs):
-                    t0 = sr[a_][0] / fps if j else 0.0; t1 = sr[b_][0] / fps if j < len(segs) - 1 else 1e9   # first/last segment stretch to the track ends
-                    parts.append([round(t0, 2), round(t1, 2), t_])
-                teams[str(tid)] = parts; n_split += 1; changed[f"{old.get(tid)}->split"] += 1; continue
+        parts = FM.team_segments(series[tid], fps, seg=int("{{SEG}}" or "4"))   # same rule, moved to ipanema/fullmatch.py (tests/test_t1_segments.py)
+        if parts:
+            teams[str(tid)] = parts; n_split += 1; changed[f"{old.get(tid)}->split"] += 1; continue
         if new != old.get(tid): changed[f"{old.get(tid)}->{new}"] += 1
         teams[str(tid)] = new
     os.makedirs(f"{ROOT}/overrides", exist_ok=True); json.dump(teams, open(f"{ROOT}/overrides/{M}_teams.json", "w"))
