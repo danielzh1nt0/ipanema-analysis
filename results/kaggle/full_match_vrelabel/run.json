@@ -1,5 +1,5 @@
 {
  "kernel": "danielmatros/ipanema-full-match-vrelabel",
- "status": "danielmatros/ipanema-full-match-vrelabel has status \"KernelWorkerStatus.RUNNING\"",
- "minutes": 120.5
+ "status": "danielmatros/ipanema-full-match-vrelabel has status \"KernelWorkerStatus.COMPLETE\"",
+ "minutes": 16.0
 }

@@ -1,0 +1,29 @@
+   6.6 wasb weights: results/volume/models/wasb_finetuned.pth
+   6.6 inputs: /kaggle/input/notebooks: ['danielmatros']
+   6.6 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vkits: 1 cache folders
+   6.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-va: 5 cache folders
+   7.0 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vb: 5 cache folders
+   7.1 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vc: 5 cache folders
+   7.3 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-vd: 5 cache folders
+   7.4 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-ve: 3 cache folders
+   8.5 video: 3.48 GB
+  15.7 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c001 read (1499 frames so far, 1550 tracks)
+  22.7 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c002 read (2998 frames so far, 2258 tracks)
+  29.9 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c003 read (4497 frames so far, 2970 tracks)
+  37.0 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c004 read (5996 frames so far, 3808 tracks)
+  44.4 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c005 read (7495 frames so far, 4702 tracks)
+  51.5 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c006 read (8994 frames so far, 5637 tracks)
+  58.5 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c007 read (10493 frames so far, 6394 tracks)
+  65.4 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c008 read (11992 frames so far, 7255 tracks)
+  72.3 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c009 read (13491 frames so far, 8688 tracks)
+  79.0 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c010 read (14990 frames so far, 10247 tracks)
+  86.0 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c011 read (16489 frames so far, 11025 tracks)
+  93.0 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c012 read (17988 frames so far, 11982 tracks)
+ 100.1 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c013 read (19487 frames so far, 12962 tracks)
+ 107.1 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c014 read (20986 frames so far, 13843 tracks)
+ 114.1 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c015 read (22485 frames so far, 14717 tracks)
+ 120.9 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c016 read (23984 frames so far, 15621 tracks)
+ 127.7 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c017 read (25483 frames so far, 16381 tracks)
+ 134.7 relabel: p15u-vs-vallentuna-2026-10-03-6cce_c018 read (26982 frames so far, 17273 tracks)
+ 134.7 relabel: {'tracks_read': 17273, 'decided': 9749, 'changed': {'K->A': 731, 'K->B': 242, 'A->B': 374, 'B->A': 284}, 'frames': 26982, 'step': 6}
+ 134.7 done: relabel in 134.7 min
