@@ -1,3 +1,80 @@
-   6.8 wasb weights: results/volume/models/wasb_finetuned.pth
-   6.8 inputs: /kaggle/input/notebooks: ['danielmatros']
-   6.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-smoke2: 0 cache folders
+   6.1 wasb weights: results/volume/models/wasb_finetuned.pth
+   6.1 inputs: /kaggle/input/ipanema-full-match-spieces: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']
+   6.2 mounted /kaggle/input/ipanema-full-match-spieces: 2 cache folders
+   6.4 video: 0.30 GB
+   6.4 === SFKBP1109_s1200 join: 1/1 pieces present
+   6.4 calibration: 100.0% of match frames placed confidently
+   6.4 clean: 27 people living on or by the lines dropped (bench, coaches, stand)
+   6.4 clean: keeper (left) from a non-team kit: track 754, 1227 frames
+   6.4 clean: keeper (right) from a non-team kit: track 381, 97 frames
+   6.4 clean: removed 25563 rows of non-team kits (referee / staff)
+   6.4 clean: dropped 24057 off-pitch, merged 626 duplicates, stitched 274 ids, keepers [754, 381] -> A defends left
+   6.4 clean: players per frame median A 8 / B 8, max A 14 / B 12
+   6.4 players: 1276 short gaps filled (marked 'filled' in the export)
+   6.5 ball v2: 8708/8992 frames on the path, 935 static-clutter candidates dropped
+   6.9 ball check: 27/34 correct, 7 wrong, 0 no pick (ceiling 33/34)
+   7.0 ball: dropped 935 static-clutter candidates
+   7.0 ball (global path): 7969/8992 frames on the chosen path
+   7.0 ball check (other picker, v1): 16/34 correct, ceiling 33/34
+   7.0 ball: dropped 935 static-clutter candidates
+   7.1 ball (global path): 7969/8992 frames on the chosen path
+   7.1 picker test on detector-training clicks (SFKBP1109_s1200, 34 frames; detection is optimistic here, the pick is the fair part): v2 27/34, other 16/34, ceiling 33
+   7.1 possession: simple model (nearest feet in the picture); 33% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+   7.1 direction: A →  B ←  confidence A 0.01 / B 0.05  WARNING low confidence
+   7.1 direction (from keepers): A →  B ←
+   7.1   step: sequences (0 s since the last step)
+   7.1   spell state (take 1.5 s): possession flips 139 -> 19 (3.8 per minute)
+   7.1   step: turnovers (0 s since the last step)
+   7.1   step: lanes (0 s since the last step)
+   7.1   step: passes (0 s since the last step)
+   7.1 lost balls: 19 -> 17 (duels dropped: winner kept it < 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)
+   7.1   step: shapes (0 s since the last step)
+   7.1   step: stats (1 s since the last step)
+   7.1   step: metrics (2 s since the last step)
+   7.2 ball grade: accuracy 0.79, near-player 0.49, possession OK, events withheld
+   7.2 ball reliability: 100% frames, 49% near a player, 2143 jumps -> OK
+   7.2   step: export (1 s since the last step)
+   7.2 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+   7.2   wrote 2 frame files (every 3 frames, 300 s each, largest 6.8 MB)
+   7.2   wrote frames_lite.json (1000 frames, 2.0 MB)
+   7.2   wrote match_data.json (0.1 MB)
+   7.2   upload checks: SFKBP1109_s1200: needs review -> ball_map
+    OK   players: median players per frame A 8, B 8
+    OK   keepers: 0 of 2788 frames with 2+ keepers in one team
+    ??   goals: no goals
+    OK   shots: 1 of 1 shots have a spot on the pitch
+    FLAG ball: 486 of 2998 ball positions more than 3 m off the pitch
+    OK   possession: 43 of 58 clear moments right (wrong: 7.6 ours A eye B, 20.4 ours None eye B, 27.1 ours B eye A, 34.9 ours A eye B, 55.5 ours None eye B, 104.2 ours None eye B)
+   7.2 export: /kaggle/working/root/runs/matches/SFKBP1109_s1200 (92 events) · library.json updated · zip None
+   7.2 upload: no Supabase/R2 credentials found — skipped
+   7.2 
+--- SUMMARY ---
+   7.2   match_id                   SFKBP1109_s1200
+   7.2   ball_reliable              True
+   7.2   ball_grade                 {'accuracy': 0.79, 'near_player_pct': 0.49, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+   7.2   duration_s                 300.0
+   7.2   calibration_coverage       0.93
+   7.2   calibration_frozen         630
+   7.2   team_dark_share            {'A': 0.22, 'B': 0.87}
+   7.2   players_per_frame_median   {'A': 8.0, 'B': 8.0}
+   7.2   ball_frames_pct            100
+   7.2   match_seconds              300.0
+   7.2   periods                    None
+   7.2   ball_check                 {'correct': 27, 'total': 34, 'wrong': 7, 'ceiling': 33}
+   7.2   possession_pct             {'A': 46, 'B': 54}
+   7.2   loose_pct                  33
+   7.2   dead_pct                   19
+   7.2   possession_model           simple
+   7.2   attack_right               {'A': True, 'B': False}
+   7.2   direction_confidence       {'A': 0.01, 'B': 0.05}
+   7.2   turnovers                  17
+   7.2   passes                     52
+   7.2   restarts                   8
+   7.2   sequences                  32
+   7.2   shots                      {'A': 0, 'B': 1}
+   7.2   goals                      {'A': 0, 'B': 0}
+   7.2   high_turnovers             {'A': 1, 'B': 2}
+   7.2   field_tilt                 {'A': 12, 'B': 45}
+   7.2   runtime_min                7.2
+   7.2 export: frames_000.json, frames_001.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg
+   7.2 done: join in 7.2 min

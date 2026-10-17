@@ -1,5 +1,5 @@
 {
  "kernel": "danielmatros/ipanema-full-match-sjoin15",
- "status": "danielmatros/ipanema-full-match-sjoin15 has status \"KernelWorkerStatus.ERROR\"",
- "minutes": 7.8
+ "status": "danielmatros/ipanema-full-match-sjoin15 has status \"KernelWorkerStatus.COMPLETE\"",
+ "minutes": 8.4
 }
