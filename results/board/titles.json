@@ -65,5 +65,7 @@
  "D3": "Spånga in the demo (closed: no)",
  "D4": "Bundesliga clip in the app",
  "D5": "Delete old matches from the app",
- "N0-18a": "Nightly player checks broken by a library update (fixed)", "N0-18b": "Sprints lost at track gaps (fixed) + tests for shots and sprints"
+ "N0-18a": "Nightly player checks broken by a library update (fixed)",
+ "N0-18b": "Sprints lost at track gaps (fixed) + tests for shots and sprints",
+ "N0-18c": "Nightly test count hid failing tests (fixed)"
 }

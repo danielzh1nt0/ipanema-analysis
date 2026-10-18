@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 from ipanema import ballscorer as SC
 
 
@@ -13,6 +14,7 @@ def fake_crops(n, rng, ball):
 
 
 def test_scorer_learns_moving_blob_vs_static_line():
+    pytest.importorskip("torch")   # the nightly quick job has no torch: skip, not a hidden fail (N0-18c)
     rng = np.random.default_rng(0)
     X = np.concatenate([fake_crops(80, rng, True), fake_crops(160, rng, False)]); y = np.array([1] * 80 + [0] * 160)
     net = SC.train(X, y, epochs=10, batch=32, log=lambda *a: None)
