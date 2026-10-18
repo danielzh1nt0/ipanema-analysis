@@ -5,7 +5,10 @@ from .possession import STATES
 def _goal_x(team, attack_right, L): return L if attack_right[team] else 0.0
 
 def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_):
-    """A shot: ball suddenly fast (>12 m/s), heading toward the goal the possessing team attacks, from within 35 m of it."""
+    """A shot: ball suddenly fast (>16 m/s), within 15 degrees of the goal the possessing team attacks, from within 30 m of it.
+    18 Oct: the 'goal' outcome (next restart at the centre spot) never fires: possession.restarts calls a centre-spot restart
+    'stoppage', and 'unknown' only when there is no ball spot. Left as is on purpose: on SFK-BP, AIK and Vallentuna no
+    centre restart follows any detected shot, so a fix changes nothing today, and goals come from Veo's list."""
     n = len(state); out = []; last_t = -99
     for k in sorted(ballm):
         if k - 1 not in ballm or k + 1 not in ballm: continue
@@ -18,7 +21,7 @@ def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_):
         cosang = float(v @ (goal - p) / (np.linalg.norm(v) * np.linalg.norm(goal - p)))
         if cosang < np.cos(np.radians(15)): continue
         # outcome over the next 3 s
-        outcome = "blocked or saved"; crossed = False
+        outcome = "saved or blocked"; crossed = False
         for j in range(k + 1, min(n, k + int(3 * fps))):
             if j in ballm:
                 bx, by = ballm[j]
@@ -86,7 +89,9 @@ def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8):
     for tid, pts in tr.items():
         ks = sorted(pts); seg = None
         for a, b in zip(ks, ks[1:]):
-            if b - a > 3: seg = None; continue
+            if b - a > 3:                                                     # track gap: close the sprint so far (18 Oct: it was thrown away)
+                if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state))
+                seg = None; continue
             v = np.linalg.norm(pts[b] - pts[a]) * fps / (b - a)
             if 10 >= v >= speed_min:
                 if seg is None: seg = [a, b]
