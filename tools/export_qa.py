@@ -44,6 +44,22 @@ def grade(folder, ref_dir, log=print):
             if got == o: agree += 1; by[o][0] += 1
         out["owner"] = {"agree": agree, "n": n, "by_team": by}
         log(f"who has the ball: {agree} of {n} by-eye moments agree (A {by['A'][0]}/{by['A'][1]}, B {by['B'][0]}/{by['B'][1]})")
+    # coach keys (tools/reviews_to_labels.py): the coach's confirmed / deleted events and match-level corrections
+    ek = f"{ref_dir}/events_key.json"
+    if os.path.exists(ek):
+        items = json.load(open(ek)).get("items", []); md_ev = {e["id"]: e for e in md.get("events", [])}
+        kept = sum(1 for i in items if i["verdict"] in ("confirmed", "retimed") and i["event_id"] in md_ev)
+        gone = sum(1 for i in items if i["verdict"] == "deleted" and i["event_id"] in md_ev)
+        out["coach_events"] = {"confirmed_still_present": kept, "deleted_still_present": gone, "n": len(items)}
+        log(f"coach events: {len(items)} reviewed; {kept} confirmed ones are in this export, {gone} deleted ones still are")
+    ck = f"{ref_dir}/coach_key.json"
+    if os.path.exists(ck):
+        c = json.load(open(ck)); s_ = json.load(open(f"{folder}/summary.json")) if os.path.exists(f"{folder}/summary.json") else {}
+        cmp_ = {}
+        if c.get("possession_pct") and s_.get("possession_pct"): cmp_["possession_pct"] = {"coach": c["possession_pct"], "ours": s_["possession_pct"]}
+        if c.get("score") and s_.get("goals"): cmp_["score"] = {"coach": c["score"], "ours": s_["goals"]}
+        if "lineup" in c: cmp_["lineup_rows"] = len(c["lineup"])
+        out["coach"] = cmp_; log(f"coach key: {cmp_}")
     sp = f"{folder}/summary.json"
     if os.path.exists(sp):
         s = json.load(open(sp)); out["possession_pct"] = s.get("possession_pct"); out["summary"] = {k: s.get(k) for k in ("ball_grade", "passes", "turnovers", "shots", "goals", "players_per_frame_median", "calibration_coverage")}
