@@ -4,6 +4,7 @@ Checks (all optional, each skipped when its key is missing):
   ball_key_px.json      {video frame: [x, y]} by-eye ball positions -> the exported ball within 30 px / 60 px (export is 10 frames/s)
   ball_key_graded.json  items with "owner" A/B (who has the ball, by eye) -> the exported possession at that second
   poss_sample.json      items with "owner" A/B -> the same
+  events_key.json, coach_key.json  the coach's reviews / corrections (tools/reviews_to_labels.py) -> still in this export?
 Prints a plain-words summary and writes qa.json {ball: {hit30, hit60, n}, owner: {agree, n, by_team}, possession_pct, summary}."""
 import os, sys, json, glob, bisect
 
@@ -18,6 +19,15 @@ def nearest(frames, ts, t):
     if not ts: return None
     i = bisect.bisect_left(ts, t); c = [j for j in (i - 1, i) if 0 <= j < len(ts)]
     j = min(c, key=lambda j: abs(ts[j] - t)); return frames[j] if abs(ts[j] - t) <= 0.2 else None
+
+def coach_event_present(item, events, tol_s=1.5):
+    """Is the coach-reviewed event in this export? Same id, or (after a re-run, when ids move: pass_<t>_<player id>,
+    lost_<frame>) an event of the same kind (id prefix) within tol_s seconds of the reviewed time."""
+    fam = item["event_id"].split("_", 1)[0]; t = item.get("t")
+    for e in events:
+        if e.get("id") == item["event_id"]: return True
+    if t is None: return False
+    return any(str(e.get("id", "")).split("_", 1)[0] == fam and e.get("t") is not None and abs(e["t"] - t) <= tol_s for e in events)
 
 def grade(folder, ref_dir, log=print):
     md, frames = load_export(folder); ts = [f["t"] for f in frames]; fps = md.get("fps") or 29.97; out = {"n_frames": len(frames)}
@@ -47,9 +57,9 @@ def grade(folder, ref_dir, log=print):
     # coach keys (tools/reviews_to_labels.py): the coach's confirmed / deleted events and match-level corrections
     ek = f"{ref_dir}/events_key.json"
     if os.path.exists(ek):
-        items = json.load(open(ek)).get("items", []); md_ev = {e["id"]: e for e in md.get("events", [])}
-        kept = sum(1 for i in items if i["verdict"] in ("confirmed", "retimed") and i["event_id"] in md_ev)
-        gone = sum(1 for i in items if i["verdict"] == "deleted" and i["event_id"] in md_ev)
+        items = json.load(open(ek)).get("items", []); evs = md.get("events", [])
+        kept = sum(1 for i in items if i["verdict"] in ("confirmed", "retimed") and coach_event_present(i, evs))
+        gone = sum(1 for i in items if i["verdict"] == "deleted" and coach_event_present(i, evs))
         out["coach_events"] = {"confirmed_still_present": kept, "deleted_still_present": gone, "n": len(items)}
         log(f"coach events: {len(items)} reviewed; {kept} confirmed ones are in this export, {gone} deleted ones still are")
     ck = f"{ref_dir}/coach_key.json"
