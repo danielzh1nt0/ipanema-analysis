@@ -10,7 +10,7 @@ def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_
 t0 = time.time(); R2 = "{{R2}}"; W = "/kaggle/working"; DRY = os.environ.get("DRY_RUN") == "1"
 if not DRY:
     sh("git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia")
-    sh("pip install -q rfdetr==1.11.0 supervision"); sys.path.insert(0, "/kaggle/temp/ia")
+    sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31'"); sys.path.insert(0, "/kaggle/temp/ia")
     sh("cd /kaggle/temp/ia && git log -1 --format='repo at %h %s'")
 else: sys.path.insert(0, os.getcwd()); W = os.environ.get("DRY_OUT", "/tmp/kitcrops_dry"); os.makedirs(W, exist_ok=True)
 import cv2, numpy as np

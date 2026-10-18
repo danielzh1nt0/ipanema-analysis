@@ -6,7 +6,7 @@ def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_
 t0 = time.time(); R2 = "{{R2}}"; W = "/kaggle/working"
 sh("nvidia-smi --query-gpu=name --format=csv")
 sh("git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia")
-sh("pip install -q rfdetr==1.11.0 supervision")
+sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31'")
 sh("cd /kaggle/temp/ia && git log -1 --format='repo at %h %s'")
 MATCHES = os.environ.get("P2_MATCHES", "solberga-vs-p09-norrviken-2026-09-11,p15u-vs-djursholm-2026-09-26,p15u-vs-vasalund-2026-09-20,p09-norrviken-vs-solheim-2026-08-30"
                          ).split(",")

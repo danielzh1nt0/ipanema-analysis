@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy pandas pytest supervision
+      - run: pip install -q "numpy<2" opencv-python-headless scipy pandas pytest "supervision>=0.25,<0.31"
       - run: python tools/nightly_quick.py
       - uses: actions/upload-artifact@v4
         with: { name: quick, path: results/nightly/quick.json }
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy supervision && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q rfdetr
+      - run: pip install -q "numpy<2" opencv-python-headless scipy "supervision>=0.29,<0.31" && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q rfdetr "supervision>=0.29,<0.31"
       - env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           MATCH: ${{ matrix.g[0] }}

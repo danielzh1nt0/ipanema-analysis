@@ -5,7 +5,7 @@ import subprocess, os, sys, json, time, traceback
 def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_output=True, text=True); print((r.stdout + r.stderr)[-2000:], flush=True); return r.returncode
 R2 = "{{R2}}".rstrip("/"); T = "/kaggle/temp"; W = "/kaggle/working"; IA = f"{T}/ia"
 sh("nvidia-smi --query-gpu=name --format=csv; nproc; free -g | head -2")
-sh(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {IA}"); sh("pip install -q rfdetr==1.11.0 supervision omegaconf gdown 'numpy<2'")
+sh(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {IA}"); sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31' omegaconf gdown 'numpy<2'")
 os.makedirs(f"{T}/v", exist_ok=True); sh(f"wget -q -O {T}/v/clip.mp4 {R2}/SFKBP1109_s1200/video.mp4; ls -la {T}/v")
 sys.path.insert(0, IA); os.environ["WASB_DIR"] = f"{T}/WASB-SBDT"
 import numpy as np, cv2, torch

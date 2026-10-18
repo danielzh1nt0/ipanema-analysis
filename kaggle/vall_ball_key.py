@@ -4,7 +4,7 @@
 import os, sys, json, subprocess, cv2, urllib.request, numpy as np
 R2 = "{{R2}}".rstrip("/"); W = "/kaggle/working"; T = "/kaggle/temp"
 subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True)
-subprocess.run('pip install -q "rfdetr==1.11.0" supervision', shell=True); sys.path.insert(0, f"{T}/ia")
+subprocess.run('pip install -q "rfdetr==1.11.0" "supervision>=0.29,<0.31"', shell=True); sys.path.insert(0, f"{T}/ia")
 from ipanema import ballrf as BR
 D = json.load(open(f"{T}/ia/results/review/vall/moments.json")); cap = cv2.VideoCapture(f"{R2}/{D['src_key']}"); fps = cap.get(5)
 ball = BR.load(f"{T}/ia/{BR.WEIGHTS}"); out = {}; R = 80

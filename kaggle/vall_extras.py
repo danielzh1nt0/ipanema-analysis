@@ -4,7 +4,7 @@ def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_
 t0 = time.time(); M = "p15u-vs-vallentuna-2026-10-03-6cce"
 sh("nvidia-smi --query-gpu=name --format=csv")
 sh("git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia")
-sh("pip install -q rfdetr==1.11.0 supervision")
+sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31'")
 sh("wget -q -O /kaggle/temp/v.mp4 " + "{{R2}}" + "/" + M + "/video.mp4; ls -la /kaggle/temp/v.mp4")
 env = dict(os.environ, VIDEO="/kaggle/temp/v.mp4", OUT="/kaggle/working/extras", PYTHONPATH="/kaggle/temp/ia", STEP="1", BATCH="8")
 r = subprocess.Popen(["python", "tools/vall_extras.py"], cwd="/kaggle/temp/ia", env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)

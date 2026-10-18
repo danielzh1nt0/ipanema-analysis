@@ -2,18 +2,46 @@
 
 N1 (5 Oct): the card now compares itself with the day before and adds a
 'Worse than <date>' row, so a drop is seen without reading two cards side by side.
+
+N0 (18 Oct): a player check whose job failed tonight is shown as NOT RUN (it used to show the numbers left in the
+repo from an earlier night, so a broken job read as 'nothing worse' on 17 and 18 Oct), and the Worse row says so.
 """
 import json, glob, os, re, time
 
+ART = os.environ.get("NIGHTLY_ART", "/tmp/art")      # where the scorecard job downloads tonight's artifacts
+
+
+def card_name(f):
+    return f.split('/')[2].replace('tracktest_', '').replace('tracktest', 'SFKBP1109')[:30]
+
+
+def folder_of(match):
+    """tools/tracktest.py's output folder for a match"""
+    return "tracktest" if match == "SFKBP1109_s1200" else f"tracktest_{match}"
+
+
+def nightly_folders(yml=".github/workflows/nightly.yml"):
+    """the tracktest folders the nightly's player jobs write"""
+    if not os.path.exists(yml): return set()
+    return {folder_of(m) for m in re.findall(r'\["([^"]+)", "\d+"\]', open(yml).read())}
+
+
+def fresh_folders(art=ART):
+    """folders whose player job delivered tonight: a job's artifact players-<match> exists only when it succeeded (each
+    artifact holds every tracktest* folder of the checkout, so the artifact NAME is the signal, not its contents).
+    None = no artifacts dir (a local run): nothing is marked."""
+    if not os.path.isdir(art): return None
+    return {folder_of(os.path.basename(p)[len("players-"):]) for p in glob.glob(f"{art}/players-*") if os.path.isdir(p)}
+
 
 def player_row(f, v):
-    name = f.split('/')[2].replace('tracktest_', '').replace('tracktest', 'SFKBP1109')[:30]
+    name = card_name(f)
     return (f"| Players, {name} | seen/frame dark {v['observed_per_frame']['dark']} light {v['observed_per_frame']['light']}, "
             f"tracked {v['median_track_s']['dark']}/{v['median_track_s']['light']} s |")
 
 
-def build_lines(d, q, summaries):
-    """summaries: list of (path, summary dict)."""
+def build_lines(d, q, summaries, stale=()):
+    """summaries: list of (path, summary dict). stale: summary paths whose nightly job did not deliver tonight."""
     lines = [f"# Nightly check {d}", "", "| Check | Result |", "|---|---|"]
     t = q.get("tests", {}); lines.append(f"| Tests | {t.get('total', '?') - len(t.get('failed', [])) if isinstance(t.get('total'), int) else '?'}/{t.get('total', '?')} pass" + (f" — FAILED: {', '.join(t['failed'])}" if t.get("failed") else "") + " |")
     b = q.get("ball_34_moments", {}); lines.append(f"| Ball, 34 checked moments | {b.get('right', '?')}/{b.get('of', '?')} (best possible {b.get('best_possible', '?')}) |")
@@ -22,7 +50,8 @@ def build_lines(d, q, summaries):
     if s.get("possession_model") == "simple": lines.append("| Note | From 29 Sep the pro-data stats use the pipeline's possession model (possession_simple), not the old one; numbers before that date are not comparable (E5) |")
     for f, r in summaries:
         v = r.get("new, RF-DETR")
-        if v: lines.append(player_row(f, v))
+        if f in stale: lines.append(f"| Players, {card_name(f)} | NOT RUN tonight (job failed; old numbers left out) |")
+        elif v: lines.append(player_row(f, v))
     return lines
 
 
@@ -43,6 +72,8 @@ def read_card(lines):
         if m: out["pass_err"] = _num(m.group(1)); out["poss_err"] = _num(m.group(2))
         m = re.match(r"\| Sequences on pro data \(all halves\) \| (\S+)% of real ones found, (\S+)% of ours real", ln)
         if m: out["seq_found"] = _num(m.group(1)); out["seq_real"] = _num(m.group(2))
+        m = re.match(r"\| Players, (.+?) \| NOT RUN", ln)
+        if m: out[f"pl|{m.group(1)}|notrun"] = 1.0
         m = re.match(r"\| Players, (.+?) \| seen/frame dark (\S+) light (\S+), tracked (\S+)/(\S+) s", ln)
         if m:
             g = m.group(1)
@@ -67,6 +98,8 @@ def worse_than(prev, new):
         if a is None or b is None: continue
         if (b < a - eps + 1e-9) if up else (b > a + eps - 1e-9): out.append(f"{name} {a:g} -> {b:g}")
     for k, b in new.items():
+        if k.startswith("pl|") and k.endswith("|notrun"):
+            out.append(f"{k.split('|')[1]}: player check did not run (job failed)"); continue
         if not k.startswith("pl|"): continue
         a = prev.get(k)
         if a is None or b is None: continue
@@ -91,10 +124,17 @@ def compare_row(d, lines, folder="results/nightly"):
     return f"| Worse than {pd} | " + ("; ".join(w) if w else "nothing") + " |"
 
 
+def stale_summaries(summaries, art=ART, yml=".github/workflows/nightly.yml"):
+    fresh = fresh_folders(art)
+    if fresh is None: return set()
+    want = nightly_folders(yml)
+    return {f for f, _ in summaries if f.split('/')[2] in want and f.split('/')[2] not in fresh}
+
+
 def main():
     d = time.strftime("%Y-%m-%d"); q = json.load(open("results/nightly/quick.json")) if os.path.exists("results/nightly/quick.json") else {}
     summaries = [(f, json.load(open(f))) for f in sorted(glob.glob("results/qa/tracktest*/summary.json"))]
-    lines = build_lines(d, q, summaries)
+    lines = build_lines(d, q, summaries, stale_summaries(summaries))
     row = compare_row(d, lines)
     if row: lines.insert(4, row)
     t = q.get("tests", {}); b = q.get("ball_34_moments", {}); s = q.get("stats_pro_data", {})

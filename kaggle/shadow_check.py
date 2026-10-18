@@ -2,7 +2,7 @@
 # pipeline (conf 0.3) vs conf 0.15 vs conf 0.3 on a gamma-lifted frame (shadow brightened). Boxes drawn, one sheet per frame.
 import os, sys, json, subprocess, cv2, numpy as np
 R2 = "{{R2}}".rstrip("/"); W = "/kaggle/working"; T = "/kaggle/temp"
-subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True); subprocess.run('pip install -q "rfdetr==1.11.0" supervision', shell=True)
+subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True); subprocess.run('pip install -q "rfdetr==1.11.0" "supervision>=0.29,<0.31"', shell=True)
 sys.path.insert(0, f"{T}/ia"); os.environ["IPANEMA_DETECTOR"] = "rfdetr"
 from ipanema import tracking as TR
 det = TR.RFDetrPerson("medium"); cap = cv2.VideoCapture(f"{R2}/p15u-vs-aik-2026-09-21-bd09/video.mp4"); fps = cap.get(5)

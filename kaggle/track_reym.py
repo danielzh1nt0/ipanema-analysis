@@ -4,7 +4,7 @@ def sh(c): print("+", c, flush=True); r = subprocess.run(c, shell=True, capture_
 t0 = time.time()
 sh("nvidia-smi --query-gpu=name --format=csv; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'")
 sh("git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia")
-sh("pip install -q rfdetr==1.11.0 supervision")
+sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31'")
 sh("python -c 'import torch;print(\"after install\", torch.__version__, torch.cuda.is_available())'")
 M = "p15u-vs-reymersholm-2026-09-18"
 env = dict(os.environ, MATCH=M, START_S="1500", DUR_S="300", SKIP_INSTALL="1", SAVE_ALL_ROWS="1", DETECTORS="rfdetr",

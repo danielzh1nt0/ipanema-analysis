@@ -134,6 +134,15 @@ def _batched_frames(video, model, conf, tiles, imgsz, batch=8):
         if len(buf) >= batch: yield from flush()
     yield from flush()
 
+def bytetrack(fps):
+    """supervision's ByteTrack. 18 Oct: supervision 0.31 removed it (the nightly player checks failed on 17-18 Oct);
+    pin "supervision>=0.29,<0.31" wherever it is installed."""
+    import supervision as sv
+    if not hasattr(sv, "ByteTrack"):
+        raise RuntimeError(f"supervision {getattr(sv, '__version__', '?')} has no ByteTrack (removed in 0.31) - install 'supervision>=0.29,<0.31'")
+    return sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+
+
 def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None, imgsz=None, pano=None):
     pano = (tiles is not None or imgsz is not None) if pano is None else pano       # panorama clips: kit colours, team check every 5th frame
     import supervision as sv
@@ -151,7 +160,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
             log("tracking: BoT-SORT with camera-motion compensation")
         except Exception as e: log(f"tracking: BoT-SORT unavailable ({e!r}); using ByteTrack"); tracker = None
     if tracker is None:
-        tracker = sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)
+        tracker = bytetrack(fps)
     votes = {}; per = {}
     import time as _time
     prof = {"read": 0.0, "detect": 0.0, "tracker": 0.0, "team": 0.0, "rest": 0.0}; t_mark = _time.time(); t_start = t_mark

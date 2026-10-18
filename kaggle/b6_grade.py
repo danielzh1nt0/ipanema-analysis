@@ -4,7 +4,7 @@
 # at-feet retrain. Also WASB alone and the fused list (as the app picks from) when the WASB weights are on R2.
 import os, sys, json, subprocess, urllib.request, cv2, numpy as np
 R2 = "{{R2}}".rstrip("/"); W = "/kaggle/working"; T = "/kaggle/temp"
-subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True); subprocess.run('pip install -q "rfdetr==1.11.0" supervision', shell=True)
+subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True); subprocess.run('pip install -q "rfdetr==1.11.0" "supervision>=0.29,<0.31"', shell=True)
 sys.path.insert(0, f"{T}/ia"); from ipanema import ballrf as BR
 D = json.load(open(f"{T}/ia/results/review/b6/moments.json")); K = {int(k): v for k, v in json.load(open(f"{T}/ia/results/review/b6/ball_gt.json")).items()}
 cap = cv2.VideoCapture(f"{R2}/{D['src_key']}"); fps = cap.get(5); off = int(round(D["offset_s"] * fps)); frames = {}

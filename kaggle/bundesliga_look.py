@@ -4,7 +4,7 @@
 import os, sys, json, subprocess, cv2, numpy as np
 W = "/kaggle/working"; T = "/kaggle/temp"
 subprocess.run(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {T}/ia", shell=True)
-subprocess.run('pip install -q "rfdetr==1.11.0" supervision gdown', shell=True)
+subprocess.run('pip install -q "rfdetr==1.11.0" "supervision>=0.29,<0.31" gdown', shell=True)
 sys.path.insert(0, f"{T}/ia"); os.environ["IPANEMA_DETECTOR"] = "rfdetr"
 from ipanema import tracking as TR, ballrf as BR
 CLIPS = {"bundesliga1": "1aQs8FTVbZm7ewmDzvaq658d1CdV5k9dR", "bundesliga2": "1_WwMUPtx7yw5jx5pZhn-6KeU8eiPNsJC"}

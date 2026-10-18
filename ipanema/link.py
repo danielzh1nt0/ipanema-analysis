@@ -19,7 +19,8 @@ def match(fc, pano, fc_mask=None, pano_mask=None, ratio=0.75):
     fl = cv2.FlannBasedMatcher(dict(algorithm=1, trees=4), dict(checks=64))
     pairs = fl.knnMatch(da.astype(np.float32), db.astype(np.float32), k=2)
     good = [p[0] for p in pairs if len(p) == 2 and p[0].distance < ratio * p[1].distance]
-    return np.float32([a[g.queryIdx] for g in good]), np.float32([b[g.trainIdx] for g in good])
+    return (np.float32([a[g.queryIdx] for g in good]).reshape(-1, 2),       # (0, 2) when nothing passes the ratio test
+            np.float32([b[g.trainIdx] for g in good]).reshape(-1, 2))
 
 def fc_to_metres(fc, pano, cam, L, W, margin=3.0, ransac_m=0.6, pano_mask=None, fc_mask=None):
     """follow-cam frame -> (H mapping follow-cam pixels to pitch metres, info) using the same-moment panorama frame"""

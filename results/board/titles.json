@@ -64,5 +64,6 @@
  "C3d": "Find wrong trusted camera seconds",
  "D3": "Spånga in the demo (closed: no)",
  "D4": "Bundesliga clip in the app",
- "D5": "Delete old matches from the app"
+ "D5": "Delete old matches from the app",
+ "N0-18a": "Nightly player checks broken by a library update (fixed)"
 }
