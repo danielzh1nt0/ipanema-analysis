@@ -43,9 +43,13 @@ def solve_base(masks, ref_camera, log=print, coarse_frames=12, L=106.0, W=64.0):
         if c < best[0]: best = (c, C, pp)
         if log and i % 25 == 24: log(f"  base search {i + 1}/{len(cands)}: best so far {np.round(best[1], 1)} cost {best[0]:.3f}")
     scores.sort(key=lambda s: s[0]); C0 = best[1]
-    if log: log(f"  coarse best base {np.round(C0, 2)} (cost {best[0]:.3f}); runner-up {np.round(scores[1][1], 2)} (cost {scores[1][0]:.3f})")
+    if C0 is None:                         # 19 Oct: no frame placed under any base (was a TypeError after the line model ran)
+        return _kept(ref_camera, masks, f"no frame could be placed ({n_ref}/{len(sub)} under the reference base)", log)
+    ru = scores[1] if len(scores) > 1 else scores[0]
+    if log: log(f"  coarse best base {np.round(C0, 2)} (cost {best[0]:.3f}); runner-up {np.round(ru[1], 2)} (cost {ru[0]:.3f})")
     # all frames: cold fit under C0, then continuous refine of the base (x, y, z, tilt) with local per-frame refits
     _, poses, _ = _cost_of_base(masks, C0, keep=6); idx = [i for i, p in enumerate(poses) if p is not None]; cur = {i: poses[i] for i in idx}
+    if not idx: return _kept(ref_camera, masks, "no frame could be placed under the coarse best base", log)
     def total(x):
         camx = {"C": [float(v) for v in x[:3]], "base_tilt": [float(v) for v in x[3:5]]}; s = 0.0
         for i in idx:
@@ -59,9 +63,15 @@ def solve_base(masks, ref_camera, log=print, coarse_frames=12, L=106.0, W=64.0):
     out_poses = [None] * len(masks)
     for i in idx: out_poses[i] = [float(v) for v in cur[i]]
     rep = {"coarse_best": [round(float(v), 2) for v in C0], "coarse_cost": round(float(best[0]), 3), "refined_cost": round(float(r.fun), 3), "refine_evals": int(r.nfev),
-           "base": camera, "frames_used": len(idx), "of": len(masks), "runner_up": [round(float(v), 2) for v in scores[1][1]], "runner_up_cost": round(float(scores[1][0]), 3)}
+           "base": camera, "frames_used": len(idx), "of": len(masks), "runner_up": [round(float(v), 2) for v in ru[1]], "runner_up_cost": round(float(ru[0]), 3)}
     if log: log(f"  refined base {np.round(camera['C'], 2)} tilt {np.round(np.degrees(camera['base_tilt']), 2)} deg, cost {best[0]:.3f} -> {r.fun:.3f} on {len(idx)}/{len(masks)} frames")
     return camera, out_poses, rep
+
+def _kept(ref_camera, masks, why, log):
+    """nothing to solve from: hand back the reference base unchanged (venue_base's held-out test then rejects it)"""
+    if log: log(f"  venue base not solved: {why}; reference base kept")
+    cam = {"C": [float(v) for v in ref_camera["C"]], "base_tilt": [float(v) for v in ref_camera["base_tilt"]]}
+    return cam, [None] * len(masks), {"error": why, "base": cam, "frames_used": 0, "of": len(masks)}
 
 def heldout_check(masks, camera_new, camera_ref, log=print):
     """A/B halves: how well each base explains frames it did not see (cost per frame, lower is better)"""
@@ -78,6 +88,7 @@ def strip(frames, masks, camera, poses, out_path=None, n=20):
         if poses[i] is not None: o = LN.draw_pose(o, camera, poses[i], thick=2)
         cv2.putText(o, f"#{i}" + ("" if poses[i] is not None else " no pose"), (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 0), 4); cv2.putText(o, f"#{i}" + ("" if poses[i] is not None else " no pose"), (8, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
         tiles.append(o)
+    if not tiles: tiles = [np.zeros((360, 640, 3), np.uint8)]                  # 19 Oct: no frames -> one black row, not a crash
     rows = [np.hstack(tiles[k:k + 2] + [np.zeros((360, 640, 3), np.uint8)] * (2 - len(tiles[k:k + 2]))) for k in range(0, len(tiles), 2)]
     sheet = np.vstack(rows)
     if out_path: cv2.imwrite(out_path, sheet, [cv2.IMWRITE_JPEG_QUALITY, 80])

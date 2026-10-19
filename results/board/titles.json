@@ -68,5 +68,6 @@
  "N0-18a": "Nightly player checks broken by a library update (fixed)",
  "N0-18b": "Sprints lost at track gaps (fixed) + tests for shots and sprints",
  "N0-18c": "Nightly test count hid failing tests (fixed)",
- "N0-18d": "Coach corrections lost after a re-run (fixed) + tests"
+ "N0-18d": "Coach corrections lost after a re-run (fixed) + tests",
+ "N0-19a": "New-ground camera base: crash fixed + tested"
 }
