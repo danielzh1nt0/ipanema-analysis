@@ -1,2 +1,2 @@
-tools/poss_sample_sheet.py results/kaggle/full_match_vjoin5 p15u-vs-vallentuna-2026-10-03-6cce 150 11
-# Sat Oct 17 09:41:16 CEST 2026 150 random in-play Vallentuna frames for a blind by-eye possession share
+tools/n0_19e_sheet.py
+# Mon Oct 19 2026 16:50 UTC: blind A/B sheets, old vs new RF-DETR + WASB fusion picks on the SFK-BP clip (N0-19e)
