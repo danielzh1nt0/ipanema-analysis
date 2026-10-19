@@ -119,3 +119,55 @@ def test_export_writes_the_review(tmp_path):
              {"ball_grade": None, "ball_reliable": False}, log=lambda *a: None, copy_video=False, make_zip=False)
     st = json.load(open(tmp_path / "matches" / "m1" / "stats.json")); sm = json.load(open(tmp_path / "matches" / "m1" / "summary.json"))
     assert st["review"]["needs_review"] == ["keepers"] and sm["review"]["needs_review"] == ["keepers"]
+
+
+# N0 19 Oct: is the folder one whole export? (repo copy of SFKBP1109 mixed frame files from older exports)
+def _write_export(tmp, frames, chunks_on_disk, saved_review=True, per_file=50):
+    import os
+    d = tmp / "m"; d.mkdir()
+    keys = []
+    for i in range(0, len(frames), per_file):
+        part = frames[i:i + per_file]; k = f"frames_{i // per_file:03d}"
+        keys.append({"key": k, "t_start": part[0]["t"], "t_end": part[-1]["t"]})
+        if k in chunks_on_disk(k, part): json.dump({"frames": chunks_on_disk(k, part)[k]}, open(d / f"{k}.json", "w"))
+    md = dict(_md(), frame_chunks=keys, match_id="m")
+    st = _stats()
+    if saved_review: st["review"] = UC.run_checks(md, st, frames)
+    json.dump(md, open(d / "match_data.json", "w")); json.dump(st, open(d / "stats.json", "w"))
+    return str(d)
+
+
+def test_whole_copy_is_one_export(tmp_path):
+    fr = _frames(n=200)
+    d = _write_export(tmp_path, fr, lambda k, part: {k: part})
+    rep = UC.check_export(d, str(tmp_path))
+    assert rep["copy"]["ok"] and rep["copy"]["differs"] == [] and "COPY NOT" not in UC.text(rep)
+
+
+def test_frames_from_another_export_are_caught(tmp_path):
+    fr = _frames(n=200); old = _frames(n=200, gk_a=3)                # an older export: 3 'keepers' in team A
+    d = _write_export(tmp_path, fr, lambda k, part: {k: (old[50:100] if k == "frames_001" else part)})
+    rep = UC.check_export(d, str(tmp_path))
+    assert not rep["copy"]["ok"] and "keepers" in rep["copy"]["differs"]
+    assert "COPY NOT ONE EXPORT" in UC.text(rep)
+
+
+def test_missing_frame_file_inside_the_match_is_caught(tmp_path):
+    fr = _frames(n=200)
+    d = _write_export(tmp_path, fr, lambda k, part: {} if k == "frames_002" else {k: part})
+    rep = UC.check_export(d, str(tmp_path))
+    assert not rep["copy"]["ok"] and rep["copy"]["missing_in_play"] == ["frames_002"]
+
+
+def test_missing_file_outside_the_periods_is_fine(tmp_path):
+    fr = _frames(n=200, t0=0.0, dt=10.0)                             # t 0..1990 s, periods end at 1000 s
+    d = _write_export(tmp_path, fr, lambda k, part: {} if k == "frames_003" else {k: part})
+    rep = UC.check_export(d, str(tmp_path))
+    assert rep["copy"]["missing"] == ["frames_003"] and rep["copy"]["missing_in_play"] == []
+
+
+def test_old_export_without_saved_review_is_not_flagged(tmp_path):
+    fr = _frames(n=100)
+    d = _write_export(tmp_path, fr, lambda k, part: {k: part}, saved_review=False)
+    rep = UC.check_export(d, str(tmp_path))
+    assert rep["copy"]["ok"] and rep["copy"]["saved_review"] is False

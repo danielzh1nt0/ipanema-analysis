@@ -197,16 +197,44 @@ def safe_run(md, stats, frames, match_id, root=REPO, log=print):
         log(f"  upload checks failed: {e!r}"); return None
 
 
+def copy_check(match_dir, md, st, rep):
+    """is this folder ONE whole export? (N0 19 Oct: the repo copy of SFKBP1109 holds frame files fetched from older exports than its
+    stats.json - re-checking it said 18% of frames have 2+ keepers, the export itself had 0%). Returns {"ok", "missing", "differs"}:
+    missing = frame files listed in match_data.frame_chunks but not in the folder (missing_in_play: those overlapping the periods); differs = checks whose numbers no longer match the
+    review stats.json saved at export time for the frame-only checks (players, keepers, ball; same frames -> same numbers, so any difference means the files are from another export)."""
+    have = {os.path.splitext(os.path.basename(p))[0] for p in glob.glob(os.path.join(match_dir, "frames_*.json"))}
+    missing = [c["key"] for c in (md.get("frame_chunks") or []) if c.get("key", "").startswith("frames_") and c["key"] not in have
+               and c["key"] != "frames_lite"]
+    periods = md.get("periods") or []
+    span = {c["key"]: (c.get("t_start", 0.0), c.get("t_end", 1e12)) for c in (md.get("frame_chunks") or []) if "key" in c}
+    in_play = [k for k in missing if not periods or any(span[k][0] <= p["t_end"] and span[k][1] >= p["t_start"] for p in periods)]
+    saved = {r["name"]: r for r in ((st.get("review") or {}).get("checks") or [])}
+    differs = []
+    if saved and not in_play:                       # files missing inside the periods change every number; else compare
+        for r in rep["checks"]:                     # frame-only checks: the by-eye keys and shot list can change after an export
+            if r["name"] not in ("players", "keepers", "ball"): continue
+            s = saved.get(r["name"])
+            if s is not None and s.get("value") is not None and s.get("value") != r["value"]: differs.append(r["name"])
+    return {"ok": not in_play and not differs, "missing": missing, "missing_in_play": in_play, "differs": differs, "saved_review": bool(saved)}
+
+
 def check_export(match_dir, root=".", match_id=None):
     md, st, frames = load_export(match_dir)
     mid = match_id or md.get("match_id") or os.path.basename(match_dir.rstrip("/"))
     rep = run_checks(md, st, frames, load_owner_key(root, mid))
     rep["match_id"] = mid; rep["frames_checked"] = len(frames)
+    rep["copy"] = copy_check(match_dir, md, st, rep)
     return rep
 
 
 def text(rep):
     out = [f"{rep.get('match_id', '')}: needs review -> {', '.join(rep['needs_review']) or 'nothing'}"]
+    cp = rep.get("copy")
+    if cp and not cp["ok"]:
+        why = []
+        if cp["missing_in_play"]: why.append(f"frame files missing inside the match periods: {', '.join(cp['missing_in_play'])}")
+        if cp["differs"]: why.append(f"frame files are from another export than stats.json ({', '.join(cp['differs'])} differ from the export's own check)")
+        out.append("  COPY NOT ONE EXPORT - numbers below are not the app's: " + "; ".join(why))
     for r in rep["checks"]:
         out.append(f"  {'OK  ' if r['ok'] else ('??  ' if r['ok'] is None else 'FLAG')} {r['name']}: {r['detail']}")
     return "\n".join(out)
