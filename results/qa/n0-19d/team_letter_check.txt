@@ -1,0 +1,5 @@
+export: results/volume/runs/matches/SFKBP1109_s1200/match_data.json (its label: {'light': 'A', 'dark': 'B'})
+key: results/review/who_answers.json, moments with a clear kit: 58
+A=dark: right 33, wrong 6, no team called 19
+A=light: right 6, wrong 33, no team called 19
+-> the data says A=dark

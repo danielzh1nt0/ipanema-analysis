@@ -9,6 +9,12 @@ def _json_default(o):
     if isinstance(o, np.ndarray): return o.tolist()
     return str(o)
 
+# N0 19 Oct: which letter is which kit. The pipeline names the DARKER kit "A" (kits.KitTeamModel, teams.TeamModel,
+# tracking.kit_labels; SFK is A in all three app matches) but the export wrote {"light": "A", "dark": "B"}, the
+# wrong way round. Checked on the repo's SFK-BP clip against the by-eye who-has-the-ball key: A = dark gives 33 right /
+# 6 wrong, A = light 6 / 33 (results/qa/n0-19d).
+TEAM_KITS = {"dark": "A", "light": "B"}
+
 PRESS_R = 2.0            # 3 Oct: 'pressed' = an opponent within 2 m of the ball carrier (same rule as time_to_press / pressed_within_2s)
 
 # 3 Oct (Daniel: 'I saw a free kick when there was no free kick'): every event carries a tier so the app lists only what is
@@ -88,7 +94,7 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
         ev = sorted(ev + extra_events(stats_['metrics']), key=lambda x: x['t'])
     ev = tier_events(ev)
     md = {"schema_version": SCHEMA_VERSION, "match_id": match_id, "video": os.path.basename(video), "fps": fps, "width": vinfo["width"], "height": vinfo["height"], "pitch": {"length": L, "width": W}, "camera": (H[0].as_dict() if hasattr(H.get(0) if isinstance(H, dict) else None, "as_dict") else None),
-          "teams": {"light": "A", "dark": "B"}, "periods": ([dict(p, attack_right=attack_right, confidence=conf) for p in periods] if periods else [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}]),
+          "teams": dict(TEAM_KITS), "periods": ([dict(p, attack_right=attack_right, confidence=conf) for p in periods] if periods else [{"index": 1, "t_start": 0.0, "t_end": round(n / fps, 2), "attack_right": attack_right, "confidence": conf}]),
           "attack_right": attack_right, "attack_right_confidence": conf, "kits": {"A": "kit_A.png", "B": "kit_B.png"}, "contract": "1.1", "frames": frames_out, "events": ev,
           "turnovers": turnovers_, "sequences": sequences_, "restarts": restarts_}
     import tempfile

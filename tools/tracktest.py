@@ -53,7 +53,7 @@ def metrics(rows_by_k, dark_label):
     tl = {t: [len(v) / fps for (i, tt), v in ids.items() if tt == t] for t in ("dark", "light")}
     return {"observed_per_frame": obs, "shown_per_frame": allr, "tracks": len(ids), "median_track_s": {t: round(float(np.median(v)), 2) if v else None for t, v in tl.items()}}
 if SFK:
-    md = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/match_data.json")); prior_dark = md["teams"]["dark"]
+    md = json.load(open("results/volume/runs/matches/SFKBP1109_s1200/match_data.json")); prior_dark = "A"   # N0 19 Oct: A = darker kit; the file says "dark": "B" (old export label, wrong way round)
     ROWS["before (app, 27 Sep)"] = ({k - k0: [(p["id"], p["team"], p["px"], False) for p in md["frames"][k]["players"]] for k in range(k0, k0 + n)}, prior_dark)
     rep["before (app, 27 Sep)"] = metrics(*ROWS["before (app, 27 Sep)"]); log(f"before: {rep['before (app, 27 Sep)']}")
 c = cv2.VideoCapture(piece)
