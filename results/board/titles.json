@@ -72,5 +72,6 @@
  "N0-19a": "New-ground camera base: crash fixed + tested",
  "N0-19b": "Clips ignored the by-eye attack direction (fixed)",
  "N0-19c": "Repo copy of SFK-BP is a mix of exports (checker now warns)",
- "N0-19d": "Export named the kits the wrong way round (fixed) + lanes/shapes tests"
+ "N0-19d": "Export named the kits the wrong way round (fixed) + lanes/shapes tests",
+ "N0-19e": "Ball guesses from two finders joined to the nearest one (tested, stays off)"
 }
