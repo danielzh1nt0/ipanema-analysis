@@ -187,13 +187,26 @@ def _ball_gt(S, match_id):
 def periods_direction(root, match_id):
     """4 Oct: which way the dark team (A) attacks in the first period, checked by eye from a goal (who celebrates / who kicks
     off) and written in periods/<match>.json as "attack_right_A". The automatic guess is near a coin flip on our clips
-    (confidence 0.01-0.10) and gave SFK-BP's first-half goal to BP. Later periods are mirrored, so one value covers the match."""
+    (confidence 0.01-0.10) and gave SFK-BP's first-half goal to BP. Later periods are mirrored, so one value covers the match.
+    19 Oct: a clip cut from a match (<match>_s<start>[_d<dur>], e.g. the app's SFKBP1109_s1200) found no file and fell back
+    to the coin-flip guess. Now it reads the match's file; clips are NOT mirrored, so a clip whose middle lies in the second
+    (fourth, ...) period gets the opposite value. Without the match's periods_s a clip can't be placed -> None."""
+    import re
     here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    for p in (os.path.join(root, "periods", f"{match_id}.json"), os.path.join(here, "periods", f"{match_id}.json")):
-        if os.path.exists(p):
-            v = json.load(open(p)).get("attack_right_A")
-            if v is not None: return bool(v)
-    return None
+    def _read(mid):
+        for p in (os.path.join(root, "periods", f"{mid}.json"), os.path.join(here, "periods", f"{mid}.json")):
+            if os.path.exists(p): return json.load(open(p))
+        return None
+    d = _read(match_id)
+    if d is not None and d.get("attack_right_A") is not None: return bool(d["attack_right_A"])
+    m = re.match(r"^(.+)_s(\d+(?:\.\d+)?)(?:_d(\d+(?:\.\d+)?))?$", match_id)
+    if not m: return None
+    d = _read(m.group(1))
+    if d is None or d.get("attack_right_A") is None or not d.get("periods_s"): return None
+    mid_t = float(m.group(2)) + float(m.group(3) or 300) / 2
+    spans = [(float(a), float(b)) for a, b in d["periods_s"]]
+    i = min(range(len(spans)), key=lambda j: 0.0 if spans[j][0] <= mid_t <= spans[j][1] else min(abs(mid_t - spans[j][0]), abs(mid_t - spans[j][1])))
+    return bool(d["attack_right_A"]) if i % 2 == 0 else not bool(d["attack_right_A"])
 
 def veo_in_window(t, duration_s, periods, slack_s=5.0):
     """3 Oct: a Veo shot/goal counts only inside the analysed video and (when periods are set) inside a period +- slack.
