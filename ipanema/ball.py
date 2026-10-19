@@ -495,15 +495,33 @@ def _viterbi_ghost(C, H, n, fps, conf_w, near_w, air_w, miss_cost, px_w, jump_px
     return ball
 
 
-def fuse_candidates(clicks, wasb, wy=1.5, wb=1.0, bonus=0.8, px=12):
+FUSE_NEAREST = os.environ.get("IPANEMA_FUSE_NEAREST", "0") == "1"   # N0 19 Oct: option, off until it scores better (results/qa/n0-19e)
+
+def fuse_candidates(clicks, wasb, wy=1.5, wb=1.0, bonus=0.8, px=12, nearest=None):
     """one guess list per frame from both detectors (27 Sep, graded on the clip's 34 checked moments: 26/34 with the v2
-    picker vs 21 WASB-only / 20 click-only). A guess both detectors agree on (within px) gets both scores plus a bonus."""
+    picker vs 21 WASB-only / 20 click-only). A guess both detectors agree on (within px) gets both scores plus a bonus.
+    N0 19 Oct: a WASB guess goes to the NEAREST finder guess within px (was: the first in the list), each finder guess
+    takes the bonus once (its strongest WASB guess; a second WASB guess on the same ball no longer adds score again),
+    and WASB guesses are only matched to finder guesses, never to each other. nearest=False = the old rule."""
+    nearest = FUSE_NEAREST if nearest is None else nearest
     out = {}
     for k in set(clicks) | set(wasb):
         cands = [[x, y, wy * c] for x, y, c in clicks.get(k, [])]
-        for x, y, s in wasb.get(k, []):
-            j = next((i for i, q in enumerate(cands) if np.hypot(q[0] - x, q[1] - y) <= px), None)
-            if j is not None: cands[j][2] += wb * s + bonus
-            else: cands.append([x, y, wb * s])
+        if not nearest:
+            for x, y, s in wasb.get(k, []):
+                j = next((i for i, q in enumerate(cands) if np.hypot(q[0] - x, q[1] - y) <= px), None)
+                if j is not None: cands[j][2] += wb * s + bonus
+                else: cands.append([x, y, wb * s])
+        else:
+            nf = len(cands); best = [None] * nf; extra = []
+            for x, y, s in wasb.get(k, []):
+                d = [np.hypot(cands[i][0] - x, cands[i][1] - y) for i in range(nf)]
+                j = int(np.argmin(d)) if nf else -1
+                if j >= 0 and d[j] <= px:
+                    if best[j] is None or s > best[j]: best[j] = s
+                else: extra.append([x, y, wb * s])
+            for j, s in enumerate(best):
+                if s is not None: cands[j][2] += wb * s + bonus
+            cands += extra
         out[k] = [(x, y, min(0.99, sc / 2.0)) for x, y, sc in cands]
     return out

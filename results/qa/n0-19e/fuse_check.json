@@ -1,0 +1,165 @@
+{
+ "app inputs (already fused, for reference)": {
+  "sfk34": 29,
+  "b4": 284,
+  "who99": 74,
+  "passes": 87,
+  "real_kept": 20,
+  "fake_kept": 8,
+  "turnovers": 20
+ },
+ "ballfinder_feet/new": {
+  "old": {
+   "sfk34": 30,
+   "b4": 281,
+   "who99": 73,
+   "passes": 82,
+   "real_kept": 17,
+   "fake_kept": 5,
+   "turnovers": 24
+  },
+  "new": {
+   "sfk34": 30,
+   "b4": 281,
+   "who99": 73,
+   "passes": 84,
+   "real_kept": 17,
+   "fake_kept": 5,
+   "turnovers": 24
+  },
+  "frames_changed": 297,
+  "frames": 8992
+ },
+ "ballfinder_feet/old": {
+  "old": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 81,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 23
+  },
+  "new": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 84,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 22
+  },
+  "frames_changed": 374,
+  "frames": 8992
+ },
+ "ballfinder_neg/new": {
+  "old": {
+   "sfk34": 28,
+   "b4": 281,
+   "who99": 75,
+   "passes": 80,
+   "real_kept": 13,
+   "fake_kept": 3,
+   "turnovers": 17
+  },
+  "new": {
+   "sfk34": 29,
+   "b4": 282,
+   "who99": 74,
+   "passes": 80,
+   "real_kept": 14,
+   "fake_kept": 3,
+   "turnovers": 18
+  },
+  "frames_changed": 377,
+  "frames": 8992
+ },
+ "ballfinder_neg/old": {
+  "old": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 81,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 23
+  },
+  "new": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 84,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 22
+  },
+  "frames_changed": 374,
+  "frames": 8992
+ },
+ "ballfinder_paste/new": {
+  "old": {
+   "sfk34": 26,
+   "b4": 282,
+   "who99": 72,
+   "passes": 91,
+   "real_kept": 13,
+   "fake_kept": 3,
+   "turnovers": 18
+  },
+  "new": {
+   "sfk34": 26,
+   "b4": 282,
+   "who99": 72,
+   "passes": 96,
+   "real_kept": 15,
+   "fake_kept": 3,
+   "turnovers": 19
+  },
+  "frames_changed": 244,
+  "frames": 8992
+ },
+ "ballfinder_paste/old": {
+  "old": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 81,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 23
+  },
+  "new": {
+   "sfk34": 29,
+   "b4": 284,
+   "who99": 72,
+   "passes": 84,
+   "real_kept": 15,
+   "fake_kept": 4,
+   "turnovers": 22
+  },
+  "frames_changed": 374,
+  "frames": 8992
+ },
+ "clicks_round_20260928": {
+  "old": {
+   "sfk34": 24,
+   "b4": 271,
+   "who99": 77,
+   "passes": 146,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "turnovers": 14
+  },
+  "new": {
+   "sfk34": 24,
+   "b4": 271,
+   "who99": 77,
+   "passes": 146,
+   "real_kept": 12,
+   "fake_kept": 3,
+   "turnovers": 14
+  },
+  "frames_changed": 4,
+  "frames": 8992
+ }
+}
