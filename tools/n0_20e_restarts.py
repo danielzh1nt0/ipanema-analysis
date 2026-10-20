@@ -37,7 +37,7 @@ def main():
             rows.append({"t": a["t"], "team": a["team"], "old": [a["kind"], a["x_m"], a["y_m"]], "new": [b["kind"], b["x_m"], b["y_m"]], "moved_m": d})
             mid = f"{'sfk' if clip.startswith('SFK') else 'aik'}{i:02d}"; k_end = int(round(a["t"] * fps))
             tiles = []
-            for dt in np.arange(-2.0, 2.51, 0.5):
+            for dt in np.arange(-4.0, 3.01, 0.5):
                 k = int(round(k_end + dt * fps))
                 if k < 0 or k >= len(per): continue
                 tiles.append({"frame": k, "t": round(k / fps, 1), "dt": round(float(dt), 1)})

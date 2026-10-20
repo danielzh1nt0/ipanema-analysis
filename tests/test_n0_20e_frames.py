@@ -29,4 +29,18 @@ def test_moments_file_blind_and_complete():
     assert {K[i]["spot1"] for i in ids} == {"old", "new"}                 # both orders used
     for m in M["moments"]:
         assert "old" not in json.dumps(m) and "new" not in json.dumps(m)   # nothing on the sheet says which window
-        assert all(len(t["spot_px"]) == 2 for t in m["tiles"]) and len(m["tiles"]) == 10
+        assert all(len(t["spot_px"]) == 2 for t in m["tiles"]) and len(m["tiles"]) == 15
+
+
+def test_zoom_crops_around_spots(tmp_path):
+    w = cv2.VideoWriter(str(tmp_path / "c.avi"), cv2.VideoWriter_fourcc(*"MJPG"), 10.0, (1920, 1080))
+    for k in range(20): w.write(np.full((1080, 1920, 3), 90, np.uint8))
+    w.release()
+    tiles = [{"t": 1.0, "dt": 0.0, "frame": 10, "ball_px": None, "spot_px": [[1500, 500], [1700, 500]]}]
+    json.dump({"clips": {"x": "x/video.mp4"}, "moments": [{"id": "z01", "clip": "x", "tiles": tiles}]}, open(tmp_path / "m.json", "w"))
+    env = dict(os.environ, LOCAL_CLIP=str(tmp_path / "c.avi"), N0_20E_OUT=str(tmp_path / "out"), N0_20E_MOMENTS=str(tmp_path / "m.json"))
+    subprocess.run([sys.executable, "tools/n0_20e_frames.py", "--zoom", "800"], check=True, env=env, capture_output=True)   # as on the trigger line
+    im = cv2.imread(str(tmp_path / "out" / "z01.jpg")).astype(int)
+    # crop x 1120..1920 (clamped at the right edge), y 275..725 -> 0.8 px per 1920-px unit
+    c = im[180, 304]; assert c[0] > 180 and c[1] > 180 and c[2] < 120   # spot 1 at (1500,500) -> (304, 180)
+    m = im[180, 464]; assert m[0] > 180 and m[2] > 180 and m[1] < 120   # spot 2 at (1700,500) -> (464, 180)
