@@ -1,2 +1,2 @@
-tools/n0_20b_frames.py
-# Tue Oct 20 2026 UTC: SFK-BP test clip, picture sheets at each candidate final-third entry (N0-20b) - free runner only
+tools/n0_20e_frames.py
+# Tue Oct 20 2026 UTC: SFK-BP + AIK test clips, picture sheets at each detected restart, two candidate spots (N0-20e) - free runner only
