@@ -254,7 +254,9 @@ def clean_ball(ballm, L, W, max_out=6.0):
     fence, the trees); it was turning the ball 'dead' and inventing set pieces (31 on a clip where Veo lists 6)"""
     return {k: v for k, v in ballm.items() if max(-v[0], v[0] - L, -v[1], v[1] - W, 0.0) <= max_out}
 
-def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0):
+RESTART_SPOT = os.environ.get("IPANEMA_RESTART_SPOT", "after")
+
+def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, spot=None):
     """a stoppage = dead runs joined across gaps up to join_gap_s, lasting min_s (27 Sep: 0.8 s let every flicker count).
     S5 (2 Oct): 1.5 s / 2 s split one stoppage into 2-5 (SFK-BP clip 13 restarts, Veo lists 7; full match 168 vs Veo 80);
     3 s / 3 s gives 7 on the clip. The spot is the median ball position over the stoppage's last second (one wrong pick
@@ -270,7 +272,8 @@ def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0):
                 if nxt is None: break
                 j = nxt
             if (j - k + 1) / fps >= min_s:
-                pts = [ballm[q] for q in range(max(k, j - int(1.0 * fps)), min(n, j + int(1.5 * fps))) if q in ballm]
+                pts = [ballm[q] for q in _spot_frames(k, j, n, fps, spot or RESTART_SPOT) if q in ballm]
+                if not pts: pts = [ballm[q] for q in _spot_frames(k, j, n, fps, "after") if q in ballm]   # N0-20e: ball unseen in the last second
                 bm = tuple(np.median(np.array(pts, float), axis=0)) if pts else None
                 team_after = next((STATES[state[q]] for q in range(j + 1, min(n, j + int(3 * fps))) if state[q] < 2), None); kind = "unknown"
                 if bm is not None:
@@ -280,6 +283,13 @@ def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0):
             k = j + 1
         else: k += 1
     return out
+
+def _spot_frames(k, j, n, fps, spot):
+    """frames whose ball positions give a stoppage's spot (stoppage = dead frames k..j).
+    'after' (old): its last second AND 1.5 s after it ended - 45 of the 75 frames come after the restart, ball already moving.
+    'last1': the stoppage's own last second only; when the ball is seen on none of them, restarts() falls back to 'after'."""
+    if spot == "last1": return range(max(k, j - int(1.0 * fps)), j + 1)
+    return range(max(k, j - int(1.0 * fps)), min(n, j + int(1.5 * fps)))
 
 def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
     n = len(per); poss = [STATES[s] if s < 2 else None for s in state]; out = []; last = None

@@ -1,0 +1,153 @@
+{
+ "SFKBP1109_s1200": {
+  "restarts": 7,
+  "kind_changed": 2,
+  "moved_m_median": 6.4,
+  "kinds_old": {
+   "throw-in": 5,
+   "goal kick": 1,
+   "stoppage": 1
+  },
+  "kinds_new": {
+   "throw-in": 3,
+   "corner": 1,
+   "stoppage": 2,
+   "goal kick": 1
+  },
+  "rows": [
+   {
+    "t": 6.51,
+    "team": null,
+    "old": [
+     "throw-in",
+     75.5,
+     2.4
+    ],
+    "new": [
+     "throw-in",
+     93.9,
+     -2.2
+    ],
+    "moved_m": 19.0
+   },
+   {
+    "t": 161.19,
+    "team": null,
+    "old": [
+     "throw-in",
+     3.6,
+     2.6
+    ],
+    "new": [
+     "corner",
+     -2.6,
+     -1.6
+    ],
+    "moved_m": 7.5
+   },
+   {
+    "t": 179.41,
+    "team": null,
+    "old": [
+     "throw-in",
+     23.8,
+     1.7
+    ],
+    "new": [
+     "stoppage",
+     25.4,
+     3.4
+    ],
+    "moved_m": 2.3
+   },
+   {
+    "t": 196.4,
+    "team": null,
+    "old": [
+     "throw-in",
+     41.8,
+     2.3
+    ],
+    "new": [
+     "throw-in",
+     38.1,
+     -0.6
+    ],
+    "moved_m": 4.7
+   },
+   {
+    "t": 240.64,
+    "team": "B",
+    "old": [
+     "throw-in",
+     10.1,
+     1.0
+    ],
+    "new": [
+     "throw-in",
+     10.4,
+     -2.8
+    ],
+    "moved_m": 3.8
+   },
+   {
+    "t": 261.06,
+    "team": "A",
+    "old": [
+     "goal kick",
+     1.8,
+     31.4
+    ],
+    "new": [
+     "goal kick",
+     -4.3,
+     29.4
+    ],
+    "moved_m": 6.4
+   },
+   {
+    "t": 280.28,
+    "team": null,
+    "old": [
+     "stoppage",
+     48.6,
+     23.6
+    ],
+    "new": [
+     "stoppage",
+     47.3,
+     17.1
+    ],
+    "moved_m": 6.6
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "restarts": 1,
+  "kind_changed": 0,
+  "moved_m_median": 5.9,
+  "kinds_old": {
+   "stoppage": 1
+  },
+  "kinds_new": {
+   "stoppage": 1
+  },
+  "rows": [
+   {
+    "t": 176.64,
+    "team": null,
+    "old": [
+     "stoppage",
+     103.6,
+     12.7
+    ],
+    "new": [
+     "stoppage",
+     100.9,
+     18.0
+    ],
+    "moved_m": 5.9
+   }
+  ]
+ }
+}

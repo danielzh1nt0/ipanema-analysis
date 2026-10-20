@@ -1,0 +1,146 @@
+{
+ "sfk00": {
+  "spot1": "old",
+  "spot2": "new",
+  "old": {
+   "t": 6.51,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 75.5,
+   "y_m": 2.4
+  },
+  "new": {
+   "t": 6.51,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 93.9,
+   "y_m": -2.2
+  }
+ },
+ "sfk01": {
+  "spot1": "new",
+  "spot2": "old",
+  "old": {
+   "t": 161.19,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 3.6,
+   "y_m": 2.6
+  },
+  "new": {
+   "t": 161.19,
+   "kind": "corner",
+   "team": null,
+   "x_m": -2.6,
+   "y_m": -1.6
+  }
+ },
+ "sfk02": {
+  "spot1": "old",
+  "spot2": "new",
+  "old": {
+   "t": 179.41,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 23.8,
+   "y_m": 1.7
+  },
+  "new": {
+   "t": 179.41,
+   "kind": "stoppage",
+   "team": null,
+   "x_m": 25.4,
+   "y_m": 3.4
+  }
+ },
+ "sfk03": {
+  "spot1": "new",
+  "spot2": "old",
+  "old": {
+   "t": 196.4,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 41.8,
+   "y_m": 2.3
+  },
+  "new": {
+   "t": 196.4,
+   "kind": "throw-in",
+   "team": null,
+   "x_m": 38.1,
+   "y_m": -0.6
+  }
+ },
+ "sfk04": {
+  "spot1": "old",
+  "spot2": "new",
+  "old": {
+   "t": 240.64,
+   "kind": "throw-in",
+   "team": "B",
+   "x_m": 10.1,
+   "y_m": 1.0
+  },
+  "new": {
+   "t": 240.64,
+   "kind": "throw-in",
+   "team": "B",
+   "x_m": 10.4,
+   "y_m": -2.8
+  }
+ },
+ "sfk05": {
+  "spot1": "new",
+  "spot2": "old",
+  "old": {
+   "t": 261.06,
+   "kind": "goal kick",
+   "team": "A",
+   "x_m": 1.8,
+   "y_m": 31.4
+  },
+  "new": {
+   "t": 261.06,
+   "kind": "goal kick",
+   "team": "A",
+   "x_m": -4.3,
+   "y_m": 29.4
+  }
+ },
+ "sfk06": {
+  "spot1": "old",
+  "spot2": "new",
+  "old": {
+   "t": 280.28,
+   "kind": "stoppage",
+   "team": null,
+   "x_m": 48.6,
+   "y_m": 23.6
+  },
+  "new": {
+   "t": 280.28,
+   "kind": "stoppage",
+   "team": null,
+   "x_m": 47.3,
+   "y_m": 17.1
+  }
+ },
+ "aik00": {
+  "spot1": "new",
+  "spot2": "old",
+  "old": {
+   "t": 176.64,
+   "kind": "stoppage",
+   "team": null,
+   "x_m": 103.6,
+   "y_m": 12.7
+  },
+  "new": {
+   "t": 176.64,
+   "kind": "stoppage",
+   "team": null,
+   "x_m": 100.9,
+   "y_m": 18.0
+  }
+ }
+}
