@@ -4,6 +4,7 @@ import os, numpy as np
 from collections import defaultdict
 from .video import frames
 from .calibration import to_m
+from .vote import majority, team_vote
 
 
 # Veo panorama: players are small (about 20 px tall on the far side), so detect on zoomed tiles.
@@ -215,8 +216,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
                 if not v: continue
                 # 28 Sep (Spånga, striped kits under floodlights): a player's shirt reads 'neither team' in a third of the checks;
                 # only a track that reads 'neither' most of the time (referee, staff) is 'K', otherwise the majority of its team reads
-                ab = [x for x in v if x in ("A", "B")]
-                team = "K" if (v.count("K") >= K_SHARE * len(v) or not ab) and "K" in v else (max(set(ab), key=ab.count) if ab else max(set(v), key=v.count))
+                team = team_vote(v, K_SHARE)   # N0-20d: an A/B tie goes to the latest reading (was: set order = chance; by eye on ties 3/3 right)
                 if (labs[j] if labs[j] is not None else team) == "R": continue      # referee / bib: not a player
                 if v.count("R") >= 0.3 * len(v) and len(v) >= 3: continue           # 28 Sep: a track that is often the referee is the referee
                 rows.append([tid, team, m[j].astype(float), feet[j].astype(float), det.xyxy[j].astype(float), False])
@@ -309,7 +309,7 @@ def clean(per, L, W, fps, log=print, keepers_by_zone=True):
         for r in per[k]:
             if r[0] in keepers:
                 defend = left_team if keepers[r[0]] == "left" else right_team
-                kit = max(set(team_of[r[0]]), key=team_of[r[0]].count)
+                kit = majority(team_of[r[0]])
                 if kit == defend: r[5] = True
     # 28 Sep: a "neither team" track that lives in a penalty area is the keeper of that end (tracking test: keepers were removed
     # as staff); at most one per end, the one seen there most. The referee rarely stays in a box.

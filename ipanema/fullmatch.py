@@ -76,7 +76,8 @@ def team_segments(series, fps, seg=4):
     The value goes into overrides/<match>_teams.json and apply_team_override reads it."""
     sr = sorted(series); labs_ = [x[1] for x in sr]
     if len(sr) < 2 * seg: return None
-    sm = [max(set(labs_[max(0, i - 2):i + 3]), key=labs_[max(0, i - 2):i + 3].count) for i in range(len(labs_))]
+    from .vote import majority
+    sm = [majority(labs_[max(0, i - 2):i + 3], prefer=labs_[i]) for i in range(len(labs_))]   # N0-20d: a 2-2 window keeps the read itself (was: chance)
     segs = []; st = 0
     for i in range(1, len(sm) + 1):
         if i == len(sm) or sm[i] != sm[st]:

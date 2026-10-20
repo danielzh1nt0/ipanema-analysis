@@ -25,7 +25,8 @@ def _old_inline(series, fps, SEG=4):
     return None
 
 
-def test_same_as_the_inline_rule_on_random_tracks():
+def test_same_as_the_inline_rule_on_random_tracks(monkeypatch):
+    monkeypatch.setenv("IPANEMA_VOTE_TIE", "hash")                             # N0-20d: old tie-break (set order); default = the read itself
     rng = random.Random(17)
     for _ in range(2000):
         n = rng.randint(0, 40); p_switch = rng.choice([0.02, 0.1, 0.3]); t = rng.choice("AB"); f = rng.randint(0, 5000); s = []

@@ -1,6 +1,7 @@
 """Lanes, passes (quality + best option), shapes, player and team stats — all from tracking + possession."""
 import numpy as np, pandas as pd, cv2
 from collections import defaultdict
+from .vote import majority
 
 def _blocked(c, t, opps, lane_half):
     d = t - c; n2 = d @ d
@@ -181,7 +182,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
     team_of = {}
     for k in range(n):
         for r in per[k]: team_of.setdefault(r[0], []).append(r[1])
-    team_id = {t: max(set(team_of[t]), key=team_of[t].count) for t in ids}
+    team_id = {t: majority(team_of[t]) for t in ids}                       # N0-20d: tie -> the team it read last (was: chance)
     react = {}
     for tv in turnovers_:
         for cat, lst in tv.get("reactions", {}).items():

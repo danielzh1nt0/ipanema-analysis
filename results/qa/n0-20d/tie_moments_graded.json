@@ -1,0 +1,211 @@
+{
+ "cases": [
+  {
+   "dir": "results/qa/n1a/track/p15u-vs-spanga-2026-09-25_1159",
+   "k": 170,
+   "x": 801.0352783203125,
+   "y": 520.77001953125,
+   "tid": 8,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/n1a/track/p15u-vs-spanga-2026-09-25_1159",
+   "k": 256,
+   "x": 510.6292724609375,
+   "y": 547.200927734375,
+   "tid": 8,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/n1a/track/p15u-vs-spanga-2026-09-25_1159",
+   "k": 341,
+   "x": 151.46527099609375,
+   "y": 543.8643798828125,
+   "tid": 8,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/n1a/track/solberga-vs-p09-norrviken-2026-09-11_1500",
+   "k": 256,
+   "x": 1377.065185546875,
+   "y": 493.77142333984375,
+   "tid": 64,
+   "run": "B",
+   "latest": "A",
+   "keep": "B",
+   "eye": "A"
+  },
+  {
+   "dir": "results/qa/p1_track_spanga_off",
+   "k": 256,
+   "x": 1162.74169921875,
+   "y": 532.8641357421875,
+   "tid": 2,
+   "run": "B",
+   "latest": "A",
+   "keep": "A",
+   "eye": "A"
+  },
+  {
+   "dir": "results/qa/p1_track_spanga_off",
+   "k": 512,
+   "x": 1897.302734375,
+   "y": 455.2401428222656,
+   "tid": 55,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": null
+  },
+  {
+   "dir": "results/qa/p2/p15u-vs-spanga-2026-09-25_2576",
+   "k": 85,
+   "x": 817.67724609375,
+   "y": 485.6190490722656,
+   "tid": 14,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "A"
+  },
+  {
+   "dir": "results/qa/p2/solberga-vs-p09-norrviken-2026-09-11_4558",
+   "k": 341,
+   "x": 220.54116821289062,
+   "y": 508.84356689453125,
+   "tid": 92,
+   "run": "B",
+   "latest": "A",
+   "keep": "B",
+   "eye": null
+  },
+  {
+   "dir": "results/qa/p2/solberga-vs-p09-norrviken-2026-09-11_4558",
+   "k": 512,
+   "x": 962.5750122070312,
+   "y": 502.91766357421875,
+   "tid": 5,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": null
+  },
+  {
+   "dir": "results/qa/p2f/track/p15u-vs-reymersholm-2026-09-18_4227",
+   "k": 256,
+   "x": 37.75446319580078,
+   "y": 462.68243408203125,
+   "tid": 2,
+   "run": "A",
+   "latest": "A",
+   "keep": "B",
+   "eye": null
+  },
+  {
+   "dir": "results/qa/p2f/track/p15u-vs-reymersholm-2026-09-18_4227",
+   "k": 427,
+   "x": 311.46502685546875,
+   "y": 545.15234375,
+   "tid": 21,
+   "run": "B",
+   "latest": "A",
+   "keep": "B",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/p2f/track/p15u-vs-reymersholm-2026-09-18_4227",
+   "k": 512,
+   "x": 106.73986053466797,
+   "y": 554.1293334960938,
+   "tid": 21,
+   "run": "B",
+   "latest": "A",
+   "keep": "B",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/p7_track_off",
+   "k": 598,
+   "x": 282.8241271972656,
+   "y": 455.2214050292969,
+   "tid": 80,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/p7_track_on",
+   "k": 598,
+   "x": 282.8241271972656,
+   "y": 455.2214050292969,
+   "tid": 80,
+   "run": "B",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/p8_track_off",
+   "k": 598,
+   "x": 282.8241271972656,
+   "y": 455.2214050292969,
+   "tid": 80,
+   "run": "A",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  },
+  {
+   "dir": "results/qa/p8_track_on",
+   "k": 598,
+   "x": 1765.7232666015625,
+   "y": 435.3690185546875,
+   "tid": 76,
+   "run": "A",
+   "latest": "B",
+   "keep": "A",
+   "eye": "B"
+  }
+ ],
+ "graded_unique": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  15
+ ],
+ "score": {
+  "latest": {
+   "right": 7,
+   "wrong": 3
+  },
+  "keep": {
+   "right": 4,
+   "wrong": 6
+  },
+  "run": {
+   "right": 6,
+   "wrong": 4
+  }
+ },
+ "note": "eye = by-eye team at the circle, graded blind on the sheet before looking at the rules' answers (A = darker kit); 12-14 are one moment (same video), counted once; None = can't tell (keeper / overlap)"
+}
