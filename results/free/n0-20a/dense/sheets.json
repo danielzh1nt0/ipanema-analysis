@@ -8,6 +8,7 @@
   "dense_254": 12,
   "dense_266": 12,
   "dense_278": 12,
-  "dense_290": 12
- }
+  "dense_290": 11
+ },
+ "note": "dense_290 shows 11 frames (290-300 s); the runner wrote 12 because it counted the black padding tile (fixed after)"
 }

@@ -40,9 +40,10 @@ for name, t0 in EVENTS.items():
         txt = f"clip {t:.1f} s  (match {2520 + t:.0f} s)"
         cv2.putText(im, txt, (8, 26), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 4); cv2.putText(im, txt, (8, 26), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         tiles.append(im)
+    real = len(tiles)   # frames shown (the padding tiles are black)
     while len(tiles) % COLS: tiles.append(np.zeros((TH, TW, 3), np.uint8))
     if not tiles: continue
     sheet = np.vstack([np.hstack(tiles[r:r + COLS]) for r in range(0, len(tiles), COLS)])
-    cv2.imwrite(f"{OUT}/{name}.jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 85]); made[name] = len(tiles)
+    cv2.imwrite(f"{OUT}/{name}.jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 85]); made[name] = real
 json.dump({"clip": CLIP, "step": STEP, "tile_w": TW, "fps": fps, "frames": n, "sheets": made}, open(f"{OUT}/sheets.json", "w"), indent=1)
 print("sheets:", made, flush=True)

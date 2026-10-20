@@ -21,8 +21,8 @@ def test_default_sheets(tmp_path):
     assert cv2.imread(str(tmp_path / "out" / "goal_242.jpg")).shape == (4 * 360, 3 * 640, 3)
 
 def test_dense_preset(tmp_path):
-    _clip(tmp_path / "c.avi")
+    _clip(tmp_path / "c.avi", secs=300.5)
     j = _run(tmp_path, "dense")
     assert j["step"] == 1.0 and j["tile_w"] == 960
-    assert j["sheets"]["dense_254"] == 12 and j["sheets"]["dense_290"] == 10      # 290..299 s, the clip ends at 300 s
+    assert j["sheets"]["dense_254"] == 12 and j["sheets"]["dense_290"] == 11      # 290..300 s, the clip ends at 300.5 s; black padding not counted
     assert cv2.imread(str(tmp_path / "out" / "dense_254.jpg")).shape == (6 * 540, 2 * 960, 3)
