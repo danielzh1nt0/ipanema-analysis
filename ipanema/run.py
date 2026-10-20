@@ -191,22 +191,59 @@ def periods_direction(root, match_id):
     19 Oct: a clip cut from a match (<match>_s<start>[_d<dur>], e.g. the app's SFKBP1109_s1200) found no file and fell back
     to the coin-flip guess. Now it reads the match's file; clips are NOT mirrored, so a clip whose middle lies in the second
     (fourth, ...) period gets the opposite value. Without the match's periods_s a clip can't be placed -> None."""
-    import re
-    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    def _read(mid):
-        for p in (os.path.join(root, "periods", f"{mid}.json"), os.path.join(here, "periods", f"{mid}.json")):
-            if os.path.exists(p): return json.load(open(p))
-        return None
-    d = _read(match_id)
+    d = _read_periods(root, match_id)
     if d is not None and d.get("attack_right_A") is not None: return bool(d["attack_right_A"])
-    m = re.match(r"^(.+)_s(\d+(?:\.\d+)?)(?:_d(\d+(?:\.\d+)?))?$", match_id)
-    if not m: return None
-    d = _read(m.group(1))
-    if d is None or d.get("attack_right_A") is None or not d.get("periods_s"): return None
-    mid_t = float(m.group(2)) + float(m.group(3) or 300) / 2
-    spans = [(float(a), float(b)) for a, b in d["periods_s"]]
-    i = min(range(len(spans)), key=lambda j: 0.0 if spans[j][0] <= mid_t <= spans[j][1] else min(abs(mid_t - spans[j][0]), abs(mid_t - spans[j][1])))
+    c = clip_of(match_id)
+    if not c: return None
+    d = _read_periods(root, c[0])
+    if d is None or d.get("attack_right_A") is None: return None
+    i = clip_period_index(root, match_id)
+    if i is None: return None
     return bool(d["attack_right_A"]) if i % 2 == 0 else not bool(d["attack_right_A"])
+
+def _read_periods(root, mid):
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for p in (os.path.join(root, "periods", f"{mid}.json"), os.path.join(here, "periods", f"{mid}.json")):
+        if os.path.exists(p): return json.load(open(p))
+    return None
+
+def clip_of(match_id):
+    """'<match>_s<start>[_d<dur>]' (a clip cut from a recorded match) -> (match, start_s, dur_s or None); else None"""
+    import re
+    m = re.match(r"^(.+)_s(\d+(?:\.\d+)?)(?:_d(\d+(?:\.\d+)?))?$", match_id)
+    return (m.group(1), float(m.group(2)), float(m.group(3)) if m.group(3) else None) if m else None
+
+def clip_period_index(root, match_id, dur_s=None):
+    """which period of its match (0 = first) a clip's middle lies in (nearest period at half-time); None without the
+    match's periods_s. dur_s: the clip's real length (default: the id's _d, else 300 s)"""
+    c = clip_of(match_id)
+    if not c: return None
+    d = _read_periods(root, c[0])
+    if d is None or not d.get("periods_s"): return None
+    mid_t = c[1] + float(dur_s or c[2] or 300) / 2
+    spans = [(float(a), float(b)) for a, b in d["periods_s"]]
+    return min(range(len(spans)), key=lambda j: 0.0 if spans[j][0] <= mid_t <= spans[j][1] else min(abs(mid_t - spans[j][0]), abs(mid_t - spans[j][1])))
+
+def veo_source(root, match_id, dur_s, L, W, log=print):
+    """20 Oct: Veo's shots/goals for this run -> (highlights, teams, origins) or None.
+    A match reads reference/veo_highlights_<match>.txt (volume copy first, then the repo). A clip cut from a match
+    ('<match>_s<start>[_d<dur>]', e.g. the app's AIK clip p15u-vs-aik-2026-09-21-bd09_s2520) found no such file and showed
+    NO shots or goals - the AIK clip has Veo shots at 2532, 2615, 2761 and AIK's goal at 2762 s (B, by eye) inside it. Now a
+    clip reads its match's file, shifted to the clip's clock (t - start), keeping only events inside the clip, with the
+    by-eye team letters and shot spots. Spots in the file are mirrored in later periods like a full match's frames; a clip
+    is not mirrored, so a clip in the 2nd (4th, ...) period mirrors them back. The match's file wins over a clip-only file
+    (modal_app.prepare_match_files writes one without the team letters and spots)."""
+    from . import veo as VEO
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    def _find(mid): return next((p for p in (os.path.join(root, "reference", f"veo_highlights_{mid}.txt"), os.path.join(here, "reference", f"veo_highlights_{mid}.txt")) if os.path.exists(p)), None)
+    c = clip_of(match_id); mp = _find(c[0]) if c else None
+    if mp:
+        i = clip_period_index(root, match_id, dur_s); mirror = bool(i is not None and i % 2 == 1)
+        hl, tm, og = VEO.shift(VEO.load(mp), VEO.teams(mp), VEO.origins(mp), c[1], dur_s, mirror, L, W)
+        log(f"veo: clip of {c[0]} from {c[1]:.0f} s -> {len(hl)} of its Veo clips inside ({sum(1 for _, k in hl if k == 'goal')} goal tags), spots {'mirrored back (later period)' if mirror else 'as in the file'}")
+        return hl, tm, og
+    p = _find(match_id)
+    return (VEO.load(p), VEO.teams(p), VEO.origins(p)) if p else None
 
 def veo_in_window(t, duration_s, periods, slack_s=5.0):
     """3 Oct: a Veo shot/goal counts only inside the analysed video and (when periods are set) inside a period +- slack.
@@ -297,10 +334,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
     try:
         from . import veo as VEO
-        vp = next((p for p in (os.path.join(S.root, "reference", f"veo_highlights_{match_id}.txt"),
-                               os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reference", f"veo_highlights_{match_id}.txt")) if os.path.exists(p)), "")
-        if os.path.exists(vp):
-            vs, rej = VEO.build(VEO.load(vp), fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log, known_teams=VEO.teams(vp), known_origins=VEO.origins(vp))
+        vsrc = veo_source(S.root, match_id, len(per) / fps, L, W, log=log)
+        if vsrc:
+            vs, rej = VEO.build(vsrc[0], fps, ballm, per, L, W, attack_right, rst, periods=ctx.get("periods"), log=log, known_teams=vsrc[1], known_origins=vsrc[2])
             # 3 Oct: only shots inside the analysed video and its match periods (a first-half cut must not carry second-half goals)
             _in = lambda t: veo_in_window(t, len(per) / fps, ctx.get("periods"))
             _drop = [x for x in vs if not _in(x["t"])]; vs = [x for x in vs if _in(x["t"])]

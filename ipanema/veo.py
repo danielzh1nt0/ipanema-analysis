@@ -35,6 +35,17 @@ def origins(path):
         if m: out[int(m.group(1))] = (float(m.group(4)), float(m.group(5)))
     return out
 
+def shift(highlights, teams_, origins_, start_s, dur_s, mirror, L, W):
+    """20 Oct: a match's Veo events seen from a clip starting at start_s of the recording and lasting dur_s (None = no end):
+    times become t - start_s, events outside [0, dur_s] are dropped; mirror=True turns the by-eye spots back (x -> L-x,
+    y -> W-y) for a clip in a later period (the file's spots are mirrored there like a full match's frames, a clip's are not)."""
+    inside = lambda t: 0 <= t - start_s and (dur_s is None or t - start_s <= dur_s)
+    sh = lambda t: round(t - start_s, 2)
+    hl = [(sh(t), k) for t, k in highlights if inside(t)]
+    tm = {sh(t): v for t, v in (teams_ or {}).items() if inside(t)}
+    og = {sh(t): ((L - x, W - y) if mirror else (x, y)) for t, (x, y) in (origins_ or {}).items() if inside(t)}
+    return hl, tm, og
+
 def _where(t, fps, ballm, per, L, window_s=(5.0, 25.0), far_m=20.0):
     """-> (end_x, how): which END the shot of a Veo clip starting at t went to (ball positions 5-25 s after the start, away
     from halfway; 6/6 goals right). 4 Oct, late: the shot ORIGIN can't be read from our ball track (too jumpy: the 'closest to

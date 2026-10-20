@@ -1,0 +1,76 @@
+{
+ "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+ "fps": 29.97002997002997,
+ "frames": 8992,
+ "L": 120.0,
+ "W": 70.0,
+ "attack_right": {
+  "A": true,
+  "B": false
+ },
+ "log": [
+  "veo: clip of p15u-vs-aik-2026-09-21-bd09 from 2520 s -> 4 of its Veo clips inside (1 goal tags), spots as in the file",
+  "veo: 3 shots incl. 1 goals imported; 0 goal tag(s) rejected; origin by eye for 0, team by eye for 1, from the ball for 0, from the players for 0, unknown for 0"
+ ],
+ "before": {
+  "shots": {
+   "A": 0,
+   "B": 0
+  },
+  "goals": {
+   "A": 0,
+   "B": 0
+  },
+  "note": "app summary (results/modal/<clip>.txt): no Veo file found for the clip id"
+ },
+ "after": {
+  "shots": {
+   "A": 1,
+   "B": 2
+  },
+  "goals": {
+   "A": 0,
+   "B": 1
+  },
+  "unknown_team": 0,
+  "events": [
+   {
+    "t": 12.0,
+    "team": "A",
+    "x_m": null,
+    "y_m": null,
+    "distance_m": null,
+    "speed_ms": null,
+    "outcome": "on target",
+    "goal": false,
+    "source": "veo",
+    "located_by": "end only"
+   },
+   {
+    "t": 95.0,
+    "team": "B",
+    "x_m": null,
+    "y_m": null,
+    "distance_m": null,
+    "speed_ms": null,
+    "outcome": "on target",
+    "goal": false,
+    "source": "veo",
+    "located_by": "end only"
+   },
+   {
+    "t": 242.0,
+    "team": "B",
+    "x_m": null,
+    "y_m": null,
+    "distance_m": null,
+    "speed_ms": null,
+    "outcome": "goal",
+    "goal": true,
+    "source": "veo",
+    "located_by": "end only, team by eye"
+   }
+  ],
+  "rejected": []
+ }
+}
