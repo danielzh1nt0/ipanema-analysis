@@ -1,2 +1,2 @@
-tools/n0_19e_sheet.py
-# Mon Oct 19 2026 16:50 UTC: blind A/B sheets, old vs new RF-DETR + WASB fusion picks on the SFK-BP clip (N0-19e)
+tools/n0_20a_frames.py
+# Tue Oct 20 2026 00:50 UTC: AIK clip picture sheets at its Veo shots / goal, shifted to the clip clock (N0-20a)
