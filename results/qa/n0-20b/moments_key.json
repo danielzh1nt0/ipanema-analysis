@@ -1,0 +1,416 @@
+{
+ "m01": {
+  "team": "A",
+  "candidate_times": [
+   2.6
+  ],
+  "counted_by": {
+   "old (app today)": [
+    2.6
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    2.6
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m02": {
+  "team": "A",
+  "candidate_times": [
+   8.01,
+   8.11,
+   8.17,
+   8.54,
+   10.31,
+   10.74
+  ],
+  "counted_by": {
+   "old (app today)": [
+    8.01,
+    8.11,
+    8.17,
+    8.54,
+    10.31,
+    10.74
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    8.01
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m03": {
+  "team": "A",
+  "candidate_times": [
+   13.35,
+   14.05,
+   15.42,
+   15.52
+  ],
+  "counted_by": {
+   "old (app today)": [
+    13.35,
+    14.05,
+    15.42,
+    15.52
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    13.35,
+    14.05,
+    15.42
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m04": {
+  "team": "A",
+  "candidate_times": [
+   86.52
+  ],
+  "counted_by": {
+   "old (app today)": [
+    86.52
+   ],
+   "spell state only": [
+    86.52
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    86.52
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    86.52
+   ]
+  }
+ },
+ "m05": {
+  "team": "A",
+  "candidate_times": [
+   90.69
+  ],
+  "counted_by": {
+   "old (app today)": [
+    90.69
+   ],
+   "spell state only": [
+    90.69
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    90.69
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    90.69
+   ]
+  }
+ },
+ "m06": {
+  "team": "A",
+  "candidate_times": [
+   101.13
+  ],
+  "counted_by": {
+   "old (app today)": [
+    101.13
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    101.13
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m07": {
+  "team": "A",
+  "candidate_times": [
+   132.07,
+   132.17,
+   132.3
+  ],
+  "counted_by": {
+   "old (app today)": [
+    132.07,
+    132.17,
+    132.3
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    132.07
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m08": {
+  "team": "A",
+  "candidate_times": [
+   202.27,
+   203.3,
+   204.34,
+   204.87,
+   206.41
+  ],
+  "counted_by": {
+   "old (app today)": [
+    203.3
+   ],
+   "spell state only": [
+    202.27,
+    203.3,
+    204.34,
+    204.87,
+    206.41
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    203.3
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    202.27,
+    203.3,
+    204.34,
+    206.41
+   ]
+  }
+ },
+ "m09": {
+  "team": "A",
+  "candidate_times": [
+   208.81,
+   209.04
+  ],
+  "counted_by": {
+   "old (app today)": [
+    208.81,
+    209.04
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    208.81
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m10": {
+  "team": "B",
+  "candidate_times": [
+   31.63
+  ],
+  "counted_by": {
+   "old (app today)": [
+    31.63
+   ],
+   "spell state only": [
+    31.63
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    31.63
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    31.63
+   ]
+  }
+ },
+ "m11": {
+  "team": "B",
+  "candidate_times": [
+   35.34
+  ],
+  "counted_by": {
+   "old (app today)": [
+    35.34
+   ],
+   "spell state only": [
+    35.34
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    35.34
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    35.34
+   ]
+  }
+ },
+ "m12": {
+  "team": "B",
+  "candidate_times": [
+   52.72
+  ],
+  "counted_by": {
+   "old (app today)": [
+    52.72
+   ],
+   "spell state only": [
+    52.72
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    52.72
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    52.72
+   ]
+  }
+ },
+ "m13": {
+  "team": "B",
+  "candidate_times": [
+   55.26
+  ],
+  "counted_by": {
+   "old (app today)": [],
+   "spell state only": [
+    55.26
+   ],
+   "raw state + re-arm 3 m / 1 s": [],
+   "spell state + re-arm 3 m / 1 s": [
+    55.26
+   ]
+  }
+ },
+ "m14": {
+  "team": "B",
+  "candidate_times": [
+   64.33,
+   64.96,
+   65.67,
+   65.97,
+   66.27
+  ],
+  "counted_by": {
+   "old (app today)": [
+    64.33,
+    65.67,
+    65.97
+   ],
+   "spell state only": [
+    64.33,
+    64.96,
+    65.67,
+    65.97,
+    66.27
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    64.33,
+    65.67,
+    65.97
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    64.96,
+    65.67,
+    65.97,
+    66.27
+   ]
+  }
+ },
+ "m15": {
+  "team": "B",
+  "candidate_times": [
+   81.08
+  ],
+  "counted_by": {
+   "old (app today)": [
+    81.08
+   ],
+   "spell state only": [
+    81.08
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    81.08
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    81.08
+   ]
+  }
+ },
+ "m16": {
+  "team": "B",
+  "candidate_times": [
+   220.09,
+   220.95
+  ],
+  "counted_by": {
+   "old (app today)": [],
+   "spell state only": [
+    220.09,
+    220.95
+   ],
+   "raw state + re-arm 3 m / 1 s": [],
+   "spell state + re-arm 3 m / 1 s": [
+    220.09,
+    220.95
+   ]
+  }
+ },
+ "m17": {
+  "team": "B",
+  "candidate_times": [
+   223.39,
+   224.79
+  ],
+  "counted_by": {
+   "old (app today)": [
+    224.79
+   ],
+   "spell state only": [
+    223.39,
+    224.79
+   ],
+   "raw state + re-arm 3 m / 1 s": [
+    224.79
+   ],
+   "spell state + re-arm 3 m / 1 s": [
+    223.39,
+    224.79
+   ]
+  }
+ },
+ "m18": {
+  "team": "B",
+  "candidate_times": [
+   232.07,
+   232.2
+  ],
+  "counted_by": {
+   "old (app today)": [
+    232.07,
+    232.2
+   ],
+   "spell state only": [],
+   "raw state + re-arm 3 m / 1 s": [
+    232.07
+   ],
+   "spell state + re-arm 3 m / 1 s": []
+  }
+ },
+ "m19": {
+  "team": "B",
+  "candidate_times": [
+   273.37
+  ],
+  "counted_by": {
+   "old (app today)": [],
+   "spell state only": [
+    273.37
+   ],
+   "raw state + re-arm 3 m / 1 s": [],
+   "spell state + re-arm 3 m / 1 s": [
+    273.37
+   ]
+  }
+ },
+ "m20": {
+  "team": "B",
+  "candidate_times": [
+   293.89
+  ],
+  "counted_by": {
+   "old (app today)": [],
+   "spell state only": [
+    293.89
+   ],
+   "raw state + re-arm 3 m / 1 s": [],
+   "spell state + re-arm 3 m / 1 s": [
+    293.89
+   ]
+  }
+ }
+}

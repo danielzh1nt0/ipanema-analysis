@@ -44,17 +44,25 @@ def pass_network(passes_, players_):
         d["count"] += 1; d["forward"] += p["kind"] == "forward"; d["progressive"] += bool(p.get("progressive"))
     return {tm: {"edges": sorted(v.values(), key=lambda e: -e["count"]), "nodes": {str(i): {"x": pos[i][0], "y": pos[i][1]} for i in {e["from"] for e in v.values()} | {e["to"] for e in v.values()} if i in pos}} for tm, v in net.items()}
 
-def field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right):
+def field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, rearm_m=0.0, rearm_s=0.0):
+    """field tilt = share of a team's controlled frames with the ball in its final third; an entry = the ball, under its
+    control, going from below the 2/3 line into the final third. N0-20b (20 Oct): re-arm rule - after an entry the next one
+    counts only once the ball has been back at least rearm_m metres behind the line, or the team has been out of control of
+    it for rearm_s seconds (ball shaking on the line / a flicker of the state counted 3 entries in 0.2 s). 0, 0 = old rule."""
     out = {}
     for tm in ("A", "B"):
         sgn = 1 if attack_right[tm] else -1
-        def third(x): xx = x if sgn == 1 else L - x; return 0 if xx < L / 3 else 1 if xx < 2 * L / 3 else 2
+        depth = lambda x: x if sgn == 1 else L - x
+        def third(x): xx = depth(x); return 0 if xx < L / 3 else 1 if xx < 2 * L / 3 else 2
         ctrl = [k for k in ballm if STATES[state[k]] == tm]; final = sum(1 for k in ctrl if third(ballm[k][0]) == 2)
-        entries = []; prev = None
+        entries = []; prev = None; armed = True
         for k in sorted(ctrl):
             th = third(ballm[k][0])
-            if prev is not None and prev[0] < 2 and th == 2 and k - prev[1] <= 3:
+            if prev is not None and k - prev[1] > max(3, rearm_s * fps): armed = True                 # left control long enough
+            if not armed and depth(ballm[k][0]) <= 2 * L / 3 - rearm_m: armed = True                  # back behind the line
+            if prev is not None and prev[0] < 2 and th == 2 and k - prev[1] <= 3 and armed:
                 entries.append({"t": round(k / fps, 2), "how": "pass" if bspeed.get(k, 0) > 9 else "carry", "y_m": round(float(ballm[k][1]), 1)})
+                if rearm_m > 0 or rearm_s > 0: armed = False
             prev = (th, k)
         out[tm] = {"field_tilt_pct": round(100 * final / len(ctrl)) if ctrl else None, "final_third_entries": entries, "entries_count": len(entries),
                    "entries_by_pass": sum(e["how"] == "pass" for e in entries), "entries_by_carry": sum(e["how"] == "carry" for e in entries)}
