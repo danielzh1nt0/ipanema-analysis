@@ -1,0 +1,82 @@
+{
+ "SFKBP1109": {
+  "A": {
+   "edges": 78,
+   "passes": 79,
+   "edges_without_node_old": 4,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 17,
+   "node_move_median_m": 8.0,
+   "node_move_other_team_tracks_median_m": 14.4
+  },
+  "B": {
+   "edges": 60,
+   "passes": 61,
+   "edges_without_node_old": 2,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 9,
+   "node_move_median_m": 8.3,
+   "node_move_other_team_tracks_median_m": 11.7
+  }
+ },
+ "SFKBP1109_s1200": {
+  "A": {
+   "edges": 40,
+   "passes": 41,
+   "edges_without_node_old": 2,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 7,
+   "node_move_median_m": 9.9,
+   "node_move_other_team_tracks_median_m": 21.7
+  },
+  "B": {
+   "edges": 21,
+   "passes": 21,
+   "edges_without_node_old": 0,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 4,
+   "node_move_median_m": 7.3,
+   "node_move_other_team_tracks_median_m": 11.8
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "A": {
+   "edges": 73,
+   "passes": 73,
+   "edges_without_node_old": 3,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 11,
+   "node_move_median_m": 6.7,
+   "node_move_other_team_tracks_median_m": 9.0
+  },
+  "B": {
+   "edges": 108,
+   "passes": 108,
+   "edges_without_node_old": 9,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 15,
+   "node_move_median_m": 7.0,
+   "node_move_other_team_tracks_median_m": 10.5
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "A": {
+   "edges": 182,
+   "passes": 186,
+   "edges_without_node_old": 4,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 37,
+   "node_move_median_m": 8.0,
+   "node_move_other_team_tracks_median_m": 13.9
+  },
+  "B": {
+   "edges": 219,
+   "passes": 221,
+   "edges_without_node_old": 5,
+   "edges_without_node_new": 0,
+   "edges_touching_other_team_track": 37,
+   "node_move_median_m": 8.8,
+   "node_move_other_team_tracks_median_m": 10.8
+  }
+ }
+}

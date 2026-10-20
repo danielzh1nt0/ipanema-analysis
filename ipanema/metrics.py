@@ -37,13 +37,33 @@ def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_):
                     "speed_ms": round(s, 1), "outcome": outcome, "goal": outcome == "goal"}); last_t = k
     return out
 
-def pass_network(passes_, players_):
-    pos = {p["id"]: (p["avg_x_m"], p["avg_y_m"]) for p in players_}; net = {"A": {}, "B": {}}
+# N0-20c (20 Oct): a node sits where the player played and received this team's completed passes (the usual pass-network
+# node), with n = passes played + received. Before, it sat at the track's whole-match average from stats.players: a track
+# shorter than the players' list cut-off had no node at all (2-12 edges per repo match pointed at nothing), and a track that
+# swapped team (ID slide, M2) put an A edge on a B player's average spot (4-37 edges per team per match). IPANEMA_NET_NODES=avg = old.
+NET_NODES = os.environ.get("IPANEMA_NET_NODES", "passes")
+
+def pass_network(passes_, players_, nodes=None):
+    nodes = NET_NODES if nodes is None else nodes
+    pos = {p["id"]: (p["avg_x_m"], p["avg_y_m"]) for p in players_}; net = {"A": {}, "B": {}}; spots = {"A": {}, "B": {}}
     for p in passes_:
-        if not p["completed"]: continue
+        if not p["completed"] or p.get("team") not in net: continue
         key = f"{p['from']}->{p['to']}"; d = net[p["team"]].setdefault(key, {"from": p["from"], "to": p["to"], "count": 0, "forward": 0, "progressive": 0})
         d["count"] += 1; d["forward"] += p["kind"] == "forward"; d["progressive"] += bool(p.get("progressive"))
-    return {tm: {"edges": sorted(v.values(), key=lambda e: -e["count"]), "nodes": {str(i): {"x": pos[i][0], "y": pos[i][1]} for i in {e["from"] for e in v.values()} | {e["to"] for e in v.values()} if i in pos}} for tm, v in net.items()}
+        if p.get("from_m") is not None: spots[p["team"]].setdefault(p["from"], []).append(p["from_m"])
+        if p.get("to_m") is not None: spots[p["team"]].setdefault(p["to"], []).append(p["to_m"])
+    out = {}
+    for tm, v in net.items():
+        ids = {e["from"] for e in v.values()} | {e["to"] for e in v.values()}
+        if nodes == "avg": nd = {str(i): {"x": pos[i][0], "y": pos[i][1]} for i in ids if i in pos}
+        else:
+            nd = {}
+            for i in ids:
+                s = spots[tm].get(i)
+                if s: m = np.mean(np.asarray(s, float), axis=0); nd[str(i)] = {"x": round(float(m[0]), 1), "y": round(float(m[1]), 1), "n": len(s)}
+                elif i in pos: nd[str(i)] = {"x": pos[i][0], "y": pos[i][1], "n": 0}
+        out[tm] = {"edges": sorted(v.values(), key=lambda e: -e["count"]), "nodes": nd}
+    return out
 
 def field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, rearm_m=0.0, rearm_s=0.0):
     """field tilt = share of a team's controlled frames with the ball in its final third; an entry = the ball, under its

@@ -75,5 +75,6 @@
  "N0-19d": "Export named the kits the wrong way round (fixed) + lanes/shapes tests",
  "N0-19e": "Ball guesses from two finders joined to the nearest one (tested, stays off)",
  "N0-20a": "AIK clip showed no Veo shots/goal (fixed, checked by eye)",
- "N0-20b": "Final-third entries: stop counting the ball wobbling on the line"
+ "N0-20b": "Final-third entries: stop counting the ball wobbling on the line",
+ "N0-20c": "Pass network: every edge has its players, placed where they passed"
 }
