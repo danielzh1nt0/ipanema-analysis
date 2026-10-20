@@ -1,2 +1,2 @@
-tools/n0_20a_frames.py dense
-# Tue Oct 20 2026 04:50 UTC: AIK clip 254-300 s every 1 s at 960 px - is AIK's Veo goal (clip 242) inside the clip? (N0-20a part 2)
+tools/n0_20b_frames.py
+# Tue Oct 20 2026 UTC: SFK-BP test clip, picture sheets at each candidate final-third entry (N0-20b) - free runner only
