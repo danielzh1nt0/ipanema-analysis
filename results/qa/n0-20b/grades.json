@@ -1,0 +1,9 @@
+{"note": "by eye on results/free/n0-20b sheets, 20 Oct; real = final-third entries that really happened in the stretch. Not fully blind (the rule lists were printed before grading).",
+ "clusters_changed_by_rearm": {
+  "m02": {"t": "8.0-10.7", "old": 6, "rearm": 1, "real": 0, "why": "stoppage; the ball pick sits on a touchline spot right on the 2/3 line, the real ball is in the centre circle by the light #2 (11.5-12 s)"},
+  "m03": {"t": "13.3-15.5", "old": 4, "rearm": 3, "real": 0, "why": "same stoppage, pick hops between the line spot and players; can't fully tell"},
+  "m07": {"t": "132.1-132.3", "old": 3, "rearm": 1, "real": "0-1", "why": "dark player in a duel by the far touchline right on the line"},
+  "m09": {"t": "208.8-209.0", "old": 2, "rearm": 1, "real": "can't tell", "why": "pick hops between the board spot on the line and players"},
+  "m18": {"t": "232.1-232.2", "old": 2, "rearm": 1, "real": 0, "why": "ball already deep in light's final third by the goal; pick jumps to the far touchline on the line and back"}},
+ "not_changed": {"m14": {"t": "64.3-66.3", "old_and_rearm": 3, "real": "0-1", "why": "pick teleports to the centre and back, which re-arms the rule"}},
+ "total_changed": {"old": 17, "rearm": 7, "real": "0-2"}}

@@ -73,5 +73,7 @@
  "N0-19b": "Clips ignored the by-eye attack direction (fixed)",
  "N0-19c": "Repo copy of SFK-BP is a mix of exports (checker now warns)",
  "N0-19d": "Export named the kits the wrong way round (fixed) + lanes/shapes tests",
- "N0-19e": "Ball guesses from two finders joined to the nearest one (tested, stays off)", "N0-20a": "AIK clip showed no Veo shots/goal (fixed, checked by eye)"
+ "N0-19e": "Ball guesses from two finders joined to the nearest one (tested, stays off)",
+ "N0-20a": "AIK clip showed no Veo shots/goal (fixed, checked by eye)",
+ "N0-20b": "Final-third entries: stop counting the ball wobbling on the line"
 }

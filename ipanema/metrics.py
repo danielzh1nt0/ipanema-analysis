@@ -1,4 +1,5 @@
 """Contract 1.1 additions: shots/goals, pass network, field tilt + final-third entries, high turnovers, shape timeline."""
+import os
 import numpy as np
 from .possession import STATES
 
@@ -143,10 +144,15 @@ def tilt_windows(state, ballm, fps, L, attack_right, window_s=15):
                     "possession_A": round(rows["A"]["control_frames"] / max(1, rows["A"]["control_frames"] + rows["B"]["control_frames"]), 2)})
     return out
 
+# N0-20b (20 Oct): entries need the ball 3 m back behind the line or 1 s out of control before the next one counts.
+# SFK-BP clip, by eye: in the 5 stretches it changes, old 17 entries -> 7, real ~0-2 (ball shaking on the line / the
+# pick jumping to a touchline spot on the line). IPANEMA_ENTRY_REARM=0 = the old rule.
+ENTRY_REARM = (3.0, 1.0) if os.environ.get("IPANEMA_ENTRY_REARM", "1") != "0" else (0.0, 0.0)
+
 def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None):
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
-            "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right), "high_turnovers": ht,
+            "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM), "high_turnovers": ht,
             "high_turnover_counts": {tm: sum(1 for h in ht if h["team"] == tm and h["zone"] == "high") for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L),
             "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}

@@ -44,3 +44,9 @@ def test_attacking_left_mirrors():
 def test_tilt_unchanged_by_rearm():
     a, b = _run(SHAKE), _run(SHAKE, rearm_m=3.0, rearm_s=1.0)
     assert a["field_tilt_pct"] == b["field_tilt_pct"] == round(100 * 6 / 11)
+
+def test_app_default_is_rearm():
+    assert M.ENTRY_REARM == (3.0, 1.0)
+    state = np.zeros(len(SHAKE), int); ballm = {k: (x, 30.0) for k, x in enumerate(SHAKE)}
+    mx = M.compute(state, ballm, {}, FPS, L, 68.0, {"A": True, "B": False}, [], [], [], [], [])
+    assert mx["field"]["A"]["entries_count"] == 1
