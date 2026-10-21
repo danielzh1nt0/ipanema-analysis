@@ -216,6 +216,19 @@ def sequence_spans(state, fps, take_s=0.0, join_s=1.0):
     if cur is not None: out.append(cur)
     return out
 
+def out_of_play(state, play):
+    """N0-21d (21 Oct): frames outside match time (before kick-off, half-time, after the whistle) and frames whose
+    calibration is not trusted have no players and no ball, and possession_simple keeps the previous state there - so the
+    team that had the ball at the whistle was given the whole break (SFK-BP full first half in the app: 45/55, match time
+    only 53/47). Those frames are set to loose (2): nobody's possession, not counted in possession %.
+    play: bool per frame (True = match time with a trusted camera) or None (= every frame, unchanged)."""
+    s = np.array(state, copy=True)
+    if play is None: return s
+    play = np.asarray(play, bool)
+    if len(play) != len(s): raise ValueError(f"play mask has {len(play)} frames, state {len(s)}")
+    s[~play] = 2
+    return s
+
 SPELL_TAKE_S, SPELL_JOIN_S = 1.5, 3.0   # S8 (2 Oct): the state the COUNTED stats use; 0 = off (raw state)
 
 def spell_state(state, fps, take_s=SPELL_TAKE_S, join_s=SPELL_JOIN_S):

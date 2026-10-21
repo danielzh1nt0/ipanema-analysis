@@ -5,6 +5,7 @@ from . import video as V, calibration as C, teams as T, tracking as TR, ball as 
 
 _FIXED_CACHE = os.environ.get("IPANEMA_FIXED_CACHE", "1") == "1"            # N0-21c: fixed camera keeps its own track cache (0 = old names)
 _ALT_WASB_ONLY = os.environ.get("IPANEMA_ALT_WASB_ONLY", "1") == "1"         # N0-21c: the side-by-side 'WASB + YOLO' check only for WASB guesses (0 = old)
+_PLAY_STATE = os.environ.get("IPANEMA_PLAY_STATE", "1") == "1"               # N0-21d: frames outside match time are nobody's possession (0 = old: last team kept)
 
 
 def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
@@ -303,6 +304,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
         except Exception as e: log(f"alternative ball check failed: {e!r}")
     frames_, ballm = P.carriers(per, ball, H, S.carrier_r, S.near_r)
     state, bspeed, dstate, pinfo = P.pipeline_state(per, ball, ballm, H, fps, L, W, log=log)   # E4 (29 Sep): possession_simple by default; IPANEMA_POSSESSION=viterbi = old model
+    if ctx.get("play_mask") is not None and _PLAY_STATE:                      # N0-21d: no possession outside match time / untrusted frames (was: kept the last team's)
+        _was = int(((np.asarray(state) < 2) & ~np.asarray(ctx["play_mask"], bool)).sum()); state = P.out_of_play(state, ctx["play_mask"])
+        log(f"possession: {_was} frames outside match time or with an untrusted camera set to nobody's (IPANEMA_PLAY_STATE=0 = old)")
     attack_right, conf = P.direction(state, ballm, log=log)
     import glob as _g
     ref = next(iter(_g.glob(os.path.join(S.root, "reference", f"events_gt_{match_id}.json")) + _g.glob(os.path.join(S.root, "reference", match_id, "events_gt*.json"))), None)
@@ -357,6 +361,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     except Exception as e: log(f"veo import failed: {e!r}")
     ctrl = int((state < 2).sum()); n = len(per)
     play = ctx.get("play_mask"); n_play = int(play.sum()) if play is not None else n; play_ks = [k for k in range(n) if play is None or play[k]]
+    _pm = np.asarray(play, bool) if (play is not None and _PLAY_STATE) else np.ones(n, bool)   # N0-21d: loose / dead % of match time (was: of the whole recording)
     # ball reliability: a real ball is near a player most of the time and does not teleport
     near = [k for k in ballm if per[k] and min(np.linalg.norm(r[2] - ballm[k]) for r in per[k]) < 4.0]
     jumps = sum(1 for k in ballm if k - 1 in ballm and np.linalg.norm(ballm[k] - ballm[k - 1]) * fps > 35)
@@ -380,7 +385,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in play_ks] or [0])) for t in ("A", "B")},
                "ball_frames_pct": round(100 * len(ball) / max(1, n_play)), "match_seconds": round(n_play / fps, 1), "periods": ctx.get("periods"), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
-               "loose_pct": round(100 * int((state == 2).sum()) / n), "dead_pct": round(100 * int((np.asarray(dstate) == 3).sum()) / n), "possession_model": pinfo["mode"], "attack_right": attack_right, "direction_confidence": conf,
+               "loose_pct": round(100 * int(((state == 2) & _pm).sum()) / max(1, int(_pm.sum()))), "dead_pct": round(100 * int(((np.asarray(dstate) == 3) & _pm).sum()) / max(1, int(_pm.sum()))), "possession_model": pinfo["mode"], "attack_right": attack_right, "direction_confidence": conf,
                "turnovers": len(tvs), "passes": len(ps), "restarts": len(rst), "sequences": len(seqs), "shots": {t: sum(1 for s in mx["shots"] if s["team"] == t) for t in ("A", "B")}, "goals": {t: sum(1 for s in mx["goals"] if s["team"] == t) for t in ("A", "B")}, "high_turnovers": mx["high_turnover_counts"], "field_tilt": {t: mx["field"][t]["field_tilt_pct"] for t in ("A", "B")}, "runtime_min": round((time.time() - t0) / 60, 1)}
     step("export")
     try:                                                                       # 1 Oct: speed + distance per player for the app's speed layer

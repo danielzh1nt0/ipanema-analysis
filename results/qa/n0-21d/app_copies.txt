@@ -1,0 +1,9 @@
+SFKBP1109 periods [(554.99, 3059.99)] | app {'A': 45, 'B': 55} | all frames A 45 / B 55 | play only A 53 / B 47
+    out of periods {'none': 2548, 'B': 2397}
+    in, play {'A': 8006, 'B': 7231, 'none': 9788}
+p15u-vs-aik-2026-09-21-bd09 periods [(366.0, 3224.99)] | app {'A': 35, 'B': 65} | all frames A 44 / B 56 | play only A 44 / B 56
+    in, play {'B': 2215, 'none': 2060, 'A': 1719}
+p15u-vs-vallentuna-2026-10-03-6cce periods [(435.0, 2889.99), (3219.98, 5645.01)] | app {'A': 36, 'B': 64} | all frames A 36 / B 64 | play only A 43 / B 57
+    out of periods {'none': 4346, 'B': 6502}
+    in, play {'none': 13557, 'B': 20103, 'A': 15091}
+    in, blanked {'B': 1}
