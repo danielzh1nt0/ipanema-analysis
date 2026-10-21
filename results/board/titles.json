@@ -80,5 +80,6 @@
  "N0-20d": "Team votes: a tie no longer decided by chance",
  "N0-20e": "Restart spots: tried the stoppage's last second (no clear gain, kept old)",
  "N0-21a": "Player boxes: no more feet cut off at the tile edge",
- "N0-21b": "Player tracking loop gets its first test"
+ "N0-21b": "Player tracking loop gets its first test",
+ "N0-21c": "Clip set-up step gets its first test"
 }

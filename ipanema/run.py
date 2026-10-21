@@ -3,6 +3,10 @@ import os, json, pickle, time, numpy as np
 from .config import Settings
 from . import video as V, calibration as C, teams as T, tracking as TR, ball as BL, possession as P, analytics as AN, export as EX, metrics as M
 
+_FIXED_CACHE = os.environ.get("IPANEMA_FIXED_CACHE", "1") == "1"            # N0-21c: fixed camera keeps its own track cache (0 = old names)
+_ALT_WASB_ONLY = os.environ.get("IPANEMA_ALT_WASB_ONLY", "1") == "1"         # N0-21c: the side-by-side 'WASB + YOLO' check only for WASB guesses (0 = old)
+
+
 def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     """per clip: calibration, teams, tracking and ball candidates (everything that needs the video / a GPU)"""
     t0 = time.time()
@@ -25,16 +29,16 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     panorama = _spec is not None
     from .mosaic import CAL_VERSION as _CV
     pano_cache = f"{cache}/calibration_pano_{_CV}.pkl"
+    from . import fixedcam as FC
+    _fixed = FC.find(match_id)                                                 # N0-21c: looked up first - a fixed camera never needs the mosaic (it ran, cost time, and was then ignored)
     try:
-        if panorama or _lines: raise StopIteration
+        if panorama or _lines or _fixed: raise StopIteration
         if os.path.exists(pano_cache): Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
         else:
             Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
             if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
     except StopIteration: pass
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
-    from . import fixedcam as FC
-    _fixed = FC.find(match_id)
     if _fixed:                                                                 # 3 Oct: a fixed camera (tactical/broadcast): one homography from hand-read pitch points, every frame
         cal = FC.calibration(_fixed, vi["n"], vi["width"], vi["height"], log=log); L, W = cal["L"], cal["W"]
     elif _lines:
@@ -102,11 +106,14 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         T.silence_progress(); tm = T.TeamModel(S.sports_dir).fit(video, S.weights["player"], S.conf_player, log=log)
     from .mosaic import CAL_VERSION
     _trk_name = os.environ.get('IPANEMA_TRACKER', 'bytetrack')
-    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_lines_far.pkl" if _lines else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
+    trk = f"{cache}/tracks_cyl.pkl" if panorama else f"{cache}/tracks_fixed.pkl" if (_fixed and _FIXED_CACHE) else f"{cache}/tracks_lines_far.pkl" if _lines else f"{cache}/tracks_{('pano_' + CAL_VERSION) if Hm else 'kp'}" + ("" if _trk_name == "bytetrack" else f"_{_trk_name}") + ".pkl"   # bytetrack keeps the original cache name        # positions in metres depend on the calibration: cache per calibration version
     alt_trk = trk.replace(f"tracks_pano_{CAL_VERSION}", "tracks_kp") if (Hm and not panorama) else None
     if _lines: alt_trk = None                                                  # far-band detection is new: detect again (old caches missed far players)
+    if _fixed and _FIXED_CACHE: alt_trk = f"{cache}/tracks_kp.pkl"            # N0-21c: a fixed camera reuses earlier detections, metres from its own H (was: loaded tracks_kp / tracks_pano metres as-is)
     if _use_rf: per, fps = pickle.load(open(_rf_trk, "rb")); per = TR.reposition(per, H); log("tracking: RF-DETR tracks re-positioned with this calibration")
-    elif os.path.exists(trk): per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
+    elif os.path.exists(trk):
+        per, fps = pickle.load(open(trk, "rb")); log("tracking: cached")
+        if _fixed and _FIXED_CACHE: per = TR.reposition(per, H); log("tracking: fixed camera - metres recomputed from the hand-read points (cheap; an edited spec never leaves stale metres)")
     elif alt_trk and alt_trk != trk and os.path.exists(alt_trk):
         # detections are made in the picture; only metres depend on calibration -> re-position, don't re-detect
         per, fps = pickle.load(open(alt_trk, "rb")); per = TR.reposition(per, H); pickle.dump((per, fps), open(trk, "wb"))
@@ -166,7 +173,9 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     cands_alt = None      # WASB + cached YOLO, scored side by side in analyse() when available (costs no GPU)
     try:
         yc = f"{cache}/ball_cands.pkl"
-        if os.environ.get("IPANEMA_BALL_MERGE", "0") != "1" and os.path.exists(yc) and cands:
+        # N0-21c: only when the main guesses ARE WASB-only. With RF-DETR (+WASB) guesses (the app since 29 Sep) this rescaled
+        # the fused scores as if they were WASB peaks and logged the result as "WASB + YOLO" (live SFK-BP clip 18 Oct: 14/34)
+        if os.environ.get("IPANEMA_BALL_MERGE", "0") != "1" and os.path.exists(yc) and cands and (ball_backend == "wasb" or not _ALT_WASB_ONLY):
             yolo = pickle.load(open(yc, "rb")); cands_alt = {}
             for k in set(cands) | set(yolo):
                 ws = [(x, y, min(0.99, 0.5 + 0.5 * c)) for x, y, c in cands.get(k, [])]
