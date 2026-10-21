@@ -1,2 +1,2 @@
-tools/n0_21a_tilecut.py
-# Wed Oct 21 2026 UTC: RF-DETR person detector (app tiles) on 164 saved frames of 6 grounds + SFK-BP/AIK, old vs new tile merge, by-eye sheet (N0-21a) - free runner only
+tools/n0_21e_balledge.py
+# Wed Oct 21 2026 UTC: RF-DETR ball finder (app B7) on the SFK-BP + AIK key frames, old merge vs tile-edge rule, by-eye sheet of dropped guesses (N0-21e) - free runner only
