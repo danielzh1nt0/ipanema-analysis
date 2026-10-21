@@ -82,5 +82,7 @@
  "N0-21a": "Player boxes: no more feet cut off at the tile edge",
  "N0-21b": "Player tracking loop gets its first test",
  "N0-21c": "Clip set-up step gets its first test",
- "N0-21d": "Full matches: no possession given away during the break"
+ "N0-21d": "Full matches: no possession given away during the break",
+ "N0-21e": "Ball finder: junk guesses at tile edges (option, off)",
+ "BALL-EDGE": "Ball finder tile-edge rule: full-clip test on Kaggle"
 }
