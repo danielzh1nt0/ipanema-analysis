@@ -92,6 +92,29 @@ def drop_contained(xyxy, frac=0.7):
             if iw > 0 and ih > 0 and iw * ih >= frac * area[i]: keep[i] = False; break
     return keep
 
+def drop_cut(xyxy, src, rects, w, h, tol=2.0, cover=0.6):
+    """N0-21a (21 Oct): keep-mask for boxes cut by a tile's inner edge. FOLLOW_TILES' far band ends at 65% of the picture,
+    so a player standing just below it comes out of that tile as a box ending at the band's edge (knees / shins) - 15,399
+    of 536,765 tracked feet in 37 saved RF-DETR tracking runs sat exactly on that line (y 701 of 1080), and the 50 px
+    below it were nearly empty. The whole-frame tile usually has the same player uncut, but NMS keeps whichever is more
+    confident, and drop_contained only drops the smaller box when 70% of it lies inside. Rule: a box touching (within
+    tol px) an edge of its tile that is not a frame edge is dropped when a box from ANOTHER tile, not cut itself, covers
+    >= cover of its area. A cut box with no such partner is kept (it is still a person). IPANEMA_TILE_CUT=0 = old."""
+    B = np.asarray(xyxy, float).reshape(-1, 4); n = len(B); keep = np.ones(n, bool)
+    if n == 0 or os.environ.get("IPANEMA_TILE_CUT", "1") == "0": return keep
+    src = np.asarray(src, int); cut = np.zeros(n, bool)
+    for i in range(n):
+        a, b, c, d = rects[src[i]]
+        cut[i] = ((a > 0 and B[i, 0] <= a + tol) or (c < w and B[i, 2] >= c - tol) or
+                  (b > 0 and B[i, 1] <= b + tol) or (d < h and B[i, 3] >= d - tol))
+    area = np.maximum(1e-6, (B[:, 2] - B[:, 0]) * (B[:, 3] - B[:, 1]))
+    for i in np.flatnonzero(cut):
+        for j in range(n):
+            if src[j] == src[i] or cut[j]: continue
+            iw = min(B[i, 2], B[j, 2]) - max(B[i, 0], B[j, 0]); ih = min(B[i, 3], B[j, 3]) - max(B[i, 1], B[j, 1])
+            if iw > 0 and ih > 0 and iw * ih >= cover * area[i]: keep[i] = False; break
+    return keep
+
 class RFDetrPerson:
     """28 Sep: RF-DETR (Apache-2.0) COCO 'person' detector. On 30 clean frames of 3 matches it found 553 people vs 396 kept by
     the football YOLO model (AGPL, labels black shirts 'referee'). Output mimics detect_tiled_batch: class 0 = person."""
@@ -112,13 +135,14 @@ class RFDetrPerson:
         if not isinstance(res, list): res = [res]
         out = []
         for i in range(len(fs)):
-            boxes, confs = [], []
-            for (a, b, c, d), det in zip(rects, res[i * len(rects):(i + 1) * len(rects)]):
+            boxes, confs, src = [], [], []
+            for t, ((a, b, c, d), det) in enumerate(zip(rects, res[i * len(rects):(i + 1) * len(rects)])):
                 keep = det.class_id == 1                                        # COCO person
                 if keep.any():
-                    xy = det.xyxy[keep].copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b; boxes.append(xy); confs.append(det.confidence[keep])
+                    xy = det.xyxy[keep].copy(); xy[:, [0, 2]] += a; xy[:, [1, 3]] += b; boxes.append(xy); confs.append(det.confidence[keep]); src += [t] * len(xy)
             if not boxes: out.append((sv.Detections.empty(), {0: "person"})); continue
-            d_ = sv.Detections(xyxy=np.vstack(boxes), confidence=np.concatenate(confs), class_id=np.zeros(sum(len(x) for x in boxes), int)).with_nms(0.5, class_agnostic=True)
+            xy, cf = np.vstack(boxes), np.concatenate(confs); ok = drop_cut(xy, src, rects, w, h)      # N0-21a: boxes cut at a tile edge
+            d_ = sv.Detections(xyxy=xy[ok], confidence=cf[ok], class_id=np.zeros(int(ok.sum()), int)).with_nms(0.5, class_agnostic=True)
             out.append((d_[drop_contained(d_.xyxy)], {0: "person"}))
         return out
 
