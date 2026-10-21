@@ -187,6 +187,7 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
     if tracker is None:
         tracker = bytetrack(fps)
     votes = {}; per = {}
+    RAW_TEAM.clear()                                                           # N0-21b: a 2nd run in one process (tracktest old vs new) showed the 1st run's readings
     import time as _time
     prof = {"read": 0.0, "detect": 0.0, "tracker": 0.0, "team": 0.0, "rest": 0.0}; t_mark = _time.time(); t_start = t_mark
     max_frames = int(os.environ.get("IPANEMA_MAX_FRAMES", "0") or 0)

@@ -79,5 +79,6 @@
  "N0-20c": "Pass network: every edge has its players, placed where they passed",
  "N0-20d": "Team votes: a tie no longer decided by chance",
  "N0-20e": "Restart spots: tried the stoppage's last second (no clear gain, kept old)",
- "N0-21a": "Player boxes: no more feet cut off at the tile edge"
+ "N0-21a": "Player boxes: no more feet cut off at the tile edge",
+ "N0-21b": "Player tracking loop gets its first test"
 }
