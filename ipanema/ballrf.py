@@ -41,9 +41,28 @@ def tiles(w, h):
     return [(x, y) for y in [min(y, h - CROP) for y in TY] for x in [min(x, w - CROP) for x in TX]]
 
 
-def detect_many(model, frames, floor=0.05):
-    """frames: list of BGR 1920x1080 images -> list of guess lists, one per frame, best first"""
+EDGE_PX = 2.0             # N0-21e: a guess box within this many px of a tile's inner side counts as cut by the tile
+
+
+def edge_rule():
+    """N0-21e (21 Oct): IPANEMA_BALL_EDGE=1 drops guesses whose box touches a tile's INNER side (not the picture's edge):
+    the finder fires on things the tile cuts in half (a shin, a line, a shoe at the crop edge), and every such spot lies
+    >= 200 px inside a neighbouring tile, which sees a real ball there whole. 0 (default) = old."""
+    return os.environ.get("IPANEMA_BALL_EDGE", "0") == "1"
+
+
+def cut_by_tile(box, x, y, w, h, crop=CROP, px=EDGE_PX):
+    """box (x1, y1, x2, y2) in tile pixels of the tile at (x, y) in a w x h picture -> True when it touches an inner side"""
+    a, b, c, e = box
+    return bool((x > 0 and a <= px) or (x + crop < w and c >= crop - px) or (y > 0 and b <= px) or (y + crop < h and e >= crop - px))
+
+
+def detect_many(model, frames, floor=0.05, edge=None, raw=None):
+    """frames: list of BGR 1920x1080 images -> list of guess lists, one per frame, best first.
+    edge: drop guesses cut by a tile's inner side (None = IPANEMA_BALL_EDGE). raw: a list that receives, per frame, every
+    tile guess before merging as (x, y, conf, cut) - for checks."""
     if not frames: return []
+    edge = edge_rule() if edge is None else edge
     h, w = frames[0].shape[:2]; tl = tiles(w, h); crops = []
     for f in frames:
         rgb = f[:, :, ::-1]; crops += [np.ascontiguousarray(rgb[y:y + CROP, x:x + CROP]) for x, y in tl]
@@ -53,20 +72,37 @@ def detect_many(model, frames, floor=0.05):
     for i in range(len(frames)):
         det = []
         for (x, y), d in zip(tl, res[i * len(tl):(i + 1) * len(tl)]):
-            for (a, b, c, e), cf in zip(d.xyxy, d.confidence): det.append((float(x + (a + c) / 2), float(y + (b + e) / 2), float(cf)))
-        det.sort(key=lambda z: -z[2]); keep = []
-        for z in det:
-            if all(np.hypot(z[0] - k[0], z[1] - k[1]) > 12 for k in keep): keep.append(z)
-        out.append(keep[:20])
+            for (a, b, c, e), cf in zip(d.xyxy, d.confidence):
+                det.append((float(x + (a + c) / 2), float(y + (b + e) / 2), float(cf), cut_by_tile((a, b, c, e), x, y, w, h)))
+        if raw is not None: raw.append(list(det))
+        out.append(merge(det, edge))
     return out
+
+
+def merge(det, edge=False, r=12, top=20):
+    """one frame's tile guesses [(x, y, conf, cut)] -> best first, duplicates within r px dropped, at most top;
+    edge: guesses cut by a tile's inner side left out first"""
+    if edge: det = [z for z in det if not z[3]]
+    keep = []
+    for z in sorted(det, key=lambda z: -z[2]):
+        if all(np.hypot(z[0] - k[0], z[1] - k[1]) > r for k in keep): keep.append(tuple(z[:3]))
+    return keep[:top]
+
+
+def _to_native(guesses, w, h):
+    """N0-21e: guesses are found on the frame resized to 1920x1080; the calibration, players and WASB use the video's own
+    pixels, so scale back (no change for a 1920x1080 video)"""
+    if (w, h) == (1920, 1080) or not w or not h: return guesses
+    fx, fy = w / 1920.0, h / 1080.0
+    return [(x * fx, y * fy, c) for x, y, c in guesses]
 
 
 def candidates_model(model, video, floor=0.05, batch=4, log=print, max_frames=0):
     """2 Oct: candidates for every frame with an already loaded model (no cache): {frame: [(x, y, conf)]}"""
     import cv2
-    out = {}; t0 = time.time(); cap = cv2.VideoCapture(video); k = 0; buf = []
+    out = {}; t0 = time.time(); cap = cv2.VideoCapture(video); k = 0; buf = []; vw, vh = int(cap.get(3)), int(cap.get(4))
     def flush():
-        for (kk, _), g in zip(buf, detect_many(model, [f for _, f in buf], floor)): out[kk] = g
+        for (kk, _), g in zip(buf, detect_many(model, [f for _, f in buf], floor)): out[kk] = _to_native(g, vw, vh)
         buf.clear()
     while True:
         if max_frames and k >= max_frames: break
@@ -85,9 +121,9 @@ def candidates(video, weights, cache, floor=0.05, batch=4, log=print, max_frames
     if os.path.exists(cache): return pickle.load(open(cache, "rb"))
     partial = cache + ".partial"; out = pickle.load(open(partial, "rb")) if os.path.exists(partial) else {}
     if out: log(f"  ball (RF-DETR): resuming, {len(out)} frames done")
-    model = load(weights); t0 = time.time(); cap = cv2.VideoCapture(video); k = 0; buf = []
+    model = load(weights); t0 = time.time(); cap = cv2.VideoCapture(video); k = 0; buf = []; vw, vh = int(cap.get(3)), int(cap.get(4))
     def flush():
-        for (kk, _), g in zip(buf, detect_many(model, [f for _, f in buf], floor)): out[kk] = g
+        for (kk, _), g in zip(buf, detect_many(model, [f for _, f in buf], floor)): out[kk] = _to_native(g, vw, vh)
         buf.clear()
     while True:
         if max_frames and k >= max_frames: break
