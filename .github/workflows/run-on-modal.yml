@@ -1,8 +1,8 @@
 name: run on modal
+# 21 Oct 2026: Daniel's rule - nothing runs on Modal, and no mails from this workflow. It no longer starts on any push
+# (its free test job failed on other workers' commits and mailed him each time). Manual start only (workflow_dispatch).
+# The tests run in the nightly free job instead. The whole pipeline runs on Kaggle (.github/workflows/kaggle.yml).
 on:
-  push:
-    branches: [main]
-    paths: ["ipanema/**", "modal_app.py", "calibration/**", "tests/**", "scripts_*.py", "periods/**", "triggers/modal.txt"]   # 17 Oct: not on the Kaggle / free-runner trigger files (every Kaggle job started a test run and, since supervision 0.31, a failure mail)
   workflow_dispatch:
     inputs:
       match_id: { description: "match id", default: "SFKBP1109_s1200" }
