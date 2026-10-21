@@ -1,2 +1,2 @@
-tools/n0_20e_frames.py --zoom 800
-# Tue Oct 20 2026 UTC: SFK-BP + AIK test clips, ZOOMED picture sheets at each detected restart (N0-20e) - free runner only
+tools/n0_21a_tilecut.py
+# Wed Oct 21 2026 UTC: RF-DETR person detector (app tiles) on 164 saved frames of 6 grounds + SFK-BP/AIK, old vs new tile merge, by-eye sheet (N0-21a) - free runner only
