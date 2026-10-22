@@ -159,10 +159,17 @@ def tilt_windows(state, ballm, fps, L, attack_right, window_s=15):
             ctrl = [k for k in range(s, min(n, s + w)) if k in ballm and STATES[state[k]] == tm]
             fin = sum(1 for k in ctrl if ((ballm[k][0] if sgn == 1 else L - ballm[k][0]) > 2 * L / 3))
             rows[tm] = {"control_frames": len(ctrl), "final_third_frames": fin}
-        tot = rows["A"]["final_third_frames"] + rows["B"]["final_third_frames"]
+        tot = rows["A"]["final_third_frames"] + rows["B"]["final_third_frames"]; ctl = rows["A"]["control_frames"] + rows["B"]["control_frames"]
+        pa = round(rows["A"]["control_frames"] / ctl, 2) if ctl else (0.0 if TILT_EMPTY_ZERO else None)
         out.append({"t": round(s / fps, 1), "t_end": round(min(n, s + w) / fps, 1), "tilt_A": round(rows["A"]["final_third_frames"] / tot, 2) if tot else None,
-                    "possession_A": round(rows["A"]["control_frames"] / max(1, rows["A"]["control_frames"] + rows["B"]["control_frames"]), 2)})
+                    "possession_A": pa, "control_s": round(ctl / fps, 1)})
     return out
+
+# N0-22d (22 Oct): a window in which neither team had the ball (before kick-off, half-time, after the whistle - since N0-21d
+# those frames are nobody's - or a stretch with no ball) said possession_A 0.0, i.e. the opponent 100% on the app's
+# 'possession over time' chart. Now None (the app skips null windows, like tilt_A), and control_s = seconds of control the
+# share rests on, so a reader can weight or skip thin windows. IPANEMA_TILT_EMPTY=zero = the old 0.0.
+TILT_EMPTY_ZERO = os.environ.get("IPANEMA_TILT_EMPTY", "none") == "zero"
 
 # N0-20b (20 Oct): entries need the ball 3 m back behind the line or 1 s out of control before the next one counts.
 # SFK-BP clip, by eye: in the 5 stretches it changes, old 17 entries -> 7, real ~0-2 (ball shaking on the line / the
