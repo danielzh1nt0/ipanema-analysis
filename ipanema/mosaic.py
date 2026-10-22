@@ -80,9 +80,26 @@ def register_all(video, mos, log=print):
 
 CAL_VERSION = "direct-v3"
 
-def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", step=10, log=print):
+def measured_mask(anchor_keys, n, step=10, max_gap=25):
+    """N0-22b: which frames' homography is MEASURED, not guessed. Anchors are sampled every `step` frames; a frame between
+    two anchors at most `max_gap` frames apart is interpolated between neighbours (measured); a frame inside a longer gap
+    (registration failed there, the camera may have moved) or more than `step` frames beyond the first/last anchor only
+    gets a guess (straight blend / the edge anchor copied). Returns bool[n]."""
+    import bisect
+    ak = sorted(int(a) for a in anchor_keys); ok = np.zeros(n, bool)
+    if not ak: return ok
+    for k in range(n):
+        i = bisect.bisect_left(ak, k)
+        if i < len(ak) and ak[i] == k: ok[k] = True
+        elif i == 0: ok[k] = ak[0] - k <= step
+        elif i >= len(ak): ok[k] = k - ak[-1] <= step
+        else: ok[k] = ak[i] - ak[i - 1] <= max_gap
+    return ok
+
+def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analysis", step=10, log=print, anchors_out=None):
     """per-frame pitch homography by registering anchor frames DIRECTLY to the hand-calibrated panorama (no chaining drift);
-    frames that don't overlap the panorama chain from the nearest direct anchor."""
+    frames that don't overlap the panorama chain from the nearest direct anchor. `anchors_out` (a dict, optional) receives the
+    anchor frames (direct / chained) so the caller can tell measured frames from guessed ones (measured_mask)."""
     import json, re as _re, bisect
     base = _re.sub(r"_(seg|s|c)\d+$", "", clip_id)
     cal = os.path.join(code_dir, "calibration", f"{base}.json")
@@ -92,7 +109,7 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
     if ref_img is None: log("calibration: reference panorama missing"); return None
     sift = cv2.SIFT_create(nfeatures=6000); bf = cv2.BFMatcher(cv2.NORM_L2)
     ref = _feats(sift, ref_img, 1.0)
-    anchors = {}; direct = 0; chained = 0; prev = None; prevH = None
+    anchors = {}; direct = 0; chained = 0; prev = None; prevH = None; dkeys = []
     for k, f in frames(video):
         if k % step: continue
         cur = _feats(sift, f, 0.5)
@@ -104,7 +121,7 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
                 p1 = np.float32([cur[0][g.queryIdx].pt for g in good]) * 2.0; p2 = np.float32([ref[0][g.trainIdx].pt for g in good])
                 Hd, inl = cv2.findHomography(p1, p2, cv2.RANSAC, 4.0)
                 if Hd is not None and inl.sum() >= 40: r = (Hd, int(inl.sum()))
-        if r is not None: Hfm = r[0]; direct += 1
+        if r is not None: Hfm = r[0]; direct += 1; dkeys.append(k)
         elif prevH is not None:
             # chain from the last frame that WAS placed; an unplaced frame is never used as a reference (its position is unknown)
             rc = _homog(bf, cur[0], cur[1], prev[0], prev[1])
@@ -113,6 +130,7 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
         else: continue
         anchors[k] = Hfm; prev, prevH = cur, Hfm
         if k % 1000 == 0: log(f"  calibration anchor {k} (direct {direct}, chained {chained})")
+    if anchors_out is not None: anchors_out.update({"step": step, "anchors": sorted(anchors), "direct_keys": dkeys, "direct": direct, "chained": chained})
     if len(anchors) < 10: log("calibration: too few anchors"); return None
     ak = sorted(anchors); Hs = {}; nfr = 0
     vi = info(video)

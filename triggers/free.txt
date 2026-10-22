@@ -1,2 +1,2 @@
-tools/n0_21e_balledge.py
-# Wed Oct 21 2026 UTC: RF-DETR ball finder (app B7) on the SFK-BP + AIK key frames, old merge vs tile-edge rule, by-eye sheet of dropped guesses (N0-21e) - free runner only
+tools/n0_22b_mosaic_gaps.py
+# Thu Oct 22 2026 UTC: follow-cam calibration on the SFK-BP + AIK app clips, measured vs guessed frames, line check + picture sheet (N0-22b) - free runner only

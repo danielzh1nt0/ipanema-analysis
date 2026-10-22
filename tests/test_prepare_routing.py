@@ -27,7 +27,7 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(linecal, "find_rows", lambda root, mid: None)
     monkeypatch.setattr(fixedcam, "find", lambda mid, root=None: None)
 
-    def _mosaic(video, mid, root, log=print):
+    def _mosaic(video, mid, root, log=print, **kw):
         calls["mosaic"] += 1
         return {k: np.eye(3) * 2 for k in range(N)}
     monkeypatch.setattr(mosaic, "calibrate_via_mosaic", _mosaic)

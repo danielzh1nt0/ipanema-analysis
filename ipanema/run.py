@@ -5,6 +5,7 @@ from . import video as V, calibration as C, teams as T, tracking as TR, ball as 
 
 _FIXED_CACHE = os.environ.get("IPANEMA_FIXED_CACHE", "1") == "1"            # N0-21c: fixed camera keeps its own track cache (0 = old names)
 _ALT_WASB_ONLY = os.environ.get("IPANEMA_ALT_WASB_ONLY", "1") == "1"         # N0-21c: the side-by-side 'WASB + YOLO' check only for WASB guesses (0 = old)
+_MOSAIC_COVER = os.environ.get("IPANEMA_MOSAIC_COVER", "1") == "1"         # N0-22b: mosaic calibration coverage = measured frames only (0 = old: every filled frame counted)
 _PLAY_STATE = os.environ.get("IPANEMA_PLAY_STATE", "1") == "1"               # N0-21d: frames outside match time are nobody's possession (0 = old: last team kept)
 
 
@@ -18,7 +19,7 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     video = V.normalise(video_src, os.path.join(work, "video.mp4")); vi = V.info(video)
     log(f"video: {vi['width']}x{vi['height']} @ {vi['fps']:.1f} fps, {vi['n']} frames ({vi['n']/vi['fps']:.0f} s)")
     from .mosaic import calibrate_via_mosaic
-    Hm = None
+    Hm = None; _minfo = None
     from . import linecal as LC
     _lines = LC.find_rows(S.root, match_id)                                   # the line model's full-match calibration, if this match has one
     # Veo panorama clips (<match>_pano...): one curved-camera calibration for every frame (no per-frame registration)
@@ -34,10 +35,16 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
     _fixed = FC.find(match_id)                                                 # N0-21c: looked up first - a fixed camera never needs the mosaic (it ran, cost time, and was then ignored)
     try:
         if panorama or _lines or _fixed: raise StopIteration
-        if os.path.exists(pano_cache): Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
+        _icache = pano_cache[:-4] + "_anchors.json"                         # N0-22b: which frames were registered (measured) vs filled in
+        if os.path.exists(pano_cache):
+            Hm = pickle.load(open(pano_cache, "rb")); log(f"calibration: panorama registration cached ({len(Hm)} frames)")
+            if os.path.exists(_icache): _minfo = json.load(open(_icache))
         else:
-            Hm = calibrate_via_mosaic(video, match_id, S.root, log=log)
-            if Hm: pickle.dump(Hm, open(pano_cache, "wb"))
+            _minfo = {}; Hm = calibrate_via_mosaic(video, match_id, S.root, log=log, anchors_out=_minfo)
+            if Hm:
+                pickle.dump(Hm, open(pano_cache, "wb"))
+                try: json.dump(_minfo, open(_icache, "w"))
+                except Exception as e: log(f"calibration anchors not saved ({e!r})")
     except StopIteration: pass
     except Exception as e: log(f"mosaic calibration failed: {e!r}")
     if _fixed:                                                                 # 3 Oct: a fixed camera (tactical/broadcast): one homography from hand-read pitch points, every frame
@@ -82,7 +89,12 @@ def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
         valid = sorted(Hm)
         H = {k: (Hm[k] if k in Hm else Hm[min(valid, key=lambda v: abs(v - k))]) for k in range(vi["n"])}
         cal = {"coverage": len(Hm) / max(1, vi["n"]), "frozen": vi["n"] - len(Hm), "H": H, "L": L, "W": W}
-        log(f"calibration: from panorama, {len(Hm)}/{vi['n']} frames registered")
+        if _MOSAIC_COVER and _minfo and _minfo.get("anchors"):                # N0-22b: every frame gets an H, but frames inside a registration gap only get a guess
+            from .mosaic import measured_mask
+            _ok = measured_mask(_minfo["anchors"], vi["n"], step=int(_minfo.get("step", 10)), max_gap=max(int(_minfo.get("step", 10)), int(round(vi["fps"]))))
+            cal["coverage"] = float(_ok.mean()) if vi["n"] else 0.0; cal["frozen"] = int((~_ok).sum())
+            log(f"calibration: from panorama, {int(_ok.sum())}/{vi['n']} frames measured ({_minfo.get('direct')} direct + {_minfo.get('chained')} chained anchors), {cal['frozen']} guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)")
+        else: log(f"calibration: from panorama, {len(Hm)}/{vi['n']} frames registered")
     else:
         cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log)
     H, L, W = cal["H"], cal["L"], cal["W"]
