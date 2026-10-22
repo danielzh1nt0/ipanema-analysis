@@ -1,0 +1,259 @@
+{
+ "game": 2,
+ "players": 22,
+ "minutes": 10.0,
+ "results": {
+  "swap0.0_seed0": {
+   "truth": {
+    "distance_m": 25666,
+    "high_intensity_m": 1113,
+    "distance_vs_truth_pct": 100,
+    "hi_vs_truth_pct": 100
+   },
+   "old": {
+    "distance_m": 22683,
+    "high_intensity_m": 3274,
+    "distance_vs_truth_pct": 88,
+    "hi_vs_truth_pct": 294,
+    "player_distance_err_median_pct": 12
+   },
+   "run": {
+    "distance_m": 18967,
+    "high_intensity_m": 1169,
+    "distance_vs_truth_pct": 74,
+    "hi_vs_truth_pct": 105,
+    "player_distance_err_median_pct": 26
+   },
+   "line": {
+    "distance_m": 24636,
+    "high_intensity_m": 2291,
+    "distance_vs_truth_pct": 96,
+    "hi_vs_truth_pct": 206,
+    "player_distance_err_median_pct": 5
+   },
+   "line_cap8": {
+    "distance_m": 24416,
+    "high_intensity_m": 2071,
+    "distance_vs_truth_pct": 95,
+    "hi_vs_truth_pct": 186,
+    "player_distance_err_median_pct": 6
+   },
+   "line_cap7": {
+    "distance_m": 24155,
+    "high_intensity_m": 1811,
+    "distance_vs_truth_pct": 94,
+    "hi_vs_truth_pct": 163,
+    "player_distance_err_median_pct": 7
+   },
+   "line_cap6": {
+    "distance_m": 23775,
+    "high_intensity_m": 1430,
+    "distance_vs_truth_pct": 93,
+    "hi_vs_truth_pct": 128,
+    "player_distance_err_median_pct": 9
+   },
+   "line_cap7_1s": {
+    "distance_m": 21515,
+    "high_intensity_m": 1668,
+    "distance_vs_truth_pct": 84,
+    "hi_vs_truth_pct": 150,
+    "player_distance_err_median_pct": 15
+   },
+   "gaps": {
+    "n": 3492,
+    "speed_median": 2.8,
+    "over_7_pct": 9,
+    "over_10_pct": 3
+   }
+  },
+  "swap0.0_seed1": {
+   "truth": {
+    "distance_m": 25666,
+    "high_intensity_m": 1113,
+    "distance_vs_truth_pct": 100,
+    "hi_vs_truth_pct": 100
+   },
+   "old": {
+    "distance_m": 22421,
+    "high_intensity_m": 3083,
+    "distance_vs_truth_pct": 87,
+    "hi_vs_truth_pct": 277,
+    "player_distance_err_median_pct": 13
+   },
+   "run": {
+    "distance_m": 18783,
+    "high_intensity_m": 1052,
+    "distance_vs_truth_pct": 73,
+    "hi_vs_truth_pct": 94,
+    "player_distance_err_median_pct": 26
+   },
+   "line": {
+    "distance_m": 24436,
+    "high_intensity_m": 2422,
+    "distance_vs_truth_pct": 95,
+    "hi_vs_truth_pct": 218,
+    "player_distance_err_median_pct": 5
+   },
+   "line_cap8": {
+    "distance_m": 24036,
+    "high_intensity_m": 2022,
+    "distance_vs_truth_pct": 94,
+    "hi_vs_truth_pct": 182,
+    "player_distance_err_median_pct": 6
+   },
+   "line_cap7": {
+    "distance_m": 23712,
+    "high_intensity_m": 1698,
+    "distance_vs_truth_pct": 92,
+    "hi_vs_truth_pct": 153,
+    "player_distance_err_median_pct": 8
+   },
+   "line_cap6": {
+    "distance_m": 23309,
+    "high_intensity_m": 1295,
+    "distance_vs_truth_pct": 91,
+    "hi_vs_truth_pct": 116,
+    "player_distance_err_median_pct": 10
+   },
+   "line_cap7_1s": {
+    "distance_m": 21370,
+    "high_intensity_m": 1573,
+    "distance_vs_truth_pct": 83,
+    "hi_vs_truth_pct": 141,
+    "player_distance_err_median_pct": 17
+   },
+   "gaps": {
+    "n": 3589,
+    "speed_median": 2.9,
+    "over_7_pct": 12,
+    "over_10_pct": 3
+   }
+  },
+  "swap0.25_seed0": {
+   "truth": {
+    "distance_m": 25666,
+    "high_intensity_m": 1113,
+    "distance_vs_truth_pct": 100,
+    "hi_vs_truth_pct": 100
+   },
+   "old": {
+    "distance_m": 21406,
+    "high_intensity_m": 2640,
+    "distance_vs_truth_pct": 83,
+    "hi_vs_truth_pct": 237,
+    "player_distance_err_median_pct": 24
+   },
+   "run": {
+    "distance_m": 19237,
+    "high_intensity_m": 1175,
+    "distance_vs_truth_pct": 75,
+    "hi_vs_truth_pct": 106,
+    "player_distance_err_median_pct": 32
+   },
+   "line": {
+    "distance_m": 23952,
+    "high_intensity_m": 2649,
+    "distance_vs_truth_pct": 93,
+    "hi_vs_truth_pct": 238,
+    "player_distance_err_median_pct": 14
+   },
+   "line_cap8": {
+    "distance_m": 23447,
+    "high_intensity_m": 2144,
+    "distance_vs_truth_pct": 91,
+    "hi_vs_truth_pct": 193,
+    "player_distance_err_median_pct": 16
+   },
+   "line_cap7": {
+    "distance_m": 23117,
+    "high_intensity_m": 1814,
+    "distance_vs_truth_pct": 90,
+    "hi_vs_truth_pct": 163,
+    "player_distance_err_median_pct": 18
+   },
+   "line_cap6": {
+    "distance_m": 22714,
+    "high_intensity_m": 1411,
+    "distance_vs_truth_pct": 89,
+    "hi_vs_truth_pct": 127,
+    "player_distance_err_median_pct": 19
+   },
+   "line_cap7_1s": {
+    "distance_m": 21118,
+    "high_intensity_m": 1602,
+    "distance_vs_truth_pct": 82,
+    "hi_vs_truth_pct": 144,
+    "player_distance_err_median_pct": 24
+   },
+   "gaps": {
+    "n": 3322,
+    "speed_median": 3.7,
+    "over_7_pct": 29,
+    "over_10_pct": 23
+   }
+  },
+  "swap0.25_seed1": {
+   "truth": {
+    "distance_m": 25666,
+    "high_intensity_m": 1113,
+    "distance_vs_truth_pct": 100,
+    "hi_vs_truth_pct": 100
+   },
+   "old": {
+    "distance_m": 20737,
+    "high_intensity_m": 2403,
+    "distance_vs_truth_pct": 81,
+    "hi_vs_truth_pct": 216,
+    "player_distance_err_median_pct": 22
+   },
+   "run": {
+    "distance_m": 18578,
+    "high_intensity_m": 1000,
+    "distance_vs_truth_pct": 72,
+    "hi_vs_truth_pct": 90,
+    "player_distance_err_median_pct": 29
+   },
+   "line": {
+    "distance_m": 23499,
+    "high_intensity_m": 2395,
+    "distance_vs_truth_pct": 92,
+    "hi_vs_truth_pct": 215,
+    "player_distance_err_median_pct": 12
+   },
+   "line_cap8": {
+    "distance_m": 23022,
+    "high_intensity_m": 1918,
+    "distance_vs_truth_pct": 90,
+    "hi_vs_truth_pct": 172,
+    "player_distance_err_median_pct": 16
+   },
+   "line_cap7": {
+    "distance_m": 22776,
+    "high_intensity_m": 1672,
+    "distance_vs_truth_pct": 89,
+    "hi_vs_truth_pct": 150,
+    "player_distance_err_median_pct": 16
+   },
+   "line_cap6": {
+    "distance_m": 22328,
+    "high_intensity_m": 1224,
+    "distance_vs_truth_pct": 87,
+    "hi_vs_truth_pct": 110,
+    "player_distance_err_median_pct": 18
+   },
+   "line_cap7_1s": {
+    "distance_m": 20521,
+    "high_intensity_m": 1435,
+    "distance_vs_truth_pct": 80,
+    "hi_vs_truth_pct": 129,
+    "player_distance_err_median_pct": 22
+   },
+   "gaps": {
+    "n": 3417,
+    "speed_median": 3.7,
+    "over_7_pct": 29,
+    "over_10_pct": 22
+   }
+  }
+ }
+}

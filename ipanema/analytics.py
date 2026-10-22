@@ -2,6 +2,49 @@
 import numpy as np, pandas as pd, cv2
 from collections import defaultdict
 from .vote import majority
+import os
+RUN_SMOOTH = os.environ.get("IPANEMA_RUN_SMOOTH", "1") == "1"   # N0-22c: smooth a track's positions within each seen run, never across a gap (0 = old)
+
+
+def smooth_runs(ks, P, win, max_gap=3, runs=None):
+    """N0-22c (22 Oct): centred rolling mean of a track's positions P (rows at frames ks), computed separately for each
+    run of rows whose frames are at most max_gap apart. The old single rolling mean over all rows mixed positions from
+    before and after a gap (player out of view, track stitched across up to 2.5 s): a player standing still on both sides
+    of a 2 s gap 'ran' 4.8 m, all of it at sprint speed (6.25 m/s). runs=False = the old mean over all rows."""
+    P = np.asarray(P, float); runs = RUN_SMOOTH if runs is None else runs
+    if not runs or len(ks) < 2: return pd.DataFrame(P).rolling(max(1, win), center=True, min_periods=1).mean().values
+    cut = np.flatnonzero(np.diff(np.asarray(ks)) > max_gap) + 1; out = np.empty_like(P)
+    for a, b in zip(np.r_[0, cut], np.r_[cut, len(ks)]):
+        out[a:b] = pd.DataFrame(P[a:b]).rolling(max(1, win), center=True, min_periods=1).mean().values
+    return out
+
+GAP_LINE_S = float(os.environ.get("IPANEMA_GAP_LINE_S", "2.5"))   # N0-22c: a track gap up to this long counts as a straight line (0 = not counted)
+GAP_MAX_MS = float(os.environ.get("IPANEMA_GAP_MAX_MS", "7.0"))    # N0-22c: ... when that straight line is at most this fast (about a U15 sprint; faster = another person)
+
+
+def track_motion(ks, P, fps, runs=None, gap_line_s=None, gap_max_ms=None, hi_ms=5.5, max_ms=10.0):
+    """per-row speed (m/s, NaN = not measured), distance and high-intensity distance of one track (rows at frames ks).
+    Speeds come from positions smoothed over 0.8 s (per seen run, N0-22c), steps of <= 3 frames, 0.5-10 m/s (below 0.5 = 0).
+    N0-22c (22 Oct): a gap of more than 3 frames (player hidden / track stitched, median 0.33 s on our clips) also adds
+    the straight line across it when the gap is at most gap_line_s long and that line at most gap_max_ms fast (on our
+    clips a fifth of gap jumps are > 10 m/s: another person, not a run); it is high-intensity when that speed is > hi_ms.
+    Gap speeds never count as the top speed. Metrica pro tracking cut like our tracks, with id swaps at our rate
+    (tools/n0_22c_metrica.py, results/qa/n0-22c): distance 81-85% -> 89-93% of the truth, high-intensity 139-237% ->
+    111-163%, median player error 21-24% -> 14-18%. runs=False, gap_line_s=0 (IPANEMA_RUN_SMOOTH=0 IPANEMA_GAP_LINE_S=0) = old."""
+    ks = np.asarray(ks); dt = 1 / fps; gap_line_s = GAP_LINE_S if gap_line_s is None else gap_line_s
+    gap_max_ms = GAP_MAX_MS if gap_max_ms is None else gap_max_ms
+    if runs is None: runs = RUN_SMOOTH
+    Ps = smooth_runs(ks, P, int(0.8 * fps), runs=runs)
+    sp = np.full(len(ks), np.nan); step = np.zeros(len(ks)); hi = np.zeros(len(ks))
+    for i in range(1, len(ks)):
+        gap = int(ks[i] - ks[i - 1]); d = float(np.linalg.norm(Ps[i] - Ps[i - 1])); s = d / (gap * dt)
+        if gap <= 3:
+            if s <= max_ms:
+                sp[i] = s if s >= 0.5 else 0.0; step[i] = sp[i] * gap * dt; hi[i] = step[i] if s > hi_ms else 0.0
+        elif gap * dt <= gap_line_s and 0.5 <= s <= gap_max_ms:                    # standing still (< 0.5 m/s) counts 0, like a seen step
+            step[i] = d; hi[i] = d if s > hi_ms else 0.0
+    return sp, step, hi
+
 
 def _blocked(c, t, opps, lane_half):
     d = t - c; n2 = d @ d
@@ -199,13 +242,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
     players = []; heat = {}; GRID = (12, 8)
     for tid in ids:
         tm = team_id[tid]; ks = np.array(sorted(tracks[tid])); P = np.array([tracks[tid][k] for k in ks]); sgn = 1 if attack_right[tm] else -1
-        Ps = pd.DataFrame(P).rolling(max(1, int(0.8 * fps)), center=True, min_periods=1).mean().values; V = np.full_like(P, np.nan)
-        for i in range(1, len(ks)):
-            gap = ks[i] - ks[i - 1]
-            if gap <= 3:
-                v = (Ps[i] - Ps[i - 1]) / (gap * dt); s = np.linalg.norm(v)
-                if s <= 10: V[i] = v if s >= 0.5 else 0.0
-        sp = np.linalg.norm(V, axis=1); valid = ~np.isnan(sp); step = np.where(valid, sp * np.r_[0, np.diff(ks)] * dt, 0)
+        sp, step, hi_step = track_motion(ks, P, fps); valid = ~np.isnan(sp)   # N0-22c: smoothed per seen run + short gaps as a straight line (was: smoothed across gaps, gaps not counted)
         on = [k for k in ks if frames_[k]["carrier"] == tid]; pressed = [k for k in on if frames_[k]["pressure_m"] is not None and frames_[k]["pressure_m"] <= press_r]
         pr = 0; lastp = -99
         if sequences_ is not None: pr = press_by_seq.get(tid, 0)
@@ -224,7 +261,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,
                         "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": int(mp["better_option"].sum()) if len(mp) else 0, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
-                        "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(step[valid & (sp > 5.5)].sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
+                        "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(hi_step.sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
                         "avg_x_m": round(float(P[:, 0].mean()), 1), "avg_y_m": round(float(P[:, 1].mean()), 1),
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
                         "counterpress_rate": round(rx["pressed"] / rx["losses_seen"], 2) if rx and rx["losses_seen"] else None, "losses_seen": rx["losses_seen"] if rx else 0})

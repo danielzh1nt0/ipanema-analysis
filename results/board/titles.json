@@ -86,5 +86,6 @@
  "N0-21e": "Ball finder: junk guesses at tile edges (option, off)",
  "BALL-EDGE": "Ball finder tile-edge rule: full-clip test on Kaggle",
  "N0-22a": "Tests: ball finder tests failed without torch (fixed)",
- "N0-22b": "Calibration coverage: follow-cam frames counted only when measured (latent fix)"
+ "N0-22b": "Calibration coverage: follow-cam frames counted only when measured (latent fix)",
+ "N0-22c": "Player distance: no smoothing across track gaps, short gaps counted (team distance closer to truth)"
 }
