@@ -84,5 +84,6 @@
  "N0-21c": "Clip set-up step gets its first test",
  "N0-21d": "Full matches: no possession given away during the break",
  "N0-21e": "Ball finder: junk guesses at tile edges (option, off)",
- "BALL-EDGE": "Ball finder tile-edge rule: full-clip test on Kaggle"
+ "BALL-EDGE": "Ball finder tile-edge rule: full-clip test on Kaggle",
+ "N0-22a": "Tests: ball finder tests failed without torch (fixed)"
 }
