@@ -1,0 +1,170 @@
+{
+ "SFKBP1109": {
+  "frames": 29970,
+  "fps": 10.0,
+  "old": {
+   "A": {
+    "length": 26.6,
+    "width": 32.8,
+    "line": 31.2,
+    "frames": 20498
+   },
+   "B": {
+    "length": 25.3,
+    "width": 32.1,
+    "line": 42.4,
+    "frames": 20975
+   }
+  },
+  "new": {
+   "A": {
+    "length": 30.4,
+    "width": 36.1,
+    "line": 31.2,
+    "frames": 23655
+   },
+   "B": {
+    "length": 28.1,
+    "width": 35.1,
+    "line": 42.4,
+    "frames": 23723
+   }
+  },
+  "in_app_stats_json": {
+   "A": [
+    26.54,
+    32.48,
+    30.77
+   ],
+   "B": [
+    25.43,
+    32.02,
+    41.87
+   ]
+  },
+  "per_frame_median": {
+   "A": {
+    "seen": 7.0,
+    "with_held": 10.0,
+    "with_held_p90": 14.0
+   },
+   "B": {
+    "seen": 7.0,
+    "with_held": 10.0,
+    "with_held_p90": 13.0
+   }
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "frames": 59600,
+  "fps": 10.0,
+  "old": {
+   "A": {
+    "length": 28.1,
+    "width": 37.6,
+    "line": 42.1,
+    "frames": 41663
+   },
+   "B": {
+    "length": 25.6,
+    "width": 36.8,
+    "line": 33.2,
+    "frames": 40780
+   }
+  },
+  "new": {
+   "A": {
+    "length": 34.5,
+    "width": 41.4,
+    "line": 42.1,
+    "frames": 46821
+   },
+   "B": {
+    "length": 29.1,
+    "width": 39.1,
+    "line": 33.2,
+    "frames": 46057
+   }
+  },
+  "in_app_stats_json": {
+   "A": [
+    28.05,
+    37.6,
+    42.06
+   ],
+   "B": [
+    25.59,
+    36.79,
+    33.2
+   ]
+  },
+  "per_frame_median": {
+   "A": {
+    "seen": 7.0,
+    "with_held": 10.0,
+    "with_held_p90": 14.0
+   },
+   "B": {
+    "seen": 7.0,
+    "with_held": 10.0,
+    "with_held_p90": 13.0
+   }
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "frames": 5994,
+  "fps": 10.0,
+  "old": {
+   "A": {
+    "length": 29.6,
+    "width": 38.8,
+    "line": 61.4,
+    "frames": 4611
+   },
+   "B": {
+    "length": 28.7,
+    "width": 45.6,
+    "line": 29.3,
+    "frames": 4439
+   }
+  },
+  "new": {
+   "A": {
+    "length": 39.3,
+    "width": 47.9,
+    "line": 61.4,
+    "frames": 5691
+   },
+   "B": {
+    "length": 38.0,
+    "width": 49.7,
+    "line": 29.3,
+    "frames": 5513
+   }
+  },
+  "in_app_stats_json": {
+   "A": [
+    26.89,
+    37.95,
+    60.79
+   ],
+   "B": [
+    29.37,
+    43.44,
+    29.18
+   ]
+  },
+  "per_frame_median": {
+   "A": {
+    "seen": 6.0,
+    "with_held": 10.0,
+    "with_held_p90": 14.0
+   },
+   "B": {
+    "seen": 7.0,
+    "with_held": 11.0,
+    "with_held_p90": 16.0
+   }
+  }
+ }
+}

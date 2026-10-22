@@ -195,6 +195,39 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
         out.append(p)
     return out, tracks
 
+# N0-22e (22 Oct): the camera shows only part of the pitch, so a team's block length / width from the players in the
+# picture came out ~25% / ~20% short (Metrica pro tracking seen through our clips' real camera views + our track breaks:
+# length 23 vs 32 m, width 32 vs 40 m). A player who drops out of the picture now keeps his last seen spot for
+# SHAPE_HOLD_S seconds (the usual 'last known position'): length / width -5% / -7%. The line height (deepest player) was
+# already right from the seen players (+-2 m) and holding makes it worse, so it keeps the seen players. 0 = old numbers.
+SHAPE_HOLD_S = float(os.environ.get("IPANEMA_SHAPE_HOLD_S", "5"))
+
+SHAPE_EDGE_M = float(os.environ.get("IPANEMA_SHAPE_EDGE_M", "1.5"))
+
+def held_points(per, fps, hold_s=None, min_seen=3, L=None, W=None, edge_m=None):
+    """per frame k -> {team: (n x 2) array}: the outfield players in the picture + the last seen spot of each track of that
+    team that left the picture within hold_s seconds (keepers left out, like the shapes). A frame with fewer than
+    min_seen seen players of a team gives None for it (a held team alone is no reading); an empty frame (half-time,
+    untrusted camera) clears the held spots. With L, W: a spot within edge_m of the pitch's edge is not held - on our clips
+    16-18% of held spots sat on the touchline / goal line (seen spots 3-8%, Metrica pro players 0.7%): people at the line
+    and feet cut by the picture's edge, not players."""
+    hold_s = SHAPE_HOLD_S if hold_s is None else hold_s; hk = hold_s * fps; last = {}; out = []
+    e = SHAPE_EDGE_M if edge_m is None else edge_m
+    def off(m): return L is not None and W is not None and e > 0 and (m[0] < e or m[0] > L - e or m[1] < e or m[1] > W - e)
+    for k in range(len(per)):
+        rows = per.get(k, []) if isinstance(per, dict) else per[k]
+        if not rows: last.clear(); out.append({"A": None, "B": None}); continue
+        seen = {}
+        for r in rows:
+            if r[1] in ("A", "B") and not r[5]: seen[r[0]] = (r[1], np.asarray(r[2], float)); last[r[0]] = (r[1], np.asarray(r[2], float), k)
+        for t in [t for t, v in last.items() if k - v[2] > hk + 1e-9 or (t not in seen and off(v[1]))]: del last[t]
+        fr = {}
+        for tm in ("A", "B"):
+            if sum(1 for v in seen.values() if v[0] == tm) < min_seen: fr[tm] = None; continue
+            fr[tm] = np.array([v[1] for v in last.values() if v[0] == tm])
+        out.append(fr)
+    return out
+
 def shapes(per, L, fps=25.0):
     """per frame, per team: hull (metres), block length/width, deepest/highest x, excluding keepers."""
     out = {}
@@ -266,13 +299,17 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
                         "counterpress_rate": round(rx["pressed"] / rx["losses_seen"], 2) if rx and rx["losses_seen"] else None, "losses_seen": rx["losses_seen"] if rx else 0})
     poss = [STATES[s] if s < 2 else None for s in state]; teams = []
+    held = held_points(per, fps, L=L, W=W) if SHAPE_HOLD_S else None
     for tm in ("A", "B"):
         opp = "B" if tm == "A" else "A"; tp = pass_df[pass_df.team == tm] if len(pass_df) else pass_df; op = pass_df[pass_df.team == opp] if len(pass_df) else pass_df
         lens, wids, hts = [], [], []
         for k in range(n):
             pts = np.array([r[2] for r in per[k] if r[1] == tm and not r[5]])
             if len(pts) >= 5:
-                xs = np.sort(pts[:, 0]); lens.append(xs[-1] - xs[0]); wids.append(pts[:, 1].max() - pts[:, 1].min()); hts.append(xs[0] if attack_right[tm] else L - xs[-1])
+                xs = np.sort(pts[:, 0]); hts.append(xs[0] if attack_right[tm] else L - xs[-1])
+                if not SHAPE_HOLD_S: lens.append(xs[-1] - xs[0]); wids.append(pts[:, 1].max() - pts[:, 1].min())
+            hp = held[k][tm] if held is not None else None                     # N0-22e: length / width with players just out of the picture
+            if hp is not None and len(hp) >= 5: lens.append(float(hp[:, 0].max() - hp[:, 0].min())); wids.append(float(hp[:, 1].max() - hp[:, 1].min()))
         my = [p for p in players if p["team"] == tm]; da = sum(p["pressures_applied"] for p in my); seqs = (sum(1 for q in sequences_ if q["team"] == tm) if sequences_ is not None else sum(1 for i in range(1, n) if poss[i] == tm and poss[i - 1] != tm))   # S8: the exported sequences, not raw-state flips
         ctrl = sum(1 for p in poss if p is not None); ps = sum(1 for p in poss if p == tm) * dt
         lost = [t for t in turnovers_ if t["lost_by"] == tm]; won = [t for t in turnovers_ if t["won_by"] == tm]
@@ -281,7 +318,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
         teams.append({"team": tm, "possession_pct": round(100 * sum(1 for p in poss if p == tm) / max(1, ctrl)), "possession_s": round(ps, 1), "sequences": seqs, "passes": int(len(tp)),
                       "pass_completion_pct": round(100 * tp.completed.mean()) if len(tp) else None, "passes_per_sequence": round(len(tp) / seqs, 1) if seqs else None,
                       "forward_pass_share_pct": round(100 * (tp.kind == "forward").mean()) if len(tp) else None, "progressive_passes": int(tp.progressive.sum()) if len(tp) else 0,
-                      "ppda_opp_passes_per_def_action": round(len(op) / da, 1) if da else None, "block_length_median_m": med(lens), "block_width_median_m": med(wids), "def_line_height_median_m": med(hts),
+                      "ppda_opp_passes_per_def_action": round(len(op) / da, 1) if da else None, "block_length_median_m": med(lens), "block_width_median_m": med(wids), "def_line_height_median_m": med(hts), "block_hold_s": SHAPE_HOLD_S,
                       "losses": len(lost), "recoveries": len(won), "time_to_press_median_s": med([t["time_to_press"] for t in lost]), "pressed_within_2s_pct": pct([(t["time_to_press"] is not None and t["time_to_press"] <= 2) for t in lost]),
                       "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]), "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
                       "time_to_forward_pass_median_s": med([t["time_to_forward_pass"] for t in won]), "forward_within_3s_pct": pct([(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3) for t in won]),

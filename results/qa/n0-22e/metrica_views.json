@@ -1,0 +1,510 @@
+{
+ "1_SFKBP1109_s1200": {
+  "home": {
+   "all": {
+    "length": 32.4,
+    "width": 40.7,
+    "line": 33.4,
+    "n": {
+     "length": 7359,
+     "width": 7359,
+     "line": 7359
+    }
+   },
+   "seen5": {
+    "length": 24.2,
+    "width": 33.9,
+    "line": 33.3,
+    "n": {
+     "length": 5289,
+     "width": 5289,
+     "line": 5289
+    }
+   },
+   "seen7": {
+    "length": 25.9,
+    "width": 34.9,
+    "line": 28.7,
+    "n": {
+     "length": 3316,
+     "width": 3316,
+     "line": 3316
+    }
+   },
+   "seen8": {
+    "length": 26.5,
+    "width": 35.2,
+    "line": 25.8,
+    "n": {
+     "length": 2233,
+     "width": 2233,
+     "line": 2233
+    }
+   },
+   "seen9": {
+    "length": 26.8,
+    "width": 35.3,
+    "line": 24.4,
+    "n": {
+     "length": 1278,
+     "width": 1278,
+     "line": 1278
+    }
+   },
+   "cover": {
+    "length": 21.0,
+    "width": 32.6,
+    "line": 26.2,
+    "n": {
+     "length": 139,
+     "width": 1124,
+     "line": 1367
+    }
+   }
+  },
+  "away": {
+   "all": {
+    "length": 32.5,
+    "width": 41.7,
+    "line": 38.2,
+    "n": {
+     "length": 7359,
+     "width": 7359,
+     "line": 7359
+    }
+   },
+   "seen5": {
+    "length": 25.0,
+    "width": 33.5,
+    "line": 39.0,
+    "n": {
+     "length": 5290,
+     "width": 5290,
+     "line": 5290
+    }
+   },
+   "seen7": {
+    "length": 26.7,
+    "width": 34.7,
+    "line": 38.4,
+    "n": {
+     "length": 3483,
+     "width": 3483,
+     "line": 3483
+    }
+   },
+   "seen8": {
+    "length": 27.2,
+    "width": 35.4,
+    "line": 35.7,
+    "n": {
+     "length": 2309,
+     "width": 2309,
+     "line": 2309
+    }
+   },
+   "seen9": {
+    "length": 27.6,
+    "width": 35.5,
+    "line": 33.6,
+    "n": {
+     "length": 1349,
+     "width": 1349,
+     "line": 1349
+    }
+   },
+   "cover": {
+    "length": 12.2,
+    "width": 29.6,
+    "line": 31.5,
+    "n": {
+     "length": 235,
+     "width": 1325,
+     "line": 1574
+    }
+   }
+  },
+  "seen_per_team_median": 6.0
+ },
+ "1_p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "home": {
+   "all": {
+    "length": 32.4,
+    "width": 40.7,
+    "line": 33.4,
+    "n": {
+     "length": 7359,
+     "width": 7359,
+     "line": 7359
+    }
+   },
+   "seen5": {
+    "length": 24.0,
+    "width": 34.4,
+    "line": 33.7,
+    "n": {
+     "length": 5046,
+     "width": 5046,
+     "line": 5046
+    }
+   },
+   "seen7": {
+    "length": 25.7,
+    "width": 35.8,
+    "line": 30.6,
+    "n": {
+     "length": 3056,
+     "width": 3056,
+     "line": 3056
+    }
+   },
+   "seen8": {
+    "length": 26.2,
+    "width": 36.0,
+    "line": 27.8,
+    "n": {
+     "length": 1933,
+     "width": 1933,
+     "line": 1933
+    }
+   },
+   "seen9": {
+    "length": 26.4,
+    "width": 35.2,
+    "line": 26.2,
+    "n": {
+     "length": 993,
+     "width": 993,
+     "line": 993
+    }
+   },
+   "cover": {
+    "length": 17.3,
+    "width": 32.1,
+    "line": 27.1,
+    "n": {
+     "length": 150,
+     "width": 951,
+     "line": 1122
+    }
+   }
+  },
+  "away": {
+   "all": {
+    "length": 32.5,
+    "width": 41.7,
+    "line": 38.2,
+    "n": {
+     "length": 7359,
+     "width": 7359,
+     "line": 7359
+    }
+   },
+   "seen5": {
+    "length": 24.0,
+    "width": 34.0,
+    "line": 38.1,
+    "n": {
+     "length": 5149,
+     "width": 5149,
+     "line": 5149
+    }
+   },
+   "seen7": {
+    "length": 25.9,
+    "width": 36.2,
+    "line": 36.6,
+    "n": {
+     "length": 3195,
+     "width": 3195,
+     "line": 3195
+    }
+   },
+   "seen8": {
+    "length": 26.7,
+    "width": 37.1,
+    "line": 35.0,
+    "n": {
+     "length": 2089,
+     "width": 2089,
+     "line": 2089
+    }
+   },
+   "seen9": {
+    "length": 27.3,
+    "width": 37.3,
+    "line": 32.9,
+    "n": {
+     "length": 1033,
+     "width": 1033,
+     "line": 1033
+    }
+   },
+   "cover": {
+    "length": 14.8,
+    "width": 29.7,
+    "line": 31.2,
+    "n": {
+     "length": 195,
+     "width": 1000,
+     "line": 1469
+    }
+   }
+  },
+  "seen_per_team_median": 6.0
+ },
+ "2_SFKBP1109_s1200": {
+  "home": {
+   "all": {
+    "length": 32.5,
+    "width": 39.6,
+    "line": 34.7,
+    "n": {
+     "length": 6936,
+     "width": 6936,
+     "line": 6936
+    }
+   },
+   "seen5": {
+    "length": 24.1,
+    "width": 32.8,
+    "line": 37.2,
+    "n": {
+     "length": 5333,
+     "width": 5333,
+     "line": 5333
+    }
+   },
+   "seen7": {
+    "length": 25.7,
+    "width": 34.4,
+    "line": 32.9,
+    "n": {
+     "length": 3386,
+     "width": 3386,
+     "line": 3386
+    }
+   },
+   "seen8": {
+    "length": 26.4,
+    "width": 34.5,
+    "line": 28.3,
+    "n": {
+     "length": 2289,
+     "width": 2289,
+     "line": 2289
+    }
+   },
+   "seen9": {
+    "length": 26.7,
+    "width": 35.0,
+    "line": 25.0,
+    "n": {
+     "length": 1312,
+     "width": 1312,
+     "line": 1312
+    }
+   },
+   "cover": {
+    "length": 18.7,
+    "width": 31.3,
+    "line": 27.0,
+    "n": {
+     "length": 160,
+     "width": 1283,
+     "line": 1261
+    }
+   }
+  },
+  "away": {
+   "all": {
+    "length": 30.9,
+    "width": 39.9,
+    "line": 34.2,
+    "n": {
+     "length": 6936,
+     "width": 6936,
+     "line": 6936
+    }
+   },
+   "seen5": {
+    "length": 24.1,
+    "width": 34.0,
+    "line": 34.8,
+    "n": {
+     "length": 5633,
+     "width": 5633,
+     "line": 5633
+    }
+   },
+   "seen7": {
+    "length": 25.1,
+    "width": 34.8,
+    "line": 33.1,
+    "n": {
+     "length": 3557,
+     "width": 3557,
+     "line": 3557
+    }
+   },
+   "seen8": {
+    "length": 25.3,
+    "width": 34.9,
+    "line": 30.9,
+    "n": {
+     "length": 2308,
+     "width": 2308,
+     "line": 2308
+    }
+   },
+   "seen9": {
+    "length": 24.9,
+    "width": 34.7,
+    "line": 26.9,
+    "n": {
+     "length": 1259,
+     "width": 1259,
+     "line": 1259
+    }
+   },
+   "cover": {
+    "length": 20.9,
+    "width": 32.3,
+    "line": 26.8,
+    "n": {
+     "length": 157,
+     "width": 1155,
+     "line": 1452
+    }
+   }
+  },
+  "seen_per_team_median": 7.0
+ },
+ "2_p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "home": {
+   "all": {
+    "length": 32.5,
+    "width": 39.6,
+    "line": 34.7,
+    "n": {
+     "length": 6936,
+     "width": 6936,
+     "line": 6936
+    }
+   },
+   "seen5": {
+    "length": 24.0,
+    "width": 33.5,
+    "line": 36.5,
+    "n": {
+     "length": 4990,
+     "width": 4990,
+     "line": 4990
+    }
+   },
+   "seen7": {
+    "length": 25.5,
+    "width": 34.7,
+    "line": 31.0,
+    "n": {
+     "length": 3209,
+     "width": 3209,
+     "line": 3209
+    }
+   },
+   "seen8": {
+    "length": 25.6,
+    "width": 35.0,
+    "line": 26.8,
+    "n": {
+     "length": 2186,
+     "width": 2186,
+     "line": 2186
+    }
+   },
+   "seen9": {
+    "length": 26.3,
+    "width": 35.4,
+    "line": 23.7,
+    "n": {
+     "length": 1211,
+     "width": 1211,
+     "line": 1211
+    }
+   },
+   "cover": {
+    "length": 17.1,
+    "width": 30.0,
+    "line": 24.8,
+    "n": {
+     "length": 170,
+     "width": 1033,
+     "line": 1185
+    }
+   }
+  },
+  "away": {
+   "all": {
+    "length": 30.9,
+    "width": 39.9,
+    "line": 34.2,
+    "n": {
+     "length": 6936,
+     "width": 6936,
+     "line": 6936
+    }
+   },
+   "seen5": {
+    "length": 23.4,
+    "width": 34.7,
+    "line": 35.3,
+    "n": {
+     "length": 5215,
+     "width": 5215,
+     "line": 5215
+    }
+   },
+   "seen7": {
+    "length": 24.8,
+    "width": 35.5,
+    "line": 33.2,
+    "n": {
+     "length": 3280,
+     "width": 3280,
+     "line": 3280
+    }
+   },
+   "seen8": {
+    "length": 25.3,
+    "width": 35.5,
+    "line": 30.5,
+    "n": {
+     "length": 2124,
+     "width": 2124,
+     "line": 2124
+    }
+   },
+   "seen9": {
+    "length": 25.7,
+    "width": 35.2,
+    "line": 25.7,
+    "n": {
+     "length": 1168,
+     "width": 1168,
+     "line": 1168
+    }
+   },
+   "cover": {
+    "length": 19.6,
+    "width": 32.0,
+    "line": 26.3,
+    "n": {
+     "length": 190,
+     "width": 980,
+     "line": 1266
+    }
+   }
+  },
+  "seen_per_team_median": 6.0
+ }
+}

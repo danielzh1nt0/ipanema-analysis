@@ -88,5 +88,6 @@
  "N0-22a": "Tests: ball finder tests failed without torch (fixed)",
  "N0-22b": "Calibration coverage: follow-cam frames counted only when measured (latent fix)",
  "N0-22c": "Player distance: no smoothing across track gaps, short gaps counted (team distance closer to truth)",
- "N0-22d": "Possession-over-time chart: empty windows no longer read as 0%"
+ "N0-22d": "Possession-over-time chart: empty windows no longer read as 0%",
+ "N0-22e": "Team block length / width: players just out of the picture count 5 s (closer to the whole team)"
 }
