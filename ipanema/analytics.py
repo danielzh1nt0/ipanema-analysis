@@ -201,6 +201,12 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
 # SHAPE_HOLD_S seconds (the usual 'last known position'): length / width -5% / -7%. The line height (deepest player) was
 # already right from the seen players (+-2 m) and holding makes it worse, so it keeps the seen players. 0 = old numbers.
 SHAPE_HOLD_S = float(os.environ.get("IPANEMA_SHAPE_HOLD_S", "5"))
+# N0-22f (22 Oct): 'regained within 5 s' (counter-press success) and its mirror 'lost back in 5 s'. On Metrica pro data
+# (tools/n0_22f_regain.py) the truth is 17-28% of all losses per half; the pipeline gives 2-19% with a perfect ball and
+# 0-11% with our streak noise, because a quick regain is mostly not a counted loss at all (spell state + S9 rule).
+# With the ball flicker of our clips the raw state gives ~80%. No rule tried tracks the truth under our noise.
+# IPANEMA_REGAIN=withhold writes None for both team figures (the app then shows a dash); default 'on' = unchanged.
+REGAIN = os.environ.get("IPANEMA_REGAIN", "on")
 
 SHAPE_EDGE_M = float(os.environ.get("IPANEMA_SHAPE_EDGE_M", "1.5"))
 
@@ -320,10 +326,11 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                       "forward_pass_share_pct": round(100 * (tp.kind == "forward").mean()) if len(tp) else None, "progressive_passes": int(tp.progressive.sum()) if len(tp) else 0,
                       "ppda_opp_passes_per_def_action": round(len(op) / da, 1) if da else None, "block_length_median_m": med(lens), "block_width_median_m": med(wids), "def_line_height_median_m": med(hts), "block_hold_s": SHAPE_HOLD_S,
                       "losses": len(lost), "recoveries": len(won), "time_to_press_median_s": med([t["time_to_press"] for t in lost]), "pressed_within_2s_pct": pct([(t["time_to_press"] is not None and t["time_to_press"] <= 2) for t in lost]),
-                      "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]), "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
+                      "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]) if REGAIN != "withhold" else None, "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
                       "time_to_forward_pass_median_s": med([t["time_to_forward_pass"] for t in won]), "forward_within_3s_pct": pct([(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3) for t in won]),
-                      "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]), "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
-                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0})   # 3 Oct: the app reads it per team
+                      "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]) if REGAIN != "withhold" else None, "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
+                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0}
+                     | ({"regain_withheld": "N0-22f: not measurable from our ball (Metrica check)"} if REGAIN == "withhold" else {}))   # 3 Oct: the app reads it per team
     return {"players": players, "teams": teams, "heatmaps": heat, "grid": list(GRID)}
 
 def confirm_passes(ps, kicks, tol=0.7):
