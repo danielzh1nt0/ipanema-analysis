@@ -1,2 +1,2 @@
-tools/ball_edge_shard.py aik 7 8
-# Fri Oct 23 12:32:58 UTC 2026 BALL-EDGE shard aik 7/8: re-detect with the app ball finder, keep raw tile guesses - free runner only, nothing on Modal
+tools/ball_edge_sheet.py
+# Fri Oct 23 14:28:20 UTC 2026 BALL-EDGE: picture sheets where old and edge picks differ (25 spells) - free runner only, nothing on Modal
