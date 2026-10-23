@@ -5,15 +5,15 @@
   warnings.warn(
 /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
   warnings.warn(
-[2026-10-23 12:32:44] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
-[2026-10-23 12:32:44] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 12:33:16] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 12:33:16] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
 rfdetr optimize_for_inference skipped: AttributeError("'RFDETRSmall' object has no attribute 'optimize_for_inference'")
-downloading SFKBP1109_s1200
-sfk 7/8: frame 7868 (0/1124, 46 s)
-[2026-10-23 12:33:24] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
-sfk 7/8: frame 8068 (200/1124, 1094 s)
-sfk 7/8: frame 8268 (400/1124, 2142 s)
-sfk 7/8: frame 8468 (600/1124, 3187 s)
-sfk 7/8: frame 8668 (800/1124, 4235 s)
-sfk 7/8: frame 8868 (1000/1124, 5290 s)
-{"clip": "SFKBP1109_s1200", "slice": [7, 8], "frames_wanted": [7868, 8992], "frames_done": 1124, "first": 7868, "last": 8991, "tile_guesses": 23301, "minutes": 99.0, "fake_model": false}
+downloading p15u-vs-aik-2026-09-21-bd09_s2520
+aik 1/8: frame 1124 (0/1124, 16 s)
+[2026-10-23 12:33:27] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+aik 1/8: frame 1324 (200/1124, 1069 s)
+aik 1/8: frame 1524 (400/1124, 2127 s)
+aik 1/8: frame 1724 (600/1124, 3177 s)
+aik 1/8: frame 1924 (800/1124, 4226 s)
+aik 1/8: frame 2124 (1000/1124, 5284 s)
+{"clip": "p15u-vs-aik-2026-09-21-bd09_s2520", "slice": [1, 8], "frames_wanted": [1124, 2248], "frames_done": 1124, "first": 1124, "last": 2247, "tile_guesses": 18738, "minutes": 98.9, "fake_model": false}
