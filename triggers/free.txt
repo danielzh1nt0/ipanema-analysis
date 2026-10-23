@@ -1,2 +1,2 @@
-tools/ball_edge_shard.py sfk 2 8
-# Fri Oct 23 12:29:15 UTC 2026 BALL-EDGE shard sfk 2/8: re-detect with the app ball finder, keep raw tile guesses - free runner only, nothing on Modal
+tools/ball_edge_shard.py sfk 3 8
+# Fri Oct 23 12:29:32 UTC 2026 BALL-EDGE shard sfk 3/8: re-detect with the app ball finder, keep raw tile guesses - free runner only, nothing on Modal
