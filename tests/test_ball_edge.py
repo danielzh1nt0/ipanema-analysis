@@ -49,3 +49,14 @@ def test_edge_arm_drops_cut_guess_keeps_wasb():
     assert len(ro[0]) == 2 and len(rn[0]) == 1 and st["rf_old"] - st["rf_new"] == 1
     assert any(abs(x - 100) < 2 and abs(c - 0.25) < 0.01 for x, y, c in cn[0])    # the WASB guess there survives alone (0.5 / 2)
     assert sorted(round(c, 3) for _, _, c in co[0]) == sorted(round(c, 3) for _, _, c in F[0])
+
+
+def test_sheet_dry_run(tmp_path):
+    p = str(tmp_path / "v.mp4"); w = cv2.VideoWriter(p, cv2.VideoWriter_fourcc(*"mp4v"), 25, (1920, 1080))
+    for i in range(16): w.write(np.full((1080, 1920, 3), 40 + i * 3, np.uint8))
+    w.release()
+    json.dump({"sfk": {"pick_differs_spells": [[2, 4], [10, 12]]}}, open(tmp_path / "g.json", "w"))
+    json.dump({"sfk": {"old (re-detected)": {"3": [100, 100]}, "new (BALL_EDGE=1)": {"3": [150, 120], "11": [1900, 10]}}}, open(tmp_path / "p.json", "w"))
+    env = dict(os.environ, LOCAL_CLIP=p, PYTHONPATH=ROOT)
+    subprocess.run([sys.executable, f"{ROOT}/tools/ball_edge_sheet.py", str(tmp_path / "g.json"), str(tmp_path / "p.json"), str(tmp_path / "o")], env=env, check=True, capture_output=True)
+    img = cv2.imread(str(tmp_path / "o" / "diff_sfk_00.jpg")); assert img is not None and img.shape[1] == 4 * 320
