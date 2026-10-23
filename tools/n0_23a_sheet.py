@@ -16,7 +16,12 @@ def fetch(clip):
     dst = f"/tmp/n0_23a_{clip}.mp4"
     if not os.path.exists(dst):
         url = os.environ["R2_PUBLIC_URL"].rstrip("/") + f"/{clip}/video.mp4"; print("downloading", clip, flush=True)
-        urllib.request.urlretrieve(url, dst)
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})   # R2 refuses Python's default agent (403)
+        with urllib.request.urlopen(req, timeout=600) as r, open(dst, "wb") as f:
+            while True:
+                b = r.read(1 << 20)
+                if not b: break
+                f.write(b)
     return dst
 
 

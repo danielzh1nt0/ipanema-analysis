@@ -1,2 +1,2 @@
 tools/n0_23a_sheet.py
-# Fri Oct 23 2026 UTC: picture sheets of the wins whose forward-pass-within-3-s answer changed (N0-23a) - free runner only
+# Fri Oct 23 2026 UTC (retry with a browser user agent): picture sheets for N0-23a - free runner only
