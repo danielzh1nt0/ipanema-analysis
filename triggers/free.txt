@@ -1,2 +1,2 @@
-tools/ball_edge_shard.py aik 1 8
-# Fri Oct 23 12:31:16 UTC 2026 BALL-EDGE shard aik 1/8: re-detect with the app ball finder, keep raw tile guesses - free runner only, nothing on Modal
+tools/ball_edge_shard.py aik 2 8
+# Fri Oct 23 12:31:33 UTC 2026 BALL-EDGE shard aik 2/8: re-detect with the app ball finder, keep raw tile guesses - free runner only, nothing on Modal
