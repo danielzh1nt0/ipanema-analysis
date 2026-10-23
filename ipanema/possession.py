@@ -304,6 +304,11 @@ def _spot_frames(k, j, n, fps, spot):
     if spot == "last1": return range(max(k, j - int(1.0 * fps)), j + 1)
     return range(max(k, j - int(1.0 * fps)), min(n, j + int(1.5 * fps)))
 
+# N0-23a (23 Oct): 'forward pass within 3 s of winning it' is timed from the winner's first touch after the loser's last
+# control (k_lost), not from the frame the counted state turns (k0, up to ~2 s later, often after the first pass).
+# Metrica: the first forward pass of a win was missed when it was the pass that made the state turn. 0 = old.
+FWD_FROM_WIN = os.environ.get("IPANEMA_FWD_FROM_WIN", "1") != "0"
+
 def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
     n = len(per); poss = [STATES[s] if s < 2 else None for s in state]; out = []; last = None
     for k in range(1, n):
@@ -338,13 +343,15 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
             j2 = min(n - 1, k0 + int(2 * fps)); tv["near_at_2s"] = frames_[j2]["near_opps"] if frames_[j2]["team"] == winner else None
             tv["regained_within_5s"] = any(poss[j] == loser for j in range(k0, min(n, k0 + int(5 * fps))))
             tv["lost_back_5s"] = tv["regained_within_5s"]
-            prev = None
-            for j in range(k0, min(n, k0 + int(8 * fps))):
+            prev = None; w0 = k0
+            if FWD_FROM_WIN:    # N0-23a: the counted state turns to the winner only once he holds it, often AFTER his first pass
+                w0 = next((j for j in range(k_lost + 1, k0) if frames_[j]["team"] == winner and frames_[j]["carrier"] is not None), k0)
+            for j in range(w0, min(n, w0 + int(8 * fps))):
                 f = frames_[j]
                 if f["team"] == winner and f["carrier"] is not None:
                     if prev is not None and f["carrier"] != prev["carrier"]:
                         gain = (f["pos"][0] - prev["pos"][0]) * (1 if attack_right[winner] else -1)
-                        if gain >= fwd_m: tv["time_to_forward_pass"] = round((j - k0) / fps, 2); break
+                        if gain >= fwd_m: tv["time_to_forward_pass"] = round((j - w0) / fps, 2); break
                     prev = f
                 elif poss[j] not in (None, winner): break
             b0 = ballm.get(k0)

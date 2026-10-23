@@ -111,7 +111,9 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     ball_px = {k: v for k, v in ballm.items()}                                 # H = identity: "pixels" are metres
     frames_, bm = P.carriers(perd, ball_px, H)
     state, bspeed, dstate, info = P.pipeline_state(perd, {k: tuple(v) for k, v in ball_px.items()}, bm, H, FPS, L, W, mode=mode, log=lambda *a: None)
-    ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or {"A": True, "B": False}
+    # N0-23a (23 Oct): like ipanema/run.py - keepers, else the player-position fallback. It was a fixed A -> (right), which is
+    # backwards in 2 of Metrica's 4 halves (Game 1 2nd, Game 2 1st), so every forward pass there read as backward.
+    ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or P.direction_fallback(perd, L, log=lambda *a: None)
     rst = P.restarts(dstate, bm, FPS, L, W)
     cstate = P.spell_state(state, FPS, P.SPELL_TAKE_S if spell_take is None else spell_take, P.SPELL_JOIN_S if spell_join is None else spell_join)
     tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
@@ -126,7 +128,7 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
             "possession_pct": {"Home": round(100 * (st == 0).sum() / max(1, live)), "Away": round(100 * (st == 1).sum() / max(1, live))},
             "dead_pct": round(100 * (np.asarray(dstate) == 3).mean()), "mode": info["mode"],
             "sequences": len(seqs), "sequence_starts": [(k0 + s["start"], s["team"]) for s in seqs],
-            "switches_per_min_raw": switches_per_min(state, FPS), "switches_per_min": switches_per_min(cstate, FPS)}
+            "switches_per_min_raw": switches_per_min(state, FPS), "switches_per_min": switches_per_min(cstate, FPS), "attack_right": ar}
 
 def switches_per_min(st, fps):
     """S6: team changes per minute, loose/dead frames skipped (A, loose, B = one switch); our clips: 35-41 raw, 4-5 spell"""

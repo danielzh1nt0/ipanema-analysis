@@ -1,0 +1,340 @@
+{
+ "SFKBP1109_s1200": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "old": {
+   "wins": 17,
+   "fwd3_pct": 29,
+   "median_s": 1.35,
+   "under_0_5s": 2
+  },
+  "new": {
+   "wins": 17,
+   "fwd3_pct": 24,
+   "median_s": 2.69,
+   "under_0_5s": 1
+  },
+  "per_team": {
+   "A": {
+    "old": {
+     "wins": 9,
+     "fwd3_pct": 44,
+     "median_s": 0.54,
+     "under_0_5s": 2
+    },
+    "new": {
+     "wins": 9,
+     "fwd3_pct": 33,
+     "median_s": 0.86,
+     "under_0_5s": 1
+    }
+   },
+   "B": {
+    "old": {
+     "wins": 8,
+     "fwd3_pct": 12,
+     "median_s": 3.99,
+     "under_0_5s": 0
+    },
+    "new": {
+     "wins": 8,
+     "fwd3_pct": 12,
+     "median_s": 4.04,
+     "under_0_5s": 0
+    }
+   }
+  },
+  "rows": [
+   {
+    "t_lost": 22.26,
+    "t_won": 23.92,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 25.03,
+    "t_won": 27.43,
+    "won_by": "B",
+    "old": 4.34,
+    "new": 4.74
+   },
+   {
+    "t_lost": 31.73,
+    "t_won": 33.27,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 34.83,
+    "t_won": 35.17,
+    "won_by": "B",
+    "old": 3.94,
+    "new": 4.04
+   },
+   {
+    "t_lost": 66.93,
+    "t_won": 67.03,
+    "won_by": "A",
+    "old": 0.87,
+    "new": 0.93
+   },
+   {
+    "t_lost": 93.29,
+    "t_won": 96.83,
+    "won_by": "B",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 136.6,
+    "t_won": 137.24,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 152.09,
+    "t_won": 153.19,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 185.42,
+    "t_won": 189.76,
+    "won_by": "A",
+    "old": 0.2,
+    "new": 0.23
+   },
+   {
+    "t_lost": 207.91,
+    "t_won": 208.64,
+    "won_by": "B",
+    "old": 0.93,
+    "new": 1.4
+   },
+   {
+    "t_lost": 212.41,
+    "t_won": 213.68,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 216.58,
+    "t_won": 216.62,
+    "won_by": "B",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 229.13,
+    "t_won": 231.0,
+    "won_by": "A",
+    "old": 0.2,
+    "new": 0.8
+   },
+   {
+    "t_lost": 236.6,
+    "t_won": 240.81,
+    "won_by": "B",
+    "old": 4.04,
+    "new": 4.04
+   },
+   {
+    "t_lost": 272.51,
+    "t_won": 272.54,
+    "won_by": "B",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 275.74,
+    "t_won": 281.71,
+    "won_by": "A",
+    "old": 1.77,
+    "new": 3.97
+   },
+   {
+    "t_lost": 289.22,
+    "t_won": 290.06,
+    "won_by": "B",
+    "old": null,
+    "new": null
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "old": {
+   "wins": 17,
+   "fwd3_pct": 41,
+   "median_s": 2.05,
+   "under_0_5s": 1
+  },
+  "new": {
+   "wins": 17,
+   "fwd3_pct": 35,
+   "median_s": 3.92,
+   "under_0_5s": 1
+  },
+  "per_team": {
+   "A": {
+    "old": {
+     "wins": 8,
+     "fwd3_pct": 50,
+     "median_s": 2.05,
+     "under_0_5s": 0
+    },
+    "new": {
+     "wins": 8,
+     "fwd3_pct": 25,
+     "median_s": 3.92,
+     "under_0_5s": 0
+    }
+   },
+   "B": {
+    "old": {
+     "wins": 9,
+     "fwd3_pct": 33,
+     "median_s": 2.97,
+     "under_0_5s": 1
+    },
+    "new": {
+     "wins": 9,
+     "fwd3_pct": 44,
+     "median_s": 3.64,
+     "under_0_5s": 1
+    }
+   }
+  },
+  "rows": [
+   {
+    "t_lost": 41.64,
+    "t_won": 43.24,
+    "won_by": "A",
+    "old": 0.63,
+    "new": 0.83
+   },
+   {
+    "t_lost": 53.12,
+    "t_won": 54.02,
+    "won_by": "B",
+    "old": 6.44,
+    "new": 7.14
+   },
+   {
+    "t_lost": 62.13,
+    "t_won": 66.23,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 106.61,
+    "t_won": 107.61,
+    "won_by": "B",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 108.91,
+    "t_won": 109.28,
+    "won_by": "A",
+    "old": 3.67,
+    "new": 3.67
+   },
+   {
+    "t_lost": 114.31,
+    "t_won": 114.88,
+    "won_by": "B",
+    "old": 1.03,
+    "new": 1.1
+   },
+   {
+    "t_lost": 117.15,
+    "t_won": 120.55,
+    "won_by": "A",
+    "old": 1.6,
+    "new": 4.17
+   },
+   {
+    "t_lost": 126.13,
+    "t_won": 131.43,
+    "won_by": "B",
+    "old": null,
+    "new": 0.6
+   },
+   {
+    "t_lost": 132.17,
+    "t_won": 138.07,
+    "won_by": "A",
+    "old": null,
+    "new": null
+   },
+   {
+    "t_lost": 139.24,
+    "t_won": 143.14,
+    "won_by": "B",
+    "old": null,
+    "new": 7.87
+   },
+   {
+    "t_lost": 155.56,
+    "t_won": 155.59,
+    "won_by": "B",
+    "old": 4.44,
+    "new": 4.44
+   },
+   {
+    "t_lost": 169.67,
+    "t_won": 173.37,
+    "won_by": "A",
+    "old": 2.5,
+    "new": 6.14
+   },
+   {
+    "t_lost": 189.29,
+    "t_won": 189.42,
+    "won_by": "B",
+    "old": 0.1,
+    "new": 0.2
+   },
+   {
+    "t_lost": 215.11,
+    "t_won": 215.35,
+    "won_by": "A",
+    "old": 6.21,
+    "new": 6.24
+   },
+   {
+    "t_lost": 224.12,
+    "t_won": 227.63,
+    "won_by": "B",
+    "old": 7.71,
+    "new": 7.74
+   },
+   {
+    "t_lost": 241.54,
+    "t_won": 242.68,
+    "won_by": "A",
+    "old": 0.77,
+    "new": 0.83
+   },
+   {
+    "t_lost": 249.48,
+    "t_won": 250.95,
+    "won_by": "B",
+    "old": 1.5,
+    "new": 2.84
+   }
+  ]
+ }
+}
