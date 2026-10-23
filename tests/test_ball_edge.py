@@ -25,3 +25,27 @@ def test_shard_dry_run(tmp_path):
         assert info["frames_done"] == 4 and d["cut"].dtype == bool and d["cut"].any() and not d["cut"].all()
         fr += sorted(set(d["f"].tolist()))
     assert fr == list(range(12))
+
+
+def test_wasb_read_back_reproduces_fuse():
+    from tools import ball_edge_grade as G
+    from ipanema import ball as BL
+    rf = {0: [(100.0, 100.0, 0.6), (500.0, 300.0, 0.3), (900.0, 50.0, 0.9)], 1: [(10.0, 10.0, 0.2)], 2: []}
+    wb = {0: [(104.0, 98.0, 0.5), (1500.0, 700.0, 0.4), (902.0, 51.0, 0.9)], 1: [], 2: [(5.0, 5.0, 0.7)]}
+    F = BL.fuse_candidates(rf, wb)
+    W = {k: G.wasb_back(F[k], rf.get(k, []))[0] for k in F}
+    F2 = BL.fuse_candidates(rf, W)
+    for k in F:                                                    # same scores at the same places (cap: 900,50 stays 0.99)
+        assert len(F2[k]) == len(F[k])
+        for a, b in zip(sorted(F[k]), sorted(F2[k])): assert abs(a[2] - b[2]) < 0.01 and abs(a[0] - b[0]) < 0.5
+
+
+def test_edge_arm_drops_cut_guess_keeps_wasb():
+    from tools import ball_edge_grade as G
+    raw = {0: [(100.0, 100.0, 0.3, True), (300.0, 300.0, 0.4, False)]}
+    from ipanema import ball as BL
+    F = BL.fuse_candidates({0: [(100.0, 100.0, 0.3), (300.0, 300.0, 0.4)]}, {0: [(101.0, 100.0, 0.5)]})
+    co, cn, W, ro, rn, st = G.arms(raw, F)
+    assert len(ro[0]) == 2 and len(rn[0]) == 1 and st["rf_old"] - st["rf_new"] == 1
+    assert any(abs(x - 100) < 2 and abs(c - 0.25) < 0.01 for x, y, c in cn[0])    # the WASB guess there survives alone (0.5 / 2)
+    assert sorted(round(c, 3) for _, _, c in co[0]) == sorted(round(c, 3) for _, _, c in F[0])
