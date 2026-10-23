@@ -41,7 +41,7 @@ class FakeKits:
 
 def _run(monkeypatch, kits=None):
     monkeypatch.setenv("IPANEMA_DETECTOR", "yolo")
-    sys.modules.setdefault("ultralytics", types.ModuleType("ultralytics")).YOLO = lambda w: FakeDetector()
+    monkeypatch.setitem(sys.modules, "ultralytics", types.SimpleNamespace(YOLO=lambda w: FakeDetector()))   # restored after the test (a leftover fake broke later tests when ultralytics is installed)
     H = {k: np.diag([10.0, 10.0, 1.0]) for k in range(N)}          # pixels = 10 x metres
     kits = kits or FakeKits()
     per, fps = T.track(_video(), "w.pt", H, kits, 0.3, log=lambda *a: None, tiles=["any"], pano=False)

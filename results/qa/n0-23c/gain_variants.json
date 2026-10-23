@@ -1,0 +1,146 @@
+{
+ "False/ball": {
+  "matched": 1372,
+  "kind_agree_pct": 80.7,
+  "prog_found_pct": 49.7,
+  "prog_real_pct": 99.3,
+  "team_fwd_err_pts": [
+   -15.4,
+   -13.0,
+   -11.5
+  ],
+  "team_prog_ratio": [
+   0.36,
+   0.57,
+   0.69
+  ]
+ },
+ "False/mix": {
+  "matched": 1372,
+  "kind_agree_pct": 90.3,
+  "prog_found_pct": 64.9,
+  "prog_real_pct": 99.5,
+  "team_fwd_err_pts": [
+   -10.7,
+   -7.9,
+   -5.9
+  ],
+  "team_prog_ratio": [
+   0.55,
+   0.72,
+   0.91
+  ]
+ },
+ "False/players": {
+  "matched": 1372,
+  "kind_agree_pct": 94.1,
+  "prog_found_pct": 85.1,
+  "prog_real_pct": 96.8,
+  "team_fwd_err_pts": [
+   -7.8,
+   -4.2,
+   -1.2
+  ],
+  "team_prog_ratio": [
+   0.75,
+   0.93,
+   1.19
+  ]
+ },
+ "flicker/ball": {
+  "matched": 2109,
+  "kind_agree_pct": 83.0,
+  "prog_found_pct": 55.3,
+  "prog_real_pct": 96.6,
+  "team_fwd_err_pts": [
+   -11.1,
+   -5.9,
+   2.9
+  ],
+  "team_prog_ratio": [
+   0.47,
+   0.73,
+   1.03
+  ]
+ },
+ "flicker/mix": {
+  "matched": 2109,
+  "kind_agree_pct": 88.1,
+  "prog_found_pct": 64.7,
+  "prog_real_pct": 96.7,
+  "team_fwd_err_pts": [
+   -8.8,
+   -3.3,
+   6.1
+  ],
+  "team_prog_ratio": [
+   0.55,
+   0.8,
+   1.08
+  ]
+ },
+ "flicker/players": {
+  "matched": 2109,
+  "kind_agree_pct": 90.2,
+  "prog_found_pct": 74.9,
+  "prog_real_pct": 95.3,
+  "team_fwd_err_pts": [
+   -8.0,
+   -1.8,
+   6.6
+  ],
+  "team_prog_ratio": [
+   0.73,
+   0.9,
+   1.19
+  ]
+ },
+ "streak/ball": {
+  "matched": 2378,
+  "kind_agree_pct": 83.9,
+  "prog_found_pct": 63.9,
+  "prog_real_pct": 88.3,
+  "team_fwd_err_pts": [
+   -9.5,
+   -5.6,
+   -1.2
+  ],
+  "team_prog_ratio": [
+   0.52,
+   0.72,
+   0.92
+  ]
+ },
+ "streak/mix": {
+  "matched": 2378,
+  "kind_agree_pct": 87.8,
+  "prog_found_pct": 69.6,
+  "prog_real_pct": 88.3,
+  "team_fwd_err_pts": [
+   -7.8,
+   -3.4,
+   1.7
+  ],
+  "team_prog_ratio": [
+   0.55,
+   0.79,
+   1.0
+  ]
+ },
+ "streak/players": {
+  "matched": 2378,
+  "kind_agree_pct": 88.5,
+  "prog_found_pct": 75.5,
+  "prog_real_pct": 87.1,
+  "team_fwd_err_pts": [
+   -7.4,
+   -1.9,
+   3.2
+  ],
+  "team_prog_ratio": [
+   0.59,
+   0.86,
+   1.12
+  ]
+ }
+}

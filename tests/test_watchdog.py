@@ -19,6 +19,6 @@ def test_watchdog_raises(monkeypatch):
     monkeypatch.setattr(sv.Detections, "from_ultralytics", staticmethod(lambda r: Det()))
     monkeypatch.setattr(sv, "ByteTrack", lambda *a, **k: types.SimpleNamespace(update_with_detections=lambda d: d))
     monkeypatch.setattr(T, "YOLO", lambda w: (lambda *a, **k: [Res()]), raising=False)
-    sys.modules.setdefault("ultralytics", types.ModuleType("ultralytics")).YOLO = lambda w: (lambda *a, **k: [Res()])
+    monkeypatch.setitem(sys.modules, "ultralytics", types.SimpleNamespace(YOLO=lambda w: (lambda *a, **k: [Res()])))   # restored after the test
     with pytest.raises(RuntimeError, match="too slow"):
         T.track(p, "weights.pt", {k: np.eye(3) for k in range(1600)}, None, 0.3, log=lambda *a: None, imgsz=1920)
