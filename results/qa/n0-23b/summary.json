@@ -1,0 +1,394 @@
+[
+ {
+  "file": "metrica_press.json",
+  "noise": "False",
+  "pairs": 153,
+  "agree_w2": 133,
+  "truth_yes": 92,
+  "ours_yes": 92,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "87/120",
+  "near2_same": "69/90",
+  "near2_mean_truth": 0.81,
+  "near2_mean_ours": 0.96,
+  "half_within2_truth": [
+   63.1,
+   49.6,
+   64.6,
+   54.3
+  ],
+  "half_within2_ours": [
+   46.9,
+   43.9,
+   63.6,
+   57.7
+  ],
+  "half_median_truth": [
+   0.04,
+   0.0,
+   0.04,
+   0.0
+  ],
+  "half_median_ours": [
+   1.04,
+   0.18,
+   0.52,
+   0.04
+  ]
+ },
+ {
+  "file": "metrica_press.json",
+  "noise": "streak",
+  "pairs": 49,
+  "agree_w2": 35,
+  "truth_yes": 29,
+  "ours_yes": 29,
+  "time_err_median_s": 0.08,
+  "time_within_0_5s": "13/39",
+  "near2_same": "5/11",
+  "near2_mean_truth": 1.0,
+  "near2_mean_ours": 0.45,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   43.5,
+   63.6,
+   43.5,
+   50.0,
+   51.9,
+   70.0,
+   54.5,
+   70.6
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   1.72,
+   1.12,
+   1.42,
+   0.12,
+   1.1,
+   0.56,
+   0.18,
+   0.32
+  ]
+ },
+ {
+  "file": "metrica_press.json",
+  "noise": "flicker",
+  "pairs": 238,
+  "agree_w2": 191,
+  "truth_yes": 125,
+  "ours_yes": 132,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "81/161",
+  "near2_same": "84/119",
+  "near2_mean_truth": 0.76,
+  "near2_mean_ours": 0.69,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   47.1,
+   50.0,
+   38.4,
+   43.0,
+   57.5,
+   50.0,
+   56.9,
+   48.0
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   1.36,
+   0.82,
+   0.66,
+   1.34,
+   0.32,
+   0.64,
+   0.76,
+   0.86
+  ]
+ },
+ {
+  "file": "metrica_press_view.json",
+  "noise": "False+view",
+  "pairs": 158,
+  "agree_w2": 128,
+  "truth_yes": 97,
+  "ours_yes": 81,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "63/110",
+  "near2_same": "45/81",
+  "near2_mean_truth": 0.73,
+  "near2_mean_ours": 0.68,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   47.1,
+   45.5,
+   38.1,
+   30.6,
+   54.1,
+   53.6,
+   51.7,
+   44.8
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   0.56,
+   0.98,
+   0.16,
+   2.16,
+   0.48,
+   0.4,
+   0.4,
+   0.4
+  ]
+ },
+ {
+  "file": "metrica_press_view.json",
+  "noise": "flicker+view",
+  "pairs": 130,
+  "agree_w2": 102,
+  "truth_yes": 70,
+  "ours_yes": 68,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "44/83",
+  "near2_same": "27/52",
+  "near2_mean_truth": 0.87,
+  "near2_mean_ours": 0.48,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   47.2,
+   50.0,
+   40.4,
+   37.5,
+   58.8,
+   50.0,
+   40.0,
+   48.7
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   0.16,
+   0.42,
+   0.48,
+   1.6,
+   0.84,
+   1.16,
+   1.48,
+   0.8
+  ]
+ },
+ {
+  "file": "metrica_press_from_touch_rejected.json",
+  "noise": "False",
+  "pairs": 153,
+  "agree_w2": 127,
+  "truth_yes": 92,
+  "ours_yes": 96,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "69/117",
+  "near2_same": "59/86",
+  "near2_mean_truth": 0.83,
+  "near2_mean_ours": 0.87,
+  "half_within2_truth": [
+   63.1,
+   49.6,
+   64.6,
+   54.3
+  ],
+  "half_within2_ours": [
+   53.1,
+   52.6,
+   68.2,
+   63.5
+  ],
+  "half_median_truth": [
+   0.04,
+   0.0,
+   0.04,
+   0.0
+  ],
+  "half_median_ours": [
+   0.44,
+   0.48,
+   0.52,
+   0.04
+  ]
+ },
+ {
+  "file": "metrica_press_from_touch_rejected.json",
+  "noise": "streak",
+  "pairs": 49,
+  "agree_w2": 28,
+  "truth_yes": 29,
+  "ours_yes": 32,
+  "time_err_median_s": 0.26,
+  "time_within_0_5s": "14/38",
+  "near2_same": "4/12",
+  "near2_mean_truth": 1.0,
+  "near2_mean_ours": 0.42,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   60.9,
+   18.2,
+   60.9,
+   75.0,
+   74.1,
+   85.0,
+   63.6,
+   58.8
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   0.52,
+   2.22,
+   0.84,
+   0.28,
+   0.44,
+   0.26,
+   0.32,
+   0.48
+  ]
+ },
+ {
+  "file": "metrica_press_from_touch_rejected.json",
+  "noise": "flicker",
+  "pairs": 238,
+  "agree_w2": 183,
+  "truth_yes": 125,
+  "ours_yes": 152,
+  "time_err_median_s": 0.0,
+  "time_within_0_5s": "95/165",
+  "near2_same": "88/123",
+  "near2_mean_truth": 0.78,
+  "near2_mean_ours": 0.72,
+  "half_within2_truth": [
+   63.1,
+   63.1,
+   49.6,
+   49.6,
+   64.6,
+   64.6,
+   54.3,
+   54.3
+  ],
+  "half_within2_ours": [
+   57.4,
+   50.0,
+   49.3,
+   53.2,
+   61.3,
+   51.3,
+   58.8,
+   56.0
+  ],
+  "half_median_truth": [
+   0.04,
+   0.04,
+   0.0,
+   0.0,
+   0.04,
+   0.04,
+   0.0,
+   0.0
+  ],
+  "half_median_ours": [
+   0.6,
+   0.92,
+   0.2,
+   1.12,
+   0.56,
+   0.44,
+   0.68,
+   0.4
+  ]
+ }
+]

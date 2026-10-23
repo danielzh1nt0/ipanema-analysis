@@ -1,0 +1,2802 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False+view",
+  "seed": 0,
+  "seen_share": 0.443,
+  "truth": {
+   "n": 141,
+   "median_s": 0.04,
+   "within2_pct": 63.1,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 75.2
+  },
+  "ours": {
+   "n": 34,
+   "median_s": 0.56,
+   "within2_pct": 47.1,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 73.5
+  },
+  "matched": {
+   "n": 22,
+   "agree_w2": 16,
+   "truth_w2": 12,
+   "ours_w2": 12,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.12
+  },
+  "pairs": [
+   {
+    "truth": 0.16,
+    "ours": 2.8,
+    "dt_won_s": 1.4,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 0.0,
+    "truth_near2": 2,
+    "ours_near2": 3
+   },
+   {
+    "truth": null,
+    "ours": 7.4,
+    "dt_won_s": 1.76,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.08,
+    "ours": 0.28,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 0.48,
+    "dt_won_s": 0.56,
+    "dt_lost_s": -1.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.0,
+    "dt_lost_s": 4.92,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 0.24,
+    "dt_won_s": -0.04,
+    "dt_lost_s": 0.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.0,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.28,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.08,
+    "dt_won_s": -0.04,
+    "dt_lost_s": 0.48,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 2.24,
+    "ours": 0.0,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 0.12,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.44,
+    "ours": 1.28,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.32,
+    "dt_won_s": -0.04,
+    "dt_lost_s": -0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 4.64,
+    "ours": null,
+    "dt_won_s": 1.6,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.0,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 5.56,
+    "ours": null,
+    "dt_won_s": 0.16,
+    "dt_lost_s": 0.16,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 2.64,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 0.04,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.92,
+    "dt_lost_s": 0.08,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.16,
+    "ours": 0.0,
+    "dt_won_s": 0.16,
+    "dt_lost_s": 1.68,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 5.2,
+    "ours": 5.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.08,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.12,
+    "dt_lost_s": -1.56,
+    "truth_near2": 1,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False+view",
+  "seed": 1,
+  "seen_share": 0.429,
+  "truth": {
+   "n": 141,
+   "median_s": 0.04,
+   "within2_pct": 63.1,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 75.2
+  },
+  "ours": {
+   "n": 33,
+   "median_s": 0.98,
+   "within2_pct": 45.5,
+   "near2_median": 0.5,
+   "pressed_ever_pct": 78.8
+  },
+  "matched": {
+   "n": 23,
+   "agree_w2": 21,
+   "truth_w2": 14,
+   "ours_w2": 12,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.08
+  },
+  "pairs": [
+   {
+    "truth": 0.16,
+    "ours": 0.16,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": 7.68,
+    "dt_won_s": 1.56,
+    "dt_lost_s": -0.08,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.84,
+    "dt_won_s": -1.2,
+    "dt_lost_s": 0.4,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.08,
+    "ours": 2.68,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 7.24,
+    "ours": 7.16,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 1.64,
+    "ours": 0.08,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 6.52,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": 1.04,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.64,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.44,
+    "ours": 0.32,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 1.48,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.92,
+    "dt_won_s": -0.68,
+    "dt_lost_s": -1.2,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 3.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.08,
+    "dt_won_s": -0.4,
+    "dt_lost_s": -0.2,
+    "truth_near2": 1,
+    "ours_near2": 2
+   },
+   {
+    "truth": 0.6,
+    "ours": 0.64,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 11.0,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.64,
+    "dt_lost_s": -0.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.6,
+    "dt_won_s": -0.6,
+    "dt_lost_s": -0.32,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 3.24,
+    "ours": 2.44,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 0.24,
+    "truth_near2": 2,
+    "ours_near2": 2
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.24,
+    "truth_near2": 2,
+    "ours_near2": 2
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 2.68,
+    "dt_won_s": 1.96,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.92,
+    "dt_lost_s": 0.08,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.16,
+    "ours": 0.8,
+    "dt_won_s": 1.88,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.96,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.36,
+    "dt_lost_s": -1.32,
+    "truth_near2": 1,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker+view",
+  "seed": 0,
+  "seen_share": 0.443,
+  "truth": {
+   "n": 141,
+   "median_s": 0.04,
+   "within2_pct": 63.1,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 75.2
+  },
+  "ours": {
+   "n": 36,
+   "median_s": 0.16,
+   "within2_pct": 47.2,
+   "near2_median": 0.5,
+   "pressed_ever_pct": 69.4
+  },
+  "matched": {
+   "n": 12,
+   "agree_w2": 9,
+   "truth_w2": 6,
+   "ours_w2": 7,
+   "median_err_s": 0.04,
+   "median_dt_won_s": 0.58
+  },
+  "pairs": [
+   {
+    "truth": null,
+    "ours": 7.04,
+    "dt_won_s": 1.72,
+    "dt_lost_s": 2.64,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 0.12,
+    "dt_won_s": -1.24,
+    "dt_lost_s": -0.24,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": 0.0,
+    "dt_won_s": 1.08,
+    "dt_lost_s": -1.76,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.04,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 0.0,
+    "dt_won_s": 0.4,
+    "dt_lost_s": -1.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.08,
+    "dt_won_s": 1.56,
+    "dt_lost_s": -2.72,
+    "truth_near2": 4,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": null,
+    "dt_won_s": 1.2,
+    "dt_lost_s": 1.44,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.24,
+    "ours": 2.04,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 0.16,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.44,
+    "ours": 1.12,
+    "dt_won_s": 0.24,
+    "dt_lost_s": 0.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.12,
+    "dt_won_s": 0.2,
+    "dt_lost_s": -0.16,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 5.2,
+    "ours": 4.28,
+    "dt_won_s": 0.76,
+    "dt_lost_s": 0.24,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.48,
+    "dt_lost_s": -0.8,
+    "truth_near2": 1,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker+view",
+  "seed": 1,
+  "seen_share": 0.429,
+  "truth": {
+   "n": 141,
+   "median_s": 0.04,
+   "within2_pct": 63.1,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 75.2
+  },
+  "ours": {
+   "n": 44,
+   "median_s": 0.42,
+   "within2_pct": 50.0,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 72.7
+  },
+  "matched": {
+   "n": 20,
+   "agree_w2": 15,
+   "truth_w2": 8,
+   "ours_w2": 11,
+   "median_err_s": -0.12,
+   "median_dt_won_s": 0.26
+  },
+  "pairs": [
+   {
+    "truth": 0.16,
+    "ours": 0.08,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 1.76,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.6,
+    "dt_lost_s": -4.76,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 3.08,
+    "ours": 0.88,
+    "dt_won_s": 1.96,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 7.24,
+    "ours": 6.2,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.08,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": 0.6,
+    "dt_won_s": 1.72,
+    "dt_lost_s": -0.88,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.4,
+    "dt_lost_s": 3.04,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.16,
+    "dt_won_s": 1.24,
+    "dt_lost_s": 1.76,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.44,
+    "ours": 0.32,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.64,
+    "ours": 2.44,
+    "dt_won_s": 1.68,
+    "dt_lost_s": 2.72,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 3.16,
+    "dt_won_s": -0.12,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.32,
+    "dt_lost_s": -0.16,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.6,
+    "ours": 0.48,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 10.24,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.32,
+    "dt_lost_s": -0.28,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.32,
+    "dt_won_s": -0.32,
+    "dt_lost_s": -0.56,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.44,
+    "ours": 1.56,
+    "dt_won_s": 0.8,
+    "dt_lost_s": 1.16,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.32,
+    "dt_lost_s": 0.4,
+    "truth_near2": 2,
+    "ours_near2": 2
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 2.92,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.4,
+    "dt_lost_s": 2.32,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 3.08,
+    "ours": 0.0,
+    "dt_won_s": -1.68,
+    "dt_lost_s": -5.96,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.44,
+    "dt_lost_s": -1.76,
+    "truth_near2": 1,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False+view",
+  "seed": 0,
+  "seen_share": 0.424,
+  "truth": {
+   "n": 115,
+   "median_s": 0.0,
+   "within2_pct": 49.6,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 63.5
+  },
+  "ours": {
+   "n": 42,
+   "median_s": 0.16,
+   "within2_pct": 38.1,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 57.1
+  },
+  "matched": {
+   "n": 21,
+   "agree_w2": 19,
+   "truth_w2": 13,
+   "ours_w2": 11,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.6
+  },
+  "pairs": [
+   {
+    "truth": null,
+    "ours": 7.32,
+    "dt_won_s": 1.24,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.6,
+    "dt_won_s": 0.28,
+    "dt_lost_s": 1.72,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.56,
+    "ours": 0.52,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.6,
+    "dt_lost_s": 0.12,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.84,
+    "dt_lost_s": 0.0,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 7.84,
+    "ours": 3.44,
+    "dt_won_s": 1.32,
+    "dt_lost_s": -0.72,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.96,
+    "ours": 0.08,
+    "dt_won_s": 1.84,
+    "dt_lost_s": 2.44,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 4.36,
+    "dt_won_s": 1.84,
+    "dt_lost_s": -0.24,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 0.0,
+    "dt_won_s": 1.84,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.0,
+    "dt_lost_s": 0.16,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.2,
+    "ours": null,
+    "dt_won_s": 1.0,
+    "dt_lost_s": 1.6,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 1.48,
+    "dt_lost_s": -1.48,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.08,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.24,
+    "dt_won_s": -2.0,
+    "dt_lost_s": -0.68,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 30.16,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.24,
+    "dt_lost_s": 0.28,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.32,
+    "dt_lost_s": 0.32,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -2.56,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.32,
+    "dt_lost_s": 4.92,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.2,
+    "dt_lost_s": 14.92,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 7.88,
+    "ours": 6.56,
+    "dt_won_s": 1.0,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False+view",
+  "seed": 1,
+  "seen_share": 0.394,
+  "truth": {
+   "n": 115,
+   "median_s": 0.0,
+   "within2_pct": 49.6,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 63.5
+  },
+  "ours": {
+   "n": 36,
+   "median_s": 2.16,
+   "within2_pct": 30.6,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 61.1
+  },
+  "matched": {
+   "n": 20,
+   "agree_w2": 16,
+   "truth_w2": 8,
+   "ours_w2": 4,
+   "median_err_s": -0.04,
+   "median_dt_won_s": 0.82
+  },
+  "pairs": [
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.64,
+    "dt_lost_s": -3.08,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 3.68,
+    "ours": 2.48,
+    "dt_won_s": 1.28,
+    "dt_lost_s": 1.88,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.64,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 6.96,
+    "dt_won_s": 1.72,
+    "dt_lost_s": 0.08,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.52,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 2.72,
+    "dt_won_s": 0.56,
+    "dt_lost_s": -2.28,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.2,
+    "ours": null,
+    "dt_won_s": 1.0,
+    "dt_lost_s": 1.48,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.08,
+    "dt_lost_s": -0.08,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.64,
+    "dt_lost_s": -0.24,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.16,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.08,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 5.6,
+    "dt_won_s": 1.72,
+    "dt_lost_s": 0.04,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 31.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 6.44,
+    "ours": 4.6,
+    "dt_won_s": 1.52,
+    "dt_lost_s": 0.08,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.0,
+    "ours": 0.04,
+    "dt_won_s": 1.92,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": 4.84,
+    "dt_won_s": 1.72,
+    "dt_lost_s": 16.32,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.12,
+    "dt_won_s": -0.2,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 7.88,
+    "ours": 6.68,
+    "dt_won_s": 1.2,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.88,
+    "dt_lost_s": 1.96,
+    "truth_near2": 1,
+    "ours_near2": 2
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker+view",
+  "seed": 0,
+  "seen_share": 0.424,
+  "truth": {
+   "n": 115,
+   "median_s": 0.0,
+   "within2_pct": 49.6,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 63.5
+  },
+  "ours": {
+   "n": 47,
+   "median_s": 0.48,
+   "within2_pct": 40.4,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 61.7
+  },
+  "matched": {
+   "n": 16,
+   "agree_w2": 14,
+   "truth_w2": 8,
+   "ours_w2": 8,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.28
+  },
+  "pairs": [
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.28,
+    "dt_lost_s": 1.88,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.96,
+    "dt_lost_s": -4.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 1.96,
+    "dt_won_s": 0.24,
+    "dt_lost_s": 0.68,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 4.64,
+    "dt_won_s": 1.36,
+    "dt_lost_s": 1.24,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 1.36,
+    "dt_lost_s": -1.6,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 0.12,
+    "dt_won_s": 0.36,
+    "dt_lost_s": 0.04,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.04,
+    "dt_won_s": -1.32,
+    "dt_lost_s": -0.72,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.52,
+    "dt_lost_s": 0.2,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 7.04,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 0.16,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.28,
+    "dt_lost_s": 31.2,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.56,
+    "ours": 0.0,
+    "dt_won_s": -0.48,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.96,
+    "dt_lost_s": -4.8,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.24,
+    "ours": 0.48,
+    "dt_won_s": -1.2,
+    "dt_lost_s": -3.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.32,
+    "dt_lost_s": 4.92,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.36,
+    "dt_lost_s": 14.84,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 7.88,
+    "ours": 6.6,
+    "dt_won_s": 1.32,
+    "dt_lost_s": 3.28,
+    "truth_near2": 0,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker+view",
+  "seed": 1,
+  "seen_share": 0.394,
+  "truth": {
+   "n": 115,
+   "median_s": 0.0,
+   "within2_pct": 49.6,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 63.5
+  },
+  "ours": {
+   "n": 40,
+   "median_s": 1.6,
+   "within2_pct": 37.5,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 65.0
+  },
+  "matched": {
+   "n": 16,
+   "agree_w2": 13,
+   "truth_w2": 7,
+   "ours_w2": 6,
+   "median_err_s": -0.44,
+   "median_dt_won_s": 0.58
+  },
+  "pairs": [
+   {
+    "truth": 0.0,
+    "ours": 0.16,
+    "dt_won_s": -0.28,
+    "dt_lost_s": -3.28,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.88,
+    "dt_lost_s": -1.32,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.56,
+    "dt_lost_s": 1.12,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.28,
+    "dt_won_s": -0.4,
+    "dt_lost_s": -0.68,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 3.2,
+    "dt_won_s": 0.6,
+    "dt_lost_s": 1.2,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.48,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.04,
+    "ours": 1.52,
+    "dt_won_s": 1.4,
+    "dt_lost_s": 4.2,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.64,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 0.28,
+    "dt_lost_s": -0.2,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.28,
+    "dt_lost_s": 31.08,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.72,
+    "ours": 0.68,
+    "dt_won_s": 1.04,
+    "dt_lost_s": -0.84,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 6.44,
+    "ours": 5.08,
+    "dt_won_s": 1.32,
+    "dt_lost_s": -0.04,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.0,
+    "ours": 0.0,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.88,
+    "dt_lost_s": 2.04,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.08,
+    "dt_lost_s": -0.4,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": 0.0,
+    "dt_won_s": 0.56,
+    "dt_lost_s": 0.64,
+    "truth_near2": 1,
+    "ours_near2": 1
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False+view",
+  "seed": 0,
+  "seen_share": 0.447,
+  "truth": {
+   "n": 127,
+   "median_s": 0.04,
+   "within2_pct": 64.6,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 78.7
+  },
+  "ours": {
+   "n": 37,
+   "median_s": 0.48,
+   "within2_pct": 54.1,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 70.3
+  },
+  "matched": {
+   "n": 21,
+   "agree_w2": 17,
+   "truth_w2": 14,
+   "ours_w2": 14,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.08
+  },
+  "pairs": [
+   {
+    "truth": 0.2,
+    "ours": 0.12,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.12,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.24,
+    "ours": 0.0,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 0.04,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.24,
+    "ours": 1.24,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 0.16,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.16,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -0.04,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 4.08,
+    "ours": null,
+    "dt_won_s": 0.68,
+    "dt_lost_s": -0.88,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": 2.08,
+    "dt_won_s": 1.24,
+    "dt_lost_s": 21.28,
+    "truth_near2": null,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.36,
+    "ours": 1.24,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -1.08,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 1.72,
+    "dt_won_s": 1.6,
+    "dt_lost_s": 2.56,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.12,
+    "ours": 0.0,
+    "dt_won_s": 0.16,
+    "dt_lost_s": 0.16,
+    "truth_near2": 3,
+    "ours_near2": 2
+   },
+   {
+    "truth": 0.0,
+    "ours": 1.6,
+    "dt_won_s": -1.76,
+    "dt_lost_s": -1.68,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.48,
+    "dt_lost_s": 0.48,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.92,
+    "dt_lost_s": 4.64,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.36,
+    "ours": 2.36,
+    "dt_won_s": 1.88,
+    "dt_lost_s": 4.84,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.8,
+    "dt_won_s": 0.08,
+    "dt_lost_s": -2.64,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": 0.0,
+    "dt_won_s": -1.4,
+    "dt_lost_s": -0.76,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.84,
+    "ours": 2.8,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -0.28,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 1.4,
+    "dt_won_s": -1.56,
+    "dt_lost_s": -0.16,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 3.88,
+    "dt_won_s": 0.72,
+    "dt_lost_s": 0.32,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 2.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 7.4,
+    "ours": null,
+    "dt_won_s": -1.96,
+    "dt_lost_s": -3.16,
+    "truth_near2": 0,
+    "ours_near2": 0
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False+view",
+  "seed": 1,
+  "seen_share": 0.422,
+  "truth": {
+   "n": 127,
+   "median_s": 0.04,
+   "within2_pct": 64.6,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 78.7
+  },
+  "ours": {
+   "n": 28,
+   "median_s": 0.4,
+   "within2_pct": 53.6,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 67.9
+  },
+  "matched": {
+   "n": 13,
+   "agree_w2": 10,
+   "truth_w2": 9,
+   "ours_w2": 8,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.08
+  },
+  "pairs": [
+   {
+    "truth": 1.24,
+    "ours": 0.48,
+    "dt_won_s": 0.72,
+    "dt_lost_s": 1.04,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.16,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 4.24,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 4.08,
+    "ours": 4.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": -0.04,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.08,
+    "ours": 6.64,
+    "dt_won_s": 1.8,
+    "dt_lost_s": 21.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.24,
+    "truth_near2": 2,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.84,
+    "dt_lost_s": 0.92,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 4.36,
+    "ours": 4.32,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 4.84,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.28,
+    "truth_near2": 1,
+    "ours_near2": 2
+   },
+   {
+    "truth": null,
+    "ours": 1.72,
+    "dt_won_s": 0.08,
+    "dt_lost_s": -2.04,
+    "truth_near2": 2,
+    "ours_near2": 2
+   },
+   {
+    "truth": 1.92,
+    "ours": 0.8,
+    "dt_won_s": 1.0,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.92,
+    "dt_lost_s": -2.0,
+    "truth_near2": 0,
+    "ours_near2": 2
+   },
+   {
+    "truth": 5.96,
+    "ours": 7.04,
+    "dt_won_s": -1.04,
+    "dt_lost_s": -1.12,
+    "truth_near2": 0,
+    "ours_near2": 0
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker+view",
+  "seed": 0,
+  "seen_share": 0.447,
+  "truth": {
+   "n": 127,
+   "median_s": 0.04,
+   "within2_pct": 64.6,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 78.7
+  },
+  "ours": {
+   "n": 51,
+   "median_s": 0.84,
+   "within2_pct": 58.8,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 84.3
+  },
+  "matched": {
+   "n": 26,
+   "agree_w2": 19,
+   "truth_w2": 17,
+   "ours_w2": 18,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.18
+  },
+  "pairs": [
+   {
+    "truth": 0.2,
+    "ours": 0.12,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 1.28,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.08,
+    "dt_won_s": -1.36,
+    "dt_lost_s": -3.4,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.24,
+    "ours": 0.84,
+    "dt_won_s": 0.44,
+    "dt_lost_s": -3.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 1.16,
+    "dt_won_s": 1.36,
+    "dt_lost_s": 0.6,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.16,
+    "ours": 6.2,
+    "dt_won_s": 1.8,
+    "dt_lost_s": 2.6,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.2,
+    "ours": 0.12,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.32,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.08,
+    "ours": null,
+    "dt_won_s": 0.72,
+    "dt_lost_s": -0.88,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 0.0,
+    "dt_won_s": -1.76,
+    "dt_lost_s": -0.64,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 1.76,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 3.36,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.12,
+    "ours": 0.0,
+    "dt_won_s": 1.64,
+    "dt_lost_s": 2.08,
+    "truth_near2": 3,
+    "ours_near2": 2
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.76,
+    "dt_won_s": -0.92,
+    "dt_lost_s": -1.72,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.2,
+    "dt_won_s": 1.16,
+    "dt_lost_s": 0.28,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.36,
+    "dt_lost_s": 6.12,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 7.44,
+    "dt_won_s": 1.04,
+    "dt_lost_s": 4.64,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.36,
+    "ours": 2.4,
+    "dt_won_s": 1.84,
+    "dt_lost_s": 7.64,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.56,
+    "ours": 2.08,
+    "dt_won_s": -0.52,
+    "dt_lost_s": -1.04,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 1.72,
+    "dt_won_s": -0.92,
+    "dt_lost_s": -0.76,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 0.0,
+    "dt_won_s": -1.8,
+    "dt_lost_s": -1.76,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 2.84,
+    "ours": 1.72,
+    "dt_won_s": 1.2,
+    "dt_lost_s": -0.4,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.2,
+    "dt_won_s": 0.52,
+    "dt_lost_s": 1.92,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.2,
+    "dt_won_s": -0.64,
+    "dt_lost_s": 1.52,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.24,
+    "dt_lost_s": -2.2,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.08,
+    "ours": 2.92,
+    "dt_won_s": -1.84,
+    "dt_lost_s": 17.96,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 1.92,
+    "ours": 1.68,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 1.68,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 5.96,
+    "ours": 3.84,
+    "dt_won_s": 0.12,
+    "dt_lost_s": -0.36,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 7.4,
+    "ours": 4.92,
+    "dt_won_s": -1.12,
+    "dt_lost_s": -3.36,
+    "truth_near2": 0,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker+view",
+  "seed": 1,
+  "seen_share": 0.422,
+  "truth": {
+   "n": 127,
+   "median_s": 0.04,
+   "within2_pct": 64.6,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 78.7
+  },
+  "ours": {
+   "n": 28,
+   "median_s": 1.16,
+   "within2_pct": 50.0,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 75.0
+  },
+  "matched": {
+   "n": 12,
+   "agree_w2": 10,
+   "truth_w2": 7,
+   "ours_w2": 7,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.98
+  },
+  "pairs": [
+   {
+    "truth": 1.24,
+    "ours": 0.0,
+    "dt_won_s": 1.44,
+    "dt_lost_s": 0.96,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.08,
+    "ours": null,
+    "dt_won_s": 0.12,
+    "dt_lost_s": 0.84,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 1.52,
+    "dt_won_s": 0.72,
+    "dt_lost_s": -0.24,
+    "truth_near2": 2,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.92,
+    "ours": 2.76,
+    "dt_won_s": -1.28,
+    "dt_lost_s": -0.32,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 1.24,
+    "dt_lost_s": 0.96,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 2.24,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 4.64,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -0.48,
+    "dt_lost_s": -0.24,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 2.84,
+    "ours": 3.04,
+    "dt_won_s": -0.2,
+    "dt_lost_s": -0.44,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 1.48,
+    "dt_lost_s": 0.16,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": 1.16,
+    "dt_won_s": 0.64,
+    "dt_lost_s": -2.08,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.92,
+    "ours": 0.28,
+    "dt_won_s": 1.52,
+    "dt_lost_s": 3.4,
+    "truth_near2": 1,
+    "ours_near2": 2
+   },
+   {
+    "truth": 5.96,
+    "ours": 2.64,
+    "dt_won_s": 1.28,
+    "dt_lost_s": -0.16,
+    "truth_near2": 0,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False+view",
+  "seed": 0,
+  "seen_share": 0.464,
+  "truth": {
+   "n": 105,
+   "median_s": 0.0,
+   "within2_pct": 54.3,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 68.6
+  },
+  "ours": {
+   "n": 29,
+   "median_s": 0.4,
+   "within2_pct": 51.7,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 75.9
+  },
+  "matched": {
+   "n": 21,
+   "agree_w2": 17,
+   "truth_w2": 15,
+   "ours_w2": 11,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.88
+  },
+  "pairs": [
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.88,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 0.44,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 0.32,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.08,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.28,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 4.88,
+    "ours": null,
+    "dt_won_s": -1.48,
+    "dt_lost_s": 0.0,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.2,
+    "ours": 2.04,
+    "dt_won_s": 1.2,
+    "dt_lost_s": 39.28,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 1.08,
+    "ours": 0.68,
+    "dt_won_s": 1.96,
+    "dt_lost_s": -0.28,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.8,
+    "dt_lost_s": 1.24,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.32,
+    "ours": 1.72,
+    "dt_won_s": 1.88,
+    "dt_lost_s": -0.76,
+    "truth_near2": 0,
+    "ours_near2": 3
+   },
+   {
+    "truth": 2.4,
+    "ours": 2.28,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.2,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.76,
+    "dt_lost_s": 0.4,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 0.68,
+    "dt_lost_s": 61.2,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.96,
+    "ours": 2.88,
+    "dt_won_s": 1.08,
+    "dt_lost_s": -0.2,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -0.48,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.68,
+    "ours": 1.28,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -0.48,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.0,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.68,
+    "dt_lost_s": 0.96,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 4.6,
+    "dt_won_s": 1.08,
+    "dt_lost_s": 23.88,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 3.92,
+    "dt_won_s": 2.0,
+    "dt_lost_s": 3.6,
+    "truth_near2": 0,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.36,
+    "ours": 0.0,
+    "dt_won_s": 0.96,
+    "dt_lost_s": 1.96,
+    "truth_near2": 1,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False+view",
+  "seed": 1,
+  "seen_share": 0.461,
+  "truth": {
+   "n": 105,
+   "median_s": 0.0,
+   "within2_pct": 54.3,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 68.6
+  },
+  "ours": {
+   "n": 29,
+   "median_s": 0.4,
+   "within2_pct": 44.8,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 72.4
+  },
+  "matched": {
+   "n": 17,
+   "agree_w2": 12,
+   "truth_w2": 12,
+   "ours_w2": 9,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.04
+  },
+  "pairs": [
+   {
+    "truth": 0.24,
+    "ours": 0.0,
+    "dt_won_s": -1.72,
+    "dt_lost_s": -3.64,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.96,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 4.88,
+    "ours": 2.96,
+    "dt_won_s": -1.32,
+    "dt_lost_s": -2.8,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 6.16,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -1.88,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.08,
+    "ours": null,
+    "dt_won_s": 0.08,
+    "dt_lost_s": -3.6,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 1.08,
+    "dt_won_s": 0.56,
+    "dt_lost_s": -2.32,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.04,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 1.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 0.04,
+    "dt_lost_s": -0.32,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 61.4,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.96,
+    "ours": 2.6,
+    "dt_won_s": 1.36,
+    "dt_lost_s": 0.08,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 1.68,
+    "ours": 0.0,
+    "dt_won_s": -0.92,
+    "dt_lost_s": -0.24,
+    "truth_near2": 1,
+    "ours_near2": 2
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.0,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 3.08,
+    "dt_won_s": 1.96,
+    "dt_lost_s": 0.2,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.36,
+    "dt_lost_s": 0.68,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.0,
+    "ours": 4.6,
+    "dt_won_s": 1.2,
+    "dt_lost_s": 26.32,
+    "truth_near2": null,
+    "ours_near2": 1
+   },
+   {
+    "truth": 1.16,
+    "ours": 2.12,
+    "dt_won_s": 0.04,
+    "dt_lost_s": 0.12,
+    "truth_near2": 2,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker+view",
+  "seed": 0,
+  "seen_share": 0.464,
+  "truth": {
+   "n": 105,
+   "median_s": 0.0,
+   "within2_pct": 54.3,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 68.6
+  },
+  "ours": {
+   "n": 35,
+   "median_s": 1.48,
+   "within2_pct": 40.0,
+   "near2_median": 0.0,
+   "pressed_ever_pct": 77.1
+  },
+  "matched": {
+   "n": 13,
+   "agree_w2": 10,
+   "truth_w2": 9,
+   "ours_w2": 6,
+   "median_err_s": 0.0,
+   "median_dt_won_s": 0.6
+  },
+  "pairs": [
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.32,
+    "dt_lost_s": -0.96,
+    "truth_near2": 0,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.4,
+    "dt_lost_s": 1.12,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": 0.8,
+    "dt_won_s": 1.84,
+    "dt_lost_s": -0.36,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 1.76,
+    "dt_lost_s": 1.6,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 1.16,
+    "truth_near2": null,
+    "ours_near2": 2
+   },
+   {
+    "truth": 2.4,
+    "ours": 3.52,
+    "dt_won_s": -1.16,
+    "dt_lost_s": 0.12,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": 1.04,
+    "dt_lost_s": 1.48,
+    "truth_near2": 2,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 0.6,
+    "dt_lost_s": 61.16,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 3.96,
+    "ours": 2.92,
+    "dt_won_s": 1.04,
+    "dt_lost_s": -0.24,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.84,
+    "dt_won_s": -0.84,
+    "dt_lost_s": -0.48,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.68,
+    "ours": 0.0,
+    "dt_won_s": -1.6,
+    "dt_lost_s": -1.36,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": 0.16,
+    "dt_lost_s": -0.08,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 4.72,
+    "dt_won_s": 0.96,
+    "dt_lost_s": 23.48,
+    "truth_near2": null,
+    "ours_near2": null
+   }
+  ]
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker+view",
+  "seed": 1,
+  "seen_share": 0.461,
+  "truth": {
+   "n": 105,
+   "median_s": 0.0,
+   "within2_pct": 54.3,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 68.6
+  },
+  "ours": {
+   "n": 39,
+   "median_s": 0.8,
+   "within2_pct": 48.7,
+   "near2_median": 1.0,
+   "pressed_ever_pct": 79.5
+  },
+  "matched": {
+   "n": 15,
+   "agree_w2": 12,
+   "truth_w2": 8,
+   "ours_w2": 5,
+   "median_err_s": 0.0,
+   "median_dt_won_s": -0.2
+  },
+  "pairs": [
+   {
+    "truth": 0.0,
+    "ours": 0.84,
+    "dt_won_s": -1.32,
+    "dt_lost_s": -1.6,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.24,
+    "ours": 0.0,
+    "dt_won_s": -1.92,
+    "dt_lost_s": -3.6,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -1.56,
+    "dt_lost_s": -6.16,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 4.88,
+    "ours": 2.36,
+    "dt_won_s": -0.72,
+    "dt_lost_s": -2.88,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 6.16,
+    "ours": 5.84,
+    "dt_won_s": 0.28,
+    "dt_lost_s": -1.92,
+    "truth_near2": 1,
+    "ours_near2": null
+   },
+   {
+    "truth": 1.08,
+    "ours": null,
+    "dt_won_s": 0.44,
+    "dt_lost_s": -3.6,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 0.0,
+    "ours": null,
+    "dt_won_s": 0.2,
+    "dt_lost_s": 1.76,
+    "truth_near2": null,
+    "ours_near2": null
+   },
+   {
+    "truth": null,
+    "ours": null,
+    "dt_won_s": -0.8,
+    "dt_lost_s": -1.32,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.0,
+    "dt_won_s": -1.24,
+    "dt_lost_s": -0.4,
+    "truth_near2": null,
+    "ours_near2": 2
+   },
+   {
+    "truth": null,
+    "ours": 2.8,
+    "dt_won_s": 0.0,
+    "dt_lost_s": -0.36,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 3.96,
+    "ours": 2.12,
+    "dt_won_s": 1.84,
+    "dt_lost_s": 0.04,
+    "truth_near2": 0,
+    "ours_near2": null
+   },
+   {
+    "truth": 0.0,
+    "ours": 0.4,
+    "dt_won_s": -0.24,
+    "dt_lost_s": -0.4,
+    "truth_near2": 2,
+    "ours_near2": 1
+   },
+   {
+    "truth": 2.76,
+    "ours": 3.0,
+    "dt_won_s": -0.2,
+    "dt_lost_s": 1.56,
+    "truth_near2": 1,
+    "ours_near2": 1
+   },
+   {
+    "truth": 0.36,
+    "ours": null,
+    "dt_won_s": 1.56,
+    "dt_lost_s": 2.12,
+    "truth_near2": 1,
+    "ours_near2": 0
+   },
+   {
+    "truth": 1.16,
+    "ours": 1.28,
+    "dt_won_s": 0.88,
+    "dt_lost_s": -0.36,
+    "truth_near2": 2,
+    "ours_near2": null
+   }
+  ]
+ }
+]

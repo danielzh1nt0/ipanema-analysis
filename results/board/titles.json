@@ -91,5 +91,6 @@
  "N0-22d": "Possession-over-time chart: empty windows no longer read as 0%",
  "N0-22e": "Team block length / width: players just out of the picture count 5 s (closer to the whole team)",
  "N0-22f": "Counter-press 'won back in 5 s': checked on pro data - can't be measured from our ball (hide it? your call)",
- "N0-23a": "Transitions 'forward pass within 3 s': clock fixed (checked on pro data); still limited by our ball"
+ "N0-23a": "Transitions 'forward pass within 3 s': clock fixed (checked on pro data); still limited by our ball",
+ "N0-23b": "Counter-press 'time to press' / 'pressed within 2 s': checked on pro data, holds (no change)"
 }
