@@ -1,0 +1,17 @@
+{
+ "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+ "slice": [
+  4,
+  8
+ ],
+ "frames_wanted": [
+  4496,
+  5620
+ ],
+ "frames_done": 1124,
+ "first": 4496,
+ "last": 5619,
+ "tile_guesses": 32893,
+ "minutes": 88.7,
+ "fake_model": false
+}
