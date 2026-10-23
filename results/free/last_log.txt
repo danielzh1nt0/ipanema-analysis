@@ -1,9 +1,19 @@
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: pip install --upgrade pip
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[2026-10-23 12:30:56] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+[2026-10-23 12:30:56] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.
+rfdetr optimize_for_inference skipped: AttributeError("'RFDETRSmall' object has no attribute 'optimize_for_inference'")
 downloading SFKBP1109_s1200
-wrote sfk00 13 tiles
-wrote sfk01 9 tiles
-wrote sfk02 15 tiles
-downloading p15u-vs-aik-2026-09-21-bd09_s2520
-wrote aik03 14 tiles
-wrote aik04 15 tiles
-wrote aik05 15 tiles
-wrote aik06 5 tiles
+sfk 0/8: frame 0 (0/1124, 13 s)
+[2026-10-23 12:31:04] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).
+sfk 0/8: frame 200 (200/1124, 741 s)
+sfk 0/8: frame 400 (400/1124, 1468 s)
+sfk 0/8: frame 600 (600/1124, 2189 s)
+sfk 0/8: frame 800 (800/1124, 2915 s)
+sfk 0/8: frame 1000 (1000/1124, 3637 s)
+{"clip": "SFKBP1109_s1200", "slice": [0, 8], "frames_wanted": [0, 1124], "frames_done": 1124, "first": 0, "last": 1123, "tile_guesses": 36721, "minutes": 68.1, "fake_model": false}
