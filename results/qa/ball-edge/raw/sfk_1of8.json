@@ -1,0 +1,17 @@
+{
+ "clip": "SFKBP1109_s1200",
+ "slice": [
+  1,
+  8
+ ],
+ "frames_wanted": [
+  1124,
+  2248
+ ],
+ "frames_done": 1124,
+ "first": 1124,
+ "last": 2247,
+ "tile_guesses": 24214,
+ "minutes": 97.6,
+ "fake_model": false
+}
