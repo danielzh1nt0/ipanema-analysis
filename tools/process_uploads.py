@@ -6,8 +6,8 @@ import os, sys, json, urllib.request
 
 def main():
     dry = "--dry" in sys.argv
-    url, key, gh = os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_KEY"), os.environ.get("GITHUB_TOKEN")
-    if not (url and key): print("process_uploads: SUPABASE_URL / SUPABASE_SERVICE_KEY not set - cannot see the uploads"); sys.exit(2)
+    url, key, gh = os.environ.get("SUPABASE_URL") or "https://qnfjmzlwazqxhvveiovg.supabase.co", os.environ.get("SUPABASE_SERVICE_KEY"), os.environ.get("GITHUB_TOKEN")
+    if not key: print("process_uploads: SUPABASE_SERVICE_KEY not set - cannot see the uploads"); sys.exit(2)
     try:
         from supabase import create_client
     except ImportError:

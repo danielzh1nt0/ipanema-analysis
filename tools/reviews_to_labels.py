@@ -51,8 +51,8 @@ def build_match(m, reviews, corrections, lineups, events):
 
 
 def main(match_ids, root="."):
-    url, key = os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_KEY")
-    if not (url and key): print("reviews_to_labels: SUPABASE_URL / SUPABASE_SERVICE_KEY not set"); sys.exit(2)
+    url, key = os.environ.get("SUPABASE_URL") or "https://qnfjmzlwazqxhvveiovg.supabase.co", os.environ.get("SUPABASE_SERVICE_KEY")
+    if not key: print("reviews_to_labels: SUPABASE_SERVICE_KEY not set"); sys.exit(2)
     try:
         from supabase import create_client
     except ImportError:

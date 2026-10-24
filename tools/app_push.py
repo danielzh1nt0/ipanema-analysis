@@ -5,8 +5,8 @@ on R2 and library.json carries its public URL (video_url). Prints what it did; e
 import os, sys, json, mimetypes
 
 def push(export_dir, match_id=None, log=print):
-    url, key = os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_KEY")
-    if not (url and key): log("app_push: SUPABASE_URL / SUPABASE_SERVICE_KEY not set - nothing pushed"); return None
+    url, key = os.environ.get("SUPABASE_URL") or "https://qnfjmzlwazqxhvveiovg.supabase.co", os.environ.get("SUPABASE_SERVICE_KEY")   # the project URL is public (it is in the app); only the key is secret
+    if not key: log("app_push: SUPABASE_SERVICE_KEY not set - nothing pushed"); return None
     lib = json.load(open(f"{export_dir}/library.json"))["matches"]
     m = next((x for x in lib if x["id"] == match_id), None) if match_id else (lib[-1] if lib else None)
     if m is None: log(f"app_push: {match_id} not in library.json"); return None
