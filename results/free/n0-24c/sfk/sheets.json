@@ -1,0 +1,11 @@
+{
+ "clip": "SFKBP1109_s1200",
+ "tile_w": 640,
+ "frames": 8992,
+ "sheets": {
+  "sfk00": 9,
+  "sfk01": 9,
+  "sfk02": 9,
+  "sfk03": 9
+ }
+}
