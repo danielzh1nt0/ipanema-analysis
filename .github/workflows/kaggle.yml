@@ -31,12 +31,21 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.NEW_SUPABASE_SERVICE_KEY }}
         run: |
+          python - <<'PY' 2>&1 | tee -a results/kaggle/last_log.txt
+          import os, urllib.request
+          k = os.environ.get("SUPABASE_SERVICE_KEY", ""); print("supabase key:", "set, %d chars" % len(k) if k else "NOT SET")
+          if k:
+              try:
+                  r = urllib.request.Request("https://qnfjmzlwazqxhvveiovg.supabase.co/rest/v1/matches?select=id&limit=1", headers={"apikey": k, "Authorization": "Bearer " + k})
+                  print("supabase rest check:", urllib.request.urlopen(r, timeout=20).status)
+              except Exception as e: print("supabase rest check FAILED:", str(e)[:200])
+          PY
           for lib in results/kaggle/*/export/library.json; do
             [ -f "$lib" ] || continue
             d="$(dirname "$lib")"; python tools/export_qa.py "$d" "" "$(dirname "$d")/qa.json" | tee -a results/kaggle/last_log.txt || echo "export QA failed" >> results/kaggle/last_log.txt
             for f in summary.json stats.json kit_A.png kit_B.png thumb.jpg; do cp "$d"/*/$f "$(dirname "$d")/$f" 2>/dev/null || true; done
             for f in "$d"/*/frames_lite.json; do [ -f "$f" ] && gzip -c "$f" > "$(dirname "$d")/frames_lite.json.gz"; done   # 3 frames/s whole match (~6 MB gz) for offline checks
-            pip install -q supabase; python tools/app_push.py "$d" | tee -a results/kaggle/last_log.txt || echo "app push skipped/failed" >> results/kaggle/last_log.txt
+            pip install -q supabase; set -o pipefail; python tools/app_push.py "$d" 2>&1 | tail -40 | tee -a results/kaggle/last_log.txt || echo "app push FAILED (see above)" | tee -a results/kaggle/last_log.txt
           done
       - name: commit
         if: always()
