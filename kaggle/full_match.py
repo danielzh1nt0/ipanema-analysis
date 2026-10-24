@@ -195,7 +195,13 @@ if STAGE in ("join", "all"):
     cdir = lambda p: f"{ROOT}/cache/{FM.piece_id(M, p['i'])}"
     done = [p for p in plan_ if os.path.exists(f"{cdir(p)}/{FM.PIECE_FILE}")]
     log(f"=== {M} join: {len(done)}/{len(plan_)} pieces present"); result["pieces_present"] = [p["i"] for p in done]
-    if len(done) < 0.8 * len(plan_): save(); raise SystemExit("too many pieces missing")
+    pf_ = f"{ROOT}/periods/{M}.json"
+    def _plays_(p):
+        if not os.path.exists(pf_): return True
+        a, b = p["start_s"], p["start_s"] + p["dur_s"]; return any(x < b and a < y for x, y in json.load(open(pf_))["periods_s"])
+    play_pieces = [p for p in plan_ if _plays_(p)]; done_play = [p for p in done if _plays_(p)]
+    log(f"join: {len(done_play)}/{len(play_pieces)} pieces with play present")
+    if len(done_play) < 0.8 * len(play_pieces): save(); raise SystemExit("too many pieces missing")
     pieces = [pickle.load(open(f"{cdir(p)}/{FM.PIECE_FILE}", "rb")) for p in done]
     per, H, cands, meta = FM.join(pieces, done, n, fps); del pieces
     # overrides/<match>_teams.json and _extras.json (K3c / K4) are keyed by the track ids of the Modal run they were made from;

@@ -57,7 +57,7 @@ while True:
     time.sleep(30); st = sh(f"kaggle kernels status {kid}"); low = st.lower()
     if st != last or int(time.time() - t0) % 120 < 30: print(f"{(time.time() - t0) / 60:5.1f} min: {st[-200:]}", flush=True); last = st
     if "404" in low and time.time() - t0 < 600: continue                      # a just-pushed kernel can 404 for a while
-    if any(w in low for w in ("complete", "error", "cancel")): break
+    if any(w in low for w in ("kernelworkerstatus.complete", "kernelworkerstatus.error", "kernelworkerstatus.cancel")): break   # 24 Oct: the status line, not any 'error' word in a message
     if time.time() - t0 > max_min * 60: print("gave up waiting (the kernel may still be running on Kaggle)"); break
 if KV.get("DOWNLOAD", "1") == "0":
     sh(f"kaggle kernels output {kid} -p /tmp/kout_{name}")                        # the log / result.json only; big files stay on Kaggle
