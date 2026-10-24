@@ -1,0 +1,29 @@
+{
+ "match": "p15u-vs-aik-2026-09-21-bd09_s2520",
+ "stage": "all",
+ "pieces_done": [],
+ "pieces_failed": [
+  {
+   "i": 0,
+   "error": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 85, in <module>\n    path = FM.process_piece(full, M, p, S, log=log)                         # prepare(): line calibration, WASB fused with RF-DETR ball -> piece_v5.pkl\n  File \"/kaggle/temp/ia/ipanema/fullmatch.py\", line 37, in process_piece\n    ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece[\"i\"] in (0, 4, 10, 16)))\n  File \"/kaggle/temp/ia/ipanema/run.py\", line 99, in prepare\n    cal = C.calibrate(video, S.weights[\"pitch\"], S.sports_dir, S.kp_conf, cache=f\"{cache}/calibration.pkl\", log=log)\n  File \"/kaggle/temp/ia/ipanema/calibration.py\", line 16, in calibrate\n    VERTS, L, W = _pitch_config(sports_dir)\n                  ~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/kaggle/temp/ia/ipanema/calibration.py\", line 7, in _pitch_config\n    from sports.configs.soccer import SoccerPitchConfiguration\nModuleNotFoundError: No module named 'sports'\n"
+  }
+ ],
+ "n": 8992,
+ "fps": 29.97002997002997,
+ "n_pieces": 1,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   57,
+   52,
+   31,
+   5
+  ],
+  "dark_share": {
+   "A": 0.18,
+   "B": 0.7
+  }
+ },
+ "minutes": 58.0,
+ "pieces_present": []
+}

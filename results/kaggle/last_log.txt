@@ -1,333 +1,300 @@
 
-  0%|          | 0.00/6.54M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.54M [00:00<00:01, 5.46MB/s]
- 76%|███████▋  | 5.00M/6.54M [00:00<00:00, 20.4MB/s]
-100%|██████████| 6.54M/6.54M [00:00<00:00, 21.4MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/SFKBP1109.json
+Downloading p15u-vs-aik-2026-09-21-bd09.json to results/kaggle/full_match_aiksmoke/root/periods
 
-  0%|          | 0.00/6.60M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.60M [00:00<00:00, 7.01MB/s]
- 91%|█████████ | 6.00M/6.60M [00:00<00:00, 29.1MB/s]
-100%|██████████| 6.60M/6.60M [00:00<00:00, 27.3MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-aik-2026-09-21-bd09.json
+Downloading p15u-vs-bp-2026-09-22-2000.json to results/kaggle/full_match_aiksmoke/root/periods
 
-  0%|          | 0.00/5.67M [00:00<?, ?B/s]
- 18%|█▊        | 1.00M/5.67M [00:00<00:00, 7.31MB/s]
- 53%|█████▎    | 3.00M/5.67M [00:00<00:00, 13.7MB/s]
-100%|██████████| 5.67M/5.67M [00:00<00:00, 19.4MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-bp-2026-09-22-2000.json
+Downloading p15u-vs-vallentuna-2026-10-03-6cce.json to results/kaggle/full_match_aiksmoke/root/periods
 
-  0%|          | 0.00/962k [00:00<?, ?B/s]
-100%|██████████| 962k/962k [00:00<00:00, 5.18MB/s]
-100%|██████████| 962k/962k [00:00<00:00, 5.18MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
 
-  0%|          | 0.00/32.4M [00:00<?, ?B/s]
-  3%|▎         | 1.00M/32.4M [00:00<00:05, 5.67MB/s]
- 15%|█▌        | 5.00M/32.4M [00:00<00:01, 20.4MB/s]
- 52%|█████▏    | 17.0M/32.4M [00:00<00:00, 57.7MB/s]
- 86%|████████▋ | 28.0M/32.4M [00:00<00:00, 76.4MB/s]
-100%|██████████| 32.4M/32.4M [00:00<00:00, 61.0MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/ball_gt.json
+Downloading owner_key.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
 
-  0%|          | 0.00/141k [00:00<?, ?B/s]
-100%|██████████| 141k/141k [00:00<00:00, 1.41MB/s]
-100%|██████████| 141k/141k [00:00<00:00, 1.41MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/owner_key.json
+Downloading pitch_points_s1.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
 
-  0%|          | 0.00/150k [00:00<?, ?B/s]
-100%|██████████| 150k/150k [00:00<00:00, 3.17MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/pitch_points_s1.json
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200
 
-  0%|          | 0.00/750k [00:00<?, ?B/s]
-100%|██████████| 750k/750k [00:00<00:00, 7.06MB/s]
-100%|██████████| 750k/750k [00:00<00:00, 7.05MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200/ball_gt.json
+Downloading owner_key.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200
 
-  0%|          | 0.00/5.48M [00:00<?, ?B/s]
- 18%|█▊        | 1.00M/5.48M [00:00<00:00, 5.03MB/s]
- 73%|███████▎  | 4.00M/5.48M [00:00<00:00, 15.4MB/s]
-100%|██████████| 5.48M/5.48M [00:00<00:00, 16.9MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200/owner_key.json
+Downloading p15u-vs-aik-2026-09-21-bd09_poss_sample.json to results/kaggle/full_match_aiksmoke/root/reference
 
-  0%|          | 0.00/1.25k [00:00<?, ?B/s]
-100%|██████████| 1.25k/1.25k [00:00<00:00, 13.5MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520
 
-  0%|          | 0.00/130k [00:00<?, ?B/s]
-100%|██████████| 130k/130k [00:00<00:00, 1.30MB/s]
-100%|██████████| 130k/130k [00:00<00:00, 1.30MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
+Downloading README.md to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_gt.json
+Downloading ball_key_graded.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
+Downloading ball_key_px.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
+Downloading poss_blind_2026-10-17.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_blind_2026-10-17.json
+Downloading poss_sample.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
+Downloading 132831_keypoints.json to results/kaggle/full_match_aiksmoke/root/reference/soccertrack
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/soccertrack/132831_keypoints.json
+Downloading training_matches.json to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/training_matches.json
+Downloading veo_events_SFKAIK.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKAIK.txt
+Downloading veo_events_SFKBP1109.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKBP1109.txt
+Downloading veo_events_SFKVALLENTUNA.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKVALLENTUNA.txt
+Downloading veo_events_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
+Downloading veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Downloading veo_highlights_SFKAIK.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_SFKAIK.txt
+Downloading veo_highlights_SFKBP1109.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_SFKBP1109.txt
+Downloading veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
+Downloading veo_highlights_p15u-vs-bp-2026-09-22-2000.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
+Downloading veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke/root/reference
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Downloading full.mp4 to results/kaggle/full_match_aiksmoke/root/videos/p15u-vs-aik-2026-09-21-bd09_s2520
+
+Output file downloaded to results/kaggle/full_match_aiksmoke/root/videos/p15u-vs-aik-2026-09-21-bd09_s2520/full.mp4
+Kernel log downloaded to results/kaggle/full_match_aiksmoke/ipanema-full-match-aiksmoke.log 
+
+  0%|          | 0.00/2.48k [00:00<?, ?B/s]
+100%|██████████| 2.48k/2.48k [00:00<00:00, 11.1MB/s]
+
+  0%|          | 0.00/1.29k [00:00<?, ?B/s]
+100%|██████████| 1.29k/1.29k [00:00<00:00, 8.98MB/s]
+
+  0%|          | 0.00/184M [00:00<?, ?B/s]
+  1%|          | 1.00M/184M [00:00<00:25, 7.67MB/s]
+  3%|▎         | 6.00M/184M [00:00<00:06, 29.4MB/s]
+  9%|▉         | 17.0M/184M [00:00<00:02, 59.7MB/s]
+ 14%|█▎        | 25.0M/184M [00:00<00:02, 65.7MB/s]
+ 18%|█▊        | 33.0M/184M [00:00<00:02, 67.3MB/s]
+ 23%|██▎       | 42.0M/184M [00:00<00:01, 74.9MB/s]
+ 28%|██▊       | 52.0M/184M [00:00<00:01, 83.4MB/s]
+ 34%|███▍      | 63.0M/184M [00:00<00:01, 88.7MB/s]
+ 40%|███▉      | 73.0M/184M [00:01<00:01, 91.9MB/s]
+ 46%|████▌     | 84.0M/184M [00:01<00:01, 97.6MB/s]
+ 51%|█████     | 94.0M/184M [00:01<00:00, 98.1MB/s]
+ 57%|█████▋    | 105M/184M [00:01<00:00, 100MB/s]  
+ 63%|██████▎   | 116M/184M [00:01<00:00, 103MB/s]
+ 68%|██████▊   | 126M/184M [00:01<00:00, 101MB/s]
+ 74%|███████▍  | 136M/184M [00:01<00:00, 102MB/s]
+ 80%|███████▉  | 147M/184M [00:01<00:00, 101MB/s]
+ 85%|████████▌ | 157M/184M [00:01<00:00, 100MB/s]
+ 91%|█████████ | 167M/184M [00:01<00:00, 97.7MB/s]
+ 97%|█████████▋| 178M/184M [00:02<00:00, 101MB/s] 
+100%|██████████| 184M/184M [00:02<00:00, 89.5MB/s]
+
+  0%|          | 0.00/2.53M [00:00<?, ?B/s]
+ 40%|███▉      | 1.00M/2.53M [00:00<00:00, 7.60MB/s]
+100%|██████████| 2.53M/2.53M [00:00<00:00, 13.3MB/s]
+
+  0%|          | 0.00/184M [00:00<?, ?B/s]
+  1%|          | 1.00M/184M [00:00<00:25, 7.65MB/s]
+  5%|▍         | 9.00M/184M [00:00<00:04, 45.6MB/s]
+ 10%|█         | 19.0M/184M [00:00<00:02, 66.7MB/s]
+ 16%|█▌        | 29.0M/184M [00:00<00:02, 76.8MB/s]
+ 21%|██        | 38.0M/184M [00:00<00:01, 82.1MB/s]
+ 25%|██▌       | 47.0M/184M [00:00<00:01, 85.1MB/s]
+ 31%|███       | 57.0M/184M [00:00<00:01, 87.2MB/s]
+ 36%|███▋      | 67.0M/184M [00:00<00:01, 88.8MB/s]
+ 42%|████▏     | 77.0M/184M [00:01<00:01, 90.1MB/s]
+ 47%|████▋     | 86.0M/184M [00:01<00:01, 91.1MB/s]
+ 52%|█████▏    | 95.0M/184M [00:01<00:01, 90.6MB/s]
+ 57%|█████▋    | 105M/184M [00:01<00:00, 91.2MB/s] 
+ 62%|██████▏   | 115M/184M [00:01<00:00, 91.3MB/s]
+ 68%|██████▊   | 125M/184M [00:01<00:00, 91.2MB/s]
+ 73%|███████▎  | 135M/184M [00:01<00:00, 91.2MB/s]
+ 79%|███████▊  | 145M/184M [00:01<00:00, 91.4MB/s]
+ 84%|████████▍ | 155M/184M [00:01<00:00, 91.8MB/s]
+ 89%|████████▉ | 165M/184M [00:02<00:00, 91.7MB/s]
+ 95%|█████████▍| 175M/184M [00:02<00:00, 91.9MB/s]
+100%|██████████| 184M/184M [00:02<00:00, 91.2MB/s]
+100%|██████████| 184M/184M [00:02<00:00, 86.2MB/s]
+
+  0%|          | 0.00/23.9M [00:00<?, ?B/s]
+  4%|▍         | 1.00M/23.9M [00:00<00:03, 7.66MB/s]
+ 38%|███▊      | 9.00M/23.9M [00:00<00:00, 44.8MB/s]
+ 80%|███████▉  | 19.0M/23.9M [00:00<00:00, 69.2MB/s]
+100%|██████████| 23.9M/23.9M [00:00<00:00, 63.9MB/s]
 
   0%|          | 0.00/5.81M [00:00<?, ?B/s]
- 17%|█▋        | 1.00M/5.81M [00:00<00:00, 8.76MB/s]
-100%|██████████| 5.81M/5.81M [00:00<00:00, 31.3MB/s]
+ 17%|█▋        | 1.00M/5.81M [00:00<00:00, 7.65MB/s]
+100%|██████████| 5.81M/5.81M [00:00<00:00, 27.1MB/s]
 
   0%|          | 0.00/68.0 [00:00<?, ?B/s]
-100%|██████████| 68.0/68.0 [00:00<00:00, 854kB/s]
+100%|██████████| 68.0/68.0 [00:00<00:00, 337kB/s]
 
   0%|          | 0.00/3.82k [00:00<?, ?B/s]
-100%|██████████| 3.82k/3.82k [00:00<00:00, 36.1MB/s]
+100%|██████████| 3.82k/3.82k [00:00<00:00, 23.3MB/s]
 
   0%|          | 0.00/5.47k [00:00<?, ?B/s]
-100%|██████████| 5.47k/5.47k [00:00<00:00, 45.0MB/s]
+100%|██████████| 5.47k/5.47k [00:00<00:00, 33.6MB/s]
 
   0%|          | 0.00/7.49M [00:00<?, ?B/s]
- 13%|█▎        | 1.00M/7.49M [00:00<00:00, 8.49MB/s]
- 53%|█████▎    | 4.00M/7.49M [00:00<00:00, 19.1MB/s]
-100%|██████████| 7.49M/7.49M [00:00<00:00, 24.3MB/s]
+ 13%|█▎        | 1.00M/7.49M [00:00<00:00, 7.58MB/s]
+ 93%|█████████▎| 7.00M/7.49M [00:00<00:00, 35.5MB/s]
+100%|██████████| 7.49M/7.49M [00:00<00:00, 32.2MB/s]
 
   0%|          | 0.00/9.00k [00:00<?, ?B/s]
-100%|██████████| 9.00k/9.00k [00:00<00:00, 3.33MB/s]
+100%|██████████| 9.00k/9.00k [00:00<00:00, 46.7MB/s]
 
   0%|          | 0.00/129k [00:00<?, ?B/s]
-100%|██████████| 129k/129k [00:00<00:00, 1.47MB/s]
+100%|██████████| 129k/129k [00:00<00:00, 2.51MB/s]
 
   0%|          | 0.00/1.28k [00:00<?, ?B/s]
-100%|██████████| 1.28k/1.28k [00:00<00:00, 14.1MB/s]
+100%|██████████| 1.28k/1.28k [00:00<00:00, 9.32MB/s]
 
   0%|          | 0.00/1.03k [00:00<?, ?B/s]
-100%|██████████| 1.03k/1.03k [00:00<00:00, 11.4MB/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 6.69MB/s]
 
   0%|          | 0.00/137 [00:00<?, ?B/s]
-100%|██████████| 137/137 [00:00<00:00, 1.45MB/s]
+100%|██████████| 137/137 [00:00<00:00, 1.17MB/s]
 
   0%|          | 0.00/0.99k [00:00<?, ?B/s]
-100%|██████████| 0.99k/0.99k [00:00<00:00, 10.4MB/s]
+100%|██████████| 0.99k/0.99k [00:00<00:00, 6.64MB/s]
 
   0%|          | 0.00/1.87k [00:00<?, ?B/s]
-100%|██████████| 1.87k/1.87k [00:00<00:00, 17.0MB/s]
+100%|██████████| 1.87k/1.87k [00:00<00:00, 12.3MB/s]
 
   0%|          | 0.00/4.42k [00:00<?, ?B/s]
-100%|██████████| 4.42k/4.42k [00:00<00:00, 40.5MB/s]
+100%|██████████| 4.42k/4.42k [00:00<00:00, 30.1MB/s]
 
   0%|          | 0.00/12.8k [00:00<?, ?B/s]
-100%|██████████| 12.8k/12.8k [00:00<00:00, 2.30MB/s]
+100%|██████████| 12.8k/12.8k [00:00<00:00, 11.1MB/s]
 
   0%|          | 0.00/773 [00:00<?, ?B/s]
-100%|██████████| 773/773 [00:00<00:00, 9.88MB/s]
+100%|██████████| 773/773 [00:00<00:00, 5.76MB/s]
 
   0%|          | 0.00/4.15k [00:00<?, ?B/s]
-100%|██████████| 4.15k/4.15k [00:00<00:00, 38.9MB/s]
+100%|██████████| 4.15k/4.15k [00:00<00:00, 27.1MB/s]
 
   0%|          | 0.00/3.60k [00:00<?, ?B/s]
-100%|██████████| 3.60k/3.60k [00:00<00:00, 36.8MB/s]
+100%|██████████| 3.60k/3.60k [00:00<00:00, 26.8MB/s]
 
   0%|          | 0.00/1.01k [00:00<?, ?B/s]
-100%|██████████| 1.01k/1.01k [00:00<00:00, 10.7MB/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 7.90MB/s]
 
   0%|          | 0.00/863 [00:00<?, ?B/s]
-100%|██████████| 863/863 [00:00<00:00, 9.40MB/s]
+100%|██████████| 863/863 [00:00<00:00, 6.25MB/s]
 
   0%|          | 0.00/1.50k [00:00<?, ?B/s]
-100%|██████████| 1.50k/1.50k [00:00<00:00, 15.8MB/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 10.5MB/s]
 
   0%|          | 0.00/8.71k [00:00<?, ?B/s]
-100%|██████████| 8.71k/8.71k [00:00<00:00, 4.84MB/s]
+100%|██████████| 8.71k/8.71k [00:00<00:00, 17.7MB/s]
 
   0%|          | 0.00/1.50k [00:00<?, ?B/s]
-100%|██████████| 1.50k/1.50k [00:00<00:00, 16.6MB/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 10.8MB/s]
 
   0%|          | 0.00/6.31k [00:00<?, ?B/s]
-100%|██████████| 6.31k/6.31k [00:00<00:00, 59.0MB/s]
+100%|██████████| 6.31k/6.31k [00:00<00:00, 36.2MB/s]
 
   0%|          | 0.00/3.72k [00:00<?, ?B/s]
-100%|██████████| 3.72k/3.72k [00:00<00:00, 35.3MB/s]
+100%|██████████| 3.72k/3.72k [00:00<00:00, 23.9MB/s]
 
   0%|          | 0.00/2.77k [00:00<?, ?B/s]
-100%|██████████| 2.77k/2.77k [00:00<00:00, 29.2MB/s]
+100%|██████████| 2.77k/2.77k [00:00<00:00, 19.0MB/s]
 
   0%|          | 0.00/2.58k [00:00<?, ?B/s]
-100%|██████████| 2.58k/2.58k [00:00<00:00, 27.4MB/s]
+100%|██████████| 2.58k/2.58k [00:00<00:00, 17.5MB/s]
 
   0%|          | 0.00/302 [00:00<?, ?B/s]
-100%|██████████| 302/302 [00:00<00:00, 3.79MB/s]
+100%|██████████| 302/302 [00:00<00:00, 2.56MB/s]
 
   0%|          | 0.00/2.17k [00:00<?, ?B/s]
-100%|██████████| 2.17k/2.17k [00:00<00:00, 24.5MB/s]
+100%|██████████| 2.17k/2.17k [00:00<00:00, 15.8MB/s]
 
   0%|          | 0.00/1.09k [00:00<?, ?B/s]
-100%|██████████| 1.09k/1.09k [00:00<00:00, 11.7MB/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 8.06MB/s]
 
   0%|          | 0.00/302 [00:00<?, ?B/s]
-100%|██████████| 302/302 [00:00<00:00, 3.50MB/s]
+100%|██████████| 302/302 [00:00<00:00, 2.45MB/s]
 
   0%|          | 0.00/1.09k [00:00<?, ?B/s]
-100%|██████████| 1.09k/1.09k [00:00<00:00, 11.7MB/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 7.72MB/s]
 
   0%|          | 0.00/487 [00:00<?, ?B/s]
-100%|██████████| 487/487 [00:00<00:00, 6.04MB/s]
+100%|██████████| 487/487 [00:00<00:00, 4.04MB/s]
 
   0%|          | 0.00/521 [00:00<?, ?B/s]
-100%|██████████| 521/521 [00:00<00:00, 5.22MB/s]
+100%|██████████| 521/521 [00:00<00:00, 3.91MB/s]
 
   0%|          | 0.00/491 [00:00<?, ?B/s]
-100%|██████████| 491/491 [00:00<00:00, 6.17MB/s]
+100%|██████████| 491/491 [00:00<00:00, 3.97MB/s]
 
   0%|          | 0.00/281 [00:00<?, ?B/s]
-100%|██████████| 281/281 [00:00<00:00, 3.36MB/s]
+100%|██████████| 281/281 [00:00<00:00, 1.90MB/s]
 
   0%|          | 0.00/1.23k [00:00<?, ?B/s]
-100%|██████████| 1.23k/1.23k [00:00<00:00, 14.1MB/s]
+100%|██████████| 1.23k/1.23k [00:00<00:00, 7.72MB/s]
 
-  0%|          | 0.00/4.15k [00:00<?, ?B/s]
-100%|██████████| 4.15k/4.15k [00:00<00:00, 39.6MB/s]
-
-  0%|          | 0.00/1.04M [00:00<?, ?B/s]
- 97%|█████████▋| 1.00M/1.04M [00:00<00:00, 5.65MB/s]
-100%|██████████| 1.04M/1.04M [00:00<00:00, 5.54MB/s]
-
-  0%|          | 0.00/4.31M [00:00<?, ?B/s]
- 23%|██▎       | 1.00M/4.31M [00:00<00:00, 5.31MB/s]
-100%|██████████| 4.31M/4.31M [00:00<00:00, 15.3MB/s]
-
-  0%|          | 0.00/6.25M [00:00<?, ?B/s]
- 16%|█▌        | 1.00M/6.25M [00:00<00:01, 4.50MB/s]
- 64%|██████▍   | 4.00M/6.25M [00:00<00:00, 13.7MB/s]
-100%|██████████| 6.25M/6.25M [00:00<00:00, 16.4MB/s]
-
-  0%|          | 0.00/6.34M [00:00<?, ?B/s]
- 16%|█▌        | 1.00M/6.34M [00:00<00:00, 8.14MB/s]
- 63%|██████▎   | 4.00M/6.34M [00:00<00:00, 18.7MB/s]
-100%|██████████| 6.34M/6.34M [00:00<00:00, 23.3MB/s]
-
-  0%|          | 0.00/6.49M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.49M [00:00<00:00, 6.35MB/s]
- 92%|█████████▏| 6.00M/6.49M [00:00<00:00, 27.3MB/s]
-100%|██████████| 6.49M/6.49M [00:00<00:00, 24.5MB/s]
-
-  0%|          | 0.00/6.67M [00:00<?, ?B/s]
- 15%|█▍        | 1.00M/6.67M [00:00<00:01, 5.19MB/s]
- 60%|█████▉    | 4.00M/6.67M [00:00<00:00, 15.8MB/s]
-100%|██████████| 6.67M/6.67M [00:00<00:00, 20.3MB/s]
-
-  0%|          | 0.00/6.63M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.63M [00:00<00:00, 7.94MB/s]
- 75%|███████▌  | 5.00M/6.63M [00:00<00:00, 24.7MB/s]
-100%|██████████| 6.63M/6.63M [00:00<00:00, 27.1MB/s]
-
-  0%|          | 0.00/6.38M [00:00<?, ?B/s]
- 16%|█▌        | 1.00M/6.38M [00:00<00:01, 5.37MB/s]
- 47%|████▋     | 3.00M/6.38M [00:00<00:00, 11.4MB/s]
-100%|██████████| 6.38M/6.38M [00:00<00:00, 17.6MB/s]
-
-  0%|          | 0.00/6.79M [00:00<?, ?B/s]
- 15%|█▍        | 1.00M/6.79M [00:00<00:01, 4.79MB/s]
- 74%|███████▎  | 5.00M/6.79M [00:00<00:00, 18.3MB/s]
-100%|██████████| 6.79M/6.79M [00:00<00:00, 19.8MB/s]
-
-  0%|          | 0.00/4.25M [00:00<?, ?B/s]
- 24%|██▎       | 1.00M/4.25M [00:00<00:00, 8.95MB/s]
-100%|██████████| 4.25M/4.25M [00:00<00:00, 25.3MB/s]
-
-  0%|          | 0.00/2.42M [00:00<?, ?B/s]
- 41%|████▏     | 1.00M/2.42M [00:00<00:00, 5.70MB/s]
-100%|██████████| 2.42M/2.42M [00:00<00:00, 10.3MB/s]
-
-  0%|          | 0.00/6.56M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.56M [00:00<00:01, 4.89MB/s]
- 61%|██████    | 4.00M/6.56M [00:00<00:00, 15.4MB/s]
-100%|██████████| 6.56M/6.56M [00:00<00:00, 19.1MB/s]
-
-  0%|          | 0.00/6.37M [00:00<?, ?B/s]
- 16%|█▌        | 1.00M/6.37M [00:00<00:00, 6.44MB/s]
-100%|██████████| 6.37M/6.37M [00:00<00:00, 29.5MB/s]
-100%|██████████| 6.37M/6.37M [00:00<00:00, 25.3MB/s]
-
-  0%|          | 0.00/6.94M [00:00<?, ?B/s]
- 14%|█▍        | 1.00M/6.94M [00:00<00:01, 4.95MB/s]
- 58%|█████▊    | 4.00M/6.94M [00:00<00:00, 15.0MB/s]
-100%|██████████| 6.94M/6.94M [00:00<00:00, 19.7MB/s]
-
-  0%|          | 0.00/6.58M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.58M [00:00<00:01, 5.31MB/s]
- 76%|███████▌  | 5.00M/6.58M [00:00<00:00, 20.2MB/s]
-100%|██████████| 6.58M/6.58M [00:00<00:00, 21.2MB/s]
-
-  0%|          | 0.00/6.86M [00:00<?, ?B/s]
- 15%|█▍        | 1.00M/6.86M [00:00<00:01, 4.57MB/s]
- 58%|█████▊    | 4.00M/6.86M [00:00<00:00, 14.0MB/s]
-100%|██████████| 6.86M/6.86M [00:00<00:00, 18.1MB/s]
-
-  0%|          | 0.00/6.54M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.54M [00:00<00:01, 4.51MB/s]
- 46%|████▌     | 3.00M/6.54M [00:00<00:00, 9.86MB/s]
-100%|██████████| 6.54M/6.54M [00:00<00:00, 15.1MB/s]
-
-  0%|          | 0.00/6.60M [00:00<?, ?B/s]
- 15%|█▌        | 1.00M/6.60M [00:00<00:00, 8.88MB/s]
-100%|██████████| 6.60M/6.60M [00:00<00:00, 35.5MB/s]
-
-  0%|          | 0.00/5.67M [00:00<?, ?B/s]
- 18%|█▊        | 1.00M/5.67M [00:00<00:00, 5.43MB/s]
- 88%|████████▊ | 5.00M/5.67M [00:00<00:00, 20.7MB/s]
-100%|██████████| 5.67M/5.67M [00:00<00:00, 19.8MB/s]
-
-  0%|          | 0.00/962k [00:00<?, ?B/s]
-100%|██████████| 962k/962k [00:00<00:00, 8.38MB/s]
-100%|██████████| 962k/962k [00:00<00:00, 8.37MB/s]
-
-  0%|          | 0.00/32.4M [00:00<?, ?B/s]
-  3%|▎         | 1.00M/32.4M [00:00<00:07, 4.21MB/s]
- 12%|█▏        | 4.00M/32.4M [00:00<00:02, 13.7MB/s]
- 37%|███▋      | 12.0M/32.4M [00:00<00:00, 36.5MB/s]
- 65%|██████▍   | 21.0M/32.4M [00:00<00:00, 52.3MB/s]
- 96%|█████████▌| 31.0M/32.4M [00:00<00:00, 65.1MB/s]
-100%|██████████| 32.4M/32.4M [00:00<00:00, 47.7MB/s]
-
-  0%|          | 0.00/141k [00:00<?, ?B/s]
-100%|██████████| 141k/141k [00:00<00:00, 1.86MB/s]
-
-  0%|          | 0.00/150k [00:00<?, ?B/s]
-100%|██████████| 150k/150k [00:00<00:00, 3.23MB/s]
-
-  0%|          | 0.00/750k [00:00<?, ?B/s]
-100%|██████████| 750k/750k [00:00<00:00, 3.53MB/s]
-100%|██████████| 750k/750k [00:00<00:00, 3.53MB/s]
-
-  0%|          | 0.00/5.48M [00:00<?, ?B/s]
- 18%|█▊        | 1.00M/5.48M [00:00<00:01, 4.45MB/s]
- 73%|███████▎  | 4.00M/5.48M [00:00<00:00, 13.8MB/s]
-100%|██████████| 5.48M/5.48M [00:00<00:00, 15.1MB/s]
-
-  0%|          | 0.00/1.25k [00:00<?, ?B/s]
-100%|██████████| 1.25k/1.25k [00:00<00:00, 14.2MB/s]
-
-  0%|          | 0.00/130k [00:00<?, ?B/s]
-100%|██████████| 130k/130k [00:00<00:00, 1.45MB/s]
-  ballcheck.jpg 659427
-  export 4096
-  frames_lite.json.gz 5100604
-  ipanema-full-match-vjoin7.log 18570
-  kit_A.png 144335
-  kit_B.png 153858
-  log.txt 6975
-  qa.json 674
-  result.json 1542
+  0%|          | 0.00/284M [00:00<?, ?B/s]
+  0%|          | 1.00M/284M [00:00<01:00, 4.90MB/s]
+  2%|▏         | 7.00M/284M [00:00<00:10, 27.2MB/s]
+  6%|▋         | 18.0M/284M [00:00<00:04, 57.4MB/s]
+ 10%|▉         | 27.0M/284M [00:00<00:03, 69.2MB/s]
+ 13%|█▎        | 36.0M/284M [00:00<00:03, 74.4MB/s]
+ 16%|█▌        | 45.0M/284M [00:00<00:03, 79.7MB/s]
+ 19%|█▉        | 54.0M/284M [00:00<00:02, 82.7MB/s]
+ 22%|██▏       | 63.0M/284M [00:01<00:03, 69.1MB/s]
+ 25%|██▍       | 71.0M/284M [00:01<00:03, 69.3MB/s]
+ 28%|██▊       | 79.0M/284M [00:01<00:02, 72.4MB/s]
+ 31%|███▏      | 89.0M/284M [00:01<00:03, 63.4MB/s]
+ 34%|███▍      | 97.0M/284M [00:01<00:02, 66.9MB/s]
+ 37%|███▋      | 106M/284M [00:01<00:02, 73.3MB/s] 
+ 41%|████      | 117M/284M [00:01<00:02, 82.1MB/s]
+ 44%|████▍     | 126M/284M [00:01<00:02, 81.0MB/s]
+ 48%|████▊     | 136M/284M [00:02<00:01, 87.2MB/s]
+ 51%|█████     | 145M/284M [00:02<00:01, 88.8MB/s]
+ 55%|█████▍    | 155M/284M [00:02<00:01, 92.8MB/s]
+ 58%|█████▊    | 165M/284M [00:02<00:01, 94.6MB/s]
+ 62%|██████▏   | 175M/284M [00:02<00:01, 95.1MB/s]
+ 65%|██████▌   | 186M/284M [00:02<00:01, 99.4MB/s]
+ 69%|██████▉   | 196M/284M [00:02<00:00, 100MB/s] 
+ 73%|███████▎  | 206M/284M [00:02<00:00, 100MB/s]
+ 76%|███████▌  | 216M/284M [00:02<00:00, 101MB/s]
+ 80%|███████▉  | 226M/284M [00:02<00:00, 102MB/s]
+ 83%|████████▎ | 236M/284M [00:03<00:00, 102MB/s]
+ 87%|████████▋ | 246M/284M [00:03<00:00, 101MB/s]
+ 90%|█████████ | 256M/284M [00:03<00:00, 102MB/s]
+ 94%|█████████▎| 266M/284M [00:03<00:00, 102MB/s]
+ 97%|█████████▋| 276M/284M [00:03<00:00, 102MB/s]
+100%|██████████| 284M/284M [00:03<00:00, 84.3MB/s]
+  ipanema-full-match-aiksmoke.log 26255
+  log.txt 2539
+  result.json 1326
   root 4096
-  run.json 168
-  stats.json 5750312
-  summary.json 1284
-  thumb.jpg 132706
-supabase key: set, 46 chars
-supabase rest check: 200
-ball: 39 of 55 by-eye positions within 30 px (39 within 60 px); the export had a seen ball at 54 of them
-who has the ball: 21 of 39 by-eye moments agree (A 9/22, B 12/17)
-possession: {'A': 43, 'B': 57}  passes 464  turnovers 278  ball grade {'accuracy': 0.73, 'near_player_pct': 0.69, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
-{"n_frames": 59600, "ball": {"hit30": 39, "hit60": 39, "seen": 54, "n": 55}, "owner": {"agree": 21, "n": 39, "by_team": {"A": [9, 22], "B": [12, 17]}}, "possession_pct": {"A": 43, "B": 57}, "summary": {"ball_grade": {"accuracy": 0.73, "near_player_pct": 0.69, "frames_pct": 1.0, "possession_ok": true, "events_ok": false}, "passes": 464, "turnovers": 278, "shots": {"A": 8, "B": 8}, "goals": {"A": 3, "B": 2}, "players_per_frame_median": {"A": 8.0, "B": 7.0}, "calibration_coverage": 0.71}, "match": "p15u-vs-vallentuna-2026-10-03-6cce"}
-Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 79, in _request
-    response.raise_for_status()
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
-    raise HTTPStatusError(message, request=request, response=self)
-httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://qnfjmzlwazqxhvveiovg.supabase.co/storage/v1/object/matches/p15u-vs-vallentuna-2026-10-03-6cce/match_data.json'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/app_push.py", line 38, in <module>
-    r = push(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/app_push.py", line 27, in push
-    with open(local, "rb") as f: sb.storage.from_("matches").upload(dest, f.read(), {"content-type": mimetypes.guess_type(local)[0] or "application/octet-stream", "upsert": "true"})
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 603, in upload
-    return self._upload_or_update("POST", path_parts, file, file_options)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 575, in _upload_or_update
-    response = self._request(
-               ^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 83, in _request
-    raise StorageApiError(
-storage3.exceptions.StorageApiError: {'statusCode': 403, 'error': Unauthorized, 'message': new row violates row-level security policy}
-app push FAILED (see above)
+  run.json 170

@@ -1,0 +1,37 @@
+   5.6 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   5.7 video: 0.30 GB
+   5.7 === p15u-vs-aik-2026-09-21-bd09_s2520: 8992 frames (300 s) @ 29.970 fps -> 1 pieces; this kernel: all [0]
+   7.0 kits: grass test keeps only 145 of 699 people, but the light is uneven (shade spread 2.4): grass test kept
+   7.3 kits: per-player classifier from 267 on-pitch people, 1 of 15 runs kept
+   7.3 kits: learned from 145 people (554 off the pitch left out), group sizes [57, 52, 31, 5], light local (shade spread 2.4), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.7
+   7.3 kits: {'frames': 36, 'kit_groups': [57, 52, 31, 5], 'dark_share': {'A': 0.18, 'B': 0.7}}
+  17.8   tracking frame 0
+  22.8   tracking frame 2000 (6.6 frames/s)
+  27.0   tracking frame 4000 (7.2 frames/s)
+  31.8   tracking frame 6000 (7.1 frames/s)
+  36.8   tracking frame 8000 (7.0 frames/s)
+  39.1   p15u-vs-aik-2026-09-21-bd09_s2520_c000: 17.0 players/frame
+  41.2   ball (RF-DETR): frame 1000, 7.9 frames/s
+  43.3   ball (RF-DETR): frame 2000, 8.0 frames/s
+  45.4   ball (RF-DETR): frame 3000, 8.0 frames/s
+  47.4   ball (RF-DETR): frame 4000, 8.0 frames/s
+  49.5   ball (RF-DETR): frame 5000, 8.0 frames/s
+  51.6   ball (RF-DETR): frame 6000, 8.0 frames/s
+  53.7   ball (RF-DETR): frame 7000, 7.9 frames/s
+  55.9   ball (RF-DETR): frame 8000, 7.9 frames/s
+  57.9 === p15u-vs-aik-2026-09-21-bd09_s2520_c000 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+  57.9 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+  57.9 calibration: no panorama calibration for p15u-vs-aik-2026-09-21-bd09_s2520
+  58.0 PIECE 0 FAILED: , log=log)                         # prepare(): line calibration, WASB fused with RF-DETR ball -> piece_v5.pkl
+  File "/kaggle/temp/ia/ipanema/fullmatch.py", line 37, in process_piece
+    ctx = prepare(src, pid, S, log=log, train_ball=False, debug=(piece["i"] in (0, 4, 10, 16)))
+  File "/kaggle/temp/ia/ipanema/run.py", line 99, in prepare
+    cal = C.calibrate(video, S.weights["pitch"], S.sports_dir, S.kp_conf, cache=f"{cache}/calibration.pkl", log=log)
+  File "/kaggle/temp/ia/ipanema/calibration.py", line 16, in calibrate
+    VERTS, L, W = _pitch_config(sports_dir)
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/kaggle/temp/ia/ipanema/calibration.py", line 7, in _pitch_config
+    from sports.configs.soccer import SoccerPitchConfiguration
+ModuleNotFoundError: No module named 'sports'
+
+  58.0 === p15u-vs-aik-2026-09-21-bd09_s2520 join: 0/1 pieces present
