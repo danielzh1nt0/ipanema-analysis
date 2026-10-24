@@ -1,2 +1,2 @@
-kaggle/full_match.py 200 MATCH=p15u-vs-aik-2026-09-21-bd09_s2520 STAGE=all NAME=aiksmoke WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Sat Oct 24 10:45:35 CEST 2026 AIK clip through the free pipeline (mosaic calibration route) with the K8 ball weights
+kaggle/full_match.py 30 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin7 GPU=0 fetch
+# Sat Oct 24 11:16:28 CEST 2026 push Vallentuna (join 7) into the app now that the Supabase secrets exist
