@@ -1,0 +1,3362 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 78.2,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 238,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.61,
+    "ours_sequences": 66
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 75.7,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 276,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.94,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 358,
+   "ok_ok": 274,
+   "ok_called_failed": 18,
+   "failed_called_ok": 32,
+   "failed_failed": 34,
+   "truth_failed_total": 127,
+   "ours_failed_total": 119
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 81.9,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 227,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.44,
+    "ours_sequences": 66
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 78.9,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 265,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.79,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 349,
+   "ok_ok": 274,
+   "ok_called_failed": 12,
+   "failed_called_ok": 32,
+   "failed_failed": 31,
+   "truth_failed_total": 127,
+   "ours_failed_total": 97
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 85.7,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 217,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.29,
+    "ours_sequences": 66
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 82.0,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 255,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.64,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 341,
+   "ok_ok": 274,
+   "ok_called_failed": 7,
+   "failed_called_ok": 32,
+   "failed_failed": 28,
+   "truth_failed_total": 127,
+   "ours_failed_total": 77
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 85.7,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 217,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.29,
+    "ours_sequences": 66
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 82.0,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 255,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.64,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 341,
+   "ok_ok": 274,
+   "ok_called_failed": 7,
+   "failed_called_ok": 32,
+   "failed_failed": 28,
+   "truth_failed_total": 127,
+   "ours_failed_total": 77
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 76.5,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 238,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.53,
+    "ours_sequences": 94
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 76.9,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 251,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.61,
+    "ours_sequences": 96
+   }
+  },
+  "matched": {
+   "matched": 321,
+   "ok_ok": 238,
+   "ok_called_failed": 22,
+   "failed_called_ok": 32,
+   "failed_failed": 29,
+   "truth_failed_total": 127,
+   "ours_failed_total": 114
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 79.1,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 230,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.45,
+    "ours_sequences": 94
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 79.4,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 243,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.53,
+    "ours_sequences": 96
+   }
+  },
+  "matched": {
+   "matched": 313,
+   "ok_ok": 238,
+   "ok_called_failed": 15,
+   "failed_called_ok": 32,
+   "failed_failed": 28,
+   "truth_failed_total": 127,
+   "ours_failed_total": 98
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 81.2,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 224,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.38,
+    "ours_sequences": 94
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 81.4,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 237,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.47,
+    "ours_sequences": 96
+   }
+  },
+  "matched": {
+   "matched": 308,
+   "ok_ok": 238,
+   "ok_called_failed": 11,
+   "failed_called_ok": 32,
+   "failed_failed": 27,
+   "truth_failed_total": 127,
+   "ours_failed_total": 86
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 81.6,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 223,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.37,
+    "ours_sequences": 94
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 81.8,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 236,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.46,
+    "ours_sequences": 96
+   }
+  },
+  "matched": {
+   "matched": 308,
+   "ok_ok": 238,
+   "ok_called_failed": 11,
+   "failed_called_ok": 32,
+   "failed_failed": 27,
+   "truth_failed_total": 127,
+   "ours_failed_total": 84
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 77.4,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 239,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.95,
+    "ours_sequences": 81
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 78.2,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 266,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.69,
+    "ours_sequences": 99
+   }
+  },
+  "matched": {
+   "matched": 330,
+   "ok_ok": 248,
+   "ok_called_failed": 16,
+   "failed_called_ok": 34,
+   "failed_failed": 32,
+   "truth_failed_total": 127,
+   "ours_failed_total": 112
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 80.4,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 230,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.84,
+    "ours_sequences": 81
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 80.9,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 257,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.6,
+    "ours_sequences": 99
+   }
+  },
+  "matched": {
+   "matched": 322,
+   "ok_ok": 248,
+   "ok_called_failed": 11,
+   "failed_called_ok": 34,
+   "failed_failed": 29,
+   "truth_failed_total": 127,
+   "ours_failed_total": 94
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 84.1,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 220,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.72,
+    "ours_sequences": 81
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 84.2,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 247,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.49,
+    "ours_sequences": 99
+   }
+  },
+  "matched": {
+   "matched": 313,
+   "ok_ok": 248,
+   "ok_called_failed": 7,
+   "failed_called_ok": 34,
+   "failed_failed": 24,
+   "truth_failed_total": 127,
+   "ours_failed_total": 74
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 84.9,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 218,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.69,
+    "ours_sequences": 81
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 84.9,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 245,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 2.47,
+    "ours_sequences": 99
+   }
+  },
+  "matched": {
+   "matched": 311,
+   "ok_ok": 248,
+   "ok_called_failed": 7,
+   "failed_called_ok": 34,
+   "failed_failed": 22,
+   "truth_failed_total": 127,
+   "ours_failed_total": 70
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 63.8,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 318,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.03,
+    "ours_sequences": 79
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 67.6,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 349,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.72,
+    "ours_sequences": 74
+   }
+  },
+  "matched": {
+   "matched": 330,
+   "ok_ok": 218,
+   "ok_called_failed": 47,
+   "failed_called_ok": 41,
+   "failed_failed": 24,
+   "truth_failed_total": 127,
+   "ours_failed_total": 228
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 69.5,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 292,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.7,
+    "ours_sequences": 79
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 73.1,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 323,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.36,
+    "ours_sequences": 74
+   }
+  },
+  "matched": {
+   "matched": 311,
+   "ok_ok": 219,
+   "ok_called_failed": 31,
+   "failed_called_ok": 41,
+   "failed_failed": 20,
+   "truth_failed_total": 127,
+   "ours_failed_total": 176
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 73.8,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 275,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.48,
+    "ours_sequences": 79
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 77.1,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 306,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.14,
+    "ours_sequences": 74
+   }
+  },
+  "matched": {
+   "matched": 298,
+   "ok_ok": 219,
+   "ok_called_failed": 19,
+   "failed_called_ok": 41,
+   "failed_failed": 19,
+   "truth_failed_total": 127,
+   "ours_failed_total": 142
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 75.2,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 270,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.42,
+    "ours_sequences": 79
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 78.1,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 302,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.08,
+    "ours_sequences": 74
+   }
+  },
+  "matched": {
+   "matched": 293,
+   "ok_ok": 219,
+   "ok_called_failed": 17,
+   "failed_called_ok": 41,
+   "failed_failed": 16,
+   "truth_failed_total": 127,
+   "ours_failed_total": 133
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 64.0,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 353,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.84,
+    "ours_sequences": 73
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 65.6,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 343,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.51,
+    "ours_sequences": 76
+   }
+  },
+  "matched": {
+   "matched": 339,
+   "ok_ok": 216,
+   "ok_called_failed": 54,
+   "failed_called_ok": 37,
+   "failed_failed": 32,
+   "truth_failed_total": 127,
+   "ours_failed_total": 245
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 68.3,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 331,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.53,
+    "ours_sequences": 73
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 70.1,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 321,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.22,
+    "ours_sequences": 76
+   }
+  },
+  "matched": {
+   "matched": 325,
+   "ok_ok": 218,
+   "ok_called_failed": 40,
+   "failed_called_ok": 37,
+   "failed_failed": 30,
+   "truth_failed_total": 127,
+   "ours_failed_total": 201
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 72.7,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 311,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.26,
+    "ours_sequences": 73
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 74.8,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 301,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.96,
+    "ours_sequences": 76
+   }
+  },
+  "matched": {
+   "matched": 306,
+   "ok_ok": 218,
+   "ok_called_failed": 25,
+   "failed_called_ok": 37,
+   "failed_failed": 26,
+   "truth_failed_total": 127,
+   "ours_failed_total": 161
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 73.9,
+    "truth_all_pct": 71.1,
+    "ours_pct": 74.3,
+    "truth_attempts": 253,
+    "truth_attempts_all": 263,
+    "ours_passes": 304,
+    "truth_passes_per_seq": 1.87,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 4.16,
+    "ours_sequences": 73
+   },
+   "B": {
+    "truth_kept_pct": 74.9,
+    "truth_all_pct": 68.4,
+    "ours_pct": 76.5,
+    "truth_attempts": 243,
+    "truth_attempts_all": 266,
+    "ours_passes": 294,
+    "truth_passes_per_seq": 1.82,
+    "truth_sequences": 100,
+    "ours_passes_per_seq": 3.87,
+    "ours_sequences": 76
+   }
+  },
+  "matched": {
+   "matched": 300,
+   "ok_ok": 218,
+   "ok_called_failed": 22,
+   "failed_called_ok": 37,
+   "failed_failed": 23,
+   "truth_failed_total": 127,
+   "ours_failed_total": 147
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 81.3,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 337,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 6.02,
+    "ours_sequences": 56
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 76.1,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 247,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 4.84,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 429,
+   "ok_ok": 353,
+   "ok_called_failed": 20,
+   "failed_called_ok": 25,
+   "failed_failed": 31,
+   "truth_failed_total": 102,
+   "ours_failed_total": 122
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 84.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 323,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.77,
+    "ours_sequences": 56
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 80.7,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 233,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 4.57,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 418,
+   "ok_ok": 354,
+   "ok_called_failed": 11,
+   "failed_called_ok": 25,
+   "failed_failed": 28,
+   "truth_failed_total": 102,
+   "ours_failed_total": 94
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 87.5,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 313,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.59,
+    "ours_sequences": 56
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 84.3,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 223,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 4.37,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 409,
+   "ok_ok": 354,
+   "ok_called_failed": 5,
+   "failed_called_ok": 26,
+   "failed_failed": 24,
+   "truth_failed_total": 102,
+   "ours_failed_total": 74
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 87.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 312,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.57,
+    "ours_sequences": 56
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 84.7,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 222,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 4.35,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 407,
+   "ok_ok": 354,
+   "ok_called_failed": 4,
+   "failed_called_ok": 26,
+   "failed_failed": 23,
+   "truth_failed_total": 102,
+   "ours_failed_total": 72
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 82.1,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 312,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.97,
+    "ours_sequences": 105
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 76.4,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 258,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.37,
+    "ours_sequences": 109
+   }
+  },
+  "matched": {
+   "matched": 387,
+   "ok_ok": 310,
+   "ok_called_failed": 21,
+   "failed_called_ok": 29,
+   "failed_failed": 27,
+   "truth_failed_total": 102,
+   "ours_failed_total": 117
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 85.6,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 299,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.85,
+    "ours_sequences": 105
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 80.4,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 245,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.25,
+    "ours_sequences": 109
+   }
+  },
+  "matched": {
+   "matched": 378,
+   "ok_ok": 310,
+   "ok_called_failed": 12,
+   "failed_called_ok": 29,
+   "failed_failed": 27,
+   "truth_failed_total": 102,
+   "ours_failed_total": 91
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 88.3,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 290,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.76,
+    "ours_sequences": 105
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 83.5,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 236,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.17,
+    "ours_sequences": 109
+   }
+  },
+  "matched": {
+   "matched": 369,
+   "ok_ok": 310,
+   "ok_called_failed": 6,
+   "failed_called_ok": 29,
+   "failed_failed": 24,
+   "truth_failed_total": 102,
+   "ours_failed_total": 73
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 88.6,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 289,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.75,
+    "ours_sequences": 105
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 83.8,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 235,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.16,
+    "ours_sequences": 109
+   }
+  },
+  "matched": {
+   "matched": 368,
+   "ok_ok": 310,
+   "ok_called_failed": 6,
+   "failed_called_ok": 30,
+   "failed_failed": 22,
+   "truth_failed_total": 102,
+   "ours_failed_total": 71
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 83.1,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 313,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.79,
+    "ours_sequences": 112
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 76.3,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 236,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.54,
+    "ours_sequences": 93
+   }
+  },
+  "matched": {
+   "matched": 373,
+   "ok_ok": 308,
+   "ok_called_failed": 19,
+   "failed_called_ok": 27,
+   "failed_failed": 19,
+   "truth_failed_total": 102,
+   "ours_failed_total": 109
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 85.2,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 305,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.72,
+    "ours_sequences": 112
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 78.9,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 228,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.45,
+    "ours_sequences": 93
+   }
+  },
+  "matched": {
+   "matched": 366,
+   "ok_ok": 309,
+   "ok_called_failed": 13,
+   "failed_called_ok": 27,
+   "failed_failed": 17,
+   "truth_failed_total": 102,
+   "ours_failed_total": 93
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 87.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 296,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.64,
+    "ours_sequences": 112
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 82.2,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 219,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.35,
+    "ours_sequences": 93
+   }
+  },
+  "matched": {
+   "matched": 359,
+   "ok_ok": 309,
+   "ok_called_failed": 7,
+   "failed_called_ok": 27,
+   "failed_failed": 16,
+   "truth_failed_total": 102,
+   "ours_failed_total": 75
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 88.1,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 295,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 2.63,
+    "ours_sequences": 112
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 82.6,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 218,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 2.34,
+    "ours_sequences": 93
+   }
+  },
+  "matched": {
+   "matched": 358,
+   "ok_ok": 309,
+   "ok_called_failed": 7,
+   "failed_called_ok": 27,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 73
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 67.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 394,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 6.68,
+    "ours_sequences": 59
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 60.8,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 362,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.93,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 400,
+   "ok_ok": 269,
+   "ok_called_failed": 67,
+   "failed_called_ok": 38,
+   "failed_failed": 26,
+   "truth_failed_total": 102,
+   "ours_failed_total": 269
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 74.4,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 359,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 6.08,
+    "ours_sequences": 59
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 67.3,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 327,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.36,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 379,
+   "ok_ok": 271,
+   "ok_called_failed": 44,
+   "failed_called_ok": 38,
+   "failed_failed": 26,
+   "truth_failed_total": 102,
+   "ours_failed_total": 199
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 78.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 339,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.75,
+    "ours_sequences": 59
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 71.7,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 307,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.03,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 361,
+   "ok_ok": 271,
+   "ok_called_failed": 29,
+   "failed_called_ok": 38,
+   "failed_failed": 23,
+   "truth_failed_total": 102,
+   "ours_failed_total": 159
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 80.4,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 332,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.63,
+    "ours_sequences": 59
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 73.3,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 300,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 4.92,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 358,
+   "ok_ok": 271,
+   "ok_called_failed": 26,
+   "failed_called_ok": 38,
+   "failed_failed": 23,
+   "truth_failed_total": 102,
+   "ours_failed_total": 145
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 66.4,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 390,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 6.09,
+    "ours_sequences": 64
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 60.3,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 383,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 6.28,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 387,
+   "ok_ok": 261,
+   "ok_called_failed": 62,
+   "failed_called_ok": 36,
+   "failed_failed": 28,
+   "truth_failed_total": 102,
+   "ours_failed_total": 283
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 73.4,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 353,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.52,
+    "ours_sequences": 64
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 66.8,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 346,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.67,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 363,
+   "ok_ok": 262,
+   "ok_called_failed": 38,
+   "failed_called_ok": 37,
+   "failed_failed": 26,
+   "truth_failed_total": 102,
+   "ours_failed_total": 209
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 77.8,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 333,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.2,
+    "ours_sequences": 64
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 70.9,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 326,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.34,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 347,
+   "ok_ok": 262,
+   "ok_called_failed": 23,
+   "failed_called_ok": 37,
+   "failed_failed": 25,
+   "truth_failed_total": 102,
+   "ours_failed_total": 169
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 83.6,
+    "truth_all_pct": 81.7,
+    "ours_pct": 78.5,
+    "truth_attempts": 299,
+    "truth_attempts_all": 306,
+    "ours_passes": 330,
+    "truth_passes_per_seq": 3.12,
+    "truth_sequences": 80,
+    "ours_passes_per_seq": 5.16,
+    "ours_sequences": 64
+   },
+   "B": {
+    "truth_kept_pct": 77.3,
+    "truth_all_pct": 74.1,
+    "ours_pct": 71.5,
+    "truth_attempts": 233,
+    "truth_attempts_all": 243,
+    "ours_passes": 323,
+    "truth_passes_per_seq": 2.28,
+    "truth_sequences": 79,
+    "ours_passes_per_seq": 5.3,
+    "ours_sequences": 61
+   }
+  },
+  "matched": {
+   "matched": 344,
+   "ok_ok": 262,
+   "ok_called_failed": 21,
+   "failed_called_ok": 37,
+   "failed_failed": 24,
+   "truth_failed_total": 102,
+   "ours_failed_total": 163
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 82.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 343,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.53,
+    "ours_sequences": 62
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 81.2,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 313,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.67,
+    "ours_sequences": 67
+   }
+  },
+  "matched": {
+   "matched": 487,
+   "ok_ok": 421,
+   "ok_called_failed": 18,
+   "failed_called_ok": 31,
+   "failed_failed": 17,
+   "truth_failed_total": 102,
+   "ours_failed_total": 119
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 84.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 335,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.4,
+    "ours_sequences": 62
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 83.3,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 305,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.55,
+    "ours_sequences": 67
+   }
+  },
+  "matched": {
+   "matched": 481,
+   "ok_ok": 421,
+   "ok_called_failed": 14,
+   "failed_called_ok": 31,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 103
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 85.2,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 332,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.35,
+    "ours_sequences": 62
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 84.1,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 302,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.51,
+    "ours_sequences": 67
+   }
+  },
+  "matched": {
+   "matched": 480,
+   "ok_ok": 421,
+   "ok_called_failed": 13,
+   "failed_called_ok": 31,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 97
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 85.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 331,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.34,
+    "ours_sequences": 62
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 84.4,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 301,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.49,
+    "ours_sequences": 67
+   }
+  },
+  "matched": {
+   "matched": 479,
+   "ok_ok": 421,
+   "ok_called_failed": 13,
+   "failed_called_ok": 31,
+   "failed_failed": 14,
+   "truth_failed_total": 102,
+   "ours_failed_total": 95
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 80.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 334,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.83,
+    "ours_sequences": 118
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 80.8,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 276,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.51,
+    "ours_sequences": 110
+   }
+  },
+  "matched": {
+   "matched": 433,
+   "ok_ok": 371,
+   "ok_called_failed": 16,
+   "failed_called_ok": 27,
+   "failed_failed": 19,
+   "truth_failed_total": 102,
+   "ours_failed_total": 118
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 82.0,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 328,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.78,
+    "ours_sequences": 118
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 82.6,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 270,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.45,
+    "ours_sequences": 110
+   }
+  },
+  "matched": {
+   "matched": 428,
+   "ok_ok": 372,
+   "ok_called_failed": 12,
+   "failed_called_ok": 27,
+   "failed_failed": 17,
+   "truth_failed_total": 102,
+   "ours_failed_total": 106
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 82.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 326,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.76,
+    "ours_sequences": 118
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 83.2,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 268,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.44,
+    "ours_sequences": 110
+   }
+  },
+  "matched": {
+   "matched": 426,
+   "ok_ok": 372,
+   "ok_called_failed": 11,
+   "failed_called_ok": 27,
+   "failed_failed": 16,
+   "truth_failed_total": 102,
+   "ours_failed_total": 102
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 83.3,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 323,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.74,
+    "ours_sequences": 118
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 84.2,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 265,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.41,
+    "ours_sequences": 110
+   }
+  },
+  "matched": {
+   "matched": 424,
+   "ok_ok": 372,
+   "ok_called_failed": 10,
+   "failed_called_ok": 27,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 96
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 83.6,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 324,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.92,
+    "ours_sequences": 111
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 81.4,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 296,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.85,
+    "ours_sequences": 104
+   }
+  },
+  "matched": {
+   "matched": 417,
+   "ok_ok": 355,
+   "ok_called_failed": 19,
+   "failed_called_ok": 28,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 108
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 84.7,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 320,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.88,
+    "ours_sequences": 111
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 82.5,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 292,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.81,
+    "ours_sequences": 104
+   }
+  },
+  "matched": {
+   "matched": 415,
+   "ok_ok": 355,
+   "ok_called_failed": 17,
+   "failed_called_ok": 28,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 100
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 86.0,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 315,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.84,
+    "ours_sequences": 111
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 84.0,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 287,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.76,
+    "ours_sequences": 104
+   }
+  },
+  "matched": {
+   "matched": 412,
+   "ok_ok": 355,
+   "ok_called_failed": 16,
+   "failed_called_ok": 28,
+   "failed_failed": 13,
+   "truth_failed_total": 102,
+   "ours_failed_total": 90
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 86.9,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 312,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 2.81,
+    "ours_sequences": 111
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 84.9,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 284,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 2.73,
+    "ours_sequences": 104
+   }
+  },
+  "matched": {
+   "matched": 410,
+   "ok_ok": 355,
+   "ok_called_failed": 14,
+   "failed_called_ok": 29,
+   "failed_failed": 12,
+   "truth_failed_total": 102,
+   "ours_failed_total": 84
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 61.7,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 431,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 6.84,
+    "ours_sequences": 63
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 65.6,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 425,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 6.07,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 445,
+   "ok_ok": 318,
+   "ok_called_failed": 67,
+   "failed_called_ok": 36,
+   "failed_failed": 24,
+   "truth_failed_total": 102,
+   "ours_failed_total": 311
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 68.0,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 391,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 6.21,
+    "ours_sequences": 63
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 72.5,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 385,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 5.5,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 417,
+   "ok_ok": 318,
+   "ok_called_failed": 40,
+   "failed_called_ok": 36,
+   "failed_failed": 23,
+   "truth_failed_total": 102,
+   "ours_failed_total": 231
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 72.7,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 366,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.81,
+    "ours_sequences": 63
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 77.5,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 360,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 5.14,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 399,
+   "ok_ok": 318,
+   "ok_called_failed": 24,
+   "failed_called_ok": 36,
+   "failed_failed": 21,
+   "truth_failed_total": 102,
+   "ours_failed_total": 181
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 74.1,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 359,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.7,
+    "ours_sequences": 63
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 79.0,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 353,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 5.04,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 394,
+   "ok_ok": 318,
+   "ok_called_failed": 21,
+   "failed_called_ok": 36,
+   "failed_failed": 19,
+   "truth_failed_total": 102,
+   "ours_failed_total": 167
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 64.4,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 444,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 6.0,
+    "ours_sequences": 74
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 61.1,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 419,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 6.07,
+    "ours_sequences": 69
+   }
+  },
+  "matched": {
+   "matched": 460,
+   "ok_ok": 324,
+   "ok_called_failed": 74,
+   "failed_called_ok": 44,
+   "failed_failed": 18,
+   "truth_failed_total": 102,
+   "ours_failed_total": 321
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 72.6,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 394,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 5.32,
+    "ours_sequences": 74
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 69.4,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 369,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 5.35,
+    "ours_sequences": 69
+   }
+  },
+  "matched": {
+   "matched": 428,
+   "ok_ok": 326,
+   "ok_called_failed": 42,
+   "failed_called_ok": 45,
+   "failed_failed": 15,
+   "truth_failed_total": 102,
+   "ours_failed_total": 221
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 77.5,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 369,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 4.99,
+    "ours_sequences": 74
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 74.4,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 344,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.99,
+    "ours_sequences": 69
+   }
+  },
+  "matched": {
+   "matched": 410,
+   "ok_ok": 326,
+   "ok_called_failed": 25,
+   "failed_called_ok": 45,
+   "failed_failed": 14,
+   "truth_failed_total": 102,
+   "ours_failed_total": 171
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 84.0,
+    "truth_all_pct": 81.5,
+    "ours_pct": 78.4,
+    "truth_attempts": 351,
+    "truth_attempts_all": 362,
+    "ours_passes": 365,
+    "truth_passes_per_seq": 3.24,
+    "truth_sequences": 91,
+    "ours_passes_per_seq": 4.93,
+    "ours_sequences": 74
+   },
+   "B": {
+    "truth_kept_pct": 84.1,
+    "truth_all_pct": 80.2,
+    "ours_pct": 75.3,
+    "truth_attempts": 289,
+    "truth_attempts_all": 303,
+    "ours_passes": 340,
+    "truth_passes_per_seq": 2.7,
+    "truth_sequences": 90,
+    "ours_passes_per_seq": 4.93,
+    "ours_sequences": 69
+   }
+  },
+  "matched": {
+   "matched": 408,
+   "ok_ok": 326,
+   "ok_called_failed": 23,
+   "failed_called_ok": 45,
+   "failed_failed": 14,
+   "truth_failed_total": 102,
+   "ours_failed_total": 163
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 82.8,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 279,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.58,
+    "ours_sequences": 50
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 77.4,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 234,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.59,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 385,
+   "ok_ok": 320,
+   "ok_called_failed": 19,
+   "failed_called_ok": 32,
+   "failed_failed": 14,
+   "truth_failed_total": 86,
+   "ours_failed_total": 101
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 85.9,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 269,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.38,
+    "ours_sequences": 50
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 80.8,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 224,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.39,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 377,
+   "ok_ok": 321,
+   "ok_called_failed": 10,
+   "failed_called_ok": 32,
+   "failed_failed": 14,
+   "truth_failed_total": 86,
+   "ours_failed_total": 81
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 86.8,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 266,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.32,
+    "ours_sequences": 50
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 81.9,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 221,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.33,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 376,
+   "ok_ok": 321,
+   "ok_called_failed": 9,
+   "failed_called_ok": 32,
+   "failed_failed": 14,
+   "truth_failed_total": 86,
+   "ours_failed_total": 75
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 87.2,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 265,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.3,
+    "ours_sequences": 50
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 82.3,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 220,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.31,
+    "ours_sequences": 51
+   }
+  },
+  "matched": {
+   "matched": 376,
+   "ok_ok": 321,
+   "ok_called_failed": 9,
+   "failed_called_ok": 32,
+   "failed_failed": 14,
+   "truth_failed_total": 86,
+   "ours_failed_total": 73
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 86.7,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 255,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 3.27,
+    "ours_sequences": 78
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 79.8,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 228,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.75,
+    "ours_sequences": 83
+   }
+  },
+  "matched": {
+   "matched": 333,
+   "ok_ok": 279,
+   "ok_called_failed": 13,
+   "failed_called_ok": 26,
+   "failed_failed": 15,
+   "truth_failed_total": 86,
+   "ours_failed_total": 80
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 88.0,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 251,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 3.22,
+    "ours_sequences": 78
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 81.2,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 224,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.7,
+    "ours_sequences": 83
+   }
+  },
+  "matched": {
+   "matched": 330,
+   "ok_ok": 279,
+   "ok_called_failed": 10,
+   "failed_called_ok": 26,
+   "failed_failed": 15,
+   "truth_failed_total": 86,
+   "ours_failed_total": 72
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 89.1,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 248,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 3.18,
+    "ours_sequences": 78
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 82.4,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 221,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.66,
+    "ours_sequences": 83
+   }
+  },
+  "matched": {
+   "matched": 328,
+   "ok_ok": 279,
+   "ok_called_failed": 8,
+   "failed_called_ok": 26,
+   "failed_failed": 15,
+   "truth_failed_total": 86,
+   "ours_failed_total": 66
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 89.5,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 247,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 3.17,
+    "ours_sequences": 78
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 82.7,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 220,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.65,
+    "ours_sequences": 83
+   }
+  },
+  "matched": {
+   "matched": 327,
+   "ok_ok": 279,
+   "ok_called_failed": 7,
+   "failed_called_ok": 26,
+   "failed_failed": 15,
+   "truth_failed_total": 86,
+   "ours_failed_total": 64
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 83.7,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 258,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 3.04,
+    "ours_sequences": 85
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 77.0,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 200,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.86,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 314,
+   "ok_ok": 261,
+   "ok_called_failed": 19,
+   "failed_called_ok": 21,
+   "failed_failed": 13,
+   "truth_failed_total": 86,
+   "ours_failed_total": 88
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 88.2,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 245,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.88,
+    "ours_sequences": 85
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 82.4,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 187,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.67,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 301,
+   "ok_ok": 262,
+   "ok_called_failed": 9,
+   "failed_called_ok": 21,
+   "failed_failed": 9,
+   "truth_failed_total": 86,
+   "ours_failed_total": 62
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 88.9,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 243,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.86,
+    "ours_sequences": 85
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 83.2,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 185,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.64,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 299,
+   "ok_ok": 262,
+   "ok_called_failed": 7,
+   "failed_called_ok": 21,
+   "failed_failed": 9,
+   "truth_failed_total": 86,
+   "ours_failed_total": 58
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 89.3,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 242,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.85,
+    "ours_sequences": 85
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 83.7,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 184,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 2.63,
+    "ours_sequences": 70
+   }
+  },
+  "matched": {
+   "matched": 299,
+   "ok_ok": 262,
+   "ok_called_failed": 7,
+   "failed_called_ok": 21,
+   "failed_failed": 9,
+   "truth_failed_total": 86,
+   "ours_failed_total": 56
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 67.0,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 348,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 6.57,
+    "ours_sequences": 53
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 62.0,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 324,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.89,
+    "ours_sequences": 55
+   }
+  },
+  "matched": {
+   "matched": 363,
+   "ok_ok": 250,
+   "ok_called_failed": 64,
+   "failed_called_ok": 27,
+   "failed_failed": 22,
+   "truth_failed_total": 86,
+   "ours_failed_total": 238
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 72.1,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 323,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 6.09,
+    "ours_sequences": 53
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 67.2,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 299,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.44,
+    "ours_sequences": 55
+   }
+  },
+  "matched": {
+   "matched": 342,
+   "ok_ok": 250,
+   "ok_called_failed": 47,
+   "failed_called_ok": 27,
+   "failed_failed": 18,
+   "truth_failed_total": 86,
+   "ours_failed_total": 188
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 77.2,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 302,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.7,
+    "ours_sequences": 53
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 72.3,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 278,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.05,
+    "ours_sequences": 55
+   }
+  },
+  "matched": {
+   "matched": 326,
+   "ok_ok": 251,
+   "ok_called_failed": 30,
+   "failed_called_ok": 27,
+   "failed_failed": 18,
+   "truth_failed_total": 86,
+   "ours_failed_total": 146
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 77.9,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 299,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.64,
+    "ours_sequences": 53
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 73.1,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 275,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.0,
+    "ours_sequences": 55
+   }
+  },
+  "matched": {
+   "matched": 323,
+   "ok_ok": 251,
+   "ok_called_failed": 28,
+   "failed_called_ok": 27,
+   "failed_failed": 17,
+   "truth_failed_total": 86,
+   "ours_failed_total": 140
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 66.3,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 347,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 6.31,
+    "ours_sequences": 55
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 60.6,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 335,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.78,
+    "ours_sequences": 58
+   }
+  },
+  "matched": {
+   "matched": 340,
+   "ok_ok": 235,
+   "ok_called_failed": 56,
+   "failed_called_ok": 33,
+   "failed_failed": 16,
+   "truth_failed_total": 86,
+   "ours_failed_total": 249
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 1.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 73.5,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 313,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.69,
+    "ours_sequences": 55
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 67.4,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 301,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.19,
+    "ours_sequences": 58
+   }
+  },
+  "matched": {
+   "matched": 316,
+   "ok_ok": 235,
+   "ok_called_failed": 32,
+   "failed_called_ok": 33,
+   "failed_failed": 16,
+   "truth_failed_total": 86,
+   "ours_failed_total": 181
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 2.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 77.7,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 296,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.38,
+    "ours_sequences": 55
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 71.5,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 284,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.9,
+    "ours_sequences": 58
+   }
+  },
+  "matched": {
+   "matched": 307,
+   "ok_ok": 235,
+   "ok_called_failed": 23,
+   "failed_called_ok": 33,
+   "failed_failed": 16,
+   "truth_failed_total": 86,
+   "ours_failed_total": 147
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "handback_s": 3.0,
+  "teams": {
+   "A": {
+    "truth_kept_pct": 85.2,
+    "truth_all_pct": 80.8,
+    "ours_pct": 79.6,
+    "truth_attempts": 291,
+    "truth_attempts_all": 307,
+    "ours_passes": 289,
+    "truth_passes_per_seq": 3.22,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 5.25,
+    "ours_sequences": 55
+   },
+   "B": {
+    "truth_kept_pct": 80.5,
+    "truth_all_pct": 77.7,
+    "ours_pct": 73.3,
+    "truth_attempts": 221,
+    "truth_attempts_all": 229,
+    "ours_passes": 277,
+    "truth_passes_per_seq": 2.31,
+    "truth_sequences": 77,
+    "ours_passes_per_seq": 4.78,
+    "ours_sequences": 58
+   }
+  },
+  "matched": {
+   "matched": 302,
+   "ok_ok": 235,
+   "ok_called_failed": 18,
+   "failed_called_ok": 33,
+   "failed_failed": 16,
+   "truth_failed_total": 86,
+   "ours_failed_total": 133
+  }
+ }
+]
