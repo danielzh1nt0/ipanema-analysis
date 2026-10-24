@@ -1,300 +1,331 @@
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/SFKBP1109_s1200/ball_gt.json
+Downloading owner_key.json to results/kaggle/full_match_aiksmoke2/root/reference/SFKBP1109_s1200
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/SFKBP1109.json
-Downloading p15u-vs-aik-2026-09-21-bd09.json to results/kaggle/full_match_aiksmoke/root/periods
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/SFKBP1109_s1200/owner_key.json
+Downloading p15u-vs-aik-2026-09-21-bd09_poss_sample.json to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-aik-2026-09-21-bd09.json
-Downloading p15u-vs-bp-2026-09-22-2000.json to results/kaggle/full_match_aiksmoke/root/periods
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-bp-2026-09-22-2000.json
-Downloading p15u-vs-vallentuna-2026-10-03-6cce.json to results/kaggle/full_match_aiksmoke/root/periods
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
+Downloading README.md to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
-Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
+Downloading ball_gt.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/ball_gt.json
-Downloading owner_key.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_gt.json
+Downloading ball_key_graded.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/owner_key.json
-Downloading pitch_points_s1.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
+Downloading ball_key_px.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109/pitch_points_s1.json
-Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
+Downloading poss_blind_2026-10-17.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200/ball_gt.json
-Downloading owner_key.json to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_blind_2026-10-17.json
+Downloading poss_sample.json to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/SFKBP1109_s1200/owner_key.json
-Downloading p15u-vs-aik-2026-09-21-bd09_poss_sample.json to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
+Downloading 132831_keypoints.json to results/kaggle/full_match_aiksmoke2/root/reference/soccertrack
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
-Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/soccertrack/132831_keypoints.json
+Downloading training_matches.json to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
-Downloading README.md to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/training_matches.json
+Downloading veo_events_SFKAIK.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
-Downloading ball_gt.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_events_SFKAIK.txt
+Downloading veo_events_SFKBP1109.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_gt.json
-Downloading ball_key_graded.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_events_SFKBP1109.txt
+Downloading veo_events_SFKVALLENTUNA.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
-Downloading ball_key_px.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_events_SFKVALLENTUNA.txt
+Downloading veo_events_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
-Downloading poss_blind_2026-10-17.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
+Downloading veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_blind_2026-10-17.json
-Downloading poss_sample.json to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Downloading veo_highlights_SFKAIK.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
-Downloading 132831_keypoints.json to results/kaggle/full_match_aiksmoke/root/reference/soccertrack
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_highlights_SFKAIK.txt
+Downloading veo_highlights_SFKBP1109.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/soccertrack/132831_keypoints.json
-Downloading training_matches.json to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_highlights_SFKBP1109.txt
+Downloading veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/training_matches.json
-Downloading veo_events_SFKAIK.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
+Downloading veo_highlights_p15u-vs-bp-2026-09-22-2000.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKAIK.txt
-Downloading veo_events_SFKBP1109.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
+Downloading veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke2/root/reference
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKBP1109.txt
-Downloading veo_events_SFKVALLENTUNA.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
+Downloading library.json to results/kaggle/full_match_aiksmoke2/root/runs
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_SFKVALLENTUNA.txt
-Downloading veo_events_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/library.json
+Downloading frames_000.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
-Downloading veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/frames_000.json
+Downloading frames_001.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Downloading veo_highlights_SFKAIK.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/frames_001.json
+Downloading frames_lite.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_SFKAIK.txt
-Downloading veo_highlights_SFKBP1109.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/frames_lite.json
+Downloading kit_A.png to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_SFKBP1109.txt
-Downloading veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/kit_A.png
+Downloading kit_B.png to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
-Downloading veo_highlights_p15u-vs-bp-2026-09-22-2000.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/kit_B.png
+Downloading match_data.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
-Downloading veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt to results/kaggle/full_match_aiksmoke/root/reference
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/match_data.json
+Downloading stats.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Downloading full.mp4 to results/kaggle/full_match_aiksmoke/root/videos/p15u-vs-aik-2026-09-21-bd09_s2520
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/stats.json
+Downloading summary.json to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-Output file downloaded to results/kaggle/full_match_aiksmoke/root/videos/p15u-vs-aik-2026-09-21-bd09_s2520/full.mp4
-Kernel log downloaded to results/kaggle/full_match_aiksmoke/ipanema-full-match-aiksmoke.log 
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/summary.json
+Downloading thumb.jpg to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520
 
-  0%|          | 0.00/2.48k [00:00<?, ?B/s]
-100%|██████████| 2.48k/2.48k [00:00<00:00, 11.1MB/s]
+Output file downloaded to results/kaggle/full_match_aiksmoke2/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520/thumb.jpg
+Kernel log downloaded to results/kaggle/full_match_aiksmoke2/ipanema-full-match-aiksmoke2.log 
 
-  0%|          | 0.00/1.29k [00:00<?, ?B/s]
-100%|██████████| 1.29k/1.29k [00:00<00:00, 8.98MB/s]
+  0%|          | 0.00/586k [00:00<?, ?B/s]
+100%|██████████| 586k/586k [00:00<00:00, 30.7MB/s]
 
-  0%|          | 0.00/184M [00:00<?, ?B/s]
-  1%|          | 1.00M/184M [00:00<00:25, 7.67MB/s]
-  3%|▎         | 6.00M/184M [00:00<00:06, 29.4MB/s]
-  9%|▉         | 17.0M/184M [00:00<00:02, 59.7MB/s]
- 14%|█▎        | 25.0M/184M [00:00<00:02, 65.7MB/s]
- 18%|█▊        | 33.0M/184M [00:00<00:02, 67.3MB/s]
- 23%|██▎       | 42.0M/184M [00:00<00:01, 74.9MB/s]
- 28%|██▊       | 52.0M/184M [00:00<00:01, 83.4MB/s]
- 34%|███▍      | 63.0M/184M [00:00<00:01, 88.7MB/s]
- 40%|███▉      | 73.0M/184M [00:01<00:01, 91.9MB/s]
- 46%|████▌     | 84.0M/184M [00:01<00:01, 97.6MB/s]
- 51%|█████     | 94.0M/184M [00:01<00:00, 98.1MB/s]
- 57%|█████▋    | 105M/184M [00:01<00:00, 100MB/s]  
- 63%|██████▎   | 116M/184M [00:01<00:00, 103MB/s]
- 68%|██████▊   | 126M/184M [00:01<00:00, 101MB/s]
- 74%|███████▍  | 136M/184M [00:01<00:00, 102MB/s]
- 80%|███████▉  | 147M/184M [00:01<00:00, 101MB/s]
- 85%|████████▌ | 157M/184M [00:01<00:00, 100MB/s]
- 91%|█████████ | 167M/184M [00:01<00:00, 97.7MB/s]
- 97%|█████████▋| 178M/184M [00:02<00:00, 101MB/s] 
-100%|██████████| 184M/184M [00:02<00:00, 89.5MB/s]
+  0%|          | 0.00/2.47k [00:00<?, ?B/s]
+100%|██████████| 2.47k/2.47k [00:00<00:00, 25.3MB/s]
 
-  0%|          | 0.00/2.53M [00:00<?, ?B/s]
- 40%|███▉      | 1.00M/2.53M [00:00<00:00, 7.60MB/s]
-100%|██████████| 2.53M/2.53M [00:00<00:00, 13.3MB/s]
+  0%|          | 0.00/1.75M [00:00<?, ?B/s]
+ 57%|█████▋    | 1.00M/1.75M [00:00<00:00, 3.54MB/s]
+100%|██████████| 1.75M/1.75M [00:00<00:00, 5.12MB/s]
 
-  0%|          | 0.00/184M [00:00<?, ?B/s]
-  1%|          | 1.00M/184M [00:00<00:25, 7.65MB/s]
-  5%|▍         | 9.00M/184M [00:00<00:04, 45.6MB/s]
- 10%|█         | 19.0M/184M [00:00<00:02, 66.7MB/s]
- 16%|█▌        | 29.0M/184M [00:00<00:02, 76.8MB/s]
- 21%|██        | 38.0M/184M [00:00<00:01, 82.1MB/s]
- 25%|██▌       | 47.0M/184M [00:00<00:01, 85.1MB/s]
- 31%|███       | 57.0M/184M [00:00<00:01, 87.2MB/s]
- 36%|███▋      | 67.0M/184M [00:00<00:01, 88.8MB/s]
- 42%|████▏     | 77.0M/184M [00:01<00:01, 90.1MB/s]
- 47%|████▋     | 86.0M/184M [00:01<00:01, 91.1MB/s]
- 52%|█████▏    | 95.0M/184M [00:01<00:01, 90.6MB/s]
- 57%|█████▋    | 105M/184M [00:01<00:00, 91.2MB/s] 
- 62%|██████▏   | 115M/184M [00:01<00:00, 91.3MB/s]
- 68%|██████▊   | 125M/184M [00:01<00:00, 91.2MB/s]
- 73%|███████▎  | 135M/184M [00:01<00:00, 91.2MB/s]
- 79%|███████▊  | 145M/184M [00:01<00:00, 91.4MB/s]
- 84%|████████▍ | 155M/184M [00:01<00:00, 91.8MB/s]
- 89%|████████▉ | 165M/184M [00:02<00:00, 91.7MB/s]
- 95%|█████████▍| 175M/184M [00:02<00:00, 91.9MB/s]
-100%|██████████| 184M/184M [00:02<00:00, 91.2MB/s]
-100%|██████████| 184M/184M [00:02<00:00, 86.2MB/s]
+  0%|          | 0.00/678 [00:00<?, ?B/s]
+100%|██████████| 678/678 [00:00<00:00, 5.02MB/s]
 
-  0%|          | 0.00/23.9M [00:00<?, ?B/s]
-  4%|▍         | 1.00M/23.9M [00:00<00:03, 7.66MB/s]
- 38%|███▊      | 9.00M/23.9M [00:00<00:00, 44.8MB/s]
- 80%|███████▉  | 19.0M/23.9M [00:00<00:00, 69.2MB/s]
-100%|██████████| 23.9M/23.9M [00:00<00:00, 63.9MB/s]
+  0%|          | 0.00/399k [00:00<?, ?B/s]
+100%|██████████| 399k/399k [00:00<00:00, 1.81MB/s]
+100%|██████████| 399k/399k [00:00<00:00, 1.81MB/s]
 
-  0%|          | 0.00/5.81M [00:00<?, ?B/s]
- 17%|█▋        | 1.00M/5.81M [00:00<00:00, 7.65MB/s]
-100%|██████████| 5.81M/5.81M [00:00<00:00, 27.1MB/s]
+  0%|          | 0.00/161k [00:00<?, ?B/s]
+100%|██████████| 161k/161k [00:00<00:00, 1.19MB/s]
+100%|██████████| 161k/161k [00:00<00:00, 1.19MB/s]
 
-  0%|          | 0.00/68.0 [00:00<?, ?B/s]
-100%|██████████| 68.0/68.0 [00:00<00:00, 337kB/s]
+  0%|          | 0.00/166k [00:00<?, ?B/s]
+100%|██████████| 166k/166k [00:00<00:00, 1.24MB/s]
+100%|██████████| 166k/166k [00:00<00:00, 1.24MB/s]
 
-  0%|          | 0.00/3.82k [00:00<?, ?B/s]
-100%|██████████| 3.82k/3.82k [00:00<00:00, 23.3MB/s]
+  0%|          | 0.00/4.28k [00:00<?, ?B/s]
+100%|██████████| 4.28k/4.28k [00:00<00:00, 27.6MB/s]
 
-  0%|          | 0.00/5.47k [00:00<?, ?B/s]
-100%|██████████| 5.47k/5.47k [00:00<00:00, 33.6MB/s]
-
-  0%|          | 0.00/7.49M [00:00<?, ?B/s]
- 13%|█▎        | 1.00M/7.49M [00:00<00:00, 7.58MB/s]
- 93%|█████████▎| 7.00M/7.49M [00:00<00:00, 35.5MB/s]
-100%|██████████| 7.49M/7.49M [00:00<00:00, 32.2MB/s]
-
-  0%|          | 0.00/9.00k [00:00<?, ?B/s]
-100%|██████████| 9.00k/9.00k [00:00<00:00, 46.7MB/s]
-
-  0%|          | 0.00/129k [00:00<?, ?B/s]
-100%|██████████| 129k/129k [00:00<00:00, 2.51MB/s]
-
-  0%|          | 0.00/1.28k [00:00<?, ?B/s]
-100%|██████████| 1.28k/1.28k [00:00<00:00, 9.32MB/s]
+  0%|          | 0.00/139k [00:00<?, ?B/s]
+100%|██████████| 139k/139k [00:00<00:00, 1.30MB/s]
+100%|██████████| 139k/139k [00:00<00:00, 1.30MB/s]
 
   0%|          | 0.00/1.03k [00:00<?, ?B/s]
-100%|██████████| 1.03k/1.03k [00:00<00:00, 6.69MB/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 8.48MB/s]
+
+  0%|          | 0.00/102k [00:00<?, ?B/s]
+100%|██████████| 102k/102k [00:00<00:00, 22.7MB/s]
+
+  0%|          | 0.00/8.85k [00:00<?, ?B/s]
+100%|██████████| 8.85k/8.85k [00:00<00:00, 42.2MB/s]
+
+  0%|          | 0.00/1.45k [00:00<?, ?B/s]
+100%|██████████| 1.45k/1.45k [00:00<00:00, 11.2MB/s]
+
+  0%|          | 0.00/5.81M [00:00<?, ?B/s]
+ 17%|█▋        | 1.00M/5.81M [00:00<00:01, 3.01MB/s]
+ 52%|█████▏    | 3.00M/5.81M [00:00<00:00, 7.49MB/s]
+100%|██████████| 5.81M/5.81M [00:00<00:00, 10.8MB/s]
+
+  0%|          | 0.00/5.82M [00:00<?, ?B/s]
+ 17%|█▋        | 1.00M/5.82M [00:00<00:01, 3.42MB/s]
+ 52%|█████▏    | 3.00M/5.82M [00:00<00:00, 8.37MB/s]
+100%|██████████| 5.82M/5.82M [00:00<00:00, 12.0MB/s]
+
+  0%|          | 0.00/68.0 [00:00<?, ?B/s]
+100%|██████████| 68.0/68.0 [00:00<00:00, 584kB/s]
+
+  0%|          | 0.00/3.82k [00:00<?, ?B/s]
+100%|██████████| 3.82k/3.82k [00:00<00:00, 25.1MB/s]
+
+  0%|          | 0.00/5.47k [00:00<?, ?B/s]
+100%|██████████| 5.47k/5.47k [00:00<00:00, 33.1MB/s]
+
+  0%|          | 0.00/7.49M [00:00<?, ?B/s]
+ 13%|█▎        | 1.00M/7.49M [00:00<00:02, 3.00MB/s]
+ 40%|████      | 3.00M/7.49M [00:00<00:00, 7.12MB/s]
+ 80%|████████  | 6.00M/7.49M [00:00<00:00, 13.2MB/s]
+100%|██████████| 7.49M/7.49M [00:00<00:00, 12.1MB/s]
+
+  0%|          | 0.00/9.00k [00:00<?, ?B/s]
+100%|██████████| 9.00k/9.00k [00:00<00:00, 50.4MB/s]
+
+  0%|          | 0.00/129k [00:00<?, ?B/s]
+100%|██████████| 129k/129k [00:00<00:00, 1.69MB/s]
+
+  0%|          | 0.00/1.28k [00:00<?, ?B/s]
+100%|██████████| 1.28k/1.28k [00:00<00:00, 9.37MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 7.94MB/s]
 
   0%|          | 0.00/137 [00:00<?, ?B/s]
-100%|██████████| 137/137 [00:00<00:00, 1.17MB/s]
+100%|██████████| 137/137 [00:00<00:00, 1.20MB/s]
 
   0%|          | 0.00/0.99k [00:00<?, ?B/s]
-100%|██████████| 0.99k/0.99k [00:00<00:00, 6.64MB/s]
+100%|██████████| 0.99k/0.99k [00:00<00:00, 8.72MB/s]
 
   0%|          | 0.00/1.87k [00:00<?, ?B/s]
-100%|██████████| 1.87k/1.87k [00:00<00:00, 12.3MB/s]
+100%|██████████| 1.87k/1.87k [00:00<00:00, 12.8MB/s]
 
   0%|          | 0.00/4.42k [00:00<?, ?B/s]
-100%|██████████| 4.42k/4.42k [00:00<00:00, 30.1MB/s]
+100%|██████████| 4.42k/4.42k [00:00<00:00, 31.2MB/s]
 
   0%|          | 0.00/12.8k [00:00<?, ?B/s]
-100%|██████████| 12.8k/12.8k [00:00<00:00, 11.1MB/s]
+100%|██████████| 12.8k/12.8k [00:00<00:00, 9.84MB/s]
 
   0%|          | 0.00/773 [00:00<?, ?B/s]
-100%|██████████| 773/773 [00:00<00:00, 5.76MB/s]
+100%|██████████| 773/773 [00:00<00:00, 5.41MB/s]
 
   0%|          | 0.00/4.15k [00:00<?, ?B/s]
-100%|██████████| 4.15k/4.15k [00:00<00:00, 27.1MB/s]
+100%|██████████| 4.15k/4.15k [00:00<00:00, 26.1MB/s]
 
   0%|          | 0.00/3.60k [00:00<?, ?B/s]
-100%|██████████| 3.60k/3.60k [00:00<00:00, 26.8MB/s]
+100%|██████████| 3.60k/3.60k [00:00<00:00, 27.2MB/s]
 
   0%|          | 0.00/1.01k [00:00<?, ?B/s]
-100%|██████████| 1.01k/1.01k [00:00<00:00, 7.90MB/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 7.11MB/s]
 
   0%|          | 0.00/863 [00:00<?, ?B/s]
-100%|██████████| 863/863 [00:00<00:00, 6.25MB/s]
+100%|██████████| 863/863 [00:00<00:00, 6.01MB/s]
 
   0%|          | 0.00/1.50k [00:00<?, ?B/s]
-100%|██████████| 1.50k/1.50k [00:00<00:00, 10.5MB/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 9.59MB/s]
 
   0%|          | 0.00/8.71k [00:00<?, ?B/s]
-100%|██████████| 8.71k/8.71k [00:00<00:00, 17.7MB/s]
+100%|██████████| 8.71k/8.71k [00:00<00:00, 51.3MB/s]
 
   0%|          | 0.00/1.50k [00:00<?, ?B/s]
-100%|██████████| 1.50k/1.50k [00:00<00:00, 10.8MB/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 11.1MB/s]
 
   0%|          | 0.00/6.31k [00:00<?, ?B/s]
-100%|██████████| 6.31k/6.31k [00:00<00:00, 36.2MB/s]
+100%|██████████| 6.31k/6.31k [00:00<00:00, 40.1MB/s]
 
   0%|          | 0.00/3.72k [00:00<?, ?B/s]
-100%|██████████| 3.72k/3.72k [00:00<00:00, 23.9MB/s]
+100%|██████████| 3.72k/3.72k [00:00<00:00, 26.9MB/s]
 
   0%|          | 0.00/2.77k [00:00<?, ?B/s]
-100%|██████████| 2.77k/2.77k [00:00<00:00, 19.0MB/s]
+100%|██████████| 2.77k/2.77k [00:00<00:00, 22.0MB/s]
 
   0%|          | 0.00/2.58k [00:00<?, ?B/s]
-100%|██████████| 2.58k/2.58k [00:00<00:00, 17.5MB/s]
+100%|██████████| 2.58k/2.58k [00:00<00:00, 18.8MB/s]
 
   0%|          | 0.00/302 [00:00<?, ?B/s]
-100%|██████████| 302/302 [00:00<00:00, 2.56MB/s]
+100%|██████████| 302/302 [00:00<00:00, 2.52MB/s]
 
   0%|          | 0.00/2.17k [00:00<?, ?B/s]
-100%|██████████| 2.17k/2.17k [00:00<00:00, 15.8MB/s]
+100%|██████████| 2.17k/2.17k [00:00<00:00, 18.0MB/s]
 
   0%|          | 0.00/1.09k [00:00<?, ?B/s]
-100%|██████████| 1.09k/1.09k [00:00<00:00, 8.06MB/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 8.35MB/s]
 
   0%|          | 0.00/302 [00:00<?, ?B/s]
-100%|██████████| 302/302 [00:00<00:00, 2.45MB/s]
+100%|██████████| 302/302 [00:00<00:00, 2.74MB/s]
 
   0%|          | 0.00/1.09k [00:00<?, ?B/s]
-100%|██████████| 1.09k/1.09k [00:00<00:00, 7.72MB/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 9.08MB/s]
 
   0%|          | 0.00/487 [00:00<?, ?B/s]
-100%|██████████| 487/487 [00:00<00:00, 4.04MB/s]
+100%|██████████| 487/487 [00:00<00:00, 4.46MB/s]
 
   0%|          | 0.00/521 [00:00<?, ?B/s]
-100%|██████████| 521/521 [00:00<00:00, 3.91MB/s]
+100%|██████████| 521/521 [00:00<00:00, 5.07MB/s]
 
   0%|          | 0.00/491 [00:00<?, ?B/s]
-100%|██████████| 491/491 [00:00<00:00, 3.97MB/s]
+100%|██████████| 491/491 [00:00<00:00, 4.67MB/s]
 
   0%|          | 0.00/281 [00:00<?, ?B/s]
-100%|██████████| 281/281 [00:00<00:00, 1.90MB/s]
+100%|██████████| 281/281 [00:00<00:00, 2.62MB/s]
 
   0%|          | 0.00/1.23k [00:00<?, ?B/s]
-100%|██████████| 1.23k/1.23k [00:00<00:00, 7.72MB/s]
+100%|██████████| 1.23k/1.23k [00:00<00:00, 8.82MB/s]
 
-  0%|          | 0.00/284M [00:00<?, ?B/s]
-  0%|          | 1.00M/284M [00:00<01:00, 4.90MB/s]
-  2%|▏         | 7.00M/284M [00:00<00:10, 27.2MB/s]
-  6%|▋         | 18.0M/284M [00:00<00:04, 57.4MB/s]
- 10%|▉         | 27.0M/284M [00:00<00:03, 69.2MB/s]
- 13%|█▎        | 36.0M/284M [00:00<00:03, 74.4MB/s]
- 16%|█▌        | 45.0M/284M [00:00<00:03, 79.7MB/s]
- 19%|█▉        | 54.0M/284M [00:00<00:02, 82.7MB/s]
- 22%|██▏       | 63.0M/284M [00:01<00:03, 69.1MB/s]
- 25%|██▍       | 71.0M/284M [00:01<00:03, 69.3MB/s]
- 28%|██▊       | 79.0M/284M [00:01<00:02, 72.4MB/s]
- 31%|███▏      | 89.0M/284M [00:01<00:03, 63.4MB/s]
- 34%|███▍      | 97.0M/284M [00:01<00:02, 66.9MB/s]
- 37%|███▋      | 106M/284M [00:01<00:02, 73.3MB/s] 
- 41%|████      | 117M/284M [00:01<00:02, 82.1MB/s]
- 44%|████▍     | 126M/284M [00:01<00:02, 81.0MB/s]
- 48%|████▊     | 136M/284M [00:02<00:01, 87.2MB/s]
- 51%|█████     | 145M/284M [00:02<00:01, 88.8MB/s]
- 55%|█████▍    | 155M/284M [00:02<00:01, 92.8MB/s]
- 58%|█████▊    | 165M/284M [00:02<00:01, 94.6MB/s]
- 62%|██████▏   | 175M/284M [00:02<00:01, 95.1MB/s]
- 65%|██████▌   | 186M/284M [00:02<00:01, 99.4MB/s]
- 69%|██████▉   | 196M/284M [00:02<00:00, 100MB/s] 
- 73%|███████▎  | 206M/284M [00:02<00:00, 100MB/s]
- 76%|███████▌  | 216M/284M [00:02<00:00, 101MB/s]
- 80%|███████▉  | 226M/284M [00:02<00:00, 102MB/s]
- 83%|████████▎ | 236M/284M [00:03<00:00, 102MB/s]
- 87%|████████▋ | 246M/284M [00:03<00:00, 101MB/s]
- 90%|█████████ | 256M/284M [00:03<00:00, 102MB/s]
- 94%|█████████▎| 266M/284M [00:03<00:00, 102MB/s]
- 97%|█████████▋| 276M/284M [00:03<00:00, 102MB/s]
-100%|██████████| 284M/284M [00:03<00:00, 84.3MB/s]
-  ipanema-full-match-aiksmoke.log 26255
-  log.txt 2539
-  result.json 1326
+  0%|          | 0.00/2.47k [00:00<?, ?B/s]
+100%|██████████| 2.47k/2.47k [00:00<00:00, 15.9MB/s]
+
+  0%|          | 0.00/1.75M [00:00<?, ?B/s]
+100%|██████████| 1.75M/1.75M [00:00<00:00, 16.9MB/s]
+100%|██████████| 1.75M/1.75M [00:00<00:00, 16.8MB/s]
+
+  0%|          | 0.00/678 [00:00<?, ?B/s]
+100%|██████████| 678/678 [00:00<00:00, 4.86MB/s]
+
+  0%|          | 0.00/399k [00:00<?, ?B/s]
+100%|██████████| 399k/399k [00:00<00:00, 1.95MB/s]
+100%|██████████| 399k/399k [00:00<00:00, 1.95MB/s]
+
+  0%|          | 0.00/161k [00:00<?, ?B/s]
+100%|██████████| 161k/161k [00:00<00:00, 1.20MB/s]
+100%|██████████| 161k/161k [00:00<00:00, 1.20MB/s]
+
+  0%|          | 0.00/166k [00:00<?, ?B/s]
+100%|██████████| 166k/166k [00:00<00:00, 1.37MB/s]
+100%|██████████| 166k/166k [00:00<00:00, 1.36MB/s]
+
+  0%|          | 0.00/4.28k [00:00<?, ?B/s]
+100%|██████████| 4.28k/4.28k [00:00<00:00, 26.1MB/s]
+
+  0%|          | 0.00/139k [00:00<?, ?B/s]
+100%|██████████| 139k/139k [00:00<00:00, 1.28MB/s]
+100%|██████████| 139k/139k [00:00<00:00, 1.27MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 7.93MB/s]
+
+  0%|          | 0.00/102k [00:00<?, ?B/s]
+100%|██████████| 102k/102k [00:00<00:00, 847kB/s]
+100%|██████████| 102k/102k [00:00<00:00, 846kB/s]
+  ballcheck.jpg 599754
+  export 4096
+  ipanema-full-match-aiksmoke2.log 37889
+  log.txt 9066
+  result.json 1486
   root 4096
-  run.json 170
+  run.json 175
+supabase key: set, 46 chars
+supabase rest check: 200
+possession: {'A': 27, 'B': 73}  passes 3  turnovers 0  ball grade {'accuracy': 0.1, 'near_player_pct': 0.48, 'frames_pct': 1.32, 'possession_ok': False, 'events_ok': False}
+{"n_frames": 2998, "possession_pct": {"A": 27, "B": 73}, "summary": {"ball_grade": {"accuracy": 0.1, "near_player_pct": 0.48, "frames_pct": 1.32, "possession_ok": false, "events_ok": false}, "passes": 3, "turnovers": 0, "shots": {"A": 0, "B": 1}, "goals": {"A": 0, "B": 1}, "players_per_frame_median": {"A": 7.0, "B": 6.0}, "calibration_coverage": 1.0}, "match": "p15u-vs-aik-2026-09-21-bd09_s2520"}
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 79, in _request
+    response.raise_for_status()
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://qnfjmzlwazqxhvveiovg.supabase.co/storage/v1/object/matches/p15u-vs-aik-2026-09-21-bd09_s2520/match_data.json'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/app_push.py", line 38, in <module>
+    r = push(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/app_push.py", line 27, in push
+    with open(local, "rb") as f: sb.storage.from_("matches").upload(dest, f.read(), {"content-type": mimetypes.guess_type(local)[0] or "application/octet-stream", "upsert": "true"})
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 603, in upload
+    return self._upload_or_update("POST", path_parts, file, file_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 575, in _upload_or_update
+    response = self._request(
+               ^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages/storage3/_sync/file_api.py", line 83, in _request
+    raise StorageApiError(
+storage3.exceptions.StorageApiError: {'statusCode': 403, 'error': Unauthorized, 'message': new row violates row-level security policy}
+app push FAILED (see above)
