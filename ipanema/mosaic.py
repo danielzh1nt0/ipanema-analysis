@@ -101,7 +101,8 @@ def calibrate_via_mosaic(video, clip_id, root, code_dir="/content/ipanema-analys
     frames that don't overlap the panorama chain from the nearest direct anchor. `anchors_out` (a dict, optional) receives the
     anchor frames (direct / chained) so the caller can tell measured frames from guessed ones (measured_mask)."""
     import json, re as _re, bisect
-    base = _re.sub(r"_(seg|s|c)\d+$", "", clip_id)
+    base = clip_id
+    while _re.search(r"_(seg|s|c)\d+$", base): base = _re.sub(r"_(seg|s|c)\d+$", "", base)   # 24 Oct: a piece of a clip (<match>_s2520_c000) strips both
     cal = os.path.join(code_dir, "calibration", f"{base}.json")
     if not os.path.exists(cal): log(f"calibration: no panorama calibration for {base}"); return None
     spec = json.load(open(cal)); Hpm = np.array(spec["H_pitch_to_mosaic"], np.float64)

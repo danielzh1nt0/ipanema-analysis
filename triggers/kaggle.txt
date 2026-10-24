@@ -1,2 +1,2 @@
-kaggle/full_match.py 30 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin7 GPU=0 fetch
-# Sat Oct 24 11:29:01 CEST 2026 push Vallentuna, take 4 (push step reports errors)
+kaggle/full_match.py 200 MATCH=p15u-vs-aik-2026-09-21-bd09_s2520 STAGE=all NAME=aiksmoke2 WASB=results/kaggle/wasb_warm/wasb_warm.pth
+# Sat Oct 24 11:52:16 CEST 2026 AIK clip, take 2: panorama calibration found for a piece of a clip
