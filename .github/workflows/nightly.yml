@@ -24,6 +24,10 @@ jobs:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
           pip install -q supabase; python tools/reviews_to_labels.py || echo "no coach labels pulled (secrets missing or no rows)"
+          GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" python tools/process_uploads.py || echo "no uploads sent (secrets missing or none waiting)"
+          git add results/free/process_uploads.json 2>/dev/null || true
+          GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" python tools/process_uploads.py || echo "no uploads sent (secrets missing or none waiting)"
+          git add results/free/process_uploads.json 2>/dev/null || true
           git config user.name coach-labels-bot && git config user.email bot@ipanema
           git add reference results/labels 2>/dev/null; git commit -qm "coach labels from the app" && bash tools/push_retry.sh || echo "nothing new"
       - uses: actions/upload-artifact@v4

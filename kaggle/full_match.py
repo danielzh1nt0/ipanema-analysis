@@ -32,8 +32,12 @@ else: log(f"wasb weights {WASB_W} not in the repo: the pretrained soccer weights
 for d in ("reference", "periods", "overrides", "results/volume/reference"):     # answer keys / match settings kept in the repo
     if os.path.isdir(f"{IA}/{d}"): shutil.copytree(f"{IA}/{d}", f"{ROOT}/{os.path.basename(d)}", dirs_exist_ok=True)
 from ipanema.config import Settings
-from ipanema import fullmatch as FM
+from ipanema import fullmatch as FM, linecal as LC
 S = Settings(root=ROOT, sports_dir=f"{T}/sports", work=f"{T}/work")
+# a match without a line calibration in the repo (a fresh upload) falls back to the pitch-keypoint model from roboflow/sports,
+# as the Modal run did; that needs the sports checkout and its weights (setup.sh downloads them)
+if STAGE in ("pieces", "all") and not LC.find_rows(ROOT, M) and not os.path.isdir(f"{T}/sports"):
+    sh(f"git clone -q https://github.com/roboflow/sports.git {T}/sports && pip install -q -e {T}/sports && cd {T}/sports/examples/soccer && bash setup.sh"); log("calibration: no line calibration for this match - pitch-keypoint model installed (roboflow/sports)")
 full = f"{ROOT}/videos/{M}/full.mp4"
 def get_video():
     if os.path.exists(full) and os.path.getsize(full) > 10_000_000: return
@@ -57,7 +61,19 @@ if STAGE in ("kits", "pieces", "all"):                                          
     import numpy as np, cv2
     from ipanema import tracking as TR, video as V, ballrf as BR, kits as KT, calcheck as CC, linecal as LC
     mount_sources(); get_video(); n, fps = FM.video_info(full); plan_ = FM.plan(n, fps); result.update(n=n, fps=fps, n_pieces=len(plan_))
-    want = [] if STAGE == "kits" else list(range(len(plan_))) if PIECES in ("all", "") else list(range(int(PIECES.split("-")[0]), int(PIECES.split("-")[1]) + 1))
+    # which pieces this kernel does: "all", "a-b", "j/N" (every N-th piece starting at j, only pieces with play - the kernels
+    # of one match run in parallel without knowing the piece count), or "missing" (whatever the mounted kernels left undone)
+    def _plays(i):
+        pf0 = f"{ROOT}/periods/{M}.json"
+        if not os.path.exists(pf0): return True
+        a, b = plan_[i]["start_s"], plan_[i]["start_s"] + plan_[i]["dur_s"]
+        return any(x < b and a < y for x, y in json.load(open(pf0))["periods_s"])
+    done_ = lambda i: os.path.exists(f"{ROOT}/cache/{FM.piece_id(M, i)}/{FM.PIECE_FILE}")
+    if STAGE == "kits": want = []
+    elif PIECES in ("all", ""): want = list(range(len(plan_)))
+    elif PIECES == "missing": want = [i for i in range(len(plan_)) if _plays(i) and not done_(i)]
+    elif "/" in PIECES: j, N = (int(x) for x in PIECES.split("/")); want = [i for i in range(len(plan_)) if i % N == j and _plays(i) and not done_(i)]
+    else: want = list(range(int(PIECES.split("-")[0]), int(PIECES.split("-")[1]) + 1))
     log(f"=== {M}: {n} frames ({n / fps:.0f} s) @ {fps:.3f} fps -> {len(plan_)} pieces; this kernel: {STAGE} {want}")
     # one kit model for the whole match (modal_app.rf_kits): 36 frames spread over the playing time. Made once (STAGE=kits)
     # and mounted by the piece kernels, so two kernels running in parallel can never number the teams differently.

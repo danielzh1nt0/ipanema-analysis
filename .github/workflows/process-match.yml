@@ -1,0 +1,107 @@
+name: Process a match (free Kaggle pipeline)
+# 24 Oct 2026: a whole match from the app's upload to the app, with no Modal. Kaggle GPU for the pieces, Kaggle CPU for the
+# re-read of teams and the join, the free runner to grade and push. Start it from the Actions page (match id) or from
+# tools/process_uploads.py (nightly: every match the app marks "processing"). About 10-12 h for a 100-min match.
+on:
+  workflow_dispatch:
+    inputs:
+      match_id: { description: "match id (the app's / R2 folder name)", required: true }
+      wasb: { description: "WASB weights in the repo", default: "results/kaggle/wasb_warm/wasb_warm.pth" }
+  repository_dispatch:
+    types: [process-match]
+permissions:
+  contents: write
+concurrency:
+  group: process-${{ github.event.inputs.match_id || github.event.client_payload.match_id }}
+  cancel-in-progress: false
+env:
+  MATCH: ${{ github.event.inputs.match_id || github.event.client_payload.match_id }}
+  WASB: ${{ github.event.inputs.wasb || github.event.client_payload.wasb || 'results/kaggle/wasb_warm/wasb_warm.pth' }}
+  KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+  KAGGLE_USERNAME: ${{ vars.KAGGLE_USERNAME }}
+  R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+jobs:
+  kits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      slug: ${{ steps.run.outputs.slug }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q kaggle
+      - id: run
+        run: |
+          S="$(printf '%s' "$MATCH" | sha1sum | cut -c1-6)"; echo "slug=$S" >> "$GITHUB_OUTPUT"   # Kaggle kernel slugs are short: 6 hex chars of the match id
+          python tools/kaggle_run.py kaggle/full_match.py 80 MATCH=$MATCH STAGE=kits NAME=${S}-kits DOWNLOAD=0 WASB=$WASB 2>&1 | tail -40
+  pieces:
+    needs: kits
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 2                      # Kaggle allows two GPU kernels at once
+      matrix: { part: [0, 1, 2, 3] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q kaggle
+      - run: |
+          S="${{ needs.kits.outputs.slug }}"
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/4 NAME=${S}-p${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -40
+  sweep:
+    needs: [kits, pieces]
+    if: always() && needs.kits.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q kaggle
+      - run: |
+          S="${{ needs.kits.outputs.slug }}"
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=missing NAME=${S}-sweep SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3 DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -40
+  relabel:
+    needs: [kits, sweep]
+    if: always() && needs.kits.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q kaggle
+      - run: |
+          S="${{ needs.kits.outputs.slug }}"
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=relabel NAME=${S}-relabel GPU=0 DOWNLOAD=0 SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep 2>&1 | tail -40
+  join:
+    needs: [kits, relabel]
+    if: always() && needs.kits.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q kaggle supabase
+      - run: |
+          S="${{ needs.kits.outputs.slug }}"
+          python tools/kaggle_run.py kaggle/full_match.py 240 MATCH=$MATCH STAGE=join NAME=${S}-join GPU=0 WASB=$WASB SOURCES=ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep,ipanema-full-match-${S}-relabel 2>&1 | tail -60
+      - name: grade and push into the app
+        run: |
+          for lib in results/kaggle/*/export/library.json; do
+            [ -f "$lib" ] || continue
+            d="$(dirname "$lib")"; python tools/export_qa.py "$d" "" "$(dirname "$d")/qa.json" || true
+            for f in summary.json stats.json kit_A.png kit_B.png thumb.jpg; do cp "$d"/*/$f "$(dirname "$d")/$f" 2>/dev/null || true; done
+            for f in "$d"/*/frames_lite.json; do [ -f "$f" ] && gzip -c "$f" > "$(dirname "$d")/frames_lite.json.gz"; done
+            python tools/app_push.py "$d" || echo "app push skipped (secrets missing?)"
+          done
+          git config user.name "kaggle-bot" && git config user.email "bot@ipanema"
+          git add results/kaggle; git commit -qm "processed $MATCH on the free pipeline" || echo nothing
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin main && break; git rebase --abort 2>/dev/null; sleep 10; done
