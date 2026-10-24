@@ -94,5 +94,6 @@
  "N0-23a": "Transitions 'forward pass within 3 s': clock fixed (checked on pro data); still limited by our ball",
  "N0-23b": "Counter-press 'time to press' / 'pressed within 2 s': checked on pro data, holds (no change)",
  "N0-23c": "Forward pass share + progressive passes: checked on pro data, hold (no change); hidden test fault fixed",
- "N0-24a": "Pass completion %: checked on pro data - holds with a clean ball, ~16 pts low with our ball flicker (no change)"
+ "N0-24a": "Pass completion %: checked on pro data - holds with a clean ball, ~16 pts low with our ball flicker (no change)",
+ "N0-24b": "Check high turnovers and field tilt on pro data"
 }

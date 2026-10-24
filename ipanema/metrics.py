@@ -176,11 +176,17 @@ TILT_EMPTY_ZERO = os.environ.get("IPANEMA_TILT_EMPTY", "none") == "zero"
 # pick jumping to a touchline spot on the line). IPANEMA_ENTRY_REARM=0 = the old rule.
 ENTRY_REARM = (3.0, 1.0) if os.environ.get("IPANEMA_ENTRY_REARM", "1") != "0" else (0.0, 0.0)
 
+# N0-24b (24 Oct): high turnovers checked on Metrica pro data - with a clean ball our count is ~1/3 of the truth (14 vs
+# 43 balls won and kept in the final third, 4 halves; ~57% of ours real), with our clips' ball noise mostly not real
+# (streak 1 of 22, flicker 10 of 59). IPANEMA_HIGH_TOV=withhold writes the counts as null (app shows a dash); default
+# unchanged until Daniel says. The zone of a ball won we do find is right 93% of the time; the list stays as is.
+HIGH_TOV_WITHHOLD = os.environ.get("IPANEMA_HIGH_TOV", "") == "withhold"
+
 def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None):
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
             "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM), "high_turnovers": ht,
-            "high_turnover_counts": {tm: sum(1 for h in ht if h["team"] == tm and h["zone"] == "high") for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L),
+            "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L),
             "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}
 

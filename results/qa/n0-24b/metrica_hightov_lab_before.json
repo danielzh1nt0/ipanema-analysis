@@ -1,0 +1,1922 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 73,
+    "ours_wins": 30,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 27,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 2,
+    "truth_wins": 85,
+    "ours_wins": 26,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 19,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 41,
+   "zone_same": 37,
+   "truth_high": 18,
+   "truth_high_found_high": 4,
+   "ours_high": 5,
+   "ours_high_real": 4
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 34,
+   "zone_same": 31,
+   "truth_high": 11,
+   "truth_high_found_high": 4,
+   "ours_high": 5,
+   "ours_high_real": 4
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 73,
+    "ours_wins": 32,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 27,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 2,
+    "truth_wins": 85,
+    "ours_wins": 27,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 19,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 42,
+   "zone_same": 38,
+   "truth_high": 18,
+   "truth_high_found_high": 4,
+   "ours_high": 5,
+   "ours_high_real": 4
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 34,
+   "zone_same": 31,
+   "truth_high": 11,
+   "truth_high_found_high": 4,
+   "ours_high": 5,
+   "ours_high_real": 4
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 73,
+    "ours_wins": 16,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 2,
+    "truth_wins": 85,
+    "ours_wins": 14,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 8,
+   "zone_same": 7,
+   "truth_high": 18,
+   "truth_high_found_high": 0,
+   "ours_high": 3,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 5,
+   "zone_same": 4,
+   "truth_high": 11,
+   "truth_high_found_high": 0,
+   "ours_high": 3,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 73,
+    "ours_wins": 16,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 3,
+    "truth_wins": 85,
+    "ours_wins": 16,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 9,
+   "zone_same": 8,
+   "truth_high": 18,
+   "truth_high_found_high": 0,
+   "ours_high": 4,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 6,
+   "zone_same": 5,
+   "truth_high": 11,
+   "truth_high_found_high": 0,
+   "ours_high": 4,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 73,
+    "ours_wins": 9,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 1,
+    "truth_wins": 85,
+    "ours_wins": 5,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 5,
+   "zone_same": 4,
+   "truth_high": 18,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 4,
+   "zone_same": 3,
+   "truth_high": 11,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 73,
+    "ours_wins": 12,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 1,
+    "truth_wins": 85,
+    "ours_wins": 6,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 5,
+   "zone_same": 4,
+   "truth_high": 18,
+   "truth_high_found_high": 1,
+   "ours_high": 3,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 5,
+   "zone_same": 4,
+   "truth_high": 11,
+   "truth_high_found_high": 1,
+   "ours_high": 3,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 7,
+    "truth_wins": 73,
+    "ours_wins": 39,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 3,
+    "truth_wins": 85,
+    "ours_wins": 32,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 21,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 32,
+   "zone_same": 29,
+   "truth_high": 18,
+   "truth_high_found_high": 3,
+   "ours_high": 10,
+   "ours_high_real": 3
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 26,
+   "zone_same": 23,
+   "truth_high": 11,
+   "truth_high_found_high": 2,
+   "ours_high": 10,
+   "ours_high_real": 2
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 7,
+    "truth_wins": 73,
+    "ours_wins": 41,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 3,
+    "truth_wins": 85,
+    "ours_wins": 36,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 21,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 33,
+   "zone_same": 30,
+   "truth_high": 18,
+   "truth_high_found_high": 3,
+   "ours_high": 10,
+   "ours_high_real": 3
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 27,
+   "zone_same": 24,
+   "truth_high": 11,
+   "truth_high_found_high": 2,
+   "ours_high": 10,
+   "ours_high_real": 2
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 10,
+    "truth_wins": 73,
+    "ours_wins": 43,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 5,
+    "truth_wins": 85,
+    "ours_wins": 36,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 36,
+   "zone_same": 33,
+   "truth_high": 18,
+   "truth_high_found_high": 4,
+   "ours_high": 15,
+   "ours_high_real": 4
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 30,
+   "zone_same": 27,
+   "truth_high": 11,
+   "truth_high_found_high": 3,
+   "ours_high": 15,
+   "ours_high_real": 3
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 11,
+    "truth_wins": 73,
+    "ours_wins": 46,
+    "truth_tilt_pct": 28,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 4,
+    "truth_wins_kept": 44
+   },
+   "B": {
+    "truth_high": 10,
+    "ours_high": 5,
+    "truth_wins": 85,
+    "ours_wins": 38,
+    "truth_tilt_pct": 16,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 7,
+    "truth_wins_kept": 45
+   }
+  },
+  "matched": {
+   "truth_wins": 158,
+   "found": 39,
+   "zone_same": 36,
+   "truth_high": 18,
+   "truth_high_found_high": 5,
+   "ours_high": 16,
+   "ours_high_real": 5
+  },
+  "matched_kept": {
+   "truth_wins": 89,
+   "found": 32,
+   "zone_same": 29,
+   "truth_high": 11,
+   "truth_high_found_high": 4,
+   "ours_high": 16,
+   "ours_high_real": 4
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 68,
+    "ours_wins": 31,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 0,
+    "truth_wins": 65,
+    "ours_wins": 27,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 44,
+   "zone_same": 40,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 38,
+   "zone_same": 34,
+   "truth_high": 9,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 68,
+    "ours_wins": 32,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 0,
+    "truth_wins": 65,
+    "ours_wins": 28,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 45,
+   "zone_same": 41,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 39,
+   "zone_same": 35,
+   "truth_high": 9,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 68,
+    "ours_wins": 15,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 65,
+    "ours_wins": 12,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 31,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 8,
+   "zone_same": 7,
+   "truth_high": 16,
+   "truth_high_found_high": 0,
+   "ours_high": 3,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 7,
+   "zone_same": 6,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 3,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 68,
+    "ours_wins": 21,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 65,
+    "ours_wins": 13,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 31,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 10,
+   "zone_same": 9,
+   "truth_high": 16,
+   "truth_high_found_high": 0,
+   "ours_high": 4,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 8,
+   "zone_same": 7,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 4,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 68,
+    "ours_wins": 16,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 65,
+    "ours_wins": 10,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 7,
+   "zone_same": 5,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 5,
+   "zone_same": 3,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 68,
+    "ours_wins": 19,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 16,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 65,
+    "ours_wins": 13,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 9,
+   "zone_same": 7,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 7,
+   "zone_same": 5,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 68,
+    "ours_wins": 40,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 15,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 4,
+    "truth_wins": 65,
+    "ours_wins": 34,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 35,
+   "zone_same": 35,
+   "truth_high": 16,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 30,
+   "zone_same": 30,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 68,
+    "ours_wins": 43,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 15,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 4,
+    "truth_wins": 65,
+    "ours_wins": 35,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 36,
+   "zone_same": 36,
+   "truth_high": 16,
+   "truth_high_found_high": 0,
+   "ours_high": 6,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 31,
+   "zone_same": 31,
+   "truth_high": 9,
+   "truth_high_found_high": 0,
+   "ours_high": 6,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 1,
+    "truth_wins": 68,
+    "ours_wins": 42,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 15,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 65,
+    "ours_wins": 42,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 41,
+   "zone_same": 35,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 4,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 33,
+   "zone_same": 27,
+   "truth_high": 9,
+   "truth_high_found_high": 1,
+   "ours_high": 4,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 8,
+    "ours_high": 2,
+    "truth_wins": 68,
+    "ours_wins": 42,
+    "truth_tilt_pct": 18,
+    "ours_tilt_pct": 15,
+    "truth_high_kept": 3,
+    "truth_wins_kept": 42
+   },
+   "B": {
+    "truth_high": 8,
+    "ours_high": 3,
+    "truth_wins": 65,
+    "ours_wins": 42,
+    "truth_tilt_pct": 30,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 6,
+    "truth_wins_kept": 39
+   }
+  },
+  "matched": {
+   "truth_wins": 133,
+   "found": 40,
+   "zone_same": 34,
+   "truth_high": 16,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 81,
+   "found": 33,
+   "zone_same": 27,
+   "truth_high": 9,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 4,
+    "truth_wins": 75,
+    "ours_wins": 33,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 2,
+    "truth_wins": 74,
+    "ours_wins": 37,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 54,
+   "zone_same": 52,
+   "truth_high": 23,
+   "truth_high_found_high": 5,
+   "ours_high": 6,
+   "ours_high_real": 5
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 43,
+   "zone_same": 41,
+   "truth_high": 10,
+   "truth_high_found_high": 3,
+   "ours_high": 6,
+   "ours_high_real": 3
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 4,
+    "truth_wins": 75,
+    "ours_wins": 33,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 2,
+    "truth_wins": 74,
+    "ours_wins": 38,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 54,
+   "zone_same": 52,
+   "truth_high": 23,
+   "truth_high_found_high": 5,
+   "ours_high": 6,
+   "ours_high_real": 5
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 43,
+   "zone_same": 41,
+   "truth_high": 10,
+   "truth_high_found_high": 3,
+   "ours_high": 6,
+   "ours_high_real": 3
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 1,
+    "truth_wins": 75,
+    "ours_wins": 17,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 28,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 1,
+    "truth_wins": 74,
+    "ours_wins": 18,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 21,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 16,
+   "zone_same": 15,
+   "truth_high": 23,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 13,
+   "zone_same": 12,
+   "truth_high": 10,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 1,
+    "truth_wins": 75,
+    "ours_wins": 20,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 28,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 1,
+    "truth_wins": 74,
+    "ours_wins": 19,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 21,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 18,
+   "zone_same": 17,
+   "truth_high": 23,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 14,
+   "zone_same": 13,
+   "truth_high": 10,
+   "truth_high_found_high": 0,
+   "ours_high": 2,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 75,
+    "ours_wins": 13,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 0,
+    "truth_wins": 74,
+    "ours_wins": 13,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 15,
+   "zone_same": 14,
+   "truth_high": 23,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 11,
+   "zone_same": 11,
+   "truth_high": 10,
+   "truth_high_found_high": 1,
+   "ours_high": 2,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 75,
+    "ours_wins": 16,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 1,
+    "truth_wins": 74,
+    "ours_wins": 16,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 20,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 20,
+   "zone_same": 19,
+   "truth_high": 23,
+   "truth_high_found_high": 2,
+   "ours_high": 3,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 15,
+   "zone_same": 15,
+   "truth_high": 10,
+   "truth_high_found_high": 1,
+   "ours_high": 3,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 5,
+    "truth_wins": 75,
+    "ours_wins": 42,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 3,
+    "truth_wins": 74,
+    "ours_wins": 43,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 18,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 38,
+   "zone_same": 35,
+   "truth_high": 23,
+   "truth_high_found_high": 1,
+   "ours_high": 8,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 26,
+   "zone_same": 23,
+   "truth_high": 10,
+   "truth_high_found_high": 0,
+   "ours_high": 8,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 5,
+    "truth_wins": 75,
+    "ours_wins": 43,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 4,
+    "truth_wins": 74,
+    "ours_wins": 45,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 18,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 41,
+   "zone_same": 37,
+   "truth_high": 23,
+   "truth_high_found_high": 2,
+   "ours_high": 9,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 29,
+   "zone_same": 25,
+   "truth_high": 10,
+   "truth_high_found_high": 1,
+   "ours_high": 9,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 5,
+    "truth_wins": 75,
+    "ours_wins": 38,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 22,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 5,
+    "truth_wins": 74,
+    "ours_wins": 40,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 18,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 38,
+   "zone_same": 32,
+   "truth_high": 23,
+   "truth_high_found_high": 2,
+   "ours_high": 10,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 30,
+   "zone_same": 25,
+   "truth_high": 10,
+   "truth_high_found_high": 1,
+   "ours_high": 10,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 5,
+    "truth_wins": 75,
+    "ours_wins": 43,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 22,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 45
+   },
+   "B": {
+    "truth_high": 14,
+    "ours_high": 6,
+    "truth_wins": 74,
+    "ours_wins": 42,
+    "truth_tilt_pct": 20,
+    "ours_tilt_pct": 18,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 43
+   }
+  },
+  "matched": {
+   "truth_wins": 149,
+   "found": 40,
+   "zone_same": 33,
+   "truth_high": 23,
+   "truth_high_found_high": 2,
+   "ours_high": 11,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 88,
+   "found": 32,
+   "zone_same": 26,
+   "truth_high": 10,
+   "truth_high_found_high": 1,
+   "ours_high": 11,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 3,
+    "truth_wins": 64,
+    "ours_wins": 29,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 23,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 36,
+   "zone_same": 33,
+   "truth_high": 25,
+   "truth_high_found_high": 2,
+   "ours_high": 6,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 28,
+   "zone_same": 25,
+   "truth_high": 13,
+   "truth_high_found_high": 2,
+   "ours_high": 6,
+   "ours_high_real": 2
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 3,
+    "truth_wins": 64,
+    "ours_wins": 30,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 26,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 24,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 38,
+   "zone_same": 35,
+   "truth_high": 25,
+   "truth_high_found_high": 2,
+   "ours_high": 6,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 30,
+   "zone_same": 27,
+   "truth_high": 13,
+   "truth_high_found_high": 2,
+   "ours_high": 6,
+   "ours_high_real": 2
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 64,
+    "ours_wins": 16,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 9,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 11,
+   "zone_same": 7,
+   "truth_high": 25,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 8,
+   "zone_same": 5,
+   "truth_high": 13,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 64,
+    "ours_wins": 16,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 26,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 10,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 29,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 12,
+   "zone_same": 8,
+   "truth_high": 25,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 9,
+   "zone_same": 6,
+   "truth_high": 13,
+   "truth_high_found_high": 0,
+   "ours_high": 5,
+   "ours_high_real": 0
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 64,
+    "ours_wins": 13,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 27,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 2,
+    "truth_wins": 55,
+    "ours_wins": 10,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 30,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 8,
+   "zone_same": 6,
+   "truth_high": 25,
+   "truth_high_found_high": 1,
+   "ours_high": 4,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 4,
+   "zone_same": 3,
+   "truth_high": 13,
+   "truth_high_found_high": 1,
+   "ours_high": 4,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 64,
+    "ours_wins": 16,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 27,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 12,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 30,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 9,
+   "zone_same": 7,
+   "truth_high": 25,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 5,
+   "zone_same": 4,
+   "truth_high": 13,
+   "truth_high_found_high": 1,
+   "ours_high": 5,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 3,
+    "truth_wins": 64,
+    "ours_wins": 28,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 3,
+    "truth_wins": 55,
+    "ours_wins": 24,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 24,
+   "zone_same": 17,
+   "truth_high": 25,
+   "truth_high_found_high": 1,
+   "ours_high": 6,
+   "ours_high_real": 1
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 18,
+   "zone_same": 13,
+   "truth_high": 13,
+   "truth_high_found_high": 1,
+   "ours_high": 6,
+   "ours_high_real": 1
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 4,
+    "truth_wins": 64,
+    "ours_wins": 29,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 4,
+    "truth_wins": 55,
+    "ours_wins": 25,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 23,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 25,
+   "zone_same": 18,
+   "truth_high": 25,
+   "truth_high_found_high": 2,
+   "ours_high": 8,
+   "ours_high_real": 2
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 19,
+   "zone_same": 14,
+   "truth_high": 13,
+   "truth_high_found_high": 2,
+   "ours_high": 8,
+   "ours_high_real": 2
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.5,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 2,
+    "truth_wins": 64,
+    "ours_wins": 27,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 7,
+    "truth_wins": 55,
+    "ours_wins": 25,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 22,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 24,
+   "zone_same": 20,
+   "truth_high": 25,
+   "truth_high_found_high": 3,
+   "ours_high": 9,
+   "ours_high_real": 3
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 19,
+   "zone_same": 16,
+   "truth_high": 13,
+   "truth_high_found_high": 3,
+   "ours_high": 9,
+   "ours_high_real": 3
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "before_s": 0.2,
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth_high": 9,
+    "ours_high": 3,
+    "truth_wins": 64,
+    "ours_wins": 31,
+    "truth_tilt_pct": 29,
+    "ours_tilt_pct": 25,
+    "truth_high_kept": 5,
+    "truth_wins_kept": 34
+   },
+   "B": {
+    "truth_high": 16,
+    "ours_high": 7,
+    "truth_wins": 55,
+    "ours_wins": 25,
+    "truth_tilt_pct": 24,
+    "ours_tilt_pct": 22,
+    "truth_high_kept": 8,
+    "truth_wins_kept": 34
+   }
+  },
+  "matched": {
+   "truth_wins": 119,
+   "found": 26,
+   "zone_same": 22,
+   "truth_high": 25,
+   "truth_high_found_high": 4,
+   "ours_high": 10,
+   "ours_high_real": 4
+  },
+  "matched_kept": {
+   "truth_wins": 68,
+   "found": 21,
+   "zone_same": 18,
+   "truth_high": 13,
+   "truth_high_found_high": 4,
+   "ours_high": 10,
+   "ours_high_real": 4
+  }
+ }
+]
