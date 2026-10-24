@@ -1,119 +1,303 @@
-kernel danielmatros/ipanema-full-match-vjoin7
-Kernel version 1 successfully pushed.  Please check progress at https://www.kaggle.com/code/danielmatros/ipanema-full-match-vjoin7
-  0.5 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
-  2.0 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
-  4.1 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
-  6.1 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
-  8.2 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 10.2 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 12.2 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 14.3 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 16.3 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 18.4 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.RUNNING"
- 19.4 min: danielmatros/ipanema-full-match-vjoin7 has status "KernelWorkerStatus.COMPLETE"
-Output file downloaded to results/kaggle/full_match_vjoin7/ballcheck.jpg
-Output file downloaded to results/kaggle/full_match_vjoin7/export/library.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_000.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_001.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_002.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_003.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_004.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_005.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_006.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_007.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_008.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_009.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_010.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_011.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_012.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_013.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_014.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_015.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_016.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_017.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_018.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_019.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/frames_lite.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/kit_A.png
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/kit_B.png
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/match_data.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/stats.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/summary.json
-Output file downloaded to results/kaggle/full_match_vjoin7/export/p15u-vs-vallentuna-2026-10-03-6cce/thumb.jpg
-Output file downloaded to results/kaggle/full_match_vjoin7/log.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/result.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/models/wasb_finetuned.pth
-Output file downloaded to results/kaggle/full_match_vjoin7/root/models/wasb_train_manifest.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/overrides/SFKBP1109_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/overrides/p15u-vs-aik-2026-09-21-bd09_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_extras.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_kicks.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/overrides/p15u-vs-vallentuna-2026-10-03-6cce_teams.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/periods/SFKBP1109.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/periods/p15u-vs-aik-2026-09-21-bd09.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/periods/p15u-vs-bp-2026-09-22-2000.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/periods/p15u-vs-vallentuna-2026-10-03-6cce.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/SFKBP1109/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/SFKBP1109/owner_key.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/SFKBP1109/pitch_points_s1.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/SFKBP1109_s1200/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/SFKBP1109_s1200/owner_key.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-aik-2026-09-21-bd09_poss_sample.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-aik-2026-09-21-bd09_s2520/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/README.md
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_gt.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_graded.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/ball_key_px.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_blind_2026-10-17.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/p15u-vs-vallentuna-2026-10-03-6cce/poss_sample.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/soccertrack/132831_keypoints.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/training_matches.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_events_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_events_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_events_SFKVALLENTUNA.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_events_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_events_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_highlights_SFKAIK.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_highlights_SFKBP1109.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_highlights_p15u-vs-aik-2026-09-21-bd09.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_highlights_p15u-vs-bp-2026-09-22-2000.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/reference/veo_highlights_p15u-vs-vallentuna-2026-10-03-6cce.txt
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/library.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_000.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_001.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_002.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_003.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_004.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_005.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_006.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_007.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_008.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_009.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_010.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_011.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_012.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_013.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_014.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_015.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_016.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_017.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_018.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_019.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/frames_lite.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/kit_A.png
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/kit_B.png
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/match_data.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/stats.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/summary.json
-Output file downloaded to results/kaggle/full_match_vjoin7/root/runs/matches/p15u-vs-vallentuna-2026-10-03-6cce/thumb.jpg
-Kernel log downloaded to results/kaggle/full_match_vjoin7/ipanema-full-match-vjoin7.log
+100%|██████████| 6.58M/6.58M [00:00<00:00, 29.7MB/s]
+
+  0%|          | 0.00/6.86M [00:00<?, ?B/s]
+ 15%|█▍        | 1.00M/6.86M [00:00<00:00, 9.00MB/s]
+ 44%|████▎     | 3.00M/6.86M [00:00<00:00, 15.0MB/s]
+100%|██████████| 6.86M/6.86M [00:00<00:00, 23.2MB/s]
+
+  0%|          | 0.00/6.54M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.54M [00:00<00:01, 5.49MB/s]
+ 61%|██████    | 4.00M/6.54M [00:00<00:00, 15.5MB/s]
+100%|██████████| 6.54M/6.54M [00:00<00:00, 19.3MB/s]
+
+  0%|          | 0.00/6.60M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.60M [00:00<00:00, 6.05MB/s]
+ 76%|███████▌  | 5.00M/6.60M [00:00<00:00, 22.2MB/s]
+100%|██████████| 6.60M/6.60M [00:00<00:00, 23.9MB/s]
+
+  0%|          | 0.00/5.67M [00:00<?, ?B/s]
+ 18%|█▊        | 1.00M/5.67M [00:00<00:00, 5.96MB/s]
+ 88%|████████▊ | 5.00M/5.67M [00:00<00:00, 21.5MB/s]
+100%|██████████| 5.67M/5.67M [00:00<00:00, 20.7MB/s]
+
+  0%|          | 0.00/962k [00:00<?, ?B/s]
+100%|██████████| 962k/962k [00:00<00:00, 6.02MB/s]
+100%|██████████| 962k/962k [00:00<00:00, 6.02MB/s]
+
+  0%|          | 0.00/32.4M [00:00<?, ?B/s]
+  3%|▎         | 1.00M/32.4M [00:00<00:06, 4.87MB/s]
+  9%|▉         | 3.00M/32.4M [00:00<00:02, 10.4MB/s]
+ 25%|██▍       | 8.00M/32.4M [00:00<00:01, 24.9MB/s]
+ 46%|████▌     | 15.0M/32.4M [00:00<00:00, 39.5MB/s]
+ 68%|██████▊   | 22.0M/32.4M [00:00<00:00, 49.5MB/s]
+ 89%|████████▉ | 29.0M/32.4M [00:00<00:00, 53.4MB/s]
+100%|██████████| 32.4M/32.4M [00:00<00:00, 41.0MB/s]
+
+  0%|          | 0.00/141k [00:00<?, ?B/s]
+100%|██████████| 141k/141k [00:00<00:00, 2.38MB/s]
+
+  0%|          | 0.00/150k [00:00<?, ?B/s]
+100%|██████████| 150k/150k [00:00<00:00, 3.85MB/s]
+
+  0%|          | 0.00/750k [00:00<?, ?B/s]
+100%|██████████| 750k/750k [00:00<00:00, 8.30MB/s]
+
+  0%|          | 0.00/5.48M [00:00<?, ?B/s]
+ 18%|█▊        | 1.00M/5.48M [00:00<00:00, 5.32MB/s]
+ 73%|███████▎  | 4.00M/5.48M [00:00<00:00, 15.4MB/s]
+100%|██████████| 5.48M/5.48M [00:00<00:00, 16.8MB/s]
+
+  0%|          | 0.00/1.25k [00:00<?, ?B/s]
+100%|██████████| 1.25k/1.25k [00:00<00:00, 7.68MB/s]
+
+  0%|          | 0.00/130k [00:00<?, ?B/s]
+100%|██████████| 130k/130k [00:00<00:00, 3.81MB/s]
+
+  0%|          | 0.00/5.81M [00:00<?, ?B/s]
+ 17%|█▋        | 1.00M/5.81M [00:00<00:01, 4.75MB/s]
+ 52%|█████▏    | 3.00M/5.81M [00:00<00:00, 10.4MB/s]
+100%|██████████| 5.81M/5.81M [00:00<00:00, 14.7MB/s]
+
+  0%|          | 0.00/68.0 [00:00<?, ?B/s]
+100%|██████████| 68.0/68.0 [00:00<00:00, 540kB/s]
+
+  0%|          | 0.00/3.82k [00:00<?, ?B/s]
+100%|██████████| 3.82k/3.82k [00:00<00:00, 23.9MB/s]
+
+  0%|          | 0.00/5.47k [00:00<?, ?B/s]
+100%|██████████| 5.47k/5.47k [00:00<00:00, 31.7MB/s]
+
+  0%|          | 0.00/7.49M [00:00<?, ?B/s]
+ 13%|█▎        | 1.00M/7.49M [00:00<00:01, 5.18MB/s]
+ 53%|█████▎    | 4.00M/7.49M [00:00<00:00, 14.8MB/s]
+100%|██████████| 7.49M/7.49M [00:00<00:00, 21.1MB/s]
+
+  0%|          | 0.00/9.00k [00:00<?, ?B/s]
+100%|██████████| 9.00k/9.00k [00:00<00:00, 42.1MB/s]
+
+  0%|          | 0.00/129k [00:00<?, ?B/s]
+100%|██████████| 129k/129k [00:00<00:00, 4.94MB/s]
+
+  0%|          | 0.00/1.28k [00:00<?, ?B/s]
+100%|██████████| 1.28k/1.28k [00:00<00:00, 8.85MB/s]
+
+  0%|          | 0.00/1.03k [00:00<?, ?B/s]
+100%|██████████| 1.03k/1.03k [00:00<00:00, 7.35MB/s]
+
+  0%|          | 0.00/137 [00:00<?, ?B/s]
+100%|██████████| 137/137 [00:00<00:00, 924kB/s]
+
+  0%|          | 0.00/0.99k [00:00<?, ?B/s]
+100%|██████████| 0.99k/0.99k [00:00<00:00, 5.90MB/s]
+
+  0%|          | 0.00/1.87k [00:00<?, ?B/s]
+100%|██████████| 1.87k/1.87k [00:00<00:00, 13.3MB/s]
+
+  0%|          | 0.00/4.42k [00:00<?, ?B/s]
+100%|██████████| 4.42k/4.42k [00:00<00:00, 25.9MB/s]
+
+  0%|          | 0.00/12.8k [00:00<?, ?B/s]
+100%|██████████| 12.8k/12.8k [00:00<00:00, 59.6MB/s]
+
+  0%|          | 0.00/773 [00:00<?, ?B/s]
+100%|██████████| 773/773 [00:00<00:00, 5.64MB/s]
+
+  0%|          | 0.00/4.15k [00:00<?, ?B/s]
+100%|██████████| 4.15k/4.15k [00:00<00:00, 23.2MB/s]
+
+  0%|          | 0.00/3.60k [00:00<?, ?B/s]
+100%|██████████| 3.60k/3.60k [00:00<00:00, 22.3MB/s]
+
+  0%|          | 0.00/1.01k [00:00<?, ?B/s]
+100%|██████████| 1.01k/1.01k [00:00<00:00, 6.83MB/s]
+
+  0%|          | 0.00/863 [00:00<?, ?B/s]
+100%|██████████| 863/863 [00:00<00:00, 5.16MB/s]
+
+  0%|          | 0.00/1.50k [00:00<?, ?B/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 9.96MB/s]
+
+  0%|          | 0.00/8.71k [00:00<?, ?B/s]
+100%|██████████| 8.71k/8.71k [00:00<00:00, 47.1MB/s]
+
+  0%|          | 0.00/1.50k [00:00<?, ?B/s]
+100%|██████████| 1.50k/1.50k [00:00<00:00, 10.5MB/s]
+
+  0%|          | 0.00/6.31k [00:00<?, ?B/s]
+100%|██████████| 6.31k/6.31k [00:00<00:00, 34.5MB/s]
+
+  0%|          | 0.00/3.72k [00:00<?, ?B/s]
+100%|██████████| 3.72k/3.72k [00:00<00:00, 22.7MB/s]
+
+  0%|          | 0.00/2.77k [00:00<?, ?B/s]
+100%|██████████| 2.77k/2.77k [00:00<00:00, 16.2MB/s]
+
+  0%|          | 0.00/2.58k [00:00<?, ?B/s]
+100%|██████████| 2.58k/2.58k [00:00<00:00, 15.8MB/s]
+
+  0%|          | 0.00/302 [00:00<?, ?B/s]
+100%|██████████| 302/302 [00:00<00:00, 2.14MB/s]
+
+  0%|          | 0.00/2.17k [00:00<?, ?B/s]
+100%|██████████| 2.17k/2.17k [00:00<00:00, 12.5MB/s]
+
+  0%|          | 0.00/1.09k [00:00<?, ?B/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 7.16MB/s]
+
+  0%|          | 0.00/302 [00:00<?, ?B/s]
+100%|██████████| 302/302 [00:00<00:00, 1.74MB/s]
+
+  0%|          | 0.00/1.09k [00:00<?, ?B/s]
+100%|██████████| 1.09k/1.09k [00:00<00:00, 7.24MB/s]
+
+  0%|          | 0.00/487 [00:00<?, ?B/s]
+100%|██████████| 487/487 [00:00<00:00, 2.98MB/s]
+
+  0%|          | 0.00/521 [00:00<?, ?B/s]
+100%|██████████| 521/521 [00:00<00:00, 3.13MB/s]
+
+  0%|          | 0.00/491 [00:00<?, ?B/s]
+100%|██████████| 491/491 [00:00<00:00, 3.05MB/s]
+
+  0%|          | 0.00/281 [00:00<?, ?B/s]
+100%|██████████| 281/281 [00:00<00:00, 2.22MB/s]
+
+  0%|          | 0.00/1.23k [00:00<?, ?B/s]
+100%|██████████| 1.23k/1.23k [00:00<00:00, 8.32MB/s]
+
+  0%|          | 0.00/4.15k [00:00<?, ?B/s]
+100%|██████████| 4.15k/4.15k [00:00<00:00, 24.6MB/s]
+
+  0%|          | 0.00/1.04M [00:00<?, ?B/s]
+100%|██████████| 1.04M/1.04M [00:00<00:00, 15.1MB/s]
+
+  0%|          | 0.00/4.31M [00:00<?, ?B/s]
+ 23%|██▎       | 1.00M/4.31M [00:00<00:00, 6.14MB/s]
+100%|██████████| 4.31M/4.31M [00:00<00:00, 16.9MB/s]
+
+  0%|          | 0.00/6.25M [00:00<?, ?B/s]
+ 32%|███▏      | 2.00M/6.25M [00:00<00:00, 18.1MB/s]
+100%|██████████| 6.25M/6.25M [00:00<00:00, 41.1MB/s]
+
+  0%|          | 0.00/6.34M [00:00<?, ?B/s]
+ 16%|█▌        | 1.00M/6.34M [00:00<00:01, 5.57MB/s]
+ 79%|███████▉  | 5.00M/6.34M [00:00<00:00, 19.4MB/s]
+100%|██████████| 6.34M/6.34M [00:00<00:00, 20.6MB/s]
+
+  0%|          | 0.00/6.49M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.49M [00:00<00:00, 6.66MB/s]
+ 46%|████▌     | 3.00M/6.49M [00:00<00:00, 13.2MB/s]
+100%|██████████| 6.49M/6.49M [00:00<00:00, 19.6MB/s]
+
+  0%|          | 0.00/6.67M [00:00<?, ?B/s]
+ 15%|█▍        | 1.00M/6.67M [00:00<00:01, 5.56MB/s]
+ 75%|███████▍  | 5.00M/6.67M [00:00<00:00, 20.9MB/s]
+100%|██████████| 6.67M/6.67M [00:00<00:00, 22.3MB/s]
+
+  0%|          | 0.00/6.63M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.63M [00:00<00:00, 6.55MB/s]
+ 60%|██████    | 4.00M/6.63M [00:00<00:00, 16.3MB/s]
+100%|██████████| 6.63M/6.63M [00:00<00:00, 20.7MB/s]
+
+  0%|          | 0.00/6.38M [00:00<?, ?B/s]
+ 47%|████▋     | 3.00M/6.38M [00:00<00:00, 30.8MB/s]
+100%|██████████| 6.38M/6.38M [00:00<00:00, 50.8MB/s]
+
+  0%|          | 0.00/6.79M [00:00<?, ?B/s]
+ 29%|██▉       | 2.00M/6.79M [00:00<00:00, 19.8MB/s]
+100%|██████████| 6.79M/6.79M [00:00<00:00, 42.8MB/s]
+
+  0%|          | 0.00/4.25M [00:00<?, ?B/s]
+ 24%|██▎       | 1.00M/4.25M [00:00<00:00, 4.89MB/s]
+ 71%|███████   | 3.00M/4.25M [00:00<00:00, 10.7MB/s]
+100%|██████████| 4.25M/4.25M [00:00<00:00, 12.2MB/s]
+
+  0%|          | 0.00/2.42M [00:00<?, ?B/s]
+ 83%|████████▎ | 2.00M/2.42M [00:00<00:00, 15.2MB/s]
+100%|██████████| 2.42M/2.42M [00:00<00:00, 17.2MB/s]
+
+  0%|          | 0.00/6.56M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.56M [00:00<00:00, 6.68MB/s]
+ 61%|██████    | 4.00M/6.56M [00:00<00:00, 18.2MB/s]
+100%|██████████| 6.56M/6.56M [00:00<00:00, 23.4MB/s]
+
+  0%|          | 0.00/6.37M [00:00<?, ?B/s]
+ 16%|█▌        | 1.00M/6.37M [00:00<00:00, 6.06MB/s]
+ 79%|███████▊  | 5.00M/6.37M [00:00<00:00, 21.6MB/s]
+100%|██████████| 6.37M/6.37M [00:00<00:00, 21.9MB/s]
+
+  0%|          | 0.00/6.94M [00:00<?, ?B/s]
+ 29%|██▉       | 2.00M/6.94M [00:00<00:00, 19.2MB/s]
+100%|██████████| 6.94M/6.94M [00:00<00:00, 42.9MB/s]
+
+  0%|          | 0.00/6.58M [00:00<?, ?B/s]
+ 30%|███       | 2.00M/6.58M [00:00<00:00, 18.5MB/s]
+100%|██████████| 6.58M/6.58M [00:00<00:00, 42.1MB/s]
+
+  0%|          | 0.00/6.86M [00:00<?, ?B/s]
+ 29%|██▉       | 2.00M/6.86M [00:00<00:00, 18.1MB/s]
+100%|██████████| 6.86M/6.86M [00:00<00:00, 44.8MB/s]
+
+  0%|          | 0.00/6.54M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.54M [00:00<00:00, 7.33MB/s]
+ 92%|█████████▏| 6.00M/6.54M [00:00<00:00, 29.6MB/s]
+100%|██████████| 6.54M/6.54M [00:00<00:00, 27.6MB/s]
+
+  0%|          | 0.00/6.60M [00:00<?, ?B/s]
+ 15%|█▌        | 1.00M/6.60M [00:00<00:01, 5.61MB/s]
+ 61%|██████    | 4.00M/6.60M [00:00<00:00, 16.1MB/s]
+100%|██████████| 6.60M/6.60M [00:00<00:00, 20.4MB/s]
+
+  0%|          | 0.00/5.67M [00:00<?, ?B/s]
+ 35%|███▌      | 2.00M/5.67M [00:00<00:00, 14.2MB/s]
+100%|██████████| 5.67M/5.67M [00:00<00:00, 24.4MB/s]
+
+  0%|          | 0.00/962k [00:00<?, ?B/s]
+100%|██████████| 962k/962k [00:00<00:00, 5.58MB/s]
+100%|██████████| 962k/962k [00:00<00:00, 5.57MB/s]
+
+  0%|          | 0.00/32.4M [00:00<?, ?B/s]
+  3%|▎         | 1.00M/32.4M [00:00<00:07, 4.52MB/s]
+  9%|▉         | 3.00M/32.4M [00:00<00:03, 9.72MB/s]
+ 22%|██▏       | 7.00M/32.4M [00:00<00:01, 19.9MB/s]
+ 43%|████▎     | 14.0M/32.4M [00:00<00:00, 36.2MB/s]
+ 65%|██████▍   | 21.0M/32.4M [00:00<00:00, 44.6MB/s]
+ 89%|████████▉ | 29.0M/32.4M [00:00<00:00, 52.5MB/s]
+100%|██████████| 32.4M/32.4M [00:00<00:00, 38.9MB/s]
+
+  0%|          | 0.00/141k [00:00<?, ?B/s]
+100%|██████████| 141k/141k [00:00<00:00, 2.30MB/s]
+
+  0%|          | 0.00/150k [00:00<?, ?B/s]
+100%|██████████| 150k/150k [00:00<00:00, 3.50MB/s]
+
+  0%|          | 0.00/750k [00:00<?, ?B/s]
+100%|██████████| 750k/750k [00:00<00:00, 4.98MB/s]
+100%|██████████| 750k/750k [00:00<00:00, 4.97MB/s]
+
+  0%|          | 0.00/5.48M [00:00<?, ?B/s]
+ 18%|█▊        | 1.00M/5.48M [00:00<00:00, 9.99MB/s]
+100%|██████████| 5.48M/5.48M [00:00<00:00, 34.4MB/s]
+
+  0%|          | 0.00/1.25k [00:00<?, ?B/s]
+100%|██████████| 1.25k/1.25k [00:00<00:00, 8.45MB/s]
+
+  0%|          | 0.00/130k [00:00<?, ?B/s]
+100%|██████████| 130k/130k [00:00<00:00, 5.02MB/s]
   ballcheck.jpg 659427
   export 4096
+  frames_lite.json.gz 5100604
   ipanema-full-match-vjoin7.log 18570
+  kit_A.png 144335
+  kit_B.png 153858
   log.txt 6975
+  qa.json 674
   result.json 1542
   root 4096
-  run.json 169
+  run.json 168
+  stats.json 5750312
+  summary.json 1284
+  thumb.jpg 132706
 ball: 39 of 55 by-eye positions within 30 px (39 within 60 px); the export had a seen ball at 54 of them
 who has the ball: 21 of 39 by-eye moments agree (A 9/22, B 12/17)
 possession: {'A': 43, 'B': 57}  passes 464  turnovers 278  ball grade {'accuracy': 0.73, 'near_player_pct': 0.69, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
