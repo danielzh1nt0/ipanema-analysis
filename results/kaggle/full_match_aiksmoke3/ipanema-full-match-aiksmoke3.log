@@ -1,0 +1,257 @@
+[{"stream_name":"stdout","time":0.867701669,"data":"+ nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;print(torch.__version__, torch.cuda.is_available())'\n"}
+,{"stream_name":"stdout","time":13.552524483,"data":"name\n"}
+,{"stream_name":"stdout","time":13.55256497,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":13.552569541,"data":"Tesla T4\n"}
+,{"stream_name":"stdout","time":13.552572303,"data":"2.11.0+cu128 True\n"}
+,{"stream_name":"stdout","time":13.552575546,"data":"\n"}
+,{"stream_name":"stdout","time":13.552578267,"data":"+ git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git /kaggle/temp/ia\n"}
+,{"stream_name":"stdout","time":145.919727626,"data":"\n"}
+,{"stream_name":"stdout","time":145.919786466,"data":"+ cd /kaggle/temp/ia \u0026\u0026 git log -1 --format='repo at %h %s'\n"}
+,{"stream_name":"stdout","time":145.923986875,"data":"repo at a052dfa Kaggle join: a clip inherits its match's trust_all_calibration; a clip run keeps its pieces; AIK take 3\n"}
+,{"stream_name":"stdout","time":145.924007228,"data":"\n"}
+,{"stream_name":"stdout","time":145.924012485,"data":"+ pip install -q rfdetr==1.11.0 'supervision\u003e=0.29,\u003c0.31' omegaconf gdown 'numpy\u003c2' scipy scikit-learn pandas ultralytics==8.3.40\n"}
+,{"stream_name":"stdout","time":379.297426243,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stdout","time":379.297485323,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stdout","time":379.297492957,"data":"bayesian-optimization 3.4.0 requires numpy\u003e=2.1.3; python_full_version == \"3.13.*\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297504855,"data":"opencv-python-headless 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297509779,"data":"mne 1.13.2 requires numpy\u003c3,\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297513942,"data":"kaggle-environments 1.32.7 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297517979,"data":"cesium 0.12.4 requires numpy\u003c3.0,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.29752203,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297526019,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297530134,"data":"cupy-cuda12x 14.0.1 requires numpy\u003c2.6,\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297534142,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.29753807,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.0.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297541965,"data":"ml-dtypes 0.6.0 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297546094,"data":"tobler 0.14.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297549958,"data":"jax 0.11.1 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297566437,"data":"opencv-contrib-python 4.14.0.94 requires numpy\u003e=2; python_version \u003e= \"3.9\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297570204,"data":"dm-tree 0.1.10 requires numpy\u003e=2.1.0; python_version \u003e= \"3.13\", but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297573598,"data":"jaxlib 0.11.1 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297576711,"data":"xarray-einstats 0.11.0 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297579828,"data":"tifffile 2026.8.23 requires numpy\u003e=2.1, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297584471,"data":"pytensor 2.38.3 requires numpy\u003e=2.0, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297587658,"data":"shap 0.52.0 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297590753,"data":"rasterio 1.5.1 requires numpy\u003e=2, but you have numpy 1.26.4 which is incompatible.\n"}
+,{"stream_name":"stdout","time":379.297594358,"data":"\n"}
+,{"stream_name":"stdout","time":379.297597401,"data":"+ which ffmpeg || (apt-get install -y -q ffmpeg \u003e /dev/null 2\u003e\u00261 \u0026\u0026 which ffmpeg)\n"}
+,{"stream_name":"stdout","time":379.301918182,"data":"/usr/bin/ffmpeg\n"}
+,{"stream_name":"stdout","time":379.301941735,"data":"\n"}
+,{"stream_name":"stdout","time":379.307551766,"data":"wasb weights: results/kaggle/wasb_warm/wasb_warm.pth\n"}
+,{"stream_name":"stdout","time":379.579488669,"data":"+ git clone -q https://github.com/roboflow/sports.git /kaggle/temp/sports \u0026\u0026 pip install -q -e /kaggle/temp/sports \u0026\u0026 cd /kaggle/temp/sports/examples/soccer \u0026\u0026 bash setup.sh\n"}
+,{"stream_name":"stdout","time":406.476585831,"data":"28f8709\n"}
+,{"stream_name":"stdout","time":406.476625492,"data":"To: /kaggle/temp/sports/examples/soccer/data/football-player-detection.pt\n"}
+,{"stream_name":"stdout","time":406.476631604,"data":"\n"}
+,{"stream_name":"stdout","time":406.476642341,"data":"  0%|          | 0.00/137M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476646717,"data":"  9%|▉         | 12.6M/137M [00:00\u003c00:00, 125MB/s]\n"}
+,{"stream_name":"stdout","time":406.476651727,"data":" 30%|██▉       | 40.4M/137M [00:00\u003c00:00, 213MB/s]\n"}
+,{"stream_name":"stdout","time":406.476655775,"data":" 49%|████▉     | 67.6M/137M [00:00\u003c00:00, 229MB/s]\n"}
+,{"stream_name":"stdout","time":406.476659894,"data":" 68%|██████▊   | 93.3M/137M [00:00\u003c00:00, 239MB/s]\n"}
+,{"stream_name":"stdout","time":406.4766642,"data":" 86%|████████▌ | 117M/137M [00:00\u003c00:00, 192MB/s] \n"}
+,{"stream_name":"stdout","time":406.476668169,"data":"100%|██████████| 137M/137M [00:00\u003c00:00, 211MB/s]\n"}
+,{"stream_name":"stdout","time":406.47667227,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476675887,"data":"From (original): https://drive.google.com/uc?id=1Ma5Kt86tgpdjCTKfum79YMgNnSjcoOyf\n"}
+,{"stream_name":"stdout","time":406.476679902,"data":"From (redirected): https://drive.google.com/uc?id=1Ma5Kt86tgpdjCTKfum79YMgNnSjcoOyf\u0026confirm=t\u0026uuid=fadadce3-43b0-4089-8108-0246d82c71fd\n"}
+,{"stream_name":"stdout","time":406.476686459,"data":"To: /kaggle/temp/sports/examples/soccer/data/football-pitch-detection.pt\n"}
+,{"stream_name":"stdout","time":406.476690389,"data":"\n"}
+,{"stream_name":"stdout","time":406.476710357,"data":"  0%|          | 0.00/140M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476715754,"data":"  5%|▍         | 6.82M/140M [00:00\u003c00:02, 63.6MB/s]\n"}
+,{"stream_name":"stdout","time":406.476720418,"data":" 18%|█▊        | 24.6M/140M [00:00\u003c00:00, 128MB/s] \n"}
+,{"stream_name":"stdout","time":406.476724974,"data":" 32%|███▏      | 44.6M/140M [00:00\u003c00:00, 158MB/s]\n"}
+,{"stream_name":"stdout","time":406.476729076,"data":" 47%|████▋     | 65.5M/140M [00:00\u003c00:00, 177MB/s]\n"}
+,{"stream_name":"stdout","time":406.476733312,"data":" 65%|██████▌   | 91.8M/140M [00:00\u003c00:00, 206MB/s]\n"}
+,{"stream_name":"stdout","time":406.476737306,"data":" 82%|████████▏ | 115M/140M [00:00\u003c00:00, 214MB/s] \n"}
+,{"stream_name":"stdout","time":406.476741214,"data":"100%|█████████▉| 140M/140M [00:00\u003c00:00, 226MB/s]\n"}
+,{"stream_name":"stdout","time":406.476745164,"data":"100%|██████████| 140M/140M [00:00\u003c00:00, 196MB/s]\n"}
+,{"stream_name":"stdout","time":406.47674909,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476752656,"data":"From: https://drive.google.com/uc?id=12TqauVZ9tLAv8kWxTTBFWtgt2hNQ4_ZF\n"}
+,{"stream_name":"stdout","time":406.476756623,"data":"To: /kaggle/temp/sports/examples/soccer/data/0bfacc_0.mp4\n"}
+,{"stream_name":"stdout","time":406.476760536,"data":"\n"}
+,{"stream_name":"stdout","time":406.476764092,"data":"  0%|          | 0.00/19.9M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476767993,"data":"100%|██████████| 19.9M/19.9M [00:00\u003c00:00, 259MB/s]\n"}
+,{"stream_name":"stdout","time":406.476771961,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476775537,"data":"From: https://drive.google.com/uc?id=19PGw55V8aA6GZu5-Aac5_9mCy3fNxmEf\n"}
+,{"stream_name":"stdout","time":406.47678136,"data":"To: /kaggle/temp/sports/examples/soccer/data/2e57b9_0.mp4\n"}
+,{"stream_name":"stdout","time":406.476789787,"data":"\n"}
+,{"stream_name":"stdout","time":406.476807629,"data":"  0%|          | 0.00/21.1M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476812593,"data":"100%|██████████| 21.1M/21.1M [00:00\u003c00:00, 229MB/s]\n"}
+,{"stream_name":"stdout","time":406.476817322,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476821727,"data":"From: https://drive.google.com/uc?id=1OG8K6wqUw9t7lp9ms1M48DxRhwTYciK-\n"}
+,{"stream_name":"stdout","time":406.476826139,"data":"To: /kaggle/temp/sports/examples/soccer/data/08fd33_0.mp4\n"}
+,{"stream_name":"stdout","time":406.4768304,"data":"\n"}
+,{"stream_name":"stdout","time":406.476835114,"data":"  0%|          | 0.00/19.9M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.47683901,"data":" 71%|███████   | 14.2M/19.9M [00:00\u003c00:00, 137MB/s]\n"}
+,{"stream_name":"stdout","time":406.476842987,"data":"100%|██████████| 19.9M/19.9M [00:00\u003c00:00, 126MB/s]\n"}
+,{"stream_name":"stdout","time":406.476846927,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476850584,"data":"From: https://drive.google.com/uc?id=1yYPKuXbHsCxqjA9G-S6aeR2Kcnos8RPU\n"}
+,{"stream_name":"stdout","time":406.476854491,"data":"To: /kaggle/temp/sports/examples/soccer/data/573e61_0.mp4\n"}
+,{"stream_name":"stdout","time":406.476858247,"data":"\n"}
+,{"stream_name":"stdout","time":406.476861749,"data":"  0%|          | 0.00/18.9M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476865452,"data":"100%|██████████| 18.9M/18.9M [00:00\u003c00:00, 347MB/s]\n"}
+,{"stream_name":"stdout","time":406.476873797,"data":"Downloading...\n"}
+,{"stream_name":"stdout","time":406.476877549,"data":"From: https://drive.google.com/uc?id=1vVwjW1dE1drIdd4ZSILfbCGPD4weoNiu\n"}
+,{"stream_name":"stdout","time":406.476881422,"data":"To: /kaggle/temp/sports/examples/soccer/data/121364_0.mp4\n"}
+,{"stream_name":"stdout","time":406.476887068,"data":"\n"}
+,{"stream_name":"stdout","time":406.476909231,"data":"  0%|          | 0.00/17.2M [00:00\u003c?, ?B/s]\n"}
+,{"stream_name":"stdout","time":406.476913897,"data":" 52%|█████▏    | 8.91M/17.2M [00:00\u003c00:00, 38.7MB/s]\n"}
+,{"stream_name":"stdout","time":406.476918161,"data":"100%|██████████| 17.2M/17.2M [00:00\u003c00:00, 62.7MB/s]\n"}
+,{"stream_name":"stdout","time":406.476923092,"data":"\n"}
+,{"stream_name":"stdout","time":406.476926761,"data":"calibration: no line calibration for this match - pitch-keypoint model installed (roboflow/sports)\n"}
+,{"stream_name":"stdout","time":406.512175791,"data":"+ wget -q -O /kaggle/working/root/videos/p15u-vs-aik-2026-09-21-bd09_s2520/full.mp4 https://pub-8aa37efa474148d3ac2e798b86d8020c.r2.dev/p15u-vs-aik-2026-09-21-bd09_s2520/video.mp4\n"}
+,{"stream_name":"stdout","time":413.026184055,"data":"\n"}
+,{"stream_name":"stdout","time":413.026239157,"data":"video: 0.30 GB\n"}
+,{"stream_name":"stdout","time":413.068643449,"data":"=== p15u-vs-aik-2026-09-21-bd09_s2520: 8992 frames (300 s) @ 29.970 fps -\u003e 1 pieces; this kernel: all [0]\n"}
+,{"stream_name":"stdout","time":445.246682539,"data":"[2026-10-24 11:31:04] [INFO] rf-detr - Downloading pretrained weights for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stderr","time":449.699905146,"data":"\r/root/.roboflow/models/rf-detr-medium.pth:   0%|          | 0.00/386M [00:00\u003c?, ?iB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   2%|▏         | 7.27M/386M [00:00\u003c00:05, 76.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   4%|▍         | 17.0M/386M [00:00\u003c00:04, 91.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:   7%|▋         | 27.0M/386M [00:00\u003c00:03, 97.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  10%|▉         | 36.8M/386M [00:00\u003c00:03, 99.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  12%|█▏        | 46.7M/386M [00:00\u003c00:03, 101MiB/s] \r/root/.roboflow/models/rf-detr-medium.pth:  15%|█▍        | 56.5M/386M [00:00\u003c00:03, 102MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  17%|█▋        | 66.4M/386M [00:00\u003c00:03, 102MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  20%|█▉        | 76.5M/386M [00:00\u003c00:03, 103MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  22%|██▏       | 86.5M/386M [00:00\u003c00:03, 104MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  25%|██▍       | 96.4M/386M [00:01\u003c00:02, 104MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  28%|██▊       | 106M/386M [00:01\u003c00:02, 103MiB/s] \r/root/.roboflow/models/rf-detr-medium.pth:  30%|███       | 116M/386M [00:01\u003c00:02, 102MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  33%|███▎      | 126M/386M [00:01\u003c00:02, 98.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  35%|███▌      | 135M/386M [00:01\u003c00:02, 95.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  37%|███▋      | 144M/386M [00:01\u003c00:02, 93.4MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  40%|███▉      | 153M/386M [00:01\u003c00:02, 91.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  42%|████▏     | 162M/386M [00:01\u003c00:02, 91.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  44%|████▍     | 171M/386M [00:01\u003c00:02, 93.4MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  47%|████▋     | 181M/386M [00:01\u003c00:02, 96.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  49%|████▉     | 191M/386M [00:02\u003c00:02, 97.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  52%|█████▏    | 200M/386M [00:02\u003c00:01, 98.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  54%|█████▍    | 210M/386M [00:02\u003c00:01, 98.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  57%|█████▋    | 219M/386M [00:02\u003c00:01, 99.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  59%|█████▉    | 229M/386M [00:02\u003c00:01, 98.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  62%|██████▏   | 238M/386M [00:02\u003c00:01, 94.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  64%|██████▍   | 247M/386M [00:02\u003c00:01, 95.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  66%|██████▋   | 257M/386M [00:02\u003c00:01, 92.9MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  69%|██████▉   | 266M/386M [00:02\u003c00:01, 94.6MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  71%|███████▏  | 275M/386M [00:02\u003c00:01, 95.3MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  74%|███████▎  | 284M/386M [00:03\u003c00:01, 71.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  76%|███████▌  | 294M/386M [00:03\u003c00:01, 78.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  79%|███████▊  | 303M/386M [00:03\u003c00:01, 83.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  81%|████████  | 312M/386M [00:03\u003c00:00, 87.1MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  83%|████████▎ | 322M/386M [00:03\u003c00:00, 90.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  86%|████████▌ | 331M/386M [00:03\u003c00:00, 91.5MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  88%|████████▊ | 340M/386M [00:03\u003c00:00, 92.2MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  90%|█████████ | 349M/386M [00:03\u003c00:00, 93.7MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  93%|█████████▎| 359M/386M [00:03\u003c00:00, 94.9MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  95%|█████████▌| 368M/386M [00:04\u003c00:00, 95.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth:  98%|█████████▊| 377M/386M [00:04\u003c00:00, 95.0MiB/s]\r/root/.roboflow/models/rf-detr-medium.pth: 100%|██████████| 386M/386M [00:04\u003c00:00, 94.6MiB/s]\n"}
+,{"stream_name":"stdout","time":450.698923971,"data":"[2026-10-24 11:31:10] [INFO] rf-detr - MD5 validation successful for /root/.roboflow/models/rf-detr-medium.pth\n"}
+,{"stream_name":"stderr","time":450.702678153,"data":"[2026-10-24 11:31:10] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":450.70270097,"data":"[2026-10-24 11:31:10] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":452.47018814,"data":"[2026-10-24 11:31:11] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stdout","time":454.424873693,"data":"rfdetr fp16 skipped: AttributeError(\"'RFDETRMedium' object has no attribute 'optimize_for_inference'\")\n"}
+,{"stream_name":"stderr","time":456.183206475,"data":"[2026-10-24 11:31:15] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":492.879228405,"data":"kits: grass test keeps only 145 of 699 people, but the light is uneven (shade spread 2.4): grass test kept\n"}
+,{"stream_name":"stdout","time":507.973228784,"data":"kits: per-player classifier from 267 on-pitch people, 1 of 15 runs kept\n"}
+,{"stream_name":"stdout","time":513.3038488,"data":"kits: learned from 145 people (554 off the pitch left out), group sizes [57, 52, 31, 5], light local (shade spread 2.4), default fit leaves out a group at 0.47 x the team gap, far pair moves a team by 9.7\n"}
+,{"stream_name":"stdout","time":513.54099264,"data":"kits: {'frames': 36, 'kit_groups': [57, 52, 31, 5], 'dark_share': {'A': 0.18, 'B': 0.7}}\n"}
+,{"stream_name":"stdout","time":1211.209164854,"data":"[2026-10-24 11:43:50] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stderr","time":1211.210355261,"data":"[2026-10-24 11:43:50] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":1211.210382841,"data":"[2026-10-24 11:43:50] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":1212.757476022,"data":"[2026-10-24 11:43:52] [INFO] rf-detr - File /root/.roboflow/models/rf-detr-medium.pth already exists with correct MD5 hash.\n"}
+,{"stream_name":"stdout","time":1214.682170523,"data":"rfdetr fp16 skipped: AttributeError(\"'RFDETRMedium' object has no attribute 'optimize_for_inference'\")\n"}
+,{"stream_name":"stderr","time":1214.684971637,"data":"/kaggle/temp/ia/ipanema/tracking.py:168: FutureWarning: The `ByteTrack` was deprecated since v0.28.0. It will be removed in v0.31.0.\n"}
+,{"stream_name":"stderr","time":1214.684982958,"data":"  return sv.ByteTrack(frame_rate=int(round(fps)), lost_track_buffer=90, minimum_matching_threshold=0.8, track_activation_threshold=0.25)\n"}
+,{"stream_name":"stderr","time":1214.875825264,"data":"[2026-10-24 11:43:54] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":1215.638914299,"data":"  tracking frame 0\n"}
+,{"stream_name":"stdout","time":1543.355993568,"data":"  tracking frame 2000 (6.1 frames/s)\n"}
+,{"stream_name":"stdout","time":1817.540955487,"data":"  tracking frame 4000 (6.6 frames/s)\n"}
+,{"stream_name":"stdout","time":2131.106033421,"data":"  tracking frame 6000 (6.5 frames/s)\n"}
+,{"stream_name":"stdout","time":2456.772992671,"data":"  tracking frame 8000 (6.4 frames/s)\n"}
+,{"stream_name":"stdout","time":2607.770876455,"data":"  p15u-vs-aik-2026-09-21-bd09_s2520_c000: 17.0 players/frame\n"}
+,{"stream_name":"stderr","time":2607.945861864,"data":"[2026-10-24 12:07:07] [WARNING] rf-detr - Using a different number of positional encodings than DINOv2, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stderr","time":2607.94589317,"data":"[2026-10-24 12:07:07] [WARNING] rf-detr - Using patch size 16 instead of 14, which means we're not loading DINOv2 backbone weights. This is not a problem if finetuning a pretrained RF-DETR model.\n"}
+,{"stream_name":"stdout","time":2608.500000149,"data":"rfdetr optimize_for_inference skipped: AttributeError(\"'RFDETRSmall' object has no attribute 'optimize_for_inference'\")\n"}
+,{"stream_name":"stderr","time":2608.75322956,"data":"[2026-10-24 12:07:08] [WARNING] rf-detr - Model is not optimized for inference. Latency may be higher than expected. For full GPU throughput (e.g. ~8x on T4 via FP16 Tensor Cores), call model.inference(dtype=torch.float16).\n"}
+,{"stream_name":"stdout","time":2746.516291188,"data":"  ball (RF-DETR): frame 1000, 7.2 frames/s\n"}
+,{"stream_name":"stdout","time":2883.652238269,"data":"  ball (RF-DETR): frame 2000, 7.3 frames/s\n"}
+,{"stream_name":"stdout","time":3021.944773819,"data":"  ball (RF-DETR): frame 3000, 7.3 frames/s\n"}
+,{"stream_name":"stdout","time":3158.710127819,"data":"  ball (RF-DETR): frame 4000, 7.3 frames/s\n"}
+,{"stream_name":"stdout","time":3296.59166094,"data":"  ball (RF-DETR): frame 5000, 7.3 frames/s\n"}
+,{"stream_name":"stdout","time":3436.100202641,"data":"  ball (RF-DETR): frame 6000, 7.2 frames/s\n"}
+,{"stream_name":"stdout","time":3574.830782023,"data":"  ball (RF-DETR): frame 7000, 7.2 frames/s\n"}
+,{"stream_name":"stdout","time":3713.322590283,"data":"  ball (RF-DETR): frame 8000, 7.2 frames/s\n"}
+,{"stream_name":"stdout","time":3850.151297314,"data":"=== p15u-vs-aik-2026-09-21-bd09_s2520_c000 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)\n"}
+,{"stream_name":"stdout","time":3850.186506146,"data":"video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)\n"}
+,{"stream_name":"stdout","time":3852.61882465,"data":"  calibration anchor 0 (direct 1, chained 0)\n"}
+,{"stream_name":"stdout","time":3892.491548883,"data":"  calibration anchor 1000 (direct 101, chained 0)\n"}
+,{"stream_name":"stdout","time":3932.864502478,"data":"  calibration anchor 2000 (direct 201, chained 0)\n"}
+,{"stream_name":"stdout","time":3972.251450459,"data":"  calibration anchor 3000 (direct 258, chained 43)\n"}
+,{"stream_name":"stdout","time":4016.10758222,"data":"  calibration anchor 4000 (direct 258, chained 143)\n"}
+,{"stream_name":"stdout","time":4070.923393921,"data":"  calibration anchor 5000 (direct 277, chained 224)\n"}
+,{"stream_name":"stdout","time":4120.053496515,"data":"  calibration anchor 6000 (direct 350, chained 251)\n"}
+,{"stream_name":"stdout","time":4172.847928381,"data":"  calibration anchor 7000 (direct 426, chained 275)\n"}
+,{"stream_name":"stdout","time":4220.550482101,"data":"  calibration anchor 8000 (direct 478, chained 323)\n"}
+,{"stream_name":"stdout","time":4268.817983383,"data":"calibration via panorama: 535 direct + 365 chained anchors -\u003e 8992/8992 frames\n"}
+,{"stream_name":"stdout","time":4268.866394498,"data":"calibration: from panorama, 8992/8992 frames measured (535 direct + 365 chained anchors), 0 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)\n"}
+,{"stream_name":"stdout","time":4273.407750046,"data":"  debug overlays -\u003e /content/ipanema-analysis/results/debug\n"}
+,{"stream_name":"stdout","time":4273.454263421,"data":"players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl\n"}
+,{"stream_name":"stdout","time":4275.216371802,"data":"tracking: RF-DETR tracks re-positioned with this calibration\n"}
+,{"stream_name":"stdout","time":4275.250947778,"data":"ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.9 candidates/frame\n"}
+,{"stream_name":"stdout","time":4279.945557783,"data":"wasb: downloaded weights -\u003e /kaggle/working/root/models/wasb_soccer_best.pth.tar\n"}
+,{"stream_name":"stdout","time":4280.359739406,"data":"wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles\n"}
+,{"stream_name":"stdout","time":4478.87983839,"data":"  wasb frame 1500\n"}
+,{"stream_name":"stdout","time":4671.136823192,"data":"  wasb frame 3000\n"}
+,{"stream_name":"stdout","time":4858.703691401,"data":"  wasb frame 4500\n"}
+,{"stream_name":"stdout","time":5096.423371752,"data":"  wasb frame 6000\n"}
+,{"stream_name":"stdout","time":5318.474568605,"data":"  wasb frame 7500\n"}
+,{"stream_name":"stdout","time":5531.151943532,"data":"wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.52/0.70/0.83\n"}
+,{"stream_name":"stdout","time":5531.962186794,"data":"ball: RF-DETR + WASB guesses fused, 13.7/frame\n"}
+,{"stream_name":"stdout","time":5534.694838853,"data":"p15u-vs-aik-2026-09-21-bd09_s2520_c000: 8992 frames, 17.0 players/frame\n"}
+,{"stream_name":"stdout","time":5638.907365842,"data":"piece 0 done in 85.4 min, 10% frames trusted\n"}
+,{"stream_name":"stdout","time":5638.97549657,"data":"=== p15u-vs-aik-2026-09-21-bd09_s2520 join: 1/1 pieces present\n"}
+,{"stream_name":"stdout","time":5640.695515542,"data":"calibration: per-frame check skipped for this match (periods file: trust_all_calibration)\n"}
+,{"stream_name":"stdout","time":5640.695699749,"data":"calibration: 100.0% of match frames placed confidently\n"}
+,{"stream_name":"stdout","time":5640.981387402,"data":"clean: 32 people living on or by the lines dropped (bench, coaches, stand)\n"}
+,{"stream_name":"stdout","time":5642.819032464,"data":"clean: keeper (left) from a non-team kit: track 450, 104 frames\n"}
+,{"stream_name":"stdout","time":5642.827526513,"data":"clean: keeper (right) from a non-team kit: track 533, 491 frames\n"}
+,{"stream_name":"stdout","time":5642.850410495,"data":"clean: removed 17891 rows of non-team kits (referee / staff)\n"}
+,{"stream_name":"stdout","time":5642.854629934,"data":"clean: dropped 22998 off-pitch, merged 1687 duplicates, stitched 299 ids, keepers [138, 450] -\u003e B defends left\n"}
+,{"stream_name":"stdout","time":5642.880237146,"data":"clean: players per frame median A 6 / B 6, max A 13 / B 15\n"}
+,{"stream_name":"stdout","time":5643.400520363,"data":"players: 2310 short gaps filled (marked 'filled' in the export)\n"}
+,{"stream_name":"stdout","time":5648.354577669,"data":"ball v2: 8564/8992 frames on the path, 625 static-clutter candidates dropped\n"}
+,{"stream_name":"stdout","time":5677.501024266,"data":"ball check: 30/39 correct, 9 wrong, 0 no pick (ceiling 39/39)\n"}
+,{"stream_name":"stdout","time":5679.854184646,"data":"ball: dropped 625 static-clutter candidates\n"}
+,{"stream_name":"stdout","time":5681.199731074,"data":"ball (global path): 7848/8992 frames on the chosen path\n"}
+,{"stream_name":"stdout","time":5681.233231903,"data":"ball check (other picker, v1): 13/39 correct, ceiling 39/39\n"}
+,{"stream_name":"stdout","time":5683.602216265,"data":"ball: dropped 625 static-clutter candidates\n"}
+,{"stream_name":"stdout","time":5684.803561699,"data":"ball (global path): 7848/8992 frames on the chosen path\n"}
+,{"stream_name":"stdout","time":5684.833708512,"data":"picker test on detector-training clicks (p15u-vs-aik-2026-09-21-bd09_s2520, 39 frames; detection is optimistic here, the pick is the fair part): v2 30/39, other 13/39, ceiling 39\n"}
+,{"stream_name":"stdout","time":5687.167774427,"data":"possession: simple model (nearest feet in the picture); 25% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)\n"}
+,{"stream_name":"stdout","time":5687.168314857,"data":"possession: 0 frames outside match time or with an untrusted camera set to nobody's (IPANEMA_PLAY_STATE=0 = old)\n"}
+,{"stream_name":"stdout","time":5687.179833038,"data":"direction: A ←  B →  confidence A 0.02 / B 0.03  WARNING low confidence\n"}
+,{"stream_name":"stdout","time":5687.180944703,"data":"direction: from reference labels -\u003e A →\n"}
+,{"stream_name":"stdout","time":5687.18107475,"data":"  step: sequences (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":5687.199969233,"data":"  spell state (take 1.5 s): possession flips 141 -\u003e 15 (3.0 per minute)\n"}
+,{"stream_name":"stdout","time":5687.206224543,"data":"  step: turnovers (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":5687.21344557,"data":"  step: lanes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":5687.525933242,"data":"  step: passes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":5687.578269282,"data":"lost balls: 23 -\u003e 21 (duels dropped: winner kept it \u003c 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)\n"}
+,{"stream_name":"stdout","time":5687.578306499,"data":"  step: shapes (0 s since the last step)\n"}
+,{"stream_name":"stdout","time":5688.649873266,"data":"  step: stats (1 s since the last step)\n"}
+,{"stream_name":"stdout","time":5691.030819941,"data":"  step: metrics (2 s since the last step)\n"}
+,{"stream_name":"stdout","time":5691.661074895,"data":"veo: clip of p15u-vs-aik-2026-09-21-bd09 from 2520 s -\u003e 4 of its Veo clips inside (1 goal tags), spots as in the file\n"}
+,{"stream_name":"stdout","time":5691.675954398,"data":"veo: 3 shots incl. 1 goals imported; 0 goal tag(s) rejected; origin by eye for 0, team by eye for 1, from the ball for 0, from the players for 0, unknown for 0\n"}
+,{"stream_name":"stdout","time":5691.676056815,"data":"our shot detector vs Veo: found 0/3 of Veo's shots, 0/0 of ours are real (within 10 s)\n"}
+,{"stream_name":"stdout","time":5692.219655216,"data":"ball grade: accuracy 0.77, near-player 0.5, possession OK, events withheld\n"}
+,{"stream_name":"stdout","time":5692.220000061,"data":"ball reliability: 100% frames, 50% near a player, 2193 jumps -\u003e OK\n"}
+,{"stream_name":"stdout","time":5692.252005391,"data":"  step: export (1 s since the last step)\n"}
+,{"stream_name":"stdout","time":5692.256000057,"data":"motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))\n"}
+,{"stream_name":"stdout","time":5693.586683962,"data":"  wrote 2 frame files (every 3 frames, 300 s each, largest 6.0 MB)\n"}
+,{"stream_name":"stdout","time":5693.895073429,"data":"  wrote frames_lite.json (1000 frames, 1.7 MB)\n"}
+,{"stream_name":"stdout","time":5693.900648954,"data":"  wrote match_data.json (0.1 MB)\n"}
+,{"stream_name":"stdout","time":5693.940540983,"data":"  upload checks: p15u-vs-aik-2026-09-21-bd09_s2520: needs review -\u003e shot_map\n"}
+,{"stream_name":"stdout","time":5693.940568139,"data":"    OK   players: median players per frame A 6, B 6\n"}
+,{"stream_name":"stdout","time":5693.940574624,"data":"    OK   keepers: 0 of 2998 frames with 2+ keepers in one team\n"}
+,{"stream_name":"stdout","time":5693.940578997,"data":"    OK   goals: 242: B scored (team checked by eye, kept) but our possession says B kicks off at 280\n"}
+,{"stream_name":"stdout","time":5693.940583991,"data":"    FLAG shots: 0 of 3 shots have a spot on the pitch\n"}
+,{"stream_name":"stdout","time":5693.940588234,"data":"    OK   ball: 121 of 2998 ball positions more than 3 m off the pitch\n"}
+,{"stream_name":"stdout","time":5693.940592669,"data":"    ??   possession: only 0 by-eye moments (need 10)\n"}
+,{"stream_name":"stdout","time":5695.252999937,"data":"export: /kaggle/working/root/runs/matches/p15u-vs-aik-2026-09-21-bd09_s2520 (98 events) · library.json updated · zip None\n"}
+,{"stream_name":"stdout","time":5696.985289818,"data":"upload: no Supabase/R2 credentials found — skipped\n"}
+,{"stream_name":"stdout","time":5696.985328627,"data":"\n"}
+,{"stream_name":"stdout","time":5696.985334137,"data":"--- SUMMARY ---\n"}
+,{"stream_name":"stdout","time":5696.985486432,"data":"  match_id                   p15u-vs-aik-2026-09-21-bd09_s2520\n"}
+,{"stream_name":"stdout","time":5696.985519767,"data":"  ball_reliable              True\n"}
+,{"stream_name":"stdout","time":5696.985648862,"data":"  ball_grade                 {'accuracy': 0.77, 'near_player_pct': 0.5, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}\n"}
+,{"stream_name":"stdout","time":5696.985697626,"data":"  duration_s                 300.0\n"}
+,{"stream_name":"stdout","time":5696.985811771,"data":"  calibration_coverage       1.0\n"}
+,{"stream_name":"stdout","time":5696.985904435,"data":"  calibration_frozen         0\n"}
+,{"stream_name":"stdout","time":5696.986011707,"data":"  team_dark_share            {'A': 0.18, 'B': 0.7}\n"}
+,{"stream_name":"stdout","time":5696.986068716,"data":"  players_per_frame_median   {'A': 6.0, 'B': 6.0}\n"}
+,{"stream_name":"stdout","time":5696.9861643,"data":"  ball_frames_pct            100\n"}
+,{"stream_name":"stdout","time":5696.986224508,"data":"  match_seconds              300.0\n"}
+,{"stream_name":"stdout","time":5696.986326419,"data":"  periods                    None\n"}
+,{"stream_name":"stdout","time":5696.98638516,"data":"  ball_check                 {'correct': 30, 'total': 39, 'wrong': 9, 'ceiling': 39}\n"}
+,{"stream_name":"stdout","time":5696.98646458,"data":"  possession_pct             {'A': 34, 'B': 66}\n"}
+,{"stream_name":"stdout","time":5696.986543238,"data":"  loose_pct                  25\n"}
+,{"stream_name":"stdout","time":5696.986626453,"data":"  dead_pct                   4\n"}
+,{"stream_name":"stdout","time":5696.986689895,"data":"  possession_model           simple\n"}
+,{"stream_name":"stdout","time":5696.986776714,"data":"  attack_right               {'A': True, 'B': False}\n"}
+,{"stream_name":"stdout","time":5696.986849463,"data":"  direction_confidence       {'A': 0.02, 'B': 0.03}\n"}
+,{"stream_name":"stdout","time":5696.98693012,"data":"  turnovers                  21\n"}
+,{"stream_name":"stdout","time":5696.987001303,"data":"  passes                     70\n"}
+,{"stream_name":"stdout","time":5696.987103676,"data":"  restarts                   1\n"}
+,{"stream_name":"stdout","time":5696.987167866,"data":"  sequences                  27\n"}
+,{"stream_name":"stdout","time":5696.987250293,"data":"  shots                      {'A': 1, 'B': 2}\n"}
+,{"stream_name":"stdout","time":5696.987336763,"data":"  goals                      {'A': 0, 'B': 1}\n"}
+,{"stream_name":"stdout","time":5696.987399389,"data":"  high_turnovers             {'A': 3, 'B': 2}\n"}
+,{"stream_name":"stdout","time":5696.987469445,"data":"  field_tilt                 {'A': 24, 'B': 28}\n"}
+,{"stream_name":"stdout","time":5696.987542698,"data":"  runtime_min                94.9\n"}
+,{"stream_name":"stdout","time":5697.018732195,"data":"export: frames_000.json, frames_001.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg\n"}
+,{"stream_name":"stdout","time":5697.063099139,"data":"done: all in 94.9 min\n"}
+,{"stream_name":"stderr","time":5702.016740876,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":5702.016773468,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":5702.277729031,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":5702.277755545,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":5703.152838359,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":5703.840703686,"data":"[NbConvertApp] Writing 427763 bytes to __results__.html\n"}
+]
