@@ -1,0 +1,89 @@
+{
+ "SFKBP1109_s1200": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "fps": 29.97002997002997,
+  "old": {
+   "A": {
+    "field_tilt_pct": 12,
+    "entries_count": 11,
+    "entries_by_pass": 0,
+    "entries_by_carry": 11
+   },
+   "B": {
+    "field_tilt_pct": 44,
+    "entries_count": 9,
+    "entries_by_pass": 0,
+    "entries_by_carry": 9
+   }
+  },
+  "new": {
+   "A": {
+    "field_tilt_pct": 12,
+    "entries_count": 10,
+    "entries_by_pass": 0,
+    "entries_by_carry": 10
+   },
+   "B": {
+    "field_tilt_pct": 44,
+    "entries_count": 8,
+    "entries_by_pass": 1,
+    "entries_by_carry": 7
+   }
+  },
+  "only_old_A": [
+   15.42
+  ],
+  "only_new_A": [],
+  "only_old_B": [
+   64.33,
+   232.07
+  ],
+  "only_new_B": [
+   55.52
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "fps": 29.97002997002997,
+  "old": {
+   "A": {
+    "field_tilt_pct": 32,
+    "entries_count": 0,
+    "entries_by_pass": 0,
+    "entries_by_carry": 0
+   },
+   "B": {
+    "field_tilt_pct": 38,
+    "entries_count": 32,
+    "entries_by_pass": 0,
+    "entries_by_carry": 32
+   }
+  },
+  "new": {
+   "A": {
+    "field_tilt_pct": 32,
+    "entries_count": 0,
+    "entries_by_pass": 0,
+    "entries_by_carry": 0
+   },
+   "B": {
+    "field_tilt_pct": 38,
+    "entries_count": 33,
+    "entries_by_pass": 1,
+    "entries_by_carry": 32
+   }
+  },
+  "only_old_A": [],
+  "only_new_A": [],
+  "only_old_B": [],
+  "only_new_B": [
+   157.16
+  ]
+ }
+}

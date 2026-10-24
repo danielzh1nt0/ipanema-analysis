@@ -65,26 +65,34 @@ def pass_network(passes_, players_, nodes=None):
         out[tm] = {"edges": sorted(v.values(), key=lambda e: -e["count"]), "nodes": nd}
     return out
 
-def field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, rearm_m=0.0, rearm_s=0.0):
+def field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, rearm_m=0.0, rearm_s=0.0, hold_s=0.0):
     """field tilt = share of a team's controlled frames with the ball in its final third; an entry = the ball, under its
     control, going from below the 2/3 line into the final third. N0-20b (20 Oct): re-arm rule - after an entry the next one
     counts only once the ball has been back at least rearm_m metres behind the line, or the team has been out of control of
-    it for rearm_s seconds (ball shaking on the line / a flicker of the state counted 3 entries in 0.2 s). 0, 0 = old rule."""
+    it for rearm_s seconds (ball shaking on the line / a flicker of the state counted 3 entries in 0.2 s). 0, 0 = old rule.
+    N0-24c (24 Oct): hold_s - the team keeps the ball across loose frames for up to hold_s (a pass in flight is 'loose' in
+    our state, so a pass into the final third only counted if the receiver's first controlled frame came <= 3 frames
+    after the passer's last); a crossing across the other team's control never counts; an entry across a gap > 3 frames
+    is a 'pass'. hold_s 0 = the old rule exactly."""
     out = {}
     for tm in ("A", "B"):
         sgn = 1 if attack_right[tm] else -1
         depth = lambda x: x if sgn == 1 else L - x
         def third(x): xx = depth(x); return 0 if xx < L / 3 else 1 if xx < 2 * L / 3 else 2
         ctrl = [k for k in ballm if STATES[state[k]] == tm]; final = sum(1 for k in ctrl if third(ballm[k][0]) == 2)
-        entries = []; prev = None; armed = True
-        for k in sorted(ctrl):
+        entries = []; prev = None; last = None; armed = True; gap = max(3, int(round(hold_s * fps)))
+        for k in sorted(ballm):
+            st = STATES[state[k]]
+            if st != tm:
+                if hold_s > 0 and st in ("A", "B"): prev = None                                      # the other team had it in between
+                continue
             th = third(ballm[k][0])
-            if prev is not None and k - prev[1] > max(3, rearm_s * fps): armed = True                 # left control long enough
+            if last is not None and k - last > max(3, rearm_s * fps, hold_s * fps): armed = True     # left control long enough
             if not armed and depth(ballm[k][0]) <= 2 * L / 3 - rearm_m: armed = True                  # back behind the line
-            if prev is not None and prev[0] < 2 and th == 2 and k - prev[1] <= 3 and armed:
-                entries.append({"t": round(k / fps, 2), "how": "pass" if bspeed.get(k, 0) > 9 else "carry", "y_m": round(float(ballm[k][1]), 1)})
+            if prev is not None and prev[0] < 2 and th == 2 and k - prev[1] <= gap and armed:
+                entries.append({"t": round(k / fps, 2), "how": "pass" if (k - prev[1] > 3 or bspeed.get(k, 0) > 9) else "carry", "y_m": round(float(ballm[k][1]), 1)})
                 if rearm_m > 0 or rearm_s > 0: armed = False
-            prev = (th, k)
+            prev = (th, k); last = k
         out[tm] = {"field_tilt_pct": round(100 * final / len(ctrl)) if ctrl else None, "final_third_entries": entries, "entries_count": len(entries),
                    "entries_by_pass": sum(e["how"] == "pass" for e in entries), "entries_by_carry": sum(e["how"] == "carry" for e in entries)}
     return out
@@ -176,6 +184,13 @@ TILT_EMPTY_ZERO = os.environ.get("IPANEMA_TILT_EMPTY", "none") == "zero"
 # pick jumping to a touchline spot on the line). IPANEMA_ENTRY_REARM=0 = the old rule.
 ENTRY_REARM = (3.0, 1.0) if os.environ.get("IPANEMA_ENTRY_REARM", "1") != "0" else (0.0, 0.0)
 
+# N0-24c (24 Oct): final-third entries checked on Metrica pro data - the old rule found 42% of the real entries with a
+# perfect ball and only 19% of those made by a pass (the ball in flight is 'loose', so the crossing was never seen under
+# control). Holding control across loose frames up to 3 s: found 42 -> 72%, real 91 -> 96%, count 0.46 -> 0.75x the
+# truth (perfect ball); flicker noise like our clips found 51 -> 65%, real 54 -> 62%, count 0.94 -> 1.04x; streak noise
+# 14 -> 31%, 62 -> 78%. Better on every row. IPANEMA_ENTRY_HOLD_S=0 = the old rule.
+ENTRY_HOLD_S = float(os.environ.get("IPANEMA_ENTRY_HOLD_S", "3"))
+
 # N0-24b (24 Oct): high turnovers checked on Metrica pro data - with a clean ball our count is ~1/3 of the truth (14 vs
 # 43 balls won and kept in the final third, 4 halves; ~57% of ours real), with our clips' ball noise mostly not real
 # (streak 1 of 22, flicker 10 of 59). IPANEMA_HIGH_TOV=withhold writes the counts as null (app shows a dash); default
@@ -185,7 +200,7 @@ HIGH_TOV_WITHHOLD = os.environ.get("IPANEMA_HIGH_TOV", "") == "withhold"
 def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None):
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
-            "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM), "high_turnovers": ht,
+            "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM, hold_s=ENTRY_HOLD_S), "high_turnovers": ht,
             "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L),
             "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}

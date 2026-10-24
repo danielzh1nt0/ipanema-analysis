@@ -1,0 +1,2562 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 16,
+    "truth_pass": 12,
+    "ours_pass": 2
+   },
+   "B": {
+    "truth": 32,
+    "ours": 12,
+    "truth_pass": 12,
+    "ours_pass": 2
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 28,
+   "found": 26,
+   "ours_real": 26,
+   "how_same": 26,
+   "truth_pass": 24,
+   "found_pass": 4,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 18,
+    "truth_pass": 12,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 32,
+    "ours": 15,
+    "truth_pass": 12,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 33,
+   "found": 31,
+   "ours_real": 31,
+   "how_same": 31,
+   "truth_pass": 24,
+   "found_pass": 9,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 20,
+    "truth_pass": 12,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 32,
+    "ours": 20,
+    "truth_pass": 12,
+    "ours_pass": 10
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 40,
+   "found": 38,
+   "ours_real": 38,
+   "how_same": 37,
+   "truth_pass": 24,
+   "found_pass": 15,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 23,
+    "truth_pass": 12,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 32,
+    "ours": 21,
+    "truth_pass": 12,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 44,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 41,
+   "truth_pass": 24,
+   "found_pass": 19,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 6,
+    "truth_pass": 12,
+    "ours_pass": 1
+   },
+   "B": {
+    "truth": 32,
+    "ours": 5,
+    "truth_pass": 12,
+    "ours_pass": 1
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 11,
+   "found": 8,
+   "ours_real": 8,
+   "how_same": 7,
+   "truth_pass": 24,
+   "found_pass": 0,
+   "found_carry": 8
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 6,
+    "truth_pass": 12,
+    "ours_pass": 1
+   },
+   "B": {
+    "truth": 32,
+    "ours": 7,
+    "truth_pass": 12,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 13,
+   "found": 10,
+   "ours_real": 10,
+   "how_same": 7,
+   "truth_pass": 24,
+   "found_pass": 0,
+   "found_carry": 10
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 9,
+    "truth_pass": 12,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 32,
+    "ours": 11,
+    "truth_pass": 12,
+    "ours_pass": 7
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 20,
+   "found": 18,
+   "ours_real": 18,
+   "how_same": 9,
+   "truth_pass": 24,
+   "found_pass": 2,
+   "found_carry": 16
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 11,
+    "truth_pass": 12,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 32,
+    "ours": 12,
+    "truth_pass": 12,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 23,
+   "found": 20,
+   "ours_real": 20,
+   "how_same": 10,
+   "truth_pass": 24,
+   "found_pass": 3,
+   "found_carry": 17
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 5,
+    "truth_pass": 12,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 32,
+    "ours": 5,
+    "truth_pass": 12,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 10,
+   "found": 7,
+   "ours_real": 7,
+   "how_same": 1,
+   "truth_pass": 24,
+   "found_pass": 1,
+   "found_carry": 6
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 8,
+    "truth_pass": 12,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 32,
+    "ours": 5,
+    "truth_pass": 12,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 13,
+   "found": 10,
+   "ours_real": 10,
+   "how_same": 2,
+   "truth_pass": 24,
+   "found_pass": 2,
+   "found_carry": 8
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 11,
+    "truth_pass": 12,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 32,
+    "ours": 5,
+    "truth_pass": 12,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 16,
+   "found": 13,
+   "ours_real": 13,
+   "how_same": 3,
+   "truth_pass": 24,
+   "found_pass": 3,
+   "found_carry": 10
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 12,
+    "truth_pass": 12,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 32,
+    "ours": 8,
+    "truth_pass": 12,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 20,
+   "found": 17,
+   "ours_real": 17,
+   "how_same": 4,
+   "truth_pass": 24,
+   "found_pass": 4,
+   "found_carry": 13
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 29,
+    "truth_pass": 12,
+    "ours_pass": 8
+   },
+   "B": {
+    "truth": 32,
+    "ours": 25,
+    "truth_pass": 12,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 54,
+   "found": 31,
+   "ours_real": 31,
+   "how_same": 17,
+   "truth_pass": 24,
+   "found_pass": 7,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 31,
+    "truth_pass": 12,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 32,
+    "ours": 28,
+    "truth_pass": 12,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 59,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 21,
+   "truth_pass": 24,
+   "found_pass": 11,
+   "found_carry": 25
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 34,
+    "truth_pass": 12,
+    "ours_pass": 13
+   },
+   "B": {
+    "truth": 32,
+    "ours": 30,
+    "truth_pass": 12,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 64,
+   "found": 41,
+   "ours_real": 41,
+   "how_same": 24,
+   "truth_pass": 24,
+   "found_pass": 14,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 36,
+    "truth_pass": 12,
+    "ours_pass": 15
+   },
+   "B": {
+    "truth": 32,
+    "ours": 31,
+    "truth_pass": 12,
+    "ours_pass": 10
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 67,
+   "found": 44,
+   "ours_real": 44,
+   "how_same": 26,
+   "truth_pass": 24,
+   "found_pass": 16,
+   "found_carry": 28
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 30,
+    "truth_pass": 12,
+    "ours_pass": 5
+   },
+   "B": {
+    "truth": 32,
+    "ours": 25,
+    "truth_pass": 12,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 55,
+   "found": 35,
+   "ours_real": 35,
+   "how_same": 24,
+   "truth_pass": 24,
+   "found_pass": 8,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 30,
+    "truth_pass": 12,
+    "ours_pass": 5
+   },
+   "B": {
+    "truth": 32,
+    "ours": 26,
+    "truth_pass": 12,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 56,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 24,
+   "truth_pass": 24,
+   "found_pass": 8,
+   "found_carry": 28
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 31,
+    "truth_pass": 12,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 32,
+    "ours": 30,
+    "truth_pass": 12,
+    "ours_pass": 10
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 61,
+   "found": 40,
+   "ours_real": 40,
+   "how_same": 27,
+   "truth_pass": 24,
+   "found_pass": 11,
+   "found_carry": 29
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 36,
+    "ours": 34,
+    "truth_pass": 12,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 32,
+    "ours": 32,
+    "truth_pass": 12,
+    "ours_pass": 12
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 66,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 29,
+   "truth_pass": 24,
+   "found_pass": 13,
+   "found_carry": 29
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 15,
+    "truth_pass": 14,
+    "ours_pass": 2
+   },
+   "B": {
+    "truth": 35,
+    "ours": 17,
+    "truth_pass": 16,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 32,
+   "found": 31,
+   "ours_real": 31,
+   "how_same": 26,
+   "truth_pass": 30,
+   "found_pass": 4,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 19,
+    "truth_pass": 14,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 35,
+    "ours": 20,
+    "truth_pass": 16,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 39,
+   "found": 38,
+   "ours_real": 38,
+   "how_same": 33,
+   "truth_pass": 30,
+   "found_pass": 11,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 22,
+    "truth_pass": 14,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 35,
+    "ours": 25,
+    "truth_pass": 16,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 47,
+   "found": 46,
+   "ours_real": 46,
+   "how_same": 42,
+   "truth_pass": 30,
+   "found_pass": 19,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 22,
+    "truth_pass": 14,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 35,
+    "ours": 28,
+    "truth_pass": 16,
+    "ours_pass": 14
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 50,
+   "found": 49,
+   "ours_real": 49,
+   "how_same": 45,
+   "truth_pass": 30,
+   "found_pass": 22,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 35,
+    "ours": 9,
+    "truth_pass": 16,
+    "ours_pass": 2
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 16,
+   "found": 13,
+   "ours_real": 13,
+   "how_same": 10,
+   "truth_pass": 30,
+   "found_pass": 0,
+   "found_carry": 13
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 35,
+    "ours": 10,
+    "truth_pass": 16,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 17,
+   "found": 13,
+   "ours_real": 13,
+   "how_same": 10,
+   "truth_pass": 30,
+   "found_pass": 0,
+   "found_carry": 13
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 35,
+    "ours": 11,
+    "truth_pass": 16,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 18,
+   "found": 14,
+   "ours_real": 14,
+   "how_same": 8,
+   "truth_pass": 30,
+   "found_pass": 0,
+   "found_carry": 14
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 35,
+    "ours": 17,
+    "truth_pass": 16,
+    "ours_pass": 12
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 24,
+   "found": 19,
+   "ours_real": 19,
+   "how_same": 13,
+   "truth_pass": 30,
+   "found_pass": 5,
+   "found_carry": 14
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 6,
+    "truth_pass": 14,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 35,
+    "ours": 8,
+    "truth_pass": 16,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 14,
+   "found": 9,
+   "ours_real": 9,
+   "how_same": 8,
+   "truth_pass": 30,
+   "found_pass": 2,
+   "found_carry": 7
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 35,
+    "ours": 8,
+    "truth_pass": 16,
+    "ours_pass": 4
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 15,
+   "found": 10,
+   "ours_real": 10,
+   "how_same": 7,
+   "truth_pass": 30,
+   "found_pass": 2,
+   "found_carry": 8
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 7,
+    "truth_pass": 14,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 35,
+    "ours": 11,
+    "truth_pass": 16,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 18,
+   "found": 13,
+   "ours_real": 13,
+   "how_same": 6,
+   "truth_pass": 30,
+   "found_pass": 2,
+   "found_carry": 11
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 12,
+    "truth_pass": 14,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 35,
+    "ours": 16,
+    "truth_pass": 16,
+    "ours_pass": 13
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 28,
+   "found": 22,
+   "ours_real": 22,
+   "how_same": 13,
+   "truth_pass": 30,
+   "found_pass": 9,
+   "found_carry": 13
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 23,
+    "truth_pass": 14,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 35,
+    "ours": 34,
+    "truth_pass": 16,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 57,
+   "found": 30,
+   "ours_real": 30,
+   "how_same": 21,
+   "truth_pass": 30,
+   "found_pass": 6,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 26,
+    "truth_pass": 14,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 35,
+    "ours": 37,
+    "truth_pass": 16,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 63,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 27,
+   "truth_pass": 30,
+   "found_pass": 12,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 30,
+    "truth_pass": 14,
+    "ours_pass": 14
+   },
+   "B": {
+    "truth": 35,
+    "ours": 38,
+    "truth_pass": 16,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 68,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 33,
+   "truth_pass": 30,
+   "found_pass": 18,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 30,
+    "truth_pass": 14,
+    "ours_pass": 14
+   },
+   "B": {
+    "truth": 35,
+    "ours": 36,
+    "truth_pass": 16,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 66,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 33,
+   "truth_pass": 30,
+   "found_pass": 18,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 26,
+    "truth_pass": 14,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 35,
+    "ours": 46,
+    "truth_pass": 16,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 72,
+   "found": 40,
+   "ours_real": 40,
+   "how_same": 25,
+   "truth_pass": 30,
+   "found_pass": 13,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 28,
+    "truth_pass": 14,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 35,
+    "ours": 48,
+    "truth_pass": 16,
+    "ours_pass": 13
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 76,
+   "found": 44,
+   "ours_real": 44,
+   "how_same": 28,
+   "truth_pass": 30,
+   "found_pass": 16,
+   "found_carry": 28
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 28,
+    "truth_pass": 14,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 35,
+    "ours": 46,
+    "truth_pass": 16,
+    "ours_pass": 12
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 74,
+   "found": 43,
+   "ours_real": 43,
+   "how_same": 29,
+   "truth_pass": 30,
+   "found_pass": 16,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 31,
+    "ours": 27,
+    "truth_pass": 14,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 35,
+    "ours": 45,
+    "truth_pass": 16,
+    "ours_pass": 13
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 72,
+   "found": 43,
+   "ours_real": 43,
+   "how_same": 30,
+   "truth_pass": 30,
+   "found_pass": 16,
+   "found_carry": 27
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 13,
+    "truth_pass": 18,
+    "ours_pass": 2
+   },
+   "B": {
+    "truth": 32,
+    "ours": 17,
+    "truth_pass": 13,
+    "ours_pass": 2
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 30,
+   "found": 28,
+   "ours_real": 28,
+   "how_same": 24,
+   "truth_pass": 31,
+   "found_pass": 6,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 18,
+    "truth_pass": 18,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 32,
+    "ours": 21,
+    "truth_pass": 13,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 39,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 32,
+   "truth_pass": 31,
+   "found_pass": 14,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 26,
+    "truth_pass": 18,
+    "ours_pass": 15
+   },
+   "B": {
+    "truth": 32,
+    "ours": 23,
+    "truth_pass": 13,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 49,
+   "found": 46,
+   "ours_real": 46,
+   "how_same": 42,
+   "truth_pass": 31,
+   "found_pass": 24,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 28,
+    "truth_pass": 18,
+    "ours_pass": 17
+   },
+   "B": {
+    "truth": 32,
+    "ours": 24,
+    "truth_pass": 13,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 52,
+   "found": 49,
+   "ours_real": 49,
+   "how_same": 45,
+   "truth_pass": 31,
+   "found_pass": 27,
+   "found_carry": 22
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 11,
+    "truth_pass": 18,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 32,
+    "ours": 7,
+    "truth_pass": 13,
+    "ours_pass": 2
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 18,
+   "found": 11,
+   "ours_real": 11,
+   "how_same": 5,
+   "truth_pass": 31,
+   "found_pass": 1,
+   "found_carry": 10
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 12,
+    "truth_pass": 18,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 32,
+    "ours": 7,
+    "truth_pass": 13,
+    "ours_pass": 2
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 19,
+   "found": 11,
+   "ours_real": 11,
+   "how_same": 5,
+   "truth_pass": 31,
+   "found_pass": 1,
+   "found_carry": 10
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 13,
+    "truth_pass": 18,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 32,
+    "ours": 10,
+    "truth_pass": 13,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 23,
+   "found": 14,
+   "ours_real": 14,
+   "how_same": 5,
+   "truth_pass": 31,
+   "found_pass": 2,
+   "found_carry": 12
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 14,
+    "truth_pass": 18,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 32,
+    "ours": 14,
+    "truth_pass": 13,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 28,
+   "found": 18,
+   "ours_real": 18,
+   "how_same": 7,
+   "truth_pass": 31,
+   "found_pass": 4,
+   "found_carry": 14
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 8,
+    "truth_pass": 18,
+    "ours_pass": 2
+   },
+   "B": {
+    "truth": 32,
+    "ours": 8,
+    "truth_pass": 13,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 16,
+   "found": 12,
+   "ours_real": 12,
+   "how_same": 4,
+   "truth_pass": 31,
+   "found_pass": 4,
+   "found_carry": 8
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 8,
+    "truth_pass": 18,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 32,
+    "ours": 8,
+    "truth_pass": 13,
+    "ours_pass": 3
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 16,
+   "found": 13,
+   "ours_real": 13,
+   "how_same": 4,
+   "truth_pass": 31,
+   "found_pass": 4,
+   "found_carry": 9
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 10,
+    "truth_pass": 18,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 32,
+    "ours": 10,
+    "truth_pass": 13,
+    "ours_pass": 6
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 20,
+   "found": 17,
+   "ours_real": 17,
+   "how_same": 8,
+   "truth_pass": 31,
+   "found_pass": 8,
+   "found_carry": 9
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 13,
+    "truth_pass": 18,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 32,
+    "ours": 12,
+    "truth_pass": 13,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 25,
+   "found": 22,
+   "ours_real": 22,
+   "how_same": 10,
+   "truth_pass": 31,
+   "found_pass": 11,
+   "found_carry": 11
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 32,
+    "truth_pass": 18,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 32,
+    "ours": 35,
+    "truth_pass": 13,
+    "ours_pass": 7
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 67,
+   "found": 31,
+   "ours_real": 31,
+   "how_same": 18,
+   "truth_pass": 31,
+   "found_pass": 7,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 36,
+    "truth_pass": 18,
+    "ours_pass": 9
+   },
+   "B": {
+    "truth": 32,
+    "ours": 37,
+    "truth_pass": 13,
+    "ours_pass": 10
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 73,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 21,
+   "truth_pass": 31,
+   "found_pass": 11,
+   "found_carry": 25
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 39,
+    "truth_pass": 18,
+    "ours_pass": 12
+   },
+   "B": {
+    "truth": 32,
+    "ours": 37,
+    "truth_pass": 13,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 76,
+   "found": 40,
+   "ours_real": 40,
+   "how_same": 25,
+   "truth_pass": 31,
+   "found_pass": 14,
+   "found_carry": 26
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 39,
+    "truth_pass": 18,
+    "ours_pass": 13
+   },
+   "B": {
+    "truth": 32,
+    "ours": 37,
+    "truth_pass": 13,
+    "ours_pass": 12
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 76,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 27,
+   "truth_pass": 31,
+   "found_pass": 16,
+   "found_carry": 26
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 28,
+    "truth_pass": 18,
+    "ours_pass": 3
+   },
+   "B": {
+    "truth": 32,
+    "ours": 32,
+    "truth_pass": 13,
+    "ours_pass": 7
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 60,
+   "found": 33,
+   "ours_real": 33,
+   "how_same": 19,
+   "truth_pass": 31,
+   "found_pass": 9,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 31,
+    "truth_pass": 18,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 32,
+    "ours": 34,
+    "truth_pass": 13,
+    "ours_pass": 10
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 65,
+   "found": 36,
+   "ours_real": 36,
+   "how_same": 22,
+   "truth_pass": 31,
+   "found_pass": 12,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 33,
+    "truth_pass": 18,
+    "ours_pass": 11
+   },
+   "B": {
+    "truth": 32,
+    "ours": 33,
+    "truth_pass": 13,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 66,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 27,
+   "truth_pass": 31,
+   "found_pass": 17,
+   "found_carry": 25
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 33,
+    "truth_pass": 18,
+    "ours_pass": 11
+   },
+   "B": {
+    "truth": 32,
+    "ours": 33,
+    "truth_pass": 13,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 66,
+   "ours": 66,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 27,
+   "truth_pass": 31,
+   "found_pass": 17,
+   "found_carry": 25
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 19,
+    "truth_pass": 17,
+    "ours_pass": 5
+   },
+   "B": {
+    "truth": 34,
+    "ours": 15,
+    "truth_pass": 18,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 34,
+   "found": 28,
+   "ours_real": 28,
+   "how_same": 25,
+   "truth_pass": 35,
+   "found_pass": 9,
+   "found_carry": 19
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 25,
+    "truth_pass": 17,
+    "ours_pass": 12
+   },
+   "B": {
+    "truth": 34,
+    "ours": 19,
+    "truth_pass": 18,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 44,
+   "found": 40,
+   "ours_real": 40,
+   "how_same": 37,
+   "truth_pass": 35,
+   "found_pass": 21,
+   "found_carry": 19
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 29,
+    "truth_pass": 17,
+    "ours_pass": 16
+   },
+   "B": {
+    "truth": 34,
+    "ours": 24,
+    "truth_pass": 18,
+    "ours_pass": 15
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 53,
+   "found": 51,
+   "ours_real": 51,
+   "how_same": 48,
+   "truth_pass": 35,
+   "found_pass": 32,
+   "found_carry": 19
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 30,
+    "truth_pass": 17,
+    "ours_pass": 17
+   },
+   "B": {
+    "truth": 34,
+    "ours": 26,
+    "truth_pass": 18,
+    "ours_pass": 17
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 56,
+   "found": 53,
+   "ours_real": 53,
+   "how_same": 50,
+   "truth_pass": 35,
+   "found_pass": 34,
+   "found_carry": 19
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 10,
+    "truth_pass": 17,
+    "ours_pass": 2
+   },
+   "B": {
+    "truth": 34,
+    "ours": 8,
+    "truth_pass": 18,
+    "ours_pass": 1
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 18,
+   "found": 8,
+   "ours_real": 8,
+   "how_same": 3,
+   "truth_pass": 35,
+   "found_pass": 4,
+   "found_carry": 4
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 12,
+    "truth_pass": 17,
+    "ours_pass": 4
+   },
+   "B": {
+    "truth": 34,
+    "ours": 10,
+    "truth_pass": 18,
+    "ours_pass": 4
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 22,
+   "found": 12,
+   "ours_real": 12,
+   "how_same": 3,
+   "truth_pass": 35,
+   "found_pass": 4,
+   "found_carry": 8
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 14,
+    "truth_pass": 17,
+    "ours_pass": 7
+   },
+   "B": {
+    "truth": 34,
+    "ours": 11,
+    "truth_pass": 18,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 25,
+   "found": 16,
+   "ours_real": 16,
+   "how_same": 5,
+   "truth_pass": 35,
+   "found_pass": 6,
+   "found_carry": 10
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 16,
+    "truth_pass": 17,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 34,
+    "ours": 14,
+    "truth_pass": 18,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 30,
+   "found": 22,
+   "ours_real": 22,
+   "how_same": 9,
+   "truth_pass": 35,
+   "found_pass": 10,
+   "found_carry": 12
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 11,
+    "truth_pass": 17,
+    "ours_pass": 5
+   },
+   "B": {
+    "truth": 34,
+    "ours": 10,
+    "truth_pass": 18,
+    "ours_pass": 1
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 21,
+   "found": 9,
+   "ours_real": 9,
+   "how_same": 7,
+   "truth_pass": 35,
+   "found_pass": 2,
+   "found_carry": 7
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 14,
+    "truth_pass": 17,
+    "ours_pass": 8
+   },
+   "B": {
+    "truth": 34,
+    "ours": 10,
+    "truth_pass": 18,
+    "ours_pass": 1
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 24,
+   "found": 12,
+   "ours_real": 12,
+   "how_same": 8,
+   "truth_pass": 35,
+   "found_pass": 3,
+   "found_carry": 9
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 17,
+    "truth_pass": 17,
+    "ours_pass": 11
+   },
+   "B": {
+    "truth": 34,
+    "ours": 12,
+    "truth_pass": 18,
+    "ours_pass": 4
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 29,
+   "found": 18,
+   "ours_real": 18,
+   "how_same": 11,
+   "truth_pass": 35,
+   "found_pass": 6,
+   "found_carry": 12
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 21,
+    "truth_pass": 17,
+    "ours_pass": 15
+   },
+   "B": {
+    "truth": 34,
+    "ours": 15,
+    "truth_pass": 18,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 36,
+   "found": 27,
+   "ours_real": 27,
+   "how_same": 19,
+   "truth_pass": 35,
+   "found_pass": 14,
+   "found_carry": 13
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 34,
+    "truth_pass": 17,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 34,
+    "ours": 35,
+    "truth_pass": 18,
+    "ours_pass": 5
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 69,
+   "found": 34,
+   "ours_real": 34,
+   "how_same": 18,
+   "truth_pass": 35,
+   "found_pass": 14,
+   "found_carry": 20
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 40,
+    "truth_pass": 17,
+    "ours_pass": 17
+   },
+   "B": {
+    "truth": 34,
+    "ours": 37,
+    "truth_pass": 18,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 77,
+   "found": 42,
+   "ours_real": 42,
+   "how_same": 23,
+   "truth_pass": 35,
+   "found_pass": 19,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 38,
+    "truth_pass": 17,
+    "ours_pass": 18
+   },
+   "B": {
+    "truth": 34,
+    "ours": 36,
+    "truth_pass": 18,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 74,
+   "found": 44,
+   "ours_real": 44,
+   "how_same": 26,
+   "truth_pass": 35,
+   "found_pass": 21,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 36,
+    "truth_pass": 17,
+    "ours_pass": 18
+   },
+   "B": {
+    "truth": 34,
+    "ours": 35,
+    "truth_pass": 18,
+    "ours_pass": 9
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 71,
+   "found": 43,
+   "ours_real": 43,
+   "how_same": 25,
+   "truth_pass": 35,
+   "found_pass": 20,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "app",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 39,
+    "truth_pass": 17,
+    "ours_pass": 6
+   },
+   "B": {
+    "truth": 34,
+    "ours": 32,
+    "truth_pass": 18,
+    "ours_pass": 8
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 71,
+   "found": 37,
+   "ours_real": 37,
+   "how_same": 21,
+   "truth_pass": 35,
+   "found_pass": 14,
+   "found_carry": 23
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold1",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 42,
+    "truth_pass": 17,
+    "ours_pass": 10
+   },
+   "B": {
+    "truth": 34,
+    "ours": 34,
+    "truth_pass": 18,
+    "ours_pass": 11
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 76,
+   "found": 43,
+   "ours_real": 43,
+   "how_same": 27,
+   "truth_pass": 35,
+   "found_pass": 19,
+   "found_carry": 24
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold2",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 41,
+    "truth_pass": 17,
+    "ours_pass": 12
+   },
+   "B": {
+    "truth": 34,
+    "ours": 37,
+    "truth_pass": 18,
+    "ours_pass": 15
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 78,
+   "found": 48,
+   "ours_real": 48,
+   "how_same": 31,
+   "truth_pass": 35,
+   "found_pass": 23,
+   "found_carry": 25
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "hold3",
+  "direction_same": true,
+  "teams": {
+   "A": {
+    "truth": 34,
+    "ours": 39,
+    "truth_pass": 17,
+    "ours_pass": 12
+   },
+   "B": {
+    "truth": 34,
+    "ours": 36,
+    "truth_pass": 18,
+    "ours_pass": 15
+   }
+  },
+  "matched": {
+   "truth": 68,
+   "ours": 75,
+   "found": 48,
+   "ours_real": 48,
+   "how_same": 31,
+   "truth_pass": 35,
+   "found_pass": 23,
+   "found_carry": 25
+  }
+ }
+]
