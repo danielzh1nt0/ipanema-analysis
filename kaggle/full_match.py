@@ -22,6 +22,8 @@ sh("nvidia-smi --query-gpu=name --format=csv || true; python -c 'import torch;pr
 sh(f"git clone -q --depth 1 https://github.com/danielzh1nt0/ipanema-analysis.git {IA}"); sh(f"cd {IA} && git log -1 --format='repo at %h %s'")
 sh("pip install -q rfdetr==1.11.0 'supervision>=0.29,<0.31' omegaconf gdown 'numpy<2' scipy scikit-learn pandas ultralytics==8.3.40")   # ultralytics only as a fallback import (calibration.py) - not used with a line calibration
 sh("which ffmpeg || (apt-get install -y -q ffmpeg > /dev/null 2>&1 && which ffmpeg)")
+# the pipeline's Colab-era default path for the repo (mosaic calibration reads calibration/ and results/prepare/ from it)
+if not os.path.exists("/content/ipanema-analysis"): os.makedirs("/content", exist_ok=True); os.symlink(IA, "/content/ipanema-analysis")
 os.makedirs(f"{ROOT}/cache", exist_ok=True); os.makedirs(f"{ROOT}/models", exist_ok=True); os.makedirs(f"{ROOT}/videos", exist_ok=True); os.makedirs(f"{T}/work", exist_ok=True)
 sys.path.insert(0, IA); os.environ["WASB_DIR"] = f"{T}/WASB-SBDT"; os.environ["IPANEMA_DETECTOR"] = "rfdetr"; os.environ["IPANEMA_RF_FP16"] = "1"; os.environ.setdefault("IPANEMA_DET_BATCH", "8"); os.environ.setdefault("IPANEMA_LOG_EVERY", "2000")
 # the app's WASB weights (or the ones named): the pipeline looks for models/wasb_finetuned.pth under the root

@@ -1,2 +1,2 @@
-kaggle/full_match.py 300 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin7 GPU=0 SOURCES=ipanema-full-match-va,ipanema-full-match-vb,ipanema-full-match-vc,ipanema-full-match-vd,ipanema-full-match-ve,ipanema-full-match-vrelabel2 WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Sat Oct 17 10:10:47 CEST 2026 Vallentuna join 7: the by-eye key grades the ball (join 6 only used it as the picker test)
+kaggle/full_match.py 200 MATCH=p15u-vs-aik-2026-09-21-bd09_s2520 STAGE=all NAME=aiksmoke WASB=results/kaggle/wasb_warm/wasb_warm.pth
+# Sat Oct 24 10:45:35 CEST 2026 AIK clip through the free pipeline (mosaic calibration route) with the K8 ball weights
