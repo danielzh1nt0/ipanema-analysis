@@ -114,7 +114,7 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     # N0-23a (23 Oct): like ipanema/run.py - keepers, else the player-position fallback. It was a fixed A -> (right), which is
     # backwards in 2 of Metrica's 4 halves (Game 1 2nd, Game 2 1st), so every forward pass there read as backward.
     ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or P.direction_fallback(perd, L, log=lambda *a: None)
-    rst = P.restarts(dstate, bm, FPS, L, W)
+    rst = P.restarts(dstate, bm, FPS, L, W, per=perd)   # N0-24e: like ipanema/run.py
     cstate = P.spell_state(state, FPS, P.SPELL_TAKE_S if spell_take is None else spell_take, P.SPELL_JOIN_S if spell_join is None else spell_join)
     tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
     seqs = P.sequences(cstate, bm, bspeed, FPS, L, ar, **info["seq"])

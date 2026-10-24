@@ -268,14 +268,47 @@ def clean_ball(ballm, L, W, max_out=6.0):
     return {k: v for k, v in ballm.items() if max(-v[0], v[0] - L, -v[1], v[1] - W, 0.0) <= max_out}
 
 RESTART_SPOT = os.environ.get("IPANEMA_RESTART_SPOT", "after")
+# N0-24e (24 Oct): a ball that goes out is usually not seen until the restart (Metrica blanks it; our finder loses it
+# behind the boards). The old model has no evidence then and keeps the last state, so a stoppage was never 'dead'.
+# GAP_DEAD_S > 0: a gap of at least that many seconds with no ball, whose last sighting before it or first after it is
+# within GAP_EDGE_M of a line (or off the pitch), counts as dead for restarts. On by default (2 s); IPANEMA_GAP_DEAD_S=0 = old.
+GAP_DEAD_S = float(os.environ.get("IPANEMA_GAP_DEAD_S", "2"))
+GAP_EDGE_M = float(os.environ.get("IPANEMA_GAP_EDGE_M", "3"))
+GAP_SIDE = os.environ.get("IPANEMA_GAP_SIDE", "either")
 
-def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, spot=None):
+def near_line(b, L, W, edge_m):
+    """ball within edge_m of a touchline / end line, or outside the pitch"""
+    return min(b[0], L - b[0], b[1], W - b[1]) <= edge_m
+
+def gap_dead(state, ballm, n, fps, L, W, gap_s, edge_m=3.0, side="either"):
+    """-> a copy of state with the unseen-ball gaps described above (GAP_DEAD_S) set to dead (3).
+    side: 'before' = only the last sighting before the gap counts, 'after' = only the first after it, 'either'."""
+    out = np.array(state, int).copy(); ks = sorted(k for k in ballm if 0 <= k < n)
+    edges = [(-1, ks[0])] if ks else []
+    edges += [(a, b) for a, b in zip(ks, ks[1:]) if b - a > 1]
+    if ks: edges.append((ks[-1], n))
+    for a, b in edges:
+        if (b - a - 1) / fps < gap_s: continue
+        bef = a >= 0 and near_line(ballm[a], L, W, edge_m); aft = b < n and near_line(ballm[b], L, W, edge_m)
+        if (side == "before" and bef) or (side == "after" and aft) or (side == "either" and (bef or aft)):
+            out[a + 1:b] = 3
+    return out
+
+def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, spot=None, gap_s=None, per=None):
     """a stoppage = dead runs joined across gaps up to join_gap_s, lasting min_s (27 Sep: 0.8 s let every flicker count).
     S5 (2 Oct): 1.5 s / 2 s split one stoppage into 2-5 (SFK-BP clip 13 restarts, Veo lists 7; full match 168 vs Veo 80);
     3 s / 3 s gives 7 on the clip. The spot is the median ball position over the stoppage's last second (one wrong pick
     put 94 of 168 full-match restarts off the pitch), and a spot near the end line but away from the corner and the goal is
-    a free kick, not a corner (30 'corners' vs Veo's 4)."""
+    a free kick, not a corner (30 'corners' vs Veo's 4).
+    N0-24e: with gap_s > 0 (GAP_DEAD_S) unseen-ball gaps next to a line are dead too; a stoppage that ends in such a gap
+    takes its spot from the ball's first 0.2 s back in view (the restart itself) and its team from the player nearest
+    to it then (per given, within 3 m); a goal kick is a spot within 6 m of the end line and 10 m of the centre."""
     n = len(state); out = []; k = 0
+    gap_s = GAP_DEAD_S if gap_s is None else gap_s
+    gapped = np.zeros(n, bool)
+    if gap_s and gap_s > 0:
+        new = gap_dead(state, ballm, n, fps, L, W, gap_s, GAP_EDGE_M, GAP_SIDE); gapped = (new == 3) & (np.asarray(state) != 3); state = new
+    gk_m, gk_w = (6.0, 10.0) if gap_s and gap_s > 0 else (3.0, 12.0)
     while k < n:
         if STATES[state[k]] == "dead":
             j = k
@@ -285,13 +318,20 @@ def restarts(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, spot=None):
                 if nxt is None: break
                 j = nxt
             if (j - k + 1) / fps >= min_s:
-                pts = [ballm[q] for q in _spot_frames(k, j, n, fps, spot or RESTART_SPOT) if q in ballm]
-                if not pts: pts = [ballm[q] for q in _spot_frames(k, j, n, fps, "after") if q in ballm]   # N0-20e: ball unseen in the last second
-                bm = tuple(np.median(np.array(pts, float), axis=0)) if pts else None
                 team_after = next((STATES[state[q]] for q in range(j + 1, min(n, j + int(3 * fps))) if state[q] < 2), None); kind = "unknown"
+                q0 = next((q for q in range(j + 1, min(n, j + 1 + int(fps))) if q in ballm), None) if gapped[j] else None
+                if q0 is not None:                                                 # N0-24e: the ball comes back at the restart
+                    pts = [ballm[q] for q in range(q0, min(n, q0 + max(1, int(0.2 * fps)))) if q in ballm]
+                    if per is not None and q0 < len(per):
+                        d = sorted((float(np.linalg.norm(np.asarray(r[2], float) - np.asarray(ballm[q0], float))), r[1]) for r in per[q0])
+                        if d and d[0][0] <= 3.0: team_after = d[0][1]
+                else:
+                    pts = [ballm[q] for q in _spot_frames(k, j, n, fps, spot or RESTART_SPOT) if q in ballm]
+                    if not pts: pts = [ballm[q] for q in _spot_frames(k, j, n, fps, "after") if q in ballm]   # N0-20e: ball unseen in the last second
+                bm = tuple(np.median(np.array(pts, float), axis=0)) if pts else None
                 if bm is not None:
-                    x, y = bm; near_end = x < 3 or x > L - 3; near_side = y < 3 or y > W - 3
-                    kind = "corner" if (near_end and near_side) else "goal kick" if (near_end and abs(y - W / 2) < 12) else "throw-in" if near_side else "stoppage"   # 3 Oct: we never see a foul; a stoppage in open field is not called a free kick (SFK-BP: 27 'free kicks' vs Veo's 8)
+                    x, y = bm; near_end = x < 3 or x > L - 3; near_side = y < 3 or y > W - 3; in_box = (x < gk_m or x > L - gk_m) and abs(y - W / 2) < gk_w
+                    kind = "corner" if (near_end and near_side) else "goal kick" if in_box else "throw-in" if near_side else "stoppage"   # 3 Oct: we never see a foul; a stoppage in open field is not called a free kick (SFK-BP: 27 'free kicks' vs Veo's 8)
                 out.append({"t": round(j / fps, 2), "kind": kind, "team": team_after, "x_m": round(float(bm[0]), 1) if bm is not None else None, "y_m": round(float(bm[1]), 1) if bm is not None else None})
             k = j + 1
         else: k += 1
