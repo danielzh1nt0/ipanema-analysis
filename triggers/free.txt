@@ -1,2 +1,2 @@
-tools/ball_edge_sheet.py
-# Fri Oct 23 14:28:20 UTC 2026 BALL-EDGE: picture sheets where old and edge picks differ (25 spells) - free runner only, nothing on Modal
+tools/n0_24c_frames.py
+# Sat Oct 24 12:40:12 UTC 2026 N0-24c: picture sheets of the 5 final-third entries only one rule counts (2 app clips) - free runner only, nothing on Modal

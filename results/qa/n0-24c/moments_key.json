@@ -1,0 +1,32 @@
+{
+ "sfk00": {
+  "clip": "SFKBP1109_s1200",
+  "team": "A",
+  "t": 15.42,
+  "rule": "old only"
+ },
+ "sfk01": {
+  "clip": "SFKBP1109_s1200",
+  "team": "B",
+  "t": 55.52,
+  "rule": "new only"
+ },
+ "sfk02": {
+  "clip": "SFKBP1109_s1200",
+  "team": "B",
+  "t": 64.33,
+  "rule": "old only"
+ },
+ "sfk03": {
+  "clip": "SFKBP1109_s1200",
+  "team": "B",
+  "t": 232.07,
+  "rule": "old only"
+ },
+ "aik04": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "team": "B",
+  "t": 157.16,
+  "rule": "new only"
+ }
+}
