@@ -216,7 +216,11 @@ if STAGE in ("join", "all"):
     if os.path.exists(pf):
         spec = json.load(open(pf)); per, H, cands, play_mask, periods = FM.apply_periods(per, H, cands, spec["periods_s"], fps, meta["L"], meta["W"])
         log(f"periods: {[(p['t_start'], p['t_end']) for p in periods]} s")
-    trust_all = os.path.exists(pf) and json.load(open(pf)).get("trust_all_calibration", False)
+    # a clip (<match>_s<start>) inherits its match's trust_all_calibration (AIK: the per-frame line check rejects ~90% of frames)
+    import re as _re
+    base_m = _re.sub(r"_s\d+$", "", M); pf_base = f"{ROOT}/periods/{base_m}.json"
+    trust_all = (os.path.exists(pf) and json.load(open(pf)).get("trust_all_calibration", False)) or (os.path.exists(pf_base) and json.load(open(pf_base)).get("trust_all_calibration", False))
+    if trust_all: log("calibration: per-frame check skipped for this match (periods file: trust_all_calibration)")
     from ipanema import linecal as LC
     _mf = lambda p: f"{cdir(p)}/calib_ok_v3.npy"
     entries = [] if trust_all else [(p["i"], p["offset"], np.load(_mf(p)) if os.path.exists(_mf(p)) else None, bool(LC.find_rows(ROOT, FM.piece_id(M, p["i"])))) for p in done]
@@ -240,5 +244,6 @@ if STAGE in ("join", "all"):
     os.makedirs(f"{W}/export", exist_ok=True); shutil.copytree(f"{ROOT}/runs/matches/{M}", f"{W}/export/{M}", dirs_exist_ok=True)
     if os.path.exists(f"{ROOT}/runs/library.json"): shutil.copy(f"{ROOT}/runs/library.json", f"{W}/export/library.json")
     for p in glob.glob(f"/content/ipanema-analysis/results/debug/ballcheck_{M}/*.jpg"): shutil.copy(p, W)
-    log("export: " + ", ".join(sorted(os.listdir(f"{W}/export/{M}")))); os.remove(full); shutil.rmtree(f"{ROOT}/cache", ignore_errors=True)
+    log("export: " + ", ".join(sorted(os.listdir(f"{W}/export/{M}")))); os.remove(full)
+    if STAGE != "all": shutil.rmtree(f"{ROOT}/cache", ignore_errors=True)         # a one-kernel clip run keeps its pieces so a join can be re-run on them
 save(); log(f"done: {result.get('stage')} in {(time.time() - t0) / 60:.1f} min")

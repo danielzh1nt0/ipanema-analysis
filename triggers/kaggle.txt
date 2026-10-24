@@ -1,2 +1,2 @@
-kaggle/full_match.py 200 MATCH=p15u-vs-aik-2026-09-21-bd09_s2520 STAGE=all NAME=aiksmoke2 WASB=results/kaggle/wasb_warm/wasb_warm.pth
-# Sat Oct 24 11:52:16 CEST 2026 AIK clip, take 2: panorama calibration found for a piece of a clip
+kaggle/full_match.py 200 MATCH=p15u-vs-aik-2026-09-21-bd09_s2520 STAGE=all NAME=aiksmoke3 WASB=results/kaggle/wasb_warm/wasb_warm.pth
+# Sat Oct 24 13:22:23 CEST 2026 AIK clip, take 3: the clip inherits the match trust_all_calibration (take 2 trusted 10% of frames, ball 4/39)
