@@ -7,6 +7,7 @@ on:
     inputs:
       match_id: { description: "match id (the app's / R2 folder name)", required: true }
       wasb: { description: "WASB weights in the repo", default: "results/kaggle/wasb_warm/wasb_warm.pth" }
+      extra_sources: { description: "comma-separated Kaggle kernel slugs from an earlier run whose finished pieces should count (relaunch)", default: "" }
   repository_dispatch:
     types: [process-match]
 permissions:
@@ -17,6 +18,7 @@ concurrency:
 env:
   MATCH: ${{ github.event.inputs.match_id || github.event.client_payload.match_id }}
   WASB: ${{ github.event.inputs.wasb || github.event.client_payload.wasb || 'results/kaggle/wasb_warm/wasb_warm.pth' }}
+  EXTRA: ${{ github.event.inputs.extra_sources || github.event.client_payload.extra_sources || '' }}
   KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
   KAGGLE_USERNAME: ${{ vars.KAGGLE_USERNAME }}
   R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
@@ -60,7 +62,7 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/2 NAME=${{ needs.kits.outputs.slug }}-r1-${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
+          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/2 NAME=${{ needs.kits.outputs.slug }}-r1-${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits${EXTRA:+,$EXTRA} DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: keep the kernel's log in git (small files only)
         if: always()
         run: |
@@ -85,7 +87,7 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/2 NAME=${{ needs.kits.outputs.slug }}-r2-${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1 DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
+          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/2 NAME=${{ needs.kits.outputs.slug }}-r2-${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1${EXTRA:+,$EXTRA} DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: keep the kernel's log in git (small files only)
         if: always()
         run: |
@@ -106,7 +108,7 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=missing NAME=${{ needs.kits.outputs.slug }}-sweep SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1 DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
+          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 340 MATCH=$MATCH STAGE=pieces PIECES=missing NAME=${{ needs.kits.outputs.slug }}-sweep SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1${EXTRA:+,$EXTRA} DOWNLOAD=0 BUDGET=325 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: keep the kernel's log in git (small files only)
         if: always()
         run: |
@@ -127,7 +129,7 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=relabel NAME=${S}-relabel GPU=0 DOWNLOAD=0 SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1,ipanema-full-match-${S}-sweep 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
+          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=relabel NAME=${S}-relabel GPU=0 DOWNLOAD=0 SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1,ipanema-full-match-${S}-sweep${EXTRA:+,$EXTRA} 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: keep the kernel's log in git (small files only)
         if: always()
         run: |
@@ -151,7 +153,7 @@ jobs:
       - run: pip install -q kaggle supabase
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 240 MATCH=$MATCH STAGE=join NAME=${S}-join GPU=0 WASB=$WASB SOURCES=ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1,ipanema-full-match-${S}-sweep,ipanema-full-match-${S}-relabel 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
+          KAGGLE_SLOT_WAIT_MIN=200 python tools/kaggle_run.py kaggle/full_match.py 240 MATCH=$MATCH STAGE=join NAME=${S}-join GPU=0 WASB=$WASB SOURCES=ipanema-full-match-${S}-r1-0,ipanema-full-match-${S}-r1-1,ipanema-full-match-${S}-r2-0,ipanema-full-match-${S}-r2-1,ipanema-full-match-${S}-sweep,ipanema-full-match-${S}-relabel${EXTRA:+,$EXTRA} 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: grade and push into the app
         run: |
           for lib in results/kaggle/*/export/library.json; do
