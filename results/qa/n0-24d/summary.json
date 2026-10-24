@@ -1,0 +1,353 @@
+{
+ "False": {
+  "team_halves": 8,
+  "pressures_ratio": [
+   0.77,
+   0.92,
+   1.04
+  ],
+  "opp_passes_ratio": [
+   0.93,
+   1.01,
+   1.08
+  ],
+  "ppda_ours": [
+   2.4,
+   3.0,
+   3.5
+  ],
+  "ppda_truth_same_rule": [
+   2.0,
+   2.7,
+   3.2
+  ],
+  "ppda_truth_standard": [
+   2.6,
+   3.5,
+   4.3
+  ],
+  "ppda_truth_strict": [
+   3.4,
+   4.8,
+   6.6
+  ],
+  "spearman_ours_vs_same_rule": 0.43,
+  "spearman_ours_vs_standard": 0.64,
+  "spearman_ours_vs_strict": 0.48,
+  "spearman_same_rule_vs_standard": 0.5,
+  "which_team_more_pressures_vs_same_rule": "3/4",
+  "which_team_presses_more_vs_standard": "1/4",
+  "which_team_presses_more_vs_same_rule": "3/4",
+  "lab_zone": {
+   "ppda_ours": [
+    2.4,
+    3.5,
+    4.8
+   ],
+   "pressures_zone_ratio_median": 0.86,
+   "spearman_vs_standard": 0.4,
+   "spearman_vs_strict": 0.17,
+   "which_team_presses_more_vs_standard": "1/4"
+  },
+  "per_team_half": [
+   {
+    "key": "1-1-A",
+    "ours_ppda": 3.3,
+    "truth_same_rule": 2.4,
+    "truth_standard": 4.0,
+    "ours_pressures": 78.0,
+    "truth_pressures": 101.0
+   },
+   {
+    "key": "1-1-B",
+    "ours_ppda": 2.4,
+    "truth_same_rule": 2.1,
+    "truth_standard": 2.8,
+    "ours_pressures": 103.0,
+    "truth_pressures": 123.0
+   },
+   {
+    "key": "1-2-A",
+    "ours_ppda": 3.5,
+    "truth_same_rule": 3.2,
+    "truth_standard": 3.7,
+    "ours_pressures": 67.0,
+    "truth_pressures": 73.0
+   },
+   {
+    "key": "1-2-B",
+    "ours_ppda": 3.2,
+    "truth_same_rule": 2.9,
+    "truth_standard": 4.3,
+    "ours_pressures": 103.0,
+    "truth_pressures": 104.0
+   },
+   {
+    "key": "2-1-A",
+    "ours_ppda": 3.1,
+    "truth_same_rule": 2.7,
+    "truth_standard": 3.2,
+    "ours_pressures": 102.0,
+    "truth_pressures": 107.0
+   },
+   {
+    "key": "2-1-B",
+    "ours_ppda": 2.8,
+    "truth_same_rule": 2.7,
+    "truth_standard": 4.2,
+    "ours_pressures": 119.0,
+    "truth_pressures": 129.0
+   },
+   {
+    "key": "2-2-A",
+    "ours_ppda": 2.6,
+    "truth_same_rule": 2.0,
+    "truth_standard": 2.6,
+    "ours_pressures": 87.0,
+    "truth_pressures": 111.0
+   },
+   {
+    "key": "2-2-B",
+    "ours_ppda": 2.6,
+    "truth_same_rule": 2.9,
+    "truth_standard": 2.9,
+    "ours_pressures": 107.0,
+    "truth_pressures": 103.0
+   }
+  ]
+ },
+ "streak": {
+  "team_halves": 8,
+  "pressures_ratio": [
+   0.51,
+   0.76,
+   0.88
+  ],
+  "opp_passes_ratio": [
+   0.86,
+   0.96,
+   1.05
+  ],
+  "ppda_ours": [
+   3.0,
+   3.5,
+   3.8
+  ],
+  "ppda_truth_same_rule": [
+   2.0,
+   2.7,
+   3.2
+  ],
+  "ppda_truth_standard": [
+   2.6,
+   3.5,
+   4.3
+  ],
+  "ppda_truth_strict": [
+   3.4,
+   4.8,
+   6.6
+  ],
+  "spearman_ours_vs_same_rule": 0.1,
+  "spearman_ours_vs_standard": 0.24,
+  "spearman_ours_vs_strict": 0.4,
+  "spearman_same_rule_vs_standard": 0.5,
+  "which_team_more_pressures_vs_same_rule": "2/4",
+  "which_team_presses_more_vs_standard": "0/4",
+  "which_team_presses_more_vs_same_rule": "2/4",
+  "lab_zone": {
+   "ppda_ours": [
+    3.4,
+    4.3,
+    5.5
+   ],
+   "pressures_zone_ratio_median": 0.68,
+   "spearman_vs_standard": 0.17,
+   "spearman_vs_strict": 0.29,
+   "which_team_presses_more_vs_standard": "1/4"
+  },
+  "per_team_half": [
+   {
+    "key": "1-1-A",
+    "ours_ppda": 3.6,
+    "truth_same_rule": 2.4,
+    "truth_standard": 4.0,
+    "ours_pressures": 69.0,
+    "truth_pressures": 101.0
+   },
+   {
+    "key": "1-1-B",
+    "ours_ppda": 3.8,
+    "truth_same_rule": 2.1,
+    "truth_standard": 2.8,
+    "ours_pressures": 62.5,
+    "truth_pressures": 123.0
+   },
+   {
+    "key": "1-2-A",
+    "ours_ppda": 3.8,
+    "truth_same_rule": 3.2,
+    "truth_standard": 3.7,
+    "ours_pressures": 64.0,
+    "truth_pressures": 73.0
+   },
+   {
+    "key": "1-2-B",
+    "ours_ppda": 3.6,
+    "truth_same_rule": 2.9,
+    "truth_standard": 4.3,
+    "ours_pressures": 84.5,
+    "truth_pressures": 104.0
+   },
+   {
+    "key": "2-1-A",
+    "ours_ppda": 3.5,
+    "truth_same_rule": 2.7,
+    "truth_standard": 3.2,
+    "ours_pressures": 83.5,
+    "truth_pressures": 107.0
+   },
+   {
+    "key": "2-1-B",
+    "ours_ppda": 3.4,
+    "truth_same_rule": 2.7,
+    "truth_standard": 4.2,
+    "ours_pressures": 96.5,
+    "truth_pressures": 129.0
+   },
+   {
+    "key": "2-2-A",
+    "ours_ppda": 3.3,
+    "truth_same_rule": 2.0,
+    "truth_standard": 2.6,
+    "ours_pressures": 64.0,
+    "truth_pressures": 111.0
+   },
+   {
+    "key": "2-2-B",
+    "ours_ppda": 3.0,
+    "truth_same_rule": 2.9,
+    "truth_standard": 2.9,
+    "ours_pressures": 84.5,
+    "truth_pressures": 103.0
+   }
+  ]
+ },
+ "flicker": {
+  "team_halves": 8,
+  "pressures_ratio": [
+   0.9,
+   1.07,
+   1.18
+  ],
+  "opp_passes_ratio": [
+   1.02,
+   1.11,
+   1.2
+  ],
+  "ppda_ours": [
+   2.2,
+   2.8,
+   3.2
+  ],
+  "ppda_truth_same_rule": [
+   2.0,
+   2.7,
+   3.2
+  ],
+  "ppda_truth_standard": [
+   2.6,
+   3.5,
+   4.3
+  ],
+  "ppda_truth_strict": [
+   3.4,
+   4.8,
+   6.6
+  ],
+  "spearman_ours_vs_same_rule": 0.74,
+  "spearman_ours_vs_standard": 0.79,
+  "spearman_ours_vs_strict": 0.62,
+  "spearman_same_rule_vs_standard": 0.5,
+  "which_team_more_pressures_vs_same_rule": "3/4",
+  "which_team_presses_more_vs_standard": "3/4",
+  "which_team_presses_more_vs_same_rule": "3/4",
+  "lab_zone": {
+   "ppda_ours": [
+    2.1,
+    3.2,
+    3.9
+   ],
+   "pressures_zone_ratio_median": 1.02,
+   "spearman_vs_standard": 0.17,
+   "spearman_vs_strict": 0.0,
+   "which_team_presses_more_vs_standard": "1/4"
+  },
+  "per_team_half": [
+   {
+    "key": "1-1-A",
+    "ours_ppda": 2.7,
+    "truth_same_rule": 2.4,
+    "truth_standard": 4.0,
+    "ours_pressures": 107.5,
+    "truth_pressures": 101.0
+   },
+   {
+    "key": "1-1-B",
+    "ours_ppda": 2.2,
+    "truth_same_rule": 2.1,
+    "truth_standard": 2.8,
+    "ours_pressures": 128.5,
+    "truth_pressures": 123.0
+   },
+   {
+    "key": "1-2-A",
+    "ours_ppda": 3.2,
+    "truth_same_rule": 3.2,
+    "truth_standard": 3.7,
+    "ours_pressures": 86.5,
+    "truth_pressures": 73.0
+   },
+   {
+    "key": "1-2-B",
+    "ours_ppda": 3.0,
+    "truth_same_rule": 2.9,
+    "truth_standard": 4.3,
+    "ours_pressures": 117.0,
+    "truth_pressures": 104.0
+   },
+   {
+    "key": "2-1-A",
+    "ours_ppda": 2.8,
+    "truth_same_rule": 2.7,
+    "truth_standard": 3.2,
+    "ours_pressures": 115.0,
+    "truth_pressures": 107.0
+   },
+   {
+    "key": "2-1-B",
+    "ours_ppda": 2.9,
+    "truth_same_rule": 2.7,
+    "truth_standard": 4.2,
+    "ours_pressures": 136.0,
+    "truth_pressures": 129.0
+   },
+   {
+    "key": "2-2-A",
+    "ours_ppda": 2.5,
+    "truth_same_rule": 2.0,
+    "truth_standard": 2.6,
+    "ours_pressures": 99.5,
+    "truth_pressures": 111.0
+   },
+   {
+    "key": "2-2-B",
+    "ours_ppda": 2.5,
+    "truth_same_rule": 2.9,
+    "truth_standard": 2.9,
+    "ours_pressures": 119.0,
+    "truth_pressures": 103.0
+   }
+  ]
+ }
+}
