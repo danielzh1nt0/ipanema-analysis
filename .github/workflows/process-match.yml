@@ -23,6 +23,7 @@ env:
 jobs:
   kits:
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID          # the Kaggle / R2 / Supabase secrets live in this GitHub environment
     timeout-minutes: 90
     outputs:
       slug: ${{ steps.run.outputs.slug }}
@@ -34,10 +35,11 @@ jobs:
       - id: run
         run: |
           S="$(printf '%s' "$MATCH" | sha1sum | cut -c1-6)"; echo "slug=$S" >> "$GITHUB_OUTPUT"   # Kaggle kernel slugs are short: 6 hex chars of the match id
-          python tools/kaggle_run.py kaggle/full_match.py 80 MATCH=$MATCH STAGE=kits NAME=${S}-kits DOWNLOAD=0 WASB=$WASB 2>&1 | tail -40
+          python tools/kaggle_run.py kaggle/full_match.py 80 MATCH=$MATCH STAGE=kits NAME=${S}-kits DOWNLOAD=0 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
   pieces:
     needs: kits
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID          # the Kaggle / R2 / Supabase secrets live in this GitHub environment
     timeout-minutes: 350
     strategy:
       fail-fast: false
@@ -50,11 +52,12 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/4 NAME=${S}-p${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -40
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=${{ matrix.part }}/4 NAME=${S}-p${{ matrix.part }} SOURCES=ipanema-full-match-${S}-kits DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
   sweep:
     needs: [kits, pieces]
     if: always() && needs.kits.result == 'success'
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID          # the Kaggle / R2 / Supabase secrets live in this GitHub environment
     timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
@@ -63,11 +66,12 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=missing NAME=${S}-sweep SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3 DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -40
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=pieces PIECES=missing NAME=${S}-sweep SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3 DOWNLOAD=0 BUDGET=320 WASB=$WASB 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
   relabel:
     needs: [kits, sweep]
     if: always() && needs.kits.result == 'success'
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID          # the Kaggle / R2 / Supabase secrets live in this GitHub environment
     timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
@@ -76,11 +80,12 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=relabel NAME=${S}-relabel GPU=0 DOWNLOAD=0 SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep 2>&1 | tail -40
+          python tools/kaggle_run.py kaggle/full_match.py 330 MATCH=$MATCH STAGE=relabel NAME=${S}-relabel GPU=0 DOWNLOAD=0 SOURCES=ipanema-full-match-${S}-kits,ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
   join:
     needs: [kits, relabel]
     if: always() && needs.kits.result == 'success'
     runs-on: ubuntu-latest
+    environment: MODAL_TOKEN_ID          # the Kaggle / R2 / Supabase secrets live in this GitHub environment
     timeout-minutes: 300
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -92,7 +97,7 @@ jobs:
       - run: pip install -q kaggle supabase
       - run: |
           S="${{ needs.kits.outputs.slug }}"
-          python tools/kaggle_run.py kaggle/full_match.py 240 MATCH=$MATCH STAGE=join NAME=${S}-join GPU=0 WASB=$WASB SOURCES=ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep,ipanema-full-match-${S}-relabel 2>&1 | tail -60
+          python tools/kaggle_run.py kaggle/full_match.py 240 MATCH=$MATCH STAGE=join NAME=${S}-join GPU=0 WASB=$WASB SOURCES=ipanema-full-match-${S}-p0,ipanema-full-match-${S}-p1,ipanema-full-match-${S}-p2,ipanema-full-match-${S}-p3,ipanema-full-match-${S}-sweep,ipanema-full-match-${S}-relabel 2>&1 | tail -60; test ${PIPESTATUS[0]} -eq 0
       - name: grade and push into the app
         run: |
           for lib in results/kaggle/*/export/library.json; do
