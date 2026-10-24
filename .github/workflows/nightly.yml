@@ -21,7 +21,7 @@ jobs:
       - name: pull the coach's labels from the app (event reviews, corrections, lineups) - skipped without the SUPABASE secrets
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.NEW_SUPABASE_SERVICE_KEY }}
         run: |
           pip install -q supabase; python tools/reviews_to_labels.py || echo "no coach labels pulled (secrets missing or no rows)"
           GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" python tools/process_uploads.py || echo "no uploads sent (secrets missing or none waiting)"

@@ -1,2 +1,2 @@
 kaggle/full_match.py 30 MATCH=p15u-vs-vallentuna-2026-10-03-6cce STAGE=join NAME=vjoin7 GPU=0 fetch
-# Sat Oct 24 11:19:52 CEST 2026 push Vallentuna (join 7) into the app, take 2 (URL defaulted; only the key is a secret)
+# Sat Oct 24 11:26:01 CEST 2026 push Vallentuna (join 7) into the app, take 3 (secret named NEW_SUPABASE_SERVICE_KEY)

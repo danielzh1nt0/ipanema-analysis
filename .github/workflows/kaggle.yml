@@ -29,7 +29,7 @@ jobs:
       - name: push an exported match into the app (needs the SUPABASE secrets; skipped without them)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.NEW_SUPABASE_SERVICE_KEY }}
         run: |
           for lib in results/kaggle/*/export/library.json; do
             [ -f "$lib" ] || continue
