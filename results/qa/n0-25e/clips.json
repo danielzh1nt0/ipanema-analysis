@@ -1,0 +1,74 @@
+{
+ "SFKBP1109_s1200": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "sequences": 32,
+  "stoppages": 7,
+  "restarts": 7,
+  "reached_old": {
+   "A": 3,
+   "B": 6
+  },
+  "reached_new": {
+   "A": 5,
+   "B": 9
+  },
+  "per_team": {
+   "A": 15,
+   "B": 17
+  },
+  "end_old": {
+   "loose ball": 13,
+   "dispossessed": 5,
+   "pass intercepted": 13,
+   "clip ends": 1
+  },
+  "end_new": {
+   "out of play / stoppage": 5,
+   "dispossessed": 5,
+   "pass intercepted": 13,
+   "loose ball": 8,
+   "clip ends": 1
+  },
+  "sequence_end_events_old": 18,
+  "sequence_end_events_new": 18
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "sequences": 24,
+  "stoppages": 1,
+  "restarts": 1,
+  "reached_old": {
+   "A": 3,
+   "B": 5
+  },
+  "reached_new": {
+   "A": 7,
+   "B": 9
+  },
+  "per_team": {
+   "A": 13,
+   "B": 11
+  },
+  "end_old": {
+   "pass intercepted": 9,
+   "loose ball": 12,
+   "dispossessed": 2,
+   "clip ends": 1
+  },
+  "end_new": {
+   "pass intercepted": 9,
+   "loose ball": 11,
+   "dispossessed": 2,
+   "out of play / stoppage": 1,
+   "clip ends": 1
+  },
+  "sequence_end_events_old": 11,
+  "sequence_end_events_new": 11
+ }
+}

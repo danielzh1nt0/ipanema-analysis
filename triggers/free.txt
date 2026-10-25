@@ -1,2 +1,2 @@
-tools/touchline_frames.py
-# Sun Oct 25 08:48:12 UTC 2026 TOUCHLINE: picture sheets of a fresh blind sample (25 people by a touchline on the full-match exports: Vallentuna, SFK-BP, AIK) for the new touchline rule - free runner only, nothing on Modal
+tools/n0_25e_frames.py
+# Sun Oct 25 20:38:24 UTC 2026 N0-25e: picture sheets of the app-clip sequences whose 'reached final third' / end reason changes - free runner only, nothing on Modal
