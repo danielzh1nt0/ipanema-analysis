@@ -1,5 +1,5 @@
 {
  "kernel": "danielmatros/ipanema-full-match-52d795-r1-1",
- "status": "danielmatros/ipanema-full-match-52d795-r1-1 has status \"KernelWorkerStatus.ERROR\"",
- "minutes": 8.5
+ "status": "danielmatros/ipanema-full-match-52d795-r1-1 has status \"KernelWorkerStatus.RUNNING\"",
+ "minutes": 340.2
 }
