@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))));
 from ipanema import tracking as TR
 CL = {"sfk": "results/volume/cache/SFKBP1109_s1200/picker_inputs.pkl", "aik": "results/volume/cache/p15u-vs-aik-2026-09-21-bd09_s2520/picker_inputs.pkl"}
 CACHE = {}
-GRID = {"min_s": [2.0, 3.0, 4.0, 6.0], "max_m": [2.5, 3.5, 4.5], "max_v": [0.6, 0.8, 1.0, 1.3]}
+GRID = {"min_s": [2.0, 3.0, 4.0, 6.0, 8.0], "max_m": [2.5, 3.0, 3.5, 4.5], "max_v": [0.6, 0.8, 1.0, 1.3]}
 
 
 def rule_9oct(per, L, W, fps, line_m=1.0):

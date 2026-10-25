@@ -286,11 +286,11 @@ def touchline_stretches(per, W, fps, smooth_s=0.8, max_m=None):
     return out
 
 
-def touchline_rows(per, W, fps, min_s=4.0, max_m=3.5, max_v=0.8, smooth_s=0.8, stretches=None):
+def touchline_rows(per, W, fps, min_s=6.0, max_m=3.0, max_v=1.0, smooth_s=0.8, stretches=None):
     """TOUCHLINE (25 Oct): people just behind the far touchline (spectators, bench staff, seated subs, a bag) project to
     0-1.5 m inside the line and are tracked as players. A stretch of a track (track_stretches: no id jump, no long gap)
-    that lasts >= min_s, never goes deeper than max_m from a side touchline and stands (median speed of the positions
-    smoothed smooth_s <= max_v m/s) is not a player. Works per stretch, not per track, because ids slide between a
+    that lasts >= min_s (6 s), never goes deeper than max_m (3 m) from a side touchline and stands (median speed of the positions
+    smoothed smooth_s <= max_v, 1 m/s) is not a player. Works per stretch, not per track, because ids slide between a
     spectator and a player. Returns the set of (frame, track id) rows to drop."""
     st = stretches if stretches is not None else touchline_stretches(per, W, fps, smooth_s, max_m)
     return {(int(k), t) for t, ks, dur, deep, v in st if dur >= min_s and deep <= max_m and v <= max_v for k in ks}
@@ -323,6 +323,16 @@ def clean(per, L, W, fps, log=print, keepers_by_zone=True):
     for k in per:
         keep = [r for r in per[k] if r[0] not in still]; dropped += len(per[k]) - len(keep); per[k] = keep
     if still: log(f"clean: {len(still)} people living on or by the lines dropped (bench, coaches, stand)")
+    # 1c) TOUCHLINE (25 Oct): the rule above works per track, but ids slide between a spectator behind the far touchline
+    #     and a player, so a stretch of a track that stands >= 6 s never deeper than 3 m from a side touchline is
+    #     dropped too (touchline_rows; IPANEMA_TOUCHLINE_S=0 = old)
+    tl_s = float(os.environ.get("IPANEMA_TOUCHLINE_S", "6"))
+    if tl_s > 0:
+        tl = touchline_rows(per, W, fps, min_s=tl_s)
+        if tl:
+            for k in per:
+                keep = [r for r in per[k] if (k, r[0]) not in tl]; dropped += len(per[k]) - len(keep); per[k] = keep
+            log(f"clean: {len(tl)} rows of people standing by a touchline dropped (spectators, staff)")
     # 2) duplicates: same team within 1 m in one frame -> keep the bigger box
     merged = 0
     for k in per:

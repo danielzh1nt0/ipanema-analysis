@@ -1,0 +1,18 @@
+{
+ "sfk": {
+  "rows_raw": 139117,
+  "rows_dropped_9oct_pct": 0.49,
+  "rows_dropped_new_pct": 0.37,
+  "within_3m_of_touchline_pct_after_9oct": 3.8,
+  "within_3m_after_new": 3.5,
+  "within_3m_as_exported_pct": 4.3
+ },
+ "aik": {
+  "rows_raw": 124929,
+  "rows_dropped_9oct_pct": 2.47,
+  "rows_dropped_new_pct": 0.97,
+  "within_3m_of_touchline_pct_after_9oct": 5.9,
+  "within_3m_after_new": 5.0,
+  "within_3m_as_exported_pct": 8.2
+ }
+}
