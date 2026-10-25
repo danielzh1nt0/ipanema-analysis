@@ -116,13 +116,54 @@ def shape_timeline(shapes_, fps, attack_right, L):
             else: tl[tm].append({"t": round(k / fps, 1), "length": None, "width": None, "line_height": None, "n": 0})
     return tl
 
-def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8):
-    """sprint segments per player: start/end in metres, speed, whether the team had the ball"""
+RUNS_SMOOTH = os.environ.get("IPANEMA_RUNS_SMOOTH", "1") == "1"   # N0-25a: sprint speed from smoothed positions (0 = old raw frame speed)
+
+
+def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8, smooth=None, win_s=0.8, gap_join_s=0.0, jump_m=2.0, merge_s=0.0):
+    """sprint segments per player: start/end in metres, speed, whether the team had the ball.
+    N0-25a (25 Oct): the old rule read the speed from RAW frame-to-frame feet positions; our feet jitter ~0.3 m a frame,
+    so on the app clips 30% of frame speeds are > 5.5 m/s and 14% > 10 m/s (the 'id jump' cap), every sprint was cut to
+    pieces and the app's Runs layer was nearly empty (SFK-BP clip 2 runs in 5 min, AIK 0). Now (smooth=True, default)
+    the speed comes from positions smoothed over win_s within each seen run (analytics.smooth_runs, as the distance
+    figures since N0-22c); a sprint = consecutive seen rows (steps <= 3 frames) at speed_min..10 m/s for >= min_s; its
+    from/to/distance are the smoothed spots. Metrica pro tracking cut like our tracks: results/qa/n0-25a.
+    A raw step of more than jump_m in <= 3 frames (the track jumped to another person) breaks a run; two runs of one
+    player less than merge_s apart are one run when it still averages speed_min (lab only, 0 = off).
+    Rows filled by tracking.fill_gaps (straight line, marked 'filled'; older inputs: an exactly straight constant step)
+    are not seen and break a run. smooth=False (IPANEMA_RUNS_SMOOTH=0) = old."""
     from collections import defaultdict
+    smooth = RUNS_SMOOTH if smooth is None else smooth
     tr = defaultdict(dict); team = {}
     for k in per:
-        for r in per[k]: tr[r[0]][k] = r[2]; team[r[0]] = r[1]
+        for r in per[k]:
+            if smooth and len(r) > 6 and r[6] == "filled": continue          # N0-25a: a gap filled by a straight line (fill_gaps, up to 8 m/s) is not a seen sprint
+            tr[r[0]][k] = r[2]; team[r[0]] = r[1]
     out = []
+    if smooth:
+        from . import analytics as AN
+        for tid, pts in tr.items():
+            ks = np.array(sorted(pts))
+            if len(ks) < 2: continue
+            P = np.array([pts[k] for k in ks], float); win = max(1, int(win_s * fps))
+            lin = _straight(ks, P)                                           # unmarked straight-line fills (older saved inputs)
+            if lin.any(): ks, P = ks[~lin], P[~lin]
+            if len(ks) < 2: continue
+            g = np.diff(ks); jump = np.r_[False, (g <= 3) & (np.linalg.norm(np.diff(P, axis=0), axis=1) > jump_m)] if jump_m else np.zeros(len(ks), bool)
+            Ps = AN.smooth_runs(ks + 10 * np.cumsum(jump), P, win, runs=True)   # a raw jump (another person) splits the smoothing like a gap
+            sp = _speeds(ks, Ps, fps, gap_join_s); sp[jump] = np.nan            # = analytics.track_motion's speeds (0.8 s window)
+            on = (sp >= speed_min) & (sp <= 10)                              # NaN (gap / jump / > 10 m/s) is off
+            sm = {int(k): Ps[i] for i, k in enumerate(ks)}; i = 1; segs = []
+            while i < len(ks):
+                if not on[i]: i += 1; continue
+                j = i
+                while j + 1 < len(ks) and on[j + 1]: j += 1
+                seg = [int(ks[i - 1]), int(ks[j])]                           # the step into row i starts at row i-1
+                if segs and merge_s and seg[0] - segs[-1][1] <= merge_s * fps and not jump[(ks > segs[-1][1]) & (ks <= seg[0])].any(): segs[-1][1] = seg[1]
+                else: segs.append(seg)
+                i = j + 1
+            rs = [_run(tid, team[tid], s_, sm, fps, state) for s_ in segs if (s_[1] - s_[0]) / fps >= min_s]
+            out += [r for r in rs if not merge_s or (r["speed_ms"] or 0) >= speed_min]   # a merged run must still average sprint speed
+        return out
     for tid, pts in tr.items():
         ks = sorted(pts); seg = None
         for a, b in zip(ks, ks[1:]):
@@ -138,6 +179,29 @@ def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8):
                 seg = None
         if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state))
     return out
+
+def _straight(ks, P, tol=1e-6):
+    """rows inside a stretch of >= 3 consecutive frames moving in an exactly straight line at an exactly constant step
+    (second difference 0, step > 1 cm): a straight-line gap fill, never a measurement (feet jitter ~0.3 m)"""
+    out = np.zeros(len(ks), bool)
+    if len(ks) < 3: return out
+    d1 = np.diff(P, axis=0); d2 = np.linalg.norm(np.diff(d1, axis=0), axis=1)
+    ok = (np.diff(ks)[1:] == 1) & (np.diff(ks)[:-1] == 1) & (d2 < tol) & (np.linalg.norm(d1[1:], axis=1) > 0.01)
+    out[1:-1] |= ok
+    return out
+
+
+def _speeds(ks, Ps, fps, gap_join_s=0.0, gap_max_ms=7.0):
+    """per-row speed from already smoothed positions: steps of <= 3 frames, NaN otherwise (as analytics.track_motion).
+    gap_join_s > 0: a longer gap up to that many seconds gets the straight-line speed across it when that is at most
+    gap_max_ms (faster = another person, N0-22c), so a sprint can run through a short hide."""
+    sp = np.full(len(ks), np.nan)
+    for i in range(1, len(ks)):
+        g = int(ks[i] - ks[i - 1]); v = float(np.linalg.norm(Ps[i] - Ps[i - 1])) * fps / g
+        if g <= 3: sp[i] = v
+        elif g <= gap_join_s * fps and v <= gap_max_ms: sp[i] = v
+    return sp
+
 
 def _run(tid, tm, seg, pts, fps, state):
     a, b = seg; d = float(np.linalg.norm(pts[b] - pts[a])); dur = (b - a) / fps

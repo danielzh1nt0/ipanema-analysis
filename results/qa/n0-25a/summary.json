@@ -1,0 +1,126 @@
+{
+ "swap0.0": {
+  "old": {
+   "ours_vs_truth_pct": 0,
+   "found_pct": 0,
+   "real_pct": null
+  },
+  "new": {
+   "ours_vs_truth_pct": 50,
+   "found_pct": 42,
+   "real_pct": 100
+  },
+  "smooth_only": {
+   "ours_vs_truth_pct": 64,
+   "found_pct": 52,
+   "real_pct": 100
+  },
+  "merge0.5": {
+   "ours_vs_truth_pct": 71,
+   "found_pct": 59,
+   "real_pct": 96
+  },
+  "jump3": {
+   "ours_vs_truth_pct": 58,
+   "found_pct": 49,
+   "real_pct": 100
+  },
+  "win0.4": {
+   "ours_vs_truth_pct": 55,
+   "found_pct": 41,
+   "real_pct": 100
+  },
+  "win1.2": {
+   "ours_vs_truth_pct": 41,
+   "found_pct": 36,
+   "real_pct": 100
+  },
+  "new_min1.0": {
+   "ours_vs_truth_pct": 39,
+   "found_pct": 34,
+   "real_pct": 100
+  },
+  "new_min0.6": {
+   "ours_vs_truth_pct": 63,
+   "found_pct": 50,
+   "real_pct": 99
+  },
+  "join0.5": {
+   "ours_vs_truth_pct": 50,
+   "found_pct": 42,
+   "real_pct": 100
+  },
+  "join1.0": {
+   "ours_vs_truth_pct": 56,
+   "found_pct": 43,
+   "real_pct": 92
+  },
+  "join0.5_min0.6": {
+   "ours_vs_truth_pct": 63,
+   "found_pct": 50,
+   "real_pct": 99
+  }
+ },
+ "swap0.25": {
+  "old": {
+   "ours_vs_truth_pct": 0,
+   "found_pct": 0,
+   "real_pct": null
+  },
+  "new": {
+   "ours_vs_truth_pct": 43,
+   "found_pct": 30,
+   "real_pct": 100
+  },
+  "smooth_only": {
+   "ours_vs_truth_pct": 55,
+   "found_pct": 34,
+   "real_pct": 100
+  },
+  "merge0.5": {
+   "ours_vs_truth_pct": 63,
+   "found_pct": 42,
+   "real_pct": 95
+  },
+  "jump3": {
+   "ours_vs_truth_pct": 50,
+   "found_pct": 32,
+   "real_pct": 100
+  },
+  "win0.4": {
+   "ours_vs_truth_pct": 48,
+   "found_pct": 28,
+   "real_pct": 100
+  },
+  "win1.2": {
+   "ours_vs_truth_pct": 36,
+   "found_pct": 27,
+   "real_pct": 100
+  },
+  "new_min1.0": {
+   "ours_vs_truth_pct": 34,
+   "found_pct": 26,
+   "real_pct": 100
+  },
+  "new_min0.6": {
+   "ours_vs_truth_pct": 56,
+   "found_pct": 34,
+   "real_pct": 98
+  },
+  "join0.5": {
+   "ours_vs_truth_pct": 43,
+   "found_pct": 30,
+   "real_pct": 100
+  },
+  "join1.0": {
+   "ours_vs_truth_pct": 48,
+   "found_pct": 30,
+   "real_pct": 91
+  },
+  "join0.5_min0.6": {
+   "ours_vs_truth_pct": 56,
+   "found_pct": 34,
+   "real_pct": 98
+  }
+ }
+}

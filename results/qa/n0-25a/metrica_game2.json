@@ -1,0 +1,359 @@
+{
+ "game": 2,
+ "players": 22,
+ "minutes": 20.0,
+ "results": {
+  "swap0.0_seed0": {
+   "truth_sprints": 147,
+   "truth_dist_m": 2137,
+   "old": {
+    "ours": 0,
+    "ours_vs_truth_pct": 0,
+    "found_pct": 0,
+    "real_pct": null,
+    "dist_m": 0
+   },
+   "new": {
+    "ours": 67,
+    "ours_vs_truth_pct": 46,
+    "found_pct": 42,
+    "real_pct": 100,
+    "dist_m": 666
+   },
+   "smooth_only": {
+    "ours": 82,
+    "ours_vs_truth_pct": 56,
+    "found_pct": 50,
+    "real_pct": 100,
+    "dist_m": 926
+   },
+   "merge0.5": {
+    "ours": 102,
+    "ours_vs_truth_pct": 69,
+    "found_pct": 56,
+    "real_pct": 91,
+    "dist_m": 1087
+   },
+   "jump3": {
+    "ours": 78,
+    "ours_vs_truth_pct": 53,
+    "found_pct": 48,
+    "real_pct": 100,
+    "dist_m": 807
+   },
+   "win0.4": {
+    "ours": 69,
+    "ours_vs_truth_pct": 47,
+    "found_pct": 39,
+    "real_pct": 100,
+    "dist_m": 617
+   },
+   "win1.2": {
+    "ours": 56,
+    "ours_vs_truth_pct": 38,
+    "found_pct": 35,
+    "real_pct": 100,
+    "dist_m": 577
+   },
+   "new_min1.0": {
+    "ours": 53,
+    "ours_vs_truth_pct": 36,
+    "found_pct": 33,
+    "real_pct": 100,
+    "dist_m": 591
+   },
+   "new_min0.6": {
+    "ours": 87,
+    "ours_vs_truth_pct": 59,
+    "found_pct": 49,
+    "real_pct": 99,
+    "dist_m": 750
+   },
+   "join0.5": {
+    "ours": 67,
+    "ours_vs_truth_pct": 46,
+    "found_pct": 42,
+    "real_pct": 100,
+    "dist_m": 666
+   },
+   "join1.0": {
+    "ours": 78,
+    "ours_vs_truth_pct": 53,
+    "found_pct": 43,
+    "real_pct": 88,
+    "dist_m": 727
+   },
+   "join0.5_min0.6": {
+    "ours": 87,
+    "ours_vs_truth_pct": 59,
+    "found_pct": 49,
+    "real_pct": 99,
+    "dist_m": 750
+   }
+  },
+  "swap0.0_seed1": {
+   "truth_sprints": 147,
+   "truth_dist_m": 2137,
+   "old": {
+    "ours": 0,
+    "ours_vs_truth_pct": 0,
+    "found_pct": 0,
+    "real_pct": null,
+    "dist_m": 0
+   },
+   "new": {
+    "ours": 54,
+    "ours_vs_truth_pct": 37,
+    "found_pct": 33,
+    "real_pct": 100,
+    "dist_m": 563
+   },
+   "smooth_only": {
+    "ours": 79,
+    "ours_vs_truth_pct": 54,
+    "found_pct": 49,
+    "real_pct": 100,
+    "dist_m": 838
+   },
+   "merge0.5": {
+    "ours": 85,
+    "ours_vs_truth_pct": 58,
+    "found_pct": 53,
+    "real_pct": 99,
+    "dist_m": 889
+   },
+   "jump3": {
+    "ours": 69,
+    "ours_vs_truth_pct": 47,
+    "found_pct": 42,
+    "real_pct": 100,
+    "dist_m": 736
+   },
+   "win0.4": {
+    "ours": 61,
+    "ours_vs_truth_pct": 41,
+    "found_pct": 34,
+    "real_pct": 100,
+    "dist_m": 570
+   },
+   "win1.2": {
+    "ours": 43,
+    "ours_vs_truth_pct": 29,
+    "found_pct": 28,
+    "real_pct": 100,
+    "dist_m": 472
+   },
+   "new_min1.0": {
+    "ours": 40,
+    "ours_vs_truth_pct": 27,
+    "found_pct": 23,
+    "real_pct": 100,
+    "dist_m": 488
+   },
+   "new_min0.6": {
+    "ours": 69,
+    "ours_vs_truth_pct": 47,
+    "found_pct": 41,
+    "real_pct": 97,
+    "dist_m": 625
+   },
+   "join0.5": {
+    "ours": 54,
+    "ours_vs_truth_pct": 37,
+    "found_pct": 33,
+    "real_pct": 100,
+    "dist_m": 563
+   },
+   "join1.0": {
+    "ours": 67,
+    "ours_vs_truth_pct": 46,
+    "found_pct": 33,
+    "real_pct": 84,
+    "dist_m": 630
+   },
+   "join0.5_min0.6": {
+    "ours": 69,
+    "ours_vs_truth_pct": 47,
+    "found_pct": 41,
+    "real_pct": 97,
+    "dist_m": 625
+   }
+  },
+  "swap0.25_seed0": {
+   "truth_sprints": 147,
+   "truth_dist_m": 2137,
+   "old": {
+    "ours": 0,
+    "ours_vs_truth_pct": 0,
+    "found_pct": 0,
+    "real_pct": null,
+    "dist_m": 0
+   },
+   "new": {
+    "ours": 42,
+    "ours_vs_truth_pct": 29,
+    "found_pct": 22,
+    "real_pct": 100,
+    "dist_m": 445
+   },
+   "smooth_only": {
+    "ours": 61,
+    "ours_vs_truth_pct": 41,
+    "found_pct": 31,
+    "real_pct": 100,
+    "dist_m": 651
+   },
+   "merge0.5": {
+    "ours": 83,
+    "ours_vs_truth_pct": 56,
+    "found_pct": 39,
+    "real_pct": 88,
+    "dist_m": 830
+   },
+   "jump3": {
+    "ours": 53,
+    "ours_vs_truth_pct": 36,
+    "found_pct": 26,
+    "real_pct": 100,
+    "dist_m": 573
+   },
+   "win0.4": {
+    "ours": 44,
+    "ours_vs_truth_pct": 30,
+    "found_pct": 18,
+    "real_pct": 100,
+    "dist_m": 408
+   },
+   "win1.2": {
+    "ours": 34,
+    "ours_vs_truth_pct": 23,
+    "found_pct": 19,
+    "real_pct": 100,
+    "dist_m": 385
+   },
+   "new_min1.0": {
+    "ours": 31,
+    "ours_vs_truth_pct": 21,
+    "found_pct": 18,
+    "real_pct": 100,
+    "dist_m": 386
+   },
+   "new_min0.6": {
+    "ours": 64,
+    "ours_vs_truth_pct": 44,
+    "found_pct": 28,
+    "real_pct": 97,
+    "dist_m": 537
+   },
+   "join0.5": {
+    "ours": 42,
+    "ours_vs_truth_pct": 29,
+    "found_pct": 22,
+    "real_pct": 100,
+    "dist_m": 445
+   },
+   "join1.0": {
+    "ours": 54,
+    "ours_vs_truth_pct": 37,
+    "found_pct": 24,
+    "real_pct": 83,
+    "dist_m": 511
+   },
+   "join0.5_min0.6": {
+    "ours": 64,
+    "ours_vs_truth_pct": 44,
+    "found_pct": 28,
+    "real_pct": 97,
+    "dist_m": 537
+   }
+  },
+  "swap0.25_seed1": {
+   "truth_sprints": 147,
+   "truth_dist_m": 2137,
+   "old": {
+    "ours": 0,
+    "ours_vs_truth_pct": 0,
+    "found_pct": 0,
+    "real_pct": null,
+    "dist_m": 0
+   },
+   "new": {
+    "ours": 58,
+    "ours_vs_truth_pct": 39,
+    "found_pct": 27,
+    "real_pct": 100,
+    "dist_m": 618
+   },
+   "smooth_only": {
+    "ours": 70,
+    "ours_vs_truth_pct": 48,
+    "found_pct": 31,
+    "real_pct": 100,
+    "dist_m": 852
+   },
+   "merge0.5": {
+    "ours": 88,
+    "ours_vs_truth_pct": 60,
+    "found_pct": 41,
+    "real_pct": 92,
+    "dist_m": 908
+   },
+   "jump3": {
+    "ours": 66,
+    "ours_vs_truth_pct": 45,
+    "found_pct": 29,
+    "real_pct": 100,
+    "dist_m": 759
+   },
+   "win0.4": {
+    "ours": 65,
+    "ours_vs_truth_pct": 44,
+    "found_pct": 27,
+    "real_pct": 100,
+    "dist_m": 629
+   },
+   "win1.2": {
+    "ours": 51,
+    "ours_vs_truth_pct": 35,
+    "found_pct": 26,
+    "real_pct": 100,
+    "dist_m": 528
+   },
+   "new_min1.0": {
+    "ours": 44,
+    "ours_vs_truth_pct": 30,
+    "found_pct": 21,
+    "real_pct": 100,
+    "dist_m": 542
+   },
+   "new_min0.6": {
+    "ours": 74,
+    "ours_vs_truth_pct": 50,
+    "found_pct": 31,
+    "real_pct": 100,
+    "dist_m": 684
+   },
+   "join0.5": {
+    "ours": 58,
+    "ours_vs_truth_pct": 39,
+    "found_pct": 27,
+    "real_pct": 100,
+    "dist_m": 618
+   },
+   "join1.0": {
+    "ours": 66,
+    "ours_vs_truth_pct": 45,
+    "found_pct": 27,
+    "real_pct": 88,
+    "dist_m": 658
+   },
+   "join0.5_min0.6": {
+    "ours": 74,
+    "ours_vs_truth_pct": 50,
+    "found_pct": 31,
+    "real_pct": 100,
+    "dist_m": 684
+   }
+  }
+ }
+}

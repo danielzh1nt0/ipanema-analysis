@@ -1,0 +1,39 @@
+{
+ "SFKBP1109_s1200": {
+  "minutes": 5.0,
+  "old": {
+   "n": 2,
+   "per_10min": 4.0,
+   "players": 2,
+   "median_m": 5.9,
+   "median_ms": 6.699999999999999,
+   "median_s": 0.89,
+   "max_ms": 7.1
+  },
+  "new": {
+   "n": 26,
+   "per_10min": 52.0,
+   "players": 24,
+   "median_m": 7.45,
+   "median_ms": 6.5,
+   "median_s": 1.03,
+   "max_ms": 7.8
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "minutes": 5.0,
+  "old": {
+   "n": 0,
+   "per_10min": 0.0
+  },
+  "new": {
+   "n": 11,
+   "per_10min": 22.0,
+   "players": 8,
+   "median_m": 6.1,
+   "median_ms": 6.2,
+   "median_s": 0.93,
+   "max_ms": 7.6
+  }
+ }
+}

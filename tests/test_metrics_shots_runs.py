@@ -78,17 +78,17 @@ def _track(xs, tid=7, team="A", start=0):
 
 def test_runs_finds_a_sprint_and_ignores_jogging_and_id_jumps():
     per = _track([10 + 0.7 * i for i in range(15)])                       # 7 m/s for 1.4 s
-    out = M.runs(per, FPS, [0] * 15, AR)
+    out = M.runs(per, FPS, [0] * 15, AR, smooth=False)                    # the old raw-speed rule (IPANEMA_RUNS_SMOOTH=0)
     assert len(out) == 1 and out[0]["player"] == 7 and out[0]["speed_ms"] == 7.0 and out[0]["with_ball"] is True
-    assert M.runs(_track([10 + 0.3 * i for i in range(15)]), FPS, [0] * 15, AR) == []          # 3 m/s
-    assert M.runs(_track([10 + 2.0 * i for i in range(15)]), FPS, [0] * 15, AR) == []          # 20 m/s = an ID swap, not a sprint
+    assert M.runs(_track([10 + 0.3 * i for i in range(15)]), FPS, [0] * 15, AR, smooth=False) == []          # 3 m/s
+    assert M.runs(_track([10 + 2.0 * i for i in range(15)]), FPS, [0] * 15, AR, smooth=False) == []          # 20 m/s = an ID swap, not a sprint
 
 
 def test_runs_keeps_a_sprint_that_ends_at_a_track_gap():
     per = _track([10 + 0.7 * i for i in range(12)])                       # 1.1 s sprint ...
     per.update(_track([40.0, 40.1, 40.2], start=20))                      # ... then the track is lost for 0.9 s
     for k in range(12, 20): per.setdefault(k, [])
-    out = M.runs(per, FPS, [1] * 23, AR)
+    out = M.runs(per, FPS, [1] * 23, AR, smooth=False)
     assert len(out) == 1 and out[0]["t"] == 0.0 and out[0]["t_end"] == 1.1 and out[0]["with_ball"] is False
 
 
