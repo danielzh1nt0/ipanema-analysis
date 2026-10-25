@@ -1,0 +1,4002 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 191,
+  "poss_window": {
+   "n": 136,
+   "n_truth": 142,
+   "med_pts": 6.0,
+   "p90_pts": 38.0,
+   "bias_pts": -7.7,
+   "clear": 117,
+   "side_right": 101,
+   "corr": 0.8
+  },
+  "poss_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.2,
+   "p90_pts": 8.8,
+   "bias_pts": -3.5,
+   "clear": 90,
+   "side_right": 88,
+   "corr": 0.92
+  },
+  "poss_roll_weighted": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.7,
+   "p90_pts": 12.5,
+   "bias_pts": -4.6,
+   "clear": 90,
+   "side_right": 82,
+   "corr": 0.82
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.8,
+   "p90_pts": 7.7,
+   "bias_pts": -4.3,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 10.3,
+   "bias_pts": -6.1,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.7
+  },
+  "poss_roll_min1": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.1,
+   "p90_pts": 9.4,
+   "bias_pts": -1.6,
+   "clear": 90,
+   "side_right": 89,
+   "corr": 0.88
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.7,
+   "p90_pts": 10.0,
+   "bias_pts": -2.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.79
+  },
+  "poss_window_min1": {
+   "n": 122,
+   "n_truth": 142,
+   "med_pts": 5.0,
+   "p90_pts": 26.9,
+   "bias_pts": -3.0,
+   "clear": 103,
+   "side_right": 95,
+   "corr": 0.9
+  },
+  "poss_roll_min2": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.6,
+   "p90_pts": 11.4,
+   "bias_pts": -3.1,
+   "clear": 90,
+   "side_right": 85,
+   "corr": 0.86
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.8,
+   "p90_pts": 9.1,
+   "bias_pts": -4.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.81
+  },
+  "poss_window_min2": {
+   "n": 113,
+   "n_truth": 142,
+   "med_pts": 5.0,
+   "p90_pts": 26.0,
+   "bias_pts": -2.1,
+   "clear": 95,
+   "side_right": 89,
+   "corr": 0.91
+  },
+  "poss_roll_min3": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.7,
+   "p90_pts": 12.0,
+   "bias_pts": -2.8,
+   "clear": 90,
+   "side_right": 85,
+   "corr": 0.84
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.6,
+   "p90_pts": 11.9,
+   "bias_pts": -4.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.78
+  },
+  "poss_window_min3": {
+   "n": 103,
+   "n_truth": 142,
+   "med_pts": 5.0,
+   "p90_pts": 23.8,
+   "bias_pts": -1.4,
+   "clear": 87,
+   "side_right": 82,
+   "corr": 0.94
+  },
+  "poss_roll_min5": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 5.4,
+   "p90_pts": 15.8,
+   "bias_pts": -4.0,
+   "clear": 90,
+   "side_right": 85,
+   "corr": 0.86
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.0,
+   "p90_pts": 14.6,
+   "bias_pts": -5.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.8
+  },
+  "poss_window_min5": {
+   "n": 84,
+   "n_truth": 142,
+   "med_pts": 4.0,
+   "p90_pts": 17.7,
+   "bias_pts": -0.8,
+   "clear": 71,
+   "side_right": 69,
+   "corr": 0.96
+  },
+  "tilt_window": {
+   "n": 78,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": -0.1,
+   "clear": 78,
+   "side_right": 78,
+   "corr": 0.99
+  },
+  "tilt_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 6.7,
+   "p90_pts": 12.5,
+   "bias_pts": -1.5,
+   "clear": 137,
+   "side_right": 136,
+   "corr": 0.93
+  },
+  "control_s_ours_vs_truth": 0.62,
+  "thin_windows_ours": 35
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 191,
+  "poss_window": {
+   "n": 121,
+   "n_truth": 142,
+   "med_pts": 8.0,
+   "p90_pts": 46.0,
+   "bias_pts": -2.8,
+   "clear": 104,
+   "side_right": 89,
+   "corr": 0.78
+  },
+  "poss_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.9,
+   "p90_pts": 10.3,
+   "bias_pts": -1.1,
+   "clear": 90,
+   "side_right": 89,
+   "corr": 0.87
+  },
+  "poss_roll_weighted": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.2,
+   "p90_pts": 10.2,
+   "bias_pts": -5.1,
+   "clear": 90,
+   "side_right": 83,
+   "corr": 0.84
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 10.1,
+   "bias_pts": -2.4,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.76
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.6,
+   "p90_pts": 13.6,
+   "bias_pts": -6.4,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.73
+  },
+  "poss_roll_min1": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.1,
+   "p90_pts": 16.3,
+   "bias_pts": -5.7,
+   "clear": 90,
+   "side_right": 82,
+   "corr": 0.84
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 15.5,
+   "bias_pts": -5.5,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.78
+  },
+  "poss_window_min1": {
+   "n": 80,
+   "n_truth": 142,
+   "med_pts": 9.5,
+   "p90_pts": 32.9,
+   "bias_pts": -1.0,
+   "clear": 65,
+   "side_right": 57,
+   "corr": 0.84
+  },
+  "poss_roll_min2": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 6.1,
+   "p90_pts": 24.7,
+   "bias_pts": -4.4,
+   "clear": 90,
+   "side_right": 77,
+   "corr": 0.61
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 13.6,
+   "p90_pts": 31.3,
+   "bias_pts": -7.5,
+   "clear": 6,
+   "side_right": 4,
+   "corr": 0.33
+  },
+  "poss_window_min2": {
+   "n": 37,
+   "n_truth": 142,
+   "med_pts": 12.0,
+   "p90_pts": 29.8,
+   "bias_pts": -3.4,
+   "clear": 29,
+   "side_right": 25,
+   "corr": 0.86
+  },
+  "poss_roll_min3": {
+   "n": 151,
+   "n_truth": 191,
+   "med_pts": 13.9,
+   "p90_pts": 42.1,
+   "bias_pts": -7.8,
+   "clear": 79,
+   "side_right": 43,
+   "corr": 0.19
+  },
+  "poss_bars_min3": {
+   "n": 7,
+   "n_truth": 10,
+   "med_pts": 13.0,
+   "p90_pts": 41.9,
+   "bias_pts": -12.5,
+   "clear": 5,
+   "side_right": 2,
+   "corr": -0.09
+  },
+  "poss_window_min3": {
+   "n": 11,
+   "n_truth": 142,
+   "med_pts": 8.0,
+   "p90_pts": 31.0,
+   "bias_pts": 4.0,
+   "clear": 8,
+   "side_right": 7,
+   "corr": 0.86
+  },
+  "poss_roll_min5": {
+   "n": 21,
+   "n_truth": 191,
+   "med_pts": 55.6,
+   "p90_pts": 84.5,
+   "bias_pts": -56.8,
+   "clear": 14,
+   "side_right": 7,
+   "corr": null
+  },
+  "poss_bars_min5": {
+   "n": 1,
+   "n_truth": 10,
+   "med_pts": 82.1,
+   "p90_pts": 82.1,
+   "bias_pts": -82.1,
+   "clear": 1,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 0,
+   "n_truth": 142,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 58,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.3,
+   "clear": 58,
+   "side_right": 58,
+   "corr": 1.0
+  },
+  "tilt_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 6.9,
+   "p90_pts": 19.2,
+   "bias_pts": -2.1,
+   "clear": 137,
+   "side_right": 124,
+   "corr": 0.86
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 113
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 191,
+  "poss_window": {
+   "n": 124,
+   "n_truth": 142,
+   "med_pts": 14.0,
+   "p90_pts": 47.7,
+   "bias_pts": -5.0,
+   "clear": 105,
+   "side_right": 90,
+   "corr": 0.74
+  },
+  "poss_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.3,
+   "p90_pts": 10.5,
+   "bias_pts": -3.4,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.9
+  },
+  "poss_roll_weighted": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 6.9,
+   "p90_pts": 17.9,
+   "bias_pts": -7.2,
+   "clear": 90,
+   "side_right": 82,
+   "corr": 0.65
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.1,
+   "p90_pts": 9.7,
+   "bias_pts": -4.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.85
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.2,
+   "p90_pts": 16.5,
+   "bias_pts": -8.7,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.44
+  },
+  "poss_roll_min1": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 9.0,
+   "p90_pts": 23.3,
+   "bias_pts": -7.7,
+   "clear": 90,
+   "side_right": 82,
+   "corr": 0.63
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 8.1,
+   "p90_pts": 18.8,
+   "bias_pts": -9.0,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.6
+  },
+  "poss_window_min1": {
+   "n": 72,
+   "n_truth": 142,
+   "med_pts": 15.0,
+   "p90_pts": 41.0,
+   "bias_pts": -5.0,
+   "clear": 59,
+   "side_right": 51,
+   "corr": 0.8
+  },
+  "poss_roll_min2": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 11.4,
+   "p90_pts": 32.0,
+   "bias_pts": -9.3,
+   "clear": 90,
+   "side_right": 78,
+   "corr": 0.45
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.6,
+   "p90_pts": 30.4,
+   "bias_pts": -9.4,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.38
+  },
+  "poss_window_min2": {
+   "n": 32,
+   "n_truth": 142,
+   "med_pts": 11.0,
+   "p90_pts": 32.9,
+   "bias_pts": -3.5,
+   "clear": 25,
+   "side_right": 23,
+   "corr": 0.81
+  },
+  "poss_roll_min3": {
+   "n": 140,
+   "n_truth": 191,
+   "med_pts": 20.9,
+   "p90_pts": 46.5,
+   "bias_pts": -10.9,
+   "clear": 79,
+   "side_right": 44,
+   "corr": 0.02
+  },
+  "poss_bars_min3": {
+   "n": 7,
+   "n_truth": 10,
+   "med_pts": 17.8,
+   "p90_pts": 56.7,
+   "bias_pts": -16.3,
+   "clear": 5,
+   "side_right": 3,
+   "corr": -0.51
+  },
+  "poss_window_min3": {
+   "n": 9,
+   "n_truth": 142,
+   "med_pts": 11.0,
+   "p90_pts": 34.6,
+   "bias_pts": -10.1,
+   "clear": 8,
+   "side_right": 7,
+   "corr": 0.82
+  },
+  "poss_roll_min5": {
+   "n": 21,
+   "n_truth": 191,
+   "med_pts": 55.6,
+   "p90_pts": 84.5,
+   "bias_pts": -56.8,
+   "clear": 14,
+   "side_right": 7,
+   "corr": null
+  },
+  "poss_bars_min5": {
+   "n": 1,
+   "n_truth": 10,
+   "med_pts": 82.1,
+   "p90_pts": 82.1,
+   "bias_pts": -82.1,
+   "clear": 1,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 0,
+   "n_truth": 142,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 57,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.4,
+   "clear": 57,
+   "side_right": 57,
+   "corr": 1.0
+  },
+  "tilt_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 8.9,
+   "p90_pts": 29.2,
+   "bias_pts": -6.0,
+   "clear": 137,
+   "side_right": 115,
+   "corr": 0.77
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 118
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 191,
+  "poss_window": {
+   "n": 138,
+   "n_truth": 142,
+   "med_pts": 16.0,
+   "p90_pts": 42.0,
+   "bias_pts": -6.8,
+   "clear": 119,
+   "side_right": 102,
+   "corr": 0.69
+  },
+  "poss_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.0,
+   "p90_pts": 14.2,
+   "bias_pts": -1.4,
+   "clear": 90,
+   "side_right": 86,
+   "corr": 0.86
+  },
+  "poss_roll_weighted": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.3,
+   "p90_pts": 11.1,
+   "bias_pts": -2.6,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.91
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.9,
+   "p90_pts": 15.7,
+   "bias_pts": -2.2,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.86
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.1,
+   "p90_pts": 16.1,
+   "bias_pts": -3.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.87
+  },
+  "poss_roll_min1": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.2,
+   "p90_pts": 14.1,
+   "bias_pts": -0.6,
+   "clear": 90,
+   "side_right": 85,
+   "corr": 0.88
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.5,
+   "p90_pts": 15.7,
+   "bias_pts": -1.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.89
+  },
+  "poss_window_min1": {
+   "n": 125,
+   "n_truth": 142,
+   "med_pts": 15.0,
+   "p90_pts": 37.0,
+   "bias_pts": -3.2,
+   "clear": 106,
+   "side_right": 94,
+   "corr": 0.8
+  },
+  "poss_roll_min2": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 2.4,
+   "p90_pts": 12.3,
+   "bias_pts": -1.7,
+   "clear": 90,
+   "side_right": 87,
+   "corr": 0.91
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 16.1,
+   "bias_pts": -2.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.89
+  },
+  "poss_window_min2": {
+   "n": 115,
+   "n_truth": 142,
+   "med_pts": 13.0,
+   "p90_pts": 34.2,
+   "bias_pts": -2.7,
+   "clear": 96,
+   "side_right": 86,
+   "corr": 0.82
+  },
+  "poss_roll_min3": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 2.3,
+   "p90_pts": 9.8,
+   "bias_pts": -1.8,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.94
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.1,
+   "p90_pts": 15.2,
+   "bias_pts": -3.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.92
+  },
+  "poss_window_min3": {
+   "n": 104,
+   "n_truth": 142,
+   "med_pts": 13.0,
+   "p90_pts": 32.4,
+   "bias_pts": -0.9,
+   "clear": 86,
+   "side_right": 79,
+   "corr": 0.86
+  },
+  "poss_roll_min5": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 2.4,
+   "p90_pts": 11.1,
+   "bias_pts": -2.8,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.92
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.0,
+   "p90_pts": 14.3,
+   "bias_pts": -3.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.86
+  },
+  "poss_window_min5": {
+   "n": 89,
+   "n_truth": 142,
+   "med_pts": 12.0,
+   "p90_pts": 30.2,
+   "bias_pts": 0.4,
+   "clear": 75,
+   "side_right": 71,
+   "corr": 0.9
+  },
+  "tilt_window": {
+   "n": 86,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 7.5,
+   "bias_pts": 1.1,
+   "clear": 86,
+   "side_right": 83,
+   "corr": 0.94
+  },
+  "tilt_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 5.3,
+   "p90_pts": 15.9,
+   "bias_pts": -2.7,
+   "clear": 137,
+   "side_right": 134,
+   "corr": 0.93
+  },
+  "control_s_ours_vs_truth": 0.67,
+  "thin_windows_ours": 41
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 191,
+  "poss_window": {
+   "n": 137,
+   "n_truth": 142,
+   "med_pts": 17.0,
+   "p90_pts": 40.2,
+   "bias_pts": -5.9,
+   "clear": 118,
+   "side_right": 102,
+   "corr": 0.71
+  },
+  "poss_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.8,
+   "p90_pts": 11.8,
+   "bias_pts": -2.2,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.88
+  },
+  "poss_roll_weighted": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 2.4,
+   "p90_pts": 11.5,
+   "bias_pts": -2.4,
+   "clear": 90,
+   "side_right": 85,
+   "corr": 0.88
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.9,
+   "p90_pts": 12.3,
+   "bias_pts": -3.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.5,
+   "p90_pts": 13.9,
+   "bias_pts": -3.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.79
+  },
+  "poss_roll_min1": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.2,
+   "p90_pts": 10.4,
+   "bias_pts": -1.1,
+   "clear": 90,
+   "side_right": 88,
+   "corr": 0.89
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.0,
+   "p90_pts": 12.9,
+   "bias_pts": -2.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.83
+  },
+  "poss_window_min1": {
+   "n": 125,
+   "n_truth": 142,
+   "med_pts": 17.0,
+   "p90_pts": 36.0,
+   "bias_pts": -3.6,
+   "clear": 106,
+   "side_right": 94,
+   "corr": 0.82
+  },
+  "poss_roll_min2": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.1,
+   "p90_pts": 9.1,
+   "bias_pts": -0.4,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.92
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.1,
+   "p90_pts": 12.4,
+   "bias_pts": -1.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_window_min2": {
+   "n": 117,
+   "n_truth": 142,
+   "med_pts": 17.0,
+   "p90_pts": 32.4,
+   "bias_pts": -2.1,
+   "clear": 98,
+   "side_right": 88,
+   "corr": 0.84
+  },
+  "poss_roll_min3": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 3.1,
+   "p90_pts": 10.3,
+   "bias_pts": -1.1,
+   "clear": 90,
+   "side_right": 90,
+   "corr": 0.92
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.1,
+   "p90_pts": 13.7,
+   "bias_pts": -2.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.88
+  },
+  "poss_window_min3": {
+   "n": 106,
+   "n_truth": 142,
+   "med_pts": 17.0,
+   "p90_pts": 31.0,
+   "bias_pts": -0.8,
+   "clear": 87,
+   "side_right": 77,
+   "corr": 0.84
+  },
+  "poss_roll_min5": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 2.9,
+   "p90_pts": 11.2,
+   "bias_pts": -2.6,
+   "clear": 90,
+   "side_right": 89,
+   "corr": 0.88
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.1,
+   "p90_pts": 13.0,
+   "bias_pts": -3.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.8
+  },
+  "poss_window_min5": {
+   "n": 88,
+   "n_truth": 142,
+   "med_pts": 16.0,
+   "p90_pts": 27.0,
+   "bias_pts": 0.1,
+   "clear": 74,
+   "side_right": 70,
+   "corr": 0.91
+  },
+  "tilt_window": {
+   "n": 84,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 2.8,
+   "bias_pts": 0.4,
+   "clear": 84,
+   "side_right": 83,
+   "corr": 0.97
+  },
+  "tilt_roll_app": {
+   "n": 191,
+   "n_truth": 191,
+   "med_pts": 4.2,
+   "p90_pts": 11.3,
+   "bias_pts": -3.9,
+   "clear": 137,
+   "side_right": 137,
+   "corr": 0.96
+  },
+  "control_s_ours_vs_truth": 0.67,
+  "thin_windows_ours": 36
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 197,
+  "poss_window": {
+   "n": 151,
+   "n_truth": 154,
+   "med_pts": 2.0,
+   "p90_pts": 19.0,
+   "bias_pts": 1.9,
+   "clear": 132,
+   "side_right": 126,
+   "corr": 0.9
+  },
+  "poss_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 2.9,
+   "p90_pts": 15.0,
+   "bias_pts": 2.9,
+   "clear": 110,
+   "side_right": 108,
+   "corr": 0.83
+  },
+  "poss_roll_weighted": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 1.8,
+   "p90_pts": 9.4,
+   "bias_pts": 0.8,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.91
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.9,
+   "p90_pts": 16.4,
+   "bias_pts": 3.2,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.84
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.2,
+   "p90_pts": 8.1,
+   "bias_pts": 1.2,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.89
+  },
+  "poss_roll_min1": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.0,
+   "p90_pts": 10.7,
+   "bias_pts": 1.4,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.87
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.8,
+   "p90_pts": 10.0,
+   "bias_pts": 1.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.88
+  },
+  "poss_window_min1": {
+   "n": 143,
+   "n_truth": 154,
+   "med_pts": 2.0,
+   "p90_pts": 17.8,
+   "bias_pts": 1.5,
+   "clear": 125,
+   "side_right": 121,
+   "corr": 0.92
+  },
+  "poss_roll_min2": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.0,
+   "p90_pts": 10.7,
+   "bias_pts": 1.4,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.88
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.8,
+   "p90_pts": 10.0,
+   "bias_pts": 1.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.88
+  },
+  "poss_window_min2": {
+   "n": 142,
+   "n_truth": 154,
+   "med_pts": 2.0,
+   "p90_pts": 17.0,
+   "bias_pts": 1.8,
+   "clear": 124,
+   "side_right": 120,
+   "corr": 0.92
+  },
+  "poss_roll_min3": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 2.7,
+   "p90_pts": 8.5,
+   "bias_pts": 0.4,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.9
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.0,
+   "p90_pts": 4.8,
+   "bias_pts": 0.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.91
+  },
+  "poss_window_min3": {
+   "n": 137,
+   "n_truth": 154,
+   "med_pts": 2.0,
+   "p90_pts": 17.0,
+   "bias_pts": 1.9,
+   "clear": 121,
+   "side_right": 117,
+   "corr": 0.92
+  },
+  "poss_roll_min5": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.6,
+   "p90_pts": 11.5,
+   "bias_pts": -0.9,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.89
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.0,
+   "p90_pts": 11.0,
+   "bias_pts": -0.7,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.84
+  },
+  "poss_window_min5": {
+   "n": 120,
+   "n_truth": 154,
+   "med_pts": 1.0,
+   "p90_pts": 17.0,
+   "bias_pts": 2.5,
+   "clear": 105,
+   "side_right": 102,
+   "corr": 0.94
+  },
+  "tilt_window": {
+   "n": 77,
+   "n_truth": 91,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": -1.4,
+   "clear": 77,
+   "side_right": 76,
+   "corr": 0.97
+  },
+  "tilt_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 7.1,
+   "p90_pts": 17.6,
+   "bias_pts": -0.6,
+   "clear": 97,
+   "side_right": 88,
+   "corr": 0.87
+  },
+  "control_s_ours_vs_truth": 0.69,
+  "thin_windows_ours": 16
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 197,
+  "poss_window": {
+   "n": 146,
+   "n_truth": 154,
+   "med_pts": 5.0,
+   "p90_pts": 32.0,
+   "bias_pts": -0.8,
+   "clear": 128,
+   "side_right": 116,
+   "corr": 0.84
+  },
+  "poss_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 4.0,
+   "p90_pts": 11.3,
+   "bias_pts": -0.9,
+   "clear": 110,
+   "side_right": 108,
+   "corr": 0.86
+  },
+  "poss_roll_weighted": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.6,
+   "p90_pts": 13.5,
+   "bias_pts": -2.8,
+   "clear": 110,
+   "side_right": 109,
+   "corr": 0.84
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.7,
+   "p90_pts": 9.5,
+   "bias_pts": -1.3,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.84
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.5,
+   "p90_pts": 15.0,
+   "bias_pts": -2.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.78
+  },
+  "poss_roll_min1": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 6.8,
+   "p90_pts": 16.4,
+   "bias_pts": -2.8,
+   "clear": 110,
+   "side_right": 107,
+   "corr": 0.72
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 8.9,
+   "p90_pts": 21.1,
+   "bias_pts": -3.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.62
+  },
+  "poss_window_min1": {
+   "n": 109,
+   "n_truth": 154,
+   "med_pts": 5.0,
+   "p90_pts": 28.2,
+   "bias_pts": -1.1,
+   "clear": 96,
+   "side_right": 90,
+   "corr": 0.89
+  },
+  "poss_roll_min2": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 12.2,
+   "p90_pts": 25.7,
+   "bias_pts": -4.0,
+   "clear": 110,
+   "side_right": 92,
+   "corr": 0.52
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 13.1,
+   "p90_pts": 28.5,
+   "bias_pts": -2.6,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.47
+  },
+  "poss_window_min2": {
+   "n": 52,
+   "n_truth": 154,
+   "med_pts": 4.5,
+   "p90_pts": 27.0,
+   "bias_pts": 1.3,
+   "clear": 45,
+   "side_right": 40,
+   "corr": 0.86
+  },
+  "poss_roll_min3": {
+   "n": 181,
+   "n_truth": 197,
+   "med_pts": 25.7,
+   "p90_pts": 39.5,
+   "bias_pts": 1.7,
+   "clear": 107,
+   "side_right": 76,
+   "corr": 0.4
+  },
+  "poss_bars_min3": {
+   "n": 9,
+   "n_truth": 10,
+   "med_pts": 28.0,
+   "p90_pts": 32.9,
+   "bias_pts": -2.8,
+   "clear": 6,
+   "side_right": 4,
+   "corr": 0.54
+  },
+  "poss_window_min3": {
+   "n": 21,
+   "n_truth": 154,
+   "med_pts": 1.0,
+   "p90_pts": 12.0,
+   "bias_pts": 1.0,
+   "clear": 19,
+   "side_right": 18,
+   "corr": 0.98
+  },
+  "poss_roll_min5": {
+   "n": 21,
+   "n_truth": 197,
+   "med_pts": 34.2,
+   "p90_pts": 36.2,
+   "bias_pts": 34.2,
+   "clear": 20,
+   "side_right": 20,
+   "corr": null
+  },
+  "poss_bars_min5": {
+   "n": 1,
+   "n_truth": 10,
+   "med_pts": 30.7,
+   "p90_pts": 30.7,
+   "bias_pts": 30.7,
+   "clear": 1,
+   "side_right": 1,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 1,
+   "n_truth": 154,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.0,
+   "clear": 1,
+   "side_right": 1,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 63,
+   "n_truth": 91,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 1.6,
+   "clear": 63,
+   "side_right": 63,
+   "corr": 0.99
+  },
+  "tilt_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 9.3,
+   "p90_pts": 20.0,
+   "bias_pts": -2.2,
+   "clear": 97,
+   "side_right": 94,
+   "corr": 0.85
+  },
+  "control_s_ours_vs_truth": 0.14,
+  "thin_windows_ours": 127
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 197,
+  "poss_window": {
+   "n": 145,
+   "n_truth": 154,
+   "med_pts": 5.0,
+   "p90_pts": 31.6,
+   "bias_pts": 1.2,
+   "clear": 126,
+   "side_right": 116,
+   "corr": 0.82
+  },
+  "poss_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 4.1,
+   "p90_pts": 13.3,
+   "bias_pts": 1.1,
+   "clear": 110,
+   "side_right": 109,
+   "corr": 0.82
+  },
+  "poss_roll_weighted": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.5,
+   "p90_pts": 13.8,
+   "bias_pts": 0.4,
+   "clear": 110,
+   "side_right": 109,
+   "corr": 0.77
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.0,
+   "p90_pts": 12.6,
+   "bias_pts": 1.3,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.85
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.8,
+   "p90_pts": 12.2,
+   "bias_pts": 0.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.75
+  },
+  "poss_roll_min1": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 4.0,
+   "p90_pts": 12.7,
+   "bias_pts": 1.6,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.85
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.0,
+   "p90_pts": 8.8,
+   "bias_pts": 1.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.8
+  },
+  "poss_window_min1": {
+   "n": 112,
+   "n_truth": 154,
+   "med_pts": 5.0,
+   "p90_pts": 29.9,
+   "bias_pts": 1.8,
+   "clear": 98,
+   "side_right": 91,
+   "corr": 0.85
+  },
+  "poss_roll_min2": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 8.0,
+   "p90_pts": 23.3,
+   "bias_pts": 4.3,
+   "clear": 110,
+   "side_right": 94,
+   "corr": 0.5
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.2,
+   "p90_pts": 22.3,
+   "bias_pts": 4.5,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.58
+  },
+  "poss_window_min2": {
+   "n": 65,
+   "n_truth": 154,
+   "med_pts": 7.0,
+   "p90_pts": 29.6,
+   "bias_pts": 3.4,
+   "clear": 55,
+   "side_right": 50,
+   "corr": 0.84
+  },
+  "poss_roll_min3": {
+   "n": 194,
+   "n_truth": 197,
+   "med_pts": 20.5,
+   "p90_pts": 46.5,
+   "bias_pts": -6.6,
+   "clear": 110,
+   "side_right": 58,
+   "corr": 0.14
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 14.4,
+   "p90_pts": 46.5,
+   "bias_pts": -7.8,
+   "clear": 6,
+   "side_right": 3,
+   "corr": -0.04
+  },
+  "poss_window_min3": {
+   "n": 23,
+   "n_truth": 154,
+   "med_pts": 6.0,
+   "p90_pts": 27.8,
+   "bias_pts": 7.3,
+   "clear": 20,
+   "side_right": 18,
+   "corr": 0.81
+  },
+  "poss_roll_min5": {
+   "n": 21,
+   "n_truth": 197,
+   "med_pts": 29.6,
+   "p90_pts": 34.1,
+   "bias_pts": -26.3,
+   "clear": 3,
+   "side_right": 0,
+   "corr": 0.0
+  },
+  "poss_bars_min5": {
+   "n": 1,
+   "n_truth": 10,
+   "med_pts": 14.6,
+   "p90_pts": 14.6,
+   "bias_pts": -14.6,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 1,
+   "n_truth": 154,
+   "med_pts": 27.0,
+   "p90_pts": 27.0,
+   "bias_pts": 27.0,
+   "clear": 1,
+   "side_right": 1,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 62,
+   "n_truth": 91,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 1.2,
+   "clear": 62,
+   "side_right": 60,
+   "corr": 0.98
+  },
+  "tilt_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 8.6,
+   "p90_pts": 23.2,
+   "bias_pts": -2.0,
+   "clear": 97,
+   "side_right": 88,
+   "corr": 0.76
+  },
+  "control_s_ours_vs_truth": 0.15,
+  "thin_windows_ours": 124
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 197,
+  "poss_window": {
+   "n": 152,
+   "n_truth": 154,
+   "med_pts": 15.5,
+   "p90_pts": 33.9,
+   "bias_pts": 0.7,
+   "clear": 133,
+   "side_right": 122,
+   "corr": 0.81
+  },
+  "poss_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.5,
+   "p90_pts": 10.9,
+   "bias_pts": 1.5,
+   "clear": 110,
+   "side_right": 109,
+   "corr": 0.84
+  },
+  "poss_roll_weighted": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.9,
+   "p90_pts": 9.5,
+   "bias_pts": 1.3,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.91
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.4,
+   "p90_pts": 11.6,
+   "bias_pts": 1.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.96
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.3,
+   "p90_pts": 7.4,
+   "bias_pts": 1.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.92
+  },
+  "poss_roll_min1": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.2,
+   "p90_pts": 9.6,
+   "bias_pts": 0.6,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.88
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.4,
+   "p90_pts": 8.2,
+   "bias_pts": 0.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.95
+  },
+  "poss_window_min1": {
+   "n": 145,
+   "n_truth": 154,
+   "med_pts": 16.0,
+   "p90_pts": 33.6,
+   "bias_pts": 0.1,
+   "clear": 126,
+   "side_right": 116,
+   "corr": 0.82
+  },
+  "poss_roll_min2": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.2,
+   "p90_pts": 9.6,
+   "bias_pts": 0.7,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.88
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.4,
+   "p90_pts": 8.2,
+   "bias_pts": 0.9,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.95
+  },
+  "poss_window_min2": {
+   "n": 144,
+   "n_truth": 154,
+   "med_pts": 16.0,
+   "p90_pts": 33.0,
+   "bias_pts": 0.5,
+   "clear": 125,
+   "side_right": 116,
+   "corr": 0.83
+  },
+  "poss_roll_min3": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 4.9,
+   "p90_pts": 9.2,
+   "bias_pts": 0.9,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.9
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.2,
+   "p90_pts": 8.7,
+   "bias_pts": 1.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.94
+  },
+  "poss_window_min3": {
+   "n": 141,
+   "n_truth": 154,
+   "med_pts": 16.0,
+   "p90_pts": 33.0,
+   "bias_pts": 0.9,
+   "clear": 124,
+   "side_right": 115,
+   "corr": 0.84
+  },
+  "poss_roll_min5": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 3.6,
+   "p90_pts": 9.9,
+   "bias_pts": 1.1,
+   "clear": 110,
+   "side_right": 109,
+   "corr": 0.89
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 11.2,
+   "bias_pts": 1.3,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.87
+  },
+  "poss_window_min5": {
+   "n": 126,
+   "n_truth": 154,
+   "med_pts": 15.0,
+   "p90_pts": 32.0,
+   "bias_pts": 2.4,
+   "clear": 110,
+   "side_right": 103,
+   "corr": 0.86
+  },
+  "tilt_window": {
+   "n": 79,
+   "n_truth": 91,
+   "med_pts": 0.0,
+   "p90_pts": 8.2,
+   "bias_pts": -3.2,
+   "clear": 79,
+   "side_right": 76,
+   "corr": 0.94
+  },
+  "tilt_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 8.5,
+   "p90_pts": 20.5,
+   "bias_pts": -5.7,
+   "clear": 97,
+   "side_right": 87,
+   "corr": 0.81
+  },
+  "control_s_ours_vs_truth": 0.72,
+  "thin_windows_ours": 13
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 197,
+  "poss_window": {
+   "n": 152,
+   "n_truth": 154,
+   "med_pts": 16.0,
+   "p90_pts": 38.6,
+   "bias_pts": 0.4,
+   "clear": 133,
+   "side_right": 121,
+   "corr": 0.76
+  },
+  "poss_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 6.8,
+   "p90_pts": 14.4,
+   "bias_pts": 1.2,
+   "clear": 110,
+   "side_right": 104,
+   "corr": 0.71
+  },
+  "poss_roll_weighted": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.3,
+   "p90_pts": 11.2,
+   "bias_pts": 0.7,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.83
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 7.9,
+   "p90_pts": 15.4,
+   "bias_pts": 1.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.71
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.9,
+   "p90_pts": 10.8,
+   "bias_pts": 1.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.82
+  },
+  "poss_roll_min1": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 6.4,
+   "p90_pts": 12.2,
+   "bias_pts": 1.3,
+   "clear": 110,
+   "side_right": 105,
+   "corr": 0.76
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 7.4,
+   "p90_pts": 13.4,
+   "bias_pts": 1.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.76
+  },
+  "poss_window_min1": {
+   "n": 148,
+   "n_truth": 154,
+   "med_pts": 16.0,
+   "p90_pts": 35.0,
+   "bias_pts": 0.8,
+   "clear": 129,
+   "side_right": 119,
+   "corr": 0.79
+  },
+  "poss_roll_min2": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.6,
+   "p90_pts": 11.5,
+   "bias_pts": 0.9,
+   "clear": 110,
+   "side_right": 108,
+   "corr": 0.82
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.6,
+   "p90_pts": 11.5,
+   "bias_pts": 1.3,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.84
+  },
+  "poss_window_min2": {
+   "n": 142,
+   "n_truth": 154,
+   "med_pts": 15.0,
+   "p90_pts": 31.0,
+   "bias_pts": 1.0,
+   "clear": 124,
+   "side_right": 116,
+   "corr": 0.84
+  },
+  "poss_roll_min3": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 5.7,
+   "p90_pts": 11.5,
+   "bias_pts": 0.6,
+   "clear": 110,
+   "side_right": 108,
+   "corr": 0.81
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.6,
+   "p90_pts": 11.5,
+   "bias_pts": 1.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.85
+  },
+  "poss_window_min3": {
+   "n": 140,
+   "n_truth": 154,
+   "med_pts": 15.0,
+   "p90_pts": 31.2,
+   "bias_pts": 0.9,
+   "clear": 123,
+   "side_right": 115,
+   "corr": 0.84
+  },
+  "poss_roll_min5": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 4.3,
+   "p90_pts": 9.4,
+   "bias_pts": 0.1,
+   "clear": 110,
+   "side_right": 110,
+   "corr": 0.86
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.8,
+   "p90_pts": 9.8,
+   "bias_pts": 0.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.83
+  },
+  "poss_window_min5": {
+   "n": 126,
+   "n_truth": 154,
+   "med_pts": 15.0,
+   "p90_pts": 29.5,
+   "bias_pts": 1.4,
+   "clear": 110,
+   "side_right": 103,
+   "corr": 0.85
+  },
+  "tilt_window": {
+   "n": 81,
+   "n_truth": 91,
+   "med_pts": 0.0,
+   "p90_pts": 7.0,
+   "bias_pts": -3.2,
+   "clear": 81,
+   "side_right": 78,
+   "corr": 0.94
+  },
+  "tilt_roll_app": {
+   "n": 197,
+   "n_truth": 197,
+   "med_pts": 10.4,
+   "p90_pts": 21.5,
+   "bias_pts": -7.2,
+   "clear": 97,
+   "side_right": 77,
+   "corr": 0.77
+  },
+  "control_s_ours_vs_truth": 0.72,
+  "thin_windows_ours": 14
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 182,
+  "poss_window": {
+   "n": 154,
+   "n_truth": 157,
+   "med_pts": 3.5,
+   "p90_pts": 19.0,
+   "bias_pts": -0.1,
+   "clear": 138,
+   "side_right": 131,
+   "corr": 0.91
+  },
+  "poss_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.8,
+   "p90_pts": 10.3,
+   "bias_pts": -0.4,
+   "clear": 68,
+   "side_right": 67,
+   "corr": 0.88
+  },
+  "poss_roll_weighted": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 1.9,
+   "p90_pts": 4.9,
+   "bias_pts": 0.3,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.98
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 1.2,
+   "p90_pts": 12.7,
+   "bias_pts": -0.6,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.3,
+   "p90_pts": 4.1,
+   "bias_pts": 0.2,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.99
+  },
+  "poss_roll_min1": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.6,
+   "p90_pts": 8.7,
+   "bias_pts": -0.4,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.91
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.2,
+   "p90_pts": 8.7,
+   "bias_pts": -0.6,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.96
+  },
+  "poss_window_min1": {
+   "n": 149,
+   "n_truth": 157,
+   "med_pts": 3.0,
+   "p90_pts": 17.2,
+   "bias_pts": 0.6,
+   "clear": 133,
+   "side_right": 129,
+   "corr": 0.96
+  },
+  "poss_roll_min2": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 2.7,
+   "p90_pts": 8.3,
+   "bias_pts": 0.4,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.93
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 1.4,
+   "p90_pts": 8.4,
+   "bias_pts": 0.2,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.97
+  },
+  "poss_window_min2": {
+   "n": 145,
+   "n_truth": 157,
+   "med_pts": 3.0,
+   "p90_pts": 16.6,
+   "bias_pts": 0.6,
+   "clear": 130,
+   "side_right": 126,
+   "corr": 0.96
+  },
+  "poss_roll_min3": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 1.9,
+   "p90_pts": 8.3,
+   "bias_pts": 0.4,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.94
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 1.6,
+   "p90_pts": 8.4,
+   "bias_pts": 0.6,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.98
+  },
+  "poss_window_min3": {
+   "n": 139,
+   "n_truth": 157,
+   "med_pts": 3.0,
+   "p90_pts": 16.2,
+   "bias_pts": 0.4,
+   "clear": 124,
+   "side_right": 120,
+   "corr": 0.96
+  },
+  "poss_roll_min5": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.0,
+   "p90_pts": 6.9,
+   "bias_pts": 0.8,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.96
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.0,
+   "p90_pts": 3.5,
+   "bias_pts": 0.7,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.99
+  },
+  "poss_window_min5": {
+   "n": 113,
+   "n_truth": 157,
+   "med_pts": 2.0,
+   "p90_pts": 15.0,
+   "bias_pts": 0.6,
+   "clear": 99,
+   "side_right": 97,
+   "corr": 0.97
+  },
+  "tilt_window": {
+   "n": 81,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": -1.6,
+   "clear": 81,
+   "side_right": 80,
+   "corr": 0.97
+  },
+  "tilt_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.4,
+   "p90_pts": 14.2,
+   "bias_pts": -1.2,
+   "clear": 135,
+   "side_right": 128,
+   "corr": 0.93
+  },
+  "control_s_ours_vs_truth": 0.64,
+  "thin_windows_ours": 16
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 182,
+  "poss_window": {
+   "n": 145,
+   "n_truth": 157,
+   "med_pts": 6.0,
+   "p90_pts": 36.6,
+   "bias_pts": 0.9,
+   "clear": 130,
+   "side_right": 113,
+   "corr": 0.84
+  },
+  "poss_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.7,
+   "p90_pts": 9.2,
+   "bias_pts": 1.4,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.91
+  },
+  "poss_roll_weighted": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.5,
+   "p90_pts": 10.3,
+   "bias_pts": 1.3,
+   "clear": 68,
+   "side_right": 63,
+   "corr": 0.9
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.4,
+   "p90_pts": 7.6,
+   "bias_pts": 1.2,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.97
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.6,
+   "p90_pts": 11.6,
+   "bias_pts": 1.1,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.95
+  },
+  "poss_roll_min1": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.0,
+   "p90_pts": 14.4,
+   "bias_pts": -0.4,
+   "clear": 68,
+   "side_right": 67,
+   "corr": 0.85
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.5,
+   "p90_pts": 18.7,
+   "bias_pts": 0.2,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.88
+  },
+  "poss_window_min1": {
+   "n": 106,
+   "n_truth": 157,
+   "med_pts": 4.0,
+   "p90_pts": 34.5,
+   "bias_pts": -0.2,
+   "clear": 94,
+   "side_right": 84,
+   "corr": 0.88
+  },
+  "poss_roll_min2": {
+   "n": 181,
+   "n_truth": 182,
+   "med_pts": 10.7,
+   "p90_pts": 24.2,
+   "bias_pts": 5.9,
+   "clear": 67,
+   "side_right": 51,
+   "corr": 0.7
+  },
+  "poss_bars_min2": {
+   "n": 9,
+   "n_truth": 10,
+   "med_pts": 10.9,
+   "p90_pts": 19.8,
+   "bias_pts": 7.0,
+   "clear": 4,
+   "side_right": 3,
+   "corr": 0.78
+  },
+  "poss_window_min2": {
+   "n": 47,
+   "n_truth": 157,
+   "med_pts": 6.0,
+   "p90_pts": 33.8,
+   "bias_pts": 1.9,
+   "clear": 42,
+   "side_right": 37,
+   "corr": 0.89
+  },
+  "poss_roll_min3": {
+   "n": 154,
+   "n_truth": 182,
+   "med_pts": 10.0,
+   "p90_pts": 46.6,
+   "bias_pts": 8.8,
+   "clear": 53,
+   "side_right": 34,
+   "corr": 0.33
+  },
+  "poss_bars_min3": {
+   "n": 8,
+   "n_truth": 10,
+   "med_pts": 12.2,
+   "p90_pts": 30.8,
+   "bias_pts": 9.5,
+   "clear": 4,
+   "side_right": 2,
+   "corr": 0.21
+  },
+  "poss_window_min3": {
+   "n": 17,
+   "n_truth": 157,
+   "med_pts": 6.0,
+   "p90_pts": 41.0,
+   "bias_pts": 8.9,
+   "clear": 16,
+   "side_right": 13,
+   "corr": 0.82
+  },
+  "poss_roll_min5": {
+   "n": 42,
+   "n_truth": 182,
+   "med_pts": 3.7,
+   "p90_pts": 13.0,
+   "bias_pts": 4.5,
+   "clear": 12,
+   "side_right": 9,
+   "corr": 0.66
+  },
+  "poss_bars_min5": {
+   "n": 2,
+   "n_truth": 10,
+   "med_pts": 2.9,
+   "p90_pts": 3.7,
+   "bias_pts": 1.0,
+   "clear": 1,
+   "side_right": 1,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 2,
+   "n_truth": 157,
+   "med_pts": 29.0,
+   "p90_pts": 48.2,
+   "bias_pts": 24.0,
+   "clear": 2,
+   "side_right": 1,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 61,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": -0.5,
+   "clear": 61,
+   "side_right": 61,
+   "corr": 1.0
+  },
+  "tilt_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.9,
+   "p90_pts": 13.6,
+   "bias_pts": 1.5,
+   "clear": 135,
+   "side_right": 128,
+   "corr": 0.9
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 129
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 182,
+  "poss_window": {
+   "n": 149,
+   "n_truth": 157,
+   "med_pts": 8.0,
+   "p90_pts": 37.2,
+   "bias_pts": 1.2,
+   "clear": 133,
+   "side_right": 115,
+   "corr": 0.85
+  },
+  "poss_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.2,
+   "p90_pts": 9.3,
+   "bias_pts": 0.6,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.91
+  },
+  "poss_roll_weighted": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.3,
+   "p90_pts": 11.3,
+   "bias_pts": 1.7,
+   "clear": 68,
+   "side_right": 66,
+   "corr": 0.88
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.4,
+   "p90_pts": 6.1,
+   "bias_pts": 0.3,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.97
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.4,
+   "p90_pts": 10.3,
+   "bias_pts": 1.9,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.96
+  },
+  "poss_roll_min1": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.4,
+   "p90_pts": 12.3,
+   "bias_pts": 1.6,
+   "clear": 68,
+   "side_right": 65,
+   "corr": 0.87
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.2,
+   "p90_pts": 8.7,
+   "bias_pts": 2.0,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.97
+  },
+  "poss_window_min1": {
+   "n": 104,
+   "n_truth": 157,
+   "med_pts": 8.0,
+   "p90_pts": 31.0,
+   "bias_pts": -0.3,
+   "clear": 93,
+   "side_right": 83,
+   "corr": 0.87
+  },
+  "poss_roll_min2": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.2,
+   "p90_pts": 15.5,
+   "bias_pts": 4.6,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.85
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.5,
+   "p90_pts": 20.0,
+   "bias_pts": 5.3,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.87
+  },
+  "poss_window_min2": {
+   "n": 52,
+   "n_truth": 157,
+   "med_pts": 6.0,
+   "p90_pts": 27.8,
+   "bias_pts": 3.0,
+   "clear": 48,
+   "side_right": 43,
+   "corr": 0.93
+  },
+  "poss_roll_min3": {
+   "n": 173,
+   "n_truth": 182,
+   "med_pts": 21.6,
+   "p90_pts": 47.0,
+   "bias_pts": 0.4,
+   "clear": 67,
+   "side_right": 40,
+   "corr": 0.31
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 18.6,
+   "p90_pts": 54.8,
+   "bias_pts": 4.3,
+   "clear": 5,
+   "side_right": 3,
+   "corr": 0.45
+  },
+  "poss_window_min3": {
+   "n": 16,
+   "n_truth": 157,
+   "med_pts": 8.0,
+   "p90_pts": 27.0,
+   "bias_pts": 4.7,
+   "clear": 15,
+   "side_right": 13,
+   "corr": 0.88
+  },
+  "poss_roll_min5": {
+   "n": 21,
+   "n_truth": 182,
+   "med_pts": 32.4,
+   "p90_pts": 38.8,
+   "bias_pts": 32.8,
+   "clear": 2,
+   "side_right": 0,
+   "corr": -0.0
+  },
+  "poss_bars_min5": {
+   "n": 1,
+   "n_truth": 10,
+   "med_pts": 29.9,
+   "p90_pts": 29.9,
+   "bias_pts": 29.9,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 1,
+   "n_truth": 157,
+   "med_pts": 8.0,
+   "p90_pts": 8.0,
+   "bias_pts": 8.0,
+   "clear": 1,
+   "side_right": 1,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 64,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.4,
+   "clear": 64,
+   "side_right": 64,
+   "corr": 1.0
+  },
+  "tilt_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 8.4,
+   "p90_pts": 20.6,
+   "bias_pts": 1.6,
+   "clear": 135,
+   "side_right": 124,
+   "corr": 0.91
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 133
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 182,
+  "poss_window": {
+   "n": 155,
+   "n_truth": 157,
+   "med_pts": 19.0,
+   "p90_pts": 36.6,
+   "bias_pts": -0.5,
+   "clear": 139,
+   "side_right": 125,
+   "corr": 0.82
+  },
+  "poss_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 6.6,
+   "p90_pts": 13.1,
+   "bias_pts": -1.5,
+   "clear": 68,
+   "side_right": 65,
+   "corr": 0.77
+  },
+  "poss_roll_weighted": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.4,
+   "p90_pts": 11.0,
+   "bias_pts": -1.7,
+   "clear": 68,
+   "side_right": 65,
+   "corr": 0.9
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.1,
+   "p90_pts": 12.9,
+   "bias_pts": -1.3,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.9
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.7,
+   "p90_pts": 10.9,
+   "bias_pts": -1.4,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.96
+  },
+  "poss_roll_min1": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 6.9,
+   "p90_pts": 13.3,
+   "bias_pts": -1.8,
+   "clear": 68,
+   "side_right": 61,
+   "corr": 0.76
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.1,
+   "p90_pts": 12.1,
+   "bias_pts": -1.5,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.9
+  },
+  "poss_window_min1": {
+   "n": 152,
+   "n_truth": 157,
+   "med_pts": 19.0,
+   "p90_pts": 36.0,
+   "bias_pts": -0.2,
+   "clear": 136,
+   "side_right": 122,
+   "corr": 0.83
+  },
+  "poss_roll_min2": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 6.2,
+   "p90_pts": 11.7,
+   "bias_pts": -1.3,
+   "clear": 68,
+   "side_right": 63,
+   "corr": 0.81
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.3,
+   "p90_pts": 11.6,
+   "bias_pts": -1.1,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_window_min2": {
+   "n": 146,
+   "n_truth": 157,
+   "med_pts": 19.0,
+   "p90_pts": 34.0,
+   "bias_pts": -0.6,
+   "clear": 131,
+   "side_right": 120,
+   "corr": 0.86
+  },
+  "poss_roll_min3": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.8,
+   "p90_pts": 9.8,
+   "bias_pts": -0.9,
+   "clear": 68,
+   "side_right": 67,
+   "corr": 0.88
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.2,
+   "p90_pts": 9.5,
+   "bias_pts": -0.7,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.94
+  },
+  "poss_window_min3": {
+   "n": 140,
+   "n_truth": 157,
+   "med_pts": 19.0,
+   "p90_pts": 34.0,
+   "bias_pts": -1.0,
+   "clear": 125,
+   "side_right": 114,
+   "corr": 0.86
+  },
+  "poss_roll_min5": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.2,
+   "p90_pts": 9.0,
+   "bias_pts": -1.7,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.95
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 2.5,
+   "p90_pts": 8.0,
+   "bias_pts": -1.3,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.98
+  },
+  "poss_window_min5": {
+   "n": 118,
+   "n_truth": 157,
+   "med_pts": 18.5,
+   "p90_pts": 32.3,
+   "bias_pts": -1.1,
+   "clear": 104,
+   "side_right": 100,
+   "corr": 0.9
+  },
+  "tilt_window": {
+   "n": 88,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": -0.6,
+   "clear": 88,
+   "side_right": 87,
+   "corr": 0.98
+  },
+  "tilt_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.8,
+   "p90_pts": 11.3,
+   "bias_pts": 0.7,
+   "clear": 135,
+   "side_right": 133,
+   "corr": 0.96
+  },
+  "control_s_ours_vs_truth": 0.68,
+  "thin_windows_ours": 17
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 182,
+  "poss_window": {
+   "n": 154,
+   "n_truth": 157,
+   "med_pts": 17.0,
+   "p90_pts": 35.0,
+   "bias_pts": 1.3,
+   "clear": 138,
+   "side_right": 124,
+   "corr": 0.83
+  },
+  "poss_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.0,
+   "p90_pts": 9.6,
+   "bias_pts": 0.8,
+   "clear": 68,
+   "side_right": 67,
+   "corr": 0.9
+  },
+  "poss_roll_weighted": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.7,
+   "p90_pts": 9.6,
+   "bias_pts": 0.7,
+   "clear": 68,
+   "side_right": 68,
+   "corr": 0.92
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.2,
+   "p90_pts": 8.9,
+   "bias_pts": 0.7,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.94
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.8,
+   "p90_pts": 9.8,
+   "bias_pts": 0.7,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.95
+  },
+  "poss_roll_min1": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.1,
+   "p90_pts": 10.6,
+   "bias_pts": 1.4,
+   "clear": 68,
+   "side_right": 66,
+   "corr": 0.92
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.6,
+   "p90_pts": 10.4,
+   "bias_pts": 1.3,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_window_min1": {
+   "n": 151,
+   "n_truth": 157,
+   "med_pts": 17.0,
+   "p90_pts": 34.0,
+   "bias_pts": 2.6,
+   "clear": 135,
+   "side_right": 123,
+   "corr": 0.89
+  },
+  "poss_roll_min2": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 5.1,
+   "p90_pts": 10.4,
+   "bias_pts": 1.1,
+   "clear": 68,
+   "side_right": 66,
+   "corr": 0.92
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.2,
+   "p90_pts": 10.3,
+   "bias_pts": 1.1,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.94
+  },
+  "poss_window_min2": {
+   "n": 145,
+   "n_truth": 157,
+   "med_pts": 16.0,
+   "p90_pts": 32.6,
+   "bias_pts": 1.4,
+   "clear": 130,
+   "side_right": 120,
+   "corr": 0.9
+  },
+  "poss_roll_min3": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 4.2,
+   "p90_pts": 8.6,
+   "bias_pts": 1.6,
+   "clear": 68,
+   "side_right": 66,
+   "corr": 0.94
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.4,
+   "p90_pts": 8.9,
+   "bias_pts": 1.7,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.95
+  },
+  "poss_window_min3": {
+   "n": 140,
+   "n_truth": 157,
+   "med_pts": 17.0,
+   "p90_pts": 33.0,
+   "bias_pts": 1.4,
+   "clear": 125,
+   "side_right": 115,
+   "corr": 0.9
+  },
+  "poss_roll_min5": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 3.8,
+   "p90_pts": 8.7,
+   "bias_pts": 0.5,
+   "clear": 68,
+   "side_right": 66,
+   "corr": 0.92
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.8,
+   "p90_pts": 7.8,
+   "bias_pts": 0.6,
+   "clear": 5,
+   "side_right": 5,
+   "corr": 0.96
+  },
+  "poss_window_min5": {
+   "n": 123,
+   "n_truth": 157,
+   "med_pts": 16.0,
+   "p90_pts": 31.8,
+   "bias_pts": 1.0,
+   "clear": 108,
+   "side_right": 101,
+   "corr": 0.91
+  },
+  "tilt_window": {
+   "n": 85,
+   "n_truth": 92,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.0,
+   "clear": 85,
+   "side_right": 82,
+   "corr": 0.98
+  },
+  "tilt_roll_app": {
+   "n": 182,
+   "n_truth": 182,
+   "med_pts": 7.1,
+   "p90_pts": 14.2,
+   "bias_pts": -1.7,
+   "clear": 135,
+   "side_right": 132,
+   "corr": 0.93
+  },
+  "control_s_ours_vs_truth": 0.68,
+  "thin_windows_ours": 16
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 196,
+  "poss_window": {
+   "n": 136,
+   "n_truth": 139,
+   "med_pts": 3.0,
+   "p90_pts": 28.0,
+   "bias_pts": 2.5,
+   "clear": 126,
+   "side_right": 121,
+   "corr": 0.9
+  },
+  "poss_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 3.6,
+   "p90_pts": 9.4,
+   "bias_pts": 0.8,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.95
+  },
+  "poss_roll_weighted": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 4.3,
+   "p90_pts": 9.3,
+   "bias_pts": 3.6,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.98
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.9,
+   "p90_pts": 5.5,
+   "bias_pts": -0.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.98
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.7,
+   "p90_pts": 10.2,
+   "bias_pts": 3.7,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.98
+  },
+  "poss_roll_min1": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 3.0,
+   "p90_pts": 6.6,
+   "bias_pts": 0.3,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.97
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.2,
+   "p90_pts": 4.2,
+   "bias_pts": -0.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.99
+  },
+  "poss_window_min1": {
+   "n": 125,
+   "n_truth": 139,
+   "med_pts": 3.0,
+   "p90_pts": 25.2,
+   "bias_pts": 2.5,
+   "clear": 115,
+   "side_right": 114,
+   "corr": 0.94
+  },
+  "poss_roll_min2": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 2.6,
+   "p90_pts": 7.0,
+   "bias_pts": 1.2,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.97
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 3.2,
+   "p90_pts": 6.3,
+   "bias_pts": 1.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.98
+  },
+  "poss_window_min2": {
+   "n": 115,
+   "n_truth": 139,
+   "med_pts": 3.0,
+   "p90_pts": 21.6,
+   "bias_pts": 2.2,
+   "clear": 107,
+   "side_right": 106,
+   "corr": 0.95
+  },
+  "poss_roll_min3": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 2.9,
+   "p90_pts": 6.9,
+   "bias_pts": 2.1,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.98
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.3,
+   "p90_pts": 6.4,
+   "bias_pts": 3.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.98
+  },
+  "poss_window_min3": {
+   "n": 102,
+   "n_truth": 139,
+   "med_pts": 2.5,
+   "p90_pts": 15.9,
+   "bias_pts": 3.1,
+   "clear": 94,
+   "side_right": 94,
+   "corr": 0.97
+  },
+  "poss_roll_min5": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.6,
+   "p90_pts": 11.5,
+   "bias_pts": 2.6,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.96
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.5,
+   "p90_pts": 12.1,
+   "bias_pts": 2.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.96
+  },
+  "poss_window_min5": {
+   "n": 78,
+   "n_truth": 139,
+   "med_pts": 2.0,
+   "p90_pts": 14.3,
+   "bias_pts": 2.6,
+   "clear": 72,
+   "side_right": 72,
+   "corr": 0.98
+  },
+  "tilt_window": {
+   "n": 84,
+   "n_truth": 96,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 1.9,
+   "clear": 83,
+   "side_right": 82,
+   "corr": 0.97
+  },
+  "tilt_roll_app": {
+   "n": 192,
+   "n_truth": 196,
+   "med_pts": 4.7,
+   "p90_pts": 12.5,
+   "bias_pts": -0.2,
+   "clear": 137,
+   "side_right": 137,
+   "corr": 0.94
+  },
+  "control_s_ours_vs_truth": 0.63,
+  "thin_windows_ours": 35
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 196,
+  "poss_window": {
+   "n": 124,
+   "n_truth": 139,
+   "med_pts": 10.5,
+   "p90_pts": 46.1,
+   "bias_pts": 0.3,
+   "clear": 115,
+   "side_right": 103,
+   "corr": 0.78
+  },
+  "poss_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 5.4,
+   "p90_pts": 11.8,
+   "bias_pts": 0.1,
+   "clear": 109,
+   "side_right": 108,
+   "corr": 0.92
+  },
+  "poss_roll_weighted": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 5.8,
+   "p90_pts": 15.4,
+   "bias_pts": 6.2,
+   "clear": 109,
+   "side_right": 106,
+   "corr": 0.91
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.6,
+   "p90_pts": 11.8,
+   "bias_pts": 0.1,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.1,
+   "p90_pts": 15.4,
+   "bias_pts": 6.7,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.95
+  },
+  "poss_roll_min1": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 8.7,
+   "p90_pts": 17.4,
+   "bias_pts": 9.4,
+   "clear": 109,
+   "side_right": 103,
+   "corr": 0.9
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 9.7,
+   "p90_pts": 17.4,
+   "bias_pts": 10.0,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.96
+  },
+  "poss_window_min1": {
+   "n": 77,
+   "n_truth": 139,
+   "med_pts": 10.0,
+   "p90_pts": 36.4,
+   "bias_pts": 3.2,
+   "clear": 71,
+   "side_right": 66,
+   "corr": 0.84
+  },
+  "poss_roll_min2": {
+   "n": 192,
+   "n_truth": 196,
+   "med_pts": 12.4,
+   "p90_pts": 37.1,
+   "bias_pts": 14.0,
+   "clear": 105,
+   "side_right": 86,
+   "corr": 0.61
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 13.4,
+   "p90_pts": 38.1,
+   "bias_pts": 17.4,
+   "clear": 6,
+   "side_right": 4,
+   "corr": 0.67
+  },
+  "poss_window_min2": {
+   "n": 39,
+   "n_truth": 139,
+   "med_pts": 9.0,
+   "p90_pts": 31.8,
+   "bias_pts": -1.4,
+   "clear": 37,
+   "side_right": 34,
+   "corr": 0.85
+  },
+  "poss_roll_min3": {
+   "n": 105,
+   "n_truth": 196,
+   "med_pts": 32.6,
+   "p90_pts": 63.7,
+   "bias_pts": 5.9,
+   "clear": 53,
+   "side_right": 28,
+   "corr": 0.07
+  },
+  "poss_bars_min3": {
+   "n": 5,
+   "n_truth": 10,
+   "med_pts": 37.1,
+   "p90_pts": 56.0,
+   "bias_pts": 4.0,
+   "clear": 3,
+   "side_right": 1,
+   "corr": 0.05
+  },
+  "poss_window_min3": {
+   "n": 8,
+   "n_truth": 139,
+   "med_pts": 9.0,
+   "p90_pts": 25.5,
+   "bias_pts": -0.3,
+   "clear": 8,
+   "side_right": 8,
+   "corr": 0.93
+  },
+  "poss_roll_min5": {
+   "n": 0,
+   "n_truth": 196,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_bars_min5": {
+   "n": 0,
+   "n_truth": 10,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 0,
+   "n_truth": 139,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 65,
+   "n_truth": 96,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.0,
+   "clear": 64,
+   "side_right": 64,
+   "corr": 0.99
+  },
+  "tilt_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 11.0,
+   "p90_pts": 24.7,
+   "bias_pts": -4.0,
+   "clear": 141,
+   "side_right": 129,
+   "corr": 0.86
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 116
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 196,
+  "poss_window": {
+   "n": 126,
+   "n_truth": 139,
+   "med_pts": 8.0,
+   "p90_pts": 50.0,
+   "bias_pts": 2.8,
+   "clear": 116,
+   "side_right": 100,
+   "corr": 0.77
+  },
+  "poss_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 4.8,
+   "p90_pts": 15.0,
+   "bias_pts": 2.3,
+   "clear": 109,
+   "side_right": 105,
+   "corr": 0.91
+  },
+  "poss_roll_weighted": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 8.7,
+   "p90_pts": 13.5,
+   "bias_pts": 4.6,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.91
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 4.4,
+   "p90_pts": 11.4,
+   "bias_pts": 1.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.96
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 9.6,
+   "p90_pts": 14.5,
+   "bias_pts": 5.6,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_roll_min1": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.3,
+   "p90_pts": 14.8,
+   "bias_pts": 2.4,
+   "clear": 109,
+   "side_right": 105,
+   "corr": 0.9
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 8.1,
+   "p90_pts": 14.9,
+   "bias_pts": 5.4,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_window_min1": {
+   "n": 72,
+   "n_truth": 139,
+   "med_pts": 10.0,
+   "p90_pts": 35.8,
+   "bias_pts": 0.3,
+   "clear": 66,
+   "side_right": 59,
+   "corr": 0.83
+  },
+  "poss_roll_min2": {
+   "n": 186,
+   "n_truth": 196,
+   "med_pts": 14.1,
+   "p90_pts": 30.2,
+   "bias_pts": 9.5,
+   "clear": 104,
+   "side_right": 83,
+   "corr": 0.7
+  },
+  "poss_bars_min2": {
+   "n": 9,
+   "n_truth": 10,
+   "med_pts": 13.3,
+   "p90_pts": 29.9,
+   "bias_pts": 10.0,
+   "clear": 5,
+   "side_right": 3,
+   "corr": 0.59
+  },
+  "poss_window_min2": {
+   "n": 38,
+   "n_truth": 139,
+   "med_pts": 11.5,
+   "p90_pts": 33.9,
+   "bias_pts": 4.2,
+   "clear": 33,
+   "side_right": 31,
+   "corr": 0.88
+  },
+  "poss_roll_min3": {
+   "n": 97,
+   "n_truth": 196,
+   "med_pts": 22.4,
+   "p90_pts": 48.1,
+   "bias_pts": -0.4,
+   "clear": 50,
+   "side_right": 46,
+   "corr": 0.51
+  },
+  "poss_bars_min3": {
+   "n": 5,
+   "n_truth": 10,
+   "med_pts": 25.8,
+   "p90_pts": 40.1,
+   "bias_pts": -3.0,
+   "clear": 3,
+   "side_right": 3,
+   "corr": 0.6
+  },
+  "poss_window_min3": {
+   "n": 8,
+   "n_truth": 139,
+   "med_pts": 9.5,
+   "p90_pts": 15.5,
+   "bias_pts": 5.0,
+   "clear": 8,
+   "side_right": 8,
+   "corr": 0.98
+  },
+  "poss_roll_min5": {
+   "n": 0,
+   "n_truth": 196,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_bars_min5": {
+   "n": 0,
+   "n_truth": 10,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "poss_window_min5": {
+   "n": 0,
+   "n_truth": 139,
+   "med_pts": null,
+   "p90_pts": null,
+   "bias_pts": null,
+   "clear": 0,
+   "side_right": 0,
+   "corr": null
+  },
+  "tilt_window": {
+   "n": 67,
+   "n_truth": 96,
+   "med_pts": 0.0,
+   "p90_pts": 0.0,
+   "bias_pts": 0.3,
+   "clear": 66,
+   "side_right": 66,
+   "corr": 0.99
+  },
+  "tilt_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 9.8,
+   "p90_pts": 20.0,
+   "bias_pts": -4.5,
+   "clear": 141,
+   "side_right": 133,
+   "corr": 0.89
+  },
+  "control_s_ours_vs_truth": 0.13,
+  "thin_windows_ours": 119
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "windows": 196,
+  "poss_window": {
+   "n": 135,
+   "n_truth": 139,
+   "med_pts": 17.0,
+   "p90_pts": 36.2,
+   "bias_pts": 0.1,
+   "clear": 125,
+   "side_right": 113,
+   "corr": 0.8
+  },
+  "poss_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 7.5,
+   "p90_pts": 15.8,
+   "bias_pts": -2.3,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.85
+  },
+  "poss_roll_weighted": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 4.8,
+   "p90_pts": 11.8,
+   "bias_pts": 0.2,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.94
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.4,
+   "p90_pts": 15.8,
+   "bias_pts": -2.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 5.9,
+   "p90_pts": 11.6,
+   "bias_pts": -0.0,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.94
+  },
+  "poss_roll_min1": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.5,
+   "p90_pts": 11.4,
+   "bias_pts": -0.8,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.92
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.0,
+   "p90_pts": 11.4,
+   "bias_pts": -1.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.95
+  },
+  "poss_window_min1": {
+   "n": 124,
+   "n_truth": 139,
+   "med_pts": 17.0,
+   "p90_pts": 35.0,
+   "bias_pts": 0.8,
+   "clear": 115,
+   "side_right": 106,
+   "corr": 0.84
+  },
+  "poss_roll_min2": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 7.7,
+   "p90_pts": 12.0,
+   "bias_pts": -2.2,
+   "clear": 109,
+   "side_right": 108,
+   "corr": 0.91
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.9,
+   "p90_pts": 9.2,
+   "bias_pts": -2.1,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.96
+  },
+  "poss_window_min2": {
+   "n": 117,
+   "n_truth": 139,
+   "med_pts": 17.0,
+   "p90_pts": 33.4,
+   "bias_pts": 0.5,
+   "clear": 109,
+   "side_right": 102,
+   "corr": 0.86
+  },
+  "poss_roll_min3": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.1,
+   "p90_pts": 14.1,
+   "bias_pts": -1.7,
+   "clear": 109,
+   "side_right": 106,
+   "corr": 0.87
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.1,
+   "p90_pts": 14.2,
+   "bias_pts": -1.8,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_window_min3": {
+   "n": 104,
+   "n_truth": 139,
+   "med_pts": 17.0,
+   "p90_pts": 32.0,
+   "bias_pts": -0.2,
+   "clear": 96,
+   "side_right": 91,
+   "corr": 0.89
+  },
+  "poss_roll_min5": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 3.9,
+   "p90_pts": 11.6,
+   "bias_pts": 0.3,
+   "clear": 109,
+   "side_right": 106,
+   "corr": 0.91
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 7.5,
+   "p90_pts": 14.7,
+   "bias_pts": 0.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.9
+  },
+  "poss_window_min5": {
+   "n": 80,
+   "n_truth": 139,
+   "med_pts": 18.0,
+   "p90_pts": 32.1,
+   "bias_pts": 0.8,
+   "clear": 73,
+   "side_right": 69,
+   "corr": 0.89
+  },
+  "tilt_window": {
+   "n": 91,
+   "n_truth": 96,
+   "med_pts": 0.0,
+   "p90_pts": 9.0,
+   "bias_pts": 1.6,
+   "clear": 90,
+   "side_right": 87,
+   "corr": 0.94
+  },
+  "tilt_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.5,
+   "p90_pts": 17.5,
+   "bias_pts": -4.2,
+   "clear": 141,
+   "side_right": 133,
+   "corr": 0.86
+  },
+  "control_s_ours_vs_truth": 0.67,
+  "thin_windows_ours": 32
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "windows": 196,
+  "poss_window": {
+   "n": 137,
+   "n_truth": 139,
+   "med_pts": 20.0,
+   "p90_pts": 46.2,
+   "bias_pts": 0.6,
+   "clear": 127,
+   "side_right": 112,
+   "corr": 0.69
+  },
+  "poss_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 7.1,
+   "p90_pts": 16.7,
+   "bias_pts": -1.0,
+   "clear": 109,
+   "side_right": 106,
+   "corr": 0.88
+  },
+  "poss_roll_weighted": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 5.6,
+   "p90_pts": 14.5,
+   "bias_pts": 0.7,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.93
+  },
+  "poss_bars_app": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 8.1,
+   "p90_pts": 14.2,
+   "bias_pts": -1.5,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.92
+  },
+  "poss_bars_weighted": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 7.7,
+   "p90_pts": 14.5,
+   "bias_pts": 0.5,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.95
+  },
+  "poss_roll_min1": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 5.3,
+   "p90_pts": 16.4,
+   "bias_pts": -1.3,
+   "clear": 109,
+   "side_right": 106,
+   "corr": 0.91
+  },
+  "poss_bars_min1": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.2,
+   "p90_pts": 14.8,
+   "bias_pts": -1.7,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.94
+  },
+  "poss_window_min1": {
+   "n": 127,
+   "n_truth": 139,
+   "med_pts": 19.0,
+   "p90_pts": 37.8,
+   "bias_pts": 1.3,
+   "clear": 117,
+   "side_right": 108,
+   "corr": 0.81
+  },
+  "poss_roll_min2": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 5.8,
+   "p90_pts": 14.6,
+   "bias_pts": -0.5,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.94
+  },
+  "poss_bars_min2": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 6.3,
+   "p90_pts": 14.7,
+   "bias_pts": -0.6,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.96
+  },
+  "poss_window_min2": {
+   "n": 117,
+   "n_truth": 139,
+   "med_pts": 19.0,
+   "p90_pts": 37.0,
+   "bias_pts": 0.8,
+   "clear": 109,
+   "side_right": 102,
+   "corr": 0.84
+  },
+  "poss_roll_min3": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.0,
+   "p90_pts": 14.6,
+   "bias_pts": 0.1,
+   "clear": 109,
+   "side_right": 109,
+   "corr": 0.92
+  },
+  "poss_bars_min3": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 7.0,
+   "p90_pts": 14.3,
+   "bias_pts": 0.4,
+   "clear": 6,
+   "side_right": 6,
+   "corr": 0.94
+  },
+  "poss_window_min3": {
+   "n": 109,
+   "n_truth": 139,
+   "med_pts": 19.0,
+   "p90_pts": 35.2,
+   "bias_pts": 1.0,
+   "clear": 101,
+   "side_right": 95,
+   "corr": 0.86
+  },
+  "poss_roll_min5": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.4,
+   "p90_pts": 12.1,
+   "bias_pts": 0.0,
+   "clear": 109,
+   "side_right": 108,
+   "corr": 0.9
+  },
+  "poss_bars_min5": {
+   "n": 10,
+   "n_truth": 10,
+   "med_pts": 8.9,
+   "p90_pts": 11.6,
+   "bias_pts": -0.4,
+   "clear": 6,
+   "side_right": 5,
+   "corr": 0.93
+  },
+  "poss_window_min5": {
+   "n": 80,
+   "n_truth": 139,
+   "med_pts": 19.0,
+   "p90_pts": 33.2,
+   "bias_pts": -0.3,
+   "clear": 74,
+   "side_right": 72,
+   "corr": 0.89
+  },
+  "tilt_window": {
+   "n": 88,
+   "n_truth": 96,
+   "med_pts": 0.0,
+   "p90_pts": 10.0,
+   "bias_pts": -0.8,
+   "clear": 87,
+   "side_right": 85,
+   "corr": 0.94
+  },
+  "tilt_roll_app": {
+   "n": 196,
+   "n_truth": 196,
+   "med_pts": 6.8,
+   "p90_pts": 17.6,
+   "bias_pts": -2.9,
+   "clear": 141,
+   "side_right": 133,
+   "corr": 0.86
+  },
+  "control_s_ours_vs_truth": 0.67,
+  "thin_windows_ours": 28
+ }
+]

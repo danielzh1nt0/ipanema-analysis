@@ -1,0 +1,365 @@
+{
+ "False": {
+  "runs": 4,
+  "direction_same": true,
+  "control_vs_truth": [
+   0.62,
+   0.69
+  ],
+  "poss_window": {
+   "med_pts": [
+    2.0,
+    6.0
+   ],
+   "p90_pts": [
+    19.0,
+    38.0
+   ],
+   "side_right": 479,
+   "clear": 513,
+   "n": 577,
+   "n_truth": 592
+  },
+  "poss_roll_app": {
+   "med_pts": [
+    2.9,
+    3.8
+   ],
+   "p90_pts": [
+    8.8,
+    15.0
+   ],
+   "side_right": 372,
+   "clear": 377,
+   "n": 766,
+   "n_truth": 766
+  },
+  "poss_roll_weighted": {
+   "med_pts": [
+    1.8,
+    4.3
+   ],
+   "p90_pts": [
+    4.9,
+    12.5
+   ],
+   "side_right": 369,
+   "clear": 377,
+   "n": 766,
+   "n_truth": 766
+  },
+  "poss_roll_min2": {
+   "med_pts": [
+    2.6,
+    3.6
+   ],
+   "p90_pts": [
+    7.0,
+    11.4
+   ],
+   "side_right": 372,
+   "clear": 377,
+   "n": 766,
+   "n_truth": 766
+  },
+  "poss_bars_app": {
+   "med_pts": [
+    1.2,
+    4.9
+   ],
+   "p90_pts": [
+    5.5,
+    16.4
+   ],
+   "side_right": 23,
+   "clear": 23,
+   "n": 40,
+   "n_truth": 40
+  },
+  "poss_bars_weighted": {
+   "med_pts": [
+    2.2,
+    4.2
+   ],
+   "p90_pts": [
+    4.1,
+    10.3
+   ],
+   "side_right": 21,
+   "clear": 23,
+   "n": 40,
+   "n_truth": 40
+  },
+  "tilt_window": {
+   "med_pts": [
+    0.0,
+    0.0
+   ],
+   "p90_pts": [
+    0.0,
+    0.0
+   ],
+   "side_right": 316,
+   "clear": 319,
+   "n": 320,
+   "n_truth": 371
+  },
+  "tilt_roll_app": {
+   "med_pts": [
+    4.4,
+    7.1
+   ],
+   "p90_pts": [
+    12.5,
+    17.6
+   ],
+   "side_right": 489,
+   "clear": 506,
+   "n": 762,
+   "n_truth": 766
+  },
+  "weighted_better_runs": 3
+ },
+ "streak": {
+  "runs": 8,
+  "direction_same": true,
+  "control_vs_truth": [
+   0.13,
+   0.15
+  ],
+  "poss_window": {
+   "med_pts": [
+    5.0,
+    14.0
+   ],
+   "p90_pts": [
+    31.6,
+    50.0
+   ],
+   "side_right": 842,
+   "clear": 957,
+   "n": 1080,
+   "n_truth": 1184
+  },
+  "poss_roll_app": {
+   "med_pts": [
+    3.7,
+    5.4
+   ],
+   "p90_pts": [
+    9.2,
+    15.0
+   ],
+   "side_right": 745,
+   "clear": 754,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "poss_roll_weighted": {
+   "med_pts": [
+    3.5,
+    8.7
+   ],
+   "p90_pts": [
+    10.2,
+    17.9
+   ],
+   "side_right": 727,
+   "clear": 754,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "poss_roll_min2": {
+   "med_pts": [
+    5.2,
+    14.1
+   ],
+   "p90_pts": [
+    15.5,
+    37.1
+   ],
+   "side_right": 629,
+   "clear": 744,
+   "n": 1517,
+   "n_truth": 1532
+  },
+  "poss_bars_app": {
+   "med_pts": [
+    2.4,
+    5.1
+   ],
+   "p90_pts": [
+    6.1,
+    12.6
+   ],
+   "side_right": 44,
+   "clear": 46,
+   "n": 80,
+   "n_truth": 80
+  },
+  "poss_bars_weighted": {
+   "med_pts": [
+    2.6,
+    9.6
+   ],
+   "p90_pts": [
+    10.3,
+    16.5
+   ],
+   "side_right": 42,
+   "clear": 46,
+   "n": 80,
+   "n_truth": 80
+  },
+  "tilt_window": {
+   "med_pts": [
+    0.0,
+    0.0
+   ],
+   "p90_pts": [
+    0.0,
+    0.0
+   ],
+   "side_right": 493,
+   "clear": 495,
+   "n": 497,
+   "n_truth": 742
+  },
+  "tilt_roll_app": {
+   "med_pts": [
+    5.9,
+    11.0
+   ],
+   "p90_pts": [
+    13.6,
+    29.2
+   ],
+   "side_right": 935,
+   "clear": 1020,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "weighted_better_runs": 1
+ },
+ "flicker": {
+  "runs": 8,
+  "direction_same": true,
+  "control_vs_truth": [
+   0.67,
+   0.72
+  ],
+  "poss_window": {
+   "med_pts": [
+    15.5,
+    20.0
+   ],
+   "p90_pts": [
+    33.9,
+    46.2
+   ],
+   "side_right": 921,
+   "clear": 1032,
+   "n": 1160,
+   "n_truth": 1184
+  },
+  "poss_roll_app": {
+   "med_pts": [
+    3.8,
+    7.5
+   ],
+   "p90_pts": [
+    9.6,
+    16.7
+   ],
+   "side_right": 736,
+   "clear": 754,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "poss_roll_weighted": {
+   "med_pts": [
+    2.4,
+    5.6
+   ],
+   "p90_pts": [
+    9.5,
+    14.5
+   ],
+   "side_right": 746,
+   "clear": 754,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "poss_roll_min2": {
+   "med_pts": [
+    2.4,
+    7.7
+   ],
+   "p90_pts": [
+    9.1,
+    14.6
+   ],
+   "side_right": 741,
+   "clear": 754,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "poss_bars_app": {
+   "med_pts": [
+    2.9,
+    8.1
+   ],
+   "p90_pts": [
+    8.9,
+    15.8
+   ],
+   "side_right": 46,
+   "clear": 46,
+   "n": 80,
+   "n_truth": 80
+  },
+  "poss_bars_weighted": {
+   "med_pts": [
+    2.5,
+    7.7
+   ],
+   "p90_pts": [
+    7.4,
+    16.1
+   ],
+   "side_right": 45,
+   "clear": 46,
+   "n": 80,
+   "n_truth": 80
+  },
+  "tilt_window": {
+   "med_pts": [
+    0.0,
+    0.0
+   ],
+   "p90_pts": [
+    0.0,
+    10.0
+   ],
+   "side_right": 661,
+   "clear": 680,
+   "n": 682,
+   "n_truth": 742
+  },
+  "tilt_roll_app": {
+   "med_pts": [
+    4.2,
+    10.4
+   ],
+   "p90_pts": [
+    11.3,
+    21.5
+   ],
+   "side_right": 966,
+   "clear": 1020,
+   "n": 1532,
+   "n_truth": 1532
+  },
+  "weighted_better_runs": 6
+ }
+}
