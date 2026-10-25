@@ -1,0 +1,87 @@
+{
+ "match_id": "p15u-vs-aik-2026-09-21-bd09",
+ "ball_reliable": true,
+ "ball_grade": {
+  "accuracy": 0.82,
+  "near_player_pct": 0.62,
+  "frames_pct": 1.0,
+  "possession_ok": true,
+  "events_ok": false
+ },
+ "duration_s": 6898.8,
+ "calibration_coverage": 0.81,
+ "calibration_frozen": 23916,
+ "team_dark_share": {
+  "A": 0.2,
+  "B": 0.67
+ },
+ "players_per_frame_median": {
+  "A": 8.0,
+  "B": 7.0
+ },
+ "ball_frames_pct": 100,
+ "match_seconds": 5807.7,
+ "periods": [
+  {
+   "index": 1,
+   "t_start": 366.0,
+   "t_end": 3224.99,
+   "mirrored": false
+  },
+  {
+   "index": 2,
+   "t_start": 3950.01,
+   "t_end": 6898.76,
+   "mirrored": true
+  }
+ ],
+ "ball_check": {
+  "correct": 32,
+  "total": 39,
+  "wrong": 7,
+  "ceiling": 39
+ },
+ "possession_pct": {
+  "A": 46,
+  "B": 54
+ },
+ "loose_pct": 22,
+ "dead_pct": 7,
+ "possession_model": "simple",
+ "attack_right": {
+  "A": true,
+  "B": false
+ },
+ "direction_confidence": {
+  "A": 0.01,
+  "B": 0.01
+ },
+ "turnovers": 364,
+ "passes": 250,
+ "restarts": 76,
+ "sequences": 548,
+ "shots": {
+  "A": 12,
+  "B": 18
+ },
+ "goals": {
+  "A": 1,
+  "B": 6
+ },
+ "high_turnovers": {
+  "A": 51,
+  "B": 51
+ },
+ "field_tilt": {
+  "A": 26,
+  "B": 27
+ },
+ "runtime_min": 25.1,
+ "review": {
+  "needs_review": [
+   "goals",
+   "players",
+   "shot_map"
+  ]
+ }
+}

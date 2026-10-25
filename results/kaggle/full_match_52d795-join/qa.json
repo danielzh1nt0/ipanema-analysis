@@ -1,0 +1,32 @@
+{
+ "n_frames": 68919,
+ "possession_pct": {
+  "A": 46,
+  "B": 54
+ },
+ "summary": {
+  "ball_grade": {
+   "accuracy": 0.82,
+   "near_player_pct": 0.62,
+   "frames_pct": 1.0,
+   "possession_ok": true,
+   "events_ok": false
+  },
+  "passes": 250,
+  "turnovers": 364,
+  "shots": {
+   "A": 12,
+   "B": 18
+  },
+  "goals": {
+   "A": 1,
+   "B": 6
+  },
+  "players_per_frame_median": {
+   "A": 8.0,
+   "B": 7.0
+  },
+  "calibration_coverage": 0.81
+ },
+ "match": "p15u-vs-aik-2026-09-21-bd09"
+}

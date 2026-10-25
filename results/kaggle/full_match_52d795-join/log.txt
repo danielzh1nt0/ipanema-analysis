@@ -1,0 +1,97 @@
+   7.1 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   7.2 inputs: /kaggle/input/notebooks: ['danielmatros']
+   8.3 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-r1-0: 15 cache folders
+   9.2 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-r1-1: 15 cache folders
+  10.1 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-r2-0: 21 cache folders
+  10.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-r2-1: 20 cache folders
+  10.9 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
+  10.9   (no output in ipanema-full-match-52d795-sweep yet - skipped)
+  11.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-relabel: 21 cache folders
+  12.1 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p0: 5 cache folders
+  12.3 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p1: 6 cache folders
+  12.3 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
+  12.3   (no output in ipanema-full-match-52d795-sweep yet - skipped)
+  13.6 video: 4.02 GB
+  13.7 === p15u-vs-aik-2026-09-21-bd09 join: 20/23 pieces present
+  13.7 join: 20/20 pieces with play present
+  14.6 teams: relabel from ipanema-full-match-52d795-relabel (12250 tracks) changed 519164 rows before track cleaning
+  14.8 periods: [(366.0, 3224.99), (3950.01, 6898.76)] s
+  14.8 calibration: per-frame check skipped for this match (periods file: trust_all_calibration)
+  14.8 calibration: 100.0% of match frames placed confidently
+  14.8 ball check: 39 held-out test frames mapped into the full match
+  14.9 clean: 480 people living on or by the lines dropped (bench, coaches, stand)
+  15.4 clean: 24805 rows of people standing by a touchline dropped (spectators, staff)
+  16.4 clean: keeper (left) from a non-team kit: track 1700440, 786 frames
+  16.4 clean: keeper (right) from a non-team kit: track 1400511, 1460 frames
+  16.4 clean: removed 72835 rows of non-team kits (referee / staff)
+  16.4 clean: dropped 521105 off-pitch, merged 39682 duplicates, stitched 7310 ids, keepers [200906, 2200149] -> B defends left
+  16.4 clean: players per frame median A 7 / B 7, max A 21 / B 17
+  16.7 players: 34957 short gaps filled (marked 'filled' in the export)
+  18.9 ball v2: 165431/206756 frames on the path, 18376 static-clutter candidates dropped
+  19.1 ball check: 32/39 correct, 7 wrong, 0 no pick (ceiling 39/39)
+  20.0 ball: dropped 12279 static-clutter candidates
+  20.4 ball (global path): 156168/206756 frames on the chosen path
+  20.4 ball check (other picker, v1): 20/39 correct, ceiling 39/39
+  21.4 possession: simple model (nearest feet in the picture); 24% loose; restarts from the old model's dead runs (IPANEMA_POSSESSION=viterbi for the old model)
+  21.4 possession: 21729 frames outside match time or with an untrusted camera set to nobody's (IPANEMA_PLAY_STATE=0 = old)
+  21.4 direction: A ←  B →  confidence A 0.01 / B 0.01  WARNING low confidence
+  21.4 direction: from reference labels -> A →
+  21.4   step: sequences (0 s since the last step)
+  21.4   spell state (take 1.5 s): possession flips 2824 -> 378 (3.3 per minute)
+  21.5   step: turnovers (1 s since the last step)
+  21.5   step: lanes (0 s since the last step)
+  21.7   step: passes (17 s since the last step)
+  21.8 passes: 1587 -> 250 confirmed by the video ball-action model (p15u-vs-aik-2026-09-21-bd09_kicks.json)
+  21.8 lost balls: 462 -> 364 (duels dropped: winner kept it < 3.0 s and played no pass; IPANEMA_LOSS_KEEP_S=0 = off)
+  21.8   step: shapes (2 s since the last step)
+  22.1   step: stats (20 s since the last step)
+  23.7   step: metrics (95 s since the last step)
+  24.8 veo: 30 shots incl. 7 goals imported; 0 goal tag(s) rejected; origin by eye for 0, team by eye for 2, from the ball for 0, from the players for 0, unknown for 0
+  24.8 our shot detector vs Veo: found 1/30 of Veo's shots, 1/10 of ours are real (within 10 s)
+  25.1 ball grade: accuracy 0.82, near-player 0.62, possession OK, events withheld
+  25.1 ball reliability: 84% frames, 62% near a player, 38931 jumps -> OK
+  25.1   step: export (83 s since the last step)
+  25.1 motion skipped (StopIteration('off until speeds pass the by-eye check (results/review/speedcheck_2026-10-01.md)'))
+  25.8   wrote 23 frame files (every 3 frames, 300 s each, largest 7.5 MB)
+  25.9   wrote frames_lite.json (22973 frames, 40.0 MB)
+  25.9   wrote match_data.json (0.9 MB)
+  26.0   upload checks: p15u-vs-aik-2026-09-21-bd09: needs review -> goals, players, shot_map
+    FLAG players: median players per frame A 8, B 7
+    OK   keepers: 0 of 58009 frames with 2+ keepers in one team
+    FLAG goals: 2762: B scored (team checked by eye, kept) but our possession says B kicks off at 2800; 3128: B scored (team checked by eye, kept) but our possession says B kicks off at 3161; 4257: B scored but B kicks off at 4287; 4962: B scored but B kicks off at 5010; 5625: B scored but B kicks off at 5656; 5916: A scored, B kicks off at 5944; 6268: B scored, A kicks off at 6332
+    FLAG shots: 0 of 30 shots have a spot on the pitch
+    OK   ball: 2918 of 58019 ball positions more than 3 m off the pitch
+    ??   possession: only 0 by-eye moments (need 10)
+  26.0 export: /kaggle/working/root/runs/matches/p15u-vs-aik-2026-09-21-bd09 (1467 events) · library.json updated · zip None
+  26.0 upload: no Supabase/R2 credentials found — skipped
+  26.0 
+--- SUMMARY ---
+  26.0   match_id                   p15u-vs-aik-2026-09-21-bd09
+  26.0   ball_reliable              True
+  26.0   ball_grade                 {'accuracy': 0.82, 'near_player_pct': 0.62, 'frames_pct': 1.0, 'possession_ok': True, 'events_ok': False}
+  26.0   duration_s                 6898.8
+  26.0   calibration_coverage       0.81
+  26.0   calibration_frozen         23916
+  26.0   team_dark_share            {'A': 0.2, 'B': 0.67}
+  26.0   players_per_frame_median   {'A': 8.0, 'B': 7.0}
+  26.0   ball_frames_pct            100
+  26.0   match_seconds              5807.7
+  26.0   periods                    [{'index': 1, 't_start': 366.0, 't_end': 3224.99, 'mirrored': False}, {'index': 2, 't_start': 3950.01, 't_end': 6898.76, 'mirrored': True}]
+  26.0   ball_check                 {'correct': 32, 'total': 39, 'wrong': 7, 'ceiling': 39}
+  26.0   possession_pct             {'A': 46, 'B': 54}
+  26.0   loose_pct                  22
+  26.0   dead_pct                   7
+  26.0   possession_model           simple
+  26.0   attack_right               {'A': True, 'B': False}
+  26.0   direction_confidence       {'A': 0.01, 'B': 0.01}
+  26.0   turnovers                  364
+  26.0   passes                     250
+  26.0   restarts                   76
+  26.0   sequences                  548
+  26.0   shots                      {'A': 12, 'B': 18}
+  26.0   goals                      {'A': 1, 'B': 6}
+  26.0   high_turnovers             {'A': 51, 'B': 51}
+  26.0   field_tilt                 {'A': 26, 'B': 27}
+  26.0   runtime_min                25.1
+  26.1 export: frames_000.json, frames_001.json, frames_002.json, frames_003.json, frames_004.json, frames_005.json, frames_006.json, frames_007.json, frames_008.json, frames_009.json, frames_010.json, frames_011.json, frames_012.json, frames_013.json, frames_014.json, frames_015.json, frames_016.json, frames_017.json, frames_018.json, frames_019.json, frames_020.json, frames_021.json, frames_022.json, frames_lite.json, kit_A.png, kit_B.png, match_data.json, stats.json, summary.json, thumb.jpg
+  26.1 done: join in 26.1 min
