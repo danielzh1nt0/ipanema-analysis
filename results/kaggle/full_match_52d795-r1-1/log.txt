@@ -1,0 +1,7 @@
+   6.1 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   6.6 calibration: no line calibration for this match - pitch-keypoint model installed (roboflow/sports)
+   6.6 inputs: /kaggle/input/notebooks: ['danielmatros']
+   6.6 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-kits: 1 cache folders
+   6.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p0: 5 cache folders
+   6.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p1: 6 cache folders
+   6.9 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
