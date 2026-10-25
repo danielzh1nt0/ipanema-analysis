@@ -1,8 +1,8 @@
 == sfk
 downloading SFKBP1109_s1200
 clip 8992 frames, 1920 px wide
-sheets: {'sfk00': 9, 'sfk01': 9, 'sfk02': 9, 'sfk03': 9}
+sheets: {'sfk00': 12, 'sfk01': 6, 'sfk02': 6, 'sfk03': 7, 'sfk04': 6, 'sfk05': 6, 'sfk06': 6, 'sfk07': 7, 'sfk08': 7, 'sfk09': 8, 'sfk10': 7, 'sfk11': 7, 'sfk12': 8, 'sfk13': 18, 'sfk14': 6, 'sfk15': 10, 'sfk16': 6, 'sfk17': 6, 'sfk18': 6, 'sfk19': 6, 'sfk20': 6, 'sfk21': 8, 'sfk22': 13, 'sfk23': 7, 'sfk24': 7, 'sfk25': 6, 'sfk26': 7, 'sfk27': 7}
 == aik
 downloading p15u-vs-aik-2026-09-21-bd09_s2520
 clip 8992 frames, 1920 px wide
-sheets: {'aik04': 9}
+sheets: {'aik00': 7, 'aik01': 6, 'aik02': 6, 'aik03': 6, 'aik04': 12, 'aik05': 6, 'aik06': 7, 'aik07': 7, 'aik08': 7, 'aik09': 6, 'aik10': 6}
