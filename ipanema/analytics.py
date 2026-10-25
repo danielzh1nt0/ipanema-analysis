@@ -234,6 +234,35 @@ def held_points(per, fps, hold_s=None, min_seen=3, L=None, W=None, edge_m=None):
         out.append(fr)
     return out
 
+# N0-25b (25 Oct): a TEAM heat map, ready for the app (stats.teams[].heatmap). The app had to build it from the frames'
+# seen players or by summing the per-track grids (stats.heatmaps, each track normalised to 1); our camera shows ~30% of the
+# pitch around the ball, so both lean to where the ball is. On Metrica pro data seen through our app clips' camera views
+# (tools/n0_25b_heat.py) the seen-players map is 12.5% off the truth (TV distance; thirds shares 4.4 pts off); keeping each
+# player's last seen spot for 20 s (held_points, edge rule on) gives 11.0% / 2.2 pts, better on all 16 team-halves' TV.
+# 0 = only the players in the picture (frames with >= 3 seen).
+TEAM_HEAT_HOLD_S = float(os.environ.get("IPANEMA_TEAM_HEAT_HOLD_S", "20"))
+
+def team_heatmaps(per, fps, L, W, attack_right=None, hold_s=None, grid=(12, 8)):
+    """-> {team: {grid (cells x along the pitch, normalised to 1, same layout as stats.heatmaps), hold_s, frames,
+    thirds_pct [own, middle, attacking] when attack_right is given} or None when the team was never seen}. Outfield only."""
+    h = TEAM_HEAT_HOLD_S if hold_s is None else hold_s
+    held = held_points(per, fps, h, L=L, W=W); out = {}
+    for tm in ("A", "B"):
+        g = np.zeros(grid); nf = 0
+        for fr in held:
+            P = fr[tm]
+            if P is None or len(P) == 0: continue
+            i = np.clip((P[:, 0] / L * grid[0]).astype(int), 0, grid[0] - 1); j = np.clip((P[:, 1] / W * grid[1]).astype(int), 0, grid[1] - 1)
+            np.add.at(g, (i, j), 1); nf += 1
+        if g.sum() == 0: out[tm] = None; continue
+        g = g / g.sum(); d = {"grid": g.round(4).tolist(), "hold_s": h, "frames": nf}
+        if attack_right is not None:
+            col = g.sum(1); xc = (np.arange(grid[0]) + 0.5) / grid[0] * L
+            th = [float(col[xc < L / 3].sum()), float(col[(xc >= L / 3) & (xc < 2 * L / 3)].sum()), float(col[xc >= 2 * L / 3].sum())]
+            d["thirds_pct"] = [round(100 * v) for v in (th if attack_right[tm] else th[::-1])]
+        out[tm] = d
+    return out
+
 def shapes(per, L, fps=25.0):
     """per frame, per team: hull (metres), block length/width, deepest/highest x, excluding keepers."""
     out = {}
@@ -306,6 +335,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "counterpress_rate": round(rx["pressed"] / rx["losses_seen"], 2) if rx and rx["losses_seen"] else None, "losses_seen": rx["losses_seen"] if rx else 0})
     poss = [STATES[s] if s < 2 else None for s in state]; teams = []
     held = held_points(per, fps, L=L, W=W) if SHAPE_HOLD_S else None
+    theat = team_heatmaps(per, fps, L, W, attack_right)
     for tm in ("A", "B"):
         opp = "B" if tm == "A" else "A"; tp = pass_df[pass_df.team == tm] if len(pass_df) else pass_df; op = pass_df[pass_df.team == opp] if len(pass_df) else pass_df
         lens, wids, hts = [], [], []
@@ -329,7 +359,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                       "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]) if REGAIN != "withhold" else None, "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
                       "time_to_forward_pass_median_s": med([t["time_to_forward_pass"] for t in won]), "forward_within_3s_pct": pct([(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3) for t in won]),
                       "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]) if REGAIN != "withhold" else None, "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
-                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0}
+                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0, "heatmap": theat[tm]}
                      | ({"regain_withheld": "N0-22f: not measurable from our ball (Metrica check)"} if REGAIN == "withhold" else {}))   # 3 Oct: the app reads it per team
     return {"players": players, "teams": teams, "heatmaps": heat, "grid": list(GRID)}
 

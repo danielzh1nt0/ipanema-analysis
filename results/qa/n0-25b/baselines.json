@@ -1,0 +1,41 @@
+{
+ "Sample_Game_1": {
+  "nocam_frames": {
+   "A": 1.8,
+   "B": 1.7
+  },
+  "A_vs_B": 13.4,
+  "thirds_truth": {
+   "A": [
+    28.0,
+    58.4,
+    13.6
+   ],
+   "B": [
+    21.1,
+    60.0,
+    18.9
+   ]
+  }
+ },
+ "Sample_Game_2": {
+  "nocam_frames": {
+   "A": 1.7,
+   "B": 1.7
+  },
+  "A_vs_B": 6.9,
+  "thirds_truth": {
+   "A": [
+    27.1,
+    55.4,
+    17.4
+   ],
+   "B": [
+    27.8,
+    55.0,
+    17.2
+   ]
+  }
+ },
+ "_how": "nocam_frames = TV of our seen map with a camera that shows the whole pitch (only our track breaks + jitter): the floor; A_vs_B = TV between the two pro teams' true maps (how different two real teams look). tools/n0_25b_baselines.py"
+}

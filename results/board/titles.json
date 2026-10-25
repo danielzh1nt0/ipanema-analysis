@@ -99,5 +99,7 @@
  "N0-24c": "Final-third entries: checked on pro data - passes into the final third were missed; 3-s hold rule finds 72% (was 42%)",
  "N0-24d": "Check pressures and PPDA on pro data",
  "N0-24e": "Check restarts on pro data",
- "N0-25a": "Check runs (sprints) on pro data and by eye"
+ "N0-25a": "Check runs (sprints) on pro data and by eye",
+ "N0-25b": "Check the team heat map on pro data; export a ready team map",
+ "TOUCHLINE": "Stop counting spectators and bench people at the touchline as players"
 }

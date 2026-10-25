@@ -1,0 +1,116 @@
+{
+ "SFKBP1109": {
+  "frames": 29970,
+  "fps": 10.0,
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "A": {
+   "tv_old_vs_new": 11.9,
+   "thirds_own_mid_att_old": [
+    36,
+    42,
+    22
+   ],
+   "thirds_own_mid_att_new": [
+    33,
+    45,
+    22
+   ],
+   "frames_old": 24117,
+   "frames_new": 24117
+  },
+  "B": {
+   "tv_old_vs_new": 11.5,
+   "thirds_own_mid_att_old": [
+    29,
+    42,
+    29
+   ],
+   "thirds_own_mid_att_new": [
+    28,
+    46,
+    26
+   ],
+   "frames_old": 24409,
+   "frames_new": 24409
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "frames": 59600,
+  "fps": 10.0,
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "A": {
+   "tv_old_vs_new": 7.5,
+   "thirds_own_mid_att_old": [
+    26,
+    47,
+    27
+   ],
+   "thirds_own_mid_att_new": [
+    23,
+    49,
+    28
+   ],
+   "frames_old": 47485,
+   "frames_new": 47485
+  },
+  "B": {
+   "tv_old_vs_new": 5.6,
+   "thirds_own_mid_att_old": [
+    32,
+    52,
+    16
+   ],
+   "thirds_own_mid_att_new": [
+    32,
+    52,
+    16
+   ],
+   "frames_old": 47205,
+   "frames_new": 47205
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "frames": 5994,
+  "fps": 10.0,
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "A": {
+   "tv_old_vs_new": 16.7,
+   "thirds_own_mid_att_old": [
+    13,
+    47,
+    40
+   ],
+   "thirds_own_mid_att_new": [
+    16,
+    44,
+    40
+   ],
+   "frames_old": 5764,
+   "frames_new": 5764
+  },
+  "B": {
+   "tv_old_vs_new": 15.8,
+   "thirds_own_mid_att_old": [
+    41,
+    46,
+    12
+   ],
+   "thirds_own_mid_att_new": [
+    41,
+    45,
+    15
+   ],
+   "frames_old": 5639,
+   "frames_new": 5639
+  }
+ }
+}
