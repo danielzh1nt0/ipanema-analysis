@@ -1,2 +1,2 @@
-tools/n0_24c_frames.py
-# Sat Oct 24 12:40:12 UTC 2026 N0-24c: picture sheets of the 5 final-third entries only one rule counts (2 app clips) - free runner only, nothing on Modal
+tools/n0_25a_frames.py
+# Sun Oct 25 00:35:33 UTC 2026 N0-25a: picture sheets of every run (sprint) on the 2 app clips, new vs old rule - free runner only, nothing on Modal

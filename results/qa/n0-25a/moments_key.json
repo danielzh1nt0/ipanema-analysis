@@ -1,0 +1,353 @@
+{
+ "sfk00": {
+  "rule": "new",
+  "player": 959,
+  "team": "A",
+  "t": 292.16,
+  "t_end": 294.86,
+  "distance_m": 18.4,
+  "speed_ms": 6.8
+ },
+ "sfk01": {
+  "rule": "new",
+  "player": 177,
+  "team": "B",
+  "t": 48.11,
+  "t_end": 48.98,
+  "distance_m": 5.8,
+  "speed_ms": 6.7
+ },
+ "sfk02": {
+  "rule": "new",
+  "player": 439,
+  "team": "B",
+  "t": 128.6,
+  "t_end": 129.43,
+  "distance_m": 5.0,
+  "speed_ms": 6.0
+ },
+ "sfk03": {
+  "rule": "new",
+  "player": 25,
+  "team": "A",
+  "t": 47.88,
+  "t_end": 48.88,
+  "distance_m": 7.8,
+  "speed_ms": 7.8
+ },
+ "sfk04": {
+  "rule": "new",
+  "player": 141,
+  "team": "A",
+  "t": 37.5,
+  "t_end": 38.37,
+  "distance_m": 5.0,
+  "speed_ms": 5.8
+ },
+ "sfk05": {
+  "rule": "old",
+  "player": 702,
+  "team": "B",
+  "t": 216.28,
+  "t_end": 217.22,
+  "distance_m": 6.6,
+  "speed_ms": 7.1
+ },
+ "sfk06": {
+  "rule": "old",
+  "player": 589,
+  "team": "A",
+  "t": 167.6,
+  "t_end": 168.43,
+  "distance_m": 5.2,
+  "speed_ms": 6.3
+ },
+ "sfk07": {
+  "rule": "new",
+  "player": 163,
+  "team": "A",
+  "t": 50.02,
+  "t_end": 51.05,
+  "distance_m": 7.8,
+  "speed_ms": 7.6
+ },
+ "sfk08": {
+  "rule": "new",
+  "player": 536,
+  "team": "A",
+  "t": 135.87,
+  "t_end": 137.07,
+  "distance_m": 7.2,
+  "speed_ms": 6.0
+ },
+ "sfk09": {
+  "rule": "new",
+  "player": 702,
+  "team": "B",
+  "t": 217.48,
+  "t_end": 218.85,
+  "distance_m": 9.6,
+  "speed_ms": 7.0
+ },
+ "sfk10": {
+  "rule": "new",
+  "player": 166,
+  "team": "A",
+  "t": 128.86,
+  "t_end": 130.13,
+  "distance_m": 8.8,
+  "speed_ms": 6.9
+ },
+ "sfk11": {
+  "rule": "new",
+  "player": 489,
+  "team": "A",
+  "t": 138.71,
+  "t_end": 139.74,
+  "distance_m": 6.0,
+  "speed_ms": 5.8
+ },
+ "sfk12": {
+  "rule": "new",
+  "player": 504,
+  "team": "A",
+  "t": 138.54,
+  "t_end": 139.97,
+  "distance_m": 8.8,
+  "speed_ms": 6.1
+ },
+ "sfk13": {
+  "rule": "new",
+  "player": 496,
+  "team": "A",
+  "t": 136.0,
+  "t_end": 140.94,
+  "distance_m": 33.5,
+  "speed_ms": 6.8
+ },
+ "sfk14": {
+  "rule": "new",
+  "player": 504,
+  "team": "A",
+  "t": 136.84,
+  "t_end": 137.64,
+  "distance_m": 4.9,
+  "speed_ms": 6.2
+ },
+ "sfk15": {
+  "rule": "new",
+  "player": 41,
+  "team": "B",
+  "t": 33.6,
+  "t_end": 35.84,
+  "distance_m": 13.3,
+  "speed_ms": 6.0
+ },
+ "sfk16": {
+  "rule": "new",
+  "player": 489,
+  "team": "A",
+  "t": 126.33,
+  "t_end": 127.26,
+  "distance_m": 5.9,
+  "speed_ms": 6.3
+ },
+ "sfk17": {
+  "rule": "new",
+  "player": 756,
+  "team": "A",
+  "t": 220.39,
+  "t_end": 221.29,
+  "distance_m": 6.0,
+  "speed_ms": 6.6
+ },
+ "sfk18": {
+  "rule": "new",
+  "player": 714,
+  "team": "A",
+  "t": 223.16,
+  "t_end": 224.09,
+  "distance_m": 6.5,
+  "speed_ms": 6.9
+ },
+ "sfk19": {
+  "rule": "new",
+  "player": 299,
+  "team": "B",
+  "t": 85.82,
+  "t_end": 86.62,
+  "distance_m": 4.8,
+  "speed_ms": 5.9
+ },
+ "sfk20": {
+  "rule": "new",
+  "player": 2,
+  "team": "A",
+  "t": 53.35,
+  "t_end": 54.19,
+  "distance_m": 6.1,
+  "speed_ms": 7.3
+ },
+ "sfk21": {
+  "rule": "new",
+  "player": 490,
+  "team": "B",
+  "t": 139.01,
+  "t_end": 140.51,
+  "distance_m": 9.9,
+  "speed_ms": 6.6
+ },
+ "sfk22": {
+  "rule": "new",
+  "player": 671,
+  "team": "A",
+  "t": 215.65,
+  "t_end": 218.82,
+  "distance_m": 19.0,
+  "speed_ms": 6.0
+ },
+ "sfk23": {
+  "rule": "new",
+  "player": 403,
+  "team": "A",
+  "t": 128.86,
+  "t_end": 129.83,
+  "distance_m": 5.8,
+  "speed_ms": 6.0
+ },
+ "sfk24": {
+  "rule": "new",
+  "player": 178,
+  "team": "B",
+  "t": 53.19,
+  "t_end": 54.35,
+  "distance_m": 8.1,
+  "speed_ms": 6.9
+ },
+ "sfk25": {
+  "rule": "new",
+  "player": 13,
+  "team": "A",
+  "t": 44.71,
+  "t_end": 45.51,
+  "distance_m": 5.1,
+  "speed_ms": 6.4
+ },
+ "sfk26": {
+  "rule": "new",
+  "player": 933,
+  "team": "B",
+  "t": 291.56,
+  "t_end": 292.86,
+  "distance_m": 7.7,
+  "speed_ms": 5.9
+ },
+ "sfk27": {
+  "rule": "new",
+  "player": 451,
+  "team": "A",
+  "t": 113.51,
+  "t_end": 114.58,
+  "distance_m": 8.1,
+  "speed_ms": 7.6
+ },
+ "aik00": {
+  "rule": "new",
+  "player": 594,
+  "team": "A",
+  "t": 187.12,
+  "t_end": 188.45,
+  "distance_m": 8.2,
+  "speed_ms": 6.2
+ },
+ "aik01": {
+  "rule": "new",
+  "player": 106,
+  "team": "A",
+  "t": 26.13,
+  "t_end": 26.96,
+  "distance_m": 5.1,
+  "speed_ms": 6.1
+ },
+ "aik02": {
+  "rule": "new",
+  "player": 479,
+  "team": "A",
+  "t": 168.17,
+  "t_end": 168.97,
+  "distance_m": 6.1,
+  "speed_ms": 7.6
+ },
+ "aik03": {
+  "rule": "new",
+  "player": 109,
+  "team": "A",
+  "t": 24.36,
+  "t_end": 25.16,
+  "distance_m": 4.9,
+  "speed_ms": 6.2
+ },
+ "aik04": {
+  "rule": "new",
+  "player": 568,
+  "team": "B",
+  "t": 188.35,
+  "t_end": 191.26,
+  "distance_m": 17.9,
+  "speed_ms": 6.2
+ },
+ "aik05": {
+  "rule": "new",
+  "player": 507,
+  "team": "B",
+  "t": 175.64,
+  "t_end": 176.44,
+  "distance_m": 5.3,
+  "speed_ms": 6.6
+ },
+ "aik06": {
+  "rule": "new",
+  "player": 479,
+  "team": "A",
+  "t": 165.23,
+  "t_end": 166.53,
+  "distance_m": 7.9,
+  "speed_ms": 6.1
+ },
+ "aik07": {
+  "rule": "new",
+  "player": 276,
+  "team": "A",
+  "t": 71.7,
+  "t_end": 72.71,
+  "distance_m": 6.6,
+  "speed_ms": 6.6
+ },
+ "aik08": {
+  "rule": "new",
+  "player": 109,
+  "team": "A",
+  "t": 25.19,
+  "t_end": 26.23,
+  "distance_m": 6.2,
+  "speed_ms": 6.0
+ },
+ "aik09": {
+  "rule": "new",
+  "player": 89,
+  "team": "B",
+  "t": 25.03,
+  "t_end": 25.96,
+  "distance_m": 5.5,
+  "speed_ms": 5.9
+ },
+ "aik10": {
+  "rule": "new",
+  "player": 479,
+  "team": "A",
+  "t": 166.6,
+  "t_end": 167.4,
+  "distance_m": 5.8,
+  "speed_ms": 7.2
+ }
+}
