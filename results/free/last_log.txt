@@ -1,6 +1,8 @@
-val p15u-vs-vallentuna-2026-10-03-6cce frames 178800 fps 29.970030639830654
-val sheets: 9
-sfk SFKBP1109 frames 184725 fps 29.970030618346996
-sfk sheets: 9
-aik p15u-vs-aik-2026-09-21-bd09 frames 206756 fps 29.970030549265214
-aik sheets: 7
+== sfk 9 moments
+downloading SFKBP1109_s1200
+clip 8992 frames, 1920 px wide
+sheets: {'sfk00': 9, 'sfk01': 9, 'sfk02': 9, 'sfk03': 13, 'sfk04': 9, 'sfk05': 9, 'sfk06': 13, 'sfk07': 13, 'sfk08': 9}
+== aik 8 moments
+downloading p15u-vs-aik-2026-09-21-bd09_s2520
+clip 8992 frames, 1920 px wide
+sheets: {'aik09': 9, 'aik10': 9, 'aik11': 9, 'aik12': 9, 'aik13': 9, 'aik14': 9, 'aik15': 9, 'aik16': 9}
