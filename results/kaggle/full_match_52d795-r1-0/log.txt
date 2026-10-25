@@ -1,7 +1,206 @@
-   5.1 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
-   5.5 calibration: no line calibration for this match - pitch-keypoint model installed (roboflow/sports)
-   5.5 inputs: /kaggle/input/notebooks: ['danielmatros']
-   5.6 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-kits: 1 cache folders
-   5.8 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p0: 5 cache folders
+   5.2 wasb weights: results/kaggle/wasb_warm/wasb_warm.pth
+   5.7 calibration: no line calibration for this match - pitch-keypoint model installed (roboflow/sports)
+   5.7 inputs: /kaggle/input/notebooks: ['danielmatros']
+   5.7 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-kits: 1 cache folders
+   5.9 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p0: 5 cache folders
    6.1 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p1: 6 cache folders
    6.1 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
+   6.1   (no output in ipanema-full-match-52d795-sweep yet - skipped)
+   7.4 video: 4.02 GB
+   7.4 === p15u-vs-aik-2026-09-21-bd09: 206756 frames (6899 s) @ 29.970 fps -> 23 pieces; this kernel: pieces [2, 6, 10, 14, 18, 22]
+   7.4 kits: mounted from the kits kernel
+  18.2   tracking frame 0
+  20.0   tracking frame 2000 (17.4 frames/s)
+  22.0   tracking frame 4000 (17.2 frames/s)
+  24.0   tracking frame 6000 (17.0 frames/s)
+  26.1   tracking frame 8000 (16.7 frames/s)
+  27.2   p15u-vs-aik-2026-09-21-bd09_c002: 18.1 players/frame
+  29.6   ball (RF-DETR): frame 1000, 7.0 frames/s
+  31.9   ball (RF-DETR): frame 2000, 7.1 frames/s
+  34.2   ball (RF-DETR): frame 3000, 7.1 frames/s
+  36.5   ball (RF-DETR): frame 4000, 7.2 frames/s
+  38.8   ball (RF-DETR): frame 5000, 7.2 frames/s
+  41.1   ball (RF-DETR): frame 6000, 7.2 frames/s
+  43.4   ball (RF-DETR): frame 7000, 7.2 frames/s
+  45.6   ball (RF-DETR): frame 8000, 7.2 frames/s
+  47.9 === p15u-vs-aik-2026-09-21-bd09_c002 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+  47.9 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+  48.6   calibration anchor 1000 (direct 35, chained 12)
+  49.4   calibration anchor 2000 (direct 64, chained 83)
+  50.4   calibration anchor 3000 (direct 64, chained 183)
+  51.4   calibration anchor 4000 (direct 64, chained 283)
+  52.0   calibration anchor 5000 (direct 95, chained 352)
+  52.5   calibration anchor 6000 (direct 112, chained 435)
+  53.4   calibration anchor 7000 (direct 135, chained 512)
+  54.0   calibration anchor 8000 (direct 195, chained 552)
+  54.7 calibration via panorama: 220 direct + 626 chained anchors -> 8992/8992 frames
+  54.7 calibration: from panorama, 8462/8992 frames measured (220 direct + 626 chained anchors), 530 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)
+  54.7 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+  54.7 tracking: RF-DETR tracks re-positioned with this calibration
+  54.7 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.0 candidates/frame
+  54.8 wasb: downloaded weights -> /kaggle/working/root/models/wasb_soccer_best.pth.tar
+  54.8 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+  57.3   wasb frame 1500
+  60.7   wasb frame 3000
+  63.7   wasb frame 4500
+  66.2   wasb frame 6000
+  69.2   wasb frame 7500
+  72.1 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.47/0.69/0.80
+  72.1 ball: RF-DETR + WASB guesses fused, 14.1/frame
+  72.1 p15u-vs-aik-2026-09-21-bd09_c002: 8992 frames, 18.1 players/frame
+  73.7 piece 2 done in 66.3 min, 3% frames trusted
+  83.9   tracking frame 0
+  85.9   tracking frame 2000 (17.0 frames/s)
+  88.0   tracking frame 4000 (16.5 frames/s)
+  90.0   tracking frame 6000 (16.5 frames/s)
+  91.9   tracking frame 8000 (16.7 frames/s)
+  92.9   p15u-vs-aik-2026-09-21-bd09_c006: 19.3 players/frame
+  95.3   ball (RF-DETR): frame 1000, 6.9 frames/s
+  97.7   ball (RF-DETR): frame 2000, 6.9 frames/s
+ 100.1   ball (RF-DETR): frame 3000, 7.0 frames/s
+ 102.4   ball (RF-DETR): frame 4000, 7.0 frames/s
+ 104.7   ball (RF-DETR): frame 5000, 7.1 frames/s
+ 106.9   ball (RF-DETR): frame 6000, 7.1 frames/s
+ 109.2   ball (RF-DETR): frame 7000, 7.1 frames/s
+ 111.5   ball (RF-DETR): frame 8000, 7.2 frames/s
+ 113.8 === p15u-vs-aik-2026-09-21-bd09_c006 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 113.8 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 113.8   calibration anchor 0 (direct 1, chained 0)
+ 114.4   calibration anchor 1000 (direct 81, chained 20)
+ 115.0   calibration anchor 2000 (direct 123, chained 78)
+ 115.7   calibration anchor 3000 (direct 146, chained 155)
+ 116.4   calibration anchor 4000 (direct 224, chained 177)
+ 117.0   calibration anchor 5000 (direct 246, chained 255)
+ 117.5   calibration anchor 6000 (direct 327, chained 274)
+ 118.1   calibration anchor 7000 (direct 344, chained 357)
+ 118.7   calibration anchor 8000 (direct 371, chained 430)
+ 119.3 calibration via panorama: 470 direct + 430 chained anchors -> 8992/8992 frames
+ 119.3 calibration: from panorama, 8992/8992 frames measured (470 direct + 430 chained anchors), 0 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)
+ 119.3 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 119.3 tracking: RF-DETR tracks re-positioned with this calibration
+ 119.3 ball: RF-DETR ball finder (rfdetr_ball_20260929), 9.1 candidates/frame
+ 119.3 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 122.2   wasb frame 1500
+ 125.4   wasb frame 3000
+ 128.4   wasb frame 4500
+ 130.9   wasb frame 6000
+ 133.4   wasb frame 7500
+ 136.3 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.48/0.69/0.79
+ 136.3 ball: RF-DETR + WASB guesses fused, 13.4/frame
+ 136.4 p15u-vs-aik-2026-09-21-bd09_c006: 8992 frames, 19.3 players/frame
+ 137.9 piece 6 done in 64.2 min, 15% frames trusted
+ 148.5   tracking frame 0
+ 150.2   tracking frame 2000 (19.2 frames/s)
+ 152.1   tracking frame 4000 (18.4 frames/s)
+ 154.0   tracking frame 6000 (18.0 frames/s)
+ 156.0   tracking frame 8000 (17.7 frames/s)
+ 157.0   p15u-vs-aik-2026-09-21-bd09_c010: 15.2 players/frame
+ 159.4   ball (RF-DETR): frame 1000, 6.9 frames/s
+ 161.8   ball (RF-DETR): frame 2000, 6.9 frames/s
+ 164.2   ball (RF-DETR): frame 3000, 6.9 frames/s
+ 166.6   ball (RF-DETR): frame 4000, 7.0 frames/s
+ 168.9   ball (RF-DETR): frame 5000, 7.0 frames/s
+ 171.2   ball (RF-DETR): frame 6000, 7.1 frames/s
+ 173.4   ball (RF-DETR): frame 7000, 7.1 frames/s
+ 175.8   ball (RF-DETR): frame 8000, 7.1 frames/s
+ 178.2 === p15u-vs-aik-2026-09-21-bd09_c010 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 178.2 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 178.8   calibration anchor 1000 (direct 10, chained 85)
+ 179.5   calibration anchor 2000 (direct 58, chained 137)
+ 180.1   calibration anchor 3000 (direct 119, chained 176)
+ 180.7   calibration anchor 4000 (direct 163, chained 232)
+ 181.4   calibration anchor 5000 (direct 187, chained 308)
+ 182.1   calibration anchor 6000 (direct 221, chained 374)
+ 182.7   calibration anchor 7000 (direct 256, chained 439)
+ 183.4   calibration anchor 8000 (direct 287, chained 508)
+ 184.0 calibration via panorama: 309 direct + 585 chained anchors -> 8992/8992 frames
+ 184.0 calibration: from panorama, 8942/8992 frames measured (309 direct + 585 chained anchors), 50 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)
+ 184.1   debug overlays -> /content/ipanema-analysis/results/debug
+ 184.1 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 184.1 tracking: RF-DETR tracks re-positioned with this calibration
+ 184.1 ball: RF-DETR ball finder (rfdetr_ball_20260929), 7.8 candidates/frame
+ 184.1 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 187.1   wasb frame 1500
+ 190.0   wasb frame 3000
+ 193.2   wasb frame 4500
+ 196.3   wasb frame 6000
+ 199.0   wasb frame 7500
+ 201.7 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.49/0.72/0.81
+ 201.7 ball: RF-DETR + WASB guesses fused, 12.2/frame
+ 201.7 p15u-vs-aik-2026-09-21-bd09_c010: 8992 frames, 15.2 players/frame
+ 203.3 piece 10 done in 65.4 min, 17% frames trusted
+ 213.5   tracking frame 0
+ 215.5   tracking frame 2000 (17.1 frames/s)
+ 217.4   tracking frame 4000 (17.0 frames/s)
+ 219.4   tracking frame 6000 (17.1 frames/s)
+ 221.4   tracking frame 8000 (16.9 frames/s)
+ 222.5   p15u-vs-aik-2026-09-21-bd09_c014: 17.8 players/frame
+ 224.9   ball (RF-DETR): frame 1000, 6.9 frames/s
+ 227.3   ball (RF-DETR): frame 2000, 6.9 frames/s
+ 229.7   ball (RF-DETR): frame 3000, 6.9 frames/s
+ 232.1   ball (RF-DETR): frame 4000, 6.9 frames/s
+ 234.5   ball (RF-DETR): frame 5000, 6.9 frames/s
+ 236.9   ball (RF-DETR): frame 6000, 6.9 frames/s
+ 239.4   ball (RF-DETR): frame 7000, 6.9 frames/s
+ 241.8   ball (RF-DETR): frame 8000, 6.9 frames/s
+ 244.2 === p15u-vs-aik-2026-09-21-bd09_c014 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 244.2 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 245.6   calibration anchor 2000 (direct 2, chained 76)
+ 246.3   calibration anchor 3000 (direct 33, chained 145)
+ 247.0   calibration anchor 4000 (direct 38, chained 240)
+ 247.6   calibration anchor 5000 (direct 38, chained 340)
+ 248.2   calibration anchor 6000 (direct 38, chained 440)
+ 249.2   calibration anchor 7000 (direct 42, chained 536)
+ 250.3   calibration anchor 8000 (direct 42, chained 636)
+ 251.1 calibration via panorama: 42 direct + 735 chained anchors -> 8992/8992 frames
+ 251.1 calibration: from panorama, 7772/8992 frames measured (42 direct + 735 chained anchors), 1220 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)
+ 251.1 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 251.2 tracking: RF-DETR tracks re-positioned with this calibration
+ 251.2 ball: RF-DETR ball finder (rfdetr_ball_20260929), 8.8 candidates/frame
+ 251.2 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 254.1   wasb frame 1500
+ 257.2   wasb frame 3000
+ 260.1   wasb frame 4500
+ 262.9   wasb frame 6000
+ 266.2   wasb frame 7500
+ 269.5 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.50/0.72/0.83
+ 269.5 ball: RF-DETR + WASB guesses fused, 13.1/frame
+ 269.6 p15u-vs-aik-2026-09-21-bd09_c014: 8992 frames, 17.8 players/frame
+ 271.2 piece 14 done in 67.9 min, 22% frames trusted
+ 281.9   tracking frame 0
+ 283.7   tracking frame 2000 (17.8 frames/s)
+ 285.5   tracking frame 4000 (18.1 frames/s)
+ 287.4   tracking frame 6000 (18.0 frames/s)
+ 289.4   tracking frame 8000 (17.7 frames/s)
+ 290.4   p15u-vs-aik-2026-09-21-bd09_c018: 20.2 players/frame
+ 292.7   ball (RF-DETR): frame 1000, 7.3 frames/s
+ 295.0   ball (RF-DETR): frame 2000, 7.2 frames/s
+ 297.3   ball (RF-DETR): frame 3000, 7.2 frames/s
+ 299.6   ball (RF-DETR): frame 4000, 7.2 frames/s
+ 301.9   ball (RF-DETR): frame 5000, 7.2 frames/s
+ 304.2   ball (RF-DETR): frame 6000, 7.2 frames/s
+ 306.5   ball (RF-DETR): frame 7000, 7.2 frames/s
+ 308.8   ball (RF-DETR): frame 8000, 7.2 frames/s
+ 311.1 === p15u-vs-aik-2026-09-21-bd09_c018 === (ipanema 0.27.0; ball: football-ball-detection.pt; pitch: football-pitch-detection.pt)
+ 311.1 video: 1920x1080 @ 30.0 fps, 8992 frames (300 s)
+ 314.3   calibration anchor 5000 (direct 6, chained 44)
+ 315.2   calibration anchor 6000 (direct 6, chained 144)
+ 315.9   calibration anchor 7000 (direct 6, chained 244)
+ 316.8   calibration anchor 8000 (direct 7, chained 343)
+ 317.5 calibration via panorama: 7 direct + 442 chained anchors -> 8992/8992 frames
+ 317.5 calibration: from panorama, 4492/8992 frames measured (7 direct + 442 chained anchors), 4500 guessed inside registration gaps (IPANEMA_MOSAIC_COVER=0 = old count)
+ 317.5 players: new pipeline (RF-DETR + per-match kits), from tracks_rfdetr_v1.pkl
+ 317.6 tracking: RF-DETR tracks re-positioned with this calibration
+ 317.6 ball: RF-DETR ball finder (rfdetr_ball_20260929), 10.6 candidates/frame
+ 317.6 wasb: using fine-tuned weights (models/wasb_finetuned.pth), 2x2 tiles
+ 320.8   wasb frame 1500
+ 323.6   wasb frame 3000
+ 326.4   wasb frame 4500
+ 329.8   wasb frame 6000
+ 333.1   wasb frame 7500
+ 336.1 wasb: 8992/8992 frames with a ball peak, 6.0 peaks/frame; heatmap max p50/p90/p99 = 0.52/0.75/0.82
+ 336.1 ball: RF-DETR + WASB guesses fused, 14.7/frame
+ 336.2 p15u-vs-aik-2026-09-21-bd09_c018: 8992 frames, 20.2 players/frame
+ 337.7 piece 18 done in 66.5 min, 5% frames trusted
+ 337.7 time budget: stopping before piece 22
+ 337.7 done: pieces in 337.7 min

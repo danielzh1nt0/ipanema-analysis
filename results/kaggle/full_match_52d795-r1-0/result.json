@@ -1,0 +1,37 @@
+{
+ "match": "p15u-vs-aik-2026-09-21-bd09",
+ "stage": "pieces",
+ "pieces_done": [
+  {
+   "i": 2,
+   "minutes": 66.3,
+   "trusted_pct": 2.9
+  },
+  {
+   "i": 6,
+   "minutes": 64.2,
+   "trusted_pct": 15.2
+  },
+  {
+   "i": 10,
+   "minutes": 65.4,
+   "trusted_pct": 17.1
+  },
+  {
+   "i": 14,
+   "minutes": 67.9,
+   "trusted_pct": 22.5
+  },
+  {
+   "i": 18,
+   "minutes": 66.5,
+   "trusted_pct": 4.7
+  }
+ ],
+ "pieces_failed": [],
+ "n": 206756,
+ "fps": 29.970030549265214,
+ "n_pieces": 23,
+ "minutes": 337.7,
+ "stopped_before": 22
+}
