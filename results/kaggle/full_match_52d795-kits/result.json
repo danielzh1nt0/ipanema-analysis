@@ -1,0 +1,23 @@
+{
+ "match": "p15u-vs-aik-2026-09-21-bd09",
+ "stage": "kits",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "n": 206756,
+ "fps": 29.970030549265214,
+ "n_pieces": 23,
+ "kits": {
+  "frames": 36,
+  "kit_groups": [
+   67,
+   65,
+   25,
+   9
+  ],
+  "dark_share": {
+   "A": 0.2,
+   "B": 0.67
+  }
+ },
+ "minutes": 8.6
+}
