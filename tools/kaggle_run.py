@@ -67,3 +67,4 @@ if KV.get("DOWNLOAD", "1") == "0":
 else: print(sh(f"kaggle kernels output {kid} -p {OUT}"), flush=True)
 json.dump({"kernel": kid, "status": st, "minutes": round((time.time() - t0) / 60, 1)}, open(f"{OUT}/run.json", "w"), indent=1)
 for f in sorted(os.listdir(OUT)): print(" ", f, os.path.getsize(f"{OUT}/{f}"))
+if "kernelworkerstatus.error" in st.lower() or "kernelworkerstatus.cancel" in st.lower(): sys.exit(f"kernel ended with {st[-40:]}")   # 25 Oct: a failed kernel is a failed job

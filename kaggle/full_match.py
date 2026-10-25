@@ -50,12 +50,15 @@ def save(): result["minutes"] = round((time.time() - t0) / 60, 1); json.dump(res
 def mount_sources():
     srcs = [x for x in "{{SOURCES_DIRS}}".split(",") if x]                        # outputs of earlier kernels (kits, pieces)
     if srcs: log("inputs: " + "; ".join(f"{d}: {sorted(os.listdir(d))[:8]}" for d in glob.glob("/kaggle/input/*") if os.path.isdir(d)))
-    for slug in srcs:
+    for k, slug in enumerate(srcs):
         d = next((x for x in glob.glob(f"/kaggle/input/{slug}") + glob.glob(f"/kaggle/input/*/{slug}") + glob.glob(f"/kaggle/input/*/*/{slug}") if os.path.isdir(x)), f"/kaggle/input/{slug}")   # notebooks/<user>/<slug>
         found = glob.glob(f"{d}/root/cache/*") or glob.glob(f"{d}/*/root/cache/*") or glob.glob(f"{d}/cache/*")
         for c in found: shutil.copytree(c, f"{ROOT}/cache/{os.path.basename(c)}", dirs_exist_ok=True)
         log(f"mounted {d}: {len(found)} cache folders")
-        if not found: raise SystemExit(f"input {d} has no cache folders (listing above): not running without it")
+        # 25 Oct: only the FIRST source (kits for pieces, the pieces for relabel/join) is required; a later one with nothing in
+        # it (a kernel still running, an optional extra_sources entry from an earlier run) just contributes no pieces
+        if not found and k == 0: raise SystemExit(f"input {d} has no cache folders (listing above): not running without it")
+        if not found: log(f"  (no output in {slug} yet - skipped)")
 
 if STAGE in ("kits", "pieces", "all"):                                           # all = pieces + join in one kernel (a short clip)
     import numpy as np, cv2
