@@ -1,2 +1,2 @@
-tools/n0_25a_frames.py
-# Sun Oct 25 00:35:33 UTC 2026 N0-25a: picture sheets of every run (sprint) on the 2 app clips, new vs old rule - free runner only, nothing on Modal
+tools/n0_25b_frames.py
+# Sun Oct 25 04:44:14 UTC 2026 N0-25b: picture sheets of the people our team heat maps put on a touchline (+ mid-pitch controls), 2 app clips - free runner only, nothing on Modal
