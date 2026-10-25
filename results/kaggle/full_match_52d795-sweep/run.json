@@ -1,0 +1,5 @@
+{
+ "kernel": "danielmatros/ipanema-full-match-52d795-sweep",
+ "status": "push refused: Kernel push error: Maximum weekly GPU quota of 30.00 hours reached.",
+ "minutes": 0
+}
