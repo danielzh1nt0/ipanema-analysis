@@ -1,0 +1,29 @@
+{
+ "val": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "rows_after_9oct": 666175,
+  "tracks_9oct": 11,
+  "stretches_dropped": 5,
+  "rows_dropped": 365,
+  "rows_dropped_pct": 0.05,
+  "kept_near_line": 7
+ },
+ "sfk": {
+  "match": "SFKBP1109",
+  "rows_after_9oct": 290299,
+  "tracks_9oct": 36,
+  "stretches_dropped": 8,
+  "rows_dropped": 1075,
+  "rows_dropped_pct": 0.37,
+  "kept_near_line": 6
+ },
+ "aik": {
+  "match": "p15u-vs-aik-2026-09-21-bd09",
+  "rows_after_9oct": 72156,
+  "tracks_9oct": 27,
+  "stretches_dropped": 29,
+  "rows_dropped": 3332,
+  "rows_dropped_pct": 4.62,
+  "kept_near_line": 1
+ }
+}

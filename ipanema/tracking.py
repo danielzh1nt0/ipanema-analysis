@@ -256,6 +256,46 @@ def track(video, weights_player, H, team_model, conf=0.3, log=print, tiles=None,
         if max_frames and k + 1 >= max_frames: break
     return per, fps
 
+def track_stretches(ks, P, fps=30.0, jump_m=2.0, gap_s=0.5):
+    """cut one track (frames ks, positions P) into stretches: a break at a gap of more than gap_s, or where the
+    position jumps more than jump_m per 0.1 s (another person under the same id). Returns (start, end) index pairs."""
+    out = []; a = 0
+    for i in range(1, len(ks)):
+        dt = (ks[i] - ks[i - 1]) / fps
+        if dt > gap_s or float(np.hypot(*(P[i] - P[i - 1]))) > jump_m * max(1.0, dt / 0.1): out.append((a, i)); a = i
+    if len(ks): out.append((a, len(ks)))
+    return out
+
+
+def touchline_stretches(per, W, fps, smooth_s=0.8, max_m=None):
+    """per stretch of every track (track_stretches): (track id, frames, duration s, deepest metres from a side
+    touchline, median speed m/s of the positions smoothed smooth_s). max_m: skip stretches deeper than that (faster)."""
+    keys = sorted(per) if isinstance(per, dict) else range(len(per)); life = defaultdict(list)
+    for k in keys:
+        for r in per[k]: life[r[0]].append((k, float(r[2][0]), float(r[2][1])))
+    out = []; w = max(1, int(round(smooth_s * fps))); kern = np.ones(w) / w
+    for t, v in life.items():
+        q = np.array(v); ks, P = q[:, 0].astype(int), q[:, 1:3]; dside = np.minimum(P[:, 1], W - P[:, 1])
+        for a, b in track_stretches(ks, P, fps):
+            deep = float(dside[a:b].max())
+            if (max_m is not None and deep > max_m) or b - a < 2: continue
+            pad = np.pad(P[a:b], ((w // 2, w - 1 - w // 2), (0, 0)), mode="edge")
+            S = np.c_[np.convolve(pad[:, 0], kern, "valid"), np.convolve(pad[:, 1], kern, "valid")]
+            sp = np.hypot(*np.diff(S, axis=0).T) / np.maximum(1, np.diff(ks[a:b])) * fps
+            out.append((t, ks[a:b], (ks[b - 1] - ks[a]) / fps, deep, float(np.median(sp))))
+    return out
+
+
+def touchline_rows(per, W, fps, min_s=4.0, max_m=3.5, max_v=0.8, smooth_s=0.8, stretches=None):
+    """TOUCHLINE (25 Oct): people just behind the far touchline (spectators, bench staff, seated subs, a bag) project to
+    0-1.5 m inside the line and are tracked as players. A stretch of a track (track_stretches: no id jump, no long gap)
+    that lasts >= min_s, never goes deeper than max_m from a side touchline and stands (median speed of the positions
+    smoothed smooth_s <= max_v m/s) is not a player. Works per stretch, not per track, because ids slide between a
+    spectator and a player. Returns the set of (frame, track id) rows to drop."""
+    st = stretches if stretches is not None else touchline_stretches(per, W, fps, smooth_s, max_m)
+    return {(int(k), t) for t, ks, dur, deep, v in st if dur >= min_s and deep <= max_m and v <= max_v for k in ks}
+
+
 def clean(per, L, W, fps, log=print, keepers_by_zone=True):
     """keepers_by_zone=False (P2e, 4 Oct): positions are screen positions, not metres (ground without calibration, tracktest),
     so 'in a goalmouth' only means 'at the picture's left / right edge' - the keeper rules are skipped there (they made the
