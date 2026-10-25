@@ -1,0 +1,23 @@
+{
+ "match": "p15u-vs-aik-2026-09-21-bd09",
+ "stage": "relabel",
+ "pieces_done": [],
+ "pieces_failed": [],
+ "relabel": {
+  "tracks_read": 19414,
+  "decided": 12250,
+  "changed": {
+   "B->split": 835,
+   "A->split": 908,
+   "K->B": 574,
+   "B->A": 110,
+   "K->split": 175,
+   "A->B": 60,
+   "K->A": 253
+  },
+  "split": 1918,
+  "frames": 29974,
+  "step": 6
+ },
+ "minutes": 130.1
+}

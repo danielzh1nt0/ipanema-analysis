@@ -1,0 +1,37 @@
+   6.0 wasb weights: results/volume/models/wasb_finetuned.pth
+   6.0 inputs: /kaggle/input/ipanema-full-match-52d795-r2-0: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']; /kaggle/input/ipanema-full-match-52d795-r1-1: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']; /kaggle/input/ipanema-full-match-52d795-p1: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']; /kaggle/input/ipanema-full-match-52d795-r1-0: ['__output__.json', '__results__.html', '__script__.ipynb', '__script__.py', 'custom.css', 'log.txt', 'result.json', 'root']; /kaggle/input/notebooks: ['danielmatros']
+   6.0 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-kits: 1 cache folders
+   6.6 mounted /kaggle/input/ipanema-full-match-52d795-r1-0: 15 cache folders
+   7.2 mounted /kaggle/input/ipanema-full-match-52d795-r1-1: 15 cache folders
+   8.4 mounted /kaggle/input/ipanema-full-match-52d795-r2-0: 21 cache folders
+   8.4 mounted /kaggle/input/ipanema-full-match-52d795-r2-1: 0 cache folders
+   8.4   (no output in ipanema-full-match-52d795-r2-1 yet - skipped)
+   8.4 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
+   8.4   (no output in ipanema-full-match-52d795-sweep yet - skipped)
+   8.7 mounted /kaggle/input/notebooks/danielmatros/ipanema-full-match-52d795-p0: 5 cache folders
+   9.1 mounted /kaggle/input/ipanema-full-match-52d795-p1: 6 cache folders
+   9.1 mounted /kaggle/input/ipanema-full-match-52d795-sweep: 0 cache folders
+   9.1   (no output in ipanema-full-match-52d795-sweep yet - skipped)
+  10.8 video: 4.02 GB
+  16.8 relabel: p15u-vs-aik-2026-09-21-bd09_c001 read (1499 frames so far, 1186 tracks)
+  22.7 relabel: p15u-vs-aik-2026-09-21-bd09_c002 read (2998 frames so far, 2190 tracks)
+  28.7 relabel: p15u-vs-aik-2026-09-21-bd09_c003 read (4497 frames so far, 3171 tracks)
+  34.7 relabel: p15u-vs-aik-2026-09-21-bd09_c004 read (5996 frames so far, 4106 tracks)
+  40.8 relabel: p15u-vs-aik-2026-09-21-bd09_c005 read (7495 frames so far, 5216 tracks)
+  46.8 relabel: p15u-vs-aik-2026-09-21-bd09_c006 read (8994 frames so far, 6277 tracks)
+  52.8 relabel: p15u-vs-aik-2026-09-21-bd09_c007 read (10493 frames so far, 7149 tracks)
+  58.7 relabel: p15u-vs-aik-2026-09-21-bd09_c008 read (11992 frames so far, 7949 tracks)
+  64.7 relabel: p15u-vs-aik-2026-09-21-bd09_c009 read (13491 frames so far, 9040 tracks)
+  70.5 relabel: p15u-vs-aik-2026-09-21-bd09_c010 read (14990 frames so far, 10138 tracks)
+  76.3 relabel: p15u-vs-aik-2026-09-21-bd09_c013 read (16489 frames so far, 11371 tracks)
+  82.3 relabel: p15u-vs-aik-2026-09-21-bd09_c014 read (17988 frames so far, 12294 tracks)
+  88.2 relabel: p15u-vs-aik-2026-09-21-bd09_c015 read (19487 frames so far, 13282 tracks)
+  94.1 relabel: p15u-vs-aik-2026-09-21-bd09_c016 read (20986 frames so far, 14103 tracks)
+ 100.0 relabel: p15u-vs-aik-2026-09-21-bd09_c017 read (22485 frames so far, 14827 tracks)
+ 106.2 relabel: p15u-vs-aik-2026-09-21-bd09_c018 read (23984 frames so far, 15814 tracks)
+ 112.2 relabel: p15u-vs-aik-2026-09-21-bd09_c019 read (25483 frames so far, 16605 tracks)
+ 118.1 relabel: p15u-vs-aik-2026-09-21-bd09_c020 read (26982 frames so far, 17574 tracks)
+ 124.2 relabel: p15u-vs-aik-2026-09-21-bd09_c021 read (28481 frames so far, 18473 tracks)
+ 130.1 relabel: p15u-vs-aik-2026-09-21-bd09_c022 read (29974 frames so far, 19414 tracks)
+ 130.1 relabel: {'tracks_read': 19414, 'decided': 12250, 'changed': {'B->split': 835, 'A->split': 908, 'K->B': 574, 'B->A': 110, 'K->split': 175, 'A->B': 60, 'K->A': 253}, 'split': 1918, 'frames': 29974, 'step': 6}
+ 130.1 done: relabel in 130.1 min
