@@ -1,0 +1,418 @@
+{
+ "game1_SFKBP1109_seed0": {
+  "old": {
+   "length": {
+    "err_m": 10.9,
+    "ratio": 0.64,
+    "covered": 0.88,
+    "median": 20.4
+   },
+   "width": {
+    "err_m": 13.5,
+    "ratio": 0.68,
+    "covered": 0.88,
+    "median": 28.2
+   },
+   "line": {
+    "err_m": 1.6,
+    "ratio": 1.06,
+    "covered": 0.88,
+    "median": 38.7
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.6,
+    "ratio": 1.0,
+    "covered": 0.76,
+    "median": 30.9
+   },
+   "width": {
+    "err_m": 4.6,
+    "ratio": 0.93,
+    "covered": 0.76,
+    "median": 37.5
+   },
+   "line": {
+    "err_m": 1.6,
+    "ratio": 1.06,
+    "covered": 0.88,
+    "median": 38.7
+   }
+  },
+  "card_median": {
+   "length": 30.9,
+   "width": 37.5,
+   "line": 35.2
+  },
+  "truth_median": {
+   "length": 32.5,
+   "width": 41.3,
+   "line": 35.9
+  }
+ },
+ "game1_SFKBP1109_seed1": {
+  "old": {
+   "length": {
+    "err_m": 11.1,
+    "ratio": 0.64,
+    "covered": 0.88,
+    "median": 20.1
+   },
+   "width": {
+    "err_m": 13.6,
+    "ratio": 0.67,
+    "covered": 0.88,
+    "median": 28.0
+   },
+   "line": {
+    "err_m": 1.8,
+    "ratio": 1.06,
+    "covered": 0.88,
+    "median": 38.8
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.5,
+    "ratio": 1.01,
+    "covered": 0.76,
+    "median": 31.0
+   },
+   "width": {
+    "err_m": 4.6,
+    "ratio": 0.93,
+    "covered": 0.76,
+    "median": 37.7
+   },
+   "line": {
+    "err_m": 1.8,
+    "ratio": 1.06,
+    "covered": 0.88,
+    "median": 38.8
+   }
+  },
+  "card_median": {
+   "length": 31.1,
+   "width": 37.7,
+   "line": 34.9
+  },
+  "truth_median": {
+   "length": 32.5,
+   "width": 41.3,
+   "line": 35.9
+  }
+ },
+ "game1_p15u-vs-a_seed0": {
+  "old": {
+   "length": {
+    "err_m": 11.9,
+    "ratio": 0.61,
+    "covered": 0.87,
+    "median": 19.2
+   },
+   "width": {
+    "err_m": 13.2,
+    "ratio": 0.69,
+    "covered": 0.87,
+    "median": 28.6
+   },
+   "line": {
+    "err_m": 2.0,
+    "ratio": 1.07,
+    "covered": 0.87,
+    "median": 38.9
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.7,
+    "ratio": 1.0,
+    "covered": 0.73,
+    "median": 30.6
+   },
+   "width": {
+    "err_m": 4.3,
+    "ratio": 0.94,
+    "covered": 0.73,
+    "median": 37.8
+   },
+   "line": {
+    "err_m": 2.0,
+    "ratio": 1.07,
+    "covered": 0.87,
+    "median": 38.9
+   }
+  },
+  "card_median": {
+   "length": 30.7,
+   "width": 37.9,
+   "line": 35.5
+  },
+  "truth_median": {
+   "length": 32.5,
+   "width": 41.3,
+   "line": 35.9
+  }
+ },
+ "game1_p15u-vs-a_seed1": {
+  "old": {
+   "length": {
+    "err_m": 12.2,
+    "ratio": 0.6,
+    "covered": 0.87,
+    "median": 19.0
+   },
+   "width": {
+    "err_m": 13.4,
+    "ratio": 0.68,
+    "covered": 0.87,
+    "median": 27.8
+   },
+   "line": {
+    "err_m": 2.2,
+    "ratio": 1.07,
+    "covered": 0.87,
+    "median": 39.2
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.6,
+    "ratio": 1.0,
+    "covered": 0.73,
+    "median": 30.3
+   },
+   "width": {
+    "err_m": 4.1,
+    "ratio": 0.95,
+    "covered": 0.73,
+    "median": 37.8
+   },
+   "line": {
+    "err_m": 2.2,
+    "ratio": 1.07,
+    "covered": 0.87,
+    "median": 39.2
+   }
+  },
+  "card_median": {
+   "length": 30.4,
+   "width": 37.8,
+   "line": 35.6
+  },
+  "truth_median": {
+   "length": 32.5,
+   "width": 41.3,
+   "line": 35.9
+  }
+ },
+ "game2_SFKBP1109_seed0": {
+  "old": {
+   "length": {
+    "err_m": 10.1,
+    "ratio": 0.67,
+    "covered": 0.93,
+    "median": 20.5
+   },
+   "width": {
+    "err_m": 12.6,
+    "ratio": 0.69,
+    "covered": 0.93,
+    "median": 28.2
+   },
+   "line": {
+    "err_m": 1.4,
+    "ratio": 1.05,
+    "covered": 0.93,
+    "median": 38.5
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 2.9,
+    "ratio": 1.01,
+    "covered": 0.82,
+    "median": 30.2
+   },
+   "width": {
+    "err_m": 4.3,
+    "ratio": 0.95,
+    "covered": 0.82,
+    "median": 37.0
+   },
+   "line": {
+    "err_m": 1.4,
+    "ratio": 1.05,
+    "covered": 0.93,
+    "median": 38.5
+   }
+  },
+  "card_median": {
+   "length": 30.2,
+   "width": 37.0,
+   "line": 34.1
+  },
+  "truth_median": {
+   "length": 31.7,
+   "width": 39.7,
+   "line": 34.4
+  }
+ },
+ "game2_SFKBP1109_seed1": {
+  "old": {
+   "length": {
+    "err_m": 10.1,
+    "ratio": 0.67,
+    "covered": 0.93,
+    "median": 20.5
+   },
+   "width": {
+    "err_m": 12.4,
+    "ratio": 0.69,
+    "covered": 0.93,
+    "median": 28.4
+   },
+   "line": {
+    "err_m": 1.4,
+    "ratio": 1.05,
+    "covered": 0.93,
+    "median": 38.4
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.0,
+    "ratio": 1.0,
+    "covered": 0.81,
+    "median": 30.1
+   },
+   "width": {
+    "err_m": 4.2,
+    "ratio": 0.95,
+    "covered": 0.81,
+    "median": 37.2
+   },
+   "line": {
+    "err_m": 1.4,
+    "ratio": 1.05,
+    "covered": 0.93,
+    "median": 38.4
+   }
+  },
+  "card_median": {
+   "length": 30.2,
+   "width": 37.3,
+   "line": 34.3
+  },
+  "truth_median": {
+   "length": 31.7,
+   "width": 39.7,
+   "line": 34.4
+  }
+ },
+ "game2_p15u-vs-a_seed0": {
+  "old": {
+   "length": {
+    "err_m": 11.2,
+    "ratio": 0.62,
+    "covered": 0.91,
+    "median": 19.1
+   },
+   "width": {
+    "err_m": 12.2,
+    "ratio": 0.7,
+    "covered": 0.91,
+    "median": 28.2
+   },
+   "line": {
+    "err_m": 2.1,
+    "ratio": 1.07,
+    "covered": 0.91,
+    "median": 39.1
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.2,
+    "ratio": 1.0,
+    "covered": 0.78,
+    "median": 29.8
+   },
+   "width": {
+    "err_m": 3.7,
+    "ratio": 0.97,
+    "covered": 0.78,
+    "median": 37.8
+   },
+   "line": {
+    "err_m": 2.1,
+    "ratio": 1.07,
+    "covered": 0.91,
+    "median": 39.1
+   }
+  },
+  "card_median": {
+   "length": 29.8,
+   "width": 37.8,
+   "line": 34.8
+  },
+  "truth_median": {
+   "length": 31.7,
+   "width": 39.7,
+   "line": 34.4
+  }
+ },
+ "game2_p15u-vs-a_seed1": {
+  "old": {
+   "length": {
+    "err_m": 11.3,
+    "ratio": 0.62,
+    "covered": 0.91,
+    "median": 19.1
+   },
+   "width": {
+    "err_m": 12.2,
+    "ratio": 0.7,
+    "covered": 0.91,
+    "median": 28.2
+   },
+   "line": {
+    "err_m": 2.0,
+    "ratio": 1.07,
+    "covered": 0.91,
+    "median": 39.1
+   }
+  },
+  "new": {
+   "length": {
+    "err_m": 3.2,
+    "ratio": 1.0,
+    "covered": 0.78,
+    "median": 29.8
+   },
+   "width": {
+    "err_m": 3.7,
+    "ratio": 0.97,
+    "covered": 0.78,
+    "median": 38.0
+   },
+   "line": {
+    "err_m": 2.0,
+    "ratio": 1.07,
+    "covered": 0.91,
+    "median": 39.1
+   }
+  },
+  "card_median": {
+   "length": 29.8,
+   "width": 38.0,
+   "line": 34.7
+  },
+  "truth_median": {
+   "length": 31.7,
+   "width": 39.7,
+   "line": 34.4
+  }
+ }
+}

@@ -101,5 +101,6 @@
  "N0-24e": "Check restarts on pro data",
  "N0-25a": "Check runs (sprints) on pro data and by eye",
  "N0-25b": "Check the team heat map on pro data; export a ready team map",
- "TOUCHLINE": "Stop counting spectators and bench people at the touchline as players"
+ "TOUCHLINE": "Stop counting spectators and bench people at the touchline as players",
+ "N0-25c": "Check the shape-over-time chart on pro data; same rule as the Shape cards"
 }

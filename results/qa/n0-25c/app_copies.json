@@ -1,0 +1,233 @@
+{
+ "SFKBP1109": {
+  "seconds": 2997,
+  "old": {
+   "A": {
+    "length": {
+     "median": 25.4,
+     "covered": 0.82
+    },
+    "width": {
+     "median": 31.3,
+     "covered": 0.82
+    },
+    "line_height": {
+     "median": 34.1,
+     "covered": 0.82
+    }
+   },
+   "B": {
+    "length": {
+     "median": 24.2,
+     "covered": 0.82
+    },
+    "width": {
+     "median": 31.5,
+     "covered": 0.82
+    },
+    "line_height": {
+     "median": 44.0,
+     "covered": 0.82
+    }
+   }
+  },
+  "new": {
+   "A": {
+    "length": {
+     "median": 30.4,
+     "covered": 0.79
+    },
+    "width": {
+     "median": 36.2,
+     "covered": 0.79
+    },
+    "line_height": {
+     "median": 34.1,
+     "covered": 0.82
+    }
+   },
+   "B": {
+    "length": {
+     "median": 28.1,
+     "covered": 0.79
+    },
+    "width": {
+     "median": 35.2,
+     "covered": 0.79
+    },
+    "line_height": {
+     "median": 44.0,
+     "covered": 0.82
+    }
+   }
+  },
+  "card_new": {
+   "A": {
+    "length": 30.4,
+    "width": 36.1,
+    "line": 31.2,
+    "frames": 23655
+   },
+   "B": {
+    "length": 28.1,
+    "width": 35.1,
+    "line": 42.4,
+    "frames": 23723
+   }
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "seconds": 5960,
+  "old": {
+   "A": {
+    "length": {
+     "median": 26.8,
+     "covered": 0.81
+    },
+    "width": {
+     "median": 36.4,
+     "covered": 0.81
+    },
+    "line_height": {
+     "median": 44.2,
+     "covered": 0.81
+    }
+   },
+   "B": {
+    "length": {
+     "median": 24.7,
+     "covered": 0.81
+    },
+    "width": {
+     "median": 35.7,
+     "covered": 0.81
+    },
+    "line_height": {
+     "median": 34.7,
+     "covered": 0.81
+    }
+   }
+  },
+  "new": {
+   "A": {
+    "length": {
+     "median": 34.6,
+     "covered": 0.78
+    },
+    "width": {
+     "median": 41.5,
+     "covered": 0.78
+    },
+    "line_height": {
+     "median": 44.2,
+     "covered": 0.81
+    }
+   },
+   "B": {
+    "length": {
+     "median": 29.1,
+     "covered": 0.77
+    },
+    "width": {
+     "median": 39.1,
+     "covered": 0.77
+    },
+    "line_height": {
+     "median": 34.7,
+     "covered": 0.81
+    }
+   }
+  },
+  "card_new": {
+   "A": {
+    "length": 34.5,
+    "width": 41.4,
+    "line": 42.1,
+    "frames": 46821
+   },
+   "B": {
+    "length": 29.1,
+    "width": 39.1,
+    "line": 33.2,
+    "frames": 46057
+   }
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "seconds": 600,
+  "old": {
+   "A": {
+    "length": {
+     "median": 27.9,
+     "covered": 0.99
+    },
+    "width": {
+     "median": 36.4,
+     "covered": 0.99
+    },
+    "line_height": {
+     "median": 60.5,
+     "covered": 0.99
+    }
+   },
+   "B": {
+    "length": {
+     "median": 26.6,
+     "covered": 0.99
+    },
+    "width": {
+     "median": 41.2,
+     "covered": 0.99
+    },
+    "line_height": {
+     "median": 29.6,
+     "covered": 0.99
+    }
+   }
+  },
+  "new": {
+   "A": {
+    "length": {
+     "median": 39.2,
+     "covered": 0.95
+    },
+    "width": {
+     "median": 47.9,
+     "covered": 0.95
+    },
+    "line_height": {
+     "median": 60.5,
+     "covered": 0.99
+    }
+   },
+   "B": {
+    "length": {
+     "median": 38.4,
+     "covered": 0.92
+    },
+    "width": {
+     "median": 49.9,
+     "covered": 0.92
+    },
+    "line_height": {
+     "median": 29.6,
+     "covered": 0.99
+    }
+   }
+  },
+  "card_new": {
+   "A": {
+    "length": 39.3,
+    "width": 47.9,
+    "line": 61.4,
+    "frames": 5691
+   },
+   "B": {
+    "length": 38.0,
+    "width": 49.7,
+    "line": 29.3,
+    "frames": 5513
+   }
+  }
+ }
+}

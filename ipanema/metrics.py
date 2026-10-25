@@ -107,13 +107,34 @@ def high_turnovers(turnovers_, ballm, L, attack_right, fps):
         out.append({"t": t["t"], "team": tm, "zone": zone, "x_m": round(float(b[0]), 1), "y_m": round(float(b[1]), 1)})
     return out
 
-def shape_timeline(shapes_, fps, attack_right, L):
+# N0-25c (25 Oct): the 'shape over time' timeline read length / width from the players in the picture only (>= 3), like
+# the team cards before N0-22e - on Metrica pro data seen through our app clips' views (tools/n0_25c_timeline.py) each
+# second read 0.60-0.67x the truth (median error 10-12 m length, 12-14 m width). With per (and W) given, length / width
+# now come from analytics.held_points (last seen spot kept SHAPE_HOLD_S, >= 5 points), the same rule as the Shape tab's
+# medians: 1.00x / 0.93-0.97x, error 2.9-3.7 m / 3.7-4.6 m, better on all 8 runs; seconds with a value 87-93% -> 73-82%
+# (seconds with 3-4 seen players get null). Line height stays from the seen players (holding makes it worse, N0-22e).
+# IPANEMA_TIMELINE_HOLD=0 = old.
+TIMELINE_HOLD = os.environ.get("IPANEMA_TIMELINE_HOLD", "1") != "0"
+
+def shape_timeline(shapes_, fps, attack_right, L, per=None, W=None, hold=None, min_pts=5):
+    hold = TIMELINE_HOLD if hold is None else hold
+    held = None
+    if hold and per is not None:
+        from . import analytics as AN
+        if AN.SHAPE_HOLD_S: held = AN.held_points(per, fps, L=L, W=W)
     tl = {"A": [], "B": []}
     for k in range(0, len(shapes_), int(round(fps))):
         for tm in ("A", "B"):
             sh = shapes_[k].get(tm)
-            if sh: tl[tm].append({"t": round(k / fps, 1), "length": sh["length"], "width": sh["width"], "line_height": round((sh["x_min"] if attack_right[tm] else L - sh["x_max"]), 1), "n": sh["n"]})
-            else: tl[tm].append({"t": round(k / fps, 1), "length": None, "width": None, "line_height": None, "n": 0})
+            if sh: e = {"t": round(k / fps, 1), "length": sh["length"], "width": sh["width"], "line_height": round((sh["x_min"] if attack_right[tm] else L - sh["x_max"]), 1), "n": sh["n"]}
+            else: e = {"t": round(k / fps, 1), "length": None, "width": None, "line_height": None, "n": 0}
+            if held is not None:
+                hp = held[k][tm] if k < len(held) else None
+                if hp is not None and len(hp) >= min_pts:
+                    e["length"] = round(float(np.ptp(hp[:, 0])), 1); e["width"] = round(float(np.ptp(hp[:, 1])), 1)
+                else: e["length"] = e["width"] = None
+                e["n_held"] = 0 if hp is None else int(len(hp))
+            tl[tm].append(e)
     return tl
 
 RUNS_SMOOTH = os.environ.get("IPANEMA_RUNS_SMOOTH", "1") == "1"   # N0-25a: sprint speed from smoothed positions (0 = old raw frame speed)
@@ -265,7 +286,7 @@ def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, p
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
             "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM, hold_s=ENTRY_HOLD_S), "high_turnovers": ht,
-            "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L),
+            "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L, per=per, W=W),
             "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}
 

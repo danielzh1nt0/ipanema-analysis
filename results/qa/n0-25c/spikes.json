@@ -1,0 +1,80 @@
+{
+ "SFKBP1109": {
+  "copy": {
+   "old": {
+    "over_60m": 0.0,
+    "p95": 36.2,
+    "median": 24.9
+   },
+   "new": {
+    "over_60m": 0.003,
+    "p95": 46.2,
+    "median": 29.2
+   }
+  },
+  "copy + today's line rules": {
+   "old": {
+    "over_60m": 0.0,
+    "p95": 35.0,
+    "median": 24.5
+   },
+   "new": {
+    "over_60m": 0.003,
+    "p95": 44.7,
+    "median": 28.7
+   }
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "copy": {
+   "old": {
+    "over_60m": 0.001,
+    "p95": 41.8,
+    "median": 25.7
+   },
+   "new": {
+    "over_60m": 0.023,
+    "p95": 53.5,
+    "median": 31.2
+   }
+  },
+  "copy + today's line rules": {
+   "old": {
+    "over_60m": 0.001,
+    "p95": 41.7,
+    "median": 25.7
+   },
+   "new": {
+    "over_60m": 0.023,
+    "p95": 53.3,
+    "median": 31.2
+   }
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "copy": {
+   "old": {
+    "over_60m": 0.006,
+    "p95": 49.1,
+    "median": 27.4
+   },
+   "new": {
+    "over_60m": 0.07,
+    "p95": 64.4,
+    "median": 38.8
+   }
+  },
+  "copy + today's line rules": {
+   "old": {
+    "over_60m": 0.004,
+    "p95": 47.0,
+    "median": 26.7
+   },
+   "new": {
+    "over_60m": 0.062,
+    "p95": 64.1,
+    "median": 37.2
+   }
+  }
+ }
+}
