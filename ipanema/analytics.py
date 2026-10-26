@@ -96,22 +96,10 @@ def _ball_vel(ballm, ks, fps, out_m=2.0):
         t, X = t[keep], X[keep]
     A = np.c_[t, np.ones_like(t)]; return np.linalg.lstsq(A, X, rcond=None)[0][0] * fps
 
-def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
-           team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
-    """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
-    found 73% of the real passes (was 61%) with 73% of ours real (was 65%) and put counts within 9% on all 4 halves,
-    clean and noisy (was 13%). 0 turns each rule off (old behaviour).
-    team_sandwich_s: a short contact (< team_sandwich_s) by the OTHER team between two contacts of one team is
-    the ball running past an opponent (or a wrong ball pick), not two turnovers; it is dropped so the pass between
-    the two teammates is counted. mate_sandwich_s: same for a short contact by a TEAMMATE (the ball running past him).
-    min_pass_m: ball moves between two contacts shorter than this are not passes.
-    pass_by_mps (with ballm {frame: metres}): a short contact only counts as 'ball ran past' (and is dropped) if the ball's
-    velocity (robust line fit over pass_by_win_s before and after) changes by less than this; a real touch deflects it.
-    state: optional possession state per frame (0 A, 1 B, 2 loose, 3 dead); a carrier
-    frame whose team disagrees with a team state is ignored."""
-    tracks = defaultdict(dict)
-    for k in range(len(per)):
-        for r in per[k]: tracks[r[0]][k] = r[2]
+def touch_episodes(frames_, fps, min_touch_s=0.6, floor_s=0.08, sandwich=True, team_sandwich_s=0.3, mate_sandwich_s=0.0, state=None,
+                   ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4):
+    """N0-26c (26 Oct): the cleaned ball contacts that passes() links into passes, as [first frame, last frame, player,
+    team] - split out of passes() unchanged so the per-player touch count can use the same contacts."""
     episodes = []; cur = None
     for k, f in enumerate(frames_):
         c = f["carrier"]
@@ -160,6 +148,43 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
             if j > i and j < len(episodes) and episodes[j][3] == keep[-1][3] and episodes[j][0] - keep[-1][1] <= int(4 * fps): i = j; continue
             keep.append(episodes[i]); i += 1
         episodes = merge(keep)
+    return episodes
+
+
+TOUCH_MIN_S = float(os.environ.get("IPANEMA_TOUCH_MIN_S", "0"))
+
+
+def touch_counts(episodes, fps, min_s=None):
+    """N0-26c (26 Oct): touches per player = his cleaned ball contacts (touch_episodes, the ones passes are built from)
+    that last >= min_s. Metrica pro data, 20 runs (perfect ball + our ball noise): the old count (every run of carrier
+    frames, new after a 0.4 s gap) read 1.7-4.0x the real spells on the ball, a player median 172% off (59-290), rank
+    order 0.60; contacts read 1.2-1.7x, 29% off (18-62), rank 0.88. A 0.2-0.5 s minimum is closer still on Metrica
+    (0.7-1.5x), but on our clips most contacts are shorter (median 0.25 s: 0.4 s would keep 42 of 108), so min_s 0 =
+    every contact (IPANEMA_TOUCH_MIN_S)."""
+    m = TOUCH_MIN_S if min_s is None else min_s; out = {}
+    for e in episodes:
+        if (e[1] - e[0] + 1) >= m * fps: out[int(e[2])] = out.get(int(e[2]), 0) + 1
+    return out
+
+
+def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
+           team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
+    """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
+    found 73% of the real passes (was 61%) with 73% of ours real (was 65%) and put counts within 9% on all 4 halves,
+    clean and noisy (was 13%). 0 turns each rule off (old behaviour).
+    team_sandwich_s: a short contact (< team_sandwich_s) by the OTHER team between two contacts of one team is
+    the ball running past an opponent (or a wrong ball pick), not two turnovers; it is dropped so the pass between
+    the two teammates is counted. mate_sandwich_s: same for a short contact by a TEAMMATE (the ball running past him).
+    min_pass_m: ball moves between two contacts shorter than this are not passes.
+    pass_by_mps (with ballm {frame: metres}): a short contact only counts as 'ball ran past' (and is dropped) if the ball's
+    velocity (robust line fit over pass_by_win_s before and after) changes by less than this; a real touch deflects it.
+    state: optional possession state per frame (0 A, 1 B, 2 loose, 3 dead); a carrier
+    frame whose team disagrees with a team state is ignored."""
+    tracks = defaultdict(dict)
+    for k in range(len(per)):
+        for r in per[k]: tracks[r[0]][k] = r[2]
+    episodes = touch_episodes(frames_, fps, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich, team_sandwich_s=team_sandwich_s,
+                              mate_sandwich_s=mate_sandwich_s, state=state, ballm=ballm, pass_by_mps=pass_by_mps, pass_by_win_s=pass_by_win_s)
     out = []
     for a, b in zip(episodes, episodes[1:]):
         if b[0] - a[1] > int(4 * fps): continue
@@ -283,7 +308,7 @@ def shapes(per, L, fps=25.0):
             elif last[tm][0] is not None and k - last[tm][1] <= hold: out[k][tm] = dict(last[tm][0], held=True)
     return out
 
-def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_right, press_r=2.0, near_r=5.0, sequences_=None):
+def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_right, press_r=2.0, near_r=5.0, sequences_=None, episodes_=None):
     """sequences_ (2 Oct, tools/presslab.py): when given, pressures_applied = one per presser per possession sequence (the
     usual 'pressure event'); without it the old count (one per second within press_r of the opposing carrier, which gave
     700-1,500 per team per 90 min on AIK/SFK-BP because the carrier flickers; per sequence: 250-340)."""
@@ -307,6 +332,9 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                 if c is None or f["team"] != sq["team"] or c not in tracks or k not in tracks[c]: continue
                 for r in per[k]:
                     if r[1] != sq["team"] and r[0] not in seen and np.linalg.norm(r[2] - tracks[c][k]) <= press_r: seen.add(r[0]); press_by_seq[r[0]] = press_by_seq.get(r[0], 0) + 1
+    # N0-26c (26 Oct): episodes_ (touch_episodes, as passes() saw them) -> touches = contacts >= TOUCH_MIN_S (touch_counts);
+    # None or IPANEMA_TOUCHES=old = the old count (every run of carrier frames)
+    tcount = touch_counts(episodes_, fps) if episodes_ is not None and os.environ.get("IPANEMA_TOUCHES", "contacts") != "old" else None
     players = []; heat = {}; GRID = (12, 8)
     for tid in ids:
         tm = team_id[tid]; ks = np.array(sorted(tracks[tid])); P = np.array([tracks[tid][k] for k in ks]); sgn = 1 if attack_right[tm] else -1
@@ -324,7 +352,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
         for x, y in P: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
         heat[str(tid)] = (g / max(1, g.sum())).round(4).tolist(); rx = react.get(tid)
         xs = P[:, 0] if sgn == 1 else L - P[:, 0]
-        players.append({"id": int(tid), "team": tm, "time_visible_s": round(len(ks) * dt, 1), "time_on_ball_s": round(len(on) * dt, 1), "touches": int(sum(1 for i in range(1, len(on)) if on[i] - on[i - 1] > int(0.4 * fps)) + (1 if on else 0)),
+        players.append({"id": int(tid), "team": tm, "time_visible_s": round(len(ks) * dt, 1), "time_on_ball_s": round(len(on) * dt, 1), "touches": int(tcount.get(int(tid), 0)) if tcount is not None else int(sum(1 for i in range(1, len(on)) if on[i] - on[i - 1] > int(0.4 * fps)) + (1 if on else 0)),
                         "time_under_pressure_s": round(len(pressed) * dt, 1), "passes": int(len(mp)), "passes_completed": int(mp["completed"].sum()) if len(mp) else 0,
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,

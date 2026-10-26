@@ -359,7 +359,9 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     step("shapes")
     sh = AN.shapes(per, L, fps)
     step("stats")
-    st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs)
+    # N0-26c (26 Oct): touches per player from the same cleaned contacts the passes use (IPANEMA_TOUCHES=old = old count)
+    _eps = AN.touch_episodes(frames_, fps, state=(cstate if os.environ.get("IPANEMA_PASS_STATE", "spell") == "spell" else None))
+    st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs, episodes_=_eps)
     step("metrics")
     mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_, cstate=cstate); st['metrics'] = mx
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
