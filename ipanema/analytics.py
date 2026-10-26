@@ -167,6 +167,24 @@ def touch_counts(episodes, fps, min_s=None):
     return out
 
 
+def touch_frames(frames_, episodes):
+    """N0-26d (26 Oct): per player, the frames he is the carrier inside one of his cleaned contacts (touch_episodes)."""
+    out = {}
+    for e in episodes:
+        p = int(e[2]); S = out.setdefault(p, set())
+        S.update(k for k in range(int(e[0]), min(len(frames_), int(e[1]) + 1)) if frames_[k]["carrier"] is not None and int(frames_[k]["carrier"]) == p)
+    return out
+
+
+def touch_time(frames_, episodes, fps):
+    """N0-26d (26 Oct): seconds on the ball per player = his carrier frames that fall inside one of his cleaned contacts
+    - not every frame he is nearest to the ball (a ball flying past, a 1-frame pick, the frames the other team has it
+    in the spell state). Metrica pro data, 20 runs (tools/n0_26d_onball.py): per-player error 63 -> 54% (perfect ball),
+    71 -> 30% (flicker, like our clips), 23 -> 28% (streak); share of the team's time 0.9-1.4 -> 0.7-1.1 pts off, rank
+    order same or better. App clips: no player piece shows time on the ball with 0 touches (was ~70 per 5 min)."""
+    return {p: len(S) / fps for p, S in touch_frames(frames_, episodes).items()}
+
+
 def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
            team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
     """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
@@ -335,11 +353,14 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
     # N0-26c (26 Oct): episodes_ (touch_episodes, as passes() saw them) -> touches = contacts >= TOUCH_MIN_S (touch_counts);
     # None or IPANEMA_TOUCHES=old = the old count (every run of carrier frames)
     tcount = touch_counts(episodes_, fps) if episodes_ is not None and os.environ.get("IPANEMA_TOUCHES", "contacts") != "old" else None
+    # N0-26d (26 Oct): time on the ball / under pressure = carrier frames inside his cleaned contacts (touch_frames);
+    # None or IPANEMA_ONBALL=old = every carrier frame
+    tframes = touch_frames(frames_, episodes_) if episodes_ is not None and os.environ.get("IPANEMA_ONBALL", "contacts") != "old" else None
     players = []; heat = {}; GRID = (12, 8)
     for tid in ids:
         tm = team_id[tid]; ks = np.array(sorted(tracks[tid])); P = np.array([tracks[tid][k] for k in ks]); sgn = 1 if attack_right[tm] else -1
         sp, step, hi_step = track_motion(ks, P, fps); valid = ~np.isnan(sp)   # N0-22c: smoothed per seen run + short gaps as a straight line (was: smoothed across gaps, gaps not counted)
-        on = [k for k in ks if frames_[k]["carrier"] == tid]; pressed = [k for k in on if frames_[k]["pressure_m"] is not None and frames_[k]["pressure_m"] <= press_r]
+        on_all = [k for k in ks if frames_[k]["carrier"] == tid]; on = on_all if tframes is None else [k for k in on_all if k in tframes.get(int(tid), ())]; pressed = [k for k in on if frames_[k]["pressure_m"] is not None and frames_[k]["pressure_m"] <= press_r]
         pr = 0; lastp = -99
         if sequences_ is not None: pr = press_by_seq.get(tid, 0)
         else:
@@ -352,7 +373,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
         for x, y in P: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
         heat[str(tid)] = (g / max(1, g.sum())).round(4).tolist(); rx = react.get(tid)
         xs = P[:, 0] if sgn == 1 else L - P[:, 0]
-        players.append({"id": int(tid), "team": tm, "time_visible_s": round(len(ks) * dt, 1), "time_on_ball_s": round(len(on) * dt, 1), "touches": int(tcount.get(int(tid), 0)) if tcount is not None else int(sum(1 for i in range(1, len(on)) if on[i] - on[i - 1] > int(0.4 * fps)) + (1 if on else 0)),
+        players.append({"id": int(tid), "team": tm, "time_visible_s": round(len(ks) * dt, 1), "time_on_ball_s": round(len(on) * dt, 1), "touches": int(tcount.get(int(tid), 0)) if tcount is not None else int(sum(1 for i in range(1, len(on_all)) if on_all[i] - on_all[i - 1] > int(0.4 * fps)) + (1 if on_all else 0)),
                         "time_under_pressure_s": round(len(pressed) * dt, 1), "passes": int(len(mp)), "passes_completed": int(mp["completed"].sum()) if len(mp) else 0,
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,

@@ -1,0 +1,1886 @@
+{
+ "rows": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 483.2,
+      "ratio": 1.58,
+      "median_abs_err_pct": 60,
+      "spearman": 0.96,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 576.4,
+      "ratio": 1.72,
+      "median_abs_err_pct": 84,
+      "spearman": 0.83,
+      "share_err_pts": 1.1
+     }
+    },
+    "state": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 392.3,
+      "ratio": 1.28,
+      "median_abs_err_pct": 34,
+      "spearman": 0.96,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 459.7,
+      "ratio": 1.37,
+      "median_abs_err_pct": 37,
+      "spearman": 0.82,
+      "share_err_pts": 0.4
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 446.1,
+      "ratio": 1.46,
+      "median_abs_err_pct": 50,
+      "spearman": 0.96,
+      "share_err_pts": 1.0
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 530.7,
+      "ratio": 1.58,
+      "median_abs_err_pct": 64,
+      "spearman": 0.79,
+      "share_err_pts": 0.5
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 12,
+     "truth_total": 187.0,
+     "ours_total": 186.0,
+     "ratio": 0.99,
+     "median_abs_err_pct": 9,
+     "spearman": 0.95,
+     "share_err_pts": 0.6
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 182.0,
+     "ours_total": 209.0,
+     "ratio": 1.15,
+     "median_abs_err_pct": 30,
+     "spearman": 0.9,
+     "share_err_pts": 1.5
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 249.8,
+      "ratio": 0.82,
+      "median_abs_err_pct": 35,
+      "spearman": 0.81,
+      "share_err_pts": 2.1
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 319.4,
+      "ratio": 0.95,
+      "median_abs_err_pct": 22,
+      "spearman": 0.87,
+      "share_err_pts": 1.3
+     }
+    },
+    "state": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 95.4,
+      "ratio": 0.31,
+      "median_abs_err_pct": 71,
+      "spearman": 0.89,
+      "share_err_pts": 0.9
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 127.7,
+      "ratio": 0.38,
+      "median_abs_err_pct": 64,
+      "spearman": 0.85,
+      "share_err_pts": 1.6
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 195.1,
+      "ratio": 0.64,
+      "median_abs_err_pct": 35,
+      "spearman": 0.92,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 247.3,
+      "ratio": 0.74,
+      "median_abs_err_pct": 22,
+      "spearman": 0.96,
+      "share_err_pts": 1.1
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 12,
+     "truth_total": 187.0,
+     "ours_total": 182.0,
+     "ratio": 0.97,
+     "median_abs_err_pct": 21,
+     "spearman": 0.85,
+     "share_err_pts": 1.4
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 182.0,
+     "ours_total": 193.0,
+     "ratio": 1.06,
+     "median_abs_err_pct": 20,
+     "spearman": 0.87,
+     "share_err_pts": 2.0
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 259.7,
+      "ratio": 0.85,
+      "median_abs_err_pct": 27,
+      "spearman": 0.85,
+      "share_err_pts": 1.4
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 323.3,
+      "ratio": 0.96,
+      "median_abs_err_pct": 15,
+      "spearman": 0.9,
+      "share_err_pts": 1.4
+     }
+    },
+    "state": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 81.4,
+      "ratio": 0.27,
+      "median_abs_err_pct": 73,
+      "spearman": 0.85,
+      "share_err_pts": 1.9
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 132.3,
+      "ratio": 0.39,
+      "median_abs_err_pct": 57,
+      "spearman": 0.79,
+      "share_err_pts": 2.0
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 194.7,
+      "ratio": 0.64,
+      "median_abs_err_pct": 35,
+      "spearman": 0.98,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 254.1,
+      "ratio": 0.76,
+      "median_abs_err_pct": 27,
+      "spearman": 0.94,
+      "share_err_pts": 1.3
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 12,
+     "truth_total": 187.0,
+     "ours_total": 185.0,
+     "ratio": 0.99,
+     "median_abs_err_pct": 13,
+     "spearman": 0.93,
+     "share_err_pts": 0.8
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 182.0,
+     "ours_total": 208.0,
+     "ratio": 1.14,
+     "median_abs_err_pct": 20,
+     "spearman": 0.93,
+     "share_err_pts": 1.5
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 526.7,
+      "ratio": 1.72,
+      "median_abs_err_pct": 79,
+      "spearman": 0.81,
+      "share_err_pts": 1.6
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 609.4,
+      "ratio": 1.82,
+      "median_abs_err_pct": 104,
+      "spearman": 0.9,
+      "share_err_pts": 1.4
+     }
+    },
+    "state": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 359.4,
+      "ratio": 1.18,
+      "median_abs_err_pct": 18,
+      "spearman": 0.95,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 419.6,
+      "ratio": 1.25,
+      "median_abs_err_pct": 28,
+      "spearman": 0.86,
+      "share_err_pts": 1.1
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 388.2,
+      "ratio": 1.27,
+      "median_abs_err_pct": 33,
+      "spearman": 0.93,
+      "share_err_pts": 1.0
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 453.1,
+      "ratio": 1.35,
+      "median_abs_err_pct": 47,
+      "spearman": 0.92,
+      "share_err_pts": 1.0
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 12,
+     "truth_total": 187.0,
+     "ours_total": 203.0,
+     "ratio": 1.09,
+     "median_abs_err_pct": 20,
+     "spearman": 0.81,
+     "share_err_pts": 1.3
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 182.0,
+     "ours_total": 236.0,
+     "ratio": 1.3,
+     "median_abs_err_pct": 36,
+     "spearman": 0.78,
+     "share_err_pts": 1.8
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 528.3,
+      "ratio": 1.73,
+      "median_abs_err_pct": 79,
+      "spearman": 0.81,
+      "share_err_pts": 2.3
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 603.7,
+      "ratio": 1.8,
+      "median_abs_err_pct": 99,
+      "spearman": 0.86,
+      "share_err_pts": 1.2
+     }
+    },
+    "state": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 352.9,
+      "ratio": 1.16,
+      "median_abs_err_pct": 23,
+      "spearman": 0.88,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 423.4,
+      "ratio": 1.26,
+      "median_abs_err_pct": 30,
+      "spearman": 0.88,
+      "share_err_pts": 1.0
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 12,
+      "truth_total": 305.5,
+      "ours_total": 386.2,
+      "ratio": 1.26,
+      "median_abs_err_pct": 25,
+      "spearman": 0.88,
+      "share_err_pts": 1.7
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 335.4,
+      "ours_total": 446.0,
+      "ratio": 1.33,
+      "median_abs_err_pct": 41,
+      "spearman": 0.89,
+      "share_err_pts": 0.9
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 12,
+     "truth_total": 187.0,
+     "ours_total": 226.0,
+     "ratio": 1.21,
+     "median_abs_err_pct": 22,
+     "spearman": 0.91,
+     "share_err_pts": 0.9
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 182.0,
+     "ours_total": 225.0,
+     "ratio": 1.24,
+     "median_abs_err_pct": 28,
+     "spearman": 0.82,
+     "share_err_pts": 1.7
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 815.9,
+      "ratio": 1.58,
+      "median_abs_err_pct": 55,
+      "spearman": 0.82,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 617.6,
+      "ratio": 1.45,
+      "median_abs_err_pct": 43,
+      "spearman": 0.98,
+      "share_err_pts": 0.8
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 748.8,
+      "ratio": 1.45,
+      "median_abs_err_pct": 40,
+      "spearman": 0.82,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 546.2,
+      "ratio": 1.28,
+      "median_abs_err_pct": 23,
+      "spearman": 0.92,
+      "share_err_pts": 0.5
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 785.6,
+      "ratio": 1.52,
+      "median_abs_err_pct": 44,
+      "spearman": 0.85,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 582.5,
+      "ratio": 1.37,
+      "median_abs_err_pct": 33,
+      "spearman": 0.97,
+      "share_err_pts": 0.7
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 250.0,
+     "ours_total": 274.0,
+     "ratio": 1.1,
+     "median_abs_err_pct": 11,
+     "spearman": 0.88,
+     "share_err_pts": 0.9
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 180.0,
+     "ours_total": 188.0,
+     "ratio": 1.04,
+     "median_abs_err_pct": 12,
+     "spearman": 0.86,
+     "share_err_pts": 0.6
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 404.4,
+      "ratio": 0.78,
+      "median_abs_err_pct": 23,
+      "spearman": 0.72,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 349.2,
+      "ratio": 0.82,
+      "median_abs_err_pct": 13,
+      "spearman": 0.98,
+      "share_err_pts": 0.8
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 226.8,
+      "ratio": 0.44,
+      "median_abs_err_pct": 64,
+      "spearman": 0.77,
+      "share_err_pts": 1.3
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 175.8,
+      "ratio": 0.41,
+      "median_abs_err_pct": 62,
+      "spearman": 0.9,
+      "share_err_pts": 0.7
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 348.1,
+      "ratio": 0.68,
+      "median_abs_err_pct": 38,
+      "spearman": 0.8,
+      "share_err_pts": 1.0
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 294.8,
+      "ratio": 0.69,
+      "median_abs_err_pct": 27,
+      "spearman": 0.96,
+      "share_err_pts": 0.7
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 250.0,
+     "ours_total": 256.0,
+     "ratio": 1.02,
+     "median_abs_err_pct": 7,
+     "spearman": 0.91,
+     "share_err_pts": 1.0
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 180.0,
+     "ours_total": 197.0,
+     "ratio": 1.09,
+     "median_abs_err_pct": 13,
+     "spearman": 0.88,
+     "share_err_pts": 0.8
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 433.7,
+      "ratio": 0.84,
+      "median_abs_err_pct": 19,
+      "spearman": 0.71,
+      "share_err_pts": 1.3
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 339.9,
+      "ratio": 0.8,
+      "median_abs_err_pct": 23,
+      "spearman": 0.86,
+      "share_err_pts": 1.4
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 233.3,
+      "ratio": 0.45,
+      "median_abs_err_pct": 57,
+      "spearman": 0.63,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 165.6,
+      "ratio": 0.39,
+      "median_abs_err_pct": 63,
+      "spearman": 0.71,
+      "share_err_pts": 1.1
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 375.6,
+      "ratio": 0.73,
+      "median_abs_err_pct": 28,
+      "spearman": 0.79,
+      "share_err_pts": 0.5
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 285.1,
+      "ratio": 0.67,
+      "median_abs_err_pct": 34,
+      "spearman": 0.78,
+      "share_err_pts": 1.1
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 250.0,
+     "ours_total": 260.0,
+     "ratio": 1.04,
+     "median_abs_err_pct": 12,
+     "spearman": 0.89,
+     "share_err_pts": 1.2
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 180.0,
+     "ours_total": 180.0,
+     "ratio": 1.0,
+     "median_abs_err_pct": 14,
+     "spearman": 0.83,
+     "share_err_pts": 1.5
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 834.0,
+      "ratio": 1.62,
+      "median_abs_err_pct": 51,
+      "spearman": 0.65,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 667.0,
+      "ratio": 1.57,
+      "median_abs_err_pct": 46,
+      "spearman": 0.84,
+      "share_err_pts": 1.3
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 680.8,
+      "ratio": 1.32,
+      "median_abs_err_pct": 28,
+      "spearman": 0.75,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 483.4,
+      "ratio": 1.14,
+      "median_abs_err_pct": 13,
+      "spearman": 0.88,
+      "share_err_pts": 1.0
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 697.2,
+      "ratio": 1.35,
+      "median_abs_err_pct": 29,
+      "spearman": 0.76,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 504.4,
+      "ratio": 1.19,
+      "median_abs_err_pct": 16,
+      "spearman": 0.89,
+      "share_err_pts": 0.8
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 250.0,
+     "ours_total": 267.0,
+     "ratio": 1.07,
+     "median_abs_err_pct": 13,
+     "spearman": 0.85,
+     "share_err_pts": 1.2
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 180.0,
+     "ours_total": 220.0,
+     "ratio": 1.22,
+     "median_abs_err_pct": 19,
+     "spearman": 0.3,
+     "share_err_pts": 1.9
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 830.2,
+      "ratio": 1.61,
+      "median_abs_err_pct": 55,
+      "spearman": 0.59,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 674.0,
+      "ratio": 1.59,
+      "median_abs_err_pct": 43,
+      "spearman": 0.8,
+      "share_err_pts": 1.3
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 667.9,
+      "ratio": 1.3,
+      "median_abs_err_pct": 26,
+      "spearman": 0.79,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 489.9,
+      "ratio": 1.15,
+      "median_abs_err_pct": 13,
+      "spearman": 0.87,
+      "share_err_pts": 1.1
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 515.6,
+      "ours_total": 688.2,
+      "ratio": 1.33,
+      "median_abs_err_pct": 30,
+      "spearman": 0.79,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 425.1,
+      "ours_total": 512.7,
+      "ratio": 1.21,
+      "median_abs_err_pct": 20,
+      "spearman": 0.92,
+      "share_err_pts": 0.8
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 250.0,
+     "ours_total": 259.0,
+     "ratio": 1.04,
+     "median_abs_err_pct": 11,
+     "spearman": 0.88,
+     "share_err_pts": 0.8
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 180.0,
+     "ours_total": 231.0,
+     "ratio": 1.28,
+     "median_abs_err_pct": 18,
+     "spearman": 0.38,
+     "share_err_pts": 1.7
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 713.8,
+      "ratio": 1.64,
+      "median_abs_err_pct": 75,
+      "spearman": 1.0,
+      "share_err_pts": 1.0
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 692.3,
+      "ratio": 1.52,
+      "median_abs_err_pct": 58,
+      "spearman": 0.96,
+      "share_err_pts": 0.8
+     }
+    },
+    "state": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 626.8,
+      "ratio": 1.44,
+      "median_abs_err_pct": 46,
+      "spearman": 1.0,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 598.5,
+      "ratio": 1.32,
+      "median_abs_err_pct": 44,
+      "spearman": 0.99,
+      "share_err_pts": 0.9
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 662.7,
+      "ratio": 1.52,
+      "median_abs_err_pct": 59,
+      "spearman": 1.0,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 647.4,
+      "ratio": 1.43,
+      "median_abs_err_pct": 50,
+      "spearman": 0.97,
+      "share_err_pts": 0.6
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 11,
+     "truth_total": 295.0,
+     "ours_total": 283.0,
+     "ratio": 0.96,
+     "median_abs_err_pct": 8,
+     "spearman": 0.97,
+     "share_err_pts": 0.5
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 243.0,
+     "ours_total": 254.0,
+     "ratio": 1.05,
+     "median_abs_err_pct": 14,
+     "spearman": 0.91,
+     "share_err_pts": 1.5
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 376.0,
+      "ratio": 0.86,
+      "median_abs_err_pct": 17,
+      "spearman": 0.97,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 376.5,
+      "ratio": 0.83,
+      "median_abs_err_pct": 23,
+      "spearman": 0.96,
+      "share_err_pts": 1.0
+     }
+    },
+    "state": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 163.2,
+      "ratio": 0.38,
+      "median_abs_err_pct": 66,
+      "spearman": 0.96,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 167.4,
+      "ratio": 0.37,
+      "median_abs_err_pct": 59,
+      "spearman": 0.88,
+      "share_err_pts": 1.9
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 304.2,
+      "ratio": 0.7,
+      "median_abs_err_pct": 24,
+      "spearman": 0.99,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 307.4,
+      "ratio": 0.68,
+      "median_abs_err_pct": 28,
+      "spearman": 0.98,
+      "share_err_pts": 1.1
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 11,
+     "truth_total": 295.0,
+     "ours_total": 269.0,
+     "ratio": 0.91,
+     "median_abs_err_pct": 14,
+     "spearman": 0.95,
+     "share_err_pts": 1.4
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 243.0,
+     "ours_total": 223.0,
+     "ratio": 0.92,
+     "median_abs_err_pct": 14,
+     "spearman": 0.91,
+     "share_err_pts": 1.0
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 371.1,
+      "ratio": 0.85,
+      "median_abs_err_pct": 25,
+      "spearman": 0.98,
+      "share_err_pts": 2.0
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 366.2,
+      "ratio": 0.81,
+      "median_abs_err_pct": 29,
+      "spearman": 0.93,
+      "share_err_pts": 1.7
+     }
+    },
+    "state": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 169.8,
+      "ratio": 0.39,
+      "median_abs_err_pct": 61,
+      "spearman": 0.98,
+      "share_err_pts": 0.9
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 155.9,
+      "ratio": 0.34,
+      "median_abs_err_pct": 65,
+      "spearman": 0.9,
+      "share_err_pts": 1.0
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 303.3,
+      "ratio": 0.7,
+      "median_abs_err_pct": 22,
+      "spearman": 0.99,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 293.2,
+      "ratio": 0.65,
+      "median_abs_err_pct": 30,
+      "spearman": 0.96,
+      "share_err_pts": 1.2
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 11,
+     "truth_total": 295.0,
+     "ours_total": 271.0,
+     "ratio": 0.92,
+     "median_abs_err_pct": 20,
+     "spearman": 0.86,
+     "share_err_pts": 1.1
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 243.0,
+     "ours_total": 241.0,
+     "ratio": 0.99,
+     "median_abs_err_pct": 8,
+     "spearman": 0.9,
+     "share_err_pts": 0.9
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 720.3,
+      "ratio": 1.66,
+      "median_abs_err_pct": 88,
+      "spearman": 0.95,
+      "share_err_pts": 1.4
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 755.5,
+      "ratio": 1.66,
+      "median_abs_err_pct": 65,
+      "spearman": 0.89,
+      "share_err_pts": 1.6
+     }
+    },
+    "state": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 540.2,
+      "ratio": 1.24,
+      "median_abs_err_pct": 28,
+      "spearman": 0.99,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 533.4,
+      "ratio": 1.17,
+      "median_abs_err_pct": 29,
+      "spearman": 0.96,
+      "share_err_pts": 1.0
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 557.8,
+      "ratio": 1.28,
+      "median_abs_err_pct": 39,
+      "spearman": 0.99,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 560.0,
+      "ratio": 1.23,
+      "median_abs_err_pct": 35,
+      "spearman": 0.96,
+      "share_err_pts": 1.0
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 11,
+     "truth_total": 295.0,
+     "ours_total": 266.0,
+     "ratio": 0.9,
+     "median_abs_err_pct": 14,
+     "spearman": 0.87,
+     "share_err_pts": 1.7
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 243.0,
+     "ours_total": 279.0,
+     "ratio": 1.15,
+     "median_abs_err_pct": 32,
+     "spearman": 0.67,
+     "share_err_pts": 1.1
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 741.2,
+      "ratio": 1.71,
+      "median_abs_err_pct": 97,
+      "spearman": 0.97,
+      "share_err_pts": 1.6
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 734.2,
+      "ratio": 1.62,
+      "median_abs_err_pct": 45,
+      "spearman": 0.88,
+      "share_err_pts": 1.5
+     }
+    },
+    "state": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 559.3,
+      "ratio": 1.29,
+      "median_abs_err_pct": 35,
+      "spearman": 1.0,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 499.8,
+      "ratio": 1.1,
+      "median_abs_err_pct": 28,
+      "spearman": 0.95,
+      "share_err_pts": 0.9
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 11,
+      "truth_total": 434.6,
+      "ours_total": 583.2,
+      "ratio": 1.34,
+      "median_abs_err_pct": 38,
+      "spearman": 0.98,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 11,
+      "truth_total": 454.2,
+      "ours_total": 540.8,
+      "ratio": 1.19,
+      "median_abs_err_pct": 30,
+      "spearman": 0.97,
+      "share_err_pts": 1.4
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 11,
+     "truth_total": 295.0,
+     "ours_total": 286.0,
+     "ratio": 0.97,
+     "median_abs_err_pct": 15,
+     "spearman": 0.86,
+     "share_err_pts": 1.2
+    },
+    "B": {
+     "players": 11,
+     "truth_total": 243.0,
+     "ours_total": 256.0,
+     "ratio": 1.05,
+     "median_abs_err_pct": 32,
+     "spearman": 0.52,
+     "share_err_pts": 2.3
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 553.2,
+      "ratio": 1.67,
+      "median_abs_err_pct": 75,
+      "spearman": 0.97,
+      "share_err_pts": 0.9
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 450.9,
+      "ratio": 1.6,
+      "median_abs_err_pct": 66,
+      "spearman": 0.9,
+      "share_err_pts": 1.7
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 491.5,
+      "ratio": 1.48,
+      "median_abs_err_pct": 44,
+      "spearman": 0.97,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 380.0,
+      "ratio": 1.35,
+      "median_abs_err_pct": 43,
+      "spearman": 0.9,
+      "share_err_pts": 1.3
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 518.6,
+      "ratio": 1.56,
+      "median_abs_err_pct": 60,
+      "spearman": 0.97,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 415.1,
+      "ratio": 1.48,
+      "median_abs_err_pct": 57,
+      "spearman": 0.9,
+      "share_err_pts": 1.4
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 248.0,
+     "ours_total": 231.0,
+     "ratio": 0.93,
+     "median_abs_err_pct": 13,
+     "spearman": 0.92,
+     "share_err_pts": 0.9
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 178.0,
+     "ours_total": 181.0,
+     "ratio": 1.02,
+     "median_abs_err_pct": 17,
+     "spearman": 0.92,
+     "share_err_pts": 1.2
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 294.8,
+      "ratio": 0.89,
+      "median_abs_err_pct": 13,
+      "spearman": 0.96,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 249.3,
+      "ratio": 0.89,
+      "median_abs_err_pct": 25,
+      "spearman": 0.88,
+      "share_err_pts": 2.1
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 154.3,
+      "ratio": 0.47,
+      "median_abs_err_pct": 52,
+      "spearman": 0.92,
+      "share_err_pts": 1.2
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 91.7,
+      "ratio": 0.33,
+      "median_abs_err_pct": 67,
+      "spearman": 0.83,
+      "share_err_pts": 1.5
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 239.0,
+      "ratio": 0.72,
+      "median_abs_err_pct": 25,
+      "spearman": 0.97,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 191.1,
+      "ratio": 0.68,
+      "median_abs_err_pct": 30,
+      "spearman": 0.87,
+      "share_err_pts": 0.9
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 248.0,
+     "ours_total": 221.0,
+     "ratio": 0.89,
+     "median_abs_err_pct": 17,
+     "spearman": 0.93,
+     "share_err_pts": 1.0
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 178.0,
+     "ours_total": 182.0,
+     "ratio": 1.02,
+     "median_abs_err_pct": 21,
+     "spearman": 0.95,
+     "share_err_pts": 1.5
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 287.8,
+      "ratio": 0.87,
+      "median_abs_err_pct": 13,
+      "spearman": 0.96,
+      "share_err_pts": 1.0
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 247.4,
+      "ratio": 0.88,
+      "median_abs_err_pct": 33,
+      "spearman": 0.94,
+      "share_err_pts": 2.6
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 131.8,
+      "ratio": 0.4,
+      "median_abs_err_pct": 61,
+      "spearman": 0.86,
+      "share_err_pts": 1.1
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 88.1,
+      "ratio": 0.31,
+      "median_abs_err_pct": 64,
+      "spearman": 0.72,
+      "share_err_pts": 0.9
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 235.1,
+      "ratio": 0.71,
+      "median_abs_err_pct": 25,
+      "spearman": 0.97,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 189.8,
+      "ratio": 0.68,
+      "median_abs_err_pct": 35,
+      "spearman": 0.92,
+      "share_err_pts": 1.1
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 248.0,
+     "ours_total": 216.0,
+     "ratio": 0.87,
+     "median_abs_err_pct": 25,
+     "spearman": 0.86,
+     "share_err_pts": 1.4
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 178.0,
+     "ours_total": 154.0,
+     "ratio": 0.87,
+     "median_abs_err_pct": 23,
+     "spearman": 0.92,
+     "share_err_pts": 1.1
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 550.0,
+      "ratio": 1.66,
+      "median_abs_err_pct": 64,
+      "spearman": 0.92,
+      "share_err_pts": 0.9
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 509.1,
+      "ratio": 1.81,
+      "median_abs_err_pct": 77,
+      "spearman": 0.83,
+      "share_err_pts": 3.5
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 411.6,
+      "ratio": 1.24,
+      "median_abs_err_pct": 20,
+      "spearman": 0.97,
+      "share_err_pts": 0.8
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 342.8,
+      "ratio": 1.22,
+      "median_abs_err_pct": 18,
+      "spearman": 0.93,
+      "share_err_pts": 1.6
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 421.8,
+      "ratio": 1.27,
+      "median_abs_err_pct": 28,
+      "spearman": 0.97,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 363.4,
+      "ratio": 1.29,
+      "median_abs_err_pct": 27,
+      "spearman": 0.93,
+      "share_err_pts": 1.5
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 248.0,
+     "ours_total": 233.0,
+     "ratio": 0.94,
+     "median_abs_err_pct": 22,
+     "spearman": 0.83,
+     "share_err_pts": 0.8
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 178.0,
+     "ours_total": 201.0,
+     "ratio": 1.13,
+     "median_abs_err_pct": 20,
+     "spearman": 0.81,
+     "share_err_pts": 2.0
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "time_on_ball": {
+    "old": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 544.5,
+      "ratio": 1.64,
+      "median_abs_err_pct": 60,
+      "spearman": 0.9,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 514.7,
+      "ratio": 1.83,
+      "median_abs_err_pct": 77,
+      "spearman": 0.84,
+      "share_err_pts": 3.6
+     }
+    },
+    "state": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 414.8,
+      "ratio": 1.25,
+      "median_abs_err_pct": 24,
+      "spearman": 0.96,
+      "share_err_pts": 0.6
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 329.3,
+      "ratio": 1.17,
+      "median_abs_err_pct": 27,
+      "spearman": 0.91,
+      "share_err_pts": 1.2
+     }
+    },
+    "eps": {
+     "A": {
+      "players": 13,
+      "truth_total": 331.8,
+      "ours_total": 430.5,
+      "ratio": 1.3,
+      "median_abs_err_pct": 31,
+      "spearman": 0.96,
+      "share_err_pts": 0.7
+     },
+     "B": {
+      "players": 12,
+      "truth_total": 281.1,
+      "ours_total": 352.3,
+      "ratio": 1.25,
+      "median_abs_err_pct": 32,
+      "spearman": 0.92,
+      "share_err_pts": 1.0
+     }
+    }
+   },
+   "passes_received": {
+    "A": {
+     "players": 13,
+     "truth_total": 248.0,
+     "ours_total": 230.0,
+     "ratio": 0.93,
+     "median_abs_err_pct": 27,
+     "spearman": 0.84,
+     "share_err_pts": 1.6
+    },
+    "B": {
+     "players": 12,
+     "truth_total": 178.0,
+     "ours_total": 203.0,
+     "ratio": 1.14,
+     "median_abs_err_pct": 31,
+     "spearman": 0.68,
+     "share_err_pts": 1.3
+    }
+   }
+  }
+ ],
+ "summary": {
+  "time_on_ball/old/False": {
+   "ratio": [
+    1.45,
+    1.59,
+    1.72
+   ],
+   "median_abs_err_pct": 63,
+   "spearman": 0.96,
+   "share_err_pts": 0.9
+  },
+  "time_on_ball/old/streak": {
+   "ratio": [
+    0.78,
+    0.85,
+    0.96
+   ],
+   "median_abs_err_pct": 23,
+   "spearman": 0.92,
+   "share_err_pts": 1.4
+  },
+  "time_on_ball/old/flicker": {
+   "ratio": [
+    1.57,
+    1.66,
+    1.83
+   ],
+   "median_abs_err_pct": 71,
+   "spearman": 0.85,
+   "share_err_pts": 1.4
+  },
+  "time_on_ball/state/False": {
+   "ratio": [
+    1.28,
+    1.36,
+    1.48
+   ],
+   "median_abs_err_pct": 42,
+   "spearman": 0.94,
+   "share_err_pts": 0.8
+  },
+  "time_on_ball/state/streak": {
+   "ratio": [
+    0.27,
+    0.39,
+    0.47
+   ],
+   "median_abs_err_pct": 64,
+   "spearman": 0.85,
+   "share_err_pts": 1.2
+  },
+  "time_on_ball/state/flicker": {
+   "ratio": [
+    1.1,
+    1.23,
+    1.32
+   ],
+   "median_abs_err_pct": 26,
+   "spearman": 0.92,
+   "share_err_pts": 1.1
+  },
+  "time_on_ball/eps/False": {
+   "ratio": [
+    1.37,
+    1.5,
+    1.58
+   ],
+   "median_abs_err_pct": 54,
+   "spearman": 0.96,
+   "share_err_pts": 0.7
+  },
+  "time_on_ball/eps/streak": {
+   "ratio": [
+    0.64,
+    0.69,
+    0.76
+   ],
+   "median_abs_err_pct": 28,
+   "spearman": 0.96,
+   "share_err_pts": 1.1
+  },
+  "time_on_ball/eps/flicker": {
+   "ratio": [
+    1.19,
+    1.27,
+    1.35
+   ],
+   "median_abs_err_pct": 30,
+   "spearman": 0.93,
+   "share_err_pts": 1.0
+  },
+  "passes_received/-/False": {
+   "ratio": [
+    0.93,
+    1.03,
+    1.15
+   ],
+   "median_abs_err_pct": 12,
+   "spearman": 0.92,
+   "share_err_pts": 0.9
+  },
+  "passes_received/-/streak": {
+   "ratio": [
+    0.87,
+    0.99,
+    1.14
+   ],
+   "median_abs_err_pct": 16,
+   "spearman": 0.91,
+   "share_err_pts": 1.1
+  },
+  "passes_received/-/flicker": {
+   "ratio": [
+    0.9,
+    1.11,
+    1.3
+   ],
+   "median_abs_err_pct": 21,
+   "spearman": 0.81,
+   "share_err_pts": 1.5
+  }
+ }
+}
