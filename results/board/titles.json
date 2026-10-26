@@ -105,5 +105,6 @@
  "N0-25c": "Check the shape-over-time chart on pro data; same rule as the Shape cards",
  "N0-25d": "Check the possession-over-time and field-tilt-over-time charts on pro data",
  "N0-25e": "Check each sequence's 'reached final third' and 'how it ended' labels on pro data",
- "N0-26a": "Check the pressing-over-time chart and pressure map on pro data and by eye"
+ "N0-26a": "Check the pressing-over-time chart and pressure map on pro data and by eye",
+ "N0-26b": "Check which way each team attacks, from the kick-off line-ups"
 }

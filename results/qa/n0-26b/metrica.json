@@ -1,0 +1,188 @@
+{
+ "summary": {
+  "halves_answered_right": 16,
+  "halves_answered_wrong": 0,
+  "no_answer": 0,
+  "runs": 16,
+  "spells": 51,
+  "spells_voting_right": 51
+ },
+ "runs": {
+  "Sample_Game_1 half 1 perfect": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 1,
+   "spells_voting_right": 1,
+   "kickoffs": 2,
+   "kickoffs_found": 1,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_1 half 1 our noise seed 0": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 2,
+   "spells_voting_right": 2,
+   "kickoffs": 2,
+   "kickoffs_found": 1,
+   "spells_away_from_kickoffs": 1,
+   "spells_away_right": 1
+  },
+  "Sample_Game_1 half 1 our noise seed 1": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 2,
+   "spells_voting_right": 2,
+   "kickoffs": 2,
+   "kickoffs_found": 1,
+   "spells_away_from_kickoffs": 1,
+   "spells_away_right": 1
+  },
+  "Sample_Game_1 half 1 our noise seed 2": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 2,
+   "spells_voting_right": 2,
+   "kickoffs": 2,
+   "kickoffs_found": 1,
+   "spells_away_from_kickoffs": 1,
+   "spells_away_right": 1
+  },
+  "Sample_Game_1 half 2 perfect": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 4,
+   "kickoffs_found": 4,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_1 half 2 our noise seed 0": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 4,
+   "kickoffs_found": 4,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_1 half 2 our noise seed 1": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 4,
+   "kickoffs_found": 4,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_1 half 2 our noise seed 2": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 4,
+   "kickoffs_found": 4,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 1 perfect": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 3,
+   "spells_voting_right": 3,
+   "kickoffs": 3,
+   "kickoffs_found": 3,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 1 our noise seed 0": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 3,
+   "spells_voting_right": 3,
+   "kickoffs": 3,
+   "kickoffs_found": 3,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 1 our noise seed 1": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 3,
+   "spells_voting_right": 3,
+   "kickoffs": 3,
+   "kickoffs_found": 3,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 1 our noise seed 2": {
+   "truth_home_attacks_right": false,
+   "answer": false,
+   "right": true,
+   "spells": 3,
+   "spells_voting_right": 3,
+   "kickoffs": 3,
+   "kickoffs_found": 3,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 2 perfect": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 5,
+   "kickoffs_found": 5,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 2 our noise seed 0": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 5,
+   "kickoffs_found": 5,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 2 our noise seed 1": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 5,
+   "kickoffs_found": 5,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  },
+  "Sample_Game_2 half 2 our noise seed 2": {
+   "truth_home_attacks_right": true,
+   "answer": true,
+   "right": true,
+   "spells": 4,
+   "spells_voting_right": 4,
+   "kickoffs": 5,
+   "kickoffs_found": 5,
+   "spells_away_from_kickoffs": 0,
+   "spells_away_right": 0
+  }
+ }
+}

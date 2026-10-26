@@ -1,0 +1,67 @@
+{
+ "full_match_52d795-join": {
+  "match": "p15u-vs-aik-2026-09-21-bd09",
+  "pitch": [
+   120.0,
+   70.0
+  ],
+  "run_attack_right_A": true,
+  "periods_file_attack_right_A": true,
+  "kickoff_attack_right_A": false,
+  "spells": [
+   {
+    "t0": 3183.8,
+    "t1": 3185.0,
+    "dark_A_in": "right half"
+   },
+   {
+    "t0": 3986.2,
+    "t1": 4015.0,
+    "dark_A_in": "right half"
+   },
+   {
+    "t0": 4295.5,
+    "t1": 4317.7,
+    "dark_A_in": "right half"
+   }
+  ]
+ },
+ "full_match_vjoin7": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "pitch": [
+   106.0,
+   64.0
+  ],
+  "run_attack_right_A": true,
+  "periods_file_attack_right_A": true,
+  "kickoff_attack_right_A": true,
+  "spells": [
+   {
+    "t0": 453.2,
+    "t1": 463.1,
+    "dark_A_in": "left half"
+   },
+   {
+    "t0": 3791.3,
+    "t1": 3792.5,
+    "dark_A_in": "left half"
+   },
+   {
+    "t0": 5558.6,
+    "t1": 5559.8,
+    "dark_A_in": "left half"
+   }
+  ]
+ },
+ "full_match_sjoin25": {
+  "match": "SFKBP1109_s1200",
+  "pitch": [
+   106.0,
+   64.0
+  ],
+  "run_attack_right_A": true,
+  "periods_file_attack_right_A": true,
+  "kickoff_attack_right_A": null,
+  "spells": []
+ }
+}

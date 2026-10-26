@@ -326,6 +326,12 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     if ref_dir is None: ref_dir = periods_direction(S.root, match_id)
     if ref_dir is not None:
         attack_right = {"A": bool(ref_dir), "B": not ref_dir}; log(f"direction: from reference labels -> A {'→' if attack_right['A'] else '←'}")
+    _ko = P.direction_from_kickoffs(per, ballm, fps, L, W, log=log) if os.environ.get("IPANEMA_KO_DIR", "1") != "0" else None   # N0-26b
+    if ref_dir is not None and _ko is not None and _ko["A"] != attack_right["A"]:
+        log("direction: WARNING the kick-off line-ups say the other way round from the reference labels - check periods/<match>.json (N0-26b)")
+    if ref_dir is not None: pass
+    elif _ko is not None:                                                     # N0-26b: line-ups at kick-offs (Metrica 16/16 halves) before the ball drift / keepers guesses
+        attack_right = _ko
     elif min(conf.values()) < 0.15:
         attack_right = P.direction_from_keepers(per, L, log=log) or P.direction_fallback(per, L, log=log)
     _t = [time.time()]

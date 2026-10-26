@@ -184,6 +184,53 @@ def direction_from_keepers(per, L, log=print):
     if right["A"] == right["B"]: return None
     log(f"direction (from keepers): A {'→' if right['A'] else '←'}  B {'→' if right['B'] else '←'}"); return right
 
+KO_MIN_EACH, KO_SPLIT, KO_MID_M, KO_BALL_R, KO_HOLD_S, KO_GAP_S = 4, 0.85, 1.5, 15.0, 1.0, 20.0   # N0-26b: Metrica sweep, results/qa/n0-26b
+
+
+def kickoff_spells(per, ballm, fps, L, W, min_each=KO_MIN_EACH, split=KO_SPLIT, mid_m=KO_MID_M, ball_r=KO_BALL_R,
+                   hold_s=KO_HOLD_S, gap_s=KO_GAP_S):
+    """N0-26b (26 Oct): kick-off line-ups. The laws put every player in his own half at a kick-off, so a team's half there is
+    the half it defends. A frame counts when the ball is unseen or within ball_r m of the centre spot (Metrica and our
+    picker often have no ball while it sits still on the spot), each team has >= min_each outfield players in the picture
+    more than mid_m m from halfway, and >= split of each team stand on opposite sides;
+    such frames held >= hold_s s make a spell (spells closer than gap_s s are one). -> [{k0, k1, a_left}]"""
+    out, run = [], []
+    def close():
+        if run and (run[-1][0] - run[0][0]) / fps >= hold_s:
+            a_left = sum(r[1] for r in run) > len(run) / 2
+            if out and (run[0][0] - out[-1]["k1"]) / fps < gap_s and out[-1]["a_left"] == a_left: out[-1]["k1"] = run[-1][0]
+            else: out.append({"k0": run[0][0], "k1": run[-1][0], "a_left": a_left})
+    last = None
+    for k in sorted(per):
+        b = ballm.get(k) if ballm is not None else None
+        ok = None
+        if b is None or float(np.hypot(b[0] - L / 2, b[1] - W / 2)) <= ball_r:
+            xs = {"A": [], "B": []}
+            for r in per[k]:
+                if r[1] in xs and not (len(r) > 5 and r[5]) and r[2] is not None and abs(float(r[2][0]) - L / 2) > mid_m: xs[r[1]].append(float(r[2][0]))
+            if len(xs["A"]) >= min_each and len(xs["B"]) >= min_each:
+                al = sum(x < L / 2 for x in xs["A"]) / len(xs["A"]); bl = sum(x < L / 2 for x in xs["B"]) / len(xs["B"])
+                if al >= split and bl <= 1 - split: ok = True
+                elif al <= 1 - split and bl >= split: ok = False
+        if ok is not None and run and (k - last > fps / 2 or run[-1][1] != ok): close(); run = []
+        if ok is not None: run.append((k, ok)); last = k
+        elif run and k - last > fps / 2: close(); run = []
+    close()
+    return out
+
+
+def direction_from_kickoffs(per, ballm, fps, L, W, log=print, **kw):
+    """N0-26b: the half each team lines up in at kick-offs is the half it defends -> {A: attacks right, B: ...} or None
+    (no kick-off line-up seen, or the spells disagree half-and-half). Frames must be in one coordinate frame per match
+    (a full match's later periods are mirrored, fullmatch.py; a clip lies in one period)."""
+    sp = kickoff_spells(per, ballm, fps, L, W, **kw)
+    a_left = sum(s["a_left"] for s in sp); n = len(sp)
+    if not n or 2 * a_left == n: log(f"direction (kick-off line-ups): {n} spells, no answer"); return None
+    right = {"A": 2 * a_left > n, "B": not (2 * a_left > n)}
+    log(f"direction (kick-off line-ups): A {'→' if right['A'] else '←'}  B {'→' if right['B'] else '←'}  ({max(a_left, n - a_left)} of {n} spells agree)")
+    return right
+
+
 def direction_fallback(per, L, log=print):
     """If the ball signal is weak: the team whose players sit nearer the left goal on average defends it (attacks right)."""
     med = {}

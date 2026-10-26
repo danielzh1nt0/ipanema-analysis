@@ -8,6 +8,7 @@ Checks (all on what the app shows, in match time, inside the periods):
   shot_map   - share of shots that have a pitch spot (x/y)
   ball_map   - share of ball positions (metres, the mini-map) off the pitch
   possession - who-has-the-ball by eye (reference/<match>/ball_key_graded.json 'owner' or owner_key.json) vs our state
+  direction  - N0-26b: the attack direction vs the kick-off line-ups in the frames (every player in his own half)
 
 Result: {"needs_review": [...parts...], "checks": [{"name", "ok", "value", "limit", "detail"}]}. ok=None means "could not check".
    PYTHONPATH=. python tools/upload_check.py <match_id>      (reads results/volume/runs/matches/<match_id>)
@@ -26,7 +27,8 @@ LIMITS = {
     "possession_key_n": 10,       # fewer clear moments than this -> not graded
     "kickoff_window_s": (10.0, 180.0), "centre_r_m": 9.0,
 }
-PART = {"players": "players", "keepers": "keepers", "goals": "goals", "shots": "shot_map", "ball": "ball_map", "possession": "possession"}
+PART = {"players": "players", "keepers": "keepers", "goals": "goals", "shots": "shot_map", "ball": "ball_map", "possession": "possession",
+        "direction": "direction"}
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -167,6 +169,34 @@ def check_possession(frames, key, lim=LIMITS, max_dt=0.6):
                 f"{right} of {n} clear moments right" + (f" (wrong: {', '.join(miss[:6])})" if miss else ""))
 
 
+def check_direction(md, frames, L, W):
+    """N0-26b (26 Oct): at a kick-off every player stands in his own half, so the half a team lines up in is the half it
+    defends (P.direction_from_kickoffs: 16 of 16 Metrica halves right, 0 wrong spells). The export's frames are mirrored in
+    later periods like the stats, so one attack_right covers the match. FLAG when the line-ups say the other way round
+    (the AIK full match, 25 Oct: dark A lines up in the right half at all its kick-offs, the export says A attacks right)."""
+    import numpy as np
+    from . import possession as P
+    ar = (md.get("attack_right") or {}).get("A")
+    pts = [f for f in frames if f.get("players")]
+    if ar is None or len(pts) < 2: return _row("direction", None, None, None, "no direction or frames")
+    ts = sorted(f["t"] for f in pts); dt = sorted(b - a for a, b in zip(ts, ts[1:]) if b > a)
+    fps = 1.0 / dt[len(dt) // 2] if dt else 10.0
+    per, ballm, tk = {}, {}, []
+    for i, f in enumerate(sorted(pts, key=lambda f: f["t"])):
+        per[i] = [[p.get("id"), p.get("team"), np.asarray(p["m"], float), None, None, bool(p.get("gk"))] for p in f["players"] if p.get("m") is not None]
+        b = f.get("ball")
+        if b and b.get("m") is not None: ballm[i] = np.asarray(b["m"], float)
+        tk.append(f["t"])
+    sp = P.kickoff_spells(per, ballm, fps, L, W)
+    if not sp: return _row("direction", None, {"spells": 0}, None, "no kick-off line-up seen")
+    a_left = sum(s["a_left"] for s in sp); n = len(sp); says_right = 2 * a_left > n
+    where = ", ".join(f"{tk[s['k0']]:.0f} s A {'left' if s['a_left'] else 'right'}" for s in sp[:8])
+    if 2 * a_left == n: return _row("direction", None, {"spells": n, "a_left": a_left}, None, f"kick-off line-ups split evenly ({where})")
+    ok = says_right == bool(ar)
+    return _row("direction", ok, {"spells": n, "a_left": a_left}, None,
+                f"export says A attacks {'right' if ar else 'left'}; {max(a_left, n - a_left)} of {n} kick-off line-ups say A attacks {'right' if says_right else 'left'} ({where})")
+
+
 def run_checks(md, stats, frames, owner_key=(), lim=LIMITS):
     L, W = md["pitch"]["length"], md["pitch"]["width"]; periods = md.get("periods") or []
     frames = sorted(frames, key=lambda f: f["t"])
@@ -175,6 +205,7 @@ def run_checks(md, stats, frames, owner_key=(), lim=LIMITS):
     rows.append(check_shots(stats, lim))
     rows.append(check_ball(frames, periods, L, W, lim))
     rows.append(check_possession(frames, list(owner_key), lim))
+    rows.append(check_direction(md, frames, L, W))
     needs = sorted({PART[r["name"]] for r in rows if r["ok"] is False})
     return {"needs_review": needs, "checks": rows}
 
