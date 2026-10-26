@@ -58,11 +58,13 @@ def test_shot_that_does_not_end_play_is_not_counted_and_outcome_labels_are_consi
     assert M.shots(st, bm, bs, FPS, L, W, AR, corner)[0]["outcome"] == "saved or blocked"
 
 
-def test_centre_spot_restart_is_not_a_goal_today():
-    """pins the known dead rule (see the shots docstring): restarts at the centre are 'stoppage', so no goal from our detector"""
+def test_centre_spot_restart_is_a_goal_since_n0_26e():
+    """N0-26e (26 Oct): a kick-off from the centre spot after the shot makes it a goal (restarts call it 'stoppage');
+    before, only kind 'unknown' counted, so no shot was ever a goal (IPANEMA_SHOT_GOAL=unknown = old)"""
     st, bm, bs = _shot_inputs(start=(80.0, 26.0), v=(2.0, 0.0), dead_after=32)
     ko = [{"t": 15.0, "kind": "stoppage", "team": "B", "x_m": 53.0, "y_m": 32.0}]
-    assert not M.shots(st, bm, bs, FPS, L, W, AR, ko)[0]["goal"]
+    assert M.shots(st, bm, bs, FPS, L, W, AR, ko)[0]["goal"]
+    assert not M.shots(st, bm, bs, FPS, L, W, AR, ko, goal_rule="unknown")[0]["goal"]
 
 
 def test_high_turnovers_zones_per_attack_direction():

@@ -1,0 +1,10821 @@
+{
+ "rows": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 3,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 3,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.5,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.72,
+     2795.96
+    ]
+   },
+   "stops_mouth": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.8,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops_look15": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.5,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.72,
+     2795.96
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 8,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 1.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 5
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.72,
+     1708.48,
+     2795.96
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 4.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 4.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 3,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 4.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.76
+    ]
+   },
+   "stops_mouth": {
+    "ours": 3,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 4.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.76
+    ]
+   },
+   "stops_look15": {
+    "ours": 4,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 3.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 3
+     },
+     "B": {
+      "truth": 2,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     479.76
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 12,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 6,
+    "loc_err_m_median": 5.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 9
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     362.84,
+     479.76,
+     505.64,
+     557.6,
+     1246.4,
+     2403.72,
+     2583.04
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 1,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 6.7,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 1
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 1,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 6.7,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 1
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 7,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 4
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.88,
+     362.56,
+     479.72,
+     2271.6,
+     2795.12
+    ]
+   },
+   "stops_mouth": {
+    "ours": 6,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 4
+     },
+     "B": {
+      "truth": 2,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.88,
+     362.56,
+     479.76,
+     2271.6
+    ]
+   },
+   "stops_look15": {
+    "ours": 8,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 5
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.88,
+     362.56,
+     479.72,
+     1958.16,
+     2271.6,
+     2795.12
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 24,
+    "found": 10,
+    "real": 10,
+    "near_any_team": 12,
+    "loc_err_m_median": 3.9,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 17
+     },
+     "B": {
+      "truth": 2,
+      "ours": 7
+     }
+    },
+    "missed": [
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.88,
+     89.96,
+     362.56,
+     479.72,
+     505.56,
+     661.24,
+     691.76,
+     877.16,
+     1426.0,
+     1838.6,
+     1958.16,
+     2271.48,
+     2698.28,
+     2795.12
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 12.8,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 12.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 2
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 12,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 7.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 8
+     },
+     "B": {
+      "truth": 2,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.12,
+     877.68,
+     1427.0,
+     1958.04,
+     2270.8,
+     2796.56
+    ]
+   },
+   "stops_mouth": {
+    "ours": 10,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 7.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 7
+     },
+     "B": {
+      "truth": 2,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 5923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 31190,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 53695,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.12,
+     877.68,
+     1958.04,
+     2270.8,
+     2796.56
+    ]
+   },
+   "stops_look15": {
+    "ours": 15,
+    "found": 8,
+    "real": 8,
+    "near_any_team": 8,
+    "loc_err_m_median": 6.8,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 11
+     },
+     "B": {
+      "truth": 2,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 67502,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     54.12,
+     877.68,
+     1427.0,
+     1958.04,
+     2270.8,
+     2404.56,
+     2796.56
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 23,
+    "found": 10,
+    "real": 10,
+    "near_any_team": 12,
+    "loc_err_m_median": 7.1,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 17
+     },
+     "B": {
+      "truth": 2,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 18270,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     }
+    ],
+    "fakes_t": [
+     54.12,
+     162.0,
+     363.56,
+     506.92,
+     660.08,
+     877.68,
+     1426.28,
+     1958.04,
+     2145.76,
+     2270.8,
+     2404.56,
+     2698.68,
+     2796.56
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 5,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.2,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 5
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 5,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.2,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 5
+     },
+     "B": {
+      "truth": 2,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 7753,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 9628,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53775,
+      "team": "A",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 62792,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 13,
+    "found": 9,
+    "real": 9,
+    "near_any_team": 9,
+    "loc_err_m_median": 6.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 9
+     },
+     "B": {
+      "truth": 2,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     362.64,
+     479.72,
+     2270.48,
+     2796.0
+    ]
+   },
+   "stops_mouth": {
+    "ours": 13,
+    "found": 9,
+    "real": 9,
+    "near_any_team": 9,
+    "loc_err_m_median": 4.6,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 9
+     },
+     "B": {
+      "truth": 2,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     362.64,
+     480.8,
+     2270.48,
+     2796.4
+    ]
+   },
+   "stops_look15": {
+    "ours": 17,
+    "found": 9,
+    "real": 9,
+    "near_any_team": 9,
+    "loc_err_m_median": 6.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 11
+     },
+     "B": {
+      "truth": 2,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 26608,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 57668,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     362.64,
+     479.72,
+     556.6,
+     876.92,
+     1425.44,
+     2270.48,
+     2405.56,
+     2796.0
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 24,
+    "found": 11,
+    "real": 11,
+    "near_any_team": 11,
+    "loc_err_m_median": 6.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "blocked",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 1,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 11,
+      "ours": 16
+     },
+     "B": {
+      "truth": 2,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 2289,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 19470,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     362.64,
+     479.72,
+     505.84,
+     556.6,
+     876.92,
+     1316.68,
+     1425.44,
+     1839.48,
+     2270.48,
+     2273.36,
+     2403.8,
+     2697.64,
+     2796.0
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 3,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.8,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     411.36,
+     1100.6
+    ]
+   },
+   "default": {
+    "ours": 3,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     411.36,
+     1100.6
+    ]
+   },
+   "stops": {
+    "ours": 3,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     411.36,
+     1100.6
+    ]
+   },
+   "stops_mouth": {
+    "ours": 2,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.6
+    ]
+   },
+   "stops_look15": {
+    "ours": 3,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     411.36,
+     1100.6
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 4,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     411.36,
+     1100.6
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 5,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.4,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     1099.88,
+     1250.44
+    ]
+   },
+   "default": {
+    "ours": 5,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.4,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     1099.88,
+     1250.44
+    ]
+   },
+   "stops": {
+    "ours": 7,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 6.8,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     1099.88,
+     1250.44,
+     2892.36
+    ]
+   },
+   "stops_mouth": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 6.8,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     1099.88,
+     1250.44
+    ]
+   },
+   "stops_look15": {
+    "ours": 9,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 4.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     1099.88,
+     1250.44,
+     2752.2,
+     2892.36
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 26,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 8,
+    "loc_err_m_median": 4.7,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 8
+     },
+     "B": {
+      "truth": 4,
+      "ours": 18
+     }
+    },
+    "missed": [
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     158.24,
+     648.04,
+     832.4,
+     993.0,
+     1099.88,
+     1250.44,
+     1712.8,
+     1903.24,
+     1989.92,
+     1991.96,
+     2004.0,
+     2010.6,
+     2144.84,
+     2166.16,
+     2535.72,
+     2752.2,
+     2829.76,
+     2832.56,
+     2892.36
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.4,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.4,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 5,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.4,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     834.0,
+     1712.04,
+     1758.76
+    ]
+   },
+   "stops_mouth": {
+    "ours": 3,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 5.4,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1758.76
+    ]
+   },
+   "stops_look15": {
+    "ours": 7,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 8.3,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     622.36,
+     834.0,
+     1101.08,
+     1712.04,
+     1758.76,
+     2063.92
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 32,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 9.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "goal"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 5,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 9
+     },
+     "B": {
+      "truth": 4,
+      "ours": 23
+     }
+    },
+    "missed": [
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 124755,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     106.08,
+     446.44,
+     449.04,
+     622.36,
+     645.92,
+     1101.08,
+     1490.6,
+     1712.04,
+     1758.76,
+     1914.16,
+     1931.0,
+     1958.96,
+     1981.68,
+     1986.72,
+     1990.0,
+     1993.12,
+     2006.36,
+     2063.92,
+     2150.12,
+     2163.48,
+     2166.24,
+     2533.52,
+     2537.6,
+     2540.04,
+     2759.16,
+     2823.12,
+     2825.48,
+     2830.88
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 5,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.4
+    ]
+   },
+   "default": {
+    "ours": 5,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.4
+    ]
+   },
+   "stops": {
+    "ours": 10,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 1.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     200.64,
+     411.36,
+     625.24,
+     1100.4,
+     1711.32
+    ]
+   },
+   "stops_mouth": {
+    "ours": 11,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 1.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     200.64,
+     411.88,
+     625.24,
+     1041.2,
+     1100.4,
+     2752.0
+    ]
+   },
+   "stops_look15": {
+    "ours": 10,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 1.0,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     200.64,
+     411.36,
+     625.24,
+     1100.4,
+     1711.32
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 31,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 6.6,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 3,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 8
+     },
+     "B": {
+      "truth": 4,
+      "ours": 23
+     }
+    },
+    "missed": [
+     {
+      "frame": 75262,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     200.64,
+     411.36,
+     625.24,
+     646.28,
+     1039.76,
+     1100.4,
+     1495.92,
+     1711.32,
+     1926.88,
+     1960.36,
+     1987.6,
+     1991.72,
+     1994.84,
+     1999.92,
+     2004.08,
+     2149.68,
+     2162.88,
+     2165.72,
+     2170.64,
+     2534.52,
+     2537.72,
+     2815.6,
+     2829.8,
+     2831.8
+    ]
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 5,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 3.2,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.04,
+     2137.24
+    ]
+   },
+   "default": {
+    "ours": 5,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 3.2,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 134041,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.04,
+     2137.24
+    ]
+   },
+   "stops": {
+    "ours": 8,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 7.7,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.04,
+     1712.2,
+     2137.24,
+     2891.88
+    ]
+   },
+   "stops_mouth": {
+    "ours": 10,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.2,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99005,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1100.04,
+     1712.24,
+     1908.04,
+     2137.24,
+     2891.88
+    ]
+   },
+   "stops_look15": {
+    "ours": 10,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 12.2,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     1040.08,
+     1100.04,
+     1712.2,
+     2137.24,
+     2891.88
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 28,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 12.2,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "off target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 7
+     },
+     "B": {
+      "truth": 4,
+      "ours": 21
+     }
+    },
+    "missed": [
+     {
+      "frame": 77048,
+      "team": "A",
+      "sub": "HEAD-WOODWORK-OUT"
+     },
+     {
+      "frame": 99032,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 108611,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 118911,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 122923,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 135957,
+      "team": "A",
+      "sub": "OFF TARGET"
+     }
+    ],
+    "fakes_t": [
+     410.8,
+     623.76,
+     832.68,
+     1040.08,
+     1100.04,
+     1251.6,
+     1712.2,
+     1915.92,
+     1959.08,
+     1989.64,
+     1992.08,
+     2002.76,
+     2006.4,
+     2016.8,
+     2137.24,
+     2150.32,
+     2164.36,
+     2533.72,
+     2535.84,
+     2811.52,
+     2823.84,
+     2829.08,
+     2891.88
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 4,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64
+    ]
+   },
+   "default": {
+    "ours": 4,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64
+    ]
+   },
+   "stops": {
+    "ours": 5,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64,
+     396.2
+    ]
+   },
+   "stops_mouth": {
+    "ours": 5,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.2,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64
+    ]
+   },
+   "stops_look15": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64,
+     396.2
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.64,
+     396.2
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 3,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 4.6,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 3,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 4.6,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 6,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 16.0,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     394.92,
+     2078.28
+    ]
+   },
+   "stops_mouth": {
+    "ours": 7,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 4
+     },
+     "B": {
+      "truth": 4,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     394.92,
+     2078.28
+    ]
+   },
+   "stops_look15": {
+    "ours": 8,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 9.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     394.92,
+     2078.28
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 22,
+    "found": 9,
+    "real": 9,
+    "near_any_team": 9,
+    "loc_err_m_median": 6.4,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 12
+     },
+     "B": {
+      "truth": 4,
+      "ours": 10
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     284.0,
+     394.92,
+     420.8,
+     906.56,
+     1442.32,
+     1739.64,
+     2078.28,
+     2265.92,
+     2277.36,
+     2294.2,
+     2296.44,
+     2708.64,
+     2711.76
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 1,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 1
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 29754,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 1,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 1
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 29754,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 3,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 0.3,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 29754,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     1193.68,
+     2295.44
+    ]
+   },
+   "stops_mouth": {
+    "ours": 2,
+    "found": 0,
+    "real": 0,
+    "near_any_team": 0,
+    "loc_err_m_median": null,
+    "outcome_right": 0,
+    "outcome_pairs": [],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 29754,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 53049,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     397.04,
+     1193.68
+    ]
+   },
+   "stops_look15": {
+    "ours": 6,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 1.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 2
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 4419,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 29754,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     }
+    ],
+    "fakes_t": [
+     1193.68,
+     2080.2,
+     2295.44
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 22,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 7,
+    "loc_err_m_median": 6.1,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 11
+     },
+     "B": {
+      "truth": 4,
+      "ours": 11
+     }
+    },
+    "missed": [
+     {
+      "frame": 12202,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     }
+    ],
+    "fakes_t": [
+     485.72,
+     737.52,
+     905.92,
+     1059.4,
+     1193.68,
+     1354.68,
+     1738.16,
+     2077.72,
+     2080.2,
+     2266.64,
+     2272.48,
+     2295.16,
+     2397.92,
+     2471.96,
+     2589.04,
+     2681.28,
+     2711.2
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 7,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 5.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     661.72
+    ]
+   },
+   "default": {
+    "ours": 7,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 5.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     661.72
+    ]
+   },
+   "stops": {
+    "ours": 12,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 6.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     395.76,
+     661.72,
+     1740.2,
+     2077.68,
+     2295.04
+    ]
+   },
+   "stops_mouth": {
+    "ours": 12,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 8,
+    "loc_err_m_median": 7.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     395.76,
+     661.72,
+     2077.68,
+     2120.44,
+     2295.04
+    ]
+   },
+   "stops_look15": {
+    "ours": 13,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 8,
+    "loc_err_m_median": 11.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 7
+     },
+     "B": {
+      "truth": 4,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     175.12,
+     395.76,
+     661.72,
+     1740.2,
+     2077.68,
+     2295.04
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 25,
+    "found": 9,
+    "real": 9,
+    "near_any_team": 11,
+    "loc_err_m_median": 11.3,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 17
+     },
+     "B": {
+      "truth": 4,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     175.12,
+     240.28,
+     395.76,
+     485.48,
+     906.36,
+     1192.6,
+     1738.08,
+     2077.68,
+     2264.64,
+     2266.76,
+     2271.4,
+     2273.96,
+     2295.04,
+     2681.12,
+     2711.56,
+     2714.08
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "truth": 11,
+   "attack_right": {
+    "A": false,
+    "B": true
+   },
+   "old": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 11.8,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 11.8,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 3
+     },
+     "B": {
+      "truth": 4,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 27345,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 63362,
+      "team": "B",
+      "sub": "OFF TARGET-HEAD-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 9,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 14.4,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     395.56,
+     907.32,
+     2077.68
+    ]
+   },
+   "stops_mouth": {
+    "ours": 10,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 16.1,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 5
+     },
+     "B": {
+      "truth": 4,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     395.56,
+     907.32,
+     2077.68
+    ]
+   },
+   "stops_look15": {
+    "ours": 10,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 14.4,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 6
+     },
+     "B": {
+      "truth": 4,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 18515,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 67067,
+      "team": "A",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     395.56,
+     907.32,
+     1058.88,
+     2077.68
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 24,
+    "found": 8,
+    "real": 8,
+    "near_any_team": 11,
+    "loc_err_m_median": 9.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "blocked",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 2,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 7,
+      "ours": 16
+     },
+     "B": {
+      "truth": 4,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 16484,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 56079,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 64772,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     174.92,
+     240.72,
+     283.56,
+     395.56,
+     905.88,
+     1058.88,
+     1188.12,
+     2077.68,
+     2080.12,
+     2265.24,
+     2269.04,
+     2273.84,
+     2294.12,
+     2532.56,
+     2708.92,
+     2711.56
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 0.6,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 0.6,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 7,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.2
+    ]
+   },
+   "stops_mouth": {
+    "ours": 7,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 0.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 3
+     },
+     "B": {
+      "truth": 7,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.2
+    ]
+   },
+   "stops_look15": {
+    "ours": 7,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.2
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 8,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 0.9,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.2
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 2,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 11.5,
+    "outcome_right": 0,
+    "outcome_pairs": [
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 90165,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     239.52
+    ]
+   },
+   "default": {
+    "ours": 2,
+    "found": 1,
+    "real": 1,
+    "near_any_team": 1,
+    "loc_err_m_median": 11.5,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 0
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 90165,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     239.52
+    ]
+   },
+   "stops": {
+    "ours": 6,
+    "found": 3,
+    "real": 3,
+    "near_any_team": 3,
+    "loc_err_m_median": 11.5,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 90165,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     239.52,
+     583.28,
+     1193.68
+    ]
+   },
+   "stops_mouth": {
+    "ours": 9,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 1.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 6
+     },
+     "B": {
+      "truth": 7,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     239.56,
+     583.28,
+     1193.68
+    ]
+   },
+   "stops_look15": {
+    "ours": 8,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 5,
+    "loc_err_m_median": 6.4,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 6
+     },
+     "B": {
+      "truth": 7,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 90165,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     239.52,
+     583.28,
+     1193.68,
+     2254.36
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 15,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 11.5,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 7
+     },
+     "B": {
+      "truth": 7,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 90165,
+      "team": "B",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     160.32,
+     239.52,
+     583.28,
+     702.72,
+     1159.84,
+     1192.24,
+     1623.36,
+     2210.36
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 2.1,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 1
+     },
+     "B": {
+      "truth": 7,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 2,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 2.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 1
+     },
+     "B": {
+      "truth": 7,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 3,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 2.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     1193.32
+    ]
+   },
+   "stops_mouth": {
+    "ours": 3,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 2.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 1
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     1193.32
+    ]
+   },
+   "stops_look15": {
+    "ours": 4,
+    "found": 2,
+    "real": 2,
+    "near_any_team": 2,
+    "loc_err_m_median": 2.1,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 2
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     886.28,
+     1193.32
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 12,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 7.7,
+    "outcome_right": 4,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 2,
+    "goals_right": 2,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 7
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 132570,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     }
+    ],
+    "fakes_t": [
+     160.32,
+     314.84,
+     702.24,
+     886.28,
+     1193.32
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.6,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 1
+     },
+     "B": {
+      "truth": 7,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 121027,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "default": {
+    "ours": 4,
+    "found": 4,
+    "real": 4,
+    "near_any_team": 4,
+    "loc_err_m_median": 1.6,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 1
+     },
+     "B": {
+      "truth": 7,
+      "ours": 3
+     }
+    },
+    "missed": [
+     {
+      "frame": 69887,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 121027,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": []
+   },
+   "stops": {
+    "ours": 11,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 1.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 121027,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.52,
+     1192.56,
+     1239.88,
+     1623.2
+    ]
+   },
+   "stops_mouth": {
+    "ours": 11,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 1.7,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 4
+     },
+     "B": {
+      "truth": 7,
+      "ours": 7
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 121027,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.52,
+     1192.56,
+     1239.88,
+     1623.2
+    ]
+   },
+   "stops_look15": {
+    "ours": 14,
+    "found": 8,
+    "real": 8,
+    "near_any_team": 8,
+    "loc_err_m_median": 6.2,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 6
+     },
+     "B": {
+      "truth": 7,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 121027,
+      "team": "A",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     702.52,
+     1159.92,
+     1192.56,
+     1239.88,
+     1623.2,
+     1750.4
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 19,
+    "found": 11,
+    "real": 11,
+    "near_any_team": 11,
+    "loc_err_m_median": 6.2,
+    "outcome_right": 3,
+    "outcome_pairs": [
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 2,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 11
+     },
+     "B": {
+      "truth": 7,
+      "ours": 8
+     }
+    },
+    "missed": [
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     }
+    ],
+    "fakes_t": [
+     239.24,
+     530.76,
+     702.52,
+     1159.92,
+     1192.56,
+     1239.88,
+     1623.2,
+     1750.4
+    ]
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "truth": 13,
+   "attack_right": {
+    "A": true,
+    "B": false
+   },
+   "old": {
+    "ours": 6,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.9,
+    "outcome_right": 1,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 0,
+    "goals_right": 0,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     2722.32
+    ]
+   },
+   "default": {
+    "ours": 6,
+    "found": 5,
+    "real": 5,
+    "near_any_team": 5,
+    "loc_err_m_median": 3.9,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 2
+     },
+     "B": {
+      "truth": 7,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 124336,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     2722.32
+    ]
+   },
+   "stops": {
+    "ours": 9,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 2.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 4
+     },
+     "B": {
+      "truth": 7,
+      "ours": 5
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     1193.92,
+     2211.36,
+     2722.32
+    ]
+   },
+   "stops_mouth": {
+    "ours": 9,
+    "found": 7,
+    "real": 7,
+    "near_any_team": 7,
+    "loc_err_m_median": 1.9,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "on target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "on target",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 4
+     }
+    },
+    "missed": [
+     {
+      "frame": 73983,
+      "team": "A",
+      "sub": "HEAD-ON TARGET-GOAL"
+     },
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     1193.92,
+     1240.08
+    ]
+   },
+   "stops_look15": {
+    "ours": 11,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 2.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 6
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     314.64,
+     1159.6,
+     1193.92,
+     2211.36,
+     2722.32
+    ]
+   },
+   "stops_goalteam": {
+    "ours": 12,
+    "found": 6,
+    "real": 6,
+    "near_any_team": 6,
+    "loc_err_m_median": 2.3,
+    "outcome_right": 2,
+    "outcome_pairs": [
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "off target",
+      "saved or blocked"
+     ],
+     [
+      "off target",
+      "on target"
+     ],
+     [
+      "goal",
+      "goal"
+     ],
+     [
+      "on target",
+      "on target"
+     ],
+     [
+      "goal",
+      "on target"
+     ]
+    ],
+    "goals_truth": 3,
+    "goals_ours": 1,
+    "goals_right": 1,
+    "per_team": {
+     "A": {
+      "truth": 6,
+      "ours": 5
+     },
+     "B": {
+      "truth": 7,
+      "ours": 7
+     }
+    },
+    "missed": [
+     {
+      "frame": 86191,
+      "team": "B",
+      "sub": "OFF TARGET-OUT"
+     },
+     {
+      "frame": 98880,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     },
+     {
+      "frame": 111758,
+      "team": "B",
+      "sub": "BLOCKED"
+     },
+     {
+      "frame": 115009,
+      "team": "B",
+      "sub": "ON TARGET-GOAL"
+     },
+     {
+      "frame": 117218,
+      "team": "A",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 136060,
+      "team": "B",
+      "sub": "HEAD-OFF TARGET-OUT"
+     },
+     {
+      "frame": 139891,
+      "team": "A",
+      "sub": "ON TARGET-SAVED"
+     }
+    ],
+    "fakes_t": [
+     314.64,
+     703.48,
+     1159.6,
+     1193.92,
+     2211.36,
+     2722.32
+    ]
+   }
+  }
+ ],
+ "summary": {
+  "old/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 14,
+   "found": 11,
+   "found_pct": 23,
+   "real_pct": 79,
+   "near_real_shot_any_team": 11,
+   "count_ratio": 0.29,
+   "outcome_right": "3/11",
+   "goals": "0 vs 8",
+   "goals_right": 0,
+   "loc_err_m_median": 1.0
+  },
+  "old/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 18,
+   "found": 15,
+   "found_pct": 16,
+   "real_pct": 83,
+   "near_real_shot_any_team": 15,
+   "count_ratio": 0.19,
+   "outcome_right": "3/15",
+   "goals": "0 vs 16",
+   "goals_right": 0,
+   "loc_err_m_median": 4.3
+  },
+  "old/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 38,
+   "found": 33,
+   "found_pct": 34,
+   "real_pct": 87,
+   "near_real_shot_any_team": 33,
+   "count_ratio": 0.4,
+   "outcome_right": "7/33",
+   "goals": "0 vs 16",
+   "goals_right": 0,
+   "loc_err_m_median": 3.5
+  },
+  "default/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 14,
+   "found": 11,
+   "found_pct": 23,
+   "real_pct": 79,
+   "near_real_shot_any_team": 11,
+   "count_ratio": 0.29,
+   "outcome_right": "5/11",
+   "goals": "3 vs 8",
+   "goals_right": 2,
+   "loc_err_m_median": 1.0
+  },
+  "default/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 18,
+   "found": 15,
+   "found_pct": 16,
+   "real_pct": 83,
+   "near_real_shot_any_team": 15,
+   "count_ratio": 0.19,
+   "outcome_right": "8/15",
+   "goals": "6 vs 16",
+   "goals_right": 5,
+   "loc_err_m_median": 4.3
+  },
+  "default/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 38,
+   "found": 33,
+   "found_pct": 34,
+   "real_pct": 87,
+   "near_real_shot_any_team": 33,
+   "count_ratio": 0.4,
+   "outcome_right": "16/33",
+   "goals": "10 vs 16",
+   "goals_right": 9,
+   "loc_err_m_median": 3.5
+  },
+  "stops/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 21,
+   "found": 14,
+   "found_pct": 29,
+   "real_pct": 67,
+   "near_real_shot_any_team": 14,
+   "count_ratio": 0.44,
+   "outcome_right": "5/14",
+   "goals": "3 vs 8",
+   "goals_right": 2,
+   "loc_err_m_median": 1.0
+  },
+  "stops/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 40,
+   "found": 20,
+   "found_pct": 21,
+   "real_pct": 50,
+   "near_real_shot_any_team": 20,
+   "count_ratio": 0.42,
+   "outcome_right": "9/20",
+   "goals": "6 vs 16",
+   "goals_right": 5,
+   "loc_err_m_median": 5.3
+  },
+  "stops/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 84,
+   "found": 50,
+   "found_pct": 52,
+   "real_pct": 60,
+   "near_real_shot_any_team": 50,
+   "count_ratio": 0.88,
+   "outcome_right": "20/50",
+   "goals": "10 vs 16",
+   "goals_right": 9,
+   "loc_err_m_median": 6.2
+  },
+  "stops_mouth/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 18,
+   "found": 15,
+   "found_pct": 31,
+   "real_pct": 83,
+   "near_real_shot_any_team": 15,
+   "count_ratio": 0.38,
+   "outcome_right": "4/15",
+   "goals": "3 vs 8",
+   "goals_right": 2,
+   "loc_err_m_median": 1.0
+  },
+  "stops_mouth/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 39,
+   "found": 23,
+   "found_pct": 24,
+   "real_pct": 59,
+   "near_real_shot_any_team": 23,
+   "count_ratio": 0.41,
+   "outcome_right": "10/23",
+   "goals": "6 vs 16",
+   "goals_right": 5,
+   "loc_err_m_median": 4.1
+  },
+  "stops_mouth/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 86,
+   "found": 52,
+   "found_pct": 54,
+   "real_pct": 60,
+   "near_real_shot_any_team": 53,
+   "count_ratio": 0.9,
+   "outcome_right": "21/52",
+   "goals": "10 vs 16",
+   "goals_right": 9,
+   "loc_err_m_median": 3.9
+  },
+  "stops_look15/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 22,
+   "found": 15,
+   "found_pct": 31,
+   "real_pct": 68,
+   "near_real_shot_any_team": 15,
+   "count_ratio": 0.46,
+   "outcome_right": "5/15",
+   "goals": "3 vs 8",
+   "goals_right": 2,
+   "loc_err_m_median": 1.0
+  },
+  "stops_look15/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 54,
+   "found": 26,
+   "found_pct": 27,
+   "real_pct": 48,
+   "near_real_shot_any_team": 27,
+   "count_ratio": 0.56,
+   "outcome_right": "11/26",
+   "goals": "9 vs 16",
+   "goals_right": 6,
+   "loc_err_m_median": 5.0
+  },
+  "stops_look15/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 100,
+   "found": 54,
+   "found_pct": 56,
+   "real_pct": 54,
+   "near_real_shot_any_team": 55,
+   "count_ratio": 1.04,
+   "outcome_right": "22/54",
+   "goals": "10 vs 16",
+   "goals_right": 9,
+   "loc_err_m_median": 6.5
+  },
+  "stops_goalteam/False": {
+   "runs": 4,
+   "truth": 48,
+   "ours": 26,
+   "found": 18,
+   "found_pct": 38,
+   "real_pct": 69,
+   "near_real_shot_any_team": 18,
+   "count_ratio": 0.54,
+   "outcome_right": "6/18",
+   "goals": "5 vs 8",
+   "goals_right": 3,
+   "loc_err_m_median": 1.0
+  },
+  "stops_goalteam/streak": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 165,
+   "found": 54,
+   "found_pct": 56,
+   "real_pct": 33,
+   "near_real_shot_any_team": 60,
+   "count_ratio": 1.72,
+   "outcome_right": "22/54",
+   "goals": "16 vs 16",
+   "goals_right": 8,
+   "loc_err_m_median": 6.2
+  },
+  "stops_goalteam/flicker": {
+   "runs": 8,
+   "truth": 96,
+   "ours": 186,
+   "found": 67,
+   "found_pct": 70,
+   "real_pct": 36,
+   "near_real_shot_any_team": 74,
+   "count_ratio": 1.94,
+   "outcome_right": "25/67",
+   "goals": "13 vs 16",
+   "goals_right": 9,
+   "loc_err_m_median": 6.8
+  }
+ }
+}

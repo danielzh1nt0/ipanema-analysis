@@ -41,7 +41,7 @@ def test_compute_default_raw_and_env_spell(monkeypatch):
 
 def test_run_py_passes_the_spell_state():
     src = open(os.path.join(ROOT, "ipanema", "run.py")).read()
-    assert "frames_=frames_, cstate=cstate)" in src
+    assert "frames_=frames_, cstate=cstate" in src
 
 
 def test_truth_points_skip_dead_ball_and_one_per_second():

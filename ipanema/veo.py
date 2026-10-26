@@ -96,8 +96,11 @@ def build(highlights, fps, ballm, per, L, W, attack_right, restarts_, periods=No
         f"origin by eye for {sum(1 for s in out if s['x_m'] is not None)}, team by eye for {sum(1 for s in out if 'by eye' in (s['located_by'] or ''))}, from the ball for {sum(1 for s in out if s['located_by'] == 'ball')}, from the players for {sum(1 for s in out if s['located_by'] == 'players')}, unknown for {sum(1 for s in out if s['team'] is None)}")
     return out, rejected
 
-def score_detector(detected, veo_shots, tol_s=10.0):
-    """how our own shot detector does against Veo's events"""
+def score_detector(detected, veo_shots, before_s=2.0, after_s=30.0):
+    """how our own shot detector does against Veo's events. N0-26e (26 Oct): a Veo time is the START of its highlight clip
+    and the shot comes later in the clip (build() reads the end 5-25 s after it), so a detected shot matches from 2 s
+    before to 30 s after (was +-10 s: on the 3 full matches in the repo 0/39 found, 0/28 real; with the window 8/39, 10/28)."""
     vt = [s["t"] for s in veo_shots]; dt = [s["t"] for s in detected]
-    found = sum(1 for v in vt if any(abs(d - v) <= tol_s for d in dt)); real = sum(1 for d in dt if any(abs(d - v) <= tol_s for v in vt))
+    hit = lambda d, v: v - before_s <= d <= v + after_s
+    found = sum(1 for v in vt if any(hit(d, v) for d in dt)); real = sum(1 for d in dt if any(hit(d, v) for v in vt))
     return {"veo_shots": len(vt), "found": found, "ours": len(dt), "real": real}

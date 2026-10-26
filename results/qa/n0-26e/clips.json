@@ -1,0 +1,103 @@
+{
+ "SFKBP1109_s1200": {
+  "minutes": 5.0,
+  "stoppages": 7,
+  "veo": [],
+  "old": [
+   {
+    "t": 39.47,
+    "team": "B",
+    "x_m": 8.7,
+    "y_m": 43.7,
+    "distance_m": 14.6,
+    "speed_ms": 24.0,
+    "outcome": "on target",
+    "goal": false
+   }
+  ],
+  "new": [
+   {
+    "t": 39.47,
+    "team": "B",
+    "x_m": 8.7,
+    "y_m": 43.7,
+    "distance_m": 14.6,
+    "speed_ms": 24.0,
+    "outcome": "on target",
+    "goal": false
+   }
+  ],
+  "stops": [
+   {
+    "t": 39.47,
+    "team": "B",
+    "x_m": 8.7,
+    "y_m": 43.7,
+    "distance_m": 14.6,
+    "speed_ms": 24.0,
+    "outcome": "on target",
+    "goal": false
+   },
+   {
+    "t": 231.46,
+    "team": "B",
+    "x_m": 19.4,
+    "y_m": 14.1,
+    "distance_m": 26.4,
+    "speed_ms": 16.4,
+    "outcome": "saved or blocked",
+    "goal": false
+   }
+  ],
+  "score_vs_veo": {
+   "old": null,
+   "new": null,
+   "stops": null
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "minutes": 5.0,
+  "stoppages": 1,
+  "veo": [
+   {
+    "t": 12.0,
+    "kind": "shot"
+   },
+   {
+    "t": 95.0,
+    "kind": "shot"
+   },
+   {
+    "t": 241.0,
+    "kind": "shot"
+   },
+   {
+    "t": 242.0,
+    "kind": "goal"
+   }
+  ],
+  "old": [],
+  "new": [],
+  "stops": [],
+  "score_vs_veo": {
+   "old": {
+    "veo_shots": 4,
+    "found": 0,
+    "ours": 0,
+    "real": 0
+   },
+   "new": {
+    "veo_shots": 4,
+    "found": 0,
+    "ours": 0,
+    "real": 0
+   },
+   "stops": {
+    "veo_shots": 4,
+    "found": 0,
+    "ours": 0,
+    "real": 0
+   }
+  }
+ }
+}

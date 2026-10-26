@@ -363,7 +363,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     _eps = AN.touch_episodes(frames_, fps, state=(cstate if os.environ.get("IPANEMA_PASS_STATE", "spell") == "spell" else None))
     st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs, episodes_=_eps)
     step("metrics")
-    mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_, cstate=cstate); st['metrics'] = mx
+    mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_, cstate=cstate, stops=P.stoppage_spans(dstate, ballm, fps, L, W)); st['metrics'] = mx   # N0-26e: stops only used with IPANEMA_SHOT_END=stops
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
     try:
         from . import veo as VEO
@@ -375,7 +375,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
             _drop = [x for x in vs if not _in(x["t"])]; vs = [x for x in vs if _in(x["t"])]
             if _drop: log(f"veo: {len(_drop)} shots/goals outside the analysed video or its periods left out ({sum(1 for x in _drop if x['goal'])} goals)")
             sc = VEO.score_detector(mx["shots"], vs)
-            log(f"our shot detector vs Veo: found {sc['found']}/{sc['veo_shots']} of Veo's shots, {sc['real']}/{sc['ours']} of ours are real (within 10 s)")
+            log(f"our shot detector vs Veo: found {sc['found']}/{sc['veo_shots']} of Veo's shots, {sc['real']}/{sc['ours']} of ours are real (2 s before to 30 s after a Veo clip start)")
             for g in rej: log(f"veo: rejected goal tag at {g['t']} s: {g['why']}")
             mx["shots_detected"], mx["shots"], mx["goals"], mx["veo_rejected"] = mx["shots"], vs, [s for s in vs if s["goal"]], rej
     except Exception as e: log(f"veo import failed: {e!r}")

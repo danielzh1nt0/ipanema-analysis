@@ -108,5 +108,6 @@
  "N0-26a": "Check the pressing-over-time chart and pressure map on pro data and by eye",
  "N0-26b": "Check which way each team attacks, from the kick-off line-ups",
  "N0-26c": "Check touches per player on pro data and by eye",
- "N0-26d": "Check time on the ball and passes received per player on pro data"
+ "N0-26d": "Check time on the ball and passes received per player on pro data",
+ "N0-26e": "Check our own shot detector on pro data and against Veo"
 }

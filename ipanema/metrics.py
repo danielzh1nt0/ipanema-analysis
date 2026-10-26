@@ -5,32 +5,66 @@ from .possession import STATES
 
 def _goal_x(team, attack_right, L): return L if attack_right[team] else 0.0
 
-def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_):
-    """A shot: ball suddenly fast (>16 m/s), within 15 degrees of the goal the possessing team attacks, from within 30 m of it.
-    18 Oct: the 'goal' outcome (next restart at the centre spot) never fires: possession.restarts calls a centre-spot restart
-    'stoppage', and 'unknown' only when there is no ball spot. Left as is on purpose: on SFK-BP, AIK and Vallentuna no
-    centre restart follows any detected shot, so a fix changes nothing today, and goals come from Veo's list."""
+# N0-26e (26 Oct): since E4 (29 Sep) the state handed in here is possession_simple's, which has no 'dead' state, so 'play
+# stops within 3 s' can never fire: only a ball whose flat track crosses the goal mouth counts (Metrica pro data, perfect
+# ball: 11 of 48 shots found). Option IPANEMA_SHOT_END=stops: a shot also ends at one of the restart step's stoppages
+# (P.stoppage_spans, the ones restarts / sequences use) starting with it or within 3 s - more found (perfect ball 23 ->
+# 29%, our clips' flicker noise 34 -> 52%) but fewer of ours real under noise (83 -> 50%, 87 -> 60%) -> not the default.
+# Goal (default since N0-26e, IPANEMA_SHOT_GOAL=unknown = old): the first restart within 90 s after the shot is taken
+# from the centre spot (a kick-off comes 55-76 s after a goal on Metrica). Before, only kind 'unknown' counted, which a
+# restart with a ball spot never gets, so no shot was ever a goal: now 2 of 8 / 5 of 16 / 9 of 16 real goals flagged
+# (perfect / streak / flicker ball), wrong flags 1 / 1 / 1. results/qa/n0-26e/README.md
+SHOT_END = os.environ.get("IPANEMA_SHOT_END", "state")
+SHOT_GOAL = os.environ.get("IPANEMA_SHOT_GOAL", "centre")
+SHOT_AIM = os.environ.get("IPANEMA_SHOT_AIM", "centre")
+
+def _aim_ok(p, v, gx, W, max_deg=15.0, aim=None):
+    """'centre': within max_deg of the line to the goal's centre (the rule since day one); 'mouth' (lab): the ball's
+    line crosses the goal line between the posts widened by 3 m each side"""
+    aim = SHOT_AIM if aim is None else aim; goal = np.array([gx, W / 2])
+    if aim == "mouth":
+        if abs(v[0]) < 1e-6 or (gx - p[0]) / v[0] <= 0: return False
+        y = p[1] + v[1] * (gx - p[0]) / v[0]; return abs(y - W / 2) <= 3.66 + 3.0
+    cosang = float(v @ (goal - p) / (np.linalg.norm(v) * np.linalg.norm(goal - p)))
+    return cosang >= np.cos(np.radians(max_deg))
+
+def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_, stops=None, end=None, goal_rule=None, aim=None, min_speed=16.0, team_rule="state"):
+    """A shot: ball suddenly fast (> min_speed m/s), within 15 degrees of the goal the possessing team attacks, from within
+    30 m of it, and within 3 s the ball crosses the goal line or play stops (see N0-26e above).
+    18 Oct: the 'goal' outcome (next restart at the centre spot) never fired: possession.restarts calls a centre-spot restart
+    'stoppage', and 'unknown' only when there is no ball spot -> fixed 26 Oct (N0-26e); goals in the app still come from
+    Veo's list when the match has one."""
+    end = SHOT_END if end is None else end; goal_rule = SHOT_GOAL if goal_rule is None else goal_rule
+    stop_starts = sorted(a for a, b in stops) if (stops is not None and end == "stops") else None
     n = len(state); out = []; last_t = -99
     for k in sorted(ballm):
         if k - 1 not in ballm or k + 1 not in ballm: continue
         s = bspeed.get(k, 0.0)
-        if s < 16.0 or (k - last_t) < 2 * fps: continue
-        team = next((STATES[state[j]] for j in range(k, max(-1, k - int(0.6 * fps)), -1) if state[j] < 2), None)
+        if s < min_speed or (k - last_t) < 2 * fps: continue
+        p = ballm[k]; v = ballm[k + 1] - ballm[k - 1]
+        if team_rule == "goal":                                                # lab: the team attacking the goal the ball flies at
+            if abs(v[0]) < 1e-6: continue
+            team = next((t for t in ("A", "B") if (_goal_x(t, attack_right, L) == L) == (v[0] > 0)), None)
+        else:
+            look = 1.5 if team_rule == "look1.5" else 0.6
+            team = next((STATES[state[j]] for j in range(k, max(-1, k - int(look * fps)), -1) if state[j] < 2), None)
         if team is None: continue
-        gx = _goal_x(team, attack_right, L); goal = np.array([gx, W / 2]); p = ballm[k]; v = ballm[k + 1] - ballm[k - 1]
+        gx = _goal_x(team, attack_right, L); goal = np.array([gx, W / 2])
         if np.linalg.norm(v) < 1e-6 or np.linalg.norm(goal - p) > 30: continue
-        cosang = float(v @ (goal - p) / (np.linalg.norm(v) * np.linalg.norm(goal - p)))
-        if cosang < np.cos(np.radians(15)): continue
+        if not _aim_ok(p, v, gx, W, aim=aim): continue
         # outcome over the next 3 s
         outcome = "saved or blocked"; crossed = False
         for j in range(k + 1, min(n, k + int(3 * fps))):
             if j in ballm:
                 bx, by = ballm[j]
                 if ((bx >= L - 0.5) if gx == L else (bx <= 0.5)) and abs(by - W / 2) < 3.66 + 1.0: crossed = True; break
-        ended = crossed or any(STATES[state[j]] == "dead" for j in range(k, min(n, k + int(3 * fps))))
+        if stop_starts is not None: stopped = any(True for a, b in stops if k - fps // 2 <= a <= k + 3 * fps)   # a stoppage that starts with / after the shot
+        else: stopped = any(STATES[state[j]] == "dead" for j in range(k, min(n, k + int(3 * fps))))
+        ended = crossed or stopped
         if not ended: continue
-        nxt = next((r for r in restarts_ if r["t"] > k / fps and r["t"] < k / fps + 20), None)
-        if nxt and nxt["kind"] == "unknown" and nxt["x_m"] is not None and abs(nxt["x_m"] - L / 2) < 6 and abs(nxt["y_m"] - W / 2) < 6: outcome = "goal"
+        nxt = next((r for r in restarts_ if r["t"] > k / fps and r["t"] < k / fps + (90 if goal_rule == "centre" else 20)), None)
+        centre = nxt is not None and nxt["x_m"] is not None and abs(nxt["x_m"] - L / 2) < 6 and abs(nxt["y_m"] - W / 2) < 6
+        if centre and (nxt["kind"] == "unknown" or (goal_rule == "centre" and nxt["kind"] == "stoppage")): outcome = "goal"
         elif crossed: outcome = "on target"
         elif nxt and nxt["kind"] in ("goal kick", "corner") and nxt["t"] - k / fps < 8: outcome = "off target" if nxt["kind"] == "goal kick" else "saved or blocked"
         out.append({"t": round(k / fps, 2), "team": team, "x_m": round(float(p[0]), 1), "y_m": round(float(p[1]), 1), "distance_m": round(float(np.linalg.norm(goal - p)), 1),
@@ -293,8 +327,8 @@ ENTRY_HOLD_S = float(os.environ.get("IPANEMA_ENTRY_HOLD_S", "3"))
 # unchanged until Daniel says. The zone of a ball won we do find is right 93% of the time; the list stays as is.
 HIGH_TOV_WITHHOLD = os.environ.get("IPANEMA_HIGH_TOV", "") == "withhold"
 
-def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None, cstate=None):
-    sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
+def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None, cstate=None, stops=None):
+    sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_, stops=stops); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
             "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM, hold_s=ENTRY_HOLD_S), "high_turnovers": ht,
             "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L, per=per, W=W),
