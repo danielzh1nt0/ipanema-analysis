@@ -103,5 +103,6 @@
  "N0-25b": "Check the team heat map on pro data; export a ready team map",
  "TOUCHLINE": "Stop counting spectators and bench people at the touchline as players",
  "N0-25c": "Check the shape-over-time chart on pro data; same rule as the Shape cards",
- "N0-25d": "Check the possession-over-time and field-tilt-over-time charts on pro data"
+ "N0-25d": "Check the possession-over-time and field-tilt-over-time charts on pro data",
+ "N0-25e": "Check each sequence's 'reached final third' and 'how it ended' labels on pro data"
 }

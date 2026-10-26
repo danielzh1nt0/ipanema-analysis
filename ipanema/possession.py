@@ -242,13 +242,45 @@ def spell_state(state, fps, take_s=SPELL_TAKE_S, join_s=SPELL_JOIN_S):
     for sq in sequence_spans(st, fps, take_s, join_s): out[sq["start"]:sq["end"] + 1] = 0 if sq["team"] == "A" else 1
     return out
 
-def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S):
+# N0-25e (26 Oct): two fixes to each sequence's labels (stats.sequences[]: reached_final_third, end_reason).
+# REACH: 'any' = the ball was in the team's final third on any frame of the sequence; 'end' = old (only its last frame,
+#   so an attack that got in and was pushed back read as 'did not reach').
+# STOP_S: a sequence that ends in a loose ball and runs into a stoppage (the restart step's dead spell, >= 3 s,
+#   N0-24e gap rule included) starting no later than STOP_S after its last frame ends 'out of play / stoppage' - one
+#   sequence per stoppage. Before, the counted (spell) state almost never shows 'dead', so those read 'loose ball'.
+#   IPANEMA_SEQ_REACH=end and IPANEMA_SEQ_STOP_S=0 = old.
+SEQ_REACH = os.environ.get("IPANEMA_SEQ_REACH", "any")
+SEQ_STOP_S = float(os.environ.get("IPANEMA_SEQ_STOP_S", "2"))
+SEQ_REACH_MIN_S = float(os.environ.get("IPANEMA_SEQ_REACH_MIN_S", "0.5"))   # 'any': the ball must be in the final third this long (s, summed)
+
+def stoppage_spans(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, gap_s=None):
+    """-> [(first frame, last frame)] of the stoppages restarts() counts (same joining, same N0-24e gap rule); each
+    span's last frame / fps is that restart's 't'."""
+    n = len(state); gap_s = GAP_DEAD_S if gap_s is None else gap_s
+    st = gap_dead(state, ballm, n, fps, L, W, gap_s, GAP_EDGE_M, GAP_SIDE) if (gap_s and gap_s > 0) else np.asarray(state)
+    out = []; k = 0
+    while k < n:
+        if STATES[st[k]] == "dead":
+            j = k
+            while True:
+                while j + 1 < n and STATES[st[j + 1]] == "dead": j += 1
+                nxt = next((q for q in range(j + 1, min(n, j + 1 + int(join_gap_s * fps) + 1)) if STATES[st[q]] == "dead"), None)
+                if nxt is None: break
+                j = nxt
+            if (j - k + 1) / fps >= min_s: out.append((k, j))
+            k = j + 1
+        else: k += 1
+    return out
+
+def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S, stops=None, reach=None, stop_s=None, reach_min_s=None):
     """E5 (29 Sep): possession_simple flips to the other team ~190 times per 5 min when the ball sits between two
     players, which cut sequences into 3x as many pieces (SFK-BP 64 -> 210, median 0.6 s). The state is untouched
     (deflickering it cost who-has-the-ball moments); sequence_spans() now ignores short takeovers (take_s) and joins a
     team's control across loose gaps up to join_s. Metrica 4 halves, clean: 563 sequences vs 694 true (was 1562), 72%
     of ours real (was 34%). results/possession/e5_2026-09-29.md"""
     n = len(state); seqs = sequence_spans(state, fps, take_s, join_s)
+    reach = SEQ_REACH if reach is None else reach; stop_s = SEQ_STOP_S if stop_s is None else stop_s; used = set()
+    reach_min_s = SEQ_REACH_MIN_S if reach_min_s is None else reach_min_s
     for i, sq in enumerate(seqs):
         nxt = seqs[i + 1] if i + 1 < len(seqs) else None; after = STATES[state[min(n - 1, sq["end"] + 1)]]
         sp = max((bspeed.get(j, 0.0) for j in range(sq["end"], min(n, sq["end"] + int(0.4 * fps)))), default=0.0)
@@ -256,10 +288,15 @@ def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, joi
         elif nxt and nxt["team"] != sq["team"] and nxt["start"] - sq["end"] <= int(2 * fps): reason = "pass intercepted" if sp > 9 else "dispossessed"
         elif nxt is None: reason = "clip ends"
         else: reason = "loose ball"
+        if reason == "loose ball" and stops and stop_s > 0:                    # N0-25e: the ball went out / play stopped
+            hit = next((a for a, b in stops if a not in used and a <= sq["end"] + stop_s * fps and b >= sq["end"]), None)
+            if hit is not None: used.add(hit); reason = "out of play / stoppage"
         b0, b1 = ballm.get(sq["start"]), ballm.get(sq["end"]); sgn = 1 if attack_right[sq["team"]] else -1
+        inf = (lambda b: b is not None and ((b[0] > 2 * L / 3) if sgn == 1 else (b[0] < L / 3)))
+        reached = inf(b1) or (reach == "any" and sum(1 for k in range(sq["start"], sq["end"] + 1) if inf(ballm.get(k))) >= max(1, reach_min_s * fps))
         gain = float((b1[0] - b0[0]) * sgn) if (b0 is not None and b1 is not None) else None
         sq.update({"t_start": round(sq["start"] / fps, 2), "t_end": round(sq["end"] / fps, 2), "duration_s": round((sq["end"] - sq["start"] + 1) / fps, 2), "end_reason": reason,
-                   "gain_m": round(gain, 1) if gain is not None else None, "reached_final_third": bool(b1 is not None and ((b1[0] > 2 * L / 3) if sgn == 1 else (b1[0] < L / 3)))})
+                   "gain_m": round(gain, 1) if gain is not None else None, "reached_final_third": bool(reached)})
     return seqs
 
 def clean_ball(ballm, L, W, max_out=6.0):

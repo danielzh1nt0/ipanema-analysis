@@ -1,0 +1,2266 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.0,
+  "old": {
+   "truth": 210,
+   "ours": 136,
+   "matched": 98,
+   "reach_right": 78,
+   "reach_truth_yes": 47,
+   "reach_found": 33,
+   "reach_ours_yes": 39,
+   "out_truth_yes": 24,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 34.6,
+   "share_out_truth": 24.8,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 210,
+   "ours": 136,
+   "matched": 98,
+   "reach_right": 81,
+   "reach_truth_yes": 47,
+   "reach_found": 37,
+   "reach_ours_yes": 44,
+   "out_truth_yes": 24,
+   "out_found": 9,
+   "out_ours_yes": 19,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 39.0,
+   "share_out_truth": 24.8,
+   "share_out_ours": 16.9
+  },
+  "new_min0.5": {
+   "truth": 210,
+   "ours": 136,
+   "matched": 98,
+   "reach_right": 81,
+   "reach_truth_yes": 47,
+   "reach_found": 37,
+   "reach_ours_yes": 44,
+   "out_truth_yes": 24,
+   "out_found": 9,
+   "out_ours_yes": 19,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 39.0,
+   "share_out_truth": 24.8,
+   "share_out_ours": 16.9
+  },
+  "new_min1": {
+   "truth": 210,
+   "ours": 136,
+   "matched": 98,
+   "reach_right": 80,
+   "reach_truth_yes": 47,
+   "reach_found": 36,
+   "reach_ours_yes": 43,
+   "out_truth_yes": 24,
+   "out_found": 9,
+   "out_ours_yes": 19,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 38.2,
+   "share_out_truth": 24.8,
+   "share_out_ours": 16.9
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     98,
+     37
+    ],
+    "pass intercepted": [
+     18,
+     3
+    ],
+    "dispossessed": [
+     19,
+     3
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     75,
+     23
+    ],
+    "pass intercepted": [
+     18,
+     3
+    ],
+    "out of play / stoppage": [
+     23,
+     14
+    ],
+    "dispossessed": [
+     19,
+     3
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.0,
+  "old": {
+   "truth": 210,
+   "ours": 190,
+   "matched": 56,
+   "reach_right": 38,
+   "reach_truth_yes": 26,
+   "reach_found": 9,
+   "reach_ours_yes": 10,
+   "out_truth_yes": 15,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 25.8,
+   "share_out_truth": 24.8,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 210,
+   "ours": 190,
+   "matched": 56,
+   "reach_right": 40,
+   "reach_truth_yes": 26,
+   "reach_found": 11,
+   "reach_ours_yes": 12,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 5,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 30.0,
+   "share_out_truth": 24.8,
+   "share_out_ours": 6.3
+  },
+  "new_min0.5": {
+   "truth": 210,
+   "ours": 190,
+   "matched": 56,
+   "reach_right": 38,
+   "reach_truth_yes": 26,
+   "reach_found": 9,
+   "reach_ours_yes": 10,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 5,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 27.9,
+   "share_out_truth": 24.8,
+   "share_out_ours": 6.3
+  },
+  "new_min1": {
+   "truth": 210,
+   "ours": 190,
+   "matched": 56,
+   "reach_right": 38,
+   "reach_truth_yes": 26,
+   "reach_found": 9,
+   "reach_ours_yes": 10,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 5,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 27.9,
+   "share_out_truth": 24.8,
+   "share_out_ours": 6.3
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     183,
+     37
+    ],
+    "pass intercepted": [
+     4,
+     3
+    ],
+    "dispossessed": [
+     2,
+     0
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     171,
+     28
+    ],
+    "out of play / stoppage": [
+     12,
+     9
+    ],
+    "pass intercepted": [
+     4,
+     3
+    ],
+    "dispossessed": [
+     2,
+     0
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.0,
+  "old": {
+   "truth": 210,
+   "ours": 180,
+   "matched": 46,
+   "reach_right": 29,
+   "reach_truth_yes": 24,
+   "reach_found": 8,
+   "reach_ours_yes": 9,
+   "out_truth_yes": 12,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 27.8,
+   "share_out_truth": 24.8,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 210,
+   "ours": 180,
+   "matched": 46,
+   "reach_right": 29,
+   "reach_truth_yes": 24,
+   "reach_found": 8,
+   "reach_ours_yes": 9,
+   "out_truth_yes": 12,
+   "out_found": 2,
+   "out_ours_yes": 3,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 33.9,
+   "share_out_truth": 24.8,
+   "share_out_ours": 7.2
+  },
+  "new_min0.5": {
+   "truth": 210,
+   "ours": 180,
+   "matched": 46,
+   "reach_right": 29,
+   "reach_truth_yes": 24,
+   "reach_found": 8,
+   "reach_ours_yes": 9,
+   "out_truth_yes": 12,
+   "out_found": 2,
+   "out_ours_yes": 3,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 31.7,
+   "share_out_truth": 24.8,
+   "share_out_ours": 7.2
+  },
+  "new_min1": {
+   "truth": 210,
+   "ours": 180,
+   "matched": 46,
+   "reach_right": 29,
+   "reach_truth_yes": 24,
+   "reach_found": 8,
+   "reach_ours_yes": 9,
+   "out_truth_yes": 12,
+   "out_found": 2,
+   "out_ours_yes": 3,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 30.0,
+   "share_out_truth": 24.8,
+   "share_out_ours": 7.2
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     176,
+     36
+    ],
+    "pass intercepted": [
+     3,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     163,
+     27
+    ],
+    "out of play / stoppage": [
+     13,
+     9
+    ],
+    "pass intercepted": [
+     3,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.0,
+  "old": {
+   "truth": 210,
+   "ours": 153,
+   "matched": 80,
+   "reach_right": 65,
+   "reach_truth_yes": 45,
+   "reach_found": 35,
+   "reach_ours_yes": 40,
+   "out_truth_yes": 22,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 37.9,
+   "share_out_truth": 24.8,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 210,
+   "ours": 153,
+   "matched": 80,
+   "reach_right": 69,
+   "reach_truth_yes": 45,
+   "reach_found": 40,
+   "reach_ours_yes": 46,
+   "out_truth_yes": 22,
+   "out_found": 7,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 46.4,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.6
+  },
+  "new_min0.5": {
+   "truth": 210,
+   "ours": 153,
+   "matched": 80,
+   "reach_right": 70,
+   "reach_truth_yes": 45,
+   "reach_found": 40,
+   "reach_ours_yes": 45,
+   "out_truth_yes": 22,
+   "out_found": 7,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 43.8,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.6
+  },
+  "new_min1": {
+   "truth": 210,
+   "ours": 153,
+   "matched": 80,
+   "reach_right": 70,
+   "reach_truth_yes": 45,
+   "reach_found": 40,
+   "reach_ours_yes": 45,
+   "out_truth_yes": 22,
+   "out_found": 7,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 43.8,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.6
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     90,
+     35
+    ],
+    "pass intercepted": [
+     59,
+     18
+    ],
+    "dispossessed": [
+     3,
+     0
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     63,
+     21
+    ],
+    "pass intercepted": [
+     59,
+     18
+    ],
+    "out of play / stoppage": [
+     27,
+     14
+    ],
+    "dispossessed": [
+     3,
+     0
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.0,
+  "old": {
+   "truth": 210,
+   "ours": 149,
+   "matched": 82,
+   "reach_right": 62,
+   "reach_truth_yes": 45,
+   "reach_found": 29,
+   "reach_ours_yes": 33,
+   "out_truth_yes": 18,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 34.9,
+   "share_out_truth": 24.8,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 210,
+   "ours": 149,
+   "matched": 82,
+   "reach_right": 72,
+   "reach_truth_yes": 45,
+   "reach_found": 39,
+   "reach_ours_yes": 43,
+   "out_truth_yes": 18,
+   "out_found": 3,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 45.0,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.4
+  },
+  "new_min0.5": {
+   "truth": 210,
+   "ours": 149,
+   "matched": 82,
+   "reach_right": 71,
+   "reach_truth_yes": 45,
+   "reach_found": 38,
+   "reach_ours_yes": 42,
+   "out_truth_yes": 18,
+   "out_found": 3,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 43.6,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.4
+  },
+  "new_min1": {
+   "truth": 210,
+   "ours": 149,
+   "matched": 82,
+   "reach_right": 69,
+   "reach_truth_yes": 45,
+   "reach_found": 36,
+   "reach_ours_yes": 40,
+   "out_truth_yes": 18,
+   "out_found": 3,
+   "out_ours_yes": 16,
+   "share_reach_truth": 42.9,
+   "share_reach_ours": 41.6,
+   "share_out_truth": 24.8,
+   "share_out_ours": 17.4
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     85,
+     32
+    ],
+    "pass intercepted": [
+     56,
+     10
+    ],
+    "dispossessed": [
+     7,
+     3
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     59,
+     17
+    ],
+    "pass intercepted": [
+     56,
+     10
+    ],
+    "out of play / stoppage": [
+     26,
+     15
+    ],
+    "dispossessed": [
+     7,
+     3
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.1,
+  "old": {
+   "truth": 175,
+   "ours": 107,
+   "matched": 83,
+   "reach_right": 66,
+   "reach_truth_yes": 47,
+   "reach_found": 36,
+   "reach_ours_yes": 42,
+   "out_truth_yes": 15,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 48.6,
+   "share_out_truth": 24.6,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 175,
+   "ours": 107,
+   "matched": 83,
+   "reach_right": 69,
+   "reach_truth_yes": 47,
+   "reach_found": 39,
+   "reach_ours_yes": 45,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 9,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 52.3,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.3
+  },
+  "new_min0.5": {
+   "truth": 175,
+   "ours": 107,
+   "matched": 83,
+   "reach_right": 68,
+   "reach_truth_yes": 47,
+   "reach_found": 38,
+   "reach_ours_yes": 44,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 9,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 51.4,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.3
+  },
+  "new_min1": {
+   "truth": 175,
+   "ours": 107,
+   "matched": 83,
+   "reach_right": 68,
+   "reach_truth_yes": 47,
+   "reach_found": 38,
+   "reach_ours_yes": 44,
+   "out_truth_yes": 15,
+   "out_found": 3,
+   "out_ours_yes": 9,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 51.4,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.3
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     69,
+     19
+    ],
+    "pass intercepted": [
+     20,
+     4
+    ],
+    "dispossessed": [
+     17,
+     3
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     59,
+     14
+    ],
+    "pass intercepted": [
+     20,
+     4
+    ],
+    "out of play / stoppage": [
+     10,
+     5
+    ],
+    "dispossessed": [
+     17,
+     3
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.1,
+  "old": {
+   "truth": 175,
+   "ours": 214,
+   "matched": 56,
+   "reach_right": 32,
+   "reach_truth_yes": 31,
+   "reach_found": 7,
+   "reach_ours_yes": 7,
+   "out_truth_yes": 11,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 23.4,
+   "share_out_truth": 24.6,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 175,
+   "ours": 214,
+   "matched": 56,
+   "reach_right": 34,
+   "reach_truth_yes": 31,
+   "reach_found": 9,
+   "reach_ours_yes": 9,
+   "out_truth_yes": 11,
+   "out_found": 0,
+   "out_ours_yes": 2,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 29.4,
+   "share_out_truth": 24.6,
+   "share_out_ours": 6.5
+  },
+  "new_min0.5": {
+   "truth": 175,
+   "ours": 214,
+   "matched": 56,
+   "reach_right": 32,
+   "reach_truth_yes": 31,
+   "reach_found": 7,
+   "reach_ours_yes": 7,
+   "out_truth_yes": 11,
+   "out_found": 0,
+   "out_ours_yes": 2,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 26.6,
+   "share_out_truth": 24.6,
+   "share_out_ours": 6.5
+  },
+  "new_min1": {
+   "truth": 175,
+   "ours": 214,
+   "matched": 56,
+   "reach_right": 32,
+   "reach_truth_yes": 31,
+   "reach_found": 7,
+   "reach_ours_yes": 7,
+   "out_truth_yes": 11,
+   "out_found": 0,
+   "out_ours_yes": 2,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 25.7,
+   "share_out_truth": 24.6,
+   "share_out_ours": 6.5
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     206,
+     24
+    ],
+    "pass intercepted": [
+     5,
+     0
+    ],
+    "dispossessed": [
+     2,
+     2
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     192,
+     18
+    ],
+    "pass intercepted": [
+     5,
+     0
+    ],
+    "out of play / stoppage": [
+     14,
+     6
+    ],
+    "dispossessed": [
+     2,
+     2
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.1,
+  "old": {
+   "truth": 175,
+   "ours": 205,
+   "matched": 50,
+   "reach_right": 28,
+   "reach_truth_yes": 26,
+   "reach_found": 4,
+   "reach_ours_yes": 4,
+   "out_truth_yes": 10,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 26.8,
+   "share_out_truth": 24.6,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 175,
+   "ours": 205,
+   "matched": 50,
+   "reach_right": 31,
+   "reach_truth_yes": 26,
+   "reach_found": 7,
+   "reach_ours_yes": 7,
+   "out_truth_yes": 10,
+   "out_found": 2,
+   "out_ours_yes": 6,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 31.7,
+   "share_out_truth": 24.6,
+   "share_out_ours": 8.3
+  },
+  "new_min0.5": {
+   "truth": 175,
+   "ours": 205,
+   "matched": 50,
+   "reach_right": 30,
+   "reach_truth_yes": 26,
+   "reach_found": 6,
+   "reach_ours_yes": 6,
+   "out_truth_yes": 10,
+   "out_found": 2,
+   "out_ours_yes": 6,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 30.2,
+   "share_out_truth": 24.6,
+   "share_out_ours": 8.3
+  },
+  "new_min1": {
+   "truth": 175,
+   "ours": 205,
+   "matched": 50,
+   "reach_right": 29,
+   "reach_truth_yes": 26,
+   "reach_found": 5,
+   "reach_ours_yes": 5,
+   "out_truth_yes": 10,
+   "out_found": 2,
+   "out_ours_yes": 6,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 28.3,
+   "share_out_truth": 24.6,
+   "share_out_ours": 8.3
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     197,
+     29
+    ],
+    "pass intercepted": [
+     6,
+     2
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     180,
+     21
+    ],
+    "out of play / stoppage": [
+     17,
+     8
+    ],
+    "pass intercepted": [
+     6,
+     2
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.1,
+  "old": {
+   "truth": 175,
+   "ours": 120,
+   "matched": 73,
+   "reach_right": 57,
+   "reach_truth_yes": 40,
+   "reach_found": 29,
+   "reach_ours_yes": 34,
+   "out_truth_yes": 14,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 44.2,
+   "share_out_truth": 24.6,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 175,
+   "ours": 120,
+   "matched": 73,
+   "reach_right": 58,
+   "reach_truth_yes": 40,
+   "reach_found": 34,
+   "reach_ours_yes": 43,
+   "out_truth_yes": 14,
+   "out_found": 1,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 55.8,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.2
+  },
+  "new_min0.5": {
+   "truth": 175,
+   "ours": 120,
+   "matched": 73,
+   "reach_right": 58,
+   "reach_truth_yes": 40,
+   "reach_found": 33,
+   "reach_ours_yes": 41,
+   "out_truth_yes": 14,
+   "out_found": 1,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 53.3,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.2
+  },
+  "new_min1": {
+   "truth": 175,
+   "ours": 120,
+   "matched": 73,
+   "reach_right": 58,
+   "reach_truth_yes": 40,
+   "reach_found": 32,
+   "reach_ours_yes": 39,
+   "out_truth_yes": 14,
+   "out_found": 1,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 50.8,
+   "share_out_truth": 24.6,
+   "share_out_ours": 9.2
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "pass intercepted": [
+     57,
+     9
+    ],
+    "loose ball": [
+     59,
+     15
+    ],
+    "dispossessed": [
+     3,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "pass intercepted": [
+     57,
+     9
+    ],
+    "loose ball": [
+     48,
+     12
+    ],
+    "out of play / stoppage": [
+     11,
+     3
+    ],
+    "dispossessed": [
+     3,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 41.1,
+  "old": {
+   "truth": 175,
+   "ours": 125,
+   "matched": 73,
+   "reach_right": 64,
+   "reach_truth_yes": 38,
+   "reach_found": 30,
+   "reach_ours_yes": 31,
+   "out_truth_yes": 16,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 40.0,
+   "share_out_truth": 24.6,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 175,
+   "ours": 125,
+   "matched": 73,
+   "reach_right": 64,
+   "reach_truth_yes": 38,
+   "reach_found": 33,
+   "reach_ours_yes": 37,
+   "out_truth_yes": 16,
+   "out_found": 2,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 51.2,
+   "share_out_truth": 24.6,
+   "share_out_ours": 5.6
+  },
+  "new_min0.5": {
+   "truth": 175,
+   "ours": 125,
+   "matched": 73,
+   "reach_right": 65,
+   "reach_truth_yes": 38,
+   "reach_found": 33,
+   "reach_ours_yes": 36,
+   "out_truth_yes": 16,
+   "out_found": 2,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 48.8,
+   "share_out_truth": 24.6,
+   "share_out_ours": 5.6
+  },
+  "new_min1": {
+   "truth": 175,
+   "ours": 125,
+   "matched": 73,
+   "reach_right": 65,
+   "reach_truth_yes": 38,
+   "reach_found": 33,
+   "reach_ours_yes": 36,
+   "out_truth_yes": 16,
+   "out_found": 2,
+   "out_ours_yes": 5,
+   "share_reach_truth": 44.0,
+   "share_reach_ours": 48.8,
+   "share_out_truth": 24.6,
+   "share_out_ours": 5.6
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "pass intercepted": [
+     63,
+     11
+    ],
+    "loose ball": [
+     54,
+     14
+    ],
+    "dispossessed": [
+     7,
+     4
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "pass intercepted": [
+     63,
+     11
+    ],
+    "loose ball": [
+     47,
+     12
+    ],
+    "dispossessed": [
+     7,
+     4
+    ],
+    "out of play / stoppage": [
+     7,
+     2
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 40.4,
+  "old": {
+   "truth": 193,
+   "ours": 129,
+   "matched": 93,
+   "reach_right": 72,
+   "reach_truth_yes": 47,
+   "reach_found": 31,
+   "reach_ours_yes": 36,
+   "out_truth_yes": 16,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 40.3,
+   "share_out_truth": 23.3,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 193,
+   "ours": 129,
+   "matched": 93,
+   "reach_right": 79,
+   "reach_truth_yes": 47,
+   "reach_found": 40,
+   "reach_ours_yes": 47,
+   "out_truth_yes": 16,
+   "out_found": 5,
+   "out_ours_yes": 16,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 48.8,
+   "share_out_truth": 23.3,
+   "share_out_ours": 16.3
+  },
+  "new_min0.5": {
+   "truth": 193,
+   "ours": 129,
+   "matched": 93,
+   "reach_right": 78,
+   "reach_truth_yes": 47,
+   "reach_found": 39,
+   "reach_ours_yes": 46,
+   "out_truth_yes": 16,
+   "out_found": 5,
+   "out_ours_yes": 16,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 48.1,
+   "share_out_truth": 23.3,
+   "share_out_ours": 16.3
+  },
+  "new_min1": {
+   "truth": 193,
+   "ours": 129,
+   "matched": 93,
+   "reach_right": 77,
+   "reach_truth_yes": 47,
+   "reach_found": 38,
+   "reach_ours_yes": 45,
+   "out_truth_yes": 16,
+   "out_found": 5,
+   "out_ours_yes": 16,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 47.3,
+   "share_out_truth": 23.3,
+   "share_out_ours": 16.3
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     77,
+     27
+    ],
+    "pass intercepted": [
+     24,
+     4
+    ],
+    "dispossessed": [
+     27,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "out of play / stoppage": [
+     21,
+     14
+    ],
+    "loose ball": [
+     56,
+     13
+    ],
+    "pass intercepted": [
+     24,
+     4
+    ],
+    "dispossessed": [
+     27,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 40.4,
+  "old": {
+   "truth": 193,
+   "ours": 228,
+   "matched": 62,
+   "reach_right": 38,
+   "reach_truth_yes": 29,
+   "reach_found": 5,
+   "reach_ours_yes": 5,
+   "out_truth_yes": 17,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 26.3,
+   "share_out_truth": 23.3,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 193,
+   "ours": 228,
+   "matched": 62,
+   "reach_right": 41,
+   "reach_truth_yes": 29,
+   "reach_found": 8,
+   "reach_ours_yes": 8,
+   "out_truth_yes": 17,
+   "out_found": 2,
+   "out_ours_yes": 4,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 31.6,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.5
+  },
+  "new_min0.5": {
+   "truth": 193,
+   "ours": 228,
+   "matched": 62,
+   "reach_right": 39,
+   "reach_truth_yes": 29,
+   "reach_found": 6,
+   "reach_ours_yes": 6,
+   "out_truth_yes": 17,
+   "out_found": 2,
+   "out_ours_yes": 4,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 28.9,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.5
+  },
+  "new_min1": {
+   "truth": 193,
+   "ours": 228,
+   "matched": 62,
+   "reach_right": 39,
+   "reach_truth_yes": 29,
+   "reach_found": 6,
+   "reach_ours_yes": 6,
+   "out_truth_yes": 17,
+   "out_found": 2,
+   "out_ours_yes": 4,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 28.5,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.5
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     219,
+     30
+    ],
+    "pass intercepted": [
+     8,
+     4
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     202,
+     24
+    ],
+    "out of play / stoppage": [
+     17,
+     6
+    ],
+    "pass intercepted": [
+     8,
+     4
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 40.4,
+  "old": {
+   "truth": 193,
+   "ours": 215,
+   "matched": 56,
+   "reach_right": 40,
+   "reach_truth_yes": 28,
+   "reach_found": 12,
+   "reach_ours_yes": 12,
+   "out_truth_yes": 11,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 25.6,
+   "share_out_truth": 23.3,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 193,
+   "ours": 215,
+   "matched": 56,
+   "reach_right": 41,
+   "reach_truth_yes": 28,
+   "reach_found": 13,
+   "reach_ours_yes": 13,
+   "out_truth_yes": 11,
+   "out_found": 3,
+   "out_ours_yes": 7,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 30.7,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.4
+  },
+  "new_min0.5": {
+   "truth": 193,
+   "ours": 215,
+   "matched": 56,
+   "reach_right": 41,
+   "reach_truth_yes": 28,
+   "reach_found": 13,
+   "reach_ours_yes": 13,
+   "out_truth_yes": 11,
+   "out_found": 3,
+   "out_ours_yes": 7,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 29.3,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.4
+  },
+  "new_min1": {
+   "truth": 193,
+   "ours": 215,
+   "matched": 56,
+   "reach_right": 41,
+   "reach_truth_yes": 28,
+   "reach_found": 13,
+   "reach_ours_yes": 13,
+   "out_truth_yes": 11,
+   "out_found": 3,
+   "out_ours_yes": 7,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 29.3,
+   "share_out_truth": 23.3,
+   "share_out_ours": 7.4
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     208,
+     31
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "pass intercepted": [
+     5,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     192,
+     19
+    ],
+    "out of play / stoppage": [
+     16,
+     12
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "pass intercepted": [
+     5,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 40.4,
+  "old": {
+   "truth": 193,
+   "ours": 133,
+   "matched": 72,
+   "reach_right": 56,
+   "reach_truth_yes": 38,
+   "reach_found": 29,
+   "reach_ours_yes": 36,
+   "out_truth_yes": 10,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 39.8,
+   "share_out_truth": 23.3,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 193,
+   "ours": 133,
+   "matched": 72,
+   "reach_right": 58,
+   "reach_truth_yes": 38,
+   "reach_found": 33,
+   "reach_ours_yes": 42,
+   "out_truth_yes": 10,
+   "out_found": 1,
+   "out_ours_yes": 10,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 49.6,
+   "share_out_truth": 23.3,
+   "share_out_ours": 12.8
+  },
+  "new_min0.5": {
+   "truth": 193,
+   "ours": 133,
+   "matched": 72,
+   "reach_right": 58,
+   "reach_truth_yes": 38,
+   "reach_found": 32,
+   "reach_ours_yes": 40,
+   "out_truth_yes": 10,
+   "out_found": 1,
+   "out_ours_yes": 10,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 45.9,
+   "share_out_truth": 23.3,
+   "share_out_ours": 12.8
+  },
+  "new_min1": {
+   "truth": 193,
+   "ours": 133,
+   "matched": 72,
+   "reach_right": 58,
+   "reach_truth_yes": 38,
+   "reach_found": 32,
+   "reach_ours_yes": 40,
+   "out_truth_yes": 10,
+   "out_found": 1,
+   "out_ours_yes": 10,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 45.1,
+   "share_out_truth": 23.3,
+   "share_out_ours": 12.8
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     61,
+     20
+    ],
+    "pass intercepted": [
+     67,
+     11
+    ],
+    "dispossessed": [
+     4,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "out of play / stoppage": [
+     17,
+     9
+    ],
+    "loose ball": [
+     44,
+     11
+    ],
+    "pass intercepted": [
+     67,
+     11
+    ],
+    "dispossessed": [
+     4,
+     2
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 40.4,
+  "old": {
+   "truth": 193,
+   "ours": 143,
+   "matched": 76,
+   "reach_right": 60,
+   "reach_truth_yes": 35,
+   "reach_found": 24,
+   "reach_ours_yes": 29,
+   "out_truth_yes": 14,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 37.1,
+   "share_out_truth": 23.3,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 193,
+   "ours": 143,
+   "matched": 76,
+   "reach_right": 65,
+   "reach_truth_yes": 35,
+   "reach_found": 30,
+   "reach_ours_yes": 36,
+   "out_truth_yes": 14,
+   "out_found": 2,
+   "out_ours_yes": 11,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 46.9,
+   "share_out_truth": 23.3,
+   "share_out_ours": 11.9
+  },
+  "new_min0.5": {
+   "truth": 193,
+   "ours": 143,
+   "matched": 76,
+   "reach_right": 64,
+   "reach_truth_yes": 35,
+   "reach_found": 28,
+   "reach_ours_yes": 33,
+   "out_truth_yes": 14,
+   "out_found": 2,
+   "out_ours_yes": 11,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 42.7,
+   "share_out_truth": 23.3,
+   "share_out_ours": 11.9
+  },
+  "new_min1": {
+   "truth": 193,
+   "ours": 143,
+   "matched": 76,
+   "reach_right": 63,
+   "reach_truth_yes": 35,
+   "reach_found": 27,
+   "reach_ours_yes": 32,
+   "out_truth_yes": 14,
+   "out_found": 2,
+   "out_ours_yes": 11,
+   "share_reach_truth": 43.5,
+   "share_reach_ours": 42.0,
+   "share_out_truth": 23.3,
+   "share_out_ours": 11.9
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     77,
+     24
+    ],
+    "pass intercepted": [
+     56,
+     10
+    ],
+    "dispossessed": [
+     9,
+     1
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   },
+   "new": {
+    "loose ball": [
+     60,
+     13
+    ],
+    "pass intercepted": [
+     56,
+     10
+    ],
+    "out of play / stoppage": [
+     17,
+     11
+    ],
+    "dispossessed": [
+     9,
+     1
+    ],
+    "clip ends": [
+     1,
+     0
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 47.4,
+  "old": {
+   "truth": 173,
+   "ours": 101,
+   "matched": 74,
+   "reach_right": 52,
+   "reach_truth_yes": 35,
+   "reach_found": 23,
+   "reach_ours_yes": 33,
+   "out_truth_yes": 21,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 43.6,
+   "share_out_truth": 31.2,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 173,
+   "ours": 101,
+   "matched": 74,
+   "reach_right": 56,
+   "reach_truth_yes": 35,
+   "reach_found": 28,
+   "reach_ours_yes": 39,
+   "out_truth_yes": 21,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 50.5,
+   "share_out_truth": 31.2,
+   "share_out_ours": 19.8
+  },
+  "new_min0.5": {
+   "truth": 173,
+   "ours": 101,
+   "matched": 74,
+   "reach_right": 55,
+   "reach_truth_yes": 35,
+   "reach_found": 27,
+   "reach_ours_yes": 38,
+   "out_truth_yes": 21,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 49.5,
+   "share_out_truth": 31.2,
+   "share_out_ours": 19.8
+  },
+  "new_min1": {
+   "truth": 173,
+   "ours": 101,
+   "matched": 74,
+   "reach_right": 55,
+   "reach_truth_yes": 35,
+   "reach_found": 27,
+   "reach_ours_yes": 38,
+   "out_truth_yes": 21,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 49.5,
+   "share_out_truth": 31.2,
+   "share_out_ours": 19.8
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     64,
+     28
+    ],
+    "dispossessed": [
+     23,
+     10
+    ],
+    "pass intercepted": [
+     13,
+     3
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     44,
+     16
+    ],
+    "out of play / stoppage": [
+     20,
+     12
+    ],
+    "dispossessed": [
+     23,
+     10
+    ],
+    "pass intercepted": [
+     13,
+     3
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 47.4,
+  "old": {
+   "truth": 173,
+   "ours": 161,
+   "matched": 48,
+   "reach_right": 24,
+   "reach_truth_yes": 30,
+   "reach_found": 7,
+   "reach_ours_yes": 8,
+   "out_truth_yes": 16,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 24.8,
+   "share_out_truth": 31.2,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 173,
+   "ours": 161,
+   "matched": 48,
+   "reach_right": 32,
+   "reach_truth_yes": 30,
+   "reach_found": 15,
+   "reach_ours_yes": 16,
+   "out_truth_yes": 16,
+   "out_found": 4,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 37.9,
+   "share_out_truth": 31.2,
+   "share_out_ours": 10.6
+  },
+  "new_min0.5": {
+   "truth": 173,
+   "ours": 161,
+   "matched": 48,
+   "reach_right": 30,
+   "reach_truth_yes": 30,
+   "reach_found": 13,
+   "reach_ours_yes": 14,
+   "out_truth_yes": 16,
+   "out_found": 4,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 34.2,
+   "share_out_truth": 31.2,
+   "share_out_ours": 10.6
+  },
+  "new_min1": {
+   "truth": 173,
+   "ours": 161,
+   "matched": 48,
+   "reach_right": 29,
+   "reach_truth_yes": 30,
+   "reach_found": 12,
+   "reach_ours_yes": 13,
+   "out_truth_yes": 16,
+   "out_found": 4,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 33.5,
+   "share_out_truth": 31.2,
+   "share_out_ours": 10.6
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     149,
+     34
+    ],
+    "pass intercepted": [
+     10,
+     6
+    ],
+    "dispossessed": [
+     1,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     132,
+     23
+    ],
+    "out of play / stoppage": [
+     17,
+     11
+    ],
+    "pass intercepted": [
+     10,
+     6
+    ],
+    "dispossessed": [
+     1,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 47.4,
+  "old": {
+   "truth": 173,
+   "ours": 155,
+   "matched": 43,
+   "reach_right": 29,
+   "reach_truth_yes": 23,
+   "reach_found": 10,
+   "reach_ours_yes": 11,
+   "out_truth_yes": 14,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 27.7,
+   "share_out_truth": 31.2,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 173,
+   "ours": 155,
+   "matched": 43,
+   "reach_right": 32,
+   "reach_truth_yes": 23,
+   "reach_found": 14,
+   "reach_ours_yes": 16,
+   "out_truth_yes": 14,
+   "out_found": 3,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 34.8,
+   "share_out_truth": 31.2,
+   "share_out_ours": 9.7
+  },
+  "new_min0.5": {
+   "truth": 173,
+   "ours": 155,
+   "matched": 43,
+   "reach_right": 30,
+   "reach_truth_yes": 23,
+   "reach_found": 11,
+   "reach_ours_yes": 12,
+   "out_truth_yes": 14,
+   "out_found": 3,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 32.3,
+   "share_out_truth": 31.2,
+   "share_out_ours": 9.7
+  },
+  "new_min1": {
+   "truth": 173,
+   "ours": 155,
+   "matched": 43,
+   "reach_right": 30,
+   "reach_truth_yes": 23,
+   "reach_found": 11,
+   "reach_ours_yes": 12,
+   "out_truth_yes": 14,
+   "out_found": 3,
+   "out_ours_yes": 6,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 32.3,
+   "share_out_truth": 31.2,
+   "share_out_ours": 9.7
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     148,
+     30
+    ],
+    "pass intercepted": [
+     4,
+     3
+    ],
+    "dispossessed": [
+     2,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     133,
+     21
+    ],
+    "out of play / stoppage": [
+     15,
+     9
+    ],
+    "pass intercepted": [
+     4,
+     3
+    ],
+    "dispossessed": [
+     2,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "direction_same": true,
+  "truth_reach_at_end_only": 47.4,
+  "old": {
+   "truth": 173,
+   "ours": 108,
+   "matched": 60,
+   "reach_right": 45,
+   "reach_truth_yes": 31,
+   "reach_found": 21,
+   "reach_ours_yes": 26,
+   "out_truth_yes": 17,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 42.6,
+   "share_out_truth": 31.2,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 173,
+   "ours": 108,
+   "matched": 60,
+   "reach_right": 50,
+   "reach_truth_yes": 31,
+   "reach_found": 28,
+   "reach_ours_yes": 35,
+   "out_truth_yes": 17,
+   "out_found": 7,
+   "out_ours_yes": 17,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 54.6,
+   "share_out_truth": 31.2,
+   "share_out_ours": 21.3
+  },
+  "new_min0.5": {
+   "truth": 173,
+   "ours": 108,
+   "matched": 60,
+   "reach_right": 49,
+   "reach_truth_yes": 31,
+   "reach_found": 26,
+   "reach_ours_yes": 32,
+   "out_truth_yes": 17,
+   "out_found": 7,
+   "out_ours_yes": 17,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 51.9,
+   "share_out_truth": 31.2,
+   "share_out_ours": 21.3
+  },
+  "new_min1": {
+   "truth": 173,
+   "ours": 108,
+   "matched": 60,
+   "reach_right": 50,
+   "reach_truth_yes": 31,
+   "reach_found": 26,
+   "reach_ours_yes": 31,
+   "out_truth_yes": 17,
+   "out_found": 7,
+   "out_ours_yes": 17,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 50.9,
+   "share_out_truth": 31.2,
+   "share_out_ours": 21.3
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     55,
+     22
+    ],
+    "pass intercepted": [
+     51,
+     17
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "out of play / stoppage": [
+     23,
+     14
+    ],
+    "pass intercepted": [
+     51,
+     17
+    ],
+    "loose ball": [
+     32,
+     8
+    ],
+    "dispossessed": [
+     1,
+     0
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "direction_same": true,
+  "truth_reach_at_end_only": 47.4,
+  "old": {
+   "truth": 173,
+   "ours": 113,
+   "matched": 65,
+   "reach_right": 48,
+   "reach_truth_yes": 35,
+   "reach_found": 24,
+   "reach_ours_yes": 30,
+   "out_truth_yes": 19,
+   "out_found": 0,
+   "out_ours_yes": 0,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 44.2,
+   "share_out_truth": 31.2,
+   "share_out_ours": 0.0
+  },
+  "new_min0": {
+   "truth": 173,
+   "ours": 113,
+   "matched": 65,
+   "reach_right": 51,
+   "reach_truth_yes": 35,
+   "reach_found": 29,
+   "reach_ours_yes": 37,
+   "out_truth_yes": 19,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 52.2,
+   "share_out_truth": 31.2,
+   "share_out_ours": 17.7
+  },
+  "new_min0.5": {
+   "truth": 173,
+   "ours": 113,
+   "matched": 65,
+   "reach_right": 51,
+   "reach_truth_yes": 35,
+   "reach_found": 29,
+   "reach_ours_yes": 37,
+   "out_truth_yes": 19,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 51.3,
+   "share_out_truth": 31.2,
+   "share_out_ours": 17.7
+  },
+  "new_min1": {
+   "truth": 173,
+   "ours": 113,
+   "matched": 65,
+   "reach_right": 51,
+   "reach_truth_yes": 35,
+   "reach_found": 29,
+   "reach_ours_yes": 37,
+   "out_truth_yes": 19,
+   "out_found": 4,
+   "out_ours_yes": 14,
+   "share_reach_truth": 49.7,
+   "share_reach_ours": 51.3,
+   "share_out_truth": 31.2,
+   "share_out_ours": 17.7
+  },
+  "ends_near_real_stop": {
+   "old": {
+    "loose ball": [
+     62,
+     25
+    ],
+    "pass intercepted": [
+     46,
+     13
+    ],
+    "dispossessed": [
+     4,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   },
+   "new": {
+    "loose ball": [
+     42,
+     15
+    ],
+    "out of play / stoppage": [
+     20,
+     10
+    ],
+    "pass intercepted": [
+     46,
+     13
+    ],
+    "dispossessed": [
+     4,
+     1
+    ],
+    "clip ends": [
+     1,
+     1
+    ]
+   }
+  }
+ }
+]

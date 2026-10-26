@@ -6,18 +6,17 @@
   },
   "sequences": 32,
   "stoppages": 7,
-  "restarts": 7,
   "reached_old": {
    "A": 3,
    "B": 6
   },
-  "reached_new": {
+  "reached_new_min0": {
    "A": 5,
    "B": 9
   },
-  "per_team": {
-   "A": 15,
-   "B": 17
+  "reached_new": {
+   "A": 5,
+   "B": 7
   },
   "end_old": {
    "loose ball": 13,
@@ -32,8 +31,16 @@
    "loose ball": 8,
    "clip ends": 1
   },
-  "sequence_end_events_old": 18,
-  "sequence_end_events_new": 18
+  "changed_min0.5": [
+   0.0,
+   80.95,
+   137.24,
+   189.76,
+   212.45,
+   229.16,
+   239.61,
+   272.54
+  ]
  },
  "p15u-vs-aik-2026-09-21-bd09_s2520": {
   "attack_right": {
@@ -42,18 +49,17 @@
   },
   "sequences": 24,
   "stoppages": 1,
-  "restarts": 1,
   "reached_old": {
    "A": 3,
    "B": 5
   },
-  "reached_new": {
+  "reached_new_min0": {
    "A": 7,
    "B": 9
   },
-  "per_team": {
-   "A": 13,
-   "B": 11
+  "reached_new": {
+   "A": 5,
+   "B": 9
   },
   "end_old": {
    "pass intercepted": 9,
@@ -68,7 +74,14 @@
    "out of play / stoppage": 1,
    "clip ends": 1
   },
-  "sequence_end_events_old": 11,
-  "sequence_end_events_new": 11
- }
+  "changed_min0.5": [
+   74.94,
+   155.59,
+   173.14,
+   189.32,
+   227.13,
+   261.63
+  ]
+ },
+ "sheets_match_changes": true
 }
