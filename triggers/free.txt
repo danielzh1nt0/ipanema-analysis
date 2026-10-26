@@ -1,2 +1,2 @@
-tools/n0_26a_frames.py
-# Mon Oct 26 04:35:37 UTC 2026 N0-26a: picture sheets of a sample of app-clip pressure points dropped / kept by the new rule - free runner only, nothing on Modal
+tools/n0_26b_frames.py
+# Mon Oct 26 08:32:11 UTC 2026 N0-26b: blind picture sheets of the full AIK match kick-offs and Veo goals (which end each team attacks) - free runner only, nothing on Modal
