@@ -1,10 +1,1 @@
-fps 29.970030549265214 frames 206756
-ko1 31 frames
-g2762 33 frames
-g3128 33 frames
-ko2 29 frames
-g4257 33 frames
-g4962 33 frames
-g5625 33 frames
-g5916 33 frames
-g6268 33 frames
+56 frames -> results/free/n0-26b/full
