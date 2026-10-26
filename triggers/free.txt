@@ -1,2 +1,2 @@
-tools/n0_25e_frames.py
-# Sun Oct 25 20:38:24 UTC 2026 N0-25e: picture sheets of the app-clip sequences whose 'reached final third' / end reason changes - free runner only, nothing on Modal
+tools/n0_26a_frames.py
+# Mon Oct 26 04:35:37 UTC 2026 N0-26a: picture sheets of a sample of app-clip pressure points dropped / kept by the new rule - free runner only, nothing on Modal
