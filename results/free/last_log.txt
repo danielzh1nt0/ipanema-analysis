@@ -1,5 +1,10 @@
-downloading SFKBP1109_s1200
-== sfk 18 moments, 8992 frames
-downloading p15u-vs-aik-2026-09-21-bd09_s2520
-== aik 18 moments, 8992 frames
-sheets: {2: 6, 3: 6, 4: 6, 5: 6, 7: 6, 12: 6, 13: 6, 15: 6, 17: 6, 19: 6, 21: 6, 24: 6, 25: 6, 28: 6, 29: 6, 31: 6, 32: 6, 35: 6, 0: 6, 1: 6, 6: 6, 8: 6, 9: 6, 10: 6, 11: 6, 14: 6, 16: 6, 18: 6, 20: 6, 22: 6, 23: 6, 26: 6, 27: 6, 30: 6, 33: 6, 34: 6}
+fps 29.970030549265214 frames 206756
+ko1 31 frames
+g2762 33 frames
+g3128 33 frames
+ko2 29 frames
+g4257 33 frames
+g4962 33 frames
+g5625 33 frames
+g5916 33 frames
+g6268 33 frames
