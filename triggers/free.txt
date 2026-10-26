@@ -1,2 +1,2 @@
-tools/n0_26b_full.py
-# Mon Oct 26 08:42:34 UTC 2026 N0-26b: 1280x720 frames around the first two AIK goals and kick-offs - free runner only, nothing on Modal
+tools/n0_26c_frames.py
+# Mon Oct 26 12:45:22 UTC 2026 N0-26c: blind picture sheets of old vs new per-player touches on the two app clips - free runner only, nothing on Modal
