@@ -1,2 +1,2 @@
-tools/n0_26b_frames.py
-# Mon Oct 26 08:32:11 UTC 2026 N0-26b: blind picture sheets of the full AIK match kick-offs and Veo goals (which end each team attacks) - free runner only, nothing on Modal
+tools/n0_26b_full.py
+# Mon Oct 26 08:42:34 UTC 2026 N0-26b: 1280x720 frames around the first two AIK goals and kick-offs - free runner only, nothing on Modal
