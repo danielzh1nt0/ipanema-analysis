@@ -355,7 +355,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     step("stats")
     st = AN.stats(per, frames_, tvs, ps, tracks, state, fps, L, W, attack_right, S.press_r, S.near_r, sequences_=seqs)
     step("metrics")
-    mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_); st['metrics'] = mx
+    mx = M.compute(state, ballm, bspeed, fps, L, W, attack_right, rst, ps, st['players'], tvs, sh, per=per, frames_=frames_, cstate=cstate); st['metrics'] = mx
     # Veo's own shots/goals (to the second), when we have them, replace our shot detector; ours keeps being scored against them
     try:
         from . import veo as VEO

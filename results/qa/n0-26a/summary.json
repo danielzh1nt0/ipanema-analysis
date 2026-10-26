@@ -1,0 +1,137 @@
+{
+ "lab_raw_state/False": {
+  "runs": 4,
+  "count_ratio_range": [
+   0.93,
+   1.11
+  ],
+  "count_ratio_median": 0.98,
+  "ours_real_pct": 75.7,
+  "truth_found_pct": 75.8,
+  "block_top_right": "25/33",
+  "block_err_median_pct": 15.5,
+  "thirds_off_pts_median": 3.2,
+  "grid_misplaced_median_pct": 17.6,
+  "more_pressing_right": "4/4"
+ },
+ "lab_raw_state/streak": {
+  "runs": 8,
+  "count_ratio_range": [
+   0.45,
+   0.68
+  ],
+  "count_ratio_median": 0.54,
+  "ours_real_pct": 59.3,
+  "truth_found_pct": 32.2,
+  "block_top_right": "40/66",
+  "block_err_median_pct": 47.9,
+  "thirds_off_pts_median": 6.6,
+  "grid_misplaced_median_pct": 38.2,
+  "more_pressing_right": "6/8"
+ },
+ "lab_raw_state/flicker": {
+  "runs": 8,
+  "count_ratio_range": [
+   1.26,
+   1.65
+  ],
+  "count_ratio_median": 1.45,
+  "ours_real_pct": 48.6,
+  "truth_found_pct": 70.3,
+  "block_top_right": "40/66",
+  "block_err_median_pct": 42.0,
+  "thirds_off_pts_median": 4.7,
+  "grid_misplaced_median_pct": 27.1,
+  "more_pressing_right": "8/8"
+ },
+ "new/False": {
+  "runs": 4,
+  "count_ratio_range": [
+   0.72,
+   1.05
+  ],
+  "count_ratio_median": 0.91,
+  "ours_real_pct": 76.9,
+  "truth_found_pct": 70.6,
+  "block_top_right": "26/33",
+  "block_err_median_pct": 18.8,
+  "thirds_off_pts_median": 5.2,
+  "grid_misplaced_median_pct": 20.9,
+  "more_pressing_right": "4/4"
+ },
+ "new/streak": {
+  "runs": 8,
+  "count_ratio_range": [
+   0.39,
+   0.8
+  ],
+  "count_ratio_median": 0.64,
+  "ours_real_pct": 58.3,
+  "truth_found_pct": 35.6,
+  "block_top_right": "47/66",
+  "block_err_median_pct": 38.3,
+  "thirds_off_pts_median": 7.5,
+  "grid_misplaced_median_pct": 38.8,
+  "more_pressing_right": "6/8"
+ },
+ "new/flicker": {
+  "runs": 8,
+  "count_ratio_range": [
+   0.9,
+   1.3
+  ],
+  "count_ratio_median": 1.15,
+  "ours_real_pct": 55.6,
+  "truth_found_pct": 63.7,
+  "block_top_right": "46/66",
+  "block_err_median_pct": 25.0,
+  "thirds_off_pts_median": 5.8,
+  "grid_misplaced_median_pct": 26.7,
+  "more_pressing_right": "7/8"
+ },
+ "old/False": {
+  "runs": 4,
+  "count_ratio_range": [
+   1.34,
+   1.56
+  ],
+  "count_ratio_median": 1.44,
+  "ours_real_pct": 57.5,
+  "truth_found_pct": 83.3,
+  "block_top_right": "21/33",
+  "block_err_median_pct": 47.8,
+  "thirds_off_pts_median": 3.3,
+  "grid_misplaced_median_pct": 22.6,
+  "more_pressing_right": "4/4"
+ },
+ "old/streak": {
+  "runs": 8,
+  "count_ratio_range": [
+   1.73,
+   2.42
+  ],
+  "count_ratio_median": 1.9,
+  "ours_real_pct": 36.9,
+  "truth_found_pct": 70.5,
+  "block_top_right": "41/66",
+  "block_err_median_pct": 86.2,
+  "thirds_off_pts_median": 4.3,
+  "grid_misplaced_median_pct": 29.9,
+  "more_pressing_right": "3/8"
+ },
+ "old/flicker": {
+  "runs": 8,
+  "count_ratio_range": [
+   2.09,
+   2.73
+  ],
+  "count_ratio_median": 2.31,
+  "ours_real_pct": 36.9,
+  "truth_found_pct": 86.2,
+  "block_top_right": "45/66",
+  "block_err_median_pct": 130.2,
+  "thirds_off_pts_median": 4.5,
+  "grid_misplaced_median_pct": 28.0,
+  "more_pressing_right": "5/8"
+ }
+}

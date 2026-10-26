@@ -231,11 +231,22 @@ def _run(tid, tm, seg, pts, fps, state):
             "to_m": [round(float(pts[b][0]), 1), round(float(pts[b][1]), 1)], "distance_m": round(d, 1), "speed_ms": round(d / dur, 1) if dur else None,
             "with_ball": poss == tm if poss else None}
 
-def pressure_points(per, frames_, fps, press_r=2.0):
-    """where pressures happened: carrier position each time an opponent is within press_r (one point per second max per carrier)"""
+# N0-26a (26 Oct): the pressing-over-time chart and pressure map (pressure_points) checked on Metrica pro data - with the
+# raw nearest-player carrier every ball flying or bouncing past a player with an opponent near makes a point: 1.3-1.6x the
+# truth with a perfect ball, 1.9x (streak) / 2.3x (flicker) with our noise models, 5-min counts off 48-130%; where (thirds)
+# within 3-5 pts. Counting only frames where the spell state gives the carrier's team the ball fixes that on Metrica
+# (0.91x / 0.64x / 1.15x, 5-min error 19 / 38 / 25%) BUT on our two app clips, graded blind by eye, the points it drops are
+# mostly real (18 of 24 a player on the ball with an opponent on him - duels where the lagging state already names the
+# other team), the kept ones 7 of 12. Not better on our footage -> option only: IPANEMA_PRESS_POINTS=spell.
+PRESS_POINTS_SPELL = os.environ.get("IPANEMA_PRESS_POINTS", "raw") == "spell"
+
+def pressure_points(per, frames_, fps, press_r=2.0, state=None):
+    """where pressures happened: carrier position each time an opponent is within press_r (one point per second max per
+    carrier); with state (the spell state), only while that state gives the carrier's team the ball"""
     out = []; last = {}
     for k, f in enumerate(frames_):
         if f["carrier"] is None or f["pressure_m"] is None or f["pressure_m"] > press_r: continue
+        if state is not None and (k >= len(state) or state[k] > 1 or STATES[state[k]] != f["team"]): continue
         key = f["carrier"]
         if k - last.get(key, -99) < fps: continue
         last[key] = k; opp = "B" if f["team"] == "A" else "A"
@@ -282,12 +293,12 @@ ENTRY_HOLD_S = float(os.environ.get("IPANEMA_ENTRY_HOLD_S", "3"))
 # unchanged until Daniel says. The zone of a ball won we do find is right 93% of the time; the list stays as is.
 HIGH_TOV_WITHHOLD = os.environ.get("IPANEMA_HIGH_TOV", "") == "withhold"
 
-def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None):
+def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None, cstate=None):
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
             "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM, hold_s=ENTRY_HOLD_S), "high_turnovers": ht,
             "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L, per=per, W=W),
-            "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps) if frames_ is not None else [],
+            "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps, state=(cstate if PRESS_POINTS_SPELL else None)) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}
 
 def extra_events(metrics):

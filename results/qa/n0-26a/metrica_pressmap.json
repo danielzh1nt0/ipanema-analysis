@@ -1,0 +1,6362 @@
+[
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 43.2,
+  "block_counts_ours": {
+   "A": [
+    35,
+    24,
+    28,
+    29,
+    20,
+    10,
+    19,
+    29,
+    18,
+    8
+   ],
+   "B": [
+    33,
+    30,
+    23,
+    30,
+    20,
+    15,
+    25,
+    37,
+    22,
+    12
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 467,
+  "points_truth": 330,
+  "matched": 272,
+  "ours_real_pct": 58.2,
+  "truth_found_pct": 82.4,
+  "teams": {
+   "A": {
+    "ours": 220,
+    "truth": 164,
+    "ratio": 1.34,
+    "thirds_ours": [
+     24.1,
+     43.6,
+     32.3
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 25.3,
+    "thirds_off_pts": 3.4
+   },
+   "B": {
+    "ours": 247,
+    "truth": 166,
+    "ratio": 1.49,
+    "thirds_ours": [
+     28.3,
+     46.2,
+     25.5
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 21.8,
+    "thirds_off_pts": 3.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 9,
+  "block_err_median_pct": 19.2,
+  "block_counts_ours": {
+   "A": [
+    20,
+    11,
+    17,
+    15,
+    15,
+    5,
+    12,
+    14,
+    5,
+    4
+   ],
+   "B": [
+    18,
+    14,
+    11,
+    18,
+    11,
+    12,
+    18,
+    28,
+    15,
+    5
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 268,
+  "points_truth": 330,
+  "matched": 210,
+  "ours_real_pct": 78.4,
+  "truth_found_pct": 63.6,
+  "teams": {
+   "A": {
+    "ours": 118,
+    "truth": 164,
+    "ratio": 0.72,
+    "thirds_ours": [
+     28.8,
+     43.2,
+     28.0
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 25.7,
+    "thirds_off_pts": 5.0
+   },
+   "B": {
+    "ours": 150,
+    "truth": 166,
+    "ratio": 0.9,
+    "thirds_ours": [
+     26.0,
+     48.7,
+     25.3
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 22.4,
+    "thirds_off_pts": 3.5
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 16.4,
+  "block_counts_ours": {
+   "A": [
+    26,
+    17,
+    16,
+    20,
+    16,
+    8,
+    16,
+    18,
+    9,
+    6
+   ],
+   "B": [
+    19,
+    18,
+    15,
+    19,
+    15,
+    13,
+    19,
+    28,
+    13,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 314,
+  "points_truth": 330,
+  "matched": 238,
+  "ours_real_pct": 75.8,
+  "truth_found_pct": 72.1,
+  "teams": {
+   "A": {
+    "ours": 152,
+    "truth": 164,
+    "ratio": 0.93,
+    "thirds_ours": [
+     24.3,
+     44.1,
+     31.6
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 20.4,
+    "thirds_off_pts": 2.9
+   },
+   "B": {
+    "ours": 162,
+    "truth": 166,
+    "ratio": 0.98,
+    "thirds_ours": [
+     27.2,
+     47.5,
+     25.3
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 17.0,
+    "thirds_off_pts": 3.0
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 77.4,
+  "block_counts_ours": {
+   "A": [
+    38,
+    45,
+    34,
+    47,
+    31,
+    18,
+    24,
+    30,
+    26,
+    21
+   ],
+   "B": [
+    40,
+    40,
+    33,
+    39,
+    27,
+    22,
+    32,
+    35,
+    24,
+    12
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 618,
+  "points_truth": 330,
+  "matched": 232,
+  "ours_real_pct": 37.5,
+  "truth_found_pct": 70.3,
+  "teams": {
+   "A": {
+    "ours": 314,
+    "truth": 164,
+    "ratio": 1.91,
+    "thirds_ours": [
+     22.0,
+     47.8,
+     30.3
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 31.1,
+    "thirds_off_pts": 1.8
+   },
+   "B": {
+    "ours": 304,
+    "truth": 166,
+    "ratio": 1.83,
+    "thirds_ours": [
+     27.6,
+     45.7,
+     26.6
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 30.6,
+    "thirds_off_pts": 4.3
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 51.0,
+  "block_counts_ours": {
+   "A": [
+    15,
+    9,
+    15,
+    12,
+    8,
+    5,
+    5,
+    4,
+    7,
+    8
+   ],
+   "B": [
+    6,
+    10,
+    7,
+    11,
+    10,
+    5,
+    9,
+    12,
+    8,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 169,
+  "points_truth": 330,
+  "matched": 109,
+  "ours_real_pct": 64.5,
+  "truth_found_pct": 33.0,
+  "teams": {
+   "A": {
+    "ours": 88,
+    "truth": 164,
+    "ratio": 0.54,
+    "thirds_ours": [
+     27.3,
+     50.0,
+     22.7
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 39.0,
+    "thirds_off_pts": 6.6
+   },
+   "B": {
+    "ours": 81,
+    "truth": 166,
+    "ratio": 0.49,
+    "thirds_ours": [
+     29.6,
+     42.0,
+     28.4
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 41.1,
+    "thirds_off_pts": 6.2
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 3,
+  "block_top_n": 9,
+  "block_err_median_pct": 50.0,
+  "block_counts_ours": {
+   "A": [
+    11,
+    9,
+    15,
+    14,
+    9,
+    5,
+    8,
+    6,
+    8,
+    6
+   ],
+   "B": [
+    9,
+    8,
+    7,
+    8,
+    11,
+    7,
+    12,
+    14,
+    6,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 176,
+  "points_truth": 330,
+  "matched": 111,
+  "ours_real_pct": 63.1,
+  "truth_found_pct": 33.6,
+  "teams": {
+   "A": {
+    "ours": 91,
+    "truth": 164,
+    "ratio": 0.55,
+    "thirds_ours": [
+     27.5,
+     44.0,
+     28.6
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 38.9,
+    "thirds_off_pts": 3.7
+   },
+   "B": {
+    "ours": 85,
+    "truth": 166,
+    "ratio": 0.51,
+    "thirds_ours": [
+     24.7,
+     48.2,
+     27.1
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 38.7,
+    "thirds_off_pts": 4.8
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 80.5,
+  "block_counts_ours": {
+   "A": [
+    38,
+    41,
+    37,
+    46,
+    25,
+    19,
+    33,
+    29,
+    27,
+    14
+   ],
+   "B": [
+    39,
+    30,
+    33,
+    39,
+    28,
+    15,
+    27,
+    45,
+    26,
+    13
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 604,
+  "points_truth": 330,
+  "matched": 232,
+  "ours_real_pct": 38.4,
+  "truth_found_pct": 70.3,
+  "teams": {
+   "A": {
+    "ours": 309,
+    "truth": 164,
+    "ratio": 1.88,
+    "thirds_ours": [
+     23.6,
+     47.2,
+     29.1
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 29.7,
+    "thirds_off_pts": 0.2
+   },
+   "B": {
+    "ours": 295,
+    "truth": 166,
+    "ratio": 1.78,
+    "thirds_ours": [
+     28.8,
+     44.7,
+     26.4
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 31.8,
+    "thirds_off_pts": 4.1
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 58.3,
+  "block_counts_ours": {
+   "A": [
+    15,
+    10,
+    10,
+    24,
+    12,
+    2,
+    13,
+    4,
+    5,
+    5
+   ],
+   "B": [
+    4,
+    6,
+    7,
+    6,
+    3,
+    3,
+    5,
+    18,
+    9,
+    4
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 165,
+  "points_truth": 330,
+  "matched": 98,
+  "ours_real_pct": 59.4,
+  "truth_found_pct": 29.7,
+  "teams": {
+   "A": {
+    "ours": 100,
+    "truth": 164,
+    "ratio": 0.61,
+    "thirds_ours": [
+     32.0,
+     53.0,
+     15.0
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 38.1,
+    "thirds_off_pts": 14.3
+   },
+   "B": {
+    "ours": 65,
+    "truth": 166,
+    "ratio": 0.39,
+    "thirds_ours": [
+     35.4,
+     46.2,
+     18.5
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 43.0,
+    "thirds_off_pts": 5.9
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 3,
+  "block_top_n": 9,
+  "block_err_median_pct": 54.0,
+  "block_counts_ours": {
+   "A": [
+    10,
+    9,
+    7,
+    11,
+    10,
+    2,
+    11,
+    6,
+    8,
+    4
+   ],
+   "B": [
+    6,
+    7,
+    9,
+    9,
+    6,
+    4,
+    11,
+    13,
+    6,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 152,
+  "points_truth": 330,
+  "matched": 96,
+  "ours_real_pct": 63.2,
+  "truth_found_pct": 29.1,
+  "teams": {
+   "A": {
+    "ours": 78,
+    "truth": 164,
+    "ratio": 0.48,
+    "thirds_ours": [
+     29.5,
+     50.0,
+     20.5
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 39.3,
+    "thirds_off_pts": 8.8
+   },
+   "B": {
+    "ours": 74,
+    "truth": 166,
+    "ratio": 0.45,
+    "thirds_ours": [
+     31.1,
+     44.6,
+     24.3
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 39.4,
+    "thirds_off_pts": 3.6
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 131.7,
+  "block_counts_ours": {
+   "A": [
+    49,
+    46,
+    49,
+    46,
+    32,
+    56,
+    38,
+    44,
+    31,
+    15
+   ],
+   "B": [
+    46,
+    44,
+    37,
+    39,
+    37,
+    47,
+    34,
+    49,
+    32,
+    14
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 785,
+  "points_truth": 330,
+  "matched": 286,
+  "ours_real_pct": 36.4,
+  "truth_found_pct": 86.7,
+  "teams": {
+   "A": {
+    "ours": 406,
+    "truth": 164,
+    "ratio": 2.48,
+    "thirds_ours": [
+     22.7,
+     48.8,
+     28.6
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 29.4,
+    "thirds_off_pts": 1.8
+   },
+   "B": {
+    "ours": 379,
+    "truth": 166,
+    "ratio": 2.28,
+    "thirds_ours": [
+     28.0,
+     48.8,
+     23.2
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 30.0,
+    "thirds_off_pts": 1.5
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 32.3,
+  "block_counts_ours": {
+   "A": [
+    20,
+    21,
+    34,
+    28,
+    12,
+    11,
+    22,
+    19,
+    6,
+    7
+   ],
+   "B": [
+    23,
+    17,
+    7,
+    15,
+    22,
+    32,
+    16,
+    27,
+    21,
+    8
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 368,
+  "points_truth": 330,
+  "matched": 185,
+  "ours_real_pct": 50.3,
+  "truth_found_pct": 56.1,
+  "teams": {
+   "A": {
+    "ours": 180,
+    "truth": 164,
+    "ratio": 1.1,
+    "thirds_ours": [
+     31.7,
+     38.9,
+     29.4
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 28.8,
+    "thirds_off_pts": 8.1
+   },
+   "B": {
+    "ours": 188,
+    "truth": 166,
+    "ratio": 1.13,
+    "thirds_ours": [
+     21.8,
+     58.5,
+     19.7
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 27.1,
+    "thirds_off_pts": 10.3
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 41.4,
+  "block_counts_ours": {
+   "A": [
+    31,
+    28,
+    32,
+    28,
+    18,
+    20,
+    25,
+    28,
+    13,
+    9
+   ],
+   "B": [
+    31,
+    25,
+    19,
+    23,
+    25,
+    36,
+    21,
+    35,
+    21,
+    10
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 478,
+  "points_truth": 330,
+  "matched": 227,
+  "ours_real_pct": 47.5,
+  "truth_found_pct": 68.8,
+  "teams": {
+   "A": {
+    "ours": 232,
+    "truth": 164,
+    "ratio": 1.41,
+    "thirds_ours": [
+     25.9,
+     44.0,
+     30.2
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 27.1,
+    "thirds_off_pts": 3.0
+   },
+   "B": {
+    "ours": 246,
+    "truth": 166,
+    "ratio": 1.48,
+    "thirds_ours": [
+     24.8,
+     52.4,
+     22.8
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 27.8,
+    "thirds_off_pts": 4.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 9,
+  "block_err_median_pct": 127.5,
+  "block_counts_ours": {
+   "A": [
+    51,
+    45,
+    46,
+    45,
+    34,
+    57,
+    34,
+    42,
+    35,
+    13
+   ],
+   "B": [
+    51,
+    44,
+    39,
+    45,
+    30,
+    55,
+    31,
+    44,
+    36,
+    16
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 793,
+  "points_truth": 330,
+  "matched": 293,
+  "ours_real_pct": 36.9,
+  "truth_found_pct": 88.8,
+  "teams": {
+   "A": {
+    "ours": 402,
+    "truth": 164,
+    "ratio": 2.45,
+    "thirds_ours": [
+     21.9,
+     48.5,
+     29.6
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 27.9,
+    "thirds_off_pts": 1.9
+   },
+   "B": {
+    "ours": 391,
+    "truth": 166,
+    "ratio": 2.36,
+    "thirds_ours": [
+     26.6,
+     49.9,
+     23.5
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 30.5,
+    "thirds_off_pts": 2.9
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 30.3,
+  "block_counts_ours": {
+   "A": [
+    29,
+    22,
+    20,
+    32,
+    19,
+    24,
+    13,
+    15,
+    9,
+    3
+   ],
+   "B": [
+    19,
+    18,
+    18,
+    10,
+    10,
+    27,
+    15,
+    30,
+    25,
+    10
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 368,
+  "points_truth": 330,
+  "matched": 194,
+  "ours_real_pct": 52.7,
+  "truth_found_pct": 58.8,
+  "teams": {
+   "A": {
+    "ours": 186,
+    "truth": 164,
+    "ratio": 1.13,
+    "thirds_ours": [
+     29.6,
+     46.2,
+     24.2
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 25.5,
+    "thirds_off_pts": 5.8
+   },
+   "B": {
+    "ours": 182,
+    "truth": 166,
+    "ratio": 1.1,
+    "thirds_ours": [
+     29.7,
+     53.8,
+     16.5
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 30.3,
+    "thirds_off_pts": 5.8
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 9,
+  "block_err_median_pct": 38.7,
+  "block_counts_ours": {
+   "A": [
+    30,
+    28,
+    25,
+    32,
+    25,
+    21,
+    24,
+    21,
+    18,
+    5
+   ],
+   "B": [
+    31,
+    24,
+    25,
+    20,
+    18,
+    41,
+    19,
+    31,
+    23,
+    8
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    21,
+    19,
+    20,
+    20,
+    18,
+    14,
+    16,
+    16,
+    15,
+    5
+   ],
+   "B": [
+    23,
+    20,
+    11,
+    21,
+    13,
+    9,
+    24,
+    25,
+    16,
+    4
+   ]
+  },
+  "points_ours": 469,
+  "points_truth": 330,
+  "matched": 215,
+  "ours_real_pct": 45.8,
+  "truth_found_pct": 65.2,
+  "teams": {
+   "A": {
+    "ours": 229,
+    "truth": 164,
+    "ratio": 1.4,
+    "thirds_ours": [
+     27.5,
+     42.8,
+     29.7
+    ],
+    "thirds_truth": [
+     23.8,
+     47.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 26.7,
+    "thirds_off_pts": 4.2
+   },
+   "B": {
+    "ours": 240,
+    "truth": 166,
+    "ratio": 1.45,
+    "thirds_ours": [
+     23.8,
+     54.6,
+     21.7
+    ],
+    "thirds_truth": [
+     29.5,
+     48.2,
+     22.3
+    ],
+    "grid_misplaced_pct": 28.9,
+    "thirds_off_pts": 6.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 50.0,
+  "block_counts_ours": {
+   "A": [
+    16,
+    20,
+    13,
+    16,
+    19,
+    15,
+    9,
+    35,
+    17,
+    16
+   ],
+   "B": [
+    15,
+    24,
+    27,
+    12,
+    27,
+    15,
+    20,
+    43,
+    12,
+    9
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 380,
+  "points_truth": 260,
+  "matched": 221,
+  "ours_real_pct": 58.2,
+  "truth_found_pct": 85.0,
+  "teams": {
+   "A": {
+    "ours": 176,
+    "truth": 113,
+    "ratio": 1.56,
+    "thirds_ours": [
+     37.5,
+     42.0,
+     20.5
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 30.3,
+    "thirds_off_pts": 7.2
+   },
+   "B": {
+    "ours": 204,
+    "truth": 147,
+    "ratio": 1.39,
+    "thirds_ours": [
+     23.5,
+     46.1,
+     30.4
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 22.6,
+    "thirds_off_pts": 2.9
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 7,
+  "block_top_n": 9,
+  "block_err_median_pct": 21.6,
+  "block_counts_ours": {
+   "A": [
+    6,
+    8,
+    5,
+    8,
+    13,
+    9,
+    3,
+    27,
+    11,
+    14
+   ],
+   "B": [
+    9,
+    20,
+    24,
+    6,
+    22,
+    11,
+    17,
+    33,
+    8,
+    4
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 258,
+  "points_truth": 260,
+  "matched": 200,
+  "ours_real_pct": 77.5,
+  "truth_found_pct": 76.9,
+  "teams": {
+   "A": {
+    "ours": 104,
+    "truth": 113,
+    "ratio": 0.92,
+    "thirds_ours": [
+     46.2,
+     45.2,
+     8.7
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 26.6,
+    "thirds_off_pts": 8.1
+   },
+   "B": {
+    "ours": 154,
+    "truth": 147,
+    "ratio": 1.05,
+    "thirds_ours": [
+     26.6,
+     50.6,
+     22.7
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 19.8,
+    "thirds_off_pts": 6.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 7,
+  "block_top_n": 9,
+  "block_err_median_pct": 16.0,
+  "block_counts_ours": {
+   "A": [
+    7,
+    10,
+    7,
+    8,
+    16,
+    8,
+    4,
+    26,
+    10,
+    13
+   ],
+   "B": [
+    9,
+    17,
+    24,
+    6,
+    20,
+    15,
+    17,
+    36,
+    8,
+    5
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 266,
+  "points_truth": 260,
+  "matched": 207,
+  "ours_real_pct": 77.8,
+  "truth_found_pct": 79.6,
+  "teams": {
+   "A": {
+    "ours": 109,
+    "truth": 113,
+    "ratio": 0.96,
+    "thirds_ours": [
+     41.3,
+     45.0,
+     13.8
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 21.2,
+    "thirds_off_pts": 3.7
+   },
+   "B": {
+    "ours": 157,
+    "truth": 147,
+    "ratio": 1.07,
+    "thirds_ours": [
+     22.9,
+     49.0,
+     28.0
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 16.2,
+    "thirds_off_pts": 1.3
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 105.0,
+  "block_counts_ours": {
+   "A": [
+    27,
+    31,
+    27,
+    22,
+    28,
+    21,
+    22,
+    52,
+    22,
+    21
+   ],
+   "B": [
+    21,
+    30,
+    32,
+    19,
+    37,
+    19,
+    26,
+    49,
+    30,
+    17
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 553,
+  "points_truth": 260,
+  "matched": 191,
+  "ours_real_pct": 34.5,
+  "truth_found_pct": 73.5,
+  "teams": {
+   "A": {
+    "ours": 273,
+    "truth": 113,
+    "ratio": 2.42,
+    "thirds_ours": [
+     33.3,
+     44.3,
+     22.3
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 35.7,
+    "thirds_off_pts": 9.0
+   },
+   "B": {
+    "ours": 280,
+    "truth": 147,
+    "ratio": 1.9,
+    "thirds_ours": [
+     23.2,
+     44.6,
+     32.1
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 30.2,
+    "thirds_off_pts": 4.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 8,
+  "block_top_n": 9,
+  "block_err_median_pct": 32.1,
+  "block_counts_ours": {
+   "A": [
+    5,
+    9,
+    8,
+    6,
+    9,
+    7,
+    4,
+    19,
+    11,
+    12
+   ],
+   "B": [
+    8,
+    12,
+    9,
+    6,
+    10,
+    3,
+    13,
+    17,
+    16,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 187,
+  "points_truth": 260,
+  "matched": 101,
+  "ours_real_pct": 54.0,
+  "truth_found_pct": 38.8,
+  "teams": {
+   "A": {
+    "ours": 90,
+    "truth": 113,
+    "ratio": 0.8,
+    "thirds_ours": [
+     47.8,
+     43.3,
+     8.9
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 40.0,
+    "thirds_off_pts": 9.7
+   },
+   "B": {
+    "ours": 97,
+    "truth": 147,
+    "ratio": 0.66,
+    "thirds_ours": [
+     32.0,
+     46.4,
+     21.6
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 40.6,
+    "thirds_off_pts": 10.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 43.7,
+  "block_counts_ours": {
+   "A": [
+    5,
+    8,
+    9,
+    4,
+    5,
+    4,
+    4,
+    14,
+    7,
+    8
+   ],
+   "B": [
+    9,
+    7,
+    8,
+    5,
+    10,
+    4,
+    6,
+    17,
+    9,
+    4
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 147,
+  "points_truth": 260,
+  "matched": 87,
+  "ours_real_pct": 59.2,
+  "truth_found_pct": 33.5,
+  "teams": {
+   "A": {
+    "ours": 68,
+    "truth": 113,
+    "ratio": 0.6,
+    "thirds_ours": [
+     38.2,
+     51.5,
+     10.3
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 44.3,
+    "thirds_off_pts": 3.0
+   },
+   "B": {
+    "ours": 79,
+    "truth": 147,
+    "ratio": 0.54,
+    "thirds_ours": [
+     31.6,
+     40.5,
+     27.8
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 44.2,
+    "thirds_off_pts": 9.8
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 103.6,
+  "block_counts_ours": {
+   "A": [
+    19,
+    24,
+    28,
+    20,
+    34,
+    22,
+    18,
+    51,
+    20,
+    24
+   ],
+   "B": [
+    18,
+    27,
+    29,
+    17,
+    32,
+    17,
+    25,
+    49,
+    23,
+    18
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 515,
+  "points_truth": 260,
+  "matched": 190,
+  "ours_real_pct": 36.9,
+  "truth_found_pct": 73.1,
+  "teams": {
+   "A": {
+    "ours": 260,
+    "truth": 113,
+    "ratio": 2.3,
+    "thirds_ours": [
+     33.8,
+     43.8,
+     22.3
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 34.8,
+    "thirds_off_pts": 9.0
+   },
+   "B": {
+    "ours": 255,
+    "truth": 147,
+    "ratio": 1.73,
+    "thirds_ours": [
+     23.9,
+     44.3,
+     31.8
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 28.9,
+    "thirds_off_pts": 4.7
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 7,
+  "block_top_n": 9,
+  "block_err_median_pct": 33.3,
+  "block_counts_ours": {
+   "A": [
+    3,
+    6,
+    6,
+    7,
+    11,
+    9,
+    5,
+    22,
+    12,
+    8
+   ],
+   "B": [
+    4,
+    6,
+    15,
+    6,
+    14,
+    5,
+    12,
+    15,
+    10,
+    7
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 183,
+  "points_truth": 260,
+  "matched": 107,
+  "ours_real_pct": 58.5,
+  "truth_found_pct": 41.2,
+  "teams": {
+   "A": {
+    "ours": 89,
+    "truth": 113,
+    "ratio": 0.79,
+    "thirds_ours": [
+     49.4,
+     39.3,
+     11.2
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 32.5,
+    "thirds_off_pts": 11.3
+   },
+   "B": {
+    "ours": 94,
+    "truth": 147,
+    "ratio": 0.64,
+    "thirds_ours": [
+     34.0,
+     46.8,
+     19.1
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 39.6,
+    "thirds_off_pts": 12.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 3,
+  "block_top_n": 9,
+  "block_err_median_pct": 45.8,
+  "block_counts_ours": {
+   "A": [
+    5,
+    4,
+    8,
+    8,
+    11,
+    4,
+    5,
+    16,
+    9,
+    6
+   ],
+   "B": [
+    4,
+    2,
+    11,
+    6,
+    10,
+    5,
+    9,
+    17,
+    6,
+    8
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 154,
+  "points_truth": 260,
+  "matched": 86,
+  "ours_real_pct": 55.8,
+  "truth_found_pct": 33.1,
+  "teams": {
+   "A": {
+    "ours": 76,
+    "truth": 113,
+    "ratio": 0.67,
+    "thirds_ours": [
+     36.8,
+     43.4,
+     19.7
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 38.2,
+    "thirds_off_pts": 6.4
+   },
+   "B": {
+    "ours": 78,
+    "truth": 147,
+    "ratio": 0.53,
+    "thirds_ours": [
+     28.2,
+     42.3,
+     29.5
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 37.9,
+    "thirds_off_pts": 6.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 5,
+  "block_top_n": 9,
+  "block_err_median_pct": 158.3,
+  "block_counts_ours": {
+   "A": [
+    24,
+    35,
+    31,
+    28,
+    38,
+    21,
+    21,
+    53,
+    24,
+    22
+   ],
+   "B": [
+    20,
+    40,
+    30,
+    25,
+    41,
+    21,
+    26,
+    64,
+    21,
+    20
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 605,
+  "points_truth": 260,
+  "matched": 228,
+  "ours_real_pct": 37.7,
+  "truth_found_pct": 87.7,
+  "teams": {
+   "A": {
+    "ours": 297,
+    "truth": 113,
+    "ratio": 2.63,
+    "thirds_ours": [
+     32.3,
+     47.8,
+     19.9
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 33.9,
+    "thirds_off_pts": 6.6
+   },
+   "B": {
+    "ours": 308,
+    "truth": 147,
+    "ratio": 2.1,
+    "thirds_ours": [
+     18.2,
+     47.1,
+     34.7
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 26.3,
+    "thirds_off_pts": 5.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 8,
+  "block_top_n": 9,
+  "block_err_median_pct": 16.7,
+  "block_counts_ours": {
+   "A": [
+    8,
+    10,
+    9,
+    13,
+    16,
+    9,
+    7,
+    30,
+    13,
+    18
+   ],
+   "B": [
+    9,
+    25,
+    21,
+    13,
+    30,
+    13,
+    16,
+    34,
+    9,
+    5
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 308,
+  "points_truth": 260,
+  "matched": 184,
+  "ours_real_pct": 59.7,
+  "truth_found_pct": 70.8,
+  "teams": {
+   "A": {
+    "ours": 133,
+    "truth": 113,
+    "ratio": 1.18,
+    "thirds_ours": [
+     45.9,
+     44.4,
+     9.8
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 29.2,
+    "thirds_off_pts": 7.8
+   },
+   "B": {
+    "ours": 175,
+    "truth": 147,
+    "ratio": 1.19,
+    "thirds_ours": [
+     26.3,
+     49.1,
+     24.6
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 25.9,
+    "thirds_off_pts": 4.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 56.3,
+  "block_counts_ours": {
+   "A": [
+    14,
+    22,
+    18,
+    17,
+    22,
+    12,
+    13,
+    34,
+    15,
+    19
+   ],
+   "B": [
+    13,
+    23,
+    23,
+    14,
+    34,
+    17,
+    20,
+    43,
+    12,
+    12
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 397,
+  "points_truth": 260,
+  "matched": 194,
+  "ours_real_pct": 48.9,
+  "truth_found_pct": 74.6,
+  "teams": {
+   "A": {
+    "ours": 186,
+    "truth": 113,
+    "ratio": 1.65,
+    "thirds_ours": [
+     32.8,
+     48.9,
+     18.3
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 33.2,
+    "thirds_off_pts": 5.3
+   },
+   "B": {
+    "ours": 211,
+    "truth": 147,
+    "ratio": 1.44,
+    "thirds_ours": [
+     19.0,
+     47.9,
+     33.2
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 25.6,
+    "thirds_off_pts": 3.9
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 146.4,
+  "block_counts_ours": {
+   "A": [
+    29,
+    34,
+    31,
+    26,
+    41,
+    20,
+    23,
+    58,
+    25,
+    21
+   ],
+   "B": [
+    23,
+    37,
+    31,
+    25,
+    41,
+    22,
+    23,
+    60,
+    26,
+    19
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 615,
+  "points_truth": 260,
+  "matched": 229,
+  "ours_real_pct": 37.2,
+  "truth_found_pct": 88.1,
+  "teams": {
+   "A": {
+    "ours": 308,
+    "truth": 113,
+    "ratio": 2.73,
+    "thirds_ours": [
+     33.4,
+     47.4,
+     19.2
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 35.2,
+    "thirds_off_pts": 5.9
+   },
+   "B": {
+    "ours": 307,
+    "truth": 147,
+    "ratio": 2.09,
+    "thirds_ours": [
+     18.6,
+     45.3,
+     36.2
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 26.6,
+    "thirds_off_pts": 6.9
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 34.8,
+  "block_counts_ours": {
+   "A": [
+    17,
+    15,
+    3,
+    13,
+    16,
+    5,
+    7,
+    27,
+    13,
+    18
+   ],
+   "B": [
+    7,
+    22,
+    29,
+    9,
+    29,
+    15,
+    14,
+    33,
+    12,
+    4
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 308,
+  "points_truth": 260,
+  "matched": 172,
+  "ours_real_pct": 55.8,
+  "truth_found_pct": 66.2,
+  "teams": {
+   "A": {
+    "ours": 134,
+    "truth": 113,
+    "ratio": 1.19,
+    "thirds_ours": [
+     44.8,
+     46.3,
+     9.0
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 32.8,
+    "thirds_off_pts": 6.7
+   },
+   "B": {
+    "ours": 174,
+    "truth": 147,
+    "ratio": 1.18,
+    "thirds_ours": [
+     28.2,
+     43.7,
+     28.2
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 29.5,
+    "thirds_off_pts": 6.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "1",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 10,
+  "block_top_right": 6,
+  "block_top_n": 9,
+  "block_err_median_pct": 38.5,
+  "block_counts_ours": {
+   "A": [
+    17,
+    18,
+    15,
+    16,
+    30,
+    9,
+    12,
+    33,
+    17,
+    17
+   ],
+   "B": [
+    19,
+    22,
+    29,
+    14,
+    24,
+    18,
+    15,
+    40,
+    11,
+    8
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    9,
+    13,
+    8,
+    6,
+    14,
+    10,
+    6,
+    26,
+    7,
+    14
+   ],
+   "B": [
+    11,
+    16,
+    23,
+    13,
+    19,
+    13,
+    17,
+    22,
+    7,
+    6
+   ]
+  },
+  "points_ours": 384,
+  "points_truth": 260,
+  "matched": 186,
+  "ours_real_pct": 48.4,
+  "truth_found_pct": 71.5,
+  "teams": {
+   "A": {
+    "ours": 184,
+    "truth": 113,
+    "ratio": 1.63,
+    "thirds_ours": [
+     37.0,
+     47.3,
+     15.8
+    ],
+    "thirds_truth": [
+     38.1,
+     48.7,
+     13.3
+    ],
+    "grid_misplaced_pct": 33.8,
+    "thirds_off_pts": 2.5
+   },
+   "B": {
+    "ours": 200,
+    "truth": 147,
+    "ratio": 1.36,
+    "thirds_ours": [
+     20.0,
+     46.0,
+     34.0
+    ],
+    "thirds_truth": [
+     21.8,
+     49.0,
+     29.3
+    ],
+    "grid_misplaced_pct": 27.1,
+    "thirds_off_pts": 4.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 7,
+  "block_err_median_pct": 51.7,
+  "block_counts_ours": {
+   "A": [
+    24,
+    23,
+    24,
+    42,
+    18,
+    31,
+    38,
+    21,
+    25,
+    0
+   ],
+   "B": [
+    29,
+    34,
+    32,
+    36,
+    30,
+    34,
+    35,
+    24,
+    31,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 531,
+  "points_truth": 362,
+  "matched": 301,
+  "ours_real_pct": 56.7,
+  "truth_found_pct": 83.1,
+  "teams": {
+   "A": {
+    "ours": 246,
+    "truth": 177,
+    "ratio": 1.39,
+    "thirds_ours": [
+     29.3,
+     43.5,
+     27.2
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 22.5,
+    "thirds_off_pts": 1.1
+   },
+   "B": {
+    "ours": 285,
+    "truth": 185,
+    "ratio": 1.54,
+    "thirds_ours": [
+     30.5,
+     44.2,
+     25.3
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 18.2,
+    "thirds_off_pts": 2.8
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 7,
+  "block_err_median_pct": 13.1,
+  "block_counts_ours": {
+   "A": [
+    9,
+    15,
+    11,
+    25,
+    14,
+    24,
+    32,
+    10,
+    14,
+    0
+   ],
+   "B": [
+    20,
+    22,
+    24,
+    23,
+    18,
+    26,
+    16,
+    20,
+    20,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 343,
+  "points_truth": 362,
+  "matched": 260,
+  "ours_real_pct": 75.8,
+  "truth_found_pct": 71.8,
+  "teams": {
+   "A": {
+    "ours": 154,
+    "truth": 177,
+    "ratio": 0.87,
+    "thirds_ours": [
+     32.5,
+     46.8,
+     20.8
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 19.6,
+    "thirds_off_pts": 6.3
+   },
+   "B": {
+    "ours": 189,
+    "truth": 185,
+    "ratio": 1.02,
+    "thirds_ours": [
+     31.7,
+     46.0,
+     22.2
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 19.0,
+    "thirds_off_pts": 3.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "False",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 7,
+  "block_err_median_pct": 12.9,
+  "block_counts_ours": {
+   "A": [
+    12,
+    18,
+    12,
+    27,
+    16,
+    27,
+    32,
+    14,
+    16,
+    0
+   ],
+   "B": [
+    20,
+    22,
+    24,
+    20,
+    21,
+    29,
+    23,
+    20,
+    26,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 379,
+  "points_truth": 362,
+  "matched": 275,
+  "ours_real_pct": 72.6,
+  "truth_found_pct": 76.0,
+  "teams": {
+   "A": {
+    "ours": 174,
+    "truth": 177,
+    "ratio": 0.98,
+    "thirds_ours": [
+     30.5,
+     46.0,
+     23.6
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 17.0,
+    "thirds_off_pts": 3.5
+   },
+   "B": {
+    "ours": 205,
+    "truth": 185,
+    "ratio": 1.11,
+    "thirds_ours": [
+     30.7,
+     44.4,
+     24.9
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 18.3,
+    "thirds_off_pts": 2.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 7,
+  "block_err_median_pct": 90.9,
+  "block_counts_ours": {
+   "A": [
+    33,
+    28,
+    37,
+    42,
+    28,
+    45,
+    57,
+    28,
+    39,
+    0
+   ],
+   "B": [
+    42,
+    36,
+    40,
+    52,
+    29,
+    48,
+    45,
+    41,
+    41,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 711,
+  "points_truth": 362,
+  "matched": 255,
+  "ours_real_pct": 35.9,
+  "truth_found_pct": 70.4,
+  "teams": {
+   "A": {
+    "ours": 337,
+    "truth": 177,
+    "ratio": 1.9,
+    "thirds_ours": [
+     30.0,
+     43.0,
+     27.0
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 32.7,
+    "thirds_off_pts": 1.8
+   },
+   "B": {
+    "ours": 374,
+    "truth": 185,
+    "ratio": 2.02,
+    "thirds_ours": [
+     29.4,
+     43.3,
+     27.3
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 25.1,
+    "thirds_off_pts": 3.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 7,
+  "block_err_median_pct": 35.2,
+  "block_counts_ours": {
+   "A": [
+    9,
+    4,
+    9,
+    21,
+    13,
+    18,
+    17,
+    9,
+    18,
+    0
+   ],
+   "B": [
+    14,
+    14,
+    15,
+    14,
+    3,
+    17,
+    21,
+    12,
+    8,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 236,
+  "points_truth": 362,
+  "matched": 130,
+  "ours_real_pct": 55.1,
+  "truth_found_pct": 35.9,
+  "teams": {
+   "A": {
+    "ours": 118,
+    "truth": 177,
+    "ratio": 0.67,
+    "thirds_ours": [
+     34.7,
+     46.6,
+     18.6
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 40.4,
+    "thirds_off_pts": 8.5
+   },
+   "B": {
+    "ours": 118,
+    "truth": 185,
+    "ratio": 0.64,
+    "thirds_ours": [
+     32.2,
+     49.2,
+     18.6
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 33.3,
+    "thirds_off_pts": 6.3
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 7,
+  "block_err_median_pct": 44.0,
+  "block_counts_ours": {
+   "A": [
+    9,
+    5,
+    8,
+    13,
+    9,
+    16,
+    15,
+    8,
+    11,
+    0
+   ],
+   "B": [
+    9,
+    13,
+    13,
+    6,
+    8,
+    20,
+    17,
+    13,
+    10,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 203,
+  "points_truth": 362,
+  "matched": 111,
+  "ours_real_pct": 54.7,
+  "truth_found_pct": 30.7,
+  "teams": {
+   "A": {
+    "ours": 94,
+    "truth": 177,
+    "ratio": 0.53,
+    "thirds_ours": [
+     31.9,
+     40.4,
+     27.7
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 37.4,
+    "thirds_off_pts": 4.2
+   },
+   "B": {
+    "ours": 109,
+    "truth": 185,
+    "ratio": 0.59,
+    "thirds_ours": [
+     34.9,
+     40.4,
+     24.8
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 38.1,
+    "thirds_off_pts": 6.8
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 7,
+  "block_err_median_pct": 91.6,
+  "block_counts_ours": {
+   "A": [
+    42,
+    29,
+    30,
+    47,
+    39,
+    45,
+    51,
+    27,
+    27,
+    0
+   ],
+   "B": [
+    42,
+    37,
+    34,
+    50,
+    29,
+    50,
+    53,
+    33,
+    33,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 698,
+  "points_truth": 362,
+  "matched": 251,
+  "ours_real_pct": 36.0,
+  "truth_found_pct": 69.3,
+  "teams": {
+   "A": {
+    "ours": 337,
+    "truth": 177,
+    "ratio": 1.9,
+    "thirds_ours": [
+     26.7,
+     43.6,
+     29.7
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 32.8,
+    "thirds_off_pts": 2.6
+   },
+   "B": {
+    "ours": 361,
+    "truth": 185,
+    "ratio": 1.95,
+    "thirds_ours": [
+     30.5,
+     44.3,
+     25.2
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 23.7,
+    "thirds_off_pts": 2.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 7,
+  "block_err_median_pct": 47.7,
+  "block_counts_ours": {
+   "A": [
+    6,
+    5,
+    6,
+    12,
+    17,
+    13,
+    23,
+    6,
+    9,
+    0
+   ],
+   "B": [
+    17,
+    14,
+    12,
+    11,
+    6,
+    24,
+    13,
+    12,
+    10,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 216,
+  "points_truth": 362,
+  "matched": 126,
+  "ours_real_pct": 58.3,
+  "truth_found_pct": 34.8,
+  "teams": {
+   "A": {
+    "ours": 97,
+    "truth": 177,
+    "ratio": 0.55,
+    "thirds_ours": [
+     34.0,
+     49.5,
+     16.5
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 45.0,
+    "thirds_off_pts": 10.6
+   },
+   "B": {
+    "ours": 119,
+    "truth": 185,
+    "ratio": 0.64,
+    "thirds_ours": [
+     32.8,
+     46.2,
+     21.0
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 34.5,
+    "thirds_off_pts": 4.7
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 7,
+  "block_err_median_pct": 52.3,
+  "block_counts_ours": {
+   "A": [
+    7,
+    4,
+    1,
+    9,
+    16,
+    18,
+    16,
+    5,
+    10,
+    0
+   ],
+   "B": [
+    9,
+    10,
+    10,
+    10,
+    10,
+    23,
+    11,
+    6,
+    9,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 184,
+  "points_truth": 362,
+  "matched": 113,
+  "ours_real_pct": 61.4,
+  "truth_found_pct": 31.2,
+  "teams": {
+   "A": {
+    "ours": 86,
+    "truth": 177,
+    "ratio": 0.49,
+    "thirds_ours": [
+     30.2,
+     51.2,
+     18.6
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 40.8,
+    "thirds_off_pts": 8.5
+   },
+   "B": {
+    "ours": 98,
+    "truth": 185,
+    "ratio": 0.53,
+    "thirds_ours": [
+     36.7,
+     38.8,
+     24.5
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 34.0,
+    "thirds_off_pts": 8.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 7,
+  "block_err_median_pct": 131.3,
+  "block_counts_ours": {
+   "A": [
+    43,
+    41,
+    42,
+    56,
+    38,
+    57,
+    58,
+    33,
+    52,
+    0
+   ],
+   "B": [
+    43,
+    42,
+    45,
+    56,
+    35,
+    60,
+    57,
+    35,
+    51,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 844,
+  "points_truth": 362,
+  "matched": 307,
+  "ours_real_pct": 36.4,
+  "truth_found_pct": 84.8,
+  "teams": {
+   "A": {
+    "ours": 420,
+    "truth": 177,
+    "ratio": 2.37,
+    "thirds_ours": [
+     25.0,
+     45.2,
+     29.8
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 27.8,
+    "thirds_off_pts": 3.2
+   },
+   "B": {
+    "ours": 424,
+    "truth": 185,
+    "ratio": 2.29,
+    "thirds_ours": [
+     29.0,
+     43.4,
+     27.6
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 24.6,
+    "thirds_off_pts": 3.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 7,
+  "block_err_median_pct": 20.1,
+  "block_counts_ours": {
+   "A": [
+    17,
+    14,
+    19,
+    29,
+    21,
+    27,
+    31,
+    11,
+    25,
+    0
+   ],
+   "B": [
+    26,
+    32,
+    26,
+    28,
+    18,
+    33,
+    26,
+    27,
+    25,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 435,
+  "points_truth": 362,
+  "matched": 241,
+  "ours_real_pct": 55.4,
+  "truth_found_pct": 66.6,
+  "teams": {
+   "A": {
+    "ours": 194,
+    "truth": 177,
+    "ratio": 1.1,
+    "thirds_ours": [
+     33.0,
+     41.2,
+     25.8
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 24.4,
+    "thirds_off_pts": 4.8
+   },
+   "B": {
+    "ours": 241,
+    "truth": 185,
+    "ratio": 1.3,
+    "thirds_ours": [
+     30.7,
+     47.3,
+     22.0
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 20.6,
+    "thirds_off_pts": 2.9
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 7,
+  "block_err_median_pct": 50.0,
+  "block_counts_ours": {
+   "A": [
+    27,
+    20,
+    23,
+    33,
+    25,
+    48,
+    39,
+    20,
+    31,
+    0
+   ],
+   "B": [
+    24,
+    31,
+    33,
+    33,
+    27,
+    38,
+    34,
+    29,
+    33,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 548,
+  "points_truth": 362,
+  "matched": 268,
+  "ours_real_pct": 48.9,
+  "truth_found_pct": 74.0,
+  "teams": {
+   "A": {
+    "ours": 266,
+    "truth": 177,
+    "ratio": 1.5,
+    "thirds_ours": [
+     27.4,
+     46.6,
+     25.9
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 28.0,
+    "thirds_off_pts": 2.0
+   },
+   "B": {
+    "ours": 282,
+    "truth": 185,
+    "ratio": 1.52,
+    "thirds_ours": [
+     31.2,
+     41.8,
+     27.0
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 22.9,
+    "thirds_off_pts": 5.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 7,
+  "block_err_median_pct": 129.1,
+  "block_counts_ours": {
+   "A": [
+    44,
+    34,
+    40,
+    56,
+    38,
+    55,
+    52,
+    35,
+    43,
+    0
+   ],
+   "B": [
+    43,
+    41,
+    42,
+    54,
+    37,
+    59,
+    59,
+    36,
+    53,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 821,
+  "points_truth": 362,
+  "matched": 307,
+  "ours_real_pct": 37.4,
+  "truth_found_pct": 84.8,
+  "teams": {
+   "A": {
+    "ours": 397,
+    "truth": 177,
+    "ratio": 2.24,
+    "thirds_ours": [
+     25.2,
+     46.6,
+     28.2
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 29.0,
+    "thirds_off_pts": 3.0
+   },
+   "B": {
+    "ours": 424,
+    "truth": 185,
+    "ratio": 2.29,
+    "thirds_ours": [
+     29.2,
+     42.9,
+     27.8
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 25.1,
+    "thirds_off_pts": 4.1
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 7,
+  "block_err_median_pct": 19.1,
+  "block_counts_ours": {
+   "A": [
+    20,
+    12,
+    15,
+    27,
+    15,
+    26,
+    26,
+    11,
+    19,
+    0
+   ],
+   "B": [
+    26,
+    21,
+    25,
+    23,
+    22,
+    34,
+    29,
+    24,
+    24,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 399,
+  "points_truth": 362,
+  "matched": 231,
+  "ours_real_pct": 57.9,
+  "truth_found_pct": 63.8,
+  "teams": {
+   "A": {
+    "ours": 171,
+    "truth": 177,
+    "ratio": 0.97,
+    "thirds_ours": [
+     31.0,
+     48.5,
+     20.5
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 23.6,
+    "thirds_off_pts": 6.6
+   },
+   "B": {
+    "ours": 228,
+    "truth": 185,
+    "ratio": 1.23,
+    "thirds_ours": [
+     33.3,
+     43.4,
+     23.2
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 26.3,
+    "thirds_off_pts": 5.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 1,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 7,
+  "block_err_median_pct": 40.7,
+  "block_counts_ours": {
+   "A": [
+    25,
+    18,
+    20,
+    35,
+    22,
+    41,
+    34,
+    19,
+    24,
+    0
+   ],
+   "B": [
+    28,
+    25,
+    29,
+    26,
+    26,
+    43,
+    37,
+    25,
+    30,
+    0
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    14,
+    15,
+    16,
+    22,
+    17,
+    26,
+    31,
+    13,
+    23,
+    0
+   ],
+   "B": [
+    22,
+    16,
+    20,
+    22,
+    16,
+    26,
+    21,
+    20,
+    22,
+    0
+   ]
+  },
+  "points_ours": 507,
+  "points_truth": 362,
+  "matched": 255,
+  "ours_real_pct": 50.3,
+  "truth_found_pct": 70.4,
+  "teams": {
+   "A": {
+    "ours": 238,
+    "truth": 177,
+    "ratio": 1.34,
+    "thirds_ours": [
+     27.3,
+     51.3,
+     21.4
+    ],
+    "thirds_truth": [
+     28.2,
+     44.6,
+     27.1
+    ],
+    "grid_misplaced_pct": 26.2,
+    "thirds_off_pts": 6.7
+   },
+   "B": {
+    "ours": 269,
+    "truth": 185,
+    "ratio": 1.45,
+    "thirds_ours": [
+     30.5,
+     42.4,
+     27.1
+    ],
+    "thirds_truth": [
+     28.1,
+     47.0,
+     24.9
+    ],
+    "grid_misplaced_pct": 27.3,
+    "thirds_off_pts": 4.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 4,
+  "block_top_n": 8,
+  "block_err_median_pct": 45.5,
+  "block_counts_ours": {
+   "A": [
+    29,
+    28,
+    23,
+    17,
+    30,
+    17,
+    2,
+    23,
+    22,
+    13
+   ],
+   "B": [
+    20,
+    29,
+    23,
+    32,
+    33,
+    20,
+    4,
+    22,
+    32,
+    12
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 431,
+  "points_truth": 298,
+  "matched": 247,
+  "ours_real_pct": 57.3,
+  "truth_found_pct": 82.9,
+  "teams": {
+   "A": {
+    "ours": 204,
+    "truth": 145,
+    "ratio": 1.41,
+    "thirds_ours": [
+     34.8,
+     46.1,
+     19.1
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 26.7,
+    "thirds_off_pts": 4.5
+   },
+   "B": {
+    "ours": 227,
+    "truth": 153,
+    "ratio": 1.48,
+    "thirds_ours": [
+     25.1,
+     42.7,
+     32.2
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 20.2,
+    "thirds_off_pts": 3.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 18.3,
+  "block_counts_ours": {
+   "A": [
+    22,
+    19,
+    17,
+    3,
+    21,
+    9,
+    0,
+    13,
+    18,
+    7
+   ],
+   "B": [
+    9,
+    20,
+    12,
+    29,
+    18,
+    14,
+    3,
+    15,
+    21,
+    9
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 279,
+  "points_truth": 298,
+  "matched": 213,
+  "ours_real_pct": 76.3,
+  "truth_found_pct": 71.5,
+  "teams": {
+   "A": {
+    "ours": 129,
+    "truth": 145,
+    "ratio": 0.89,
+    "thirds_ours": [
+     39.5,
+     47.3,
+     13.2
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 22.0,
+    "thirds_off_pts": 5.4
+   },
+   "B": {
+    "ours": 150,
+    "truth": 153,
+    "ratio": 0.98,
+    "thirds_ours": [
+     27.3,
+     46.0,
+     26.7
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 17.9,
+    "thirds_off_pts": 2.9
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "False",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 15.0,
+  "block_counts_ours": {
+   "A": [
+    22,
+    18,
+    18,
+    5,
+    22,
+    10,
+    1,
+    16,
+    18,
+    7
+   ],
+   "B": [
+    12,
+    21,
+    14,
+    26,
+    18,
+    14,
+    3,
+    16,
+    22,
+    9
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 292,
+  "points_truth": 298,
+  "matched": 227,
+  "ours_real_pct": 77.7,
+  "truth_found_pct": 76.2,
+  "teams": {
+   "A": {
+    "ours": 137,
+    "truth": 145,
+    "ratio": 0.94,
+    "thirds_ours": [
+     38.0,
+     46.0,
+     16.1
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 20.7,
+    "thirds_off_pts": 3.9
+   },
+   "B": {
+    "ours": 155,
+    "truth": 153,
+    "ratio": 1.01,
+    "thirds_ours": [
+     23.9,
+     45.8,
+     30.3
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 15.8,
+    "thirds_off_pts": 4.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 8,
+  "block_err_median_pct": 73.7,
+  "block_counts_ours": {
+   "A": [
+    25,
+    41,
+    30,
+    29,
+    44,
+    22,
+    2,
+    28,
+    32,
+    15
+   ],
+   "B": [
+    18,
+    39,
+    32,
+    32,
+    36,
+    27,
+    5,
+    32,
+    32,
+    13
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 534,
+  "points_truth": 298,
+  "matched": 203,
+  "ours_real_pct": 38.0,
+  "truth_found_pct": 68.1,
+  "teams": {
+   "A": {
+    "ours": 268,
+    "truth": 145,
+    "ratio": 1.85,
+    "thirds_ours": [
+     34.3,
+     41.0,
+     24.6
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 29.3,
+    "thirds_off_pts": 6.0
+   },
+   "B": {
+    "ours": 266,
+    "truth": 153,
+    "ratio": 1.74,
+    "thirds_ours": [
+     22.6,
+     41.7,
+     35.7
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 28.7,
+    "thirds_off_pts": 6.9
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 8,
+  "block_err_median_pct": 32.3,
+  "block_counts_ours": {
+   "A": [
+    9,
+    10,
+    11,
+    1,
+    19,
+    8,
+    1,
+    10,
+    6,
+    3
+   ],
+   "B": [
+    3,
+    18,
+    13,
+    22,
+    10,
+    10,
+    3,
+    15,
+    16,
+    6
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 194,
+  "points_truth": 298,
+  "matched": 115,
+  "ours_real_pct": 59.3,
+  "truth_found_pct": 38.6,
+  "teams": {
+   "A": {
+    "ours": 78,
+    "truth": 145,
+    "ratio": 0.54,
+    "thirds_ours": [
+     42.3,
+     43.6,
+     14.1
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 34.7,
+    "thirds_off_pts": 4.5
+   },
+   "B": {
+    "ours": 116,
+    "truth": 153,
+    "ratio": 0.76,
+    "thirds_ours": [
+     30.2,
+     38.8,
+     31.0
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 38.6,
+    "thirds_off_pts": 4.3
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 8,
+  "block_err_median_pct": 42.7,
+  "block_counts_ours": {
+   "A": [
+    8,
+    12,
+    7,
+    5,
+    15,
+    8,
+    1,
+    9,
+    11,
+    4
+   ],
+   "B": [
+    3,
+    12,
+    10,
+    14,
+    16,
+    14,
+    2,
+    15,
+    12,
+    6
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 184,
+  "points_truth": 298,
+  "matched": 114,
+  "ours_real_pct": 62.0,
+  "truth_found_pct": 38.3,
+  "teams": {
+   "A": {
+    "ours": 80,
+    "truth": 145,
+    "ratio": 0.55,
+    "thirds_ours": [
+     36.2,
+     45.0,
+     18.8
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 33.1,
+    "thirds_off_pts": 3.1
+   },
+   "B": {
+    "ours": 104,
+    "truth": 153,
+    "ratio": 0.68,
+    "thirds_ours": [
+     24.0,
+     40.4,
+     35.6
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 31.3,
+    "thirds_off_pts": 6.8
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 81.4,
+  "block_counts_ours": {
+   "A": [
+    34,
+    31,
+    30,
+    30,
+    40,
+    26,
+    5,
+    26,
+    36,
+    17
+   ],
+   "B": [
+    23,
+    37,
+    26,
+    40,
+    38,
+    24,
+    8,
+    35,
+    34,
+    9
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 549,
+  "points_truth": 298,
+  "matched": 209,
+  "ours_real_pct": 38.1,
+  "truth_found_pct": 70.1,
+  "teams": {
+   "A": {
+    "ours": 275,
+    "truth": 145,
+    "ratio": 1.9,
+    "thirds_ours": [
+     36.4,
+     40.7,
+     22.9
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 29.0,
+    "thirds_off_pts": 4.3
+   },
+   "B": {
+    "ours": 274,
+    "truth": 153,
+    "ratio": 1.79,
+    "thirds_ours": [
+     25.2,
+     40.1,
+     34.7
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 29.3,
+    "thirds_off_pts": 5.9
+   }
+  },
+  "more_pressing_right": false
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 8,
+  "block_err_median_pct": 41.4,
+  "block_counts_ours": {
+   "A": [
+    16,
+    8,
+    13,
+    0,
+    8,
+    7,
+    0,
+    10,
+    12,
+    4
+   ],
+   "B": [
+    4,
+    9,
+    9,
+    22,
+    8,
+    12,
+    4,
+    8,
+    16,
+    4
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 174,
+  "points_truth": 298,
+  "matched": 103,
+  "ours_real_pct": 59.2,
+  "truth_found_pct": 34.6,
+  "teams": {
+   "A": {
+    "ours": 78,
+    "truth": 145,
+    "ratio": 0.54,
+    "thirds_ours": [
+     48.7,
+     39.7,
+     11.5
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 32.9,
+    "thirds_off_pts": 9.4
+   },
+   "B": {
+    "ours": 96,
+    "truth": 153,
+    "ratio": 0.63,
+    "thirds_ours": [
+     31.2,
+     38.5,
+     30.2
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 36.8,
+    "thirds_off_pts": 4.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "streak",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 51.5,
+  "block_counts_ours": {
+   "A": [
+    11,
+    9,
+    7,
+    6,
+    9,
+    9,
+    0,
+    8,
+    11,
+    5
+   ],
+   "B": [
+    6,
+    9,
+    11,
+    14,
+    8,
+    7,
+    2,
+    8,
+    14,
+    3
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 157,
+  "points_truth": 298,
+  "matched": 87,
+  "ours_real_pct": 55.4,
+  "truth_found_pct": 29.2,
+  "teams": {
+   "A": {
+    "ours": 75,
+    "truth": 145,
+    "ratio": 0.52,
+    "thirds_ours": [
+     38.7,
+     42.7,
+     18.7
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 34.0,
+    "thirds_off_pts": 0.6
+   },
+   "B": {
+    "ours": 82,
+    "truth": 153,
+    "ratio": 0.54,
+    "thirds_ours": [
+     23.2,
+     37.8,
+     39.0
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 36.3,
+    "thirds_off_pts": 10.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 5,
+  "block_top_n": 8,
+  "block_err_median_pct": 115.9,
+  "block_counts_ours": {
+   "A": [
+    41,
+    45,
+    31,
+    39,
+    54,
+    28,
+    5,
+    34,
+    41,
+    23
+   ],
+   "B": [
+    38,
+    48,
+    34,
+    44,
+    56,
+    31,
+    6,
+    34,
+    44,
+    19
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 695,
+  "points_truth": 298,
+  "matched": 253,
+  "ours_real_pct": 36.4,
+  "truth_found_pct": 84.9,
+  "teams": {
+   "A": {
+    "ours": 341,
+    "truth": 145,
+    "ratio": 2.35,
+    "thirds_ours": [
+     34.3,
+     41.9,
+     23.8
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 30.5,
+    "thirds_off_pts": 5.2
+   },
+   "B": {
+    "ours": 354,
+    "truth": 153,
+    "ratio": 2.31,
+    "thirds_ours": [
+     20.6,
+     44.9,
+     34.5
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 28.1,
+    "thirds_off_pts": 7.5
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 21.4,
+  "block_counts_ours": {
+   "A": [
+    25,
+    16,
+    22,
+    8,
+    26,
+    16,
+    0,
+    16,
+    12,
+    13
+   ],
+   "B": [
+    12,
+    32,
+    15,
+    35,
+    32,
+    11,
+    4,
+    20,
+    27,
+    6
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 348,
+  "points_truth": 298,
+  "matched": 199,
+  "ours_real_pct": 57.2,
+  "truth_found_pct": 66.8,
+  "teams": {
+   "A": {
+    "ours": 154,
+    "truth": 145,
+    "ratio": 1.06,
+    "thirds_ours": [
+     39.0,
+     47.4,
+     13.6
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 30.7,
+    "thirds_off_pts": 5.3
+   },
+   "B": {
+    "ours": 194,
+    "truth": 153,
+    "ratio": 1.27,
+    "thirds_ours": [
+     27.8,
+     42.8,
+     29.4
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 23.1,
+    "thirds_off_pts": 0.6
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 0,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 8,
+  "block_err_median_pct": 43.1,
+  "block_counts_ours": {
+   "A": [
+    24,
+    28,
+    24,
+    21,
+    30,
+    16,
+    1,
+    22,
+    22,
+    14
+   ],
+   "B": [
+    19,
+    33,
+    22,
+    35,
+    35,
+    20,
+    3,
+    22,
+    30,
+    9
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 430,
+  "points_truth": 298,
+  "matched": 207,
+  "ours_real_pct": 48.1,
+  "truth_found_pct": 69.5,
+  "teams": {
+   "A": {
+    "ours": 202,
+    "truth": 145,
+    "ratio": 1.39,
+    "thirds_ours": [
+     33.2,
+     42.6,
+     24.3
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 30.2,
+    "thirds_off_pts": 6.1
+   },
+   "B": {
+    "ours": 228,
+    "truth": 153,
+    "ratio": 1.49,
+    "thirds_ours": [
+     21.9,
+     44.7,
+     33.3
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 22.8,
+    "thirds_off_pts": 6.2
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "old",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 7,
+  "block_top_n": 8,
+  "block_err_median_pct": 112.8,
+  "block_counts_ours": {
+   "A": [
+    40,
+    44,
+    33,
+    39,
+    53,
+    29,
+    6,
+    33,
+    39,
+    20
+   ],
+   "B": [
+    35,
+    49,
+    30,
+    39,
+    52,
+    30,
+    6,
+    35,
+    47,
+    22
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 681,
+  "points_truth": 298,
+  "matched": 251,
+  "ours_real_pct": 36.9,
+  "truth_found_pct": 84.2,
+  "teams": {
+   "A": {
+    "ours": 336,
+    "truth": 145,
+    "ratio": 2.32,
+    "thirds_ours": [
+     34.8,
+     41.7,
+     23.5
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 27.9,
+    "thirds_off_pts": 4.9
+   },
+   "B": {
+    "ours": 345,
+    "truth": 153,
+    "ratio": 2.25,
+    "thirds_ours": [
+     22.3,
+     44.6,
+     33.0
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 27.8,
+    "thirds_off_pts": 5.8
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "new",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 8,
+  "block_err_median_pct": 28.6,
+  "block_counts_ours": {
+   "A": [
+    19,
+    20,
+    23,
+    7,
+    15,
+    13,
+    0,
+    11,
+    13,
+    10
+   ],
+   "B": [
+    18,
+    26,
+    9,
+    34,
+    33,
+    13,
+    4,
+    25,
+    28,
+    8
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 329,
+  "points_truth": 298,
+  "matched": 187,
+  "ours_real_pct": 56.8,
+  "truth_found_pct": 62.8,
+  "teams": {
+   "A": {
+    "ours": 131,
+    "truth": 145,
+    "ratio": 0.9,
+    "thirds_ours": [
+     43.5,
+     45.8,
+     10.7
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 30.4,
+    "thirds_off_pts": 7.9
+   },
+   "B": {
+    "ours": 198,
+    "truth": 153,
+    "ratio": 1.29,
+    "thirds_ours": [
+     25.8,
+     45.5,
+     28.8
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 26.1,
+    "thirds_off_pts": 2.4
+   }
+  },
+  "more_pressing_right": true
+ },
+ {
+  "game": "2",
+  "half": 2,
+  "noise": "flicker",
+  "seed": 1,
+  "rule": "lab_raw_state",
+  "direction_same": true,
+  "blocks": 9,
+  "block_top_right": 6,
+  "block_top_n": 8,
+  "block_err_median_pct": 42.7,
+  "block_counts_ours": {
+   "A": [
+    28,
+    20,
+    26,
+    19,
+    18,
+    15,
+    5,
+    23,
+    19,
+    10
+   ],
+   "B": [
+    21,
+    26,
+    14,
+    33,
+    34,
+    20,
+    2,
+    26,
+    31,
+    15
+   ]
+  },
+  "block_counts_truth": {
+   "A": [
+    19,
+    20,
+    16,
+    10,
+    25,
+    12,
+    4,
+    17,
+    15,
+    7
+   ],
+   "B": [
+    13,
+    24,
+    11,
+    22,
+    21,
+    11,
+    4,
+    18,
+    22,
+    7
+   ]
+  },
+  "points_ours": 405,
+  "points_truth": 298,
+  "matched": 205,
+  "ours_real_pct": 50.6,
+  "truth_found_pct": 68.8,
+  "teams": {
+   "A": {
+    "ours": 183,
+    "truth": 145,
+    "ratio": 1.26,
+    "thirds_ours": [
+     36.1,
+     42.1,
+     21.9
+    ],
+    "thirds_truth": [
+     39.3,
+     42.1,
+     18.6
+    ],
+    "grid_misplaced_pct": 25.6,
+    "thirds_off_pts": 3.3
+   },
+   "B": {
+    "ours": 222,
+    "truth": 153,
+    "ratio": 1.45,
+    "thirds_ours": [
+     22.1,
+     45.0,
+     32.9
+    ],
+    "thirds_truth": [
+     28.1,
+     43.1,
+     28.8
+    ],
+    "grid_misplaced_pct": 26.6,
+    "thirds_off_pts": 6.0
+   }
+  },
+  "more_pressing_right": true
+ }
+]

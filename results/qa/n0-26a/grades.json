@@ -1,0 +1,7 @@
+{"_note": "N0-26a, graded blind by eye (Claude, 26 Oct) on results/free/n0-26a sheets BEFORE opening the kind in moments.json. Question: at the point tile, is a player in control of the ball with an opponent close (a real pressure on the carrier)? yes / no / ? . Pairs 1+11, 19+25, 22+26+34 are the same moment counted for both teams (carrier hops).",
+ "grades": {"0": "yes", "1": "yes", "2": "no", "3": "yes", "4": "no", "5": "?", "6": "no", "7": "yes", "8": "yes", "9": "yes",
+  "10": "yes", "11": "yes", "12": "no", "13": "no", "14": "no", "15": "yes", "16": "yes", "17": "yes", "18": "yes", "19": "yes",
+  "20": "yes", "21": "no", "22": "yes", "23": "yes", "24": "yes", "25": "yes", "26": "yes", "27": "yes", "28": "no", "29": "yes",
+  "30": "?", "31": "yes", "32": "yes", "33": "yes", "34": "yes", "35": "no"},
+ "notes": {"2": "ball on empty grass, players standing (stoppage)", "4": "players standing at the halfway line, dead ball", "6": "walking, nobody near the ring", "12": "ball just played away, in flight", "13": "ring on empty grass, players walking", "14": "ball at #11, the line is at another pair", "21": "loose ball rolling between players", "28": "ring on empty grass, players walking", "35": "walking, line between another pair",
+           "5": "dark on the ball, white 2-4 m", "30": "ball loose half a metre in front of a dark player in a cluster"}}
