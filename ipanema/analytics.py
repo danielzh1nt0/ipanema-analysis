@@ -185,6 +185,38 @@ def touch_time(frames_, episodes, fps):
     return {p: len(S) / fps for p, S in touch_frames(frames_, episodes).items()}
 
 
+BETTER_MARGIN = 6.0
+# N0-27a (27 Oct): 'a better pass was open' (teams[] / players[] better_option_count, the Insights card). With PERFECT inputs
+# (Metrica pro data, all 22 players) the rule calls 83% of completed pro passes second best and only 66% of the passes
+# that were cut out - it rewards the furthest forward team-mate (best option median 18 m forward, 4 points per opponent
+# 'bypassed') and so says the opposite of a decision quality; no tried variant fixes that (tools/n0_27a_rule.py).
+# IPANEMA_BETTER=withhold writes None for both counts (the app then shows Withheld); default 'on' = unchanged.
+BETTER = os.environ.get("IPANEMA_BETTER", "on")
+
+
+def option_values(rows, me_id, team, sgn, lanes_j):
+    """value of every team-mate the carrier me_id could pass to (lanes_j = lanes()[k]): gain towards goal + 4 per opponent
+    bypassed + 0.5 per metre of space (max 10), -25 if the lane is blocked. {} when the carrier is not in rows."""
+    me = next((r for r in rows if r[0] == me_id), None)
+    if me is None: return {}
+    cpos = me[2]; opps = [r[2] for r in rows if r[1] != team]; pos = {r[0]: r[2] for r in rows}
+    def val(rpos, is_open):
+        g = float((rpos[0] - cpos[0]) * sgn); lo, hi = sorted([cpos[0], rpos[0]])
+        byp = int(sum(1 for o in opps if lo < o[0] < hi and abs(o[1] - (cpos[1] + rpos[1]) / 2) < 20)); sp = float(min((np.linalg.norm(o - rpos) for o in opps), default=30.0))
+        return {"gain_m": round(g, 1), "bypassed": byp, "space_m": round(sp, 1), "value": round((g + 4.0 * byp + min(sp, 10.0) * 0.5) - (0 if is_open else 25.0), 1), "open": bool(is_open)}
+    return {l["to"]: val(pos[l["to"]], l["open"]) for l in lanes_j if l["to"] in pos}
+
+
+def best_option(rows, me_id, team, sgn, lanes_j, to):
+    """the 'a better pass was open' fields of one pass (N0-27a: pulled out of passes() unchanged, so the Metrica check
+    uses the very same rule): better_option = another team-mate valued >= BETTER_MARGIN above the one played to."""
+    opts = option_values(rows, me_id, team, sgn, lanes_j)
+    if not opts: return {}
+    played = opts.get(to); bt = max(opts, key=lambda t: opts[t]["value"]); best = opts[bt]
+    return {"played_value": played["value"] if played else None, "best_to": int(bt), "best_value": best["value"], "best_gain_m": best["gain_m"], "best_bypassed": best["bypassed"], "best_space_m": best["space_m"], "best_open": best["open"],
+            "better_option": bool(played is not None and bt != to and best["value"] >= played["value"] + BETTER_MARGIN)}
+
+
 def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
            team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
     """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
@@ -223,18 +255,7 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
                 p["quality"] = "good" if op and p["completed"] else "risky_completed" if (not op) and p["completed"] else "bad_lost" if (not op) else "execution_error"
                 p["missed_open_forward"] = bool(any(l["open"] and l["forward"] for l in lanes_[j] if l["to"] != p["to"]) and kind != "forward")
                 # best option valuation
-                rows = per[j]; me = next((r for r in rows if r[0] == a[2]), None)
-                if me is not None:
-                    cpos = me[2]; opps = [r[2] for r in rows if r[1] != a[3]]; pos = {r[0]: r[2] for r in rows}
-                    def val(rpos, is_open):
-                        g = float((rpos[0] - cpos[0]) * sgn); lo, hi = sorted([cpos[0], rpos[0]])
-                        byp = int(sum(1 for o in opps if lo < o[0] < hi and abs(o[1] - (cpos[1] + rpos[1]) / 2) < 20)); sp = float(min((np.linalg.norm(o - rpos) for o in opps), default=30.0))
-                        return {"gain_m": round(g, 1), "bypassed": byp, "space_m": round(sp, 1), "value": round((g + 4.0 * byp + min(sp, 10.0) * 0.5) - (0 if is_open else 25.0), 1), "open": bool(is_open)}
-                    opts = {l["to"]: val(pos[l["to"]], l["open"]) for l in lanes_[j] if l["to"] in pos}
-                    if opts:
-                        played = opts.get(p["to"]); bt = max(opts, key=lambda t: opts[t]["value"]); best = opts[bt]
-                        p.update({"played_value": played["value"] if played else None, "best_to": int(bt), "best_value": best["value"], "best_gain_m": best["gain_m"], "best_bypassed": best["bypassed"], "best_space_m": best["space_m"], "best_open": best["open"],
-                                  "better_option": bool(played is not None and bt != p["to"] and best["value"] >= played["value"] + 6.0)})
+                p.update(best_option(per[j], a[2], a[3], sgn, lanes_[j], p["to"]))
         out.append(p)
     return out, tracks
 
@@ -377,7 +398,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "time_under_pressure_s": round(len(pressed) * dt, 1), "passes": int(len(mp)), "passes_completed": int(mp["completed"].sum()) if len(mp) else 0,
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,
-                        "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": int(mp["better_option"].sum()) if len(mp) else 0, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
+                        "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": (int(mp["better_option"].sum()) if len(mp) else 0) if BETTER != "withhold" else None, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
                         "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(hi_step.sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
                         "avg_x_m": round(float(P[:, 0].mean()), 1), "avg_y_m": round(float(P[:, 1].mean()), 1),
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
@@ -408,7 +429,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                       "regained_within_5s_pct": pct([t["regained_within_5s"] for t in lost]) if REGAIN != "withhold" else None, "near_at_2s_median": med([t["near_at_2s"] for t in lost]),
                       "time_to_forward_pass_median_s": med([t["time_to_forward_pass"] for t in won]), "forward_within_3s_pct": pct([(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3) for t in won]),
                       "lost_back_5s_pct": pct([t["lost_back_5s"] for t in won]) if REGAIN != "withhold" else None, "distance_m_total_visible": round(sum(p["distance_m"] for p in my)), "pressures_applied": da,
-                      "better_option_count": int(tp["better_option"].sum()) if len(tp) else 0, "heatmap": theat[tm]}
+                      "better_option_count": (int(tp["better_option"].sum()) if len(tp) else 0) if BETTER != "withhold" else None, "heatmap": theat[tm]}
                      | ({"regain_withheld": "N0-22f: not measurable from our ball (Metrica check)"} if REGAIN == "withhold" else {}))   # 3 Oct: the app reads it per team
     return {"players": players, "teams": teams, "heatmaps": heat, "grid": list(GRID)}
 

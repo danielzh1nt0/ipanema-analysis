@@ -1,0 +1,190 @@
+{
+ "total": {
+  "app": {
+   "completed": {
+    "n": 1726,
+    "flagged": 1439,
+    "pct": 83.4
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 168,
+    "pct": 65.6
+   }
+  },
+  "margin12": {
+   "completed": {
+    "n": 1726,
+    "flagged": 1293,
+    "pct": 74.9
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 141,
+    "pct": 55.1
+   }
+  },
+  "reach30": {
+   "completed": {
+    "n": 1726,
+    "flagged": 1278,
+    "pct": 74.0
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 133,
+    "pct": 52.0
+   }
+  },
+  "widen": {
+   "completed": {
+    "n": 1726,
+    "flagged": 1277,
+    "pct": 74.0
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 160,
+    "pct": 62.5
+   }
+  },
+  "widen+reach30": {
+   "completed": {
+    "n": 1726,
+    "flagged": 1130,
+    "pct": 65.5
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 128,
+    "pct": 50.0
+   }
+  },
+  "widen+reach30+margin12": {
+   "completed": {
+    "n": 1726,
+    "flagged": 914,
+    "pct": 53.0
+   },
+   "failed": {
+    "n": 256,
+    "flagged": 99,
+    "pct": 38.7
+   }
+  }
+ },
+ "halves": [
+  {
+   "game": "1",
+   "half": 1,
+   "app": {
+    "completed": 84.8,
+    "failed": 66.7
+   },
+   "margin12": {
+    "completed": 75.3,
+    "failed": 54.5
+   },
+   "reach30": {
+    "completed": 74.8,
+    "failed": 48.5
+   },
+   "widen": {
+    "completed": 73.1,
+    "failed": 60.6
+   },
+   "widen+reach30": {
+    "completed": 64.5,
+    "failed": 48.5
+   },
+   "widen+reach30+margin12": {
+    "completed": 54.0,
+    "failed": 36.4
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "app": {
+    "completed": 83.2,
+    "failed": 60.3
+   },
+   "margin12": {
+    "completed": 75.2,
+    "failed": 48.5
+   },
+   "reach30": {
+    "completed": 72.6,
+    "failed": 48.5
+   },
+   "widen": {
+    "completed": 73.3,
+    "failed": 64.7
+   },
+   "widen+reach30": {
+    "completed": 62.9,
+    "failed": 52.9
+   },
+   "widen+reach30+margin12": {
+    "completed": 50.4,
+    "failed": 41.2
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "app": {
+    "completed": 83.6,
+    "failed": 67.6
+   },
+   "margin12": {
+    "completed": 75.2,
+    "failed": 55.9
+   },
+   "reach30": {
+    "completed": 74.5,
+    "failed": 55.9
+   },
+   "widen": {
+    "completed": 75.2,
+    "failed": 63.2
+   },
+   "widen+reach30": {
+    "completed": 66.9,
+    "failed": 48.5
+   },
+   "widen+reach30+margin12": {
+    "completed": 52.9,
+    "failed": 39.7
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "app": {
+    "completed": 82.1,
+    "failed": 68.5
+   },
+   "margin12": {
+    "completed": 73.8,
+    "failed": 63.0
+   },
+   "reach30": {
+    "completed": 74.3,
+    "failed": 55.6
+   },
+   "widen": {
+    "completed": 73.8,
+    "failed": 61.1
+   },
+   "widen+reach30": {
+    "completed": 67.1,
+    "failed": 50.0
+   },
+   "widen+reach30+margin12": {
+    "completed": 54.7,
+    "failed": 37.0
+   }
+  }
+ ]
+}
