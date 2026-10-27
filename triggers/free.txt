@@ -1,2 +1,3 @@
-tools/n0_26c_frames.py
+tools/n0_27b_frames.py
 # Mon Oct 26 12:45:22 UTC 2026 N0-26c: blind picture sheets of old vs new per-player touches on the two app clips - free runner only, nothing on Modal
+# Tue Oct 27 04:37:27 UTC 2026 N0-27b: blind picture sheets of the app clips' lost passes that now get a pass quality - free runner only, nothing on Modal
