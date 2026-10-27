@@ -5,6 +5,7 @@ on:
     paths: ["triggers/free.txt"]
 permissions:
   contents: write
+  actions: read      # N0-27c: tools/nightly_rescue.py reads a stuck nightly run's artifacts
 jobs:
   free:
     runs-on: ubuntu-latest
@@ -22,6 +23,7 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY || secrets.NEW_SUPABASE_SERVICE_KEY }}
           MATCHES: ${{ vars.MATCHES }}
+          GITHUB_TOKEN: ${{ github.token }}
           WHO: ${{ contains(github.event.head_commit.message, '[who3]') && 'results/review/who_moments3.json' || contains(github.event.head_commit.message, '[who2]') && 'results/review/who_moments2.json' || 'results/review/who_moments.json' }}
           WHO_OUT: ${{ contains(github.event.head_commit.message, '[who3]') && 'results/qa/who3' || contains(github.event.head_commit.message, '[who2]') && 'results/qa/who2' || 'results/qa/who' }}
         run: |
@@ -31,5 +33,5 @@ jobs:
         if: always()
         run: |
           git config user.name "free-bot" && git config user.email "bot@ipanema"
-          git add results/free results/qa results/ball/scorer 2>/dev/null; git commit -qm "free job results" || echo "nothing"
+          git add results/free results/qa results/ball/scorer results/nightly 2>/dev/null; git commit -qm "free job results" || echo "nothing"
           bash tools/push_retry.sh

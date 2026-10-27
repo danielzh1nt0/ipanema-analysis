@@ -132,7 +132,7 @@ def stale_summaries(summaries, art=ART, yml=".github/workflows/nightly.yml"):
 
 
 def main():
-    d = time.strftime("%Y-%m-%d"); q = json.load(open("results/nightly/quick.json")) if os.path.exists("results/nightly/quick.json") else {}
+    d = os.environ.get("NIGHTLY_DATE") or time.strftime("%Y-%m-%d"); q = json.load(open("results/nightly/quick.json")) if os.path.exists("results/nightly/quick.json") else {}
     summaries = [(f, json.load(open(f))) for f in sorted(glob.glob("results/qa/tracktest*/summary.json"))]
     lines = build_lines(d, q, summaries, stale_summaries(summaries))
     row = compare_row(d, lines)
