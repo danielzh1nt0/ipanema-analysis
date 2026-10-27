@@ -1,5 +1,24 @@
-downloading SFKBP1109_s1200
-== sfk 13 moments, 8992 frames
-downloading p15u-vs-aik-2026-09-21-bd09_s2520
-== aik 10 moments, 8992 frames
-sheets: {1: 6, 2: 6, 5: 6, 8: 6, 10: 6, 11: 6, 13: 6, 14: 6, 15: 6, 16: 6, 18: 6, 19: 6, 22: 6, 0: 6, 3: 6, 4: 6, 6: 6, 7: 6, 9: 6, 12: 6, 17: 6, 20: 6, 21: 6}
+# Nightly check 2026-10-27
+
+| Check | Result |
+|---|---|
+| Worse than 2026-10-26 | nothing |
+| Tests | 178/178 pass |
+| Ball, 34 checked moments | 22/34 (best possible 25) |
+| Stats on pro data (worst half) | passes 15% off, possession 8 pts off |
+| Sequences on pro data (all halves) | 40% of real ones found, 44% of ours real (since 3 Oct counted on the spell state like the app, S6: expect ~8 pts fewer found than before (47 -> 40%), not a regression) |
+| Note | From 29 Sep the pro-data stats use the pipeline's possession model (possession_simple), not the old one; numbers before that date are not comparable (E5) |
+| Players, SFKBP1109 | seen/frame dark 8.0 light 7.0, tracked 7.81/9.78 s |
+| Players, gpu | seen/frame dark 9.0 light 8.0, tracked 4.07/6.97 s |
+| Players, gpu_p15u-vs-reymersholm-2026-0 | seen/frame dark 4.0 light 10.0, tracked 2.3/4.6 s |
+| Players, p15u-vs-djursholm-2026-09-26 | seen/frame dark 6.0 light 8.0, tracked 1.62/2.4 s |
+| Players, p15u-vs-reymersholm-2026-09-18 | seen/frame dark 6.0 light 4.0, tracked 1.79/2.54 s |
+| Players, p15u-vs-spanga-2026-09-25 | seen/frame dark 7.0 light 6.0, tracked 2.44/2.54 s |
+| Players, solberga-vs-p09-norrviken-2026 | seen/frame dark 7.0 light 8.0, tracked 2.77/3.4 s |
+rescuing run 40449363991 (#55, started 2026-10-27T04:22:20Z) -> card 2026-10-27
+  got players-solberga-vs-p09-norrviken-2026-09-11
+  got players-p15u-vs-djursholm-2026-09-26
+  got quick
+  got players-p15u-vs-reymersholm-2026-09-18
+  got players-p15u-vs-spanga-2026-09-25
+  got players-SFKBP1109_s1200
