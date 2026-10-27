@@ -1,0 +1,120 @@
+{
+ "note": "graded blind (app label opened after): real lost pass? / green intended mate plausible? / lane by eye at the kick",
+ "grades": {
+  "0": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "blocked"
+  },
+  "1": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "blocked"
+  },
+  "2": {
+   "pass": "?",
+   "mate": "no",
+   "lane": "?"
+  },
+  "3": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "4": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "blocked"
+  },
+  "5": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "6": {
+   "pass": "not",
+   "mate": "-",
+   "lane": "-"
+  },
+  "7": {
+   "pass": "not",
+   "mate": "-",
+   "lane": "-"
+  },
+  "8": {
+   "pass": "real",
+   "mate": "no",
+   "lane": "open"
+  },
+  "9": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "10": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "blocked"
+  },
+  "11": {
+   "pass": "not",
+   "mate": "no",
+   "lane": "-"
+  },
+  "12": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "13": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "open"
+  },
+  "14": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "?"
+  },
+  "15": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "16": {
+   "pass": "real",
+   "mate": "yes",
+   "lane": "blocked"
+  },
+  "17": {
+   "pass": "?",
+   "mate": "-",
+   "lane": "open"
+  },
+  "18": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "19": {
+   "pass": "not",
+   "mate": "no",
+   "lane": "-"
+  },
+  "20": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  },
+  "21": {
+   "pass": "not",
+   "mate": "-",
+   "lane": "-"
+  },
+  "22": {
+   "pass": "?",
+   "mate": "?",
+   "lane": "?"
+  }
+ }
+}

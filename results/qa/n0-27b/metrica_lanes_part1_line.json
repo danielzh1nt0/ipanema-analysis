@@ -1,0 +1,341 @@
+{
+ "total": {
+  "app (1.5 m)": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 13.9,
+   "blocked_failed_pct": 54.6,
+   "cut_out_if_blocked_pct": 35.1,
+   "cut_out_if_open_pct": 6.8,
+   "lift": 5.19
+  },
+  "1.0 m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 8.6,
+   "blocked_failed_pct": 38.7,
+   "cut_out_if_blocked_pct": 38.2,
+   "cut_out_if_open_pct": 8.5,
+   "lift": 4.51
+  },
+  "2.5 m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 25.3,
+   "blocked_failed_pct": 73.9,
+   "cut_out_if_blocked_pct": 28.8,
+   "cut_out_if_open_pct": 4.6,
+   "lift": 6.27
+  },
+  "4.0 m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 43.3,
+   "blocked_failed_pct": 85.3,
+   "cut_out_if_blocked_pct": 21.4,
+   "cut_out_if_open_pct": 3.5,
+   "lift": 6.19
+  },
+  "widen 0.1/m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 19.8,
+   "blocked_failed_pct": 74.8,
+   "cut_out_if_blocked_pct": 34.3,
+   "cut_out_if_open_pct": 4.2,
+   "lift": 8.26
+  },
+  "widen 0.2/m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 27.8,
+   "blocked_failed_pct": 84.0,
+   "cut_out_if_blocked_pct": 29.5,
+   "cut_out_if_open_pct": 3.0,
+   "lift": 9.96
+  },
+  "widen 0.3/m": {
+   "n_completed": 1726,
+   "n_failed": 238,
+   "blocked_completed_pct": 28.4,
+   "blocked_failed_pct": 85.3,
+   "cut_out_if_blocked_pct": 29.3,
+   "cut_out_if_open_pct": 2.8,
+   "lift": 10.64
+  }
+ },
+ "halves": [
+  {
+   "game": "1",
+   "half": 1,
+   "app (1.5 m)": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 15.5,
+    "blocked_failed_pct": 53.3,
+    "cut_out_if_blocked_pct": 36.4,
+    "cut_out_if_open_pct": 8.4,
+    "lift": 4.32
+   },
+   "1.0 m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 10.5,
+    "blocked_failed_pct": 38.3,
+    "cut_out_if_blocked_pct": 37.7,
+    "cut_out_if_open_pct": 10.3,
+    "lift": 3.67
+   },
+   "2.5 m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 28.5,
+    "blocked_failed_pct": 73.3,
+    "cut_out_if_blocked_pct": 29.9,
+    "cut_out_if_open_pct": 5.8,
+    "lift": 5.13
+   },
+   "4.0 m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 46.5,
+    "blocked_failed_pct": 88.3,
+    "cut_out_if_blocked_pct": 24.0,
+    "cut_out_if_open_pct": 3.5,
+    "lift": 6.85
+   },
+   "widen 0.1/m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 23.5,
+    "blocked_failed_pct": 73.3,
+    "cut_out_if_blocked_pct": 34.1,
+    "cut_out_if_open_pct": 5.5,
+    "lift": 6.22
+   },
+   "widen 0.2/m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 29.4,
+    "blocked_failed_pct": 83.3,
+    "cut_out_if_blocked_pct": 32.1,
+    "cut_out_if_open_pct": 3.8,
+    "lift": 8.49
+   },
+   "widen 0.3/m": {
+    "n_completed": 361,
+    "n_failed": 60,
+    "blocked_completed_pct": 29.6,
+    "blocked_failed_pct": 85.0,
+    "cut_out_if_blocked_pct": 32.3,
+    "cut_out_if_open_pct": 3.4,
+    "lift": 9.43
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "app (1.5 m)": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 12.5,
+    "blocked_failed_pct": 50.8,
+    "cut_out_if_blocked_pct": 37.6,
+    "cut_out_if_open_pct": 7.7,
+    "lift": 4.87
+   },
+   "1.0 m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 7.3,
+    "blocked_failed_pct": 39.7,
+    "cut_out_if_blocked_pct": 44.6,
+    "cut_out_if_open_pct": 8.8,
+    "lift": 5.05
+   },
+   "2.5 m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 22.5,
+    "blocked_failed_pct": 76.2,
+    "cut_out_if_blocked_pct": 33.6,
+    "cut_out_if_open_pct": 4.4,
+    "lift": 7.68
+   },
+   "4.0 m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 38.3,
+    "blocked_failed_pct": 85.7,
+    "cut_out_if_blocked_pct": 25.0,
+    "cut_out_if_open_pct": 3.3,
+    "lift": 7.5
+   },
+   "widen 0.1/m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 18.0,
+    "blocked_failed_pct": 77.8,
+    "cut_out_if_blocked_pct": 39.2,
+    "cut_out_if_open_pct": 3.9,
+    "lift": 10.11
+   },
+   "widen 0.2/m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 27.7,
+    "blocked_failed_pct": 85.7,
+    "cut_out_if_blocked_pct": 31.6,
+    "cut_out_if_open_pct": 2.9,
+    "lift": 11.05
+   },
+   "widen 0.3/m": {
+    "n_completed": 423,
+    "n_failed": 63,
+    "blocked_completed_pct": 27.7,
+    "blocked_failed_pct": 87.3,
+    "cut_out_if_blocked_pct": 32.0,
+    "cut_out_if_open_pct": 2.5,
+    "lift": 12.55
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "app (1.5 m)": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 14.2,
+    "blocked_failed_pct": 59.4,
+    "cut_out_if_blocked_pct": 33.6,
+    "cut_out_if_open_pct": 5.4,
+    "lift": 6.21
+   },
+   "1.0 m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 7.9,
+    "blocked_failed_pct": 34.4,
+    "cut_out_if_blocked_pct": 34.4,
+    "cut_out_if_open_pct": 7.9,
+    "lift": 4.33
+   },
+   "2.5 m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 25.5,
+    "blocked_failed_pct": 70.3,
+    "cut_out_if_blocked_pct": 25.0,
+    "cut_out_if_open_pct": 4.6,
+    "lift": 5.43
+   },
+   "4.0 m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 42.5,
+    "blocked_failed_pct": 81.2,
+    "cut_out_if_blocked_pct": 18.8,
+    "cut_out_if_open_pct": 3.8,
+    "lift": 4.94
+   },
+   "widen 0.1/m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 19.3,
+    "blocked_failed_pct": 70.3,
+    "cut_out_if_blocked_pct": 30.6,
+    "cut_out_if_open_pct": 4.3,
+    "lift": 7.19
+   },
+   "widen 0.2/m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 26.5,
+    "blocked_failed_pct": 84.4,
+    "cut_out_if_blocked_pct": 27.8,
+    "cut_out_if_open_pct": 2.5,
+    "lift": 11.11
+   },
+   "widen 0.3/m": {
+    "n_completed": 529,
+    "n_failed": 64,
+    "blocked_completed_pct": 27.4,
+    "blocked_failed_pct": 84.4,
+    "cut_out_if_blocked_pct": 27.1,
+    "cut_out_if_open_pct": 2.5,
+    "lift": 10.69
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "app (1.5 m)": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 13.6,
+    "blocked_failed_pct": 54.9,
+    "cut_out_if_blocked_pct": 33.3,
+    "cut_out_if_open_pct": 6.1,
+    "lift": 5.51
+   },
+   "1.0 m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 9.2,
+    "blocked_failed_pct": 43.1,
+    "cut_out_if_blocked_pct": 36.7,
+    "cut_out_if_open_pct": 7.2,
+    "lift": 5.11
+   },
+   "2.5 m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 24.9,
+    "blocked_failed_pct": 76.5,
+    "cut_out_if_blocked_pct": 27.5,
+    "cut_out_if_open_pct": 3.7,
+    "lift": 7.37
+   },
+   "4.0 m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 46.5,
+    "blocked_failed_pct": 86.3,
+    "cut_out_if_blocked_pct": 18.6,
+    "cut_out_if_open_pct": 3.1,
+    "lift": 6.07
+   },
+   "widen 0.1/m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 18.9,
+    "blocked_failed_pct": 78.4,
+    "cut_out_if_blocked_pct": 33.9,
+    "cut_out_if_open_pct": 3.2,
+    "lift": 10.66
+   },
+   "widen 0.2/m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 28.1,
+    "blocked_failed_pct": 82.4,
+    "cut_out_if_blocked_pct": 26.6,
+    "cut_out_if_open_pct": 2.9,
+    "lift": 9.04
+   },
+   "widen 0.3/m": {
+    "n_completed": 413,
+    "n_failed": 51,
+    "blocked_completed_pct": 29.3,
+    "blocked_failed_pct": 84.3,
+    "cut_out_if_blocked_pct": 26.2,
+    "cut_out_if_open_pct": 2.7,
+    "lift": 9.83
+   }
+  }
+ ],
+ "length_median_m": {
+  "completed": 13.5,
+  "failed": 25.7
+ }
+}

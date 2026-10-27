@@ -217,6 +217,20 @@ def best_option(rows, me_id, team, sgn, lanes_j, to):
             "better_option": bool(played is not None and bt != to and best["value"] >= played["value"] + BETTER_MARGIN)}
 
 
+# N0-27b (27 Oct): a lost pass's 'to' is the opponent who won it, never a lane of the passer's team, so a lost pass never got a
+# lane or a quality: bad_lost / execution_error (players[].pass_quality, events pass_bad) were ~always 0 (1-3 of 25-77 lost
+# passes per app copy). Now the intended receiver of a lost pass = the passer's team-mate in reach (the lanes) nearest the
+# spot where the ball was won (the same proxy as the Metrica check, tools/n0_27b_lanes.py); passes[].intended_to.
+# IPANEMA_LOST_LANE=old = old behaviour.
+LOST_LANE = os.environ.get("IPANEMA_LOST_LANE", "mate")
+
+
+def intended_mate(rows, lanes_j, won_at):
+    """the team-mate (one of lanes_j's 'to') nearest the spot won_at where the opponent got the ball; None if no lane"""
+    pos = {r[0]: r[2] for r in rows}; c = [(float(np.linalg.norm(pos[l["to"]] - won_at)), l["to"]) for l in lanes_j if l["to"] in pos]
+    return int(min(c)[1]) if c else None
+
+
 def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lane_half=1.5, min_touch_s=0.6, floor_s=0.08, sandwich=True,
            team_sandwich_s=0.3, mate_sandwich_s=0.0, min_pass_m=5.0, state=None, ballm=None, pass_by_mps=0.0, pass_by_win_s=0.4, debug=False):
     """S1 (29 Sep, Metrica pro games, results/metrica/passes_2026-09-29.md): defaults team_sandwich_s=0.3 and min_pass_m=5
@@ -250,12 +264,16 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
         k_rel = a[1]; win = [j for j in range(k_rel - 3, k_rel + 1) if j in lanes_]
         if win:
             j = win[-1]; ln = {l["to"]: l for l in lanes_[j]}
-            if p["to"] in ln:
-                op = ln[p["to"]]["open"]; p["lane_open"] = op
+            if LOST_LANE == "mate" and not p["completed"]:
+                mt = intended_mate(per[j], lanes_[j], pb)
+                if mt is not None: p["intended_to"] = mt
+            tgt = p.get("intended_to", p["to"])
+            if tgt in ln:
+                op = ln[tgt]["open"]; p["lane_open"] = op
                 p["quality"] = "good" if op and p["completed"] else "risky_completed" if (not op) and p["completed"] else "bad_lost" if (not op) else "execution_error"
-                p["missed_open_forward"] = bool(any(l["open"] and l["forward"] for l in lanes_[j] if l["to"] != p["to"]) and kind != "forward")
+                p["missed_open_forward"] = bool(any(l["open"] and l["forward"] for l in lanes_[j] if l["to"] != tgt) and kind != "forward")
                 # best option valuation
-                p.update(best_option(per[j], a[2], a[3], sgn, lanes_[j], p["to"]))
+                if tgt == p["to"]: p.update(best_option(per[j], a[2], a[3], sgn, lanes_[j], tgt))   # N0-27b: a lost pass gets no 'better option' (unchanged)
         out.append(p)
     return out, tracks
 
