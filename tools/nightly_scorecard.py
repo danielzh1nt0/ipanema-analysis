@@ -5,8 +5,13 @@ N1 (5 Oct): the card now compares itself with the day before and adds a
 
 N0 (18 Oct): a player check whose job failed tonight is shown as NOT RUN (it used to show the numbers left in the
 repo from an earlier night, so a broken job read as 'nothing worse' on 17 and 18 Oct), and the Worse row says so.
+
+N0-28c (28 Oct): each player job's artifact holds EVERY tracktest* folder of its checkout, and the old copy step
+(cp -r every artifact over results/qa/) let the last artifact's stale repo copies overwrite the other jobs' fresh
+results - only Solberga's folder (last in sort order) had changed since 25 Oct, so 4 of the 5 player rows showed old
+numbers every night. collect() now takes from each artifact only its own match's folder.
 """
-import json, glob, os, re, time
+import json, glob, os, re, shutil, sys, time
 
 ART = os.environ.get("NIGHTLY_ART", "/tmp/art")      # where the scorecard job downloads tonight's artifacts
 
@@ -32,6 +37,23 @@ def fresh_folders(art=ART):
     None = no artifacts dir (a local run): nothing is marked."""
     if not os.path.isdir(art): return None
     return {folder_of(os.path.basename(p)[len("players-"):]) for p in glob.glob(f"{art}/players-*") if os.path.isdir(p)}
+
+
+def collect(art=ART, dest="results/qa"):
+    """Copy tonight's player results into dest: from artifact players-<match> only folder_of(match) (N0-28c).
+    -> list of folders copied. A no-op without the artifacts dir (a local run)."""
+    if not os.path.isdir(art): return []
+    done = []
+    for p in sorted(glob.glob(f"{art}/players-*")):
+        if not os.path.isdir(p): continue
+        fol = folder_of(os.path.basename(p)[len("players-"):])
+        src = os.path.join(p, fol)
+        if not os.path.isdir(src) and os.path.exists(os.path.join(p, "summary.json")): src = p   # artifact of one folder only
+        if not os.path.isdir(src): continue
+        dst = os.path.join(dest, fol)
+        if os.path.isdir(dst): shutil.rmtree(dst)
+        shutil.copytree(src, dst); done.append(fol)
+    return done
 
 
 def player_row(f, v):
@@ -132,6 +154,7 @@ def stale_summaries(summaries, art=ART, yml=".github/workflows/nightly.yml"):
 
 
 def main():
+    if "--collect" in sys.argv: print("collected:", ", ".join(collect()) or "nothing")
     d = os.environ.get("NIGHTLY_DATE") or time.strftime("%Y-%m-%d"); q = json.load(open("results/nightly/quick.json")) if os.path.exists("results/nightly/quick.json") else {}
     summaries = [(f, json.load(open(f))) for f in sorted(glob.glob("results/qa/tracktest*/summary.json"))]
     lines = build_lines(d, q, summaries, stale_summaries(summaries))

@@ -65,8 +65,7 @@ jobs:
       - run: |
           mkdir -p results/nightly results/qa
           cp /tmp/art/quick/quick.json results/nightly/ 2>/dev/null || true
-          for d in /tmp/art/players-*; do cp -r $d/* results/qa/ 2>/dev/null || true; done
-          python tools/nightly_scorecard.py
+          python tools/nightly_scorecard.py --collect
           git config user.name nightly-bot && git config user.email bot@ipanema
           git add results/nightly results/qa && git commit -qm "nightly check $(date -u +%F)" || echo nothing
           bash tools/push_retry.sh

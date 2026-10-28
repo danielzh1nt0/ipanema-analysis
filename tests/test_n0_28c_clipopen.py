@@ -84,3 +84,49 @@ def test_tracktest_uses_retrying_open():
     s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "tracktest.py")).read()
     assert "open_clip(src, cv2" in s and "read_piece(src, cv2" in s
     assert "-c user.email=bot@ipanema pull" in s        # progress push: the rebase needs an identity too (28 Oct log)
+
+
+# --- the scorecard's copy step (N0-28c): each artifact holds every tracktest* folder of its checkout ---
+def _artifact(root, match, folders):
+    import json
+    for fol, dark in folders.items():
+        os.makedirs(os.path.join(root, f"players-{match}", fol), exist_ok=True)
+        json.dump({"new, RF-DETR": {"observed_per_frame": {"dark": dark, "light": 1.0}, "median_track_s": {"dark": 1, "light": 1}}},
+                  open(os.path.join(root, f"players-{match}", fol, "summary.json"), "w"))
+
+
+def test_collect_takes_only_each_jobs_own_folder(tmp_path):
+    import json
+    from tools.nightly_scorecard import collect
+    art, dest = str(tmp_path / "art"), str(tmp_path / "qa")
+    # SFK job: fresh SFK (9) + stale repo copy of Solberga (1); Solberga job: fresh Solberga (7) + stale SFK (2)
+    _artifact(art, "SFKBP1109_s1200", {"tracktest": 9.0, "tracktest_solberga": 1.0})
+    _artifact(art, "solberga", {"tracktest": 2.0, "tracktest_solberga": 7.0})
+    got = collect(art, dest)
+    assert sorted(got) == ["tracktest", "tracktest_solberga"]
+    rd = lambda f: json.load(open(os.path.join(dest, f, "summary.json")))["new, RF-DETR"]["observed_per_frame"]["dark"]
+    assert rd("tracktest") == 9.0 and rd("tracktest_solberga") == 7.0        # old cp loop: 2.0 (stale) and 7.0
+
+
+def test_collect_leaves_failed_jobs_folder_alone(tmp_path):
+    from tools.nightly_scorecard import collect
+    art, dest = str(tmp_path / "art"), str(tmp_path / "qa")
+    os.makedirs(os.path.join(dest, "tracktest_djm")); open(os.path.join(dest, "tracktest_djm", "summary.json"), "w").write("{}")
+    _artifact(art, "solberga", {"tracktest_djm": 3.0, "tracktest_solberga": 7.0})   # djm job failed: no players-djm
+    assert collect(art, dest) == ["tracktest_solberga"]
+    assert open(os.path.join(dest, "tracktest_djm", "summary.json")).read() == "{}"
+
+
+def test_collect_noop_without_artifacts(tmp_path):
+    from tools.nightly_scorecard import collect
+    assert collect(str(tmp_path / "none"), str(tmp_path / "qa")) == []
+
+
+def test_nightly_yml_uses_collect():
+    s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".github", "workflows", "nightly.yml")).read()
+    assert "nightly_scorecard.py --collect" in s and "cp -r $d/*" not in s
+
+
+def test_tracktest_fails_on_a_cut_piece():
+    s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "tracktest.py")).read()
+    assert "_got < 0.9 * n" in s

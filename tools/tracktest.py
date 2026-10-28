@@ -22,7 +22,7 @@ cap, fps, n_all, _tries = open_clip(src, cv2, tries=3, wait_s=_wait, log=log); l
 if cap is None: log("clip not reachable on R2 (3 tries)"); sys.exit(1)
 k0 = int(START_S * fps); n = int(DUR_S * fps); piece = "/tmp/piece.mp4"
 _got, fps, _ = read_piece(src, cv2, k0, n, piece, tries=3, wait_s=_wait, log=log, cap=cap)
-if not _got: log("piece not readable from R2 (3 tries)"); sys.exit(1)
+if _got < 0.9 * n: log(f"piece not readable from R2 (3 tries, best {_got}/{n} frames)"); sys.exit(1)   # a cut piece gave 0 players/frame (28 Oct SFK-BP): fail -> NOT RUN, not wrong numbers
 if SFK:
     rows = LC.find_rows(os.getcwd(), "SFKBP1109_s1200")
     cal = LC.calibration_for_clip(rows[2], n, fps, 1920, 1080, offset_s=1200 + START_S, log=log); H = cal["H"]; L, W = cal["L"], cal["W"]
