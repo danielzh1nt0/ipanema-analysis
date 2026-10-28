@@ -1,5 +1,6 @@
-tools/n0_28a_frames.py
+tools/n0_28b_frames.py
 # Mon Oct 26 12:45:22 UTC 2026 N0-26c: blind picture sheets of old vs new per-player touches on the two app clips - free runner only, nothing on Modal
 # Tue Oct 27 04:37:27 UTC 2026 N0-27b: blind picture sheets of the app clips' lost passes that now get a pass quality - free runner only, nothing on Modal
 # Tue Oct 27 20:37:10 UTC 2026 N0-27c: build the 27 Oct nightly card from run 40449363991 (its scorecard job has sat queued since 04:42) - free runner only, nothing on Modal
 # Wed Oct 28 00:34:18 UTC 2026 N0-28a: blind picture sheets of the app clips' reactions after a loss (pressed / jogged / stood) - free runner only, nothing on Modal
+# Wed Oct 28 04:51:33 UTC 2026 N0-28b: blind picture sheets of the stoppages where sequences would be cut + control windows - free runner only, nothing on Modal
