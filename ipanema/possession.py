@@ -428,9 +428,6 @@ def _spot_frames(k, j, n, fps, spot):
     if spot == "last1": return range(max(k, j - int(1.0 * fps)), j + 1)
     return range(max(k, j - int(1.0 * fps)), min(n, j + int(1.5 * fps)))
 
-# N0-23a (23 Oct): 'forward pass within 3 s of winning it' is timed from the winner's first touch after the loser's last
-# control (k_lost), not from the frame the counted state turns (k0, up to ~2 s later, often after the first pass).
-# Metrica: the first forward pass of a win was missed when it was the pass that made the state turn. 0 = old.
 REACTION = os.environ.get("IPANEMA_REACTION", "own")   # N0-28a (28 Oct): 'own' = the player's own run toward the ball; 'gap' = old
 
 
@@ -453,6 +450,9 @@ def reaction_label(p0, p2, b0, b2, react_s=2.0, near_r=5.0, press_v=2.0, jog_v=0
     return "pressed" if (d2 <= near_r or closing >= press_v) else "jogged" if closing >= jog_v else "stood"
 
 
+# N0-23a (23 Oct): 'forward pass within 3 s of winning it' is timed from the winner's first touch after the loser's last
+# control (k_lost), not from the frame the counted state turns (k0, up to ~2 s later, often after the first pass).
+# Metrica: the first forward pass of a win was missed when it was the pass that made the state turn. 0 = old.
 FWD_FROM_WIN = os.environ.get("IPANEMA_FWD_FROM_WIN", "1") != "0"
 
 def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
