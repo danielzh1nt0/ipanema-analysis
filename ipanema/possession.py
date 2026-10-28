@@ -299,6 +299,8 @@ def spell_state(state, fps, take_s=SPELL_TAKE_S, join_s=SPELL_JOIN_S):
 SEQ_REACH = os.environ.get("IPANEMA_SEQ_REACH", "any")
 SEQ_STOP_S = float(os.environ.get("IPANEMA_SEQ_STOP_S", "2"))
 SEQ_REACH_MIN_S = float(os.environ.get("IPANEMA_SEQ_REACH_MIN_S", "0.5"))   # 'any': the ball must be in the final third this long (s, summed)
+SEQ_SPLIT_STOP = os.environ.get("IPANEMA_SEQ_SPLIT_STOP", "0") != "0"   # N0-28b: cut sequences at the restart step's stoppages
+SEQ_GAIN = os.environ.get("IPANEMA_SEQ_GAIN", "exact")   # N0-28b lab: metres gained per sequence, exact (first / last frame) or edge<s>
 
 def stoppage_spans(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, gap_s=None):
     """-> [(first frame, last frame)] of the stoppages restarts() counts (same joining, same N0-24e gap rule); each
@@ -319,15 +321,56 @@ def stoppage_spans(state, ballm, fps, L, W, min_s=3.0, join_gap_s=3.0, gap_s=Non
         else: k += 1
     return out
 
-def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S, stops=None, reach=None, stop_s=None, reach_min_s=None):
+def split_at_stops(seqs, state, stops, min_len=1):
+    """N0-28b: a sequence does not run through a stoppage. possession_simple keeps the last team while the ball is out
+    (Metrica blanks it, our finder loses it behind the boards), so 8-19% of sequences ran on across a throw-in / free
+    kick / goal kick and held 19-41% of all sequence time (median 23-46 s, Metrica). Each stoppage span (a, b) is cut
+    out of the sequence: the part before ends at a-1; the part after starts at the team's first control frame after b.
+    Pieces with no control frame of the team, or a cut piece shorter than min_len frames, are dropped."""
+    if not stops: return seqs
+    out = []
+    for sq in seqs:
+        pieces = [dict(sq)]
+        for a, b in stops:
+            nxt = []
+            for p in pieces:
+                if b < p["start"] or a > p["end"]: nxt.append(p); continue
+                if a > p["start"]: nxt.append(dict(p, end=a - 1))
+                if b < p["end"]:
+                    k = next((q for q in range(b + 1, p["end"] + 1) if STATES[state[q]] == p["team"]), None)
+                    if k is not None: nxt.append(dict(p, start=k))
+            pieces = nxt
+        for p in pieces:                                                     # a piece ends on the team's last control frame
+            e = next((q for q in range(p["end"], p["start"] - 1, -1) if STATES[state[q]] == p["team"]), None)
+            if e is None: continue
+            p = dict(p, end=e)
+            if (p["start"], p["end"]) != (sq["start"], sq["end"]) and p["end"] - p["start"] + 1 < min_len: continue
+            out.append(p)
+    return out
+
+def seq_gain(sq, ballm, sgn, fps, mode):
+    """N0-28b: metres the ball moved toward the opponent's goal over a sequence. 'exact' = ball on the first and last
+    frame only (None if either is unseen); 'edge<s>' = median of the seen ball in the first / last <s> seconds of the
+    sequence (None if no ball in either window)"""
+    if mode == "exact":
+        b0, b1 = ballm.get(sq["start"]), ballm.get(sq["end"])
+    else:
+        w = max(1, int(round(float(mode[4:]) * fps))); a, e = sq["start"], sq["end"]
+        x0 = [ballm[k][0] for k in range(a, min(e, a + w - 1) + 1) if ballm.get(k) is not None]
+        x1 = [ballm[k][0] for k in range(max(a, e - w + 1), e + 1) if ballm.get(k) is not None]
+        b0 = (float(np.median(x0)),) if x0 else None; b1 = (float(np.median(x1)),) if x1 else None
+    return float((b1[0] - b0[0]) * sgn) if (b0 is not None and b1 is not None) else None
+
+def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, join_s=SEQ_JOIN_S, stops=None, reach=None, stop_s=None, reach_min_s=None, gain=None, split_stop=None):
     """E5 (29 Sep): possession_simple flips to the other team ~190 times per 5 min when the ball sits between two
     players, which cut sequences into 3x as many pieces (SFK-BP 64 -> 210, median 0.6 s). The state is untouched
     (deflickering it cost who-has-the-ball moments); sequence_spans() now ignores short takeovers (take_s) and joins a
     team's control across loose gaps up to join_s. Metrica 4 halves, clean: 563 sequences vs 694 true (was 1562), 72%
     of ours real (was 34%). results/possession/e5_2026-09-29.md"""
     n = len(state); seqs = sequence_spans(state, fps, take_s, join_s)
+    if (SEQ_SPLIT_STOP if split_stop is None else split_stop) and stops: seqs = split_at_stops(seqs, state, stops, min_len=max(1, int(round(take_s * fps))))
     reach = SEQ_REACH if reach is None else reach; stop_s = SEQ_STOP_S if stop_s is None else stop_s; used = set()
-    reach_min_s = SEQ_REACH_MIN_S if reach_min_s is None else reach_min_s
+    reach_min_s = SEQ_REACH_MIN_S if reach_min_s is None else reach_min_s; gain_mode = SEQ_GAIN if gain is None else gain
     for i, sq in enumerate(seqs):
         nxt = seqs[i + 1] if i + 1 < len(seqs) else None; after = STATES[state[min(n - 1, sq["end"] + 1)]]
         sp = max((bspeed.get(j, 0.0) for j in range(sq["end"], min(n, sq["end"] + int(0.4 * fps)))), default=0.0)
@@ -341,7 +384,7 @@ def sequences(state, ballm, bspeed, fps, L, attack_right, take_s=SEQ_TAKE_S, joi
         b0, b1 = ballm.get(sq["start"]), ballm.get(sq["end"]); sgn = 1 if attack_right[sq["team"]] else -1
         inf = (lambda b: b is not None and ((b[0] > 2 * L / 3) if sgn == 1 else (b[0] < L / 3)))
         reached = inf(b1) or (reach == "any" and sum(1 for k in range(sq["start"], sq["end"] + 1) if inf(ballm.get(k))) >= max(1, reach_min_s * fps))
-        gain = float((b1[0] - b0[0]) * sgn) if (b0 is not None and b1 is not None) else None
+        gain = seq_gain(sq, ballm, sgn, fps, gain_mode)
         sq.update({"t_start": round(sq["start"] / fps, 2), "t_end": round(sq["end"] / fps, 2), "duration_s": round((sq["end"] - sq["start"] + 1) / fps, 2), "end_reason": reason,
                    "gain_m": round(gain, 1) if gain is not None else None, "reached_final_third": bool(reached)})
     return seqs

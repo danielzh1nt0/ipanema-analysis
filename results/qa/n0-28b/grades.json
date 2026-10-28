@@ -1,0 +1,67 @@
+{
+ "_how": "graded blind from results/free/n0-28b/<id>.jpg before opening key_SEALED.json; per window: is play stopped across it?",
+ "s02": {
+  "grade": "can't tell",
+  "note": "players spread round the centre circle, walking/jogging, #24 pointing; no sprint, no ball seen"
+ },
+ "s03": {
+  "grade": "can't tell",
+  "note": "players walking in their half, far view; slow build-up or a pause"
+ },
+ "s09": {
+  "grade": "stopped",
+  "note": "players standing / walking, one hands on hips; nobody moving to a ball"
+ },
+ "s11": {
+  "grade": "stopped from the middle",
+  "note": "attack at the far goal for 3 s, then everyone walks back from ~174 s"
+ },
+ "s12": {
+  "grade": "play on",
+  "note": "attack moving down the pitch, players running"
+ },
+ "s00": {
+  "grade": "can't tell",
+  "note": "players walking/standing round the centre circle, nobody running"
+ },
+ "s01": {
+  "grade": "play on",
+  "note": "attack at the far goal, players moving, a duel at 257 s"
+ },
+ "s04": {
+  "grade": "can't tell",
+  "note": "clip start, players spread and walking"
+ },
+ "s05": {
+  "grade": "restart at the start",
+  "note": "keeper kicks out at 275.7-277 s, then play on"
+ },
+ "s06": {
+  "grade": "play on, then can't tell",
+  "note": "attack runs at the goal 136-147 s, then players stand round the box 151-162 s"
+ },
+ "s07": {
+  "grade": "play on",
+  "note": "counter-attack, everyone running"
+ },
+ "s08": {
+  "grade": "play on",
+  "note": "players running across midfield"
+ },
+ "s10": {
+  "grade": "play on",
+  "note": "attack and keeper, then midfield play"
+ },
+ "s13": {
+  "grade": "play on",
+  "note": "slow midfield play, attack at 87 s"
+ },
+ "s14": {
+  "grade": "can't tell",
+  "note": "players spread round the box, walking"
+ },
+ "s15": {
+  "grade": "stopped (probably)",
+  "note": "players standing round the far box for 10 s, set-piece look"
+ }
+}

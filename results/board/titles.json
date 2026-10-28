@@ -112,5 +112,6 @@
  "N0-26e": "Check our own shot detector on pro data and against Veo",
  "N0-27a": "Check 'A better pass was open' on pro data and by eye",
  "N0-27b": "Check pass quality (open / blocked lane) on pro data and by eye",
- "N0-28a": "Check the 'reaction after a loss' labels (pressed / jogged / stood) on pro data and by eye"
+ "N0-28a": "Check the 'reaction after a loss' labels (pressed / jogged / stood) on pro data and by eye",
+ "N0-28b": "Check sequence length and metres gained on pro data and by eye"
 }

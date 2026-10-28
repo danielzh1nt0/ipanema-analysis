@@ -1,0 +1,128 @@
+[
+ [
+  "False",
+  "same team restarts",
+  "CORNER KICK",
+  true,
+  1
+ ],
+ [
+  "False",
+  "same team restarts",
+  "FREE KICK",
+  false,
+  31
+ ],
+ [
+  "False",
+  "same team restarts",
+  "FREE KICK",
+  true,
+  3
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "FREE KICK",
+  false,
+  22
+ ],
+ [
+  "flicker",
+  "OTHER team restarts",
+  "FREE KICK",
+  false,
+  10
+ ],
+ [
+  "flicker",
+  "OTHER team restarts",
+  "FREE KICK",
+  true,
+  1
+ ],
+ [
+  "flicker",
+  "OTHER team restarts",
+  "THROW IN",
+  true,
+  3
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "THROW IN",
+  false,
+  1
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "GOAL KICK",
+  false,
+  7
+ ],
+ [
+  "False",
+  "same team restarts",
+  "GOAL KICK",
+  false,
+  4
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "CORNER KICK",
+  true,
+  2
+ ],
+ [
+  "False",
+  "same team restarts",
+  "THROW IN",
+  true,
+  1
+ ],
+ [
+  "flicker",
+  "OTHER team restarts",
+  "CORNER KICK",
+  true,
+  1
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "THROW IN",
+  true,
+  4
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "GOAL KICK",
+  true,
+  1
+ ],
+ [
+  "False",
+  "same team restarts",
+  "KICK OFF",
+  false,
+  1
+ ],
+ [
+  "False",
+  "OTHER team restarts",
+  "FREE KICK",
+  false,
+  1
+ ],
+ [
+  "flicker",
+  "same team restarts",
+  "KICK OFF",
+  false,
+  1
+ ]
+]
