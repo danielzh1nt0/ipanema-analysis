@@ -1,0 +1,258 @@
+{
+ "r01": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 7273,
+  "player": 909
+ },
+ "r02": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 3225,
+  "player": 408
+ },
+ "r03": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "pressed",
+  "frame_won": 6492,
+  "player": 708
+ },
+ "r04": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 4138,
+  "player": 419
+ },
+ "r05": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 2009,
+  "player": 296
+ },
+ "r06": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "jogged",
+  "new": "stood",
+  "frame_won": 2902,
+  "player": 401
+ },
+ "r07": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 1985,
+  "player": 274
+ },
+ "r08": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 2009,
+  "player": 169
+ },
+ "r09": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "pressed",
+  "frame_won": 3275,
+  "player": 392
+ },
+ "r10": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "jogged",
+  "new": "pressed",
+  "frame_won": 8693,
+  "player": 964
+ },
+ "r11": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "pressed",
+  "frame_won": 1054,
+  "player": 130
+ },
+ "r12": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 2009,
+  "player": 49
+ },
+ "r13": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 4663,
+  "player": 479
+ },
+ "r14": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 5196,
+  "player": 548
+ },
+ "r15": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 1985,
+  "player": 281
+ },
+ "r16": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 7217,
+  "player": 789
+ },
+ "r17": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 1985,
+  "player": 280
+ },
+ "r18": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 5196,
+  "player": 468
+ },
+ "r19": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "jogged",
+  "new": "pressed",
+  "frame_won": 3225,
+  "player": 405
+ },
+ "r20": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "pressed",
+  "frame_won": 997,
+  "player": 49
+ },
+ "r21": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "jogged",
+  "new": "stood",
+  "frame_won": 8443,
+  "player": 932
+ },
+ "r22": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 1619,
+  "player": 162
+ },
+ "r23": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 5196,
+  "player": 515
+ },
+ "r24": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 6923,
+  "player": 671
+ },
+ "r25": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 997,
+  "player": 10
+ },
+ "r26": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 4113,
+  "player": 532
+ },
+ "r27": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 8443,
+  "player": 841
+ },
+ "r28": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "same",
+  "old": "stood",
+  "new": "stood",
+  "frame_won": 5687,
+  "player": 458
+ },
+ "r29": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "pressed",
+  "new": "stood",
+  "frame_won": 3443,
+  "player": 405
+ },
+ "r30": {
+  "clip": "SFKBP1109_s1200",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 8693,
+  "player": 708
+ },
+ "r31": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "jogged",
+  "frame_won": 1619,
+  "player": 109
+ },
+ "r32": {
+  "clip": "p15u-vs-aik-2026-09-21-bd09_s2520",
+  "kind": "changed",
+  "old": "stood",
+  "new": "pressed",
+  "frame_won": 3275,
+  "player": 391
+ }
+}
