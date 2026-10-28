@@ -59,3 +59,26 @@ def read_piece(src, cv, k0, n, out_path, tries=3, wait_s=20.0, min_share=0.95, s
             log(f"piece read try {a}/{tries}: {got}/{n} frames - waiting {wait_s * a:.0f} s and trying again")
             sleep(wait_s * a)
     return best, fps_best, tries
+
+
+def local_copy(src, dest="/tmp/clip.mp4", max_bytes=1.5e9, run=None, log=print):
+    """N0-28c: the SFK-BP clip (300 MB) never read over the stream on the runner - 4 of 4 nightly runs on 28 Oct got 2-23
+    frames of the 599 (OpenCV reads from the start up to the 60-s mark and R2 cuts the stream after ~70 MB), so its
+    player row was 0 players / frame. A clip under max_bytes is downloaded whole first (curl with retries, seconds on
+    the runner). -> the path to read (dest, or src when it is local / too big / the download failed)."""
+    import subprocess
+    if not str(src).startswith(("http://", "https://")): return src
+    run = run or subprocess.run
+    h = run(["curl", "-sSfLI", "--retry", "3", src], capture_output=True, text=True)
+    size = None
+    for ln in (h.stdout or "").splitlines():
+        if ln.lower().startswith("content-length:"):
+            try: size = int(ln.split(":", 1)[1].strip())
+            except ValueError: pass
+    if h.returncode != 0 or size is None or size > max_bytes:
+        log(f"clip streamed ({'size unknown' if size is None else f'{size / 1e6:.0f} MB'})"); return src
+    r = run(["curl", "-sSfL", "--retry", "5", "--retry-all-errors", "-o", dest, src], capture_output=True, text=True)
+    import os
+    if r.returncode != 0 or not os.path.exists(dest) or os.path.getsize(dest) != size:
+        log(f"clip download failed ({(r.stderr or '').strip()[:120]}) - streaming instead"); return src
+    log(f"clip downloaded whole ({size / 1e6:.0f} MB)"); return dest

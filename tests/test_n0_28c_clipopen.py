@@ -130,3 +130,29 @@ def test_nightly_yml_uses_collect():
 def test_tracktest_fails_on_a_cut_piece():
     s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "tracktest.py")).read()
     assert "_got < 0.9 * n" in s
+
+
+class _R:
+    def __init__(self, rc=0, out="", err=""): self.returncode, self.stdout, self.stderr = rc, out, err
+
+
+def test_local_copy_downloads_small_clip(tmp_path):
+    from tools.clipopen import local_copy
+    dest = str(tmp_path / "c.mp4"); calls = []
+    def run(cmd, **k):
+        calls.append(cmd)
+        if cmd[1].endswith("I"): return _R(0, "HTTP/1.1 200 OK\r\ncontent-length: 5\r\n")
+        open(dest, "wb").write(b"12345"); return _R(0)
+    assert local_copy("https://x/v.mp4", dest, max_bytes=100, run=run, log=lambda m: None) == dest and len(calls) == 2
+
+
+def test_local_copy_streams_big_or_failed_or_local(tmp_path):
+    from tools.clipopen import local_copy
+    dest = str(tmp_path / "c.mp4")
+    big = lambda cmd, **k: _R(0, "Content-Length: 4085890041\r\n")
+    assert local_copy("https://x/v.mp4", dest, max_bytes=1.5e9, run=big, log=lambda m: None) == "https://x/v.mp4"
+    def short(cmd, **k):
+        if cmd[1].endswith("I"): return _R(0, "content-length: 9\r\n")
+        open(dest, "wb").write(b"123"); return _R(18, err="partial")
+    assert local_copy("https://x/v.mp4", dest, max_bytes=100, run=short, log=lambda m: None) == "https://x/v.mp4"
+    assert local_copy("/data/v.mp4", dest, run=None, log=lambda m: None) == "/data/v.mp4"
