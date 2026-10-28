@@ -324,6 +324,32 @@ def held_points(per, fps, hold_s=None, min_seen=3, L=None, W=None, edge_m=None):
 # 0 = only the players in the picture (frames with >= 3 seen).
 TEAM_HEAT_HOLD_S = float(os.environ.get("IPANEMA_TEAM_HEAT_HOLD_S", "20"))
 
+# N0-28f (28 Oct): per-player average position / time in each third / heat map (players[].avg_x_m, avg_y_m, pct_*_third,
+# stats.heatmaps) come from the frames where the player is in the picture, so they lean to where the ball was. On Metrica
+# pro data seen through our clips' camera views (tools/n0_28f_playerpos.py, one id per player = what M2 gives) the
+# average spot is 3.2 m off (p90 6.1), thirds 4.5 pts, heat map 15.9%; keeping each player's last seen spot 10 s after he
+# leaves the picture: 1.7 m (p90 4.2), 3.5 pts, 13.9% - better on 8/8 runs for all three. On today's broken track pieces
+# it is slightly worse (each piece is ~19 m from its player's average either way) and the app hides these fields, so it
+# is OFF until M2: IPANEMA_PLAYER_HOLD_S=10 switches it on.
+PLAYER_HOLD_S = float(os.environ.get("IPANEMA_PLAYER_HOLD_S", "0"))
+
+
+def held_track_points(per, fps, hold_s, L=None, W=None, edge_m=None):
+    """{track id: (n x 2) array}: every spot where the track is in the picture + its last seen spot for each frame up to
+    hold_s seconds after it left (same rules as held_points: an empty frame clears, no held spot within edge_m of a line)."""
+    hk = hold_s * fps; e = SHAPE_EDGE_M if edge_m is None else edge_m; last = {}; out = {}
+    def off(m): return L is not None and W is not None and e > 0 and (m[0] < e or m[0] > L - e or m[1] < e or m[1] > W - e)
+    for k in range(len(per)):
+        rows = per.get(k, []) if isinstance(per, dict) else per[k]
+        if not rows: last.clear(); continue
+        seen = set()
+        for r in rows:
+            m = np.asarray(r[2], float); last[r[0]] = (m, k); seen.add(r[0])
+        for t in [t for t, v in last.items() if t not in seen and (k - v[1] > hk + 1e-9 or off(v[0]))]: del last[t]
+        for t, (m, _) in last.items(): out.setdefault(t, []).append(m)
+    return {t: np.array(v) for t, v in out.items()}
+
+
 def team_heatmaps(per, fps, L, W, attack_right=None, hold_s=None, grid=(12, 8)):
     """-> {team: {grid (cells x along the pitch, normalised to 1, same layout as stats.heatmaps), hold_s, frames,
     thirds_pct [own, middle, attacking] when attack_right is given} or None when the team was never seen}. Outfield only."""
@@ -396,8 +422,10 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
     # None or IPANEMA_ONBALL=old = every carrier frame
     tframes = touch_frames(frames_, episodes_) if episodes_ is not None and os.environ.get("IPANEMA_ONBALL", "contacts") != "old" else None
     players = []; heat = {}; GRID = (12, 8)
+    held_pos = held_track_points(per, fps, PLAYER_HOLD_S, L=L, W=W) if PLAYER_HOLD_S > 0 else {}   # N0-28f, off until M2
     for tid in ids:
         tm = team_id[tid]; ks = np.array(sorted(tracks[tid])); P = np.array([tracks[tid][k] for k in ks]); sgn = 1 if attack_right[tm] else -1
+        PP = held_pos.get(tid, P) if len(held_pos.get(tid, ())) else P       # spots for position / thirds / heat (seen + held)
         sp, step, hi_step = track_motion(ks, P, fps); valid = ~np.isnan(sp)   # N0-22c: smoothed per seen run + short gaps as a straight line (was: smoothed across gaps, gaps not counted)
         on_all = [k for k in ks if frames_[k]["carrier"] == tid]; on = on_all if tframes is None else [k for k in on_all if k in tframes.get(int(tid), ())]; pressed = [k for k in on if frames_[k]["pressure_m"] is not None and frames_[k]["pressure_m"] <= press_r]
         pr = 0; lastp = -99
@@ -409,16 +437,16 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                     if np.linalg.norm(tracks[tid][k] - tracks[f["carrier"]][k]) <= press_r and k - lastp > fps: pr += 1; lastp = k
         mp = pass_df[pass_df["from"] == tid] if len(pass_df) else pass_df; rc = pass_df[(pass_df["to"] == tid) & pass_df["completed"]] if len(pass_df) else pass_df
         g = np.zeros(GRID)
-        for x, y in P: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
+        for x, y in PP: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
         heat[str(tid)] = (g / max(1, g.sum())).round(4).tolist(); rx = react.get(tid)
-        xs = P[:, 0] if sgn == 1 else L - P[:, 0]
+        xs = PP[:, 0] if sgn == 1 else L - PP[:, 0]
         players.append({"id": int(tid), "team": tm, "time_visible_s": round(len(ks) * dt, 1), "time_on_ball_s": round(len(on) * dt, 1), "touches": int(tcount.get(int(tid), 0)) if tcount is not None else int(sum(1 for i in range(1, len(on_all)) if on_all[i] - on_all[i - 1] > int(0.4 * fps)) + (1 if on_all else 0)),
                         "time_under_pressure_s": round(len(pressed) * dt, 1), "passes": int(len(mp)), "passes_completed": int(mp["completed"].sum()) if len(mp) else 0,
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,
                         "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": (int(mp["better_option"].sum()) if len(mp) else 0) if BETTER != "withhold" else None, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
                         "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(hi_step.sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
-                        "avg_x_m": round(float(P[:, 0].mean()), 1), "avg_y_m": round(float(P[:, 1].mean()), 1),
+                        "avg_x_m": round(float(PP[:, 0].mean()), 1), "avg_y_m": round(float(PP[:, 1].mean()), 1),
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
                         "counterpress_rate": round(rx["pressed"] / rx["losses_seen"], 2) if rx and rx["losses_seen"] else None, "losses_seen": rx["losses_seen"] if rx else 0})
     poss = [STATES[s] if s < 2 else None for s in state]; teams = []

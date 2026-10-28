@@ -1,0 +1,1073 @@
+{
+ "summary": {
+  "seen": {
+   "pos": 3.2,
+   "dx": -1.2,
+   "dy": -2.2,
+   "thirds": 4.5,
+   "tv": 15.9,
+   "pos_p90": 6.1,
+   "pos_timeweighted": 3.3,
+   "rank": 0.99,
+   "pos_worst_run": 4.5,
+   "better_than_seen_runs": null,
+   "heat_better_than_seen_runs": null,
+   "thirds_better_than_seen_runs": null
+  },
+  "piece": {
+   "pos": 19.2,
+   "dx": -2.1,
+   "dy": -2.2,
+   "thirds": 30.4,
+   "tv": 93.1,
+   "pos_p90": 35.5,
+   "pos_timeweighted": 19.9,
+   "pos_worst_run": 19.7,
+   "better_than_seen_runs": 0,
+   "heat_better_than_seen_runs": 0,
+   "thirds_better_than_seen_runs": 0
+  },
+  "piecehold20": {
+   "pos": 19.7,
+   "dx": -2.0,
+   "dy": -1.8,
+   "thirds": 33.0,
+   "tv": 96.4,
+   "pos_p90": 36.1,
+   "pos_timeweighted": 20.8,
+   "pos_worst_run": 20.1,
+   "better_than_seen_runs": 0,
+   "heat_better_than_seen_runs": 0,
+   "thirds_better_than_seen_runs": 0
+  },
+  "hold5": {
+   "pos": 2.0,
+   "dx": -0.9,
+   "dy": -1.2,
+   "thirds": 3.7,
+   "tv": 13.0,
+   "pos_p90": 4.8,
+   "pos_timeweighted": 2.3,
+   "rank": 0.99,
+   "pos_worst_run": 2.6,
+   "better_than_seen_runs": 8,
+   "heat_better_than_seen_runs": 8,
+   "thirds_better_than_seen_runs": 8
+  },
+  "hold10": {
+   "pos": 1.7,
+   "dx": -0.8,
+   "dy": -0.9,
+   "thirds": 3.5,
+   "tv": 13.9,
+   "pos_p90": 4.2,
+   "pos_timeweighted": 2.0,
+   "rank": 0.99,
+   "pos_worst_run": 2.1,
+   "better_than_seen_runs": 8,
+   "heat_better_than_seen_runs": 8,
+   "thirds_better_than_seen_runs": 8
+  },
+  "hold20": {
+   "pos": 1.5,
+   "dx": -0.7,
+   "dy": -0.6,
+   "thirds": 3.5,
+   "tv": 14.9,
+   "pos_p90": 3.5,
+   "pos_timeweighted": 1.9,
+   "rank": 0.99,
+   "pos_worst_run": 1.9,
+   "better_than_seen_runs": 8,
+   "heat_better_than_seen_runs": 6,
+   "thirds_better_than_seen_runs": 8
+  },
+  "hold60": {
+   "pos": 1.5,
+   "dx": -0.6,
+   "dy": -0.5,
+   "thirds": 3.4,
+   "tv": 15.9,
+   "pos_p90": 3.5,
+   "pos_timeweighted": 1.8,
+   "rank": 0.99,
+   "pos_worst_run": 1.7,
+   "better_than_seen_runs": 8,
+   "heat_better_than_seen_runs": 3,
+   "thirds_better_than_seen_runs": 8
+  },
+  "seen_share_median": 0.45
+ },
+ "runs": {
+  "game1_SFKBP1109_seed0": {
+   "seen": {
+    "pos": 4.2,
+    "dx": -1.2,
+    "dy": -2.9,
+    "thirds": 5.0,
+    "tv": 18.0,
+    "pos_p90": 7.3,
+    "pos_timeweighted": 4.0,
+    "rank": 0.99,
+    "n": 46
+   },
+   "piece": {
+    "pos": 19.3,
+    "dx": -2.2,
+    "dy": -3.0,
+    "thirds": 28.9,
+    "tv": 93.3,
+    "pos_p90": 37.4,
+    "pos_timeweighted": 20.3,
+    "rank": null,
+    "n": 3921
+   },
+   "piecehold20": {
+    "pos": 19.9,
+    "dx": -2.2,
+    "dy": -2.6,
+    "thirds": 31.9,
+    "tv": 96.6,
+    "pos_p90": 37.7,
+    "pos_timeweighted": 21.4,
+    "rank": null,
+    "n": 11743
+   },
+   "hold5": {
+    "pos": 2.6,
+    "dx": -0.9,
+    "dy": -2.1,
+    "thirds": 4.3,
+    "tv": 13.9,
+    "pos_p90": 6.0,
+    "pos_timeweighted": 2.8,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold10": {
+    "pos": 2.1,
+    "dx": -0.7,
+    "dy": -1.6,
+    "thirds": 3.6,
+    "tv": 14.5,
+    "pos_p90": 5.1,
+    "pos_timeweighted": 2.4,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold20": {
+    "pos": 1.8,
+    "dx": -0.6,
+    "dy": -1.0,
+    "thirds": 3.5,
+    "tv": 15.5,
+    "pos_p90": 4.1,
+    "pos_timeweighted": 2.2,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold60": {
+    "pos": 1.7,
+    "dx": -0.5,
+    "dy": -0.9,
+    "thirds": 3.7,
+    "tv": 16.5,
+    "pos_p90": 3.8,
+    "pos_timeweighted": 2.1,
+    "rank": 0.99,
+    "n": 46
+   },
+   "seen_share_median": 0.44
+  },
+  "game1_SFKBP1109_seed1": {
+   "seen": {
+    "pos": 4.5,
+    "dx": -1.0,
+    "dy": -3.1,
+    "thirds": 5.5,
+    "tv": 18.7,
+    "pos_p90": 7.5,
+    "pos_timeweighted": 4.1,
+    "rank": 0.99,
+    "n": 46
+   },
+   "piece": {
+    "pos": 19.4,
+    "dx": -2.2,
+    "dy": -3.3,
+    "thirds": 28.9,
+    "tv": 93.3,
+    "pos_p90": 37.0,
+    "pos_timeweighted": 20.4,
+    "rank": null,
+    "n": 3886
+   },
+   "piecehold20": {
+    "pos": 19.9,
+    "dx": -2.0,
+    "dy": -2.9,
+    "thirds": 33.5,
+    "tv": 96.6,
+    "pos_p90": 37.4,
+    "pos_timeweighted": 21.3,
+    "rank": null,
+    "n": 11763
+   },
+   "hold5": {
+    "pos": 2.6,
+    "dx": -0.8,
+    "dy": -1.9,
+    "thirds": 4.4,
+    "tv": 13.8,
+    "pos_p90": 5.7,
+    "pos_timeweighted": 2.8,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold10": {
+    "pos": 2.0,
+    "dx": -0.7,
+    "dy": -1.4,
+    "thirds": 4.2,
+    "tv": 14.3,
+    "pos_p90": 5.0,
+    "pos_timeweighted": 2.4,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold20": {
+    "pos": 1.7,
+    "dx": -0.5,
+    "dy": -0.9,
+    "thirds": 3.9,
+    "tv": 15.0,
+    "pos_p90": 4.4,
+    "pos_timeweighted": 2.2,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold60": {
+    "pos": 1.7,
+    "dx": -0.3,
+    "dy": -0.7,
+    "thirds": 3.9,
+    "tv": 16.9,
+    "pos_p90": 4.0,
+    "pos_timeweighted": 2.1,
+    "rank": 0.98,
+    "n": 46
+   },
+   "seen_share_median": 0.44
+  },
+  "game1_p15u-vs-a_seed0": {
+   "seen": {
+    "pos": 3.2,
+    "dx": -1.0,
+    "dy": -2.2,
+    "thirds": 4.5,
+    "tv": 17.2,
+    "pos_p90": 5.4,
+    "pos_timeweighted": 3.3,
+    "rank": 0.99,
+    "n": 46
+   },
+   "piece": {
+    "pos": 19.6,
+    "dx": -1.9,
+    "dy": -2.1,
+    "thirds": 28.9,
+    "tv": 93.5,
+    "pos_p90": 37.2,
+    "pos_timeweighted": 20.3,
+    "rank": null,
+    "n": 3786
+   },
+   "piecehold20": {
+    "pos": 20.1,
+    "dx": -2.2,
+    "dy": -1.7,
+    "thirds": 31.9,
+    "tv": 96.7,
+    "pos_p90": 37.8,
+    "pos_timeweighted": 21.5,
+    "rank": null,
+    "n": 11576
+   },
+   "hold5": {
+    "pos": 2.2,
+    "dx": -1.0,
+    "dy": -1.3,
+    "thirds": 4.1,
+    "tv": 13.7,
+    "pos_p90": 3.9,
+    "pos_timeweighted": 2.3,
+    "rank": 1.0,
+    "n": 46
+   },
+   "hold10": {
+    "pos": 1.9,
+    "dx": -1.0,
+    "dy": -1.0,
+    "thirds": 4.1,
+    "tv": 14.7,
+    "pos_p90": 3.4,
+    "pos_timeweighted": 2.1,
+    "rank": 1.0,
+    "n": 46
+   },
+   "hold20": {
+    "pos": 1.8,
+    "dx": -1.0,
+    "dy": -0.8,
+    "thirds": 4.0,
+    "tv": 16.0,
+    "pos_p90": 3.3,
+    "pos_timeweighted": 2.0,
+    "rank": 1.0,
+    "n": 46
+   },
+   "hold60": {
+    "pos": 1.7,
+    "dx": -0.9,
+    "dy": -0.5,
+    "thirds": 3.8,
+    "tv": 17.0,
+    "pos_p90": 3.5,
+    "pos_timeweighted": 1.9,
+    "rank": 1.0,
+    "n": 46
+   },
+   "seen_share_median": 0.42
+  },
+  "game1_p15u-vs-a_seed1": {
+   "seen": {
+    "pos": 3.5,
+    "dx": -0.9,
+    "dy": -2.4,
+    "thirds": 4.9,
+    "tv": 17.5,
+    "pos_p90": 5.1,
+    "pos_timeweighted": 3.3,
+    "rank": 0.99,
+    "n": 46
+   },
+   "piece": {
+    "pos": 19.7,
+    "dx": -2.3,
+    "dy": -2.4,
+    "thirds": 28.9,
+    "tv": 93.4,
+    "pos_p90": 37.0,
+    "pos_timeweighted": 20.5,
+    "rank": null,
+    "n": 3812
+   },
+   "piecehold20": {
+    "pos": 20.0,
+    "dx": -2.2,
+    "dy": -2.0,
+    "thirds": 32.9,
+    "tv": 96.6,
+    "pos_p90": 37.8,
+    "pos_timeweighted": 21.4,
+    "rank": null,
+    "n": 11451
+   },
+   "hold5": {
+    "pos": 2.2,
+    "dx": -0.9,
+    "dy": -1.1,
+    "thirds": 4.3,
+    "tv": 14.3,
+    "pos_p90": 3.9,
+    "pos_timeweighted": 2.3,
+    "rank": 1.0,
+    "n": 46
+   },
+   "hold10": {
+    "pos": 1.8,
+    "dx": -0.9,
+    "dy": -0.8,
+    "thirds": 4.3,
+    "tv": 15.5,
+    "pos_p90": 3.4,
+    "pos_timeweighted": 2.1,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold20": {
+    "pos": 1.9,
+    "dx": -0.9,
+    "dy": -0.5,
+    "thirds": 4.4,
+    "tv": 16.3,
+    "pos_p90": 3.3,
+    "pos_timeweighted": 2.0,
+    "rank": 0.99,
+    "n": 46
+   },
+   "hold60": {
+    "pos": 1.6,
+    "dx": -0.5,
+    "dy": -0.5,
+    "thirds": 3.8,
+    "tv": 17.5,
+    "pos_p90": 3.6,
+    "pos_timeweighted": 2.0,
+    "rank": 0.98,
+    "n": 46
+   },
+   "seen_share_median": 0.43
+  },
+  "game2_SFKBP1109_seed0": {
+   "seen": {
+    "pos": 3.1,
+    "dx": -1.6,
+    "dy": -2.3,
+    "thirds": 4.0,
+    "tv": 14.2,
+    "pos_p90": 6.4,
+    "pos_timeweighted": 3.4,
+    "rank": 0.99,
+    "n": 44
+   },
+   "piece": {
+    "pos": 18.7,
+    "dx": -2.1,
+    "dy": -1.9,
+    "thirds": 31.9,
+    "tv": 92.7,
+    "pos_p90": 33.5,
+    "pos_timeweighted": 19.3,
+    "rank": null,
+    "n": 3874
+   },
+   "piecehold20": {
+    "pos": 19.3,
+    "dx": -2.1,
+    "dy": -1.6,
+    "thirds": 33.5,
+    "tv": 96.2,
+    "pos_p90": 34.6,
+    "pos_timeweighted": 20.1,
+    "rank": null,
+    "n": 11815
+   },
+   "hold5": {
+    "pos": 1.8,
+    "dx": -0.9,
+    "dy": -1.0,
+    "thirds": 3.3,
+    "tv": 12.6,
+    "pos_p90": 5.4,
+    "pos_timeweighted": 2.2,
+    "rank": 0.98,
+    "n": 44
+   },
+   "hold10": {
+    "pos": 1.4,
+    "dx": -0.6,
+    "dy": -0.6,
+    "thirds": 3.1,
+    "tv": 13.2,
+    "pos_p90": 4.6,
+    "pos_timeweighted": 1.9,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold20": {
+    "pos": 1.3,
+    "dx": -0.7,
+    "dy": -0.5,
+    "thirds": 3.1,
+    "tv": 14.0,
+    "pos_p90": 3.8,
+    "pos_timeweighted": 1.7,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold60": {
+    "pos": 1.3,
+    "dx": -0.6,
+    "dy": -0.5,
+    "thirds": 3.0,
+    "tv": 14.5,
+    "pos_p90": 3.5,
+    "pos_timeweighted": 1.7,
+    "rank": 0.98,
+    "n": 44
+   },
+   "seen_share_median": 0.49
+  },
+  "game2_SFKBP1109_seed1": {
+   "seen": {
+    "pos": 2.7,
+    "dx": -1.7,
+    "dy": -1.9,
+    "thirds": 3.7,
+    "tv": 13.9,
+    "pos_p90": 6.3,
+    "pos_timeweighted": 3.1,
+    "rank": 0.98,
+    "n": 44
+   },
+   "piece": {
+    "pos": 18.9,
+    "dx": -2.3,
+    "dy": -1.9,
+    "thirds": 31.9,
+    "tv": 93.1,
+    "pos_p90": 34.0,
+    "pos_timeweighted": 19.1,
+    "rank": null,
+    "n": 3888
+   },
+   "piecehold20": {
+    "pos": 19.3,
+    "dx": -1.8,
+    "dy": -1.6,
+    "thirds": 33.5,
+    "tv": 96.2,
+    "pos_p90": 34.4,
+    "pos_timeweighted": 20.2,
+    "rank": null,
+    "n": 11720
+   },
+   "hold5": {
+    "pos": 1.7,
+    "dx": -1.0,
+    "dy": -1.0,
+    "thirds": 3.4,
+    "tv": 12.0,
+    "pos_p90": 5.4,
+    "pos_timeweighted": 2.1,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold10": {
+    "pos": 1.4,
+    "dx": -0.8,
+    "dy": -0.7,
+    "thirds": 3.0,
+    "tv": 12.7,
+    "pos_p90": 4.6,
+    "pos_timeweighted": 1.8,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold20": {
+    "pos": 1.2,
+    "dx": -0.5,
+    "dy": -0.5,
+    "thirds": 3.1,
+    "tv": 13.7,
+    "pos_p90": 3.7,
+    "pos_timeweighted": 1.7,
+    "rank": 0.98,
+    "n": 44
+   },
+   "hold60": {
+    "pos": 1.3,
+    "dx": -0.6,
+    "dy": -0.5,
+    "thirds": 3.1,
+    "tv": 14.7,
+    "pos_p90": 3.6,
+    "pos_timeweighted": 1.7,
+    "rank": 0.98,
+    "n": 44
+   },
+   "seen_share_median": 0.48
+  },
+  "game2_p15u-vs-a_seed0": {
+   "seen": {
+    "pos": 2.4,
+    "dx": -1.1,
+    "dy": -1.6,
+    "thirds": 4.1,
+    "tv": 13.6,
+    "pos_p90": 5.6,
+    "pos_timeweighted": 2.8,
+    "rank": 0.98,
+    "n": 44
+   },
+   "piece": {
+    "pos": 19.1,
+    "dx": -1.9,
+    "dy": -1.4,
+    "thirds": 31.9,
+    "tv": 92.7,
+    "pos_p90": 33.5,
+    "pos_timeweighted": 19.6,
+    "rank": null,
+    "n": 3735
+   },
+   "piecehold20": {
+    "pos": 19.5,
+    "dx": -1.9,
+    "dy": -1.1,
+    "thirds": 33.5,
+    "tv": 96.3,
+    "pos_p90": 34.7,
+    "pos_timeweighted": 20.3,
+    "rank": null,
+    "n": 11538
+   },
+   "hold5": {
+    "pos": 1.5,
+    "dx": -0.7,
+    "dy": -0.7,
+    "thirds": 3.1,
+    "tv": 11.6,
+    "pos_p90": 4.3,
+    "pos_timeweighted": 1.8,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold10": {
+    "pos": 1.4,
+    "dx": -0.6,
+    "dy": -0.5,
+    "thirds": 2.9,
+    "tv": 13.1,
+    "pos_p90": 3.7,
+    "pos_timeweighted": 1.6,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold20": {
+    "pos": 1.3,
+    "dx": -0.5,
+    "dy": -0.3,
+    "thirds": 3.1,
+    "tv": 14.2,
+    "pos_p90": 2.8,
+    "pos_timeweighted": 1.5,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold60": {
+    "pos": 1.5,
+    "dx": -0.5,
+    "dy": -0.3,
+    "thirds": 3.0,
+    "tv": 14.6,
+    "pos_p90": 2.9,
+    "pos_timeweighted": 1.5,
+    "rank": 0.99,
+    "n": 44
+   },
+   "seen_share_median": 0.46
+  },
+  "game2_p15u-vs-a_seed1": {
+   "seen": {
+    "pos": 2.3,
+    "dx": -1.4,
+    "dy": -1.3,
+    "thirds": 4.1,
+    "tv": 13.8,
+    "pos_p90": 5.3,
+    "pos_timeweighted": 2.6,
+    "rank": 0.98,
+    "n": 44
+   },
+   "piece": {
+    "pos": 19.1,
+    "dx": -1.9,
+    "dy": -1.4,
+    "thirds": 31.9,
+    "tv": 93.0,
+    "pos_p90": 34.2,
+    "pos_timeweighted": 19.4,
+    "rank": null,
+    "n": 3774
+   },
+   "piecehold20": {
+    "pos": 19.6,
+    "dx": -1.7,
+    "dy": -1.2,
+    "thirds": 33.5,
+    "tv": 96.3,
+    "pos_p90": 34.8,
+    "pos_timeweighted": 20.3,
+    "rank": null,
+    "n": 11445
+   },
+   "hold5": {
+    "pos": 1.5,
+    "dx": -0.8,
+    "dy": -0.7,
+    "thirds": 2.9,
+    "tv": 12.3,
+    "pos_p90": 3.8,
+    "pos_timeweighted": 1.8,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold10": {
+    "pos": 1.3,
+    "dx": -0.7,
+    "dy": -0.6,
+    "thirds": 3.0,
+    "tv": 13.1,
+    "pos_p90": 3.5,
+    "pos_timeweighted": 1.6,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold20": {
+    "pos": 1.2,
+    "dx": -0.7,
+    "dy": -0.4,
+    "thirds": 3.0,
+    "tv": 14.6,
+    "pos_p90": 2.9,
+    "pos_timeweighted": 1.5,
+    "rank": 0.99,
+    "n": 44
+   },
+   "hold60": {
+    "pos": 1.4,
+    "dx": -0.6,
+    "dy": -0.4,
+    "thirds": 2.9,
+    "tv": 15.2,
+    "pos_p90": 3.0,
+    "pos_timeweighted": 1.6,
+    "rank": 0.99,
+    "n": 44
+   },
+   "seen_share_median": 0.45
+  }
+ },
+ "example_game2_half1_SFKBP_view": {
+  "truth": {
+   "1101": [
+    46.6,
+    14.3
+   ],
+   "1102": [
+    38.0,
+    27.3
+   ],
+   "1103": [
+    36.3,
+    40.5
+   ],
+   "1104": [
+    41.8,
+    50.6
+   ],
+   "1105": [
+    52.3,
+    26.9
+   ],
+   "1106": [
+    47.6,
+    32.6
+   ],
+   "1107": [
+    55.0,
+    44.1
+   ],
+   "1108": [
+    56.1,
+    45.8
+   ],
+   "1109": [
+    62.1,
+    30.1
+   ],
+   "1110": [
+    66.0,
+    38.9
+   ],
+   "1215": [
+    40.0,
+    53.4
+   ],
+   "1216": [
+    34.6,
+    42.1
+   ],
+   "1217": [
+    35.5,
+    28.8
+   ],
+   "1218": [
+    41.8,
+    16.6
+   ],
+   "1219": [
+    53.4,
+    52.6
+   ],
+   "1220": [
+    46.8,
+    33.0
+   ],
+   "1221": [
+    45.7,
+    36.6
+   ],
+   "1222": [
+    55.2,
+    17.4
+   ],
+   "1223": [
+    62.6,
+    35.3
+   ],
+   "1224": [
+    61.8,
+    33.2
+   ]
+  },
+  "seen": {
+   "1106": [
+    45.1,
+    31.2
+   ],
+   "1107": [
+    51.6,
+    39.3
+   ],
+   "1109": [
+    61.2,
+    28.3
+   ],
+   "1215": [
+    35.2,
+    49.1
+   ],
+   "1217": [
+    32.6,
+    28.1
+   ],
+   "1220": [
+    47.0,
+    31.4
+   ],
+   "1221": [
+    44.1,
+    34.2
+   ],
+   "1222": [
+    53.3,
+    17.9
+   ],
+   "1224": [
+    64.0,
+    31.1
+   ],
+   "1216": [
+    30.8,
+    40.0
+   ],
+   "1218": [
+    42.2,
+    15.8
+   ],
+   "1101": [
+    48.3,
+    13.6
+   ],
+   "1105": [
+    50.1,
+    24.4
+   ],
+   "1223": [
+    63.4,
+    31.9
+   ],
+   "1110": [
+    66.4,
+    36.7
+   ],
+   "1102": [
+    36.0,
+    26.1
+   ],
+   "1108": [
+    54.5,
+    36.2
+   ],
+   "1219": [
+    51.4,
+    48.2
+   ],
+   "1104": [
+    39.9,
+    46.8
+   ],
+   "1103": [
+    32.7,
+    38.8
+   ]
+  },
+  "hold10": {
+   "1106": [
+    46.9,
+    32.4
+   ],
+   "1107": [
+    52.9,
+    41.0
+   ],
+   "1109": [
+    62.6,
+    29.5
+   ],
+   "1215": [
+    36.3,
+    50.3
+   ],
+   "1217": [
+    33.9,
+    28.6
+   ],
+   "1220": [
+    46.3,
+    32.5
+   ],
+   "1221": [
+    45.0,
+    36.0
+   ],
+   "1222": [
+    54.6,
+    18.0
+   ],
+   "1224": [
+    62.1,
+    33.3
+   ],
+   "1216": [
+    31.9,
+    41.2
+   ],
+   "1218": [
+    41.2,
+    16.6
+   ],
+   "1101": [
+    46.6,
+    14.7
+   ],
+   "1105": [
+    52.0,
+    25.8
+   ],
+   "1223": [
+    63.3,
+    34.0
+   ],
+   "1110": [
+    66.9,
+    38.3
+   ],
+   "1102": [
+    36.6,
+    26.8
+   ],
+   "1108": [
+    54.3,
+    40.4
+   ],
+   "1219": [
+    51.6,
+    50.0
+   ],
+   "1104": [
+    41.2,
+    48.9
+   ],
+   "1103": [
+    33.7,
+    40.0
+   ]
+  },
+  "hold20": {
+   "1106": [
+    47.2,
+    32.4
+   ],
+   "1107": [
+    53.3,
+    41.6
+   ],
+   "1109": [
+    62.9,
+    29.9
+   ],
+   "1215": [
+    36.8,
+    50.9
+   ],
+   "1217": [
+    34.0,
+    28.6
+   ],
+   "1220": [
+    46.2,
+    32.7
+   ],
+   "1221": [
+    44.6,
+    36.2
+   ],
+   "1222": [
+    54.5,
+    18.1
+   ],
+   "1224": [
+    61.8,
+    33.4
+   ],
+   "1216": [
+    31.9,
+    41.5
+   ],
+   "1218": [
+    41.3,
+    16.7
+   ],
+   "1101": [
+    46.9,
+    14.9
+   ],
+   "1105": [
+    52.5,
+    26.4
+   ],
+   "1223": [
+    63.0,
+    34.4
+   ],
+   "1110": [
+    67.3,
+    38.8
+   ],
+   "1102": [
+    36.8,
+    26.8
+   ],
+   "1108": [
+    54.1,
+    41.5
+   ],
+   "1219": [
+    51.7,
+    50.2
+   ],
+   "1104": [
+    41.6,
+    49.0
+   ],
+   "1103": [
+    34.3,
+    40.2
+   ]
+  }
+ }
+}

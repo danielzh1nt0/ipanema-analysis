@@ -1,0 +1,18 @@
+{
+ "SFKBP1109_s1200": {
+  "tracks_2s": 273,
+  "tracks_all": 360,
+  "seen_s_median": 11.4,
+  "held_extra_s_median": 10.3,
+  "avg_spot_shift_median_m": 2.8,
+  "avg_spot_shift_p90_m": 7.4
+ },
+ "aik_s2520": {
+  "tracks_2s": 309,
+  "tracks_all": 500,
+  "seen_s_median": 8.3,
+  "held_extra_s_median": 10.7,
+  "avg_spot_shift_median_m": 2.5,
+  "avg_spot_shift_p90_m": 7.5
+ }
+}
