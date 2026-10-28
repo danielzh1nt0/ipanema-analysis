@@ -1,0 +1,108 @@
+{
+ "date": "2026-10-28 13:20 UTC",
+ "opencv_installed": "4.10.0",
+ "stall": {
+  "installed": {
+   "cv": "4.10.0",
+   "count": 900.0,
+   "open_s": 10.1,
+   "frames": 300,
+   "want": 300,
+   "total_s": 20.4,
+   "reconnects": 0,
+   "warnings": [],
+   "requests": [
+    "1: bytes 0-",
+    "2: bytes 52242853- STALL",
+    "3: bytes 52242853-",
+    "4: bytes 44- STALL",
+    "5: bytes 327724-",
+    "6: bytes 16359458-"
+   ]
+  },
+  "old 4.11.0.86": {
+   "cv": "4.11.0",
+   "count": 0.0,
+   "open_s": 120.0,
+   "frames": 0,
+   "want": 300,
+   "total_s": 120.0,
+   "reconnects": 0,
+   "warnings": [
+    "WARNING: OpenCV 4.11.0 ignores OPENCV_FFMPEG_CAPTURE_OPTIONS - an R2 stall will not reconnect (pin opencv-python-headless==4.10.0.84)"
+   ],
+   "requests": [
+    "1: bytes 0-",
+    "2: bytes 52242853- STALL"
+   ]
+  }
+ },
+ "r2": [
+  {
+   "round": 1,
+   "match": "p15u-vs-djursholm-2026-09-26",
+   "open_tries": 1,
+   "frames_in_clip": 214108,
+   "open_s": 0.6,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 8.1,
+   "log": []
+  },
+  {
+   "round": 1,
+   "match": "p15u-vs-spanga-2026-09-25",
+   "open_tries": 1,
+   "frames_in_clip": 168597,
+   "open_s": 0.6,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 9.0,
+   "log": []
+  },
+  {
+   "round": 2,
+   "match": "p15u-vs-djursholm-2026-09-26",
+   "open_tries": 1,
+   "frames_in_clip": 214108,
+   "open_s": 0.6,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 8.7,
+   "log": []
+  },
+  {
+   "round": 2,
+   "match": "p15u-vs-spanga-2026-09-25",
+   "open_tries": 1,
+   "frames_in_clip": 168597,
+   "open_s": 0.6,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 12.5,
+   "log": []
+  },
+  {
+   "round": 3,
+   "match": "p15u-vs-djursholm-2026-09-26",
+   "open_tries": 1,
+   "frames_in_clip": 214108,
+   "open_s": 0.5,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 8.0,
+   "log": []
+  },
+  {
+   "round": 3,
+   "match": "p15u-vs-spanga-2026-09-25",
+   "open_tries": 1,
+   "frames_in_clip": 168597,
+   "open_s": 0.5,
+   "piece": "599/599",
+   "piece_tries": 1,
+   "total_s": 8.6,
+   "log": []
+  }
+ ]
+}
