@@ -13,9 +13,13 @@ M = json.load(open("results/qa/n0-28b/moments.json")); OUT = "results/free/n0-28
 def main():
     os.makedirs(OUT, exist_ok=True); made = {}; rc = 0
     for short, clip in (("sfk", "SFKBP1109_s1200"), ("aik", "p15u-vs-aik-2026-09-21-bd09_s2520")):
-        ms = [m for m in M if m["clip"] == clip]
+        ms = [m for m in M if m["clip"] == clip and not os.path.exists(f"{OUT}/{m['id']}.jpg")]   # a re-run only makes the missing sheets
         if not ms: continue
-        cap = cv2.VideoCapture(fetch(clip, short)); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+        for _try in range(3):                                   # 28 Oct: one download came back cut short (moov atom not found)
+            src = fetch(clip, short); cap = cv2.VideoCapture(src); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            if n > 0 or os.environ.get(f"LOCAL_CLIP_{short.upper()}"): break
+            cap.release(); os.remove(src); print("video unreadable, downloading again", flush=True)
+        fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
         print("==", short, len(ms), "windows,", n, "frames", fps, "fps", flush=True)
         for m in ms:
             tiles = []
@@ -30,7 +34,8 @@ def main():
             while len(tiles) % COLS: tiles.append(np.zeros((TH, TW, 3), np.uint8))
             sheet = np.vstack([np.hstack(tiles[r:r + COLS]) for r in range(0, len(tiles), COLS)])
             cv2.imwrite(f"{OUT}/{m['id']}.jpg", sheet, [cv2.IMWRITE_JPEG_QUALITY, 85]); made[m["id"]] = real
-    json.dump({"sheets": made}, open(f"{OUT}/sheets.json", "w"), indent=1)
+    old = json.load(open(f"{OUT}/sheets.json"))["sheets"] if os.path.exists(f"{OUT}/sheets.json") else {}
+    made = {**old, **made}; json.dump({"sheets": made}, open(f"{OUT}/sheets.json", "w"), indent=1)
     print("sheets:", made, flush=True)
     return rc
 
