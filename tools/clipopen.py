@@ -13,9 +13,24 @@ HTTP_OPTIONS = "rw_timeout;10000000|reconnect;1|reconnect_on_network_error;1|rec
 TIMEOUT_MS = 120000
 
 
-def capture(cv, src):
+def honours_ffmpeg_options(cv):
+    """N0-28d: OpenCV 4.11.0 has the OPENCV_FFMPEG_CAPTURE_OPTIONS check upside down (cap_ffmpeg_impl.hpp line 1140:
+    `if(!options.empty())` skips the options), so the reconnect settings above are silently dropped. 4.10 and 4.12+
+    are fine. With numpy<2 pip picks 4.11.0.86, which is what the runner had: a stall sat silent for the whole 2 min
+    (reproduced locally: 4.11 -> 0 frames after 120 s, 4.10 -> reconnect after 10 s, 300/300 frames).
+    The workflows now pin opencv-python-headless==4.10.0.84."""
+    return not str(getattr(cv, "__version__", "")).startswith("4.11.")
+
+
+_warned = [False]
+
+
+def capture(cv, src, log=print):
     """cv.VideoCapture with stall-proof HTTP settings for a URL (plain open for a local file or a stand-in cv)."""
     if str(src).startswith(("http://", "https://")) and hasattr(cv, "CAP_FFMPEG") and hasattr(cv, "CAP_PROP_OPEN_TIMEOUT_MSEC"):
+        if not honours_ffmpeg_options(cv) and not _warned[0]:
+            _warned[0] = True
+            log(f"WARNING: OpenCV {cv.__version__} ignores OPENCV_FFMPEG_CAPTURE_OPTIONS - an R2 stall will not reconnect (pin opencv-python-headless==4.10.0.84)")
         os.environ.setdefault("OPENCV_FFMPEG_CAPTURE_OPTIONS", HTTP_OPTIONS)
         return cv.VideoCapture(src, cv.CAP_FFMPEG, [cv.CAP_PROP_OPEN_TIMEOUT_MSEC, TIMEOUT_MS, cv.CAP_PROP_READ_TIMEOUT_MSEC, TIMEOUT_MS])
     return cv.VideoCapture(src)
@@ -24,7 +39,7 @@ def capture(cv, src):
 def open_clip(src, cv, tries=3, wait_s=20.0, min_frames=100, sleep=time.sleep, log=print):
     """-> (cap, fps, n_all, attempts). cap is None when every try gave fewer than min_frames frames."""
     for a in range(1, tries + 1):
-        cap = capture(cv, src)
+        cap = capture(cv, src, log=log)
         fps = cap.get(cv.CAP_PROP_FPS) or 29.97
         n_all = int(cap.get(cv.CAP_PROP_FRAME_COUNT) or 0)
         if n_all >= min_frames:
@@ -62,6 +77,9 @@ def read_piece(src, cv, k0, n, out_path, tries=3, wait_s=20.0, min_share=0.95, s
         if w is not None:
             w.release()
         cap = None
+        if got and not os.path.exists(tmp):          # N0-28d dry run: a writer that never opened left no file -> crash; count the try as 0
+            log(f"piece read try {a}/{tries}: {got} frames read but the writer made no file - counting 0")
+            got = 0
         if got > best:
             best, fps_best = got, fps
             os.replace(tmp, out_path)

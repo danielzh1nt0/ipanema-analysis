@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy gdown "supervision>=0.25,<0.31" huggingface_hub pandas
+      - run: pip install -q "numpy<2" "opencv-python-headless==4.10.0.84" scipy gdown "supervision>=0.25,<0.31" huggingface_hub pandas
       - name: run the script named on the first line of triggers/free.txt
         env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}

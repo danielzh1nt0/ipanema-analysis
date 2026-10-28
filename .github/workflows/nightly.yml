@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy pandas pytest "supervision>=0.25,<0.31"
+      - run: pip install -q "numpy<2" "opencv-python-headless==4.10.0.84" scipy pandas pytest "supervision>=0.25,<0.31"
       - run: python tools/nightly_quick.py
       - name: pull the coach's labels from the app (event reviews, corrections, lineups) - skipped without the SUPABASE secrets
         env:
@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - run: pip install -q "numpy<2" opencv-python-headless scipy "supervision>=0.29,<0.31" && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q rfdetr "supervision>=0.29,<0.31"
+      - run: pip install -q "numpy<2" "opencv-python-headless==4.10.0.84" scipy "supervision>=0.29,<0.31" && pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q rfdetr "supervision>=0.29,<0.31"
       - env:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           MATCH: ${{ matrix.g[0] }}

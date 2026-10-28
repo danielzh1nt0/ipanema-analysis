@@ -19,6 +19,7 @@ src = os.environ.get("LOCAL_CLIP") or (os.environ.get("R2_PUBLIC_URL", "").rstri
 from tools.clipopen import open_clip, read_piece                                # N0-28c: an R2 stall cost the 28 Oct Djursholm check
 _wait = float(os.environ.get("CLIP_RETRY_WAIT_S", "20"))
 from tools.clipopen import local_copy
+log(f"opencv {cv2.__version__}")                                             # N0-28d: 4.11 ignores the ffmpeg reconnect options
 src = local_copy(src, max_bytes=float(os.environ.get("CLIP_DOWNLOAD_MAX_MB", "1500")) * 1e6, log=log)   # SFK-BP never streamed (28 Oct)
 cap, fps, n_all, _tries = open_clip(src, cv2, tries=3, wait_s=_wait, log=log); log(f"clip {src[-45:]}: {n_all} frames @ {fps:.2f}" + (f" (try {_tries})" if _tries > 1 else ""))
 if cap is None: log("clip not reachable on R2 (3 tries)"); sys.exit(1)
