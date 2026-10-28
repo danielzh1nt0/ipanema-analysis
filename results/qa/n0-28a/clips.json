@@ -1,0 +1,72 @@
+{
+ "SFKBP1109_s1200": {
+  "minutes": 5.0,
+  "losses": 17,
+  "losses_with_reactions": 17,
+  "player_reactions": 101,
+  "per_loss_median": 6.0,
+  "old": {
+   "stood": 74,
+   "pressed": 18,
+   "jogged": 9
+  },
+  "new": {
+   "pressed": 16,
+   "jogged": 28,
+   "stood": 57
+  },
+  "changes": {
+   "stood->jogged": 20,
+   "stood->stood": 44,
+   "stood->pressed": 10,
+   "pressed->pressed": 5,
+   "pressed->stood": 7,
+   "jogged->jogged": 2,
+   "jogged->stood": 6,
+   "pressed->jogged": 6,
+   "jogged->pressed": 1
+  },
+  "pressed_pct_old": {
+   "A": 21.7,
+   "B": 14.5
+  },
+  "pressed_pct_new": {
+   "A": 23.9,
+   "B": 9.1
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "minutes": 5.0,
+  "losses": 17,
+  "losses_with_reactions": 17,
+  "player_reactions": 85,
+  "per_loss_median": 5.0,
+  "old": {
+   "stood": 55,
+   "jogged": 11,
+   "pressed": 19
+  },
+  "new": {
+   "stood": 66,
+   "pressed": 11,
+   "jogged": 8
+  },
+  "changes": {
+   "stood->stood": 43,
+   "jogged->pressed": 3,
+   "stood->jogged": 8,
+   "pressed->stood": 15,
+   "jogged->stood": 8,
+   "pressed->pressed": 4,
+   "stood->pressed": 4
+  },
+  "pressed_pct_old": {
+   "A": 17.8,
+   "B": 27.5
+  },
+  "pressed_pct_new": {
+   "A": 11.1,
+   "B": 15.0
+  }
+ }
+}

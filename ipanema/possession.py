@@ -431,6 +431,28 @@ def _spot_frames(k, j, n, fps, spot):
 # N0-23a (23 Oct): 'forward pass within 3 s of winning it' is timed from the winner's first touch after the loser's last
 # control (k_lost), not from the frame the counted state turns (k0, up to ~2 s later, often after the first pass).
 # Metrica: the first forward pass of a win was missed when it was the pass that made the state turn. 0 = old.
+REACTION = os.environ.get("IPANEMA_REACTION", "own")   # N0-28a (28 Oct): 'own' = the player's own run toward the ball; 'gap' = old
+
+
+def reaction_label(p0, p2, b0, b2, react_s=2.0, near_r=5.0, press_v=2.0, jog_v=0.7, mode=None):
+    """reaction of one player of the team that lost the ball over the first react_s after the win (turnover_lost
+    payload.reactions, players[].counterpress_rate): 'pressed' when he ends within near_r of the ball or ran toward it
+    >= press_v m/s, 'jogged' >= jog_v m/s, else 'stood'.
+    N0-28a (28 Oct): mode 'own' (default) = his own run toward the ball = his move (p2 - p0) / react_s along the direction
+    to the ball, averaged over the start (b0 - p0) and the end (b2 - p2); on Metrica pro data it agrees 92% with the run
+    measured frame by frame. mode 'gap' (IPANEMA_REACTION=gap, the old rule) = how fast the GAP to the ball shrank, which
+    also shrinks when the ball comes to him: on Metrica 26% of its 'pressed' were not running at the ball (some running
+    away at 3 m/s while a long ball came their way) and 35% of the players who did run at the ball read 'stood'."""
+    mode = mode or REACTION
+    d2 = float(np.linalg.norm(p2 - b2))
+    if mode == "gap":
+        closing = (float(np.linalg.norm(p0 - b0)) - d2) / react_s
+    else:
+        u = lambda v: v / max(float(np.linalg.norm(v)), 1e-6); mv = (p2 - p0) / react_s
+        closing = 0.5 * (float(mv @ u(b0 - p0)) + float(mv @ u(b2 - p2)))
+    return "pressed" if (d2 <= near_r or closing >= press_v) else "jogged" if closing >= jog_v else "stood"
+
+
 FWD_FROM_WIN = os.environ.get("IPANEMA_FWD_FROM_WIN", "1") != "0"
 
 def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
@@ -491,8 +513,7 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
                 rx = {"pressed": [], "jogged": [], "stood": []}
                 for tid in p0:
                     if tid not in p2: continue
-                    d0, d2 = np.linalg.norm(p0[tid] - b0), np.linalg.norm(p2[tid] - b2); closing = (d0 - d2) / react_s
-                    rx["pressed" if (d2 <= near_r or closing >= 2.0) else "jogged" if closing >= 0.7 else "stood"].append(int(tid))
+                    rx[reaction_label(p0[tid], p2[tid], b0, b2, react_s, near_r)].append(int(tid))
                 tv["reactions"] = rx
             out.append(tv)
         last = cur

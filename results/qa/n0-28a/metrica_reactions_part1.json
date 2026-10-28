@@ -1,0 +1,330 @@
+{
+ "summary": {
+  "n": 3850,
+  "app_share": {
+   "pressed": 38.7,
+   "jogged": 11.0,
+   "stood": 50.3
+  },
+  "own_share": {
+   "pressed": 31.8,
+   "jogged": 32.4,
+   "stood": 35.8
+  },
+  "agree_pct": 43.4,
+  "new_share": {
+   "pressed": 29.4,
+   "jogged": 31.0,
+   "stood": 39.6
+  },
+  "new_agree_own_pct": 92.3,
+  "app_pressed_not_running": 25.9,
+  "own_pressed_called_stood": 34.7,
+  "app_stood_moving_away_fast": 2.6
+ },
+ "outcome": {
+  "app": {
+   "corr": 0.16,
+   "regain_2plus": 43.0,
+   "n_2plus": 298,
+   "regain_0_1": 23.0,
+   "n_0_1": 87,
+   "median_pressers": 4.0
+  },
+  "new": {
+   "corr": -0.024,
+   "regain_2plus": 38.8,
+   "n_2plus": 273,
+   "regain_0_1": 37.5,
+   "n_0_1": 112,
+   "median_pressers": 2.0
+  },
+  "own": {
+   "corr": -0.002,
+   "regain_2plus": 39.0,
+   "n_2plus": 290,
+   "regain_0_1": 36.8,
+   "n_0_1": 95,
+   "median_pressers": 3.0
+  }
+ },
+ "turnovers": 385,
+ "rate_reliability": {
+  "h": {
+   "players": 39,
+   "spearman_h1_h2": 0.462
+  },
+  "own_h": {
+   "players": 39,
+   "spearman_h1_h2": 0.396
+  },
+  "new_h": {
+   "players": 39,
+   "spearman_h1_h2": 0.355
+  }
+ },
+ "by_half": {
+  "1:1": {
+   "n": 1070,
+   "app_share": {
+    "pressed": 42.0,
+    "jogged": 10.7,
+    "stood": 47.3
+   },
+   "own_share": {
+    "pressed": 34.9,
+    "jogged": 31.0,
+    "stood": 34.1
+   },
+   "agree_pct": 43.3,
+   "new_share": {
+    "pressed": 32.2,
+    "jogged": 29.5,
+    "stood": 38.2
+   },
+   "new_agree_own_pct": 91.7,
+   "app_pressed_not_running": 25.6,
+   "own_pressed_called_stood": 30.8,
+   "app_stood_moving_away_fast": 2.2
+  },
+  "1:2": {
+   "n": 960,
+   "app_share": {
+    "pressed": 36.6,
+    "jogged": 10.8,
+    "stood": 52.6
+   },
+   "own_share": {
+    "pressed": 30.6,
+    "jogged": 32.8,
+    "stood": 36.6
+   },
+   "agree_pct": 42.0,
+   "new_share": {
+    "pressed": 29.5,
+    "jogged": 29.9,
+    "stood": 40.6
+   },
+   "new_agree_own_pct": 91.9,
+   "app_pressed_not_running": 27.4,
+   "own_pressed_called_stood": 40.5,
+   "app_stood_moving_away_fast": 3.4
+  },
+  "2:1": {
+   "n": 1110,
+   "app_share": {
+    "pressed": 40.2,
+    "jogged": 11.7,
+    "stood": 48.1
+   },
+   "own_share": {
+    "pressed": 30.5,
+    "jogged": 34.9,
+    "stood": 34.6
+   },
+   "agree_pct": 45.2,
+   "new_share": {
+    "pressed": 27.7,
+    "jogged": 34.1,
+    "stood": 38.1
+   },
+   "new_agree_own_pct": 92.6,
+   "app_pressed_not_running": 23.3,
+   "own_pressed_called_stood": 32.2,
+   "app_stood_moving_away_fast": 1.7
+  },
+  "2:2": {
+   "n": 710,
+   "app_share": {
+    "pressed": 34.5,
+    "jogged": 10.6,
+    "stood": 54.9
+   },
+   "own_share": {
+    "pressed": 30.8,
+    "jogged": 30.0,
+    "stood": 39.2
+   },
+   "agree_pct": 42.5,
+   "new_share": {
+    "pressed": 27.3,
+    "jogged": 30.0,
+    "stood": 42.7
+   },
+   "new_agree_own_pct": 93.2,
+   "app_pressed_not_running": 29.0,
+   "own_pressed_called_stood": 37.4,
+   "app_stood_moving_away_fast": 3.6
+  }
+ },
+ "examples": [
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -3.52,
+   "closing": 2.05,
+   "d0": 19.3,
+   "d2": 15.2,
+   "speed": 3.57,
+   "regained": false,
+   "game": "2",
+   "half": 2,
+   "pid": 102
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -3.28,
+   "closing": 11.37,
+   "d0": 32.2,
+   "d2": 9.4,
+   "speed": 4.19,
+   "regained": true,
+   "game": "1",
+   "half": 1,
+   "pid": 215
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.96,
+   "closing": 2.67,
+   "d0": 19.3,
+   "d2": 14.0,
+   "speed": 4.15,
+   "regained": true,
+   "game": "2",
+   "half": 1,
+   "pid": 218
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.78,
+   "closing": 14.99,
+   "d0": 43.0,
+   "d2": 13.0,
+   "speed": 2.85,
+   "regained": true,
+   "game": "1",
+   "half": 1,
+   "pid": 215
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.51,
+   "closing": 4.83,
+   "d0": 16.6,
+   "d2": 6.9,
+   "speed": 2.73,
+   "regained": true,
+   "game": "1",
+   "half": 1,
+   "pid": 102
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.42,
+   "closing": 13.2,
+   "d0": 44.7,
+   "d2": 18.3,
+   "speed": 3.73,
+   "regained": true,
+   "game": "1",
+   "half": 1,
+   "pid": 216
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.38,
+   "closing": 3.65,
+   "d0": 14.4,
+   "d2": 7.0,
+   "speed": 2.99,
+   "regained": false,
+   "game": "2",
+   "half": 2,
+   "pid": 220
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.28,
+   "closing": 3.09,
+   "d0": 21.5,
+   "d2": 15.3,
+   "speed": 2.54,
+   "regained": false,
+   "game": "2",
+   "half": 2,
+   "pid": 103
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.25,
+   "closing": 6.04,
+   "d0": 24.9,
+   "d2": 12.8,
+   "speed": 3.01,
+   "regained": true,
+   "game": "1",
+   "half": 1,
+   "pid": 104
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.16,
+   "closing": 2.51,
+   "d0": 12.7,
+   "d2": 7.7,
+   "speed": 2.5,
+   "regained": false,
+   "game": "1",
+   "half": 1,
+   "pid": 217
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -2.0,
+   "closing": 5.04,
+   "d0": 24.6,
+   "d2": 14.5,
+   "speed": 2.76,
+   "regained": false,
+   "game": "1",
+   "half": 1,
+   "pid": 216
+  },
+  {
+   "app": "pressed",
+   "new": "stood",
+   "own": "stood",
+   "own_v": -1.99,
+   "closing": 3.11,
+   "d0": 14.1,
+   "d2": 7.9,
+   "speed": 2.7,
+   "regained": false,
+   "game": "2",
+   "half": 1,
+   "pid": 218
+  }
+ ]
+}
