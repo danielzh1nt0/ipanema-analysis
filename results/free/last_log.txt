@@ -1,3 +1,22 @@
-downloading SFKBP1109_s1200
-== sfk 11 windows, 8992 frames 29.97002997002997 fps
-sheets: {'s02': 8, 's03': 8, 's09': 8, 's11': 8, 's12': 8, 's00': 8, 's01': 8, 's04': 8, 's05': 8, 's06': 8, 's07': 8, 's08': 8, 's10': 8, 's13': 8, 's14': 8, 's15': 8}
+Traceback (most recent call last):
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/n0_28d_runner_check.py", line 142, in <module>
+    main()
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/n0_28d_runner_check.py", line 108, in main
+    rep["stall"]["installed"] = stall_test(clip)
+                                ^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/n0_28d_runner_check.py", line 101, in stall_test
+    res = probe(url, 300, 300, pythonpath); srv.shutdown(); res["requests"] = list(reqs); return res
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/ipanema-analysis/ipanema-analysis/tools/n0_28d_runner_check.py", line 82, in probe
+    res = json.loads(r.stdout.strip().splitlines()[-1]) if r.stdout.strip() else {"error": r.stderr[-300:]}
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+FAILED
