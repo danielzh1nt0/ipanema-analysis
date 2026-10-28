@@ -156,3 +156,16 @@ def test_local_copy_streams_big_or_failed_or_local(tmp_path):
         open(dest, "wb").write(b"123"); return _R(18, err="partial")
     assert local_copy("https://x/v.mp4", dest, max_bytes=100, run=short, log=lambda m: None) == "https://x/v.mp4"
     assert local_copy("/data/v.mp4", dest, run=None, log=lambda m: None) == "/data/v.mp4"
+
+
+def test_capture_sets_reconnect_for_urls(monkeypatch):
+    from tools import clipopen
+    monkeypatch.delenv("OPENCV_FFMPEG_CAPTURE_OPTIONS", raising=False)
+    seen = []
+    class CV:
+        CAP_FFMPEG, CAP_PROP_OPEN_TIMEOUT_MSEC, CAP_PROP_READ_TIMEOUT_MSEC = 1900, 53, 54
+        def VideoCapture(self, *a): seen.append(a); return "cap"
+    assert clipopen.capture(CV(), "https://r2/v.mp4") == "cap"
+    assert seen[-1] == ("https://r2/v.mp4", 1900, [53, 120000, 54, 120000])
+    assert "reconnect;1" in os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] and "rw_timeout" in os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"]
+    clipopen.capture(CV(), "/tmp/v.mp4"); assert seen[-1] == ("/tmp/v.mp4",)
