@@ -104,3 +104,6 @@
 10:14:32 clean: players per frame median A 8 / B 8, max A 10 / B 12
 10:14:32 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 8.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 40, 'median_track_s': {'dark': 13.41, 'light': 1.63}, 'minutes': 13.6, 'filled_rows': 179}
 10:45:18 clip streamed (4086 MB)
+10:47:21 clip open try 1/3: 0 frames - waiting 20 s and trying again
+10:49:41 clip open try 2/3: 0 frames - waiting 40 s and trying again
+10:52:21 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 0 frames @ 29.97 (try 3)
