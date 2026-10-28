@@ -114,6 +114,7 @@
  "N0-27b": "Check pass quality (open / blocked lane) on pro data and by eye",
  "N0-28a": "Check the 'reaction after a loss' labels (pressed / jogged / stood) on pro data and by eye",
  "N0-28b": "Check sequence length and metres gained on pro data and by eye",
-  "N0-28c": "Fix the nightly player checks: stale rows, a stream that stalls, SFK-BP never read",
-  "N0-28d": "Make big match files open reliably over the stream on the free runner"
+ "N0-28c": "Fix the nightly player checks: stale rows, a stream that stalls, SFK-BP never read",
+ "N0-28d": "Make big match files open reliably over the stream on the free runner",
+ "N0-28e": "Check the pass network and pass lengths on pro data"
 }
