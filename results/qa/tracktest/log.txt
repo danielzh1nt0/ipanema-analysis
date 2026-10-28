@@ -52,3 +52,4 @@
 04:23:14 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
 08:45:33 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
 08:51:01 piece read try 1/3: 2/599 frames - waiting 20 s and trying again
+09:27:10 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
