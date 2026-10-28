@@ -6,3 +6,4 @@ tools/n0_28d_runner_check.py
 # Wed Oct 28 04:51:33 UTC 2026 N0-28b: blind picture sheets of the stoppages where sequences would be cut + control windows - free runner only, nothing on Modal
 # Wed Oct 28 05:09:54 UTC 2026 N0-28b: re-run for the SFK-BP sheets (the clip's download came back cut short) - free runner only, nothing on Modal
 # Wed Oct 28 13:11:23 UTC 2026 N0-28d: does the runner's OpenCV (now pinned 4.10.0.84) reconnect through R2 stalls; stall test + 3 rounds of the big Djursholm / Spånga clips - free runner only, nothing on Modal
+# Wed Oct 28 13:16:21 UTC 2026 N0-28d: re-run (probe result line was not the last stdout line on the runner) - free runner only, nothing on Modal

@@ -69,7 +69,7 @@ for _ in range(n):
     ok, f = cap.read()
     if not ok: break
     got += 1
-print(json.dumps({"cv": cv2.__version__, "count": cnt, "open_s": round(t_open, 1), "frames": got, "want": n, "total_s": round(time.time() - t, 1)}))
+print("RESULT " + json.dumps({"cv": cv2.__version__, "count": cnt, "open_s": round(t_open, 1), "frames": got, "want": n, "total_s": round(time.time() - t, 1)}))
 """
 
 
@@ -79,7 +79,8 @@ def probe(url, k0, n, pythonpath=None, timeout=400):
     env.pop("OPENCV_FFMPEG_CAPTURE_OPTIONS", None)
     try:
         r = subprocess.run([sys.executable, "-c", PROBE, url, str(k0), str(n)], capture_output=True, text=True, timeout=timeout, env=env)
-        res = json.loads(r.stdout.strip().splitlines()[-1]) if r.stdout.strip() else {"error": r.stderr[-300:]}
+        hits = [ln[7:] for ln in r.stdout.splitlines() if ln.startswith("RESULT ")]     # runner 28 Oct: other stdout lines came after the result
+        res = json.loads(hits[-1]) if hits else {"error": (r.stdout[-200:] + " | " + r.stderr[-300:]).strip()}
         err = r.stderr
     except subprocess.TimeoutExpired:
         res, err = {"error": f"timed out after {timeout} s"}, ""
@@ -103,6 +104,7 @@ def stall_test(clip, pythonpath=None):
 
 def main():
     import cv2
+    print("opencv", cv2.__version__, flush=True)
     rep = {"date": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()), "opencv_installed": cv2.__version__, "stall": {}, "r2": []}
     clip = make_clip("/tmp/n0_28d_clip.mp4")
     rep["stall"]["installed"] = stall_test(clip)
