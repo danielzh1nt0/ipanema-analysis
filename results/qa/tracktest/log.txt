@@ -55,3 +55,27 @@
 09:27:10 clip 798b86d8020c.r2.dev/SFKBP1109_s1200/video.mp4: 8992 frames @ 29.97
 09:32:35 piece read try 1/3: 2/599 frames - waiting 20 s and trying again
 10:00:53 clip downloaded whole (301 MB)
+10:00:56 clip /tmp/clip.mp4: 8992 frames @ 29.97
+10:01:02 calibration: from the line model, 100% of frames trusted (lines drawn); 0 frames bridged or borrowed, no drawn lines
+10:01:03 before: {'observed_per_frame': {'dark': 5.0, 'light': 9.0}, 'shown_per_frame': {'dark': 5.0, 'light': 9.0}, 'tracks': 91, 'median_track_s': {'dark': 0.48, 'light': 2.2}}
+10:02:04 kits: per-player classifier from 386 on-pitch people, 0 of 15 runs kept -> colour only
+10:02:04 kits: learned from 348 people (464 off the pitch left out), group sizes [136, 112, 84, 16], light frame (shade spread 1.2), default fit leaves out a group at 0.28 x the team gap, far pair moves a team by 8.7
+10:02:04 off-pitch people dropped by the pitch-edge test: no
+10:02:08   tracking frame 0
+10:03:09   tracking frame 50 (0.8 frames/s)
+10:04:09   tracking frame 100 (0.8 frames/s)
+10:05:11   tracking frame 150 (0.8 frames/s)
+10:06:12   tracking frame 200 (0.8 frames/s)
+10:07:12   tracking frame 250 (0.8 frames/s)
+10:08:10   tracking frame 300 (0.8 frames/s)
+10:09:09   tracking frame 350 (0.8 frames/s)
+10:10:09   tracking frame 400 (0.8 frames/s)
+10:11:08   tracking frame 450 (0.8 frames/s)
+10:12:12   tracking frame 500 (0.8 frames/s)
+10:13:24   tracking frame 550 (0.8 frames/s)
+10:14:30 clean: 4 people living on or by the lines dropped (bench, coaches, stand)
+10:14:31 clean: keeper (left) from a non-team kit: track 59, 213 frames
+10:14:31 clean: removed 2792 rows of non-team kits (referee / staff)
+10:14:31 clean: dropped 1965 off-pitch, merged 12 duplicates, stitched 15 ids, keepers [] -> A defends left
+10:14:31 clean: players per frame median A 7 / B 7, max A 9 / B 9
+10:14:31 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 7.0}, 'shown_per_frame': {'dark': 8.0, 'light': 7.0}, 'tracks': 35, 'median_track_s': {'dark': 7.82, 'light': 9.38}, 'minutes': 13.5, 'filled_rows': 124}
