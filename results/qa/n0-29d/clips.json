@@ -1,0 +1,430 @@
+{
+ "SFKBP1109_s1200": {
+  "runs": 26,
+  "raw_start": {
+   "False": 9,
+   "None": 8,
+   "True": 9
+  },
+  "spell_start": {
+   "False": 16,
+   "True": 9,
+   "None": 1
+  },
+  "spell_back": {
+   "False": 17,
+   "True": 9
+  },
+  "spell_major": {
+   "False": 16,
+   "True": 10
+  },
+  "changed_vs_app": {
+   "raw_start": 0,
+   "spell_start": 1,
+   "spell_back": 1,
+   "spell_major": 3
+  },
+  "rows": [
+   {
+    "player": 13,
+    "team": "A",
+    "t": 44.71,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 2,
+    "team": "A",
+    "t": 53.35,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 25,
+    "team": "A",
+    "t": 47.88,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 41,
+    "team": "B",
+    "t": 33.6,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 141,
+    "team": "A",
+    "t": 37.5,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 163,
+    "team": "A",
+    "t": 50.02,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 178,
+    "team": "B",
+    "t": 53.19,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 177,
+    "team": "B",
+    "t": 48.11,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 299,
+    "team": "B",
+    "t": 85.82,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 403,
+    "team": "A",
+    "t": 128.86,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 166,
+    "team": "A",
+    "t": 128.86,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 439,
+    "team": "B",
+    "t": 128.6,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 451,
+    "team": "A",
+    "t": 113.51,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 489,
+    "team": "A",
+    "t": 126.33,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 489,
+    "team": "A",
+    "t": 138.71,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 490,
+    "team": "B",
+    "t": 139.01,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 496,
+    "team": "A",
+    "t": 136.0,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": true
+   },
+   {
+    "player": 504,
+    "team": "A",
+    "t": 136.84,
+    "app": null,
+    "raw_start": null,
+    "spell_start": null,
+    "spell_back": false,
+    "spell_major": true
+   },
+   {
+    "player": 504,
+    "team": "A",
+    "t": 138.54,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 536,
+    "team": "A",
+    "t": 135.87,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 671,
+    "team": "A",
+    "t": 215.65,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": false
+   },
+   {
+    "player": 702,
+    "team": "B",
+    "t": 217.48,
+    "app": null,
+    "raw_start": null,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 714,
+    "team": "A",
+    "t": 223.16,
+    "app": true,
+    "raw_start": true,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 756,
+    "team": "A",
+    "t": 220.39,
+    "app": null,
+    "raw_start": null,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 933,
+    "team": "B",
+    "t": 291.56,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 959,
+    "team": "A",
+    "t": 292.16,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "runs": 11,
+  "raw_start": {
+   "True": 3,
+   "False": 7,
+   "None": 1
+  },
+  "spell_start": {
+   "True": 2,
+   "False": 8,
+   "None": 1
+  },
+  "spell_back": {
+   "True": 3,
+   "False": 8
+  },
+  "spell_major": {
+   "True": 4,
+   "False": 7
+  },
+  "changed_vs_app": {
+   "raw_start": 0,
+   "spell_start": 1,
+   "spell_back": 1,
+   "spell_major": 2
+  },
+  "rows": [
+   {
+    "player": 89,
+    "team": "B",
+    "t": 25.03,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 106,
+    "team": "A",
+    "t": 26.13,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 109,
+    "team": "A",
+    "t": 24.36,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 109,
+    "team": "A",
+    "t": 25.19,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 276,
+    "team": "A",
+    "t": 71.7,
+    "app": null,
+    "raw_start": null,
+    "spell_start": null,
+    "spell_back": true,
+    "spell_major": true
+   },
+   {
+    "player": 479,
+    "team": "A",
+    "t": 165.23,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 479,
+    "team": "A",
+    "t": 166.6,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 479,
+    "team": "A",
+    "t": 168.17,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 507,
+    "team": "B",
+    "t": 175.64,
+    "app": true,
+    "raw_start": true,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": false
+   },
+   {
+    "player": 568,
+    "team": "B",
+    "t": 188.35,
+    "app": false,
+    "raw_start": false,
+    "spell_start": false,
+    "spell_back": false,
+    "spell_major": true
+   },
+   {
+    "player": 594,
+    "team": "A",
+    "t": 187.12,
+    "app": true,
+    "raw_start": true,
+    "spell_start": true,
+    "spell_back": true,
+    "spell_major": true
+   }
+  ]
+ }
+}

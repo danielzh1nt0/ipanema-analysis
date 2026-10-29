@@ -172,9 +172,14 @@ def shape_timeline(shapes_, fps, attack_right, L, per=None, W=None, hold=None, m
     return tl
 
 RUNS_SMOOTH = os.environ.get("IPANEMA_RUNS_SMOOTH", "1") == "1"   # N0-25a: sprint speed from smoothed positions (0 = old raw frame speed)
+# N0-29d (29 Oct): runs[].with_ball read the RAW possession state at the run's first frame; on Metrica pro data 34-39% of
+# runs got no label (loose ball at that frame) and with our clips' kind of ball flicker only 77% of the labels were right
+# (51% of all runs). The spell state (the de-flickered state the counted stats use) labels 83-88% of runs, 93-98% right,
+# share of sprints in possession 2.3-2.4 pts off (raw 4.5-6.6). 'raw' = old; 'spell_back' (lab) also looks back 3 s.
+RUN_BALL = os.environ.get("IPANEMA_RUN_BALL", "spell")
 
 
-def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8, smooth=None, win_s=0.8, gap_join_s=0.0, jump_m=2.0, merge_s=0.0):
+def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8, smooth=None, win_s=0.8, gap_join_s=0.0, jump_m=2.0, merge_s=0.0, look_s=0.0):
     """sprint segments per player: start/end in metres, speed, whether the team had the ball.
     N0-25a (25 Oct): the old rule read the speed from RAW frame-to-frame feet positions; our feet jitter ~0.3 m a frame,
     so on the app clips 30% of frame speeds are > 5.5 m/s and 14% > 10 m/s (the 'id jump' cap), every sprint was cut to
@@ -216,23 +221,23 @@ def runs(per, fps, state, attack_right, speed_min=5.5, min_s=0.8, smooth=None, w
                 if segs and merge_s and seg[0] - segs[-1][1] <= merge_s * fps and not jump[(ks > segs[-1][1]) & (ks <= seg[0])].any(): segs[-1][1] = seg[1]
                 else: segs.append(seg)
                 i = j + 1
-            rs = [_run(tid, team[tid], s_, sm, fps, state) for s_ in segs if (s_[1] - s_[0]) / fps >= min_s]
+            rs = [_run(tid, team[tid], s_, sm, fps, state, look_s) for s_ in segs if (s_[1] - s_[0]) / fps >= min_s]
             out += [r for r in rs if not merge_s or (r["speed_ms"] or 0) >= speed_min]   # a merged run must still average sprint speed
         return out
     for tid, pts in tr.items():
         ks = sorted(pts); seg = None
         for a, b in zip(ks, ks[1:]):
             if b - a > 3:                                                     # track gap: close the sprint so far (18 Oct: it was thrown away)
-                if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state))
+                if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state, look_s))
                 seg = None; continue
             v = np.linalg.norm(pts[b] - pts[a]) * fps / (b - a)
             if 10 >= v >= speed_min:
                 if seg is None: seg = [a, b]
                 else: seg[1] = b
             else:
-                if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state))
+                if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state, look_s))
                 seg = None
-        if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state))
+        if seg and (seg[1] - seg[0]) / fps >= min_s: out.append(_run(tid, team[tid], seg, pts, fps, state, look_s))
     return out
 
 def _straight(ks, P, tol=1e-6):
@@ -258,9 +263,9 @@ def _speeds(ks, Ps, fps, gap_join_s=0.0, gap_max_ms=7.0):
     return sp
 
 
-def _run(tid, tm, seg, pts, fps, state):
+def _run(tid, tm, seg, pts, fps, state, look_s=0.0):
     a, b = seg; d = float(np.linalg.norm(pts[b] - pts[a])); dur = (b - a) / fps
-    poss = STATES[state[a]] if state[a] < 2 else None
+    poss = next((STATES[state[j]] for j in range(a, max(-1, a - max(1, int(look_s * fps))), -1) if state[j] < 2), None)   # look_s 0 = the first frame only
     return {"player": int(tid), "team": tm, "t": round(a / fps, 2), "t_end": round(b / fps, 2), "from_m": [round(float(pts[a][0]), 1), round(float(pts[a][1]), 1)],
             "to_m": [round(float(pts[b][0]), 1), round(float(pts[b][1]), 1)], "distance_m": round(d, 1), "speed_ms": round(d / dur, 1) if dur else None,
             "with_ball": poss == tm if poss else None}
@@ -327,12 +332,16 @@ ENTRY_HOLD_S = float(os.environ.get("IPANEMA_ENTRY_HOLD_S", "3"))
 # unchanged until Daniel says. The zone of a ball won we do find is right 93% of the time; the list stays as is.
 HIGH_TOV_WITHHOLD = os.environ.get("IPANEMA_HIGH_TOV", "") == "withhold"
 
+def run_ball_state(state, cstate):
+    """N0-29d: the state the runs' with_ball label reads (spell state unless IPANEMA_RUN_BALL=raw or no spell state given)"""
+    return state if RUN_BALL == "raw" or cstate is None else cstate
+
 def compute(state, ballm, bspeed, fps, L, W, attack_right, restarts_, passes_, players_, turnovers_, shapes_, per=None, frames_=None, cstate=None, stops=None):
     sh = shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_, stops=stops); ht = high_turnovers(turnovers_, ballm, L, attack_right, fps)
     return {"contract": "1.1", "shots": sh, "goals": [s for s in sh if s["goal"]], "pass_network": pass_network(passes_, players_),
             "field": field_tilt_and_entries(state, ballm, bspeed, fps, L, attack_right, *ENTRY_REARM, hold_s=ENTRY_HOLD_S), "high_turnovers": ht,
             "high_turnover_counts": {tm: (None if HIGH_TOV_WITHHOLD else sum(1 for h in ht if h["team"] == tm and h["zone"] == "high")) for tm in ("A", "B")}, "shape_timeline": shape_timeline(shapes_, fps, attack_right, L, per=per, W=W),
-            "runs": runs(per, fps, state, attack_right) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps, state=(cstate if PRESS_POINTS_SPELL else None)) if frames_ is not None else [],
+            "runs": runs(per, fps, run_ball_state(state, cstate), attack_right, look_s=3.0 if RUN_BALL == "spell_back" else 0.0) if per is not None else [], "pressure_points": pressure_points(per, frames_, fps, state=(cstate if PRESS_POINTS_SPELL else None)) if frames_ is not None else [],
             "tilt_windows": tilt_windows(state, ballm, fps, L, attack_right)}
 
 def extra_events(metrics):
