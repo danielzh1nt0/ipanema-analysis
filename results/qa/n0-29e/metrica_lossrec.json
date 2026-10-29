@@ -1,0 +1,1165 @@
+{
+ "summary": {
+  "False": {
+   "halves": 4,
+   "losses_vs_all_x": 0.47,
+   "losses_vs_all_range": [
+    0.32,
+    0.56
+   ],
+   "losses_vs_s9_x": 0.74,
+   "losses_vs_s9_range": [
+    0.61,
+    0.88
+   ],
+   "found_all_pct": 34.75,
+   "found_s9_pct": 44.25,
+   "ours_real_pct": 75.0,
+   "team_losing_more_right": "2/3",
+   "passes_per_sequence_x": 1.49,
+   "passes_per_sequence_abs_err": 1.54,
+   "truth_pps_mean": 3.19,
+   "ours_pps_mean": 4.72
+  },
+  "flicker": {
+   "halves": 8,
+   "losses_vs_all_x": 0.56,
+   "losses_vs_all_range": [
+    0.43,
+    0.68
+   ],
+   "losses_vs_s9_x": 0.87,
+   "losses_vs_s9_range": [
+    0.7,
+    1.05
+   ],
+   "found_all_pct": 26.38,
+   "found_s9_pct": 33.25,
+   "ours_real_pct": 47.38,
+   "team_losing_more_right": "3/6",
+   "passes_per_sequence_x": 1.5,
+   "passes_per_sequence_abs_err": 1.56,
+   "truth_pps_mean": 3.19,
+   "ours_pps_mean": 4.75
+  },
+  "streak": {
+   "halves": 8,
+   "losses_vs_all_x": 0.17,
+   "losses_vs_all_range": [
+    0.04,
+    0.29
+   ],
+   "losses_vs_s9_x": 0.27,
+   "losses_vs_s9_range": [
+    0.08,
+    0.45
+   ],
+   "found_all_pct": 9.12,
+   "found_s9_pct": 11.88,
+   "ours_real_pct": 52.88,
+   "team_losing_more_right": "4/6",
+   "passes_per_sequence_x": 0.87,
+   "passes_per_sequence_abs_err": 0.52,
+   "truth_pps_mean": 3.19,
+   "ours_pps_mean": 2.73
+  }
+ },
+ "truth": {
+  "1-1": {
+   "A": {
+    "loss_all": 71,
+    "loss_s9": 38,
+    "recovery_metrica": 72,
+    "pass_tries": 254,
+    "chains": 100,
+    "passes_per_sequence": 2.54,
+    "won_all": 69,
+    "won_s9": 41
+   },
+   "B": {
+    "loss_all": 69,
+    "loss_s9": 41,
+    "recovery_metrica": 82,
+    "pass_tries": 245,
+    "chains": 100,
+    "passes_per_sequence": 2.45,
+    "won_all": 71,
+    "won_s9": 38
+   }
+  },
+  "1-2": {
+   "A": {
+    "loss_all": 56,
+    "loss_s9": 39,
+    "recovery_metrica": 63,
+    "pass_tries": 300,
+    "chains": 80,
+    "passes_per_sequence": 3.75,
+    "won_all": 58,
+    "won_s9": 37
+   },
+   "B": {
+    "loss_all": 58,
+    "loss_s9": 37,
+    "recovery_metrica": 61,
+    "pass_tries": 233,
+    "chains": 79,
+    "passes_per_sequence": 2.95,
+    "won_all": 56,
+    "won_s9": 39
+   }
+  },
+  "2-1": {
+   "A": {
+    "loss_all": 66,
+    "loss_s9": 46,
+    "recovery_metrica": 73,
+    "pass_tries": 352,
+    "chains": 91,
+    "passes_per_sequence": 3.87,
+    "won_all": 61,
+    "won_s9": 41
+   },
+   "B": {
+    "loss_all": 61,
+    "loss_s9": 41,
+    "recovery_metrica": 66,
+    "pass_tries": 289,
+    "chains": 90,
+    "passes_per_sequence": 3.21,
+    "won_all": 66,
+    "won_s9": 46
+   }
+  },
+  "2-2": {
+   "A": {
+    "loss_all": 53,
+    "loss_s9": 33,
+    "recovery_metrica": 62,
+    "pass_tries": 295,
+    "chains": 77,
+    "passes_per_sequence": 3.83,
+    "won_all": 52,
+    "won_s9": 33
+   },
+   "B": {
+    "loss_all": 52,
+    "loss_s9": 33,
+    "recovery_metrica": 47,
+    "pass_tries": 222,
+    "chains": 77,
+    "passes_per_sequence": 2.88,
+    "won_all": 53,
+    "won_s9": 33
+   }
+  }
+ },
+ "rows": {
+  "False": [
+   {
+    "A": {
+     "truth": {
+      "loss_all": 71,
+      "loss_s9": 38,
+      "won_all": 69,
+      "won_s9": 41,
+      "recovery_metrica": 72,
+      "pass_tries": 254,
+      "chains": 100,
+      "passes_per_sequence": 2.54
+     },
+     "ours": {
+      "losses": 23,
+      "recoveries": 26,
+      "passes": 246,
+      "sequences": 66,
+      "passes_per_sequence": 3.7
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 69,
+      "loss_s9": 41,
+      "won_all": 71,
+      "won_s9": 38,
+      "recovery_metrica": 82,
+      "pass_tries": 245,
+      "chains": 100,
+      "passes_per_sequence": 2.45
+     },
+     "ours": {
+      "losses": 26,
+      "recoveries": 23,
+      "passes": 258,
+      "sequences": 70,
+      "passes_per_sequence": 3.7
+     }
+    },
+    "match": {
+     "ours": 49,
+     "truth_all": 140,
+     "truth_s9": 79,
+     "found_all_pct": 30,
+     "found_s9_pct": 44,
+     "ours_real_pct": 86
+    },
+    "half": "1-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 56,
+      "loss_s9": 39,
+      "won_all": 58,
+      "won_s9": 37,
+      "recovery_metrica": 63,
+      "pass_tries": 300,
+      "chains": 80,
+      "passes_per_sequence": 3.75
+     },
+     "ours": {
+      "losses": 26,
+      "recoveries": 31,
+      "passes": 325,
+      "sequences": 56,
+      "passes_per_sequence": 5.8
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 58,
+      "loss_s9": 37,
+      "won_all": 56,
+      "won_s9": 39,
+      "recovery_metrica": 61,
+      "pass_tries": 233,
+      "chains": 79,
+      "passes_per_sequence": 2.95
+     },
+     "ours": {
+      "losses": 31,
+      "recoveries": 26,
+      "passes": 233,
+      "sequences": 51,
+      "passes_per_sequence": 4.6
+     }
+    },
+    "match": {
+     "ours": 57,
+     "truth_all": 114,
+     "truth_s9": 76,
+     "found_all_pct": 34,
+     "found_s9_pct": 43,
+     "ours_real_pct": 68
+    },
+    "half": "1-2",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 66,
+      "loss_s9": 46,
+      "won_all": 61,
+      "won_s9": 41,
+      "recovery_metrica": 73,
+      "pass_tries": 352,
+      "chains": 91,
+      "passes_per_sequence": 3.87
+     },
+     "ours": {
+      "losses": 35,
+      "recoveries": 33,
+      "passes": 328,
+      "sequences": 62,
+      "passes_per_sequence": 5.3
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 61,
+      "loss_s9": 41,
+      "won_all": 66,
+      "won_s9": 46,
+      "recovery_metrica": 66,
+      "pass_tries": 289,
+      "chains": 90,
+      "passes_per_sequence": 3.21
+     },
+     "ours": {
+      "losses": 33,
+      "recoveries": 35,
+      "passes": 312,
+      "sequences": 67,
+      "passes_per_sequence": 4.7
+     }
+    },
+    "match": {
+     "ours": 68,
+     "truth_all": 127,
+     "truth_s9": 87,
+     "found_all_pct": 40,
+     "found_s9_pct": 48,
+     "ours_real_pct": 75
+    },
+    "half": "2-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 53,
+      "loss_s9": 33,
+      "won_all": 52,
+      "won_s9": 33,
+      "recovery_metrica": 62,
+      "pass_tries": 295,
+      "chains": 77,
+      "passes_per_sequence": 3.83
+     },
+     "ours": {
+      "losses": 23,
+      "recoveries": 29,
+      "passes": 281,
+      "sequences": 50,
+      "passes_per_sequence": 5.6
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 52,
+      "loss_s9": 33,
+      "won_all": 53,
+      "won_s9": 33,
+      "recovery_metrica": 47,
+      "pass_tries": 222,
+      "chains": 77,
+      "passes_per_sequence": 2.88
+     },
+     "ours": {
+      "losses": 29,
+      "recoveries": 23,
+      "passes": 225,
+      "sequences": 51,
+      "passes_per_sequence": 4.4
+     }
+    },
+    "match": {
+     "ours": 52,
+     "truth_all": 105,
+     "truth_s9": 66,
+     "found_all_pct": 35,
+     "found_s9_pct": 42,
+     "ours_real_pct": 71
+    },
+    "half": "2-2",
+    "seed": 0
+   }
+  ],
+  "flicker": [
+   {
+    "A": {
+     "truth": {
+      "loss_all": 71,
+      "loss_s9": 38,
+      "won_all": 69,
+      "won_s9": 41,
+      "recovery_metrica": 72,
+      "pass_tries": 254,
+      "chains": 100,
+      "passes_per_sequence": 2.54
+     },
+     "ours": {
+      "losses": 32,
+      "recoveries": 36,
+      "passes": 265,
+      "sequences": 79,
+      "passes_per_sequence": 3.4
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 69,
+      "loss_s9": 41,
+      "won_all": 71,
+      "won_s9": 38,
+      "recovery_metrica": 82,
+      "pass_tries": 245,
+      "chains": 100,
+      "passes_per_sequence": 2.45
+     },
+     "ours": {
+      "losses": 36,
+      "recoveries": 32,
+      "passes": 304,
+      "sequences": 74,
+      "passes_per_sequence": 4.1
+     }
+    },
+    "match": {
+     "ours": 68,
+     "truth_all": 140,
+     "truth_s9": 79,
+     "found_all_pct": 23,
+     "found_s9_pct": 34,
+     "ours_real_pct": 47
+    },
+    "half": "1-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 71,
+      "loss_s9": 38,
+      "won_all": 69,
+      "won_s9": 41,
+      "recovery_metrica": 72,
+      "pass_tries": 254,
+      "chains": 100,
+      "passes_per_sequence": 2.54
+     },
+     "ours": {
+      "losses": 31,
+      "recoveries": 37,
+      "passes": 292,
+      "sequences": 73,
+      "passes_per_sequence": 4.0
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 69,
+      "loss_s9": 41,
+      "won_all": 71,
+      "won_s9": 38,
+      "recovery_metrica": 82,
+      "pass_tries": 245,
+      "chains": 100,
+      "passes_per_sequence": 2.45
+     },
+     "ours": {
+      "losses": 37,
+      "recoveries": 31,
+      "passes": 283,
+      "sequences": 76,
+      "passes_per_sequence": 3.7
+     }
+    },
+    "match": {
+     "ours": 68,
+     "truth_all": 140,
+     "truth_s9": 79,
+     "found_all_pct": 21,
+     "found_s9_pct": 33,
+     "ours_real_pct": 44
+    },
+    "half": "1-1",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 56,
+      "loss_s9": 39,
+      "won_all": 58,
+      "won_s9": 37,
+      "recovery_metrica": 63,
+      "pass_tries": 300,
+      "chains": 80,
+      "passes_per_sequence": 3.75
+     },
+     "ours": {
+      "losses": 34,
+      "recoveries": 39,
+      "passes": 347,
+      "sequences": 59,
+      "passes_per_sequence": 5.9
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 58,
+      "loss_s9": 37,
+      "won_all": 56,
+      "won_s9": 39,
+      "recovery_metrica": 61,
+      "pass_tries": 233,
+      "chains": 79,
+      "passes_per_sequence": 2.95
+     },
+     "ours": {
+      "losses": 39,
+      "recoveries": 34,
+      "passes": 266,
+      "sequences": 61,
+      "passes_per_sequence": 4.4
+     }
+    },
+    "match": {
+     "ours": 73,
+     "truth_all": 114,
+     "truth_s9": 76,
+     "found_all_pct": 31,
+     "found_s9_pct": 41,
+     "ours_real_pct": 48
+    },
+    "half": "1-2",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 56,
+      "loss_s9": 39,
+      "won_all": 58,
+      "won_s9": 37,
+      "recovery_metrica": 63,
+      "pass_tries": 300,
+      "chains": 80,
+      "passes_per_sequence": 3.75
+     },
+     "ours": {
+      "losses": 38,
+      "recoveries": 39,
+      "passes": 342,
+      "sequences": 64,
+      "passes_per_sequence": 5.3
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 58,
+      "loss_s9": 37,
+      "won_all": 56,
+      "won_s9": 39,
+      "recovery_metrica": 61,
+      "pass_tries": 233,
+      "chains": 79,
+      "passes_per_sequence": 2.95
+     },
+     "ours": {
+      "losses": 39,
+      "recoveries": 38,
+      "passes": 291,
+      "sequences": 61,
+      "passes_per_sequence": 4.8
+     }
+    },
+    "match": {
+     "ours": 77,
+     "truth_all": 114,
+     "truth_s9": 76,
+     "found_all_pct": 30,
+     "found_s9_pct": 39,
+     "ours_real_pct": 44
+    },
+    "half": "1-2",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 66,
+      "loss_s9": 46,
+      "won_all": 61,
+      "won_s9": 41,
+      "recovery_metrica": 73,
+      "pass_tries": 352,
+      "chains": 91,
+      "passes_per_sequence": 3.87
+     },
+     "ours": {
+      "losses": 40,
+      "recoveries": 38,
+      "passes": 377,
+      "sequences": 63,
+      "passes_per_sequence": 6.0
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 61,
+      "loss_s9": 41,
+      "won_all": 66,
+      "won_s9": 46,
+      "recovery_metrica": 66,
+      "pass_tries": 289,
+      "chains": 90,
+      "passes_per_sequence": 3.21
+     },
+     "ours": {
+      "losses": 38,
+      "recoveries": 40,
+      "passes": 328,
+      "sequences": 70,
+      "passes_per_sequence": 4.7
+     }
+    },
+    "match": {
+     "ours": 78,
+     "truth_all": 127,
+     "truth_s9": 87,
+     "found_all_pct": 29,
+     "found_s9_pct": 32,
+     "ours_real_pct": 47
+    },
+    "half": "2-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 66,
+      "loss_s9": 46,
+      "won_all": 61,
+      "won_s9": 41,
+      "recovery_metrica": 73,
+      "pass_tries": 352,
+      "chains": 91,
+      "passes_per_sequence": 3.87
+     },
+     "ours": {
+      "losses": 37,
+      "recoveries": 37,
+      "passes": 391,
+      "sequences": 74,
+      "passes_per_sequence": 5.3
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 61,
+      "loss_s9": 41,
+      "won_all": 66,
+      "won_s9": 46,
+      "recovery_metrica": 66,
+      "pass_tries": 289,
+      "chains": 90,
+      "passes_per_sequence": 3.21
+     },
+     "ours": {
+      "losses": 37,
+      "recoveries": 37,
+      "passes": 317,
+      "sequences": 69,
+      "passes_per_sequence": 4.6
+     }
+    },
+    "match": {
+     "ours": 74,
+     "truth_all": 127,
+     "truth_s9": 87,
+     "found_all_pct": 27,
+     "found_s9_pct": 32,
+     "ours_real_pct": 46
+    },
+    "half": "2-1",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 53,
+      "loss_s9": 33,
+      "won_all": 52,
+      "won_s9": 33,
+      "recovery_metrica": 62,
+      "pass_tries": 295,
+      "chains": 77,
+      "passes_per_sequence": 3.83
+     },
+     "ours": {
+      "losses": 25,
+      "recoveries": 28,
+      "passes": 292,
+      "sequences": 53,
+      "passes_per_sequence": 5.5
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 52,
+      "loss_s9": 33,
+      "won_all": 53,
+      "won_s9": 33,
+      "recovery_metrica": 47,
+      "pass_tries": 222,
+      "chains": 77,
+      "passes_per_sequence": 2.88
+     },
+     "ours": {
+      "losses": 28,
+      "recoveries": 25,
+      "passes": 247,
+      "sequences": 55,
+      "passes_per_sequence": 4.5
+     }
+    },
+    "match": {
+     "ours": 53,
+     "truth_all": 105,
+     "truth_s9": 66,
+     "found_all_pct": 27,
+     "found_s9_pct": 29,
+     "ours_real_pct": 53
+    },
+    "half": "2-2",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 53,
+      "loss_s9": 33,
+      "won_all": 52,
+      "won_s9": 33,
+      "recovery_metrica": 62,
+      "pass_tries": 295,
+      "chains": 77,
+      "passes_per_sequence": 3.83
+     },
+     "ours": {
+      "losses": 23,
+      "recoveries": 25,
+      "passes": 310,
+      "sequences": 55,
+      "passes_per_sequence": 5.6
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 52,
+      "loss_s9": 33,
+      "won_all": 53,
+      "won_s9": 33,
+      "recovery_metrica": 47,
+      "pass_tries": 222,
+      "chains": 77,
+      "passes_per_sequence": 2.88
+     },
+     "ours": {
+      "losses": 25,
+      "recoveries": 23,
+      "passes": 246,
+      "sequences": 58,
+      "passes_per_sequence": 4.2
+     }
+    },
+    "match": {
+     "ours": 48,
+     "truth_all": 105,
+     "truth_s9": 66,
+     "found_all_pct": 23,
+     "found_s9_pct": 26,
+     "ours_real_pct": 50
+    },
+    "half": "2-2",
+    "seed": 1
+   }
+  ],
+  "streak": [
+   {
+    "A": {
+     "truth": {
+      "loss_all": 71,
+      "loss_s9": 38,
+      "won_all": 69,
+      "won_s9": 41,
+      "recovery_metrica": 72,
+      "pass_tries": 254,
+      "chains": 100,
+      "passes_per_sequence": 2.54
+     },
+     "ours": {
+      "losses": 11,
+      "recoveries": 12,
+      "passes": 230,
+      "sequences": 94,
+      "passes_per_sequence": 2.4
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 69,
+      "loss_s9": 41,
+      "won_all": 71,
+      "won_s9": 38,
+      "recovery_metrica": 82,
+      "pass_tries": 245,
+      "chains": 100,
+      "passes_per_sequence": 2.45
+     },
+     "ours": {
+      "losses": 12,
+      "recoveries": 11,
+      "passes": 242,
+      "sequences": 96,
+      "passes_per_sequence": 2.5
+     }
+    },
+    "match": {
+     "ours": 23,
+     "truth_all": 140,
+     "truth_s9": 79,
+     "found_all_pct": 10,
+     "found_s9_pct": 14,
+     "ours_real_pct": 61
+    },
+    "half": "1-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 71,
+      "loss_s9": 38,
+      "won_all": 69,
+      "won_s9": 41,
+      "recovery_metrica": 72,
+      "pass_tries": 254,
+      "chains": 100,
+      "passes_per_sequence": 2.54
+     },
+     "ours": {
+      "losses": 3,
+      "recoveries": 8,
+      "passes": 235,
+      "sequences": 81,
+      "passes_per_sequence": 2.9
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 69,
+      "loss_s9": 41,
+      "won_all": 71,
+      "won_s9": 38,
+      "recovery_metrica": 82,
+      "pass_tries": 245,
+      "chains": 100,
+      "passes_per_sequence": 2.45
+     },
+     "ours": {
+      "losses": 8,
+      "recoveries": 3,
+      "passes": 260,
+      "sequences": 99,
+      "passes_per_sequence": 2.6
+     }
+    },
+    "match": {
+     "ours": 11,
+     "truth_all": 140,
+     "truth_s9": 79,
+     "found_all_pct": 4,
+     "found_s9_pct": 6,
+     "ours_real_pct": 55
+    },
+    "half": "1-1",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 56,
+      "loss_s9": 39,
+      "won_all": 58,
+      "won_s9": 37,
+      "recovery_metrica": 63,
+      "pass_tries": 300,
+      "chains": 80,
+      "passes_per_sequence": 3.75
+     },
+     "ours": {
+      "losses": 12,
+      "recoveries": 11,
+      "passes": 302,
+      "sequences": 105,
+      "passes_per_sequence": 2.9
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 58,
+      "loss_s9": 37,
+      "won_all": 56,
+      "won_s9": 39,
+      "recovery_metrica": 61,
+      "pass_tries": 233,
+      "chains": 79,
+      "passes_per_sequence": 2.95
+     },
+     "ours": {
+      "losses": 11,
+      "recoveries": 12,
+      "passes": 254,
+      "sequences": 109,
+      "passes_per_sequence": 2.3
+     }
+    },
+    "match": {
+     "ours": 23,
+     "truth_all": 114,
+     "truth_s9": 76,
+     "found_all_pct": 9,
+     "found_s9_pct": 12,
+     "ours_real_pct": 43
+    },
+    "half": "1-2",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 56,
+      "loss_s9": 39,
+      "won_all": 58,
+      "won_s9": 37,
+      "recovery_metrica": 63,
+      "pass_tries": 300,
+      "chains": 80,
+      "passes_per_sequence": 3.75
+     },
+     "ours": {
+      "losses": 7,
+      "recoveries": 13,
+      "passes": 304,
+      "sequences": 112,
+      "passes_per_sequence": 2.7
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 58,
+      "loss_s9": 37,
+      "won_all": 56,
+      "won_s9": 39,
+      "recovery_metrica": 61,
+      "pass_tries": 233,
+      "chains": 79,
+      "passes_per_sequence": 2.95
+     },
+     "ours": {
+      "losses": 13,
+      "recoveries": 7,
+      "passes": 235,
+      "sequences": 93,
+      "passes_per_sequence": 2.5
+     }
+    },
+    "match": {
+     "ours": 20,
+     "truth_all": 114,
+     "truth_s9": 76,
+     "found_all_pct": 10,
+     "found_s9_pct": 12,
+     "ours_real_pct": 55
+    },
+    "half": "1-2",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 66,
+      "loss_s9": 46,
+      "won_all": 61,
+      "won_s9": 41,
+      "recovery_metrica": 73,
+      "pass_tries": 352,
+      "chains": 91,
+      "passes_per_sequence": 3.87
+     },
+     "ours": {
+      "losses": 15,
+      "recoveries": 12,
+      "passes": 332,
+      "sequences": 118,
+      "passes_per_sequence": 2.8
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 61,
+      "loss_s9": 41,
+      "won_all": 66,
+      "won_s9": 46,
+      "recovery_metrica": 66,
+      "pass_tries": 289,
+      "chains": 90,
+      "passes_per_sequence": 3.21
+     },
+     "ours": {
+      "losses": 12,
+      "recoveries": 15,
+      "passes": 275,
+      "sequences": 110,
+      "passes_per_sequence": 2.5
+     }
+    },
+    "match": {
+     "ours": 27,
+     "truth_all": 127,
+     "truth_s9": 87,
+     "found_all_pct": 15,
+     "found_s9_pct": 17,
+     "ours_real_pct": 70
+    },
+    "half": "2-1",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 66,
+      "loss_s9": 46,
+      "won_all": 61,
+      "won_s9": 41,
+      "recovery_metrica": 73,
+      "pass_tries": 352,
+      "chains": 91,
+      "passes_per_sequence": 3.87
+     },
+     "ours": {
+      "losses": 10,
+      "recoveries": 10,
+      "passes": 328,
+      "sequences": 111,
+      "passes_per_sequence": 3.0
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 61,
+      "loss_s9": 41,
+      "won_all": 66,
+      "won_s9": 46,
+      "recovery_metrica": 66,
+      "pass_tries": 289,
+      "chains": 90,
+      "passes_per_sequence": 3.21
+     },
+     "ours": {
+      "losses": 10,
+      "recoveries": 10,
+      "passes": 289,
+      "sequences": 104,
+      "passes_per_sequence": 2.8
+     }
+    },
+    "match": {
+     "ours": 20,
+     "truth_all": 127,
+     "truth_s9": 87,
+     "found_all_pct": 9,
+     "found_s9_pct": 13,
+     "ours_real_pct": 55
+    },
+    "half": "2-1",
+    "seed": 1
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 53,
+      "loss_s9": 33,
+      "won_all": 52,
+      "won_s9": 33,
+      "recovery_metrica": 62,
+      "pass_tries": 295,
+      "chains": 77,
+      "passes_per_sequence": 3.83
+     },
+     "ours": {
+      "losses": 7,
+      "recoveries": 15,
+      "passes": 254,
+      "sequences": 78,
+      "passes_per_sequence": 3.3
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 52,
+      "loss_s9": 33,
+      "won_all": 53,
+      "won_s9": 33,
+      "recovery_metrica": 47,
+      "pass_tries": 222,
+      "chains": 77,
+      "passes_per_sequence": 2.88
+     },
+     "ours": {
+      "losses": 15,
+      "recoveries": 7,
+      "passes": 224,
+      "sequences": 83,
+      "passes_per_sequence": 2.7
+     }
+    },
+    "match": {
+     "ours": 22,
+     "truth_all": 105,
+     "truth_s9": 66,
+     "found_all_pct": 11,
+     "found_s9_pct": 18,
+     "ours_real_pct": 55
+    },
+    "half": "2-2",
+    "seed": 0
+   },
+   {
+    "A": {
+     "truth": {
+      "loss_all": 53,
+      "loss_s9": 33,
+      "won_all": 52,
+      "won_s9": 33,
+      "recovery_metrica": 62,
+      "pass_tries": 295,
+      "chains": 77,
+      "passes_per_sequence": 3.83
+     },
+     "ours": {
+      "losses": 9,
+      "recoveries": 8,
+      "passes": 252,
+      "sequences": 85,
+      "passes_per_sequence": 3.0
+     }
+    },
+    "B": {
+     "truth": {
+      "loss_all": 52,
+      "loss_s9": 33,
+      "won_all": 53,
+      "won_s9": 33,
+      "recovery_metrica": 47,
+      "pass_tries": 222,
+      "chains": 77,
+      "passes_per_sequence": 2.88
+     },
+     "ours": {
+      "losses": 8,
+      "recoveries": 9,
+      "passes": 199,
+      "sequences": 70,
+      "passes_per_sequence": 2.8
+     }
+    },
+    "match": {
+     "ours": 17,
+     "truth_all": 105,
+     "truth_s9": 66,
+     "found_all_pct": 5,
+     "found_s9_pct": 3,
+     "ours_real_pct": 29
+    },
+    "half": "2-2",
+    "seed": 1
+   }
+  ]
+ }
+}
