@@ -118,5 +118,6 @@
  "N0-28d": "Make big match files open reliably over the stream on the free runner",
  "N0-28e": "Check the pass network and pass lengths on pro data",
  "N0-28f": "Check players' average positions on pro data",
- "N0-29a": "Check per-player pressures and time under pressure on pro data"
+ "N0-29a": "Check per-player pressures and time under pressure on pro data",
+ "N0-29b": "Check per-player passing (counts, direction, completion %) on pro data"
 }
