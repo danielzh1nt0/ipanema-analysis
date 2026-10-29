@@ -108,3 +108,13 @@
 10:49:41 clip open try 2/3: 0 frames - waiting 40 s and trying again
 10:52:21 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 0 frames @ 29.97 (try 3)
 04:24:25 opencv 4.10.0
+04:24:27 clip streamed (4086 MB)
+04:24:27 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
+04:24:35 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+04:26:00 kits: per-player classifier from 608 on-pitch people, 0 of 15 runs kept -> colour only
+04:26:00 kits: learned from 898 people (136 off the pitch left out), group sizes [306, 286, 275, 31], light frame (shade spread 1.4), default fit leaves out a group at 0.70 x the team gap, far pair moves a team by 0.0
+04:26:00 off-pitch people dropped by the pitch-edge test: yes
+04:26:05   tracking frame 0
+04:27:26   tracking frame 50 (0.6 frames/s)
+04:28:47   tracking frame 100 (0.6 frames/s)
+04:30:07   tracking frame 150 (0.6 frames/s)
