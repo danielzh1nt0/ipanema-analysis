@@ -1,0 +1,1474 @@
+{
+ "rows": [
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "perfect",
+   "seed": 0,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 45.2,
+    "spell": 47.6
+   },
+   "err_seen": {
+    "raw": -3.9,
+    "spell": -1.5
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 48.7,
+    "spell": 49.8,
+    "raw_fill": 47.1,
+    "raw_nostop": 49.3,
+    "spell_fill": 50.7,
+    "raw_gap1": 45.3,
+    "raw_gap2": 45.2,
+    "raw_gap5": 45.4,
+    "raw_gapspell2": 48.7
+   },
+   "err": {
+    "raw": -4.6,
+    "spell": -3.5,
+    "raw_fill": -6.2,
+    "raw_nostop": -4.0,
+    "spell_fill": -2.6,
+    "raw_gap1": -8.0,
+    "raw_gap2": -8.1,
+    "raw_gap5": -7.9,
+    "raw_gapspell2": -4.6
+   },
+   "loose_pct": 55.8,
+   "ball_pct": 57.3,
+   "gap2_pct": 42.5,
+   "stoppages": 42
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "flicker",
+   "seed": 0,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 47.3,
+    "spell": 48.0
+   },
+   "err_seen": {
+    "raw": -1.8,
+    "spell": -1.1
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 43.2,
+    "spell": 44.6,
+    "raw_fill": 47.0,
+    "raw_nostop": 44.3,
+    "spell_fill": 49.5,
+    "raw_gap1": 47.3,
+    "raw_gap2": 47.3,
+    "raw_gap5": 47.4,
+    "raw_gapspell2": 43.2
+   },
+   "err": {
+    "raw": -10.1,
+    "spell": -8.7,
+    "raw_fill": -6.3,
+    "raw_nostop": -9.0,
+    "spell_fill": -3.8,
+    "raw_gap1": -6.0,
+    "raw_gap2": -6.0,
+    "raw_gap5": -5.9,
+    "raw_gapspell2": -10.1
+   },
+   "loose_pct": 52.2,
+   "ball_pct": 57.3,
+   "gap2_pct": 42.5,
+   "stoppages": 39
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "flicker",
+   "seed": 1,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 47.6,
+    "spell": 47.5
+   },
+   "err_seen": {
+    "raw": -1.5,
+    "spell": -1.6
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 50.4,
+    "spell": 49.8,
+    "raw_fill": 46.1,
+    "raw_nostop": 48.6,
+    "spell_fill": 47.6,
+    "raw_gap1": 47.7,
+    "raw_gap2": 47.6,
+    "raw_gap5": 47.5,
+    "raw_gapspell2": 50.4
+   },
+   "err": {
+    "raw": -2.9,
+    "spell": -3.5,
+    "raw_fill": -7.2,
+    "raw_nostop": -4.7,
+    "spell_fill": -5.7,
+    "raw_gap1": -5.6,
+    "raw_gap2": -5.7,
+    "raw_gap5": -5.8,
+    "raw_gapspell2": -2.9
+   },
+   "loose_pct": 49.7,
+   "ball_pct": 57.3,
+   "gap2_pct": 42.5,
+   "stoppages": 39
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "streak",
+   "seed": 0,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 45.1,
+    "spell": 45.2
+   },
+   "err_seen": {
+    "raw": -4.0,
+    "spell": -3.9
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 46.9,
+    "spell": 46.4,
+    "raw_fill": 41.4,
+    "raw_nostop": 42.5,
+    "spell_fill": 45.3,
+    "raw_gap1": 44.3,
+    "raw_gap2": 45.9,
+    "raw_gap5": 45.3,
+    "raw_gapspell2": 46.9
+   },
+   "err": {
+    "raw": -6.4,
+    "spell": -6.9,
+    "raw_fill": -11.9,
+    "raw_nostop": -10.8,
+    "spell_fill": -8.0,
+    "raw_gap1": -9.0,
+    "raw_gap2": -7.4,
+    "raw_gap5": -8.0,
+    "raw_gapspell2": -6.4
+   },
+   "loose_pct": 80.8,
+   "ball_pct": 47.7,
+   "gap2_pct": 45.3,
+   "stoppages": 36
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "streak",
+   "seed": 1,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 41.7,
+    "spell": 37.9
+   },
+   "err_seen": {
+    "raw": -7.4,
+    "spell": -11.2
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 49.7,
+    "spell": 44.3,
+    "raw_fill": 43.9,
+    "raw_nostop": 53.5,
+    "spell_fill": 46.9,
+    "raw_gap1": 40.8,
+    "raw_gap2": 42.0,
+    "raw_gap5": 41.1,
+    "raw_gapspell2": 49.6
+   },
+   "err": {
+    "raw": -3.6,
+    "spell": -9.0,
+    "raw_fill": -9.4,
+    "raw_nostop": 0.2,
+    "spell_fill": -6.4,
+    "raw_gap1": -12.5,
+    "raw_gap2": -11.3,
+    "raw_gap5": -12.2,
+    "raw_gapspell2": -3.7
+   },
+   "loose_pct": 84.3,
+   "ball_pct": 48.6,
+   "gap2_pct": 44.8,
+   "stoppages": 41
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "veo",
+   "seed": 0,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 46.2,
+    "spell": 38.1
+   },
+   "err_seen": {
+    "raw": -2.9,
+    "spell": -11.0
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 44.0,
+    "spell": 39.7,
+    "raw_fill": 50.6,
+    "raw_nostop": 57.6,
+    "spell_fill": 48.5,
+    "raw_gap1": 46.2,
+    "raw_gap2": 46.2,
+    "raw_gap5": 46.2,
+    "raw_gapspell2": 44.0
+   },
+   "err": {
+    "raw": -9.3,
+    "spell": -13.6,
+    "raw_fill": -2.7,
+    "raw_nostop": 4.3,
+    "spell_fill": -4.8,
+    "raw_gap1": -7.1,
+    "raw_gap2": -7.1,
+    "raw_gap5": -7.1,
+    "raw_gapspell2": -9.3
+   },
+   "loose_pct": 85.2,
+   "ball_pct": 43.0,
+   "gap2_pct": 42.6,
+   "stoppages": 83
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 1,
+   "ball": "veo",
+   "seed": 1,
+   "truth": 53.3,
+   "truth_seen": 49.1,
+   "ours_seen": {
+    "raw": 46.4,
+    "spell": 44.5
+   },
+   "err_seen": {
+    "raw": -2.7,
+    "spell": -4.6
+   },
+   "truth_nightly": 55,
+   "ours": {
+    "raw": 50.5,
+    "spell": 47.7,
+    "raw_fill": 43.0,
+    "raw_nostop": 58.6,
+    "spell_fill": 47.5,
+    "raw_gap1": 46.3,
+    "raw_gap2": 46.3,
+    "raw_gap5": 46.3,
+    "raw_gapspell2": 50.8
+   },
+   "err": {
+    "raw": -2.8,
+    "spell": -5.6,
+    "raw_fill": -10.3,
+    "raw_nostop": 5.3,
+    "spell_fill": -5.8,
+    "raw_gap1": -7.0,
+    "raw_gap2": -7.0,
+    "raw_gap5": -7.0,
+    "raw_gapspell2": -2.5
+   },
+   "loose_pct": 83.5,
+   "ball_pct": 42.8,
+   "gap2_pct": 42.6,
+   "stoppages": 88
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "perfect",
+   "seed": 0,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 57.4,
+    "spell": 57.8
+   },
+   "err_seen": {
+    "raw": 2.1,
+    "spell": 2.5
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 62.5,
+    "spell": 61.9,
+    "raw_fill": 61.4,
+    "raw_nostop": 63.5,
+    "spell_fill": 62.6,
+    "raw_gap1": 57.5,
+    "raw_gap2": 57.4,
+    "raw_gap5": 57.2,
+    "raw_gapspell2": 62.5
+   },
+   "err": {
+    "raw": 2.8,
+    "spell": 2.2,
+    "raw_fill": 1.7,
+    "raw_nostop": 3.8,
+    "spell_fill": 2.9,
+    "raw_gap1": -2.2,
+    "raw_gap2": -2.3,
+    "raw_gap5": -2.5,
+    "raw_gapspell2": 2.8
+   },
+   "loose_pct": 39.4,
+   "ball_pct": 64.3,
+   "gap2_pct": 35.3,
+   "stoppages": 16
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "flicker",
+   "seed": 0,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 56.9,
+    "spell": 57.8
+   },
+   "err_seen": {
+    "raw": 1.6,
+    "spell": 2.5
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 59.9,
+    "spell": 60.1,
+    "raw_fill": 55.4,
+    "raw_nostop": 58.4,
+    "spell_fill": 58.6,
+    "raw_gap1": 56.9,
+    "raw_gap2": 56.9,
+    "raw_gap5": 57.0,
+    "raw_gapspell2": 59.9
+   },
+   "err": {
+    "raw": 0.2,
+    "spell": 0.4,
+    "raw_fill": -4.3,
+    "raw_nostop": -1.3,
+    "spell_fill": -1.1,
+    "raw_gap1": -2.8,
+    "raw_gap2": -2.8,
+    "raw_gap5": -2.7,
+    "raw_gapspell2": 0.2
+   },
+   "loose_pct": 39.2,
+   "ball_pct": 64.3,
+   "gap2_pct": 35.3,
+   "stoppages": 22
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "flicker",
+   "seed": 1,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 56.3,
+    "spell": 56.9
+   },
+   "err_seen": {
+    "raw": 1.0,
+    "spell": 1.6
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 56.4,
+    "spell": 56.8,
+    "raw_fill": 52.3,
+    "raw_nostop": 53.4,
+    "spell_fill": 54.5,
+    "raw_gap1": 56.4,
+    "raw_gap2": 56.3,
+    "raw_gap5": 56.2,
+    "raw_gapspell2": 56.4
+   },
+   "err": {
+    "raw": -3.3,
+    "spell": -2.9,
+    "raw_fill": -7.4,
+    "raw_nostop": -6.3,
+    "spell_fill": -5.2,
+    "raw_gap1": -3.3,
+    "raw_gap2": -3.4,
+    "raw_gap5": -3.5,
+    "raw_gapspell2": -3.3
+   },
+   "loose_pct": 30.3,
+   "ball_pct": 64.3,
+   "gap2_pct": 35.3,
+   "stoppages": 19
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "streak",
+   "seed": 0,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 57.3,
+    "spell": 58.8
+   },
+   "err_seen": {
+    "raw": 2.0,
+    "spell": 3.5
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 64.1,
+    "spell": 62.2,
+    "raw_fill": 57.8,
+    "raw_nostop": 65.7,
+    "spell_fill": 58.1,
+    "raw_gap1": 55.2,
+    "raw_gap2": 56.1,
+    "raw_gap5": 57.6,
+    "raw_gapspell2": 64.1
+   },
+   "err": {
+    "raw": 4.4,
+    "spell": 2.5,
+    "raw_fill": -1.9,
+    "raw_nostop": 6.0,
+    "spell_fill": -1.6,
+    "raw_gap1": -4.5,
+    "raw_gap2": -3.6,
+    "raw_gap5": -2.1,
+    "raw_gapspell2": 4.4
+   },
+   "loose_pct": 73.4,
+   "ball_pct": 54.9,
+   "gap2_pct": 38.1,
+   "stoppages": 26
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "streak",
+   "seed": 1,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 57.1,
+    "spell": 57.2
+   },
+   "err_seen": {
+    "raw": 1.8,
+    "spell": 1.9
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 64.2,
+    "spell": 61.1,
+    "raw_fill": 58.0,
+    "raw_nostop": 63.2,
+    "spell_fill": 59.3,
+    "raw_gap1": 56.8,
+    "raw_gap2": 56.6,
+    "raw_gap5": 57.5,
+    "raw_gapspell2": 64.4
+   },
+   "err": {
+    "raw": 4.5,
+    "spell": 1.4,
+    "raw_fill": -1.7,
+    "raw_nostop": 3.5,
+    "spell_fill": -0.4,
+    "raw_gap1": -2.9,
+    "raw_gap2": -3.1,
+    "raw_gap5": -2.2,
+    "raw_gapspell2": 4.7
+   },
+   "loose_pct": 79.0,
+   "ball_pct": 55.3,
+   "gap2_pct": 38.1,
+   "stoppages": 31
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "veo",
+   "seed": 0,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 56.8,
+    "spell": 58.4
+   },
+   "err_seen": {
+    "raw": 1.5,
+    "spell": 3.1
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 68.3,
+    "spell": 63.8,
+    "raw_fill": 56.3,
+    "raw_nostop": 66.8,
+    "spell_fill": 57.5,
+    "raw_gap1": 56.8,
+    "raw_gap2": 56.8,
+    "raw_gap5": 57.5,
+    "raw_gapspell2": 68.3
+   },
+   "err": {
+    "raw": 8.6,
+    "spell": 4.1,
+    "raw_fill": -3.4,
+    "raw_nostop": 7.1,
+    "spell_fill": -2.2,
+    "raw_gap1": -2.9,
+    "raw_gap2": -2.9,
+    "raw_gap5": -2.2,
+    "raw_gapspell2": 8.6
+   },
+   "loose_pct": 81.6,
+   "ball_pct": 48.0,
+   "gap2_pct": 35.4,
+   "stoppages": 91
+  },
+  {
+   "game": "Sample_Game_1",
+   "half": 2,
+   "ball": "veo",
+   "seed": 1,
+   "truth": 59.7,
+   "truth_seen": 55.3,
+   "ours_seen": {
+    "raw": 56.1,
+    "spell": 55.9
+   },
+   "err_seen": {
+    "raw": 0.8,
+    "spell": 0.6
+   },
+   "truth_nightly": 57,
+   "ours": {
+    "raw": 71.0,
+    "spell": 63.7,
+    "raw_fill": 57.6,
+    "raw_nostop": 77.0,
+    "spell_fill": 61.0,
+    "raw_gap1": 56.3,
+    "raw_gap2": 56.0,
+    "raw_gap5": 56.0,
+    "raw_gapspell2": 71.0
+   },
+   "err": {
+    "raw": 11.3,
+    "spell": 4.0,
+    "raw_fill": -2.1,
+    "raw_nostop": 17.3,
+    "spell_fill": 1.3,
+    "raw_gap1": -3.4,
+    "raw_gap2": -3.7,
+    "raw_gap5": -3.7,
+    "raw_gapspell2": 11.3
+   },
+   "loose_pct": 78.8,
+   "ball_pct": 48.0,
+   "gap2_pct": 35.3,
+   "stoppages": 85
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "perfect",
+   "seed": 0,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 51.1,
+    "spell": 51.3
+   },
+   "err_seen": {
+    "raw": 0.1,
+    "spell": 0.3
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 52.8,
+    "spell": 52.6,
+    "raw_fill": 51.5,
+    "raw_nostop": 51.5,
+    "spell_fill": 51.1,
+    "raw_gap1": 51.1,
+    "raw_gap2": 51.1,
+    "raw_gap5": 51.1,
+    "raw_gapspell2": 52.8
+   },
+   "err": {
+    "raw": 0.5,
+    "spell": 0.3,
+    "raw_fill": -0.8,
+    "raw_nostop": -0.8,
+    "spell_fill": -1.2,
+    "raw_gap1": -1.2,
+    "raw_gap2": -1.2,
+    "raw_gap5": -1.2,
+    "raw_gapspell2": 0.5
+   },
+   "loose_pct": 47.2,
+   "ball_pct": 71.4,
+   "gap2_pct": 28.3,
+   "stoppages": 34
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "flicker",
+   "seed": 0,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 49.3,
+    "spell": 52.4
+   },
+   "err_seen": {
+    "raw": -1.7,
+    "spell": 1.4
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 56.3,
+    "spell": 57.2,
+    "raw_fill": 51.7,
+    "raw_nostop": 51.9,
+    "spell_fill": 53.2,
+    "raw_gap1": 49.2,
+    "raw_gap2": 49.3,
+    "raw_gap5": 49.5,
+    "raw_gapspell2": 56.3
+   },
+   "err": {
+    "raw": 4.0,
+    "spell": 4.9,
+    "raw_fill": -0.6,
+    "raw_nostop": -0.4,
+    "spell_fill": 0.9,
+    "raw_gap1": -3.1,
+    "raw_gap2": -3.0,
+    "raw_gap5": -2.8,
+    "raw_gapspell2": 4.0
+   },
+   "loose_pct": 39.2,
+   "ball_pct": 71.4,
+   "gap2_pct": 28.3,
+   "stoppages": 31
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "flicker",
+   "seed": 1,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 51.5,
+    "spell": 53.9
+   },
+   "err_seen": {
+    "raw": 0.5,
+    "spell": 2.9
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 56.8,
+    "spell": 57.6,
+    "raw_fill": 54.0,
+    "raw_nostop": 53.9,
+    "spell_fill": 55.9,
+    "raw_gap1": 51.5,
+    "raw_gap2": 51.5,
+    "raw_gap5": 51.1,
+    "raw_gapspell2": 56.8
+   },
+   "err": {
+    "raw": 4.5,
+    "spell": 5.3,
+    "raw_fill": 1.7,
+    "raw_nostop": 1.6,
+    "spell_fill": 3.6,
+    "raw_gap1": -0.8,
+    "raw_gap2": -0.8,
+    "raw_gap5": -1.2,
+    "raw_gapspell2": 4.5
+   },
+   "loose_pct": 42.5,
+   "ball_pct": 71.4,
+   "gap2_pct": 28.3,
+   "stoppages": 32
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "streak",
+   "seed": 0,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 51.6,
+    "spell": 50.4
+   },
+   "err_seen": {
+    "raw": 0.6,
+    "spell": -0.6
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 56.1,
+    "spell": 53.0,
+    "raw_fill": 52.8,
+    "raw_nostop": 62.5,
+    "spell_fill": 53.9,
+    "raw_gap1": 52.9,
+    "raw_gap2": 52.7,
+    "raw_gap5": 52.2,
+    "raw_gapspell2": 56.5
+   },
+   "err": {
+    "raw": 3.8,
+    "spell": 0.7,
+    "raw_fill": 0.5,
+    "raw_nostop": 10.2,
+    "spell_fill": 1.6,
+    "raw_gap1": 0.6,
+    "raw_gap2": 0.4,
+    "raw_gap5": -0.1,
+    "raw_gapspell2": 4.2
+   },
+   "loose_pct": 81.4,
+   "ball_pct": 60.4,
+   "gap2_pct": 31.7,
+   "stoppages": 37
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "streak",
+   "seed": 1,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 52.3,
+    "spell": 52.6
+   },
+   "err_seen": {
+    "raw": 1.3,
+    "spell": 1.6
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 55.1,
+    "spell": 53.9,
+    "raw_fill": 52.3,
+    "raw_nostop": 53.2,
+    "spell_fill": 55.6,
+    "raw_gap1": 53.7,
+    "raw_gap2": 53.4,
+    "raw_gap5": 53.6,
+    "raw_gapspell2": 54.9
+   },
+   "err": {
+    "raw": 2.8,
+    "spell": 1.6,
+    "raw_fill": 0.0,
+    "raw_nostop": 0.9,
+    "spell_fill": 3.3,
+    "raw_gap1": 1.4,
+    "raw_gap2": 1.1,
+    "raw_gap5": 1.3,
+    "raw_gapspell2": 2.6
+   },
+   "loose_pct": 83.5,
+   "ball_pct": 59.9,
+   "gap2_pct": 32.4,
+   "stoppages": 34
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "veo",
+   "seed": 0,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 49.4,
+    "spell": 51.0
+   },
+   "err_seen": {
+    "raw": -1.6,
+    "spell": 0.0
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 56.5,
+    "spell": 54.0,
+    "raw_fill": 54.9,
+    "raw_nostop": 59.2,
+    "spell_fill": 55.6,
+    "raw_gap1": 49.4,
+    "raw_gap2": 49.4,
+    "raw_gap5": 46.8,
+    "raw_gapspell2": 56.5
+   },
+   "err": {
+    "raw": 4.2,
+    "spell": 1.7,
+    "raw_fill": 2.6,
+    "raw_nostop": 6.9,
+    "spell_fill": 3.3,
+    "raw_gap1": -2.9,
+    "raw_gap2": -2.9,
+    "raw_gap5": -5.5,
+    "raw_gapspell2": 4.2
+   },
+   "loose_pct": 86.2,
+   "ball_pct": 53.5,
+   "gap2_pct": 28.3,
+   "stoppages": 85
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 1,
+   "ball": "veo",
+   "seed": 1,
+   "truth": 52.3,
+   "truth_seen": 51.0,
+   "ours_seen": {
+    "raw": 53.0,
+    "spell": 49.3
+   },
+   "err_seen": {
+    "raw": 2.0,
+    "spell": -1.7
+   },
+   "truth_nightly": 51,
+   "ours": {
+    "raw": 49.6,
+    "spell": 48.6,
+    "raw_fill": 50.8,
+    "raw_nostop": 60.8,
+    "spell_fill": 49.7,
+    "raw_gap1": 53.0,
+    "raw_gap2": 53.0,
+    "raw_gap5": 53.0,
+    "raw_gapspell2": 49.9
+   },
+   "err": {
+    "raw": -2.7,
+    "spell": -3.7,
+    "raw_fill": -1.5,
+    "raw_nostop": 8.5,
+    "spell_fill": -2.6,
+    "raw_gap1": 0.7,
+    "raw_gap2": 0.7,
+    "raw_gap5": 0.7,
+    "raw_gapspell2": -2.4
+   },
+   "loose_pct": 84.1,
+   "ball_pct": 53.5,
+   "gap2_pct": 28.3,
+   "stoppages": 94
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "perfect",
+   "seed": 0,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 56.1,
+    "spell": 54.8
+   },
+   "err_seen": {
+    "raw": 4.1,
+    "spell": 2.8
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 54.8,
+    "spell": 54.2,
+    "raw_fill": 51.4,
+    "raw_nostop": 53.7,
+    "spell_fill": 53.2,
+    "raw_gap1": 56.1,
+    "raw_gap2": 56.1,
+    "raw_gap5": 55.5,
+    "raw_gapspell2": 54.8
+   },
+   "err": {
+    "raw": -1.0,
+    "spell": -1.6,
+    "raw_fill": -4.4,
+    "raw_nostop": -2.1,
+    "spell_fill": -2.6,
+    "raw_gap1": 0.3,
+    "raw_gap2": 0.3,
+    "raw_gap5": -0.3,
+    "raw_gapspell2": -1.0
+   },
+   "loose_pct": 47.3,
+   "ball_pct": 47.5,
+   "gap2_pct": 52.0,
+   "stoppages": 33
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "flicker",
+   "seed": 0,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 52.5,
+    "spell": 53.2
+   },
+   "err_seen": {
+    "raw": 0.5,
+    "spell": 1.2
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 38.7,
+    "spell": 41.3,
+    "raw_fill": 45.0,
+    "raw_nostop": 41.7,
+    "spell_fill": 45.3,
+    "raw_gap1": 52.8,
+    "raw_gap2": 52.5,
+    "raw_gap5": 52.2,
+    "raw_gapspell2": 38.7
+   },
+   "err": {
+    "raw": -17.1,
+    "spell": -14.5,
+    "raw_fill": -10.8,
+    "raw_nostop": -14.1,
+    "spell_fill": -10.5,
+    "raw_gap1": -3.0,
+    "raw_gap2": -3.3,
+    "raw_gap5": -3.6,
+    "raw_gapspell2": -17.1
+   },
+   "loose_pct": 43.3,
+   "ball_pct": 47.5,
+   "gap2_pct": 52.0,
+   "stoppages": 32
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "flicker",
+   "seed": 1,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 52.7,
+    "spell": 56.0
+   },
+   "err_seen": {
+    "raw": 0.7,
+    "spell": 4.0
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 58.9,
+    "spell": 60.1,
+    "raw_fill": 53.3,
+    "raw_nostop": 57.5,
+    "spell_fill": 54.0,
+    "raw_gap1": 52.7,
+    "raw_gap2": 52.7,
+    "raw_gap5": 52.6,
+    "raw_gapspell2": 58.9
+   },
+   "err": {
+    "raw": 3.1,
+    "spell": 4.3,
+    "raw_fill": -2.5,
+    "raw_nostop": 1.7,
+    "spell_fill": -1.8,
+    "raw_gap1": -3.1,
+    "raw_gap2": -3.1,
+    "raw_gap5": -3.2,
+    "raw_gapspell2": 3.1
+   },
+   "loose_pct": 49.1,
+   "ball_pct": 47.5,
+   "gap2_pct": 52.0,
+   "stoppages": 31
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "streak",
+   "seed": 0,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 55.5,
+    "spell": 61.2
+   },
+   "err_seen": {
+    "raw": 3.5,
+    "spell": 9.2
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 60.2,
+    "spell": 62.6,
+    "raw_fill": 52.5,
+    "raw_nostop": 59.4,
+    "spell_fill": 49.1,
+    "raw_gap1": 58.8,
+    "raw_gap2": 56.5,
+    "raw_gap5": 56.8,
+    "raw_gapspell2": 60.1
+   },
+   "err": {
+    "raw": 4.4,
+    "spell": 6.8,
+    "raw_fill": -3.3,
+    "raw_nostop": 3.6,
+    "spell_fill": -6.7,
+    "raw_gap1": 3.0,
+    "raw_gap2": 0.7,
+    "raw_gap5": 1.0,
+    "raw_gapspell2": 4.3
+   },
+   "loose_pct": 86.6,
+   "ball_pct": 40.1,
+   "gap2_pct": 54.8,
+   "stoppages": 34
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "streak",
+   "seed": 1,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 55.9,
+    "spell": 59.5
+   },
+   "err_seen": {
+    "raw": 3.9,
+    "spell": 7.5
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 45.2,
+    "spell": 51.1,
+    "raw_fill": 52.6,
+    "raw_nostop": 45.3,
+    "spell_fill": 53.8,
+    "raw_gap1": 57.2,
+    "raw_gap2": 56.6,
+    "raw_gap5": 55.8,
+    "raw_gapspell2": 45.4
+   },
+   "err": {
+    "raw": -10.6,
+    "spell": -4.7,
+    "raw_fill": -3.2,
+    "raw_nostop": -10.5,
+    "spell_fill": -2.0,
+    "raw_gap1": 1.4,
+    "raw_gap2": 0.8,
+    "raw_gap5": 0.0,
+    "raw_gapspell2": -10.4
+   },
+   "loose_pct": 81.5,
+   "ball_pct": 39.6,
+   "gap2_pct": 55.0,
+   "stoppages": 37
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "veo",
+   "seed": 0,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 54.4,
+    "spell": 59.1
+   },
+   "err_seen": {
+    "raw": 2.4,
+    "spell": 7.1
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 32.7,
+    "spell": 45.4,
+    "raw_fill": 40.1,
+    "raw_nostop": 28.1,
+    "spell_fill": 36.3,
+    "raw_gap1": 54.9,
+    "raw_gap2": 54.5,
+    "raw_gap5": 55.2,
+    "raw_gapspell2": 32.7
+   },
+   "err": {
+    "raw": -23.1,
+    "spell": -10.4,
+    "raw_fill": -15.7,
+    "raw_nostop": -27.7,
+    "spell_fill": -19.5,
+    "raw_gap1": -0.9,
+    "raw_gap2": -1.3,
+    "raw_gap5": -0.6,
+    "raw_gapspell2": -23.1
+   },
+   "loose_pct": 85.3,
+   "ball_pct": 35.5,
+   "gap2_pct": 52.1,
+   "stoppages": 71
+  },
+  {
+   "game": "Sample_Game_2",
+   "half": 2,
+   "ball": "veo",
+   "seed": 1,
+   "truth": 55.8,
+   "truth_seen": 52.0,
+   "ours_seen": {
+    "raw": 50.5,
+    "spell": 52.2
+   },
+   "err_seen": {
+    "raw": -1.5,
+    "spell": 0.2
+   },
+   "truth_nightly": 54,
+   "ours": {
+    "raw": 35.3,
+    "spell": 43.1,
+    "raw_fill": 52.8,
+    "raw_nostop": 34.9,
+    "spell_fill": 52.2,
+    "raw_gap1": 51.4,
+    "raw_gap2": 50.5,
+    "raw_gap5": 52.1,
+    "raw_gapspell2": 35.4
+   },
+   "err": {
+    "raw": -20.5,
+    "spell": -12.7,
+    "raw_fill": -3.0,
+    "raw_nostop": -20.9,
+    "spell_fill": -3.6,
+    "raw_gap1": -4.4,
+    "raw_gap2": -5.3,
+    "raw_gap5": -3.7,
+    "raw_gapspell2": -20.4
+   },
+   "loose_pct": 84.6,
+   "ball_pct": 35.3,
+   "gap2_pct": 52.1,
+   "stoppages": 69
+  }
+ ],
+ "summary": {
+  "flicker": {
+   "raw": {
+    "mean_abs": 5.7,
+    "worst": 17.1,
+    "bias": -2.7,
+    "right_side": "6/8"
+   },
+   "spell": {
+    "mean_abs": 5.6,
+    "worst": 14.5,
+    "bias": -1.8,
+    "right_side": "5/8"
+   },
+   "raw_fill": {
+    "mean_abs": 5.1,
+    "worst": 10.8,
+    "bias": -4.7,
+    "right_side": "5/8"
+   },
+   "raw_nostop": {
+    "mean_abs": 4.9,
+    "worst": 14.1,
+    "bias": -4.1,
+    "right_side": "5/8"
+   },
+   "spell_fill": {
+    "mean_abs": 4.1,
+    "worst": 10.5,
+    "bias": -3.0,
+    "right_side": "5/8"
+   },
+   "raw_gap1": {
+    "mean_abs": 3.5,
+    "worst": 6.0,
+    "bias": -3.5,
+    "right_side": "5/8"
+   },
+   "raw_gap2": {
+    "mean_abs": 3.5,
+    "worst": 6.0,
+    "bias": -3.5,
+    "right_side": "5/8"
+   },
+   "raw_gap5": {
+    "mean_abs": 3.6,
+    "worst": 5.9,
+    "bias": -3.6,
+    "right_side": "5/8"
+   },
+   "raw_gapspell2": {
+    "mean_abs": 5.7,
+    "worst": 17.1,
+    "bias": -2.7,
+    "right_side": "6/8"
+   },
+   "seen_raw": {
+    "mean_abs": 1.2,
+    "worst": 1.8,
+    "bias": -0.1
+   },
+   "seen_spell": {
+    "mean_abs": 2.0,
+    "worst": 4.0,
+    "bias": 1.4
+   }
+  },
+  "perfect": {
+   "raw": {
+    "mean_abs": 2.2,
+    "worst": 4.6,
+    "bias": -0.6,
+    "right_side": "3/4"
+   },
+   "spell": {
+    "mean_abs": 1.9,
+    "worst": 3.5,
+    "bias": -0.6,
+    "right_side": "3/4"
+   },
+   "raw_fill": {
+    "mean_abs": 3.3,
+    "worst": 6.2,
+    "bias": -2.4,
+    "right_side": "3/4"
+   },
+   "raw_nostop": {
+    "mean_abs": 2.7,
+    "worst": 4.0,
+    "bias": -0.8,
+    "right_side": "3/4"
+   },
+   "spell_fill": {
+    "mean_abs": 2.3,
+    "worst": 2.9,
+    "bias": -0.9,
+    "right_side": "4/4"
+   },
+   "raw_gap1": {
+    "mean_abs": 2.9,
+    "worst": 8.0,
+    "bias": -2.8,
+    "right_side": "3/4"
+   },
+   "raw_gap2": {
+    "mean_abs": 3.0,
+    "worst": 8.1,
+    "bias": -2.8,
+    "right_side": "3/4"
+   },
+   "raw_gap5": {
+    "mean_abs": 3.0,
+    "worst": 7.9,
+    "bias": -3.0,
+    "right_side": "3/4"
+   },
+   "raw_gapspell2": {
+    "mean_abs": 2.2,
+    "worst": 4.6,
+    "bias": -0.6,
+    "right_side": "3/4"
+   },
+   "seen_raw": {
+    "mean_abs": 2.5,
+    "worst": 4.1,
+    "bias": 0.6
+   },
+   "seen_spell": {
+    "mean_abs": 1.8,
+    "worst": 2.8,
+    "bias": 1.0
+   }
+  },
+  "streak": {
+   "raw": {
+    "mean_abs": 5.1,
+    "worst": 10.6,
+    "bias": -0.1,
+    "right_side": "5/8"
+   },
+   "spell": {
+    "mean_abs": 4.2,
+    "worst": 9.0,
+    "bias": -1.0,
+    "right_side": "6/8"
+   },
+   "raw_fill": {
+    "mean_abs": 4.0,
+    "worst": 11.9,
+    "bias": -3.9,
+    "right_side": "6/8"
+   },
+   "raw_nostop": {
+    "mean_abs": 5.7,
+    "worst": 10.8,
+    "bias": 0.4,
+    "right_side": "6/8"
+   },
+   "spell_fill": {
+    "mean_abs": 3.8,
+    "worst": 8.0,
+    "bias": -2.5,
+    "right_side": "5/8"
+   },
+   "raw_gap1": {
+    "mean_abs": 4.4,
+    "worst": 12.5,
+    "bias": -2.8,
+    "right_side": "6/8"
+   },
+   "raw_gap2": {
+    "mean_abs": 3.6,
+    "worst": 11.3,
+    "bias": -2.8,
+    "right_side": "6/8"
+   },
+   "raw_gap5": {
+    "mean_abs": 3.4,
+    "worst": 12.2,
+    "bias": -2.8,
+    "right_side": "6/8"
+   },
+   "raw_gapspell2": {
+    "mean_abs": 5.1,
+    "worst": 10.4,
+    "bias": -0.0,
+    "right_side": "5/8"
+   },
+   "seen_raw": {
+    "mean_abs": 3.1,
+    "worst": 7.4,
+    "bias": 0.2
+   },
+   "seen_spell": {
+    "mean_abs": 4.9,
+    "worst": 11.2,
+    "bias": 1.0
+   }
+  },
+  "veo": {
+   "raw": {
+    "mean_abs": 10.3,
+    "worst": 23.1,
+    "bias": -4.3,
+    "right_side": "4/8"
+   },
+   "spell": {
+    "mean_abs": 7.0,
+    "worst": 13.6,
+    "bias": -4.5,
+    "right_side": "3/8"
+   },
+   "raw_fill": {
+    "mean_abs": 5.2,
+    "worst": 15.7,
+    "bias": -4.5,
+    "right_side": "6/8"
+   },
+   "raw_nostop": {
+    "mean_abs": 12.2,
+    "worst": 27.7,
+    "bias": 0.1,
+    "right_side": "6/8"
+   },
+   "spell_fill": {
+    "mean_abs": 5.4,
+    "worst": 19.5,
+    "bias": -4.2,
+    "right_side": "4/8"
+   },
+   "raw_gap1": {
+    "mean_abs": 3.7,
+    "worst": 7.1,
+    "bias": -3.5,
+    "right_side": "5/8"
+   },
+   "raw_gap2": {
+    "mean_abs": 3.9,
+    "worst": 7.1,
+    "bias": -3.7,
+    "right_side": "5/8"
+   },
+   "raw_gap5": {
+    "mean_abs": 3.8,
+    "worst": 7.1,
+    "bias": -3.6,
+    "right_side": "5/8"
+   },
+   "raw_gapspell2": {
+    "mean_abs": 10.2,
+    "worst": 23.1,
+    "bias": -4.2,
+    "right_side": "4/8"
+   },
+   "seen_raw": {
+    "mean_abs": 1.9,
+    "worst": 2.9,
+    "bias": -0.2
+   },
+   "seen_spell": {
+    "mean_abs": 3.5,
+    "worst": 11.0,
+    "bias": -0.8
+   }
+  }
+ }
+}

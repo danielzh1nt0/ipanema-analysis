@@ -1,5 +1,5 @@
 """nightly: the quick free checks (tests, ball picker on the 34 moments, stats on Metrica, kits on 8 matches) -> results/nightly/quick.json"""
-import subprocess, sys, json, os, glob, re, time
+import subprocess, sys, json, os, glob, re, time, csv
 
 
 def has_main(path):
@@ -31,21 +31,27 @@ def main():
     out["ball_34_moments"] = {"right": int(m.group(1)), "of": int(m.group(2)), "best_possible": int(m.group(3))} if m else {"error": (r.stdout + r.stderr)[-500:]}
     M = "/tmp/metrica/data"
     if not os.path.exists(M): subprocess.run("git clone -q --depth 1 https://github.com/metrica-sports/sample-data.git /tmp/metrica", shell=True)
-    sys.path.insert(0, "tools"); import metricalab as ML
+    sys.path.insert(0, "tools"); import metricalab as ML, n0_29f_possession as Z, n0_25d_tilt_windows as TW
     errs = []
     for g in ("Sample_Game_1", "Sample_Game_2"):
         d = f"{M}/{g}"; home = ML.load_tracking(f"{d}/{g}_RawTrackingData_Home_Team.csv", 100); away = ML.load_tracking(f"{d}/{g}_RawTrackingData_Away_Team.csv", 200)
         fr = {k: (home[k][0], home[k][1] + away[k][1], home[k][2]) for k in home}; bp = {}
         for k, (p, _, _) in fr.items(): bp.setdefault(p, []).append(k)
-        T = ML.truth(ML.load_events(f"{d}/{g}_RawEventsData.csv"), bp)
+        T = ML.truth(ML.load_events(f"{d}/{g}_RawEventsData.csv"), bp); evr = list(csv.DictReader(open(f"{d}/{g}_RawEventsData.csv")))
         for per in (1, 2):
             for noisy in (False, "streak"):
-                O = ML.ours(fr, per, noisy); t, o = T[per]["passes"], O["passes"]
+                st, _cst, _sp, O, _hb = Z.capture(fr, per, noisy, 0); t, o = T[per]["passes"], O["passes"]   # = ML.ours(fr, per, noisy) + its raw state
+                # N0-29f: Metrica blanks its ball for 28-55% of a half and the state then keeps the last team, so the
+                # whole-half error mostly measures that; 'seen' = ours vs the frame truth outside Metrica's ball gaps of 2 s+
+                ks = sorted(k for k in fr if fr[k][0] == per); seen = ~Z.gap_mask([fr[k][2] is not None for k in ks], Z.FPS, 2)
+                ts_ = Z.truth_share(TW.truth_own(evr, fr, per), ks[0], len(ks), seen); os_ = Z.share(st, seen)
                 ts = ML.truth_sequences(ML.load_events(f"{d}/{g}_RawEventsData.csv"), per); sf, sr = ML.seq_found(ts, O["sequence_starts"])
                 errs.append({"game": g[-1], "half": per, "noise": str(noisy), "pass_err_pct": round(100 * max(abs(o[s] - t[s]) / t[s] for s in t)),
                              "poss_err_pts": abs(O["possession_pct"]["Home"] - T[per]["possession_pct"]["Home"]),
+                             "poss_err_seen_pts": round(abs(os_ - ts_), 1) if os_ is not None and ts_ is not None else None,
                              "seq_truth": len(ts), "seq_ours": O["sequences"], "seq_found": sf, "seq_real": sr, "mode": O["mode"]})
     out["stats_pro_data"] = {"worst_pass_err_pct": max(e["pass_err_pct"] for e in errs), "worst_poss_err_pts": max(e["poss_err_pts"] for e in errs),
+                             "worst_poss_err_seen_pts": max((e["poss_err_seen_pts"] for e in errs if e["poss_err_seen_pts"] is not None), default=None),
                              "possession_model": errs[0]["mode"],   # E5 (29 Sep): 'simple' = the pipeline default; before 29 Sep the nightly scored 'viterbi'
                              "sequences_found_pct": round(100 * sum(e["seq_found"] for e in errs) / max(1, sum(e["seq_truth"] for e in errs))),
                              "sequences_real_pct": round(100 * sum(e["seq_real"] for e in errs) / max(1, sum(e["seq_ours"] for e in errs))), "rows": errs}
