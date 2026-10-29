@@ -46,6 +46,82 @@ def track_motion(ks, P, fps, runs=None, gap_line_s=None, gap_max_ms=None, hi_ms=
     return sp, step, hi
 
 
+TOP_SPEED = os.environ.get("IPANEMA_TOP_SPEED", "sus1")   # N0-29c: best 1-s average inside a seen run (old = fastest single row)
+HI_MODE = os.environ.get("IPANEMA_HI", "old")             # N0-29c: tried > 5.5 m/s held >= 1 s (sus1): 15-35% of the truth on Metrica (our seen runs are ~0.6 s), old 103-150% - old kept
+
+
+def seen_speeds(ks, P, fps, jump_m=2.0, max_ms=10.0):
+    """N0-29c: per-row speed (m/s, NaN = not measured) from positions smoothed 0.8 s within each seen run, as
+    track_motion; a raw step of more than jump_m in <= 3 frames (the track jumped to another person, as metrics.runs)
+    splits the run and is not measured. Returns (speeds, seen-step mask: gap <= 3 frames and measured)."""
+    ks = np.asarray(ks); P = np.asarray(P, float); n = len(ks); sp = np.full(n, np.nan)
+    if n < 2: return sp, np.zeros(n, bool)
+    g = np.diff(ks)
+    jump = np.r_[False, (g <= 3) & (np.linalg.norm(np.diff(P, axis=0), axis=1) > jump_m)] if jump_m else np.zeros(n, bool)
+    Ps = smooth_runs(ks + 10 * np.cumsum(jump), P, int(0.8 * fps), runs=True)
+    for i in range(1, n):
+        gi = int(ks[i] - ks[i - 1])
+        if gi <= 3 and not jump[i]:
+            s = float(np.linalg.norm(Ps[i] - Ps[i - 1])) * fps / gi
+            if s <= max_ms: sp[i] = s if s >= 0.5 else 0.0
+    return sp, ~np.isnan(sp)
+
+
+def _stretches(ok):
+    """(start, end) index pairs of consecutive True rows"""
+    out = []; i = 0; n = len(ok)
+    while i < n:
+        if not ok[i]: i += 1; continue
+        j = i
+        while j + 1 < n and ok[j + 1]: j += 1
+        out.append((i, j)); i = j + 1
+    return out
+
+
+def top_speed(ks, P, fps, old=None, pct=None, win_s=1.0, jump_m=3.0):
+    """N0-29c (29 Oct): a player's top speed = his best win_s-second average speed, only over time he was seen the whole
+    time (one seen run, no gap, no jump to another person). The old figure (old=True, IPANEMA_TOP_SPEED=old) was the
+    fastest single row of track_motion - with our ~0.3 m feet jitter that is 8+ m/s on most tracks. Metrica pro data
+    cut like our tracks: results/qa/n0-29c. pct = a percentile of row speeds instead (lab only)."""
+    old = (TOP_SPEED == "old") if old is None else old
+    if old:
+        sp = track_motion(ks, P, fps)[0]
+        return round(float(np.nanmax(sp)), 2) if (~np.isnan(sp)).any() else 0.0
+    sp, ok = seen_speeds(ks, P, fps, jump_m=jump_m)
+    if not ok.any(): return 0.0
+    if pct is not None: return round(float(np.nanpercentile(sp, pct)), 2)
+    ks = np.asarray(ks); best = 0.0; need = win_s * fps
+    for a, b in _stretches(ok):                                         # rows a..b: steps (ks[i-1] -> ks[i]) all seen
+        fr = (ks[a:b + 1] - ks[a - 1:b]).astype(float); d = sp[a:b + 1] * fr / fps
+        cf = np.r_[0, np.cumsum(fr)]; cd = np.r_[0, np.cumsum(d)]; lo = 0
+        for hi_ in range(1, len(cf)):
+            while cf[hi_] - cf[lo + 1] >= need: lo += 1
+            if cf[hi_] - cf[lo] >= need: best = max(best, (cd[hi_] - cd[lo]) / ((cf[hi_] - cf[lo]) / fps))
+    return round(best, 2)
+
+
+def high_intensity(ks, P, fps, old=None, min_s=1.0, gap_hi=True, hi_ms=5.5, jump_m=2.0):
+    """N0-29c (29 Oct): high-intensity distance = seen stretches that stay above hi_ms for at least min_s, plus a
+    track gap's straight line (track_motion's rule: <= 2.5 s, <= 7 m/s) above hi_ms when the seen rows either side are
+    above hi_ms too. The old figure (old=True, IPANEMA_HI=old) counted every step above hi_ms, so feet jitter on a
+    jogging player and every fast gap line counted (103-163% of the truth on Metrica, N0-22c)."""
+    old = (HI_MODE == "old") if old is None else old
+    if old: return round(float(track_motion(ks, P, fps, hi_ms=hi_ms)[2].sum()), 1)
+    ks = np.asarray(ks); sp, ok = seen_speeds(ks, P, fps, jump_m=jump_m); tot = 0.0
+    fast = ok & (sp > hi_ms)
+    for a, b in _stretches(fast):
+        fr = (ks[a:b + 1] - ks[a - 1:b]).astype(float)
+        if fr.sum() / fps >= min_s: tot += float((sp[a:b + 1] * fr / fps).sum())
+    if gap_hi and GAP_LINE_S > 0:
+        Ps = smooth_runs(ks, np.asarray(P, float), int(0.8 * fps), runs=True)
+        for i in range(1, len(ks) - 1):
+            gi = int(ks[i] - ks[i - 1])
+            if gi <= 3 or gi / fps > GAP_LINE_S: continue
+            d = float(np.linalg.norm(Ps[i] - Ps[i - 1])); s = d * fps / gi
+            if hi_ms < s <= GAP_MAX_MS and fast[i - 1] and fast[i + 1]: tot += d
+    return round(tot, 1)
+
+
 def _blocked(c, t, opps, lane_half):
     d = t - c; n2 = d @ d
     if n2 < 1e-6: return False
@@ -445,7 +521,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                         "passes_forward": int((mp["kind"] == "forward").sum()) if len(mp) else 0, "passes_sideways": int((mp["kind"] == "sideways").sum()) if len(mp) else 0, "passes_backward": int((mp["kind"] == "backward").sum()) if len(mp) else 0,
                         "progressive_passes": int(mp["progressive"].sum()) if len(mp) else 0, "passes_received": int(len(rc)), "pressures_applied": pr,
                         "pass_quality": {q: int((mp["quality"] == q).sum()) if len(mp) else 0 for q in ("good", "risky_completed", "bad_lost", "execution_error")}, "better_option_count": (int(mp["better_option"].sum()) if len(mp) else 0) if BETTER != "withhold" else None, "passes_risky": int((mp["quality"] == "risky_completed").sum()) if len(mp) else 0,
-                        "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(hi_step.sum()), 1), "top_speed_ms": round(float(np.nanmax(sp)) if valid.any() else 0, 2),
+                        "distance_m": round(float(step.sum()), 1), "high_intensity_m": round(float(hi_step.sum()), 1) if HI_MODE == "old" else high_intensity(ks, P, fps), "top_speed_ms": top_speed(ks, P, fps),   # N0-29c: best 1-s average while seen (was: fastest single row = jitter, 9.9 m/s on everyone)
                         "avg_x_m": round(float(PP[:, 0].mean()), 1), "avg_y_m": round(float(PP[:, 1].mean()), 1),
                         "pct_def_third": round(100 * float((xs < L / 3).mean())), "pct_mid_third": round(100 * float(((xs >= L / 3) & (xs < 2 * L / 3)).mean())), "pct_att_third": round(100 * float((xs >= 2 * L / 3).mean())),
                         "counterpress_rate": round(rx["pressed"] / rx["losses_seen"], 2) if rx and rx["losses_seen"] else None, "losses_seen": rx["losses_seen"] if rx else 0})
