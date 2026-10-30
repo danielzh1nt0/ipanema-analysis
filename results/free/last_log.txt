@@ -1,15 +1,15 @@
 clip downloaded whole (4018 MB)
 6446 rows to read from /tmp/aik_video.mp4
-500/6446 rows read, video 816 s, 34 s wall
-1000/6446 rows read, video 1266 s, 53 s wall
-1500/6446 rows read, video 1717 s, 74 s wall
-2000/6446 rows read, video 2167 s, 95 s wall
-2500/6446 rows read, video 2617 s, 115 s wall
-3000/6446 rows read, video 3068 s, 134 s wall
-3500/6446 rows read, video 4244 s, 183 s wall
-4000/6446 rows read, video 4694 s, 202 s wall
-4500/6446 rows read, video 5144 s, 221 s wall
-5000/6446 rows read, video 5595 s, 240 s wall
-5500/6446 rows read, video 6045 s, 260 s wall
-6000/6446 rows read, video 6496 s, 280 s wall
-{"rows_read": 6446, "tracks": 6651, "reads_per_class": {"dark": 20846, "white": 42511, "red": 1157, "blue": 1613, "none": 29690}}
+500/6446 rows read, video 816 s, 54 s wall
+1000/6446 rows read, video 1266 s, 84 s wall
+1500/6446 rows read, video 1717 s, 115 s wall
+2000/6446 rows read, video 2167 s, 145 s wall
+2500/6446 rows read, video 2617 s, 176 s wall
+3000/6446 rows read, video 3068 s, 207 s wall
+3500/6446 rows read, video 4244 s, 286 s wall
+4000/6446 rows read, video 4694 s, 317 s wall
+4500/6446 rows read, video 5144 s, 348 s wall
+5000/6446 rows read, video 5595 s, 379 s wall
+5500/6446 rows read, video 6045 s, 411 s wall
+6000/6446 rows read, video 6496 s, 443 s wall
+{"rows_read": 6446, "tracks": 6651, "reads_per_class": {"dark": 20209, "white": 39597, "red": 1157, "blue": 1613, "none": 33241}}
