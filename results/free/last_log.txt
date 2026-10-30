@@ -1,2 +1,15 @@
 clip downloaded whole (4018 MB)
-90/90 frames cut, fps 29.970030549265214
+6446 rows to read from /tmp/aik_video.mp4
+500/6446 rows read, video 816 s, 52 s wall
+1000/6446 rows read, video 1266 s, 82 s wall
+1500/6446 rows read, video 1717 s, 111 s wall
+2000/6446 rows read, video 2167 s, 141 s wall
+2500/6446 rows read, video 2617 s, 171 s wall
+3000/6446 rows read, video 3068 s, 202 s wall
+3500/6446 rows read, video 4244 s, 280 s wall
+4000/6446 rows read, video 4694 s, 310 s wall
+4500/6446 rows read, video 5144 s, 340 s wall
+5000/6446 rows read, video 5595 s, 371 s wall
+5500/6446 rows read, video 6045 s, 402 s wall
+6000/6446 rows read, video 6496 s, 432 s wall
+{"rows_read": 6446, "tracks": 6651, "reads_per_class": {"dark": 27086, "white": 42698, "red": 1346, "blue": 548, "none": 24137}}
