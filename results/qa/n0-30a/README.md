@@ -32,8 +32,8 @@ cut on Kaggle (`results/kaggle/aik_poss_sample/poss`, seed 7, full size, nothing
 
 ## Side finding: the halves start before the kick-off (not changed)
 Frame p00 (400.5 s) shows only white players warming up and p01 (430.5 s) the captains' coin toss, but `periods/p15u-vs-aik-2026-09-21-bd09.json`
-starts the first half at 366 s; N0-26b put the kick-off at 428-446 s, and the second-half kick-off at 3984-4005 s (file: 3950 s). In those
-~75 s + ~40 s the export gives the ball to AIK almost every row (366-430 s: 96% B). Starting the halves at 440 / 3990 s moves the export's SFK
+starts the first half at 366 s; N0-26b put the kick-off at 428-446 s, and the second-half kick-off at 3984-4005 s (file: 3950 s). In the
+~75 s before the first kick-off the export gives the ball to AIK almost every row (366-430 s: 96% B); the ~40 s before the second is mixed. Starting the halves at 440 / 3990 s moves the export's SFK
 share by under 1 point (first half 39.4 -> 40.3%, whole match 45.5 -> 46.1%), so it is not worth a change on its own; worth fixing with
 the next AIK re-join.
 
