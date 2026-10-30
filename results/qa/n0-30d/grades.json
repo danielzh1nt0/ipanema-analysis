@@ -1,0 +1,231 @@
+{
+ "graded_blind_before_key": true,
+ "counts": {
+  "new": 8,
+  "old": 1,
+  "tie": 7,
+  "?": 6
+ },
+ "items": [
+  {
+   "file": "g00.jpg",
+   "t_won": 875.64,
+   "grade": "Y",
+   "better": "new",
+   "note": "X empty spot by the corner flag, Y on the ball at a player's feet",
+   "X": "old",
+   "old_gain": 6.1,
+   "new_gain": 2.1
+  },
+  {
+   "file": "g01.jpg",
+   "t_won": 892.19,
+   "grade": "X",
+   "better": "new",
+   "note": "X on the ball, Y by the far fence",
+   "X": "new",
+   "old_gain": 10.2,
+   "new_gain": 16.5
+  },
+  {
+   "file": "g02.jpg",
+   "t_won": 1734.67,
+   "grade": "X",
+   "better": "new",
+   "note": "X on the ball at a player's feet, Y at the bench",
+   "X": "new",
+   "old_gain": 5.9,
+   "new_gain": 10.8
+  },
+  {
+   "file": "g03.jpg",
+   "t_won": 2181.05,
+   "grade": "?",
+   "better": "?",
+   "note": "X a ball by the fence (spare?), Y empty grass",
+   "X": "old",
+   "old_gain": 38.8,
+   "new_gain": 19.8
+  },
+  {
+   "file": "g04.jpg",
+   "t_won": 2329.53,
+   "grade": "?",
+   "better": "?",
+   "note": "X by the post, Y on the keeper - can't tell",
+   "X": "new",
+   "old_gain": 15.3,
+   "new_gain": 3.8
+  },
+  {
+   "file": "g05.jpg",
+   "t_won": 2498.2,
+   "grade": "=",
+   "better": "tie",
+   "note": "same end frame",
+   "X": "new",
+   "old_gain": 3.4,
+   "new_gain": -3.6
+  },
+  {
+   "file": "g06.jpg",
+   "t_won": 2549.65,
+   "grade": "=",
+   "better": "tie",
+   "note": "both at the ball by the far touchline",
+   "X": "new",
+   "old_gain": 2.8,
+   "new_gain": -3.0
+  },
+  {
+   "file": "g07.jpg",
+   "t_won": 3450.05,
+   "grade": "=",
+   "better": "tie",
+   "note": "both on the ball",
+   "X": "old",
+   "old_gain": 54.4,
+   "new_gain": 44.5
+  },
+  {
+   "file": "g08.jpg",
+   "t_won": 3476.94,
+   "grade": "?",
+   "better": "?",
+   "note": "post / keeper - can't tell",
+   "X": "old",
+   "old_gain": -3.3,
+   "new_gain": -0.0
+  },
+  {
+   "file": "g09.jpg",
+   "t_won": 3551.01,
+   "grade": "=",
+   "better": "tie",
+   "note": "both on the ball at the 6-m box",
+   "X": "new",
+   "old_gain": 6.0,
+   "new_gain": 0.0
+  },
+  {
+   "file": "g10.jpg",
+   "t_won": 3715.68,
+   "grade": "Y",
+   "better": "new",
+   "note": "X spare ball at the post, Y on the match ball",
+   "X": "old",
+   "old_gain": -23.1,
+   "new_gain": 5.4
+  },
+  {
+   "file": "g11.jpg",
+   "t_won": 3731.69,
+   "grade": "Y",
+   "better": "new",
+   "note": "X spare ball at the post, Y on the match ball",
+   "X": "old",
+   "old_gain": 49.2,
+   "new_gain": 21.2
+  },
+  {
+   "file": "g12.jpg",
+   "t_won": 3787.02,
+   "grade": "?",
+   "better": "?",
+   "note": "X empty grass (ball in the air?), Y by the far line - can't tell",
+   "X": "new",
+   "old_gain": 12.8,
+   "new_gain": 0.2
+  },
+  {
+   "file": "g13.jpg",
+   "t_won": 3860.46,
+   "grade": "?",
+   "better": "?",
+   "note": "X empty grass, Y by a spectator - neither",
+   "X": "new",
+   "old_gain": -18.9,
+   "new_gain": -11.9
+  },
+  {
+   "file": "g14.jpg",
+   "t_won": 3863.66,
+   "grade": "=",
+   "better": "tie",
+   "note": "both on the ball",
+   "X": "new",
+   "old_gain": -33.2,
+   "new_gain": -27.3
+  },
+  {
+   "file": "g15.jpg",
+   "t_won": 3903.0,
+   "grade": "?",
+   "better": "?",
+   "note": "can't tell",
+   "X": "old",
+   "old_gain": 28.3,
+   "new_gain": 0.4
+  },
+  {
+   "file": "g16.jpg",
+   "t_won": 4409.61,
+   "grade": "Y",
+   "better": "new",
+   "note": "X empty grass, Y on the ball at a player's feet",
+   "X": "old",
+   "old_gain": -9.6,
+   "new_gain": 6.8
+  },
+  {
+   "file": "g17.jpg",
+   "t_won": 4787.82,
+   "grade": "X",
+   "better": "old",
+   "note": "X on the ball, Y empty grass",
+   "X": "old",
+   "old_gain": -0.5,
+   "new_gain": 8.1
+  },
+  {
+   "file": "g18.jpg",
+   "t_won": 4792.35,
+   "grade": "=",
+   "better": "tie",
+   "note": "both near the ball",
+   "X": "old",
+   "old_gain": 11.5,
+   "new_gain": 34.0
+  },
+  {
+   "file": "g19.jpg",
+   "t_won": 5143.47,
+   "grade": "Y",
+   "better": "new",
+   "note": "X the ball in the AIR over the goal (metres behind the goal), Y on the ground among players",
+   "X": "old",
+   "old_gain": -152.8,
+   "new_gain": -31.8
+  },
+  {
+   "file": "g20.jpg",
+   "t_won": 5352.61,
+   "grade": "=",
+   "better": "tie",
+   "note": "both near the ball",
+   "X": "old",
+   "old_gain": 16.5,
+   "new_gain": -7.2
+  },
+  {
+   "file": "g21.jpg",
+   "t_won": 5405.33,
+   "grade": "X",
+   "better": "new",
+   "note": "X on the ball, Y empty grass",
+   "X": "new",
+   "old_gain": -12.1,
+   "new_gain": 1.2
+  }
+ ]
+}
