@@ -1,0 +1,818 @@
+{
+ "match": "p15u-vs-aik-2026-09-21-bd09",
+ "frames_from": "results/free/n0_30b/h2 (90 random second-half frames 3995-6899 s, seed 11, full size, nothing drawn; cut on the free runner)",
+ "graded": "30 Oct 2026, worker (Claude) by eye, blind: each full frame + a 2.2x zoom around the exported ball spot (no team, no possession shown)",
+ "teams": "A = dark SFK, B = white AIK (kit_A/kit_B pictures of the export). Second half: AIK defends the right-hand goal (red keeper), SFK the left; SFK's goal (Veo 6268) is followed by the dark team walking back from the right box (q70) and a white kick-off (q71)",
+ "items": [
+  {
+   "file": "q00.jpg",
+   "t": 3996.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "second-half kick-off being set up, players at the centre circle, ball not seen (dead)"
+  },
+  {
+   "file": "q01.jpg",
+   "t": 4038.6,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player has just played it, white #7 chasing"
+  },
+  {
+   "file": "q02.jpg",
+   "t": 4082.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "white #30 over a free kick, dark wall (dead)"
+  },
+  {
+   "file": "q03.jpg",
+   "t": 4116.6,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "red keeper holding the ball at the right-hand goal (the AIK goal in this half: whites attack the left goal, q06)"
+  },
+  {
+   "file": "q04.jpg",
+   "t": 4167.9,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "white player standing over the ball at the halfway line, free kick (dead)"
+  },
+  {
+   "file": "q05.jpg",
+   "t": 4168.9,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "same free kick, white #6 at the ball (dead)"
+  },
+  {
+   "file": "q06.jpg",
+   "t": 4198.9,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player dribbling at the orange keeper's goal, darks chasing"
+  },
+  {
+   "file": "q07.jpg",
+   "t": 4207.1,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "white player on the ground by the left goal line, ball not seen (stoppage)"
+  },
+  {
+   "file": "q08.jpg",
+   "t": 4248.1,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "white player just played it near the right box, dark a few metres off (another dot on the left may be a spare ball)"
+  },
+  {
+   "file": "q09.jpg",
+   "t": 4258.3,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "red AIK keeper with the ball at his feet in his box, goal kick (dead)"
+  },
+  {
+   "file": "q10.jpg",
+   "t": 4268.3,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player dribbling with the ball at his feet"
+  },
+  {
+   "file": "q11.jpg",
+   "t": 4286.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "white player standing on the ball by the centre circle, free kick (dead)"
+  },
+  {
+   "file": "q12.jpg",
+   "t": 4288.4,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball loose in the centre circle 2 s after that free kick, nobody near"
+  },
+  {
+   "file": "q13.jpg",
+   "t": 4333.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball in the air between dark #28 and white #7, both chasing"
+  },
+  {
+   "file": "q14.jpg",
+   "t": 4337.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball rolling towards the left goal line, nobody near"
+  },
+  {
+   "file": "q15.jpg",
+   "t": 4375.3,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": true,
+   "note": "white #30 at the ball in a crowd by the left box with the referee, looks like a white free kick (dead)"
+  },
+  {
+   "file": "q16.jpg",
+   "t": 4452.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player with the ball at his feet by the far touchline, darks walking nearby"
+  },
+  {
+   "file": "q17.jpg",
+   "t": 4511.0,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "red AIK keeper playing the ball at his feet outside his box, white #6 in front"
+  },
+  {
+   "file": "q18.jpg",
+   "t": 4531.3,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player running with the ball by the far touchline"
+  },
+  {
+   "file": "q19.jpg",
+   "t": 4547.4,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball rolling loose near the halfway line, a white player running onto it ~10 m away"
+  },
+  {
+   "file": "q20.jpg",
+   "t": 4548.7,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player running with the ball (he reached the loose ball of q19)"
+  },
+  {
+   "file": "q21.jpg",
+   "t": 4604.0,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "white #6 over a free kick outside the left box, referee placing the wall (dead)"
+  },
+  {
+   "file": "q22.jpg",
+   "t": 4606.9,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "same white free kick as q21, white placing the ball (dead)"
+  },
+  {
+   "file": "q23.jpg",
+   "t": 4613.2,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": false,
+   "dead": true,
+   "note": "6 s later the ball sits at a dark player's feet, referee's arm up, whites standing - looks like the free kick now goes to SFK (dead)"
+  },
+  {
+   "file": "q24.jpg",
+   "t": 4661.9,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, play by the far touchline, referee pointing"
+  },
+  {
+   "file": "q25.jpg",
+   "t": 4697.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, mixed group by the far touchline"
+  },
+  {
+   "file": "q26.jpg",
+   "t": 4710.5,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen clearly, mixed players by the far touchline"
+  },
+  {
+   "file": "q27.jpg",
+   "t": 4778.4,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball high in the air (long clearance)"
+  },
+  {
+   "file": "q28.jpg",
+   "t": 4778.5,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball high in the air (same clearance as q27)"
+  },
+  {
+   "file": "q29.jpg",
+   "t": 4802.8,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player dribbling with the ball, referee beside him"
+  },
+  {
+   "file": "q30.jpg",
+   "t": 4834.4,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": false,
+   "dead": true,
+   "note": "orange SFK keeper picking the ball up in front of his goal, play stopped (after a save or a goal)"
+  },
+  {
+   "file": "q31.jpg",
+   "t": 4876.1,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player controlling the ball outside the left box, darks around"
+  },
+  {
+   "file": "q32.jpg",
+   "t": 4878.2,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "white player dribbling between two darks in front of the left box (duel)"
+  },
+  {
+   "file": "q33.jpg",
+   "t": 4910.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "set piece forming by the left box with the referee, ball not seen (a ball by the post may be a spare)"
+  },
+  {
+   "file": "q34.jpg",
+   "t": 4960.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, players spread around the left box"
+  },
+  {
+   "file": "q35.jpg",
+   "t": 5117.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "ball rolling away from a white player who has just played it, no dark near"
+  },
+  {
+   "file": "q36.jpg",
+   "t": 5140.0,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player with the ball at his foot by the far touchline, dark a few metres off"
+  },
+  {
+   "file": "q37.jpg",
+   "t": 5149.1,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player striking the ball near the far touchline, whites behind"
+  },
+  {
+   "file": "q38.jpg",
+   "t": 5157.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "players walking near the far touchline, referee among them, ball not clearly seen (stoppage)"
+  },
+  {
+   "file": "q39.jpg",
+   "t": 5216.9,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "goalmouth scramble at the left goal, ball in the air"
+  },
+  {
+   "file": "q40.jpg",
+   "t": 5274.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "players walking near the right box, a ball lies off the pitch by the bench - stoppage, match ball not seen"
+  },
+  {
+   "file": "q41.jpg",
+   "t": 5294.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "bunch of whites and a dark at the AIK box edge, ball not seen"
+  },
+  {
+   "file": "q42.jpg",
+   "t": 5308.7,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player running with the ball at his feet, darks in support"
+  },
+  {
+   "file": "q43.jpg",
+   "t": 5323.1,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball at the foot of the right post, red AIK keeper down with a white player - loose ball after a shot"
+  },
+  {
+   "file": "q44.jpg",
+   "t": 5342.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball loose a few metres in front of a white player near the centre circle"
+  },
+  {
+   "file": "q45.jpg",
+   "t": 5347.2,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball loose between a dark/white pair and a dark player"
+  },
+  {
+   "file": "q46.jpg",
+   "t": 5359.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "players standing / bent over, ball not seen (stoppage)"
+  },
+  {
+   "file": "q47.jpg",
+   "t": 5446.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball high in the air over the far side"
+  },
+  {
+   "file": "q48.jpg",
+   "t": 5469.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "two darks waiting at the centre spot, players walking - looks like a kick-off being set up, ball not seen"
+  },
+  {
+   "file": "q49.jpg",
+   "t": 5481.6,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": true,
+   "note": "white #30 walking up to a still ball, darks standing off - looks like a white free kick (dead)"
+  },
+  {
+   "file": "q50.jpg",
+   "t": 5502.5,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, players near the left goal"
+  },
+  {
+   "file": "q51.jpg",
+   "t": 5529.4,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player carrying the ball out of the left box, white chasing"
+  },
+  {
+   "file": "q52.jpg",
+   "t": 5619.2,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": true,
+   "note": "still ball in midfield with only darks near it, players lined up in the right box - SFK free kick (dead)"
+  },
+  {
+   "file": "q53.jpg",
+   "t": 5620.6,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": true,
+   "note": "same SFK free kick 1 s later (dead)"
+  },
+  {
+   "file": "q54.jpg",
+   "t": 5700.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, dark/white pair by the far touchline"
+  },
+  {
+   "file": "q55.jpg",
+   "t": 5782.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "white player looking up at a ball in the air, ball not on the ground"
+  },
+  {
+   "file": "q56.jpg",
+   "t": 5822.9,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player with the ball at his feet, dark #17 closing in"
+  },
+  {
+   "file": "q57.jpg",
+   "t": 5824.2,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball rolling loose past the centre circle, dark a few metres away"
+  },
+  {
+   "file": "q58.jpg",
+   "t": 5854.4,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player striking the ball near the far touchline, white challenging from behind"
+  },
+  {
+   "file": "q59.jpg",
+   "t": 5858.9,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, tangle of players by the far touchline"
+  },
+  {
+   "file": "q60.jpg",
+   "t": 5864.3,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "ball just ahead of a white player running towards his own red keeper (back pass or chase), no dark near"
+  },
+  {
+   "file": "q61.jpg",
+   "t": 5894.0,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player with the ball at his feet by the far touchline, darks a few metres off"
+  },
+  {
+   "file": "q62.jpg",
+   "t": 5918.8,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": false,
+   "dead": true,
+   "note": "dark player holding the ball up near the far corner, walking to take a throw-in (dead)"
+  },
+  {
+   "file": "q63.jpg",
+   "t": 6008.7,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": true,
+   "note": "still ball in the AIK half with whites nearest, referee's arm up - looks like an AIK free kick (dead)"
+  },
+  {
+   "file": "q64.jpg",
+   "t": 6050.5,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player dribbling with the ball by the far touchline, referee beside him"
+  },
+  {
+   "file": "q65.jpg",
+   "t": 6120.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "red AIK keeper with the ball at his feet at the edge of his box"
+  },
+  {
+   "file": "q66.jpg",
+   "t": 6196.3,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player with the ball at his feet, white closing in"
+  },
+  {
+   "file": "q67.jpg",
+   "t": 6220.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball not seen, players in and around the right box"
+  },
+  {
+   "file": "q68.jpg",
+   "t": 6255.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "players standing at the right box, a set piece forming, ball not seen"
+  },
+  {
+   "file": "q69.jpg",
+   "t": 6297.8,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "crowd in front of the right goal with the (now yellow) keeper, set piece, ball not seen"
+  },
+  {
+   "file": "q70.jpg",
+   "t": 6309.6,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": false,
+   "dead": true,
+   "note": "dark players walking the ball back from the right box towards the centre, keeper following - looks like just after an SFK goal (dead)"
+  },
+  {
+   "file": "q71.jpg",
+   "t": 6328.1,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": true,
+   "note": "kick-off: ball on the centre spot, white player standing at it, darks in their own half (AIK to kick off after the goal) (dead)"
+  },
+  {
+   "file": "q72.jpg",
+   "t": 6346.2,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark #17 with the ball at his feet, white challenging"
+  },
+  {
+   "file": "q73.jpg",
+   "t": 6435.0,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": false,
+   "dead": false,
+   "note": "ball rolling just ahead of a white player near the centre circle (pass coming to him / just played), darks behind"
+  },
+  {
+   "file": "q74.jpg",
+   "t": 6441.4,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball in the air between a dark and a white player by the far touchline"
+  },
+  {
+   "file": "q75.jpg",
+   "t": 6453.5,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": false,
+   "note": "ball loose, possibly in the air, near whites and a dark by the far touchline"
+  },
+  {
+   "file": "q76.jpg",
+   "t": 6455.6,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "red AIK keeper with the ball at his feet outside his box, dark walking nearby"
+  },
+  {
+   "file": "q77.jpg",
+   "t": 6476.1,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player dribbling with the ball, darks around"
+  },
+  {
+   "file": "q78.jpg",
+   "t": 6564.6,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": true,
+   "note": "white player taking a throw-in on the near touchline, ball over his head (dead)"
+  },
+  {
+   "file": "q79.jpg",
+   "t": 6638.4,
+   "eye": "B",
+   "kit": "white AIK",
+   "sure": true,
+   "dead": false,
+   "note": "white player running with the ball at his feet near the far touchline"
+  },
+  {
+   "file": "q80.jpg",
+   "t": 6678.9,
+   "eye": "A",
+   "kit": "dark SFK",
+   "sure": true,
+   "dead": false,
+   "note": "dark player running with the ball at his feet near the far touchline"
+  },
+  {
+   "file": "q81.jpg",
+   "t": 6777.2,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE: SFK team in a huddle, a man and a child (yellow) kicking a ball on the pitch (not play)"
+  },
+  {
+   "file": "q82.jpg",
+   "t": 6794.7,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE: a spectator walking across the pitch, children playing (not play)"
+  },
+  {
+   "file": "q83.jpg",
+   "t": 6796.7,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE (between q82 and q85, both after the match; not play)"
+  },
+  {
+   "file": "q84.jpg",
+   "t": 6814.6,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE (between q82 and q85, both after the match; not play)"
+  },
+  {
+   "file": "q85.jpg",
+   "t": 6842.0,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE: children kicking balls on an empty pitch (not play)"
+  },
+  {
+   "file": "q86.jpg",
+   "t": 6847.3,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE (between q85 and q89; not play)"
+  },
+  {
+   "file": "q87.jpg",
+   "t": 6867.9,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE (between q85 and q89; not play)"
+  },
+  {
+   "file": "q88.jpg",
+   "t": 6886.5,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE (between q85 and q89; not play)"
+  },
+  {
+   "file": "q89.jpg",
+   "t": 6892.2,
+   "eye": null,
+   "kit": "can't tell",
+   "sure": false,
+   "dead": true,
+   "note": "AFTER THE FINAL WHISTLE: SFK team at the bench, spectators kicking a ball on the pitch (not play)"
+  }
+ ]
+}

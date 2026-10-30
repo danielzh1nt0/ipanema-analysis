@@ -1,0 +1,145 @@
+{
+ "all_decided": {
+  "eye_sfk": 16,
+  "eye_decided": 48,
+  "eye_sfk_pct": 33,
+  "eye_ci95": [
+   22,
+   47
+  ],
+  "ours_sfk_pct_same_moments": 54,
+  "ours_decided_same_moments": 37,
+  "agree": 25,
+  "agree_of": 37,
+  "agree_win": 29,
+  "agree_win_of": 40
+ },
+ "sure_only": {
+  "eye_sfk": 12,
+  "eye_decided": 33,
+  "eye_sfk_pct": 36,
+  "eye_ci95": [
+   22,
+   53
+  ],
+  "ours_sfk_pct_same_moments": 46,
+  "ours_decided_same_moments": 28,
+  "agree": 20,
+  "agree_of": 28,
+  "agree_win": 23,
+  "agree_win_of": 29
+ },
+ "in_play_only": {
+  "eye_sfk": 10,
+  "eye_decided": 30,
+  "eye_sfk_pct": 33,
+  "eye_ci95": [
+   19,
+   51
+  ],
+  "ours_sfk_pct_same_moments": 56,
+  "ours_decided_same_moments": 25,
+  "agree": 16,
+  "agree_of": 25,
+  "agree_win": 20,
+  "agree_win_of": 28
+ },
+ "export_whole_match_sfk_pct": 45.5,
+ "eye_undecided": 42,
+ "export_second_half_sfk_pct": 51.7,
+ "pooled_both_halves": {
+  "eye_sfk": 24,
+  "eye_decided": 75,
+  "eye_sfk_pct": 32,
+  "eye_ci95": [
+   23,
+   43
+  ]
+ },
+ "misses": [
+  {
+   "file": "q03.jpg",
+   "t": 4116.6,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q09.jpg",
+   "t": 4258.3,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q10.jpg",
+   "t": 4268.3,
+   "eye": "A",
+   "ours": "B",
+   "ours_win": "A"
+  },
+  {
+   "file": "q15.jpg",
+   "t": 4375.3,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q17.jpg",
+   "t": 4511.0,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q31.jpg",
+   "t": 4876.1,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q32.jpg",
+   "t": 4878.2,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q36.jpg",
+   "t": 5140.0,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q71.jpg",
+   "t": 6328.1,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q72.jpg",
+   "t": 6346.2,
+   "eye": "A",
+   "ours": "B",
+   "ours_win": "A"
+  },
+  {
+   "file": "q76.jpg",
+   "t": 6455.6,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  },
+  {
+   "file": "q77.jpg",
+   "t": 6476.1,
+   "eye": "B",
+   "ours": "A",
+   "ours_win": "A"
+  }
+ ]
+}

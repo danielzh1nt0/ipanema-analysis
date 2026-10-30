@@ -23,3 +23,38 @@ def test_cut_on_a_local_stand_in_video(tmp_path):
     assert meta["frames"][1]["frame"] == 75
     assert json.load(open(tmp_path / "out" / "times.json"))["seed"] == 11
     assert (tmp_path / "out" / "q00.jpg").stat().st_size > 0
+
+
+def test_make_view_stacks_full_frame_and_zoom():
+    np = pytest.importorskip("numpy"); cv2 = pytest.importorskip("cv2")
+    import n0_30b_aik_h2 as h
+    img = np.zeros((1080, 1920, 3), np.uint8)
+    v = h.make_view(img, [1900, 10], cv2)              # ball near a corner: the zoom window is clamped inside the frame
+    assert v.shape[1] == 1280 and 720 + 600 < v.shape[0] < 720 + 660
+    assert h.make_view(img, None, cv2).shape == v.shape
+
+
+def test_committed_grades_and_result():
+    import n0_30b_aik_h2 as h
+    root = os.path.join(os.path.dirname(__file__), "..")
+    gp = os.path.join(root, "results/qa/n0-30b/aik_h2_grades.json")
+    if not os.path.exists(gp):
+        pytest.skip("grades not committed")
+    G = json.load(open(gp))
+    T = {f["file"]: f["t"] for f in json.load(open(os.path.join(root, "results/free/n0_30b/h2/times.json")))["frames"]}
+    assert len(G["items"]) == 90 and all(T[x["file"]] == x["t"] for x in G["items"])
+    assert all(set(x) >= {"eye", "sure", "dead", "note"} and x["eye"] in ("A", "B", None) for x in G["items"])
+    assert not any("ours" in x for x in G["items"])      # blind: no pipeline answer stored with the grades
+    fr_path = os.path.join(root, "results/kaggle/full_match_52d795-join/frames_lite.json.gz")
+    if not os.path.exists(fr_path):
+        pytest.skip("export not in repo")
+    cwd = os.getcwd(); os.chdir(root)
+    try:
+        res = h.compare(out_path=os.devnull)
+    finally:
+        os.chdir(cwd)
+    assert res["all_decided"]["eye_decided"] == 48 and res["all_decided"]["eye_sfk"] == 16
+    assert res["export_second_half_sfk_pct"] == 51.7
+    assert res["pooled_both_halves"]["eye_decided"] == 75
+    lo, hi = res["all_decided"]["eye_ci95"]
+    assert hi < res["export_second_half_sfk_pct"]       # the export's second half is outside the by-eye range

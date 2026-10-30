@@ -124,5 +124,7 @@
  "N0-29d": "Check the runs' \"with the ball\" label on pro data",
  "N0-29e": "Check balls lost / won per team and passes per sequence on pro data",
  "N0-29f": "Check the possession % per half on pro data",
- "N0-30a": "Check AIK possession against a blind by-eye sample"
+ "N0-30a": "Check AIK possession against a blind by-eye sample",
+ "N0-30b": "Check AIK second-half possession against a blind by-eye sample",
+ "N1c": "Fix AIK team labels (keeper, some white players, referee)"
 }
