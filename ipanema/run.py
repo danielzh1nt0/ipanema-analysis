@@ -342,7 +342,7 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     log(f"  spell state (take {_take} s): possession flips {_fl(state)} -> {_fl(cstate)} ({_fl(cstate) / max(1e-6, len(per) / fps / 60):.1f} per minute)")
     seqs = P.sequences(cstate, ballm, bspeed, fps, L, attack_right, **pinfo["seq"], stops=P.stoppage_spans(dstate, ballm, fps, L, W)); rst = P.restarts(dstate, ballm, fps, L, W, per=per)   # N0-25e: stops = the restarts' stoppages   # N0-24e: per = the restart taker's team
     step("turnovers")
-    tvs = P.turnovers(per, frames_, cstate, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"])
+    tvs = P.turnovers(per, frames_, cstate, ballm, fps, attack_right, S.press_r, S.near_r, min_before_s=pinfo["turnover_s"], min_after_s=pinfo["turnover_s"], pitch=(L, W))   # N0-30d: pitch for the 5-s gain
     step("lanes")
     ln = AN.lanes(per, frames_, attack_right, S.lane_half, S.max_lane)
     step("passes")

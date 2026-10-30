@@ -498,7 +498,32 @@ def reaction_label(p0, p2, b0, b2, react_s=2.0, near_r=5.0, press_v=2.0, jog_v=0
 # Metrica: the first forward pass of a win was missed when it was the pass that made the state turn. 0 = old.
 FWD_FROM_WIN = os.environ.get("IPANEMA_FWD_FROM_WIN", "1") != "0"
 
-def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0):
+# N0-30d (30 Oct): 'X m in 5 s' after a win read the ball at exactly +5 s, wherever it projected - on our clips a ball in the
+# air / out of play / on an unsure camera frame gave -406, 923 m (pitch 106 m), 1 in 20 wins beyond 40 m. With the pitch
+# known, both ends must be on the pitch (+ GAIN_MARGIN_M): start = first such ball in the first second, end = the LAST
+# such ball within the 5 s (a ball that goes out counts to where it left). '0' = old (exact frames, any spot).
+GAIN_ONPITCH = os.environ.get("IPANEMA_GAIN_ONPITCH", "1") != "0"
+GAIN_MARGIN_M = 2.0
+
+def gain_window(ballm, k0, n, fps, right, pitch=None, win_s=5.0, onpitch=None, detail=False):
+    """metres the ball moves towards the winner's goal in win_s after k0 (None = no usable ball);
+    detail=True -> (gain, start frame, end frame) for pictures"""
+    onpitch = GAIN_ONPITCH if onpitch is None else onpitch
+    k5 = min(n - 1, k0 + int(win_s * fps)); sg = 1 if right else -1
+    res = lambda g, a, b: (g, a, b) if detail else g
+    if pitch is None or not onpitch:
+        b0, b5 = ballm.get(k0), ballm.get(k5)
+        return res(None, None, None) if b0 is None or b5 is None else res(round(float((b5[0] - b0[0]) * sg), 1), k0, k5)
+    L, W = pitch; m = GAIN_MARGIN_M
+    ok = lambda b: b is not None and -m <= float(b[0]) <= L + m and -m <= float(b[1]) <= W + m
+    j0 = next((j for j in range(k0, min(n, k0 + int(fps) + 1)) if ok(ballm.get(j))), None)
+    if j0 is None: return res(None, None, None)
+    j5 = next((j for j in range(k5, j0, -1) if ok(ballm.get(j))), None)
+    if j5 is None or j5 - j0 < int(1.0 * fps): return res(None, j0, None)      # under 1 s of usable ball: no figure
+    cl = lambda v: min(max(float(v), 0.0), L)
+    return res(round((cl(ballm[j5][0]) - cl(ballm[j0][0])) * sg, 1), j0, j5)
+
+def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r=5.0, fwd_m=5.0, react_s=2.0, min_before_s=3.0, min_after_s=3.0, pitch=None):
     n = len(per); poss = [STATES[s] if s < 2 else None for s in state]; out = []; last = None
     for k in range(1, n):
         cur = poss[k]
@@ -547,8 +572,7 @@ def turnovers(per, frames_, state, ballm, fps, attack_right, press_r=2.0, near_r
             if tv["time_to_press"] is not None and b0 is not None:
                 bp = ballm.get(k0 + int(tv["time_to_press"] * fps))
                 if bp is not None: tv["ball_m_before_press"] = round(float(np.linalg.norm(bp - b0)), 1)
-            b5 = ballm.get(min(n - 1, k0 + int(5 * fps)))
-            if b0 is not None and b5 is not None: tv["gain_5s_m"] = round(float((b5[0] - b0[0]) * (1 if attack_right[winner] else -1)), 1)
+            tv["gain_5s_m"] = gain_window(ballm, k0, n, fps, attack_right[winner], pitch)
             # reactions of the losing team over the first 2 s
             k2 = min(n - 1, k0 + int(react_s * fps)); b2 = ballm.get(k2)
             if b0 is not None and b2 is not None:

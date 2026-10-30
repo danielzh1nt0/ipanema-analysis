@@ -116,7 +116,7 @@ def ours(frames, per, noisy=False, seed=0, min_touch_s=0.6, floor_s=0.08, sandwi
     ar = P.direction_from_keepers(perd, L, log=lambda *a: None) or P.direction_fallback(perd, L, log=lambda *a: None)
     rst = P.restarts(dstate, bm, FPS, L, W, per=perd)   # N0-24e: like ipanema/run.py
     cstate = P.spell_state(state, FPS, P.SPELL_TAKE_S if spell_take is None else spell_take, P.SPELL_JOIN_S if spell_join is None else spell_join)
-    tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"])
+    tvs = P.turnovers(perd, frames_, cstate, bm, FPS, ar, min_before_s=info["turnover_s"], min_after_s=info["turnover_s"], pitch=(L, W))   # N0-30d
     seqs = P.sequences(cstate, bm, bspeed, FPS, L, ar, **info["seq"], stops=P.stoppage_spans(dstate, bm, FPS, L, W))   # N0-25e: like ipanema/run.py
     ps, _ = AN.passes(perd, frames_, tvs, {}, ar, FPS, min_touch_s=min_touch_s, floor_s=floor_s, sandwich=sandwich)
     tvs, _drop = P.confirm_losses(tvs, cstate, ps, FPS, P.LOSS_KEEP_S if loss_keep_s is None else loss_keep_s)
