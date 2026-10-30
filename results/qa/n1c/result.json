@@ -1,0 +1,3574 @@
+{
+ "rule": {
+  "red_share": 0.4,
+  "blue_share": 0.4,
+  "dom": 2.0,
+  "min_reads": 3
+ },
+ "tracks_voted": 6651,
+ "export": {
+  "agree": 39,
+  "agree_of": 54,
+  "agree_win": 49,
+  "agree_win_of": 64,
+  "ours_sfk_pct_same_moments": 50,
+  "misses": [
+   {
+    "t": 703.6,
+    "file": "p13.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 1399.8,
+    "file": "p23.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 2227.0,
+    "file": "p41.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4116.6,
+    "file": "q03.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4258.3,
+    "file": "q09.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4268.3,
+    "file": "q10.jpg",
+    "eye": "A",
+    "ours": "B"
+   },
+   {
+    "t": 4375.3,
+    "file": "q15.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4511.0,
+    "file": "q17.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4876.1,
+    "file": "q31.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4878.2,
+    "file": "q32.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 5140.0,
+    "file": "q36.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6328.1,
+    "file": "q71.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6346.2,
+    "file": "q72.jpg",
+    "eye": "A",
+    "ours": "B"
+   },
+   {
+    "t": 6455.6,
+    "file": "q76.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6476.1,
+    "file": "q77.jpg",
+    "eye": "B",
+    "ours": "A"
+   }
+  ],
+  "sfk_pct_h1": 39.4,
+  "sfk_pct_h2": 51.7,
+  "sfk_pct_match": 45.5
+ },
+ "recomputed_old_labels": {
+  "agree": 36,
+  "agree_of": 50,
+  "agree_win": 42,
+  "agree_win_of": 60,
+  "ours_sfk_pct_same_moments": 60,
+  "misses": [
+   {
+    "t": 2227.0,
+    "file": "p41.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 2588.1,
+    "file": "p49.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4116.6,
+    "file": "q03.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4258.3,
+    "file": "q09.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4375.3,
+    "file": "q15.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4511.0,
+    "file": "q17.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4876.1,
+    "file": "q31.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 4878.2,
+    "file": "q32.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 5117.4,
+    "file": "q35.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 5140.0,
+    "file": "q36.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6328.1,
+    "file": "q71.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6455.6,
+    "file": "q76.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6476.1,
+    "file": "q77.jpg",
+    "eye": "B",
+    "ours": "A"
+   },
+   {
+    "t": 6564.6,
+    "file": "q78.jpg",
+    "eye": "B",
+    "ours": "A"
+   }
+  ],
+  "sfk_pct_h1": 36.9,
+  "sfk_pct_h2": 51.2,
+  "sfk_pct_match": 44.1
+ },
+ "recompute_copies_export_pct": 60.4,
+ "variants": [
+  {
+   "win_s": 0,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "A->B": 28476,
+    "B->A": 7019,
+    "B->ref": 5892,
+    "A->Bk": 4059,
+    "A->ref": 1292,
+    "B->Bk": 450,
+    "Ak->Bk": 163,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 38,
+    "agree_of": 54,
+    "agree_win": 49,
+    "agree_win_of": 66,
+    "ours_sfk_pct_same_moments": 33,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4834.4,
+      "file": "q30.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 28.5,
+    "sfk_pct_h2": 39.8,
+    "sfk_pct_match": 34.0
+   },
+   "flip_rows": {
+    "same": 12244,
+    "kept_nobody": 156,
+    "B->A": 428,
+    "A->B": 2148,
+    "B->ref": 120,
+    "A->ref": 59
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 52,
+    "agree_win": 45,
+    "agree_win_of": 62,
+    "ours_sfk_pct_same_moments": 33,
+    "misses": [
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4834.4,
+      "file": "q30.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 22.5,
+    "sfk_pct_h2": 36.2,
+    "sfk_pct_match": 29.3
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 2,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "A->B": 6640,
+    "B->ref": 4631,
+    "A->Bk": 2694,
+    "B->A": 2236,
+    "A->ref": 293,
+    "B->Bk": 212,
+    "Ak->Bk": 140,
+    "Bk->B": 41
+   },
+   "export_flipped": {
+    "agree": 40,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 41,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 35.6,
+    "sfk_pct_h2": 45.7,
+    "sfk_pct_match": 40.6
+   },
+   "flip_rows": {
+    "same": 13853,
+    "kept_nobody": 156,
+    "B->ref": 82,
+    "A->B": 916,
+    "B->A": 147,
+    "A->ref": 1
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 50,
+    "agree_win": 44,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 52,
+    "misses": [
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2588.1,
+      "file": "p49.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 31.4,
+    "sfk_pct_h2": 43.2,
+    "sfk_pct_match": 37.3
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 2,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "B->ref": 4631,
+    "A->Bk": 2694,
+    "A->ref": 293,
+    "B->Bk": 212,
+    "Ak->Bk": 140
+   },
+   "export_flipped": {
+    "agree": 39,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 46,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 37.3,
+    "sfk_pct_h2": 48.1,
+    "sfk_pct_match": 42.7
+   },
+   "flip_rows": {
+    "same": 14458,
+    "kept_nobody": 156,
+    "B->ref": 82,
+    "A->B": 458,
+    "A->ref": 1
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 50,
+    "agree_win": 43,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 56,
+    "misses": [
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2588.1,
+      "file": "p49.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 34.1,
+    "sfk_pct_h2": 46.1,
+    "sfk_pct_match": 40.1
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 2,
+   "keeper_rule": "end",
+   "row_changes": {
+    "A->B": 6640,
+    "B->ref": 4631,
+    "B->A": 2236,
+    "A->Bk": 1410,
+    "A->Ak": 1284,
+    "A->ref": 293,
+    "B->Bk": 139,
+    "B->Ak": 73,
+    "Bk->B": 41
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 51,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 43,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 37.9,
+    "sfk_pct_h2": 46.0,
+    "sfk_pct_match": 41.9
+   },
+   "flip_rows": {
+    "same": 14047,
+    "kept_nobody": 156,
+    "B->ref": 82,
+    "A->B": 722,
+    "B->A": 147,
+    "A->ref": 1
+   },
+   "recomputed": {
+    "agree": 37,
+    "agree_of": 50,
+    "agree_win": 45,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 54,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2588.1,
+      "file": "p49.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 34.1,
+    "sfk_pct_h2": 43.7,
+    "sfk_pct_match": 38.9
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 2,
+   "keeper_rule": "end",
+   "row_changes": {
+    "B->ref": 4631,
+    "A->Bk": 1410,
+    "A->Ak": 1284,
+    "A->ref": 293,
+    "B->Bk": 139,
+    "B->Ak": 73
+   },
+   "export_flipped": {
+    "agree": 40,
+    "agree_of": 54,
+    "agree_win": 51,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 48,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 39.6,
+    "sfk_pct_h2": 48.4,
+    "sfk_pct_match": 43.9
+   },
+   "flip_rows": {
+    "same": 14652,
+    "kept_nobody": 156,
+    "B->ref": 82,
+    "A->B": 264,
+    "A->ref": 1
+   },
+   "recomputed": {
+    "agree": 37,
+    "agree_of": 50,
+    "agree_win": 44,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 58,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2588.1,
+      "file": "p49.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4511.0,
+      "file": "q17.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6455.6,
+      "file": "q76.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 36.9,
+    "sfk_pct_h2": 46.6,
+    "sfk_pct_match": 41.8
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 5,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "A->B": 16036,
+    "B->ref": 5889,
+    "B->A": 4796,
+    "A->Bk": 4066,
+    "A->ref": 609,
+    "B->Bk": 406,
+    "Ak->Bk": 163,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 43,
+    "agree_of": 54,
+    "agree_win": 51,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 35,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 31.9,
+    "sfk_pct_h2": 42.0,
+    "sfk_pct_match": 36.9
+   },
+   "flip_rows": {
+    "same": 12956,
+    "kept_nobody": 156,
+    "B->A": 299,
+    "A->B": 1621,
+    "B->ref": 104,
+    "A->ref": 19
+   },
+   "recomputed": {
+    "agree": 39,
+    "agree_of": 50,
+    "agree_win": 47,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 38,
+    "misses": [
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 26.5,
+    "sfk_pct_h2": 38.5,
+    "sfk_pct_match": 32.5
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 5,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "B->ref": 5889,
+    "A->Bk": 4066,
+    "A->ref": 609,
+    "B->Bk": 406,
+    "Ak->Bk": 163
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 43,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 36.0,
+    "sfk_pct_h2": 46.8,
+    "sfk_pct_match": 41.3
+   },
+   "flip_rows": {
+    "same": 14223,
+    "kept_nobody": 156,
+    "B->ref": 104,
+    "A->B": 653,
+    "A->ref": 19
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 49,
+    "agree_win": 43,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 47,
+    "misses": [
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 32.6,
+    "sfk_pct_h2": 44.4,
+    "sfk_pct_match": 38.5
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 5,
+   "keeper_rule": "end",
+   "row_changes": {
+    "A->B": 16036,
+    "B->ref": 5889,
+    "B->A": 4796,
+    "A->Ak": 2049,
+    "A->Bk": 2017,
+    "A->ref": 609,
+    "B->Bk": 234,
+    "B->Ak": 172,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 44,
+    "agree_of": 54,
+    "agree_win": 53,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 37,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 35.2,
+    "sfk_pct_h2": 42.4,
+    "sfk_pct_match": 38.8
+   },
+   "flip_rows": {
+    "same": 13239,
+    "kept_nobody": 156,
+    "B->A": 300,
+    "A->B": 1337,
+    "B->ref": 104,
+    "A->ref": 19
+   },
+   "recomputed": {
+    "agree": 40,
+    "agree_of": 50,
+    "agree_win": 48,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 44,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5529.4,
+      "file": "q51.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 30.5,
+    "sfk_pct_h2": 39.2,
+    "sfk_pct_match": 34.8
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 5,
+   "keeper_rule": "end",
+   "row_changes": {
+    "B->ref": 5889,
+    "A->Ak": 2049,
+    "A->Bk": 2017,
+    "A->ref": 609,
+    "B->Bk": 234,
+    "B->Ak": 172
+   },
+   "export_flipped": {
+    "agree": 42,
+    "agree_of": 54,
+    "agree_win": 52,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 44,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 39.4,
+    "sfk_pct_h2": 47.2,
+    "sfk_pct_match": 43.2
+   },
+   "flip_rows": {
+    "same": 14506,
+    "kept_nobody": 156,
+    "B->ref": 104,
+    "B->A": 1,
+    "A->B": 369,
+    "A->ref": 19
+   },
+   "recomputed": {
+    "agree": 38,
+    "agree_of": 49,
+    "agree_win": 45,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 51,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 36.6,
+    "sfk_pct_h2": 44.9,
+    "sfk_pct_match": 40.8
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 10,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "A->B": 22670,
+    "B->ref": 6015,
+    "B->A": 5887,
+    "A->Bk": 4434,
+    "A->ref": 827,
+    "B->Bk": 470,
+    "Ak->Bk": 163,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 51,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 35,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 30.0,
+    "sfk_pct_h2": 40.1,
+    "sfk_pct_match": 34.9
+   },
+   "flip_rows": {
+    "same": 12603,
+    "kept_nobody": 156,
+    "B->A": 334,
+    "A->B": 1937,
+    "B->ref": 102,
+    "A->ref": 23
+   },
+   "recomputed": {
+    "agree": 38,
+    "agree_of": 50,
+    "agree_win": 47,
+    "agree_win_of": 62,
+    "ours_sfk_pct_same_moments": 36,
+    "misses": [
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 24.2,
+    "sfk_pct_h2": 36.5,
+    "sfk_pct_match": 30.4
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 10,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "B->ref": 6015,
+    "A->Bk": 4434,
+    "A->ref": 827,
+    "B->Bk": 470,
+    "Ak->Bk": 163
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 43,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 35.7,
+    "sfk_pct_h2": 46.9,
+    "sfk_pct_match": 41.2
+   },
+   "flip_rows": {
+    "same": 14205,
+    "kept_nobody": 156,
+    "B->ref": 102,
+    "A->B": 669,
+    "A->ref": 23
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 49,
+    "agree_win": 43,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 47,
+    "misses": [
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 32.3,
+    "sfk_pct_h2": 44.6,
+    "sfk_pct_match": 38.4
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 10,
+   "keeper_rule": "end",
+   "row_changes": {
+    "A->B": 22670,
+    "B->ref": 6015,
+    "B->A": 5887,
+    "A->Ak": 2251,
+    "A->Bk": 2183,
+    "A->ref": 827,
+    "B->Bk": 293,
+    "B->Ak": 177,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 42,
+    "agree_of": 54,
+    "agree_win": 53,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 37,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 33.5,
+    "sfk_pct_h2": 40.7,
+    "sfk_pct_match": 37.0
+   },
+   "flip_rows": {
+    "same": 12904,
+    "kept_nobody": 156,
+    "B->A": 340,
+    "A->B": 1630,
+    "B->ref": 102,
+    "A->ref": 23
+   },
+   "recomputed": {
+    "agree": 39,
+    "agree_of": 50,
+    "agree_win": 48,
+    "agree_win_of": 62,
+    "ours_sfk_pct_same_moments": 42,
+    "misses": [
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 28.4,
+    "sfk_pct_h2": 37.3,
+    "sfk_pct_match": 32.8
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 10,
+   "keeper_rule": "end",
+   "row_changes": {
+    "B->ref": 6015,
+    "A->Ak": 2251,
+    "A->Bk": 2183,
+    "A->ref": 827,
+    "B->Bk": 293,
+    "B->Ak": 177
+   },
+   "export_flipped": {
+    "agree": 42,
+    "agree_of": 54,
+    "agree_win": 52,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 44,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 39.2,
+    "sfk_pct_h2": 47.5,
+    "sfk_pct_match": 43.3
+   },
+   "flip_rows": {
+    "same": 14506,
+    "kept_nobody": 156,
+    "B->A": 6,
+    "B->ref": 102,
+    "A->B": 362,
+    "A->ref": 23
+   },
+   "recomputed": {
+    "agree": 38,
+    "agree_of": 49,
+    "agree_win": 45,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 51,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 36.6,
+    "sfk_pct_h2": 45.3,
+    "sfk_pct_match": 41.0
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 20,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "A->B": 26887,
+    "B->A": 6597,
+    "B->ref": 6079,
+    "A->Bk": 4437,
+    "A->ref": 1030,
+    "B->Bk": 433,
+    "Ak->Bk": 163,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 40,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 33,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 29.0,
+    "sfk_pct_h2": 40.2,
+    "sfk_pct_match": 34.5
+   },
+   "flip_rows": {
+    "same": 12351,
+    "kept_nobody": 156,
+    "B->A": 417,
+    "A->B": 2070,
+    "B->ref": 116,
+    "A->ref": 45
+   },
+   "recomputed": {
+    "agree": 39,
+    "agree_of": 52,
+    "agree_win": 47,
+    "agree_win_of": 62,
+    "ours_sfk_pct_same_moments": 35,
+    "misses": [
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 22.8,
+    "sfk_pct_h2": 37.2,
+    "sfk_pct_match": 30.0
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 20,
+   "keeper_rule": "shirt",
+   "row_changes": {
+    "B->ref": 6079,
+    "A->Bk": 4437,
+    "A->ref": 1030,
+    "B->Bk": 433,
+    "Ak->Bk": 163
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 50,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 43,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 35.7,
+    "sfk_pct_h2": 46.8,
+    "sfk_pct_match": 41.2
+   },
+   "flip_rows": {
+    "same": 14168,
+    "kept_nobody": 156,
+    "B->ref": 116,
+    "A->B": 670,
+    "A->ref": 45
+   },
+   "recomputed": {
+    "agree": 36,
+    "agree_of": 49,
+    "agree_win": 43,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 47,
+    "misses": [
+     {
+      "t": 1411.5,
+      "file": "p24.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5854.4,
+      "file": "q58.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 32.1,
+    "sfk_pct_h2": 44.6,
+    "sfk_pct_match": 38.4
+   },
+   "field_players": false
+  },
+  {
+   "win_s": 20,
+   "keeper_rule": "end",
+   "row_changes": {
+    "A->B": 26887,
+    "B->A": 6597,
+    "B->ref": 6079,
+    "A->Ak": 2251,
+    "A->Bk": 2186,
+    "A->ref": 1030,
+    "B->Bk": 296,
+    "B->Ak": 137,
+    "Bk->B": 53
+   },
+   "export_flipped": {
+    "agree": 41,
+    "agree_of": 54,
+    "agree_win": 52,
+    "agree_win_of": 65,
+    "ours_sfk_pct_same_moments": 35,
+    "misses": [
+     {
+      "t": 625.3,
+      "file": "p11.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     }
+    ],
+    "sfk_pct_h1": 32.5,
+    "sfk_pct_h2": 40.8,
+    "sfk_pct_match": 36.6
+   },
+   "flip_rows": {
+    "same": 12655,
+    "kept_nobody": 156,
+    "B->A": 420,
+    "A->B": 1763,
+    "B->ref": 116,
+    "A->ref": 45
+   },
+   "recomputed": {
+    "agree": 40,
+    "agree_of": 52,
+    "agree_win": 48,
+    "agree_win_of": 62,
+    "ours_sfk_pct_same_moments": 40,
+    "misses": [
+     {
+      "t": 800.5,
+      "file": "p15.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 1430.7,
+      "file": "p25.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6196.3,
+      "file": "q66.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 26.9,
+    "sfk_pct_h2": 38.0,
+    "sfk_pct_match": 32.5
+   },
+   "field_players": true
+  },
+  {
+   "win_s": 20,
+   "keeper_rule": "end",
+   "row_changes": {
+    "B->ref": 6079,
+    "A->Ak": 2251,
+    "A->Bk": 2186,
+    "A->ref": 1030,
+    "B->Bk": 296,
+    "B->Ak": 137
+   },
+   "export_flipped": {
+    "agree": 42,
+    "agree_of": 54,
+    "agree_win": 52,
+    "agree_win_of": 64,
+    "ours_sfk_pct_same_moments": 44,
+    "misses": [
+     {
+      "t": 703.6,
+      "file": "p13.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 1399.8,
+      "file": "p23.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6346.2,
+      "file": "q72.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 39.2,
+    "sfk_pct_h2": 47.4,
+    "sfk_pct_match": 43.2
+   },
+   "flip_rows": {
+    "same": 14472,
+    "kept_nobody": 156,
+    "B->A": 3,
+    "B->ref": 116,
+    "A->B": 363,
+    "A->ref": 45
+   },
+   "recomputed": {
+    "agree": 38,
+    "agree_of": 49,
+    "agree_win": 45,
+    "agree_win_of": 60,
+    "ours_sfk_pct_same_moments": 51,
+    "misses": [
+     {
+      "t": 2227.0,
+      "file": "p41.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4116.6,
+      "file": "q03.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4268.3,
+      "file": "q10.jpg",
+      "eye": "A",
+      "ours": "B"
+     },
+     {
+      "t": 4375.3,
+      "file": "q15.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4876.1,
+      "file": "q31.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 4878.2,
+      "file": "q32.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5117.4,
+      "file": "q35.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 5140.0,
+      "file": "q36.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6328.1,
+      "file": "q71.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6476.1,
+      "file": "q77.jpg",
+      "eye": "B",
+      "ours": "A"
+     },
+     {
+      "t": 6564.6,
+      "file": "q78.jpg",
+      "eye": "B",
+      "ours": "A"
+     }
+    ],
+    "sfk_pct_h1": 36.3,
+    "sfk_pct_h2": 45.3,
+    "sfk_pct_match": 40.8
+   },
+   "field_players": false
+  }
+ ]
+}

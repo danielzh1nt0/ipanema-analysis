@@ -34,12 +34,13 @@ NEAR_M, SMOOTH, BODY_M = 1.5, 3, 1.75
 WIN_S = float(os.environ.get("N1C_WIN_S", "5"))     # window vote +-s; 0 = one vote per id for the whole match
 
 
-def decide(v, red_share=RED_SHARE, blue_share=BLUE_SHARE, dom=DOM, min_reads=MIN_READS):
+def decide(v, red_share=RED_SHARE, blue_share=BLUE_SHARE, dom=DOM, min_reads=MIN_READS, field=True):
     """v = [dark, white, red, blue, none] -> ('A' | 'B' | 'ref' | None, gk). None = keep the export's label."""
     dark, white, red, blue = v[:4]; n = dark + white + red + blue
     if n < min_reads: return None, False
     if red >= red_share * n: return "B", True
     if blue >= blue_share * n: return "ref", False
+    if not field: return None, False                 # keepers + referee only: field players keep the export's team
     if dark >= dom * max(white, 1e-9) and dark > 0: return "A", False
     if white >= dom * max(dark, 1e-9) and white > 0: return "B", False
     return None, False
@@ -73,7 +74,8 @@ def reads_by_id(path=READS):
 # labels follow periods attack_right_A=true, the mirrored direction still open under 'Waiting for Daniel', N0-26b.)
 MID_X = 58.0                                   # pitch middle in the export's metres (players' x 1-99%: 4.5-114)
 END_TEAM = {1: {"left": "B", "right": "A"}, 2: {"left": "A", "right": "B"}}
-KEEPER_RULE = os.environ.get("N1C_KEEPER", "end")   # end = team of the goal he stands nearest; shirt = red -> AIK
+KEEPER_RULE = os.environ.get("N1C_KEEPER", "end")
+FIELD = os.environ.get("N1C_FIELD", "0") == "1"      # 1 = also re-team field players by shirt (by eye ~half of those changes wrong)   # end = team of the goal he stands nearest; shirt = red -> AIK
 
 
 def keeper_team(t, x_m, rule=None):
@@ -216,8 +218,10 @@ def main(wins=(0, 2, 5, 10, 20), **kw):
     keep = None
     for w in wins:
         for kr in (("shirt", "end") if w > 0 else ("shirt",)):
-            new_fr, r = run_variant(fr, votes, by, w, keeper_rule=kr, **kw); res["variants"].append(r)
-            if w == WIN_S and kr == KEEPER_RULE: keep = new_fr
+            for field in ((True, False) if w > 0 else (True,)):
+                new_fr, r = run_variant(fr, votes, by, w, keeper_rule=kr, field=field, **kw); r["field_players"] = field
+                res["variants"].append(r)
+                if w == WIN_S and kr == KEEPER_RULE and field == FIELD: keep = new_fr
     os.makedirs(OUT, exist_ok=True)
     json.dump(res, open(os.path.join(OUT, "result.json"), "w"), indent=1)
     return res, keep
@@ -229,7 +233,7 @@ def change_sheets(out=OUT, per_kind=100, win=None):
     import cv2, numpy as np
     win = WIN_S if win is None else win
     fr, ts = K.load_export(); votes = json.load(open(VOTES))["votes"]
-    new_fr, _ = apply(fr, window_labels(fr, reads_by_id(), win=win) if win > 0 else relabel_map(votes))
+    new_fr, _ = apply(fr, window_labels(fr, reads_by_id(), win=win, field=FIELD) if win > 0 else relabel_map(votes))
     tiles = {}
     for path, t in K.local_frames():
         img = cv2.imread(path)
