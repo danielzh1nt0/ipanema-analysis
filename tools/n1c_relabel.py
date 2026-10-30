@@ -23,7 +23,7 @@ from n0_30a_aik_poss import analyse, wilson, export_share
 import n1c_kitread as K
 
 FR_PATH = K.FR_PATH
-SRC_DIR = os.environ.get("N1C_READS", "results/free/n1c2")
+SRC_DIR = os.environ.get("N1C_READS", "results/free/n1c3")
 VOTES = os.path.join(SRC_DIR, "votes.json")
 G1 = "results/qa/n0-30a/aik_poss_grades.json"
 G2 = "results/qa/n0-30b/aik_h2_grades.json"
@@ -65,20 +65,41 @@ def reads_by_id(path=READS):
     return by
 
 
-def window_labels(fr, by, win=WIN_S, **kw):
+# Which team defends which goal, by eye (N1c, 30 Oct): first half the orange keeper's LEFT goal is AIK's (p15 'dark #5 at
+# the ball by AIK goal', p04) and the red keeper's RIGHT goal SFK's (p25 goal kick, darks around; N0-26b's kick-off picture
+# ko1: dark SFK in the right half); second half the RIGHT goal is AIK's (q03, q09, q17, q65, q76; white kick-off after SFK's
+# goal q70-q71) and the LEFT goal SFK's (q30 'orange SFK keeper'). So the keepers stayed at their goals and the red shirt
+# is SFK's keeper in the first half - a keeper's team must come from his goal, not his shirt. (The export's own keeper
+# labels follow periods attack_right_A=true, the mirrored direction still open under 'Waiting for Daniel', N0-26b.)
+MID_X = 58.0                                   # pitch middle in the export's metres (players' x 1-99%: 4.5-114)
+END_TEAM = {1: {"left": "B", "right": "A"}, 2: {"left": "A", "right": "B"}}
+KEEPER_RULE = os.environ.get("N1C_KEEPER", "end")   # end = team of the goal he stands nearest; shirt = red -> AIK
+
+
+def keeper_team(t, x_m, rule=None):
+    rule = rule or KEEPER_RULE
+    if rule != "end" or x_m is None: return "B"
+    half = 1 if t < (H1[1] + H2[0]) / 2 else 2
+    return END_TEAM[half]["right" if x_m < MID_X else "left"]          # the export's x runs from the picture's RIGHT goal (x ~0) to the left one (q09 keeper at the right goal: x 11.5; p15 left goal: x 111)
+
+
+def window_labels(fr, by, win=WIN_S, keeper_rule=None, **kw):
     """{(row index, id): (team, gk)} - the same decide() rule on the reads of that id within +-win s of the row only:
     export ids slide from one player to another over a long life (the keeper's id ends on a dark SFK player: q30, q51),
     so a whole-match vote moves both."""
-    out = {}
+    out = {}; rule = keeper_rule or KEEPER_RULE
     for i, f in enumerate(fr):
         for p in f["players"]:
-            a = by.get(p["id"])
-            if not a: continue
-            lo = bisect.bisect_left(a[0], f["t"] - win); hi = bisect.bisect_right(a[0], f["t"] + win)
-            if hi <= lo: continue
-            v = [0] * 5
-            for c in a[1][lo:hi]: v[c] += 1
-            t, gk = decide(v, **kw)
+            a = by.get(p["id"]); t, gk = None, False
+            if a:
+                lo = bisect.bisect_left(a[0], f["t"] - win); hi = bisect.bisect_right(a[0], f["t"] + win)
+                v = [0] * 5
+                for c in a[1][lo:hi]: v[c] += 1
+                t, gk = decide(v, **kw)
+            x = (p.get("m") or [None])[0]
+            if gk: t = keeper_team(f["t"], x, rule)
+            elif t is None and p.get("gk") and rule == "end":     # the export's own keeper flag: team from his goal
+                t, gk = keeper_team(f["t"], x, "end"), True
             if t is not None: out[(i, p["id"])] = (t, gk)
     return out
 
@@ -178,11 +199,11 @@ def agreement(a, b):
     return round(100 * k / n, 1) if n else None
 
 
-def run_variant(fr, votes, by, win, **kw):
-    rmap = window_labels(fr, by, win=win, **kw) if win > 0 else relabel_map(votes, **kw)
+def run_variant(fr, votes, by, win, keeper_rule=None, **kw):
+    rmap = window_labels(fr, by, win=win, keeper_rule=keeper_rule, **kw) if win > 0 else relabel_map(votes, **kw)
     new_fr, ch = apply(fr, rmap)
     fl, fln = flip(fr, new_fr)
-    return new_fr, {"win_s": win, "row_changes": dict(ch.most_common()), "export_flipped": score(fl), "flip_rows": dict(fln),
+    return new_fr, {"win_s": win, "keeper_rule": keeper_rule or KEEPER_RULE, "row_changes": dict(ch.most_common()), "export_flipped": score(fl), "flip_rows": dict(fln),
                     "recomputed": score(recompute(new_fr))}
 
 
@@ -194,8 +215,9 @@ def main(wins=(0, 2, 5, 10, 20), **kw):
            "recompute_copies_export_pct": agreement(fr, recompute(fr)), "variants": []}
     keep = None
     for w in wins:
-        new_fr, r = run_variant(fr, votes, by, w, **kw); res["variants"].append(r)
-        if w == WIN_S: keep = new_fr
+        for kr in (("shirt", "end") if w > 0 else ("shirt",)):
+            new_fr, r = run_variant(fr, votes, by, w, keeper_rule=kr, **kw); res["variants"].append(r)
+            if w == WIN_S and kr == KEEPER_RULE: keep = new_fr
     os.makedirs(OUT, exist_ok=True)
     json.dump(res, open(os.path.join(OUT, "result.json"), "w"), indent=1)
     return res, keep

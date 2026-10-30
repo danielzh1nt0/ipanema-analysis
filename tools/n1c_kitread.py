@@ -69,8 +69,32 @@ def torso_box(px, shape, h=None):
     return x0, y0, x1, y1
 
 
-def classify_patch(bgr, cv2, np):
-    """-> (class, features). Grass pixels (green hue, some saturation) are dropped first."""
+GRASS_VETO = os.environ.get("N1C_GRASS_VETO", "1") != "0"
+WHITE_MIN_R, DARK_MAX_R = 0.9, 1.05      # shirt median lightness / grass lightness at the feet (repo frames: export A median 0.73, B 1.15)
+
+
+def grass_v_at_feet(img, px, h, cv2, np):
+    """median lightness of the ground just below / beside the foot point (sun or shade where he stands), None if off-frame"""
+    x, y = px; H_, W_ = img.shape[:2]
+    g = img[int(min(H_ - 1, y + 0.03 * h)):int(min(H_, y + 0.15 * h + 2)), int(max(0, x - 0.6 * h)):int(min(W_, x + 0.6 * h))]
+    if g.size == 0: return None
+    return float(np.median(cv2.cvtColor(g, cv2.COLOR_BGR2HSV).reshape(-1, 3)[:, 2])) / 255.0
+
+
+def classify_patch(bgr, cv2, np, grass_v=None):
+    """-> (class, features). Grass pixels (green hue, some saturation) are dropped first.
+    grass_v (ground lightness at the feet): a 'white' darker than WHITE_MIN_R x the ground or a 'dark' lighter than
+    DARK_MAX_R x the ground is 'none' - far black SFK shirts in hazy sun read blue-grey like a white shirt in the shade
+    (N1c 30 Oct: half of the whole-window 'A -> B' changes on the repo frames were dark players)."""
+    c, f = _classify(bgr, cv2, np)
+    if grass_v and GRASS_VETO and "v" in f:
+        f["r"] = round(f["v"] / max(grass_v, 0.05), 3)
+        if (c == "white" and f["r"] < WHITE_MIN_R) or (c == "dark" and f["r"] > DARK_MAX_R):
+            return "none", f
+    return c, f
+
+
+def _classify(bgr, cv2, np):
     hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV).reshape(-1, 3).astype(np.float32)
     h, s, v = hsv[:, 0] * 2.0, hsv[:, 1] / 255.0, hsv[:, 2] / 255.0
     grass = (h > 60) & (h < 170) & (s > 0.25) & (v > 0.15)
@@ -140,7 +164,7 @@ def read_frame(img, row, cv2, np):
         if b is None:
             continue
         x0, y0, x1, y1 = b
-        c, f = classify_patch(img[y0:y1, x0:x1], cv2, np)
+        c, f = classify_patch(img[y0:y1, x0:x1], cv2, np, grass_v=grass_v_at_feet(img, p["px"], (y1 - y0) / 0.24, cv2, np))
         out.append((p["id"], p["team"], bool(p.get("gk")), c, f, b))
     return out
 

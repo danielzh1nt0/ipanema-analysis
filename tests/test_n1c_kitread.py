@@ -79,3 +79,14 @@ def test_ground_ruler_from_the_rows_players():
     assert K.row_homography({"players": row["players"][:4]}, cv2, np) is None
     b = K.torso_box([960, 900], (1080, 1920, 3), h=200)                   # explicit height wins over the foot-row model
     assert b[3] - b[1] == pytest.approx(48, abs=2) and b[3] < 900
+
+
+def test_grass_veto():
+    """a blue-grey 'white' (shade-white hue) as dark as the grass around it is not trusted; a real white is"""
+    shade_white = patch_hsv(208, 0.45, 0.50)
+    assert K.classify_patch(shade_white, cv2, np)[0] == "white"
+    assert K.classify_patch(shade_white, cv2, np, grass_v=0.70)[0] == "none"      # darker than the sunlit grass: not a white shirt
+    assert K.classify_patch(shade_white, cv2, np, grass_v=0.35)[0] == "white"     # in the shade, brighter than the grass
+    assert K.classify_patch(patch_hsv(0, 0.10, 0.12), cv2, np, grass_v=0.05)[0] == "none"   # 'dark' lighter than its ground
+    img = np.zeros((100, 100, 3), np.uint8); img[60:80] = 200
+    assert K.grass_v_at_feet(img, [50, 58], 100, cv2, np) == pytest.approx(200 / 255, abs=0.01)

@@ -24,7 +24,7 @@ def test_window_labels_follow_an_id_slide():
     """id 1 reads red (keeper) for its first 1.5 s and dark after: with a 0.5 s window only the first rows change"""
     fr = _rows()
     by = {1: ([10.0, 10.6, 11.2, 11.8, 12.4], [2, 2, 0, 0, 0])}
-    lab = R.window_labels(fr, by, win=0.5, min_reads=1)
+    lab = R.window_labels(fr, by, win=0.5, min_reads=1, keeper_rule="shirt")
     assert lab[(0, 1)] == ("B", True) and lab[(2, 1)] == ("B", True)
     assert lab[(6, 1)] == ("A", False) and (0, 2) not in lab
     new, ch = R.apply(fr, lab)
@@ -49,3 +49,16 @@ def test_recompute_nearest_team_with_height_ruler():
     assert all(f["possession"] == "A" for f in R.recompute(fr, smooth=0))
     fr[0]["ball"]["px"] = [700, 700]                            # 195-205 px from both, ~3 m with the ruler: loose
     assert R.recompute(fr, smooth=0)[0]["possession"] is None
+
+
+def test_keeper_takes_the_team_of_his_goal():
+    """by eye: first half the picture's right goal (export x ~0) is SFK's, second half AIK's; the left goal the other way"""
+    assert R.keeper_team(1430.7, 13.5, "end") == "A" and R.keeper_team(800.5, 111.4, "end") == "B"
+    assert R.keeper_team(4258.3, 11.5, "end") == "B" and R.keeper_team(4834.4, 105.0, "end") == "A"
+    assert R.keeper_team(4258.3, 11.5, "shirt") == "B"
+    fr = _rows()                                                # id 1 stands at x 25 m (right goal) at t 10 s (first half)
+    lab = R.window_labels(fr, {1: ([10.0, 10.6, 11.2], [2, 2, 2])}, win=1.0, min_reads=1, keeper_rule="end")
+    assert lab[(0, 1)] == ("A", True)
+    fr[0]["players"][1]["gk"] = True                            # the export's own keeper flag gets his goal's team too
+    lab = R.window_labels(fr, {}, win=1.0, keeper_rule="end")
+    assert lab == {(0, 2): ("A", True)}                         # x 45 m < 58: right goal, first half -> SFK
