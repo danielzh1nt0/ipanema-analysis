@@ -13,16 +13,20 @@ def test_times_are_second_half_after_kickoff_and_fixed():
 
 
 def test_cut_on_a_local_stand_in_video(tmp_path):
-    cv2 = pytest.importorskip("cv2")
+    cv2 = pytest.importorskip("cv2"); np = pytest.importorskip("numpy")
+    # stand-in video written by OpenCV itself: the nightly runner has no ffmpeg binary, and calling a missing ffmpeg
+    # raised FileNotFoundError instead of skipping (30 Oct card: 'tests failing (1)', worker N0-30c)
     v = tmp_path / "t.mp4"
-    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-f", "lavfi", "-i", "testsrc=size=320x180:rate=30", "-t", "6", str(v)])
-    if r.returncode != 0:
-        pytest.skip("no ffmpeg")
+    w = cv2.VideoWriter(str(v), cv2.VideoWriter_fourcc(*"mp4v"), 30.0, (320, 180))
+    for k in range(180):                                # 6 s at 30 fps, each frame a different grey so seeks are visible
+        w.write(np.full((180, 320, 3), k, np.uint8))
+    w.release()
     meta = c.cut(str(v), [1.0, 2.5, 99.0], str(tmp_path / "out"), cv2, log=lambda *a: None)
     assert [f["file"] for f in meta["frames"]] == ["q00.jpg", "q01.jpg"]  # 99 s is past the end -> skipped
     assert meta["frames"][1]["frame"] == 75
     assert json.load(open(tmp_path / "out" / "times.json"))["seed"] == 11
     assert (tmp_path / "out" / "q00.jpg").stat().st_size > 0
+    assert abs(float(cv2.imread(str(tmp_path / "out" / "q01.jpg")).mean()) - 75) < 4   # the seek landed on frame 75
 
 
 def test_make_view_stacks_full_frame_and_zoom():
