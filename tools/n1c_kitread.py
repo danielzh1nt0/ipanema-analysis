@@ -31,10 +31,36 @@ def player_height_px(y_foot):
     return max(24.0, 60.0 + (y_foot - 520.0) * 0.28)
 
 
-def torso_box(px, shape):
-    """(x0, y0, x1, y1) of the shirt above a foot point, clipped to the frame; None if it falls outside."""
+BODY_M = float(os.environ.get("N1C_BODY_M", "1.70"))     # U15 player height used with the row's ground scale
+
+
+def row_homography(row, cv2, np, min_pts=5):
+    """picture -> pitch homography of one export row, fitted to its players' (px, m) pairs (the export's metres were
+    made with the row's calibration, so this recovers it). None if too few players."""
+    P = [(p["px"], p["m"]) for p in row["players"] if p.get("px") and p.get("m")]
+    if len(P) < min_pts: return None
+    H, _ = cv2.findHomography(np.float32([a for a, _ in P]), np.float32([b for _, b in P]), 0)
+    return H
+
+
+def height_from_h(px, H, cv2, np):
+    """player height in px at a foot point = BODY_M / (metres per picture pixel sideways at the foot), the same
+    side-to-side ruler possession.pixel_dist uses. Veo zooms, so the foot's row alone is not a ruler: on the AIK frames
+    the y-only model gave 0.65-1.0x of this (the referee's box sat on his black shorts and read 'dark', N1c 30 Oct)."""
+    try:
+        a = cv2.perspectiveTransform(np.float32([[[px[0], px[1]], [px[0] + 1.0, px[1]]]]), H)[0]
+        s = float(np.linalg.norm(a[1] - a[0]))
+        h = BODY_M / s if s > 0 else None
+    except Exception:
+        return None
+    return h if h and 20 <= h <= 450 else None
+
+
+def torso_box(px, shape, h=None):
+    """(x0, y0, x1, y1) of the shirt above a foot point, clipped to the frame; None if it falls outside.
+    h = player height in px (from the row's ground scale); None -> the foot-row model."""
     h_img, w_img = shape[:2]
-    x, y = px; h = player_height_px(y)
+    x, y = px; h = h or player_height_px(y)
     x0, x1 = int(round(x - 0.16 * h)), int(round(x + 0.16 * h))
     y0, y1 = int(round(y - 0.86 * h)), int(round(y - 0.62 * h))
     x0, y0, x1, y1 = max(0, x0), max(0, y0), min(w_img, x1), min(h_img, y1)
@@ -106,10 +132,11 @@ def interp_row(fr, ts, t):
 def read_frame(img, row, cv2, np):
     """class of every exported player in one frame -> list of (id, team, gk, class, feats, box)"""
     out = []
+    H = row_homography(row, cv2, np) if os.environ.get("N1C_RULER", "ground") == "ground" else None
     for p in row["players"]:
         if not p.get("px"):
             continue
-        b = torso_box(p["px"], img.shape)
+        b = torso_box(p["px"], img.shape, height_from_h(p["px"], H, cv2, np) if H is not None else None)
         if b is None:
             continue
         x0, y0, x1, y1 = b

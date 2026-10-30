@@ -16,7 +16,7 @@ import n1c_kitread as K
 M = "p15u-vs-aik-2026-09-21-bd09"
 PERIODS = [(366.0, 3225.0), (3950.0, 6899.0)]          # periods/<match>.json
 STEP = int(os.environ.get("STEP", "3"))                  # every 3rd export row = 0.9 s
-OUT = os.environ.get("OUT", "results/free/n1c")
+OUT = os.environ.get("OUT", "results/free/n1c2")      # n1c = first run (foot-row ruler); n1c2 = ground ruler (30 Oct)
 CLS = {c: i for i, c in enumerate(K.CLASSES)}
 
 

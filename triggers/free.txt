@@ -1,4 +1,5 @@
 tools/n1c_kitvote_run.py
+# Fri Oct 30 16:28:40 UTC 2026 N1c: re-read the AIK shirt colours with the player's height taken from the row's ground scale (the referee read 'dark' on his shorts before) -> results/free/n1c2 - free runner only, nothing on Modal
 # Fri Oct 30 08:40:54 UTC 2026 N1c: read every exported AIK player's shirt colour (dark/white/red keeper/blue referee) over the whole match, per track id - free runner only, nothing on Modal
 # Fri Oct 30 04:24:01 UTC 2026 N0-30b: cut 90 random second-half AIK frames (seed 11) for a blind by-eye possession sample - free runner only, nothing on Modal
 # Mon Oct 26 12:45:22 UTC 2026 N0-26c: blind picture sheets of old vs new per-player touches on the two app clips - free runner only, nothing on Modal

@@ -66,3 +66,16 @@ def test_run_reads_the_right_frames(tmp_path):
     assert [r[0] for r in reads] == [0.5, 1.2, 1.5, 2.5]
     assert cls == ["dark", "white", "white", "dark"]
     assert votes["7"][K.CLASSES.index("white")] == 2
+
+
+def test_ground_ruler_from_the_rows_players():
+    """a row whose metres are px / 10 (10 px per metre everywhere) -> 1.70 m = 17 px; too few players -> None"""
+    row = {"players": [{"px": [x, y], "m": [x / 10.0, y / 10.0]} for x, y in ((100, 500), (400, 520), (800, 900), (1500, 600), (1200, 1000))]}
+    H = K.row_homography(row, cv2, np)
+    assert K.height_from_h([600, 700], H, cv2, np) is None              # 17 px: below the 20 px floor (not a player)
+    row2 = {"players": [{"px": [x, y], "m": [x / 100.0, y / 100.0]} for x, y in ((100, 500), (400, 520), (800, 900), (1500, 600), (1200, 1000))]}
+    h = K.height_from_h([600, 700], K.row_homography(row2, cv2, np), cv2, np)
+    assert h == pytest.approx(170, rel=0.02)
+    assert K.row_homography({"players": row["players"][:4]}, cv2, np) is None
+    b = K.torso_box([960, 900], (1080, 1920, 3), h=200)                   # explicit height wins over the foot-row model
+    assert b[3] - b[1] == pytest.approx(48, abs=2) and b[3] < 900
