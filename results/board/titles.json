@@ -123,5 +123,6 @@
  "N0-29c": "Check top speed and fast running per player on pro data",
  "N0-29d": "Check the runs' \"with the ball\" label on pro data",
  "N0-29e": "Check balls lost / won per team and passes per sequence on pro data",
- "N0-29f": "Check the possession % per half on pro data"
+ "N0-29f": "Check the possession % per half on pro data",
+ "N0-30a": "Check AIK possession against a blind by-eye sample"
 }
