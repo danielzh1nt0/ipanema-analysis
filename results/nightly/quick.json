@@ -1,8 +1,10 @@
 {
  "date": "2026-10-30",
  "tests": {
-  "total": 193,
-  "failed": []
+  "total": 194,
+  "failed": [
+   "test_n0_30b_aik_h2.py"
+  ]
  },
  "ball_34_moments": {
   "right": 22,
