@@ -167,3 +167,8 @@
 04:32:30   tracking frame 250 (0.7 frames/s)
 04:33:46   tracking frame 300 (0.7 frames/s)
 04:35:02   tracking frame 350 (0.7 frames/s)
+04:36:18   tracking frame 400 (0.7 frames/s)
+04:37:31   tracking frame 450 (0.7 frames/s)
+04:38:44   tracking frame 500 (0.7 frames/s)
+04:39:58   tracking frame 550 (0.7 frames/s)
+04:41:12 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
