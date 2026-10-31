@@ -1,2 +1,49 @@
-clip downloaded whole (4018 MB)
-69/69 frames cut, fps 29.970030549265214, video 6898.8 s
+[ WARN:0@15.079] global cap.cpp:204 open VIDEOIO(FFMPEG): backend is generally available but can't be used to capture by name
+[ WARN:0@35.319] global cap.cpp:204 open VIDEOIO(FFMPEG): backend is generally available but can't be used to capture by name
+clip streamed (0 MB)
+clip open try 1/3: 0 frames - waiting 20 s and trying again
+clip open try 2/3: 0 frames - waiting 40 s and trying again
+e02.jpg SFKBP1109
+e10.jpg SFKBP1109
+e33.jpg SFKBP1109
+e35.jpg SFKBP1109
+clip downloaded whole (3477 MB)
+e00.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e01.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e03.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e04.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e05.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e06.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e07.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e08.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e09.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e11.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e12.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e13.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e14.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e15.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e16.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e17.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e18.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e19.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e20.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e21.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e22.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e23.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e24.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e25.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e26.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e27.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e28.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e29.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e30.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e31.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e32.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e34.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e36.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e37.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e38.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e39.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e40.jpg p15u-vs-vallentuna-2026-10-03-6cce
+e41.jpg p15u-vs-vallentuna-2026-10-03-6cce
+42 sheets
