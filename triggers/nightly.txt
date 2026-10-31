@@ -18,3 +18,4 @@ manual Wed Oct 28 09:58:25 UTC 2026 - N0-28c: re-run after downloading small cli
 manual Wed Oct 28 10:43:03 UTC 2026 - N0-28c: re-run after the stall-proof stream settings (Spanga failed 3 opens on the last re-run)
 manual Thu Oct 29 04:22:13 UTC 2026 - N0-29b: backup nightly (no 29 Oct card by 04:20 UTC)
 manual Fri Oct 30 04:22:08 UTC 2026 - N0-30b: backup nightly (no 30 Oct card by 04:20 UTC)
+manual Sat Oct 31 04:21:50 UTC 2026 - N0-31b: backup nightly (no 31 Oct card by 04:20 UTC)
