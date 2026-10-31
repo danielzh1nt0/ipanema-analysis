@@ -129,5 +129,6 @@
  "N1c": "Fix AIK team labels (keeper, some white players, referee)",
  "N0-30d": "Check the metres gained in 5 s after winning the ball",
  "N0-31a": "Check the ball grade that hides or flags stats in the app",
- "N0-31b": "Morning check + shot spots vs attack direction"
+ "N0-31b": "Morning check + shot spots vs attack direction",
+ "N0-31c": "Morning check + SFK-BP half-time / kick-off / full time by eye"
 }

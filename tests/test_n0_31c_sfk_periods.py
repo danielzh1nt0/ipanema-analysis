@@ -9,10 +9,17 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 
 def test_windows_cover_each_unchecked_boundary():
     per = json.load(open(os.path.join(ROOT, "periods", "SFKBP1109.json")))["periods_s"]
-    ts = [t for _, t in c.window_times()]
+    ts = [t for _, t in c.window_times()] + [t for _, t in c.window_times(c.parse_windows(c.WIN_DEFAULT))]
     for b in (per[0][1], per[1][0], per[1][1]):       # first-half end, second-half kick-off, full time
         assert any(abs(t - b) <= 5 for t in ts), b
-    assert ts == sorted(ts) and len(ts) == len(set(ts))
+    w1 = [t for _, t in c.window_times()]; assert w1 == sorted(set(w1))   # each run: times in order, no repeats
+
+
+def test_periods_file_has_the_by_eye_second_half_kickoff():
+    per = json.load(open(os.path.join(ROOT, "periods", "SFKBP1109.json")))["periods_s"]
+    assert per[0] == [555, 3060]                      # first half: kick-off (2 Oct) and end (31 Oct) both by eye
+    assert per[1][0] == 3510                          # was 3733 - play is on at 3620 (results/free/n0_31c/sheet_ko2.jpg)
+    assert per[0][1] < per[1][0] < per[1][1]
 
 
 def test_cut_on_a_local_stand_in_video(tmp_path):
