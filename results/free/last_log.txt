@@ -1,24 +1,2 @@
-clip downloaded whole (3477 MB)
-g00.jpg 875.64
-g01.jpg 892.19
-g02.jpg 1734.67
-g03.jpg 2181.05
-g04.jpg 2329.53
-g05.jpg 2498.2
-g06.jpg 2549.65
-g07.jpg 3450.05
-g08.jpg 3476.94
-g09.jpg 3551.01
-g10.jpg 3715.68
-g11.jpg 3731.69
-g12.jpg 3787.02
-g13.jpg 3860.46
-g14.jpg 3863.66
-g15.jpg 3903.0
-g16.jpg 4409.61
-g17.jpg 4787.82
-g18.jpg 4792.35
-g19.jpg 5143.47
-g20.jpg 5352.61
-g21.jpg 5405.33
-22 sheets
+clip downloaded whole (3589 MB)
+83/83 frames cut, fps 29.970030618346996, video 6163.7 s

@@ -1,0 +1,526 @@
+{
+ "match": "SFKBP1109",
+ "fps": 29.970030618346996,
+ "n_frames_video": 184725,
+ "video_s": 6163.7,
+ "windows": [
+  [
+   "ht",
+   2960.0,
+   3290.0,
+   10.0
+  ],
+  [
+   "ko2",
+   3620.0,
+   3830.0,
+   10.0
+  ],
+  [
+   "ft",
+   5820.0,
+   6080.0,
+   10.0
+  ]
+ ],
+ "frames": [
+  {
+   "window": "ht",
+   "t": 2960.0,
+   "frame": 88711,
+   "file": "ht_02960.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 2970.0,
+   "frame": 89011,
+   "file": "ht_02970.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 2980.0,
+   "frame": 89311,
+   "file": "ht_02980.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 2990.0,
+   "frame": 89610,
+   "file": "ht_02990.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3000.0,
+   "frame": 89910,
+   "file": "ht_03000.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3010.0,
+   "frame": 90210,
+   "file": "ht_03010.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3020.0,
+   "frame": 90509,
+   "file": "ht_03020.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3030.0,
+   "frame": 90809,
+   "file": "ht_03030.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3040.0,
+   "frame": 91109,
+   "file": "ht_03040.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3050.0,
+   "frame": 91409,
+   "file": "ht_03050.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3060.0,
+   "frame": 91708,
+   "file": "ht_03060.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3070.0,
+   "frame": 92008,
+   "file": "ht_03070.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3080.0,
+   "frame": 92308,
+   "file": "ht_03080.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3090.0,
+   "frame": 92607,
+   "file": "ht_03090.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3100.0,
+   "frame": 92907,
+   "file": "ht_03100.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3110.0,
+   "frame": 93207,
+   "file": "ht_03110.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3120.0,
+   "frame": 93506,
+   "file": "ht_03120.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3130.0,
+   "frame": 93806,
+   "file": "ht_03130.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3140.0,
+   "frame": 94106,
+   "file": "ht_03140.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3150.0,
+   "frame": 94406,
+   "file": "ht_03150.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3160.0,
+   "frame": 94705,
+   "file": "ht_03160.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3170.0,
+   "frame": 95005,
+   "file": "ht_03170.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3180.0,
+   "frame": 95305,
+   "file": "ht_03180.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3190.0,
+   "frame": 95604,
+   "file": "ht_03190.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3200.0,
+   "frame": 95904,
+   "file": "ht_03200.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3210.0,
+   "frame": 96204,
+   "file": "ht_03210.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3220.0,
+   "frame": 96503,
+   "file": "ht_03220.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3230.0,
+   "frame": 96803,
+   "file": "ht_03230.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3240.0,
+   "frame": 97103,
+   "file": "ht_03240.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3250.0,
+   "frame": 97403,
+   "file": "ht_03250.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3260.0,
+   "frame": 97702,
+   "file": "ht_03260.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3270.0,
+   "frame": 98002,
+   "file": "ht_03270.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3280.0,
+   "frame": 98302,
+   "file": "ht_03280.jpg"
+  },
+  {
+   "window": "ht",
+   "t": 3290.0,
+   "frame": 98601,
+   "file": "ht_03290.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3620.0,
+   "frame": 108492,
+   "file": "ko2_03620.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3630.0,
+   "frame": 108791,
+   "file": "ko2_03630.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3640.0,
+   "frame": 109091,
+   "file": "ko2_03640.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3650.0,
+   "frame": 109391,
+   "file": "ko2_03650.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3660.0,
+   "frame": 109690,
+   "file": "ko2_03660.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3670.0,
+   "frame": 109990,
+   "file": "ko2_03670.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3680.0,
+   "frame": 110290,
+   "file": "ko2_03680.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3690.0,
+   "frame": 110589,
+   "file": "ko2_03690.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3700.0,
+   "frame": 110889,
+   "file": "ko2_03700.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3710.0,
+   "frame": 111189,
+   "file": "ko2_03710.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3720.0,
+   "frame": 111489,
+   "file": "ko2_03720.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3730.0,
+   "frame": 111788,
+   "file": "ko2_03730.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3740.0,
+   "frame": 112088,
+   "file": "ko2_03740.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3750.0,
+   "frame": 112388,
+   "file": "ko2_03750.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3760.0,
+   "frame": 112687,
+   "file": "ko2_03760.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3770.0,
+   "frame": 112987,
+   "file": "ko2_03770.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3780.0,
+   "frame": 113287,
+   "file": "ko2_03780.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3790.0,
+   "frame": 113586,
+   "file": "ko2_03790.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3800.0,
+   "frame": 113886,
+   "file": "ko2_03800.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3810.0,
+   "frame": 114186,
+   "file": "ko2_03810.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3820.0,
+   "frame": 114486,
+   "file": "ko2_03820.jpg"
+  },
+  {
+   "window": "ko2",
+   "t": 3830.0,
+   "frame": 114785,
+   "file": "ko2_03830.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5820.0,
+   "frame": 174426,
+   "file": "ft_05820.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5830.0,
+   "frame": 174725,
+   "file": "ft_05830.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5840.0,
+   "frame": 175025,
+   "file": "ft_05840.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5850.0,
+   "frame": 175325,
+   "file": "ft_05850.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5860.0,
+   "frame": 175624,
+   "file": "ft_05860.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5870.0,
+   "frame": 175924,
+   "file": "ft_05870.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5880.0,
+   "frame": 176224,
+   "file": "ft_05880.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5890.0,
+   "frame": 176523,
+   "file": "ft_05890.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5900.0,
+   "frame": 176823,
+   "file": "ft_05900.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5910.0,
+   "frame": 177123,
+   "file": "ft_05910.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5920.0,
+   "frame": 177423,
+   "file": "ft_05920.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5930.0,
+   "frame": 177722,
+   "file": "ft_05930.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5940.0,
+   "frame": 178022,
+   "file": "ft_05940.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5950.0,
+   "frame": 178322,
+   "file": "ft_05950.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5960.0,
+   "frame": 178621,
+   "file": "ft_05960.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5970.0,
+   "frame": 178921,
+   "file": "ft_05970.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5980.0,
+   "frame": 179221,
+   "file": "ft_05980.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 5990.0,
+   "frame": 179520,
+   "file": "ft_05990.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6000.0,
+   "frame": 179820,
+   "file": "ft_06000.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6010.0,
+   "frame": 180120,
+   "file": "ft_06010.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6020.0,
+   "frame": 180420,
+   "file": "ft_06020.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6030.0,
+   "frame": 180719,
+   "file": "ft_06030.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6040.0,
+   "frame": 181019,
+   "file": "ft_06040.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6050.0,
+   "frame": 181319,
+   "file": "ft_06050.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6060.0,
+   "frame": 181618,
+   "file": "ft_06060.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6070.0,
+   "frame": 181918,
+   "file": "ft_06070.jpg"
+  },
+  {
+   "window": "ft",
+   "t": 6080.0,
+   "frame": 182218,
+   "file": "ft_06080.jpg"
+  }
+ ]
+}
