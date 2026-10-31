@@ -1,2 +1,2 @@
 clip downloaded whole (3589 MB)
-83/83 frames cut, fps 29.970030618346996, video 6163.7 s
+66/66 frames cut, fps 29.970030618346996, video 6163.7 s
