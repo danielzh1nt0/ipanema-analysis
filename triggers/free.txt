@@ -1,4 +1,5 @@
 tools/n0_31e_frames.py
+# Sat Oct 31 16:48:10 UTC 2026 N0-31e run 2: same sheets at the right times (run 1 cut them at frame index / 10, not the frame's time) - free runner only, nothing on Modal
 # Sat Oct 31 16:34:02 UTC 2026 N0-31e: blind picture sheets of final-third entries (the ones dropped for a ball off the pitch, mixed with kept ones) on Vallentuna and SFK-BP - free runner only, nothing on Modal
 # Sat Oct 31 12:24:34 UTC 2026 N0-31d: frames every 5-10 s around AIK's first-half kick-off (366 s), half-time (3225), second-half kick-off (3950) and full time (6899) for a by-eye check of the periods file - free runner only, nothing on Modal
 # Sat Oct 31 08:34:08 UTC 2026 N0-31c run 2: SFK-BP is already in play at 3620 s (periods file says the second half starts 3733) - frames every 5 s 3290-3615 s to find the real kick-off - free runner only, nothing on Modal

@@ -51,10 +51,8 @@ def main(out):
             nt = {e["t"] for e in new[tm]["final_third_entries"]}
             for e in old[tm]["final_third_entries"]:
                 if e["t"] in nt: continue
-                k = int(round(e["t"] * fps)); f = fr[min(k, len(fr) - 1)]
-                kk = min(range(len(ts)), key=lambda j: abs(ts[j] - e["t"])) if abs(ts[min(k, len(ts) - 1)] - e["t"]) > 0.05 else k
-                f = fr[kk]
-                dropped.append({"match": mid, "team": tm, "t": float(ts[kk]), "y_m": e["y_m"], "how": e["how"],
+                kk = min(int(round(e["t"] * fps)), len(fr) - 1); f = fr[kk]     # e["t"] = frame index / fps, not video time
+                dropped.append({"match": mid, "team": tm, "t": float(ts[kk]), "y_m": e["y_m"], "how": e["how"], "frame_index": kk,
                                 "ball_px": f["ball"]["px"] if f.get("ball") else None, "ball_m": f["ball"]["m"] if f.get("ball") else None,
                                 "attacks": "right" if ar[tm] else "left"})
             r[tm]["only_old"] = sum(1 for x in dropped if x["match"] == mid and x["team"] == tm)
@@ -72,7 +70,7 @@ def main(out):
         n_drop = sum(1 for x in dropped if x["match"] == mid)
         pool = [(tm, e) for tm in "AB" for e in new[tm]["final_third_entries"]]
         for tm, e in rnd.sample(pool, min(len(pool), n_drop)):
-            k = min(range(len(ts)), key=lambda j: abs(ts[j] - e["t"])); f = fr[k]
+            k = min(int(round(e["t"] * fps)), len(fr) - 1); f = fr[k]
             kept.append({"match": mid, "team": tm, "t": float(ts[k]), "y_m": e["y_m"], "how": e["how"], "ball_px": f["ball"]["px"] if f.get("ball") else None,
                          "ball_m": f["ball"]["m"] if f.get("ball") else None, "attacks": "right" if d["attack_right"][tm] else "left"})
     allm = [dict(x, rule="dropped") for x in dropped] + [dict(x, rule="kept") for x in kept]

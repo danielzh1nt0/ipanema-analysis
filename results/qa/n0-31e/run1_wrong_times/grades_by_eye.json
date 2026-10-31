@@ -1,0 +1,173 @@
+{
+ "question": "at t, is the ring on the ball and the ball on the pitch (on the grass, inside the lines)? Y / N / ? = can't tell. Graded before opening moments_key.json",
+ "grades": {
+  "e00": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e01": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on the player's body, ball in hands / not on the grass"
+  },
+  "e02": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e03": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e04": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e05": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e06": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e07": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e08": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on empty grass"
+  },
+  "e09": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball over the line, out"
+  },
+  "e10": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e11": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e12": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e13": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a far player's feet, ball not visible"
+  },
+  "e14": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball beyond the far line by the fence / bags"
+  },
+  "e15": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "on the far line, maybe in the air"
+  },
+  "e16": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e17": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e18": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e19": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e20": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "at a player on the far line, maybe a throw-in"
+  },
+  "e21": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e22": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e23": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball in the air at a player's chest"
+  },
+  "e24": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e25": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on the box line, ball elsewhere"
+  },
+  "e26": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e27": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e28": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e29": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e30": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "far player's feet, ball not visible"
+  },
+  "e31": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "group of players at the far line"
+  },
+  "e32": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at feet, but a second ball / the real ball maybe in the air nearby"
+  },
+  "e33": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "before kick-off, no ball under the ring"
+  },
+  "e34": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e35": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e36": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e37": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "player at the far line, ball not visible"
+  },
+  "e38": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e39": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e40": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e41": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on a far player, the real ball is near the camera"
+  }
+ }
+}

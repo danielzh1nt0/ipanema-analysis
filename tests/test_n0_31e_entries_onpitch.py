@@ -63,3 +63,19 @@ def test_frames_tool_plan_picks_nearest_ball():
     (l1, t1, p1), (l2, t2, p2), (l3, t3, p3) = P[0]["tiles"]
     assert (l1, l3) == ("t-1.0", "t") and abs(t1 - 2.0) < 1e-6 and p1 == [20, 40] and p3 == [30, 60]
     assert F.ball_at(fr, [f["t"] for f in fr], 9.0)[1] is None                          # no frame within 0.2 s
+
+
+def test_clips_moment_time_is_video_time():
+    """run 1 of N0-31e cut its pictures at frame index / 10 instead of the frame's own time (the copies start at 300 s,
+    are thinned unevenly) - each moment's picture time must hold the ball the entry was read from"""
+    import sys, os, json, bisect
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(root, "tools"))
+    kp = os.path.join(root, "results/qa/n0-31e/moments_key.json")
+    if not os.path.exists(kp): return
+    from n0_30d_clips import load
+    key = json.load(open(kp)); cache = {}
+    for v in key.values():
+        if v["match"] not in cache:
+            d, fr = load(os.path.join(root, f"results/volume/runs/matches/{v['match']}/match_data.json")); cache[v["match"]] = (fr, [f["t"] for f in fr])
+        fr, ts = cache[v["match"]]; j = bisect.bisect_left(ts, v["t"] - 1e-6)
+        assert abs(round(fr[j]["ball"]["m"][1], 1) - v["y_m"]) < 0.11
