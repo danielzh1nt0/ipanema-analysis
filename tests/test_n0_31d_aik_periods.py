@@ -34,6 +34,6 @@ def test_dry_run_on_a_local_stand_in_video(tmp_path, monkeypatch):
 def test_periods_file_holds_the_by_eye_values():
     p = json.load(open(PER))
     per = p["periods_s"]
-    assert per == [[440, 3225], [3995, 6745]]            # N0-31d by eye (results/free/n0_31d)
+    assert per == [[460, 3225], [4015, 6730]]            # N0-31d by eye (results/free/n0_31d)
     assert p["attack_right_A"] is True and p["trust_all_calibration"] is True
     assert "N0-31d" in p["note"]

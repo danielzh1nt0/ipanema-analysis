@@ -1,15 +1,15 @@
 {
  "periods_s": [
   [
-   366,
+   460,
    3225
   ],
   [
-   3950,
-   6899
+   4015,
+   6730
   ]
  ],
- "note": "2 Oct: detected from the footage (players on the pitch + kick-off formation both halves); second-half kick-off 3950 s agrees with Veo's goal list (1-6 at 84' clip at 6268 s -> about 3988 s, +-60 s). trust_all_calibration: the per-frame line check trusts only 12% of AIK frames (the clip run, which skips that check, scores the ball 30/39 and possession sensibly). | 3 Oct QA: first half ends at 53:45 (players walk off at 3225-3240 s, pitch empty from 54:00; results/kaggle/aik_halftime), not 56:30 - the earlier end came from the kick-off detector and counted 3 min of empty pitch as play. | 4 Oct: attack_right_A true - checked by eye: after the 52:08 goal at the left end the dark SFK team kicks off (AIK, white, scored; AIK 2-0 at half-time). | 4 Oct evening: attack_right_A true - AIK (white) scored both first-half goals (SFK kicks off after 52:08); play 5-25 s after the clip starts is at the left end.",
+ "note": "2 Oct: detected from the footage (players on the pitch + kick-off formation both halves); second-half kick-off 3950 s agrees with Veo's goal list (1-6 at 84' clip at 6268 s -> about 3988 s, +-60 s). trust_all_calibration: the per-frame line check trusts only 12% of AIK frames (the clip run, which skips that check, scores the ball 30/39 and possession sensibly). | 3 Oct QA: first half ends at 53:45 (players walk off at 3225-3240 s, pitch empty from 54:00; results/kaggle/aik_halftime), not 56:30 - the earlier end came from the kick-off detector and counted 3 min of empty pitch as play. | 4 Oct: attack_right_A true - checked by eye: after the 52:08 goal at the left end the dark SFK team kicks off (AIK, white, scored; AIK 2-0 at half-time). | 4 Oct evening: attack_right_A true - AIK (white) scored both first-half goals (SFK kicks off after 52:08); play 5-25 s after the clip starts is at the left end. | 31 Oct (worker, N0-31d, by eye on frames every 5-10 s, results/free/n0_31d): first-half kick-off 460 s (7:40), NOT 366 - warm-up / players tying boots until ~415, teams lined up 420-450 with the captains at the referee (coin toss) at 450, dark SFK at the centre spot 455-460, play from 465. First-half end 3225 confirmed (play 3210, players walking 3220). Second-half kick-off 4015 s (66:55), NOT 3950 - players come back out 3940-3990, lined up 3995-4015 with white AIK at the centre spot, play from 4020. Full time 6730 s (112:10), NOT 6899 (video end) - play to ~6720-6730, substitutes in bibs walk on at 6740, handshake line 6760-6770. 328 s of non-play (warm-up, coin toss, break, after the whistle) were counted as play.",
  "trust_all_calibration": true,
  "attack_right_A": true
 }
