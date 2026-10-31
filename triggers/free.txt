@@ -1,4 +1,5 @@
-tools/n0_31c_sfk_periods.py
+tools/n0_31d_aik_periods.py
+# Sat Oct 31 12:24:34 UTC 2026 N0-31d: frames every 5-10 s around AIK's first-half kick-off (366 s), half-time (3225), second-half kick-off (3950) and full time (6899) for a by-eye check of the periods file - free runner only, nothing on Modal
 # Sat Oct 31 08:34:08 UTC 2026 N0-31c run 2: SFK-BP is already in play at 3620 s (periods file says the second half starts 3733) - frames every 5 s 3290-3615 s to find the real kick-off - free runner only, nothing on Modal
 # Sat Oct 31 08:26:40 UTC 2026 N0-31c: frames every 10 s around SFK-BP's half-time (3060 s), second-half kick-off (3733 s) and full time (5940 s) for a by-eye check of the periods file - free runner only, nothing on Modal
 # Fri Oct 30 20:57:32 UTC 2026 N0-30d: picture sheets of the Vallentuna won-the-ball events whose 5-s gain changes (ends at +5 s vs last ball on the pitch) - free runner only, nothing on Modal
