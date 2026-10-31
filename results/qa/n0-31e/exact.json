@@ -1,0 +1,68 @@
+{
+ "SFKBP1109_s1200": {
+  "fps": 29.97002997002997,
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "ball_frames": 8992,
+  "ball_off_pitch_share": 0.211,
+  "A": {
+   "old_entries": 10,
+   "new_entries": 10,
+   "old_tilt": 12,
+   "new_tilt": 11,
+   "only_old": [
+    {
+     "t": 203.3,
+     "how": "carry",
+     "y_m": -2.7
+    }
+   ],
+   "only_new": [
+    {
+     "t": 203.5,
+     "how": "pass",
+     "y_m": -2.0
+    }
+   ],
+   "old_y_off_pitch": 1
+  },
+  "B": {
+   "old_entries": 8,
+   "new_entries": 8,
+   "old_tilt": 44,
+   "new_tilt": 42,
+   "only_old": [],
+   "only_new": [],
+   "old_y_off_pitch": 0
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09_s2520": {
+  "fps": 29.97002997002997,
+  "attack_right": {
+   "A": true,
+   "B": false
+  },
+  "ball_frames": 8992,
+  "ball_off_pitch_share": 0.08,
+  "A": {
+   "old_entries": 0,
+   "new_entries": 0,
+   "old_tilt": 32,
+   "new_tilt": 31,
+   "only_old": [],
+   "only_new": [],
+   "old_y_off_pitch": 0
+  },
+  "B": {
+   "old_entries": 33,
+   "new_entries": 33,
+   "old_tilt": 38,
+   "new_tilt": 38,
+   "only_old": [],
+   "only_new": [],
+   "old_y_off_pitch": 0
+  }
+ }
+}

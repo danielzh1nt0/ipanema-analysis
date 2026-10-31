@@ -1,0 +1,1294 @@
+{
+ "summary": {
+  "False/old": {
+   "found_pct": 72,
+   "ours_real_pct": 96,
+   "count_vs_truth": 0.75,
+   "entries_off_pitch": 0,
+   "tilt_off_pts_median": 1,
+   "ball_off_pitch_share": 0.0019
+  },
+  "False/new": {
+   "found_pct": 72,
+   "ours_real_pct": 96,
+   "count_vs_truth": 0.75,
+   "entries_off_pitch": 0,
+   "tilt_off_pts_median": 1,
+   "ball_off_pitch_share": 0.0019
+  },
+  "streak/old": {
+   "found_pct": 31,
+   "ours_real_pct": 78,
+   "count_vs_truth": 0.4,
+   "entries_off_pitch": 1,
+   "tilt_off_pts_median": 3,
+   "ball_off_pitch_share": 0.0084
+  },
+  "streak/new": {
+   "found_pct": 31,
+   "ours_real_pct": 78,
+   "count_vs_truth": 0.4,
+   "entries_off_pitch": 0,
+   "tilt_off_pts_median": 3,
+   "ball_off_pitch_share": 0.0084
+  },
+  "flicker/old": {
+   "found_pct": 65,
+   "ours_real_pct": 62,
+   "count_vs_truth": 1.04,
+   "entries_off_pitch": 0,
+   "tilt_off_pts_median": 4,
+   "ball_off_pitch_share": 0.0026
+  },
+  "flicker/new": {
+   "found_pct": 65,
+   "ours_real_pct": 62,
+   "count_vs_truth": 1.04,
+   "entries_off_pitch": 0,
+   "tilt_off_pts_median": 4,
+   "ball_off_pitch_share": 0.0026
+  }
+ },
+ "rows": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 137,
+   "tilt": {
+    "A": [
+     28,
+     27
+    ],
+    "B": [
+     16,
+     19
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 44,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 41,
+    "truth_pass": 24,
+    "found_pass": 19,
+    "found_carry": 23
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 137,
+   "tilt": {
+    "A": [
+     28,
+     27
+    ],
+    "B": [
+     16,
+     19
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 44,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 41,
+    "truth_pass": 24,
+    "found_pass": 19,
+    "found_carry": 23
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 33979,
+   "ball_off_pitch_frames": 306,
+   "tilt": {
+    "A": [
+     28,
+     23
+    ],
+    "B": [
+     16,
+     23
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 23,
+    "found": 20,
+    "ours_real": 20,
+    "how_same": 10,
+    "truth_pass": 24,
+    "found_pass": 3,
+    "found_carry": 17
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 33979,
+   "ball_off_pitch_frames": 306,
+   "tilt": {
+    "A": [
+     28,
+     23
+    ],
+    "B": [
+     16,
+     23
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 23,
+    "found": 20,
+    "ours_real": 20,
+    "how_same": 10,
+    "truth_pass": 24,
+    "found_pass": 3,
+    "found_carry": 17
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 34606,
+   "ball_off_pitch_frames": 245,
+   "tilt": {
+    "A": [
+     28,
+     29
+    ],
+    "B": [
+     16,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 20,
+    "found": 17,
+    "ours_real": 17,
+    "how_same": 4,
+    "truth_pass": 24,
+    "found_pass": 4,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 34606,
+   "ball_off_pitch_frames": 245,
+   "tilt": {
+    "A": [
+     28,
+     29
+    ],
+    "B": [
+     16,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 20,
+    "found": 17,
+    "ours_real": 17,
+    "how_same": 4,
+    "truth_pass": 24,
+    "found_pass": 4,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 123,
+   "tilt": {
+    "A": [
+     28,
+     23
+    ],
+    "B": [
+     16,
+     21
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 67,
+    "found": 44,
+    "ours_real": 44,
+    "how_same": 26,
+    "truth_pass": 24,
+    "found_pass": 16,
+    "found_carry": 28
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 123,
+   "tilt": {
+    "A": [
+     28,
+     23
+    ],
+    "B": [
+     16,
+     21
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 67,
+    "found": 44,
+    "ours_real": 44,
+    "how_same": 26,
+    "truth_pass": 24,
+    "found_pass": 16,
+    "found_carry": 28
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 140,
+   "tilt": {
+    "A": [
+     28,
+     24
+    ],
+    "B": [
+     16,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 29,
+    "truth_pass": 24,
+    "found_pass": 13,
+    "found_carry": 29
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40860,
+   "ball_off_pitch_frames": 140,
+   "tilt": {
+    "A": [
+     28,
+     24
+    ],
+    "B": [
+     16,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 29,
+    "truth_pass": 24,
+    "found_pass": 13,
+    "found_carry": 29
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 147,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 50,
+    "found": 49,
+    "ours_real": 49,
+    "how_same": 45,
+    "truth_pass": 30,
+    "found_pass": 22,
+    "found_carry": 27
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 147,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 50,
+    "found": 49,
+    "ours_real": 49,
+    "how_same": 45,
+    "truth_pass": 30,
+    "found_pass": 22,
+    "found_carry": 27
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40452,
+   "ball_off_pitch_frames": 554,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     31
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 24,
+    "found": 19,
+    "ours_real": 19,
+    "how_same": 13,
+    "truth_pass": 30,
+    "found_pass": 5,
+    "found_carry": 14
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40452,
+   "ball_off_pitch_frames": 554,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     32
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 24,
+    "found": 19,
+    "ours_real": 19,
+    "how_same": 13,
+    "truth_pass": 30,
+    "found_pass": 5,
+    "found_carry": 14
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40807,
+   "ball_off_pitch_frames": 546,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 28,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 13,
+    "truth_pass": 30,
+    "found_pass": 9,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40807,
+   "ball_off_pitch_frames": 546,
+   "tilt": {
+    "A": [
+     18,
+     17
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 28,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 13,
+    "truth_pass": 30,
+    "found_pass": 9,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 261,
+   "tilt": {
+    "A": [
+     18,
+     15
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 33,
+    "truth_pass": 30,
+    "found_pass": 18,
+    "found_carry": 24
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 261,
+   "tilt": {
+    "A": [
+     18,
+     15
+    ],
+    "B": [
+     30,
+     26
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 33,
+    "truth_pass": 30,
+    "found_pass": 18,
+    "found_carry": 24
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 260,
+   "tilt": {
+    "A": [
+     18,
+     15
+    ],
+    "B": [
+     30,
+     25
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 72,
+    "found": 43,
+    "ours_real": 43,
+    "how_same": 30,
+    "truth_pass": 30,
+    "found_pass": 16,
+    "found_carry": 27
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 47391,
+   "ball_off_pitch_frames": 260,
+   "tilt": {
+    "A": [
+     18,
+     16
+    ],
+    "B": [
+     30,
+     25
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 72,
+    "found": 43,
+    "ours_real": 43,
+    "how_same": 30,
+    "truth_pass": 30,
+    "found_pass": 16,
+    "found_carry": 27
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 16,
+   "tilt": {
+    "A": [
+     24,
+     23
+    ],
+    "B": [
+     20,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 52,
+    "found": 49,
+    "ours_real": 49,
+    "how_same": 45,
+    "truth_pass": 31,
+    "found_pass": 27,
+    "found_carry": 22
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 16,
+   "tilt": {
+    "A": [
+     24,
+     23
+    ],
+    "B": [
+     20,
+     19
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 52,
+    "found": 49,
+    "ours_real": 49,
+    "how_same": 45,
+    "truth_pass": 31,
+    "found_pass": 27,
+    "found_carry": 22
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 41053,
+   "ball_off_pitch_frames": 117,
+   "tilt": {
+    "A": [
+     24,
+     28
+    ],
+    "B": [
+     20,
+     21
+    ]
+   },
+   "entries_off_pitch": 1,
+   "matched": {
+    "truth": 66,
+    "ours": 28,
+    "found": 18,
+    "ours_real": 18,
+    "how_same": 7,
+    "truth_pass": 31,
+    "found_pass": 4,
+    "found_carry": 14
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 41053,
+   "ball_off_pitch_frames": 117,
+   "tilt": {
+    "A": [
+     24,
+     28
+    ],
+    "B": [
+     20,
+     21
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 27,
+    "found": 18,
+    "ours_real": 18,
+    "how_same": 7,
+    "truth_pass": 31,
+    "found_pass": 4,
+    "found_carry": 14
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 40671,
+   "ball_off_pitch_frames": 294,
+   "tilt": {
+    "A": [
+     24,
+     24
+    ],
+    "B": [
+     20,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 25,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 10,
+    "truth_pass": 31,
+    "found_pass": 11,
+    "found_carry": 11
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 40671,
+   "ball_off_pitch_frames": 294,
+   "tilt": {
+    "A": [
+     24,
+     24
+    ],
+    "B": [
+     20,
+     20
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 25,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 10,
+    "truth_pass": 31,
+    "found_pass": 11,
+    "found_carry": 11
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 36,
+   "tilt": {
+    "A": [
+     24,
+     23
+    ],
+    "B": [
+     20,
+     18
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 76,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 27,
+    "truth_pass": 31,
+    "found_pass": 16,
+    "found_carry": 26
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 36,
+   "tilt": {
+    "A": [
+     24,
+     23
+    ],
+    "B": [
+     20,
+     18
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 76,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 27,
+    "truth_pass": 31,
+    "found_pass": 16,
+    "found_carry": 26
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 27,
+   "tilt": {
+    "A": [
+     24,
+     22
+    ],
+    "B": [
+     20,
+     18
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 27,
+    "truth_pass": 31,
+    "found_pass": 17,
+    "found_carry": 25
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 48527,
+   "ball_off_pitch_frames": 27,
+   "tilt": {
+    "A": [
+     24,
+     22
+    ],
+    "B": [
+     20,
+     17
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 66,
+    "ours": 66,
+    "found": 42,
+    "ours_real": 42,
+    "how_same": 27,
+    "truth_pass": 31,
+    "found_pass": 17,
+    "found_carry": 25
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 18,
+   "tilt": {
+    "A": [
+     29,
+     29
+    ],
+    "B": [
+     24,
+     24
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 56,
+    "found": 53,
+    "ours_real": 53,
+    "how_same": 50,
+    "truth_pass": 35,
+    "found_pass": 34,
+    "found_carry": 19
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 18,
+   "tilt": {
+    "A": [
+     29,
+     29
+    ],
+    "B": [
+     24,
+     24
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 56,
+    "found": 53,
+    "ours_real": 53,
+    "how_same": 50,
+    "truth_pass": 35,
+    "found_pass": 34,
+    "found_carry": 19
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 29352,
+   "ball_off_pitch_frames": 155,
+   "tilt": {
+    "A": [
+     29,
+     26
+    ],
+    "B": [
+     24,
+     29
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 30,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 9,
+    "truth_pass": 35,
+    "found_pass": 10,
+    "found_carry": 12
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 29352,
+   "ball_off_pitch_frames": 155,
+   "tilt": {
+    "A": [
+     29,
+     26
+    ],
+    "B": [
+     24,
+     29
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 30,
+    "found": 22,
+    "ours_real": 22,
+    "how_same": 9,
+    "truth_pass": 35,
+    "found_pass": 10,
+    "found_carry": 12
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 29027,
+   "ball_off_pitch_frames": 226,
+   "tilt": {
+    "A": [
+     29,
+     27
+    ],
+    "B": [
+     24,
+     30
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 36,
+    "found": 27,
+    "ours_real": 27,
+    "how_same": 19,
+    "truth_pass": 35,
+    "found_pass": 14,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 29027,
+   "ball_off_pitch_frames": 226,
+   "tilt": {
+    "A": [
+     29,
+     27
+    ],
+    "B": [
+     24,
+     30
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 36,
+    "found": 27,
+    "ours_real": 27,
+    "how_same": 19,
+    "truth_pass": 35,
+    "found_pass": 14,
+    "found_carry": 13
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 28,
+   "tilt": {
+    "A": [
+     29,
+     25
+    ],
+    "B": [
+     24,
+     23
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 71,
+    "found": 43,
+    "ours_real": 43,
+    "how_same": 25,
+    "truth_pass": 35,
+    "found_pass": 20,
+    "found_carry": 23
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 28,
+   "tilt": {
+    "A": [
+     29,
+     25
+    ],
+    "B": [
+     24,
+     23
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 71,
+    "found": 43,
+    "ours_real": 43,
+    "how_same": 25,
+    "truth_pass": 35,
+    "found_pass": 20,
+    "found_carry": 23
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "old",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 24,
+   "tilt": {
+    "A": [
+     29,
+     25
+    ],
+    "B": [
+     24,
+     22
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 75,
+    "found": 48,
+    "ours_real": 48,
+    "how_same": 31,
+    "truth_pass": 35,
+    "found_pass": 23,
+    "found_carry": 25
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "rule": "new",
+   "direction_same": true,
+   "ball_frames": 34745,
+   "ball_off_pitch_frames": 24,
+   "tilt": {
+    "A": [
+     29,
+     25
+    ],
+    "B": [
+     24,
+     22
+    ]
+   },
+   "entries_off_pitch": 0,
+   "matched": {
+    "truth": 68,
+    "ours": 75,
+    "found": 48,
+    "ours_real": 48,
+    "how_same": 31,
+    "truth_pass": 35,
+    "found_pass": 23,
+    "found_carry": 25
+   }
+  }
+ ]
+}
