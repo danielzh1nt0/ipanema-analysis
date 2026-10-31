@@ -30,3 +30,11 @@ def test_cut_on_a_local_stand_in_video(tmp_path):
     img = cv2.imread(str(tmp_path / "o" / "a_00005.jpg"))
     assert img.shape[1] == c.W
     assert abs(float(img[200:, :].mean()) - 150) < 5    # seek landed on frame 150 (below the time label)
+
+
+def test_window_spec_for_the_second_run():
+    w = c.parse_windows("ko2b:3290:3615:5")
+    assert w == [("ko2b", 3290.0, 3615.0, 5.0)]
+    ts = [t for _, t in c.window_times(w)]
+    assert ts[0] == 3290.0 and ts[-1] == 3615.0 and len(ts) == 66
+    assert c.parse_windows("") == c.WINDOWS

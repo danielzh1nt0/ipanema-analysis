@@ -19,7 +19,17 @@ WINDOWS = [("ht", 2960.0, 3290.0, 10.0),      # first-half end 3060 (coach)
            ("ko2", 3620.0, 3830.0, 10.0),     # second-half kick-off 3733 (+-30 s)
            ("ft", 5820.0, 6080.0, 10.0)]      # full time 5940 (coach)
 OUT = os.environ.get("OUT", "results/free/n0_31c")
+
+
+def parse_windows(spec):
+    """'name:start:end:step,...' -> WINDOWS list (2nd run: the 3733 s kick-off turned out to be in play)."""
+    out = []
+    for part in filter(None, (spec or "").split(",")):
+        n, a, b, st = part.split(":"); out.append((n, float(a), float(b), float(st)))
+    return out or WINDOWS
 W = 960
+# 2nd run (31 Oct): play is already on at 3620 s, so look for the real second-half kick-off after half-time
+WIN_DEFAULT = "ko2b:3290:3615:5"
 
 
 def window_times(windows=WINDOWS):
@@ -77,7 +87,7 @@ def cut(src, times, out, cv, np, log=print):
     for name, ps in by_win.items():
         cv.imwrite(os.path.join(out, f"sheet_{name}.jpg"), sheet(ps, cv, np), [cv.IMWRITE_JPEG_QUALITY, 80])
     meta = {"match": M, "fps": fps, "n_frames_video": n_all, "video_s": round(n_all / fps, 1) if n_all else None,
-            "windows": WINDOWS, "frames": got}
+            "windows": sorted({f["window"] for f in got}), "frames": got}
     json.dump(meta, open(os.path.join(out, "times.json"), "w"), indent=1)
     log(f"{len(got)}/{len(times)} frames cut, fps {fps}, video {meta['video_s']} s")
     return meta
@@ -92,7 +102,7 @@ def main():
             raise SystemExit("set R2_PUBLIC_URL or SRC")
         from clipopen import local_copy
         src = local_copy(f"{base}/{M}/video.mp4", dest="/tmp/sfk_video.mp4", max_bytes=12e9)
-    cut(src, window_times(), OUT, cv2, np)
+    cut(src, window_times(parse_windows(os.environ.get("WIN") or WIN_DEFAULT)), os.path.join(OUT, "run2"), cv2, np)  # run 1 stays in OUT
 
 
 if __name__ == "__main__":
