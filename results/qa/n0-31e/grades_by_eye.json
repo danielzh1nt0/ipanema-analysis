@@ -1,0 +1,173 @@
+{
+ "question": "at t, is the ring on the ball and the ball on the pitch (on the grass, inside the lines)? Y / N / ? = can't tell. Run 2 sheets (right times). Graded on zoomed crops around the ring before opening moments_key.json",
+ "grades": {
+  "e00": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on empty grass by a player, no ball"
+  },
+  "e01": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball in a person's hands beyond the far touchline by the fence"
+  },
+  "e02": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "empty grass"
+  },
+  "e03": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball at/just past the far touchline, held by a player (throw-in)"
+  },
+  "e04": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e05": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring in the hedge beyond the fence"
+  },
+  "e06": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring by the fence under the BAUHAUS board, off the pitch"
+  },
+  "e07": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e08": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": "ball at a foot near the far line"
+  },
+  "e09": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a player's foot, ball not visible"
+  },
+  "e10": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball in hands by the bench, off the pitch"
+  },
+  "e11": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e12": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e13": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": "just inside the far line"
+  },
+  "e14": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "white ball beyond the far line by the bags"
+  },
+  "e15": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": "on the far line"
+  },
+  "e16": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "white thing at a foot - ball or boot"
+  },
+  "e17": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e18": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "empty grass"
+  },
+  "e19": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a foot, ball faint"
+  },
+  "e20": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e21": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball beyond the far line by the hedge"
+  },
+  "e22": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e23": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a boot, ball not visible"
+  },
+  "e24": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": "on the far line"
+  },
+  "e25": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e26": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "empty grass"
+  },
+  "e27": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ball at a foot right on the far line"
+  },
+  "e28": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ball above/beyond the far line (in the air or out)"
+  },
+  "e29": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e30": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e31": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e32": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "white ball beyond the far line by the fence"
+  },
+  "e33": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a player's legs, no ball seen"
+  },
+  "e34": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e35": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on legs; the ball is held overhead for a throw-in"
+  },
+  "e36": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "white ball beyond the far line, person picking it up"
+  },
+  "e37": {
+   "ring_on_ball_on_pitch": "?",
+   "note": "ring at a player's legs, no ball seen"
+  },
+  "e38": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e39": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "white ball beyond the far line by the fence"
+  },
+  "e40": {
+   "ring_on_ball_on_pitch": "Y",
+   "note": ""
+  },
+  "e41": {
+   "ring_on_ball_on_pitch": "N",
+   "note": "ring on a white boot in all three tiles, no ball"
+  }
+ }
+}

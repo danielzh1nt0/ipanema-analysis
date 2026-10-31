@@ -338,7 +338,10 @@ ENTRY_HOLD_S = float(os.environ.get("IPANEMA_ENTRY_HOLD_S", "3"))
 # beyond the far line, a pick on the fence or a spare ball. Off-pitch balls are now skipped for entries and field tilt.
 # IPANEMA_ENTRY_ONPITCH=0 = the old rule.
 ENTRY_ONPITCH = os.environ.get("IPANEMA_ENTRY_ONPITCH", "1") != "0"
-ENTRY_MARGIN_M = 2.0
+# N0-31e grading (31 Oct, blind by eye on 42 sheets): balls just past the FAR touchline project 2-8 m beyond it (a pixel
+# there is metres): of the decided entries the 2 m margin dropped, 7 of 19 were balls on the pitch at the line; 4 m keeps
+# 6 of those 7 and still drops 9 of the 12 real off-pitch ones (errors 7 -> 4; old rule 12). IPANEMA_ENTRY_MARGIN_M.
+ENTRY_MARGIN_M = float(os.environ.get("IPANEMA_ENTRY_MARGIN_M", "4"))
 
 # N0-24b (24 Oct): high turnovers checked on Metrica pro data - with a clean ball our count is ~1/3 of the truth (14 vs
 # 43 balls won and kept in the final third, 4 halves; ~57% of ours real), with our clips' ball noise mostly not real

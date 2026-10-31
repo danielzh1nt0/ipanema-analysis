@@ -79,3 +79,14 @@ def test_clips_moment_time_is_video_time():
             d, fr = load(os.path.join(root, f"results/volume/runs/matches/{v['match']}/match_data.json")); cache[v["match"]] = (fr, [f["t"] for f in fr])
         fr, ts = cache[v["match"]]; j = bisect.bisect_left(ts, v["t"] - 1e-6)
         assert abs(round(fr[j]["ball"]["m"][1], 1) - v["y_m"]) < 0.11
+
+
+def test_margin_4m_keeps_far_line_ball_drops_fence_ball():
+    """N0-31e grading: balls at the far touchline project 2-4 m beyond it; balls by the fence / in hands 4-30 m"""
+    assert M.ENTRY_MARGIN_M == 4.0 or __import__("os").environ.get("IPANEMA_ENTRY_MARGIN_M")
+    at_line = [(60, 30), (66, 40), (69, 67.5), (72, 67.5)]          # on the far line, read 3.5 m out
+    by_fence = [(60, 30), (66, 40), (69, 70.8), (72, 70.8)]          # by the fence, 6.8 m out
+    assert _field(at_line, W=W, onpitch=True)["entries_count"] == 1
+    assert _field(by_fence, W=W, onpitch=True)["entries_count"] == 0
+    assert _field([(60, 30), (66, 30), (69, -3.5), (72, -3.5)], W=W, onpitch=True)["entries_count"] == 1
+    assert _field([(60, 30), (66, 30), (69, -7.5), (72, -7.5)], W=W, onpitch=True)["entries_count"] == 0

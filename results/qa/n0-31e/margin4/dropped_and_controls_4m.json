@@ -1,0 +1,142 @@
+{
+ "e00": {
+  "match": "SFKBP1109",
+  "team": "A",
+  "t": 744.444,
+  "y_m": 1.9,
+  "rule": "kept"
+ },
+ "e01": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 989.889,
+  "y_m": 13.5,
+  "rule": "kept"
+ },
+ "e02": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 2625.723,
+  "y_m": 63.7,
+  "rule": "kept"
+ },
+ "e03": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 5569.364,
+  "y_m": 71.4,
+  "rule": "dropped"
+ },
+ "e04": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 3247.644,
+  "y_m": 70.8,
+  "rule": "dropped"
+ },
+ "e05": {
+  "match": "SFKBP1109",
+  "team": "B",
+  "t": 1769.668,
+  "y_m": -28.9,
+  "rule": "dropped"
+ },
+ "e06": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 890.49,
+  "y_m": 25.4,
+  "rule": "kept"
+ },
+ "e07": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 4878.073,
+  "y_m": 39.6,
+  "rule": "kept"
+ },
+ "e08": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 3465.062,
+  "y_m": 70.5,
+  "rule": "dropped"
+ },
+ "e09": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 2010.909,
+  "y_m": 4.3,
+  "rule": "kept"
+ },
+ "e10": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 2261.359,
+  "y_m": 3.6,
+  "rule": "kept"
+ },
+ "e11": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 1559.458,
+  "y_m": 2.1,
+  "rule": "kept"
+ },
+ "e12": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 5032.728,
+  "y_m": 68.8,
+  "rule": "dropped"
+ },
+ "e13": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 490.19,
+  "y_m": -29.4,
+  "rule": "dropped"
+ },
+ "e14": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 2647.545,
+  "y_m": 71.8,
+  "rule": "dropped"
+ },
+ "e15": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 4157.854,
+  "y_m": 12.1,
+  "rule": "kept"
+ },
+ "e16": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 1779.177,
+  "y_m": -12.7,
+  "rule": "dropped"
+ },
+ "e17": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "A",
+  "t": 2549.247,
+  "y_m": 3.8,
+  "rule": "kept"
+ },
+ "e18": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 1559.358,
+  "y_m": -7.5,
+  "rule": "dropped"
+ },
+ "e19": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "team": "B",
+  "t": 3648.245,
+  "y_m": 70.8,
+  "rule": "dropped"
+ }
+}

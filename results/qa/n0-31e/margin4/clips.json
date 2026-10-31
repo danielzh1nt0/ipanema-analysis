@@ -1,0 +1,150 @@
+{
+ "SFKBP1109": {
+  "fps_kept": 10.0,
+  "ball_frames": 25025,
+  "ball_off_pitch_share": 0.221,
+  "A": {
+   "stored_entries": 81,
+   "stored_tilt": 24,
+   "old_entries": 42,
+   "new_entries": 42,
+   "old_tilt": 22,
+   "new_tilt": 22,
+   "old_y_off_pitch": 0,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    -1.7,
+    62.7
+   ],
+   "only_old": 0,
+   "only_new": 0
+  },
+  "B": {
+   "stored_entries": 69,
+   "stored_tilt": 35,
+   "old_entries": 42,
+   "new_entries": 41,
+   "old_tilt": 31,
+   "new_tilt": 31,
+   "old_y_off_pitch": 1,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    -28.9,
+    60.3
+   ],
+   "only_old": 1,
+   "only_new": 0
+  }
+ },
+ "SFKBP1109_s1200": {
+  "fps_kept": 30.3,
+  "ball_frames": 6642,
+  "ball_off_pitch_share": 0.179,
+  "A": {
+   "stored_entries": 20,
+   "stored_tilt": 12,
+   "old_entries": 3,
+   "new_entries": 3,
+   "old_tilt": 9,
+   "new_tilt": 9,
+   "old_y_off_pitch": 0,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    1.0,
+    42.7
+   ],
+   "only_old": 0,
+   "only_new": 0
+  },
+  "B": {
+   "stored_entries": 10,
+   "stored_tilt": 44,
+   "old_entries": 9,
+   "new_entries": 9,
+   "old_tilt": 35,
+   "new_tilt": 35,
+   "old_y_off_pitch": 0,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    -0.8,
+    47.5
+   ],
+   "only_old": 0,
+   "only_new": 0
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "fps_kept": 10.0,
+  "ball_frames": 5994,
+  "ball_off_pitch_share": 0.035,
+  "A": {
+   "stored_entries": 66,
+   "stored_tilt": 35,
+   "old_entries": 25,
+   "new_entries": 25,
+   "old_tilt": 29,
+   "new_tilt": 29,
+   "old_y_off_pitch": 0,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    -0.9,
+    69.2
+   ],
+   "only_old": 0,
+   "only_new": 0
+  },
+  "B": {
+   "stored_entries": 119,
+   "stored_tilt": 16,
+   "old_entries": 15,
+   "new_entries": 15,
+   "old_tilt": 11,
+   "new_tilt": 11,
+   "old_y_off_pitch": 0,
+   "new_y_off_pitch": 0,
+   "old_y_range": [
+    5.1,
+    65.2
+   ],
+   "only_old": 0,
+   "only_new": 0
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "fps_kept": 10.0,
+  "ball_frames": 48669,
+  "ball_off_pitch_share": 0.115,
+  "A": {
+   "stored_entries": 147,
+   "stored_tilt": 25,
+   "old_entries": 89,
+   "new_entries": 88,
+   "old_tilt": 25,
+   "new_tilt": 25,
+   "old_y_off_pitch": 7,
+   "new_y_off_pitch": 5,
+   "old_y_range": [
+    -12.7,
+    71.8
+   ],
+   "only_old": 2,
+   "only_new": 1
+  },
+  "B": {
+   "stored_entries": 175,
+   "stored_tilt": 18,
+   "old_entries": 130,
+   "new_entries": 124,
+   "old_tilt": 18,
+   "new_tilt": 18,
+   "old_y_off_pitch": 12,
+   "new_y_off_pitch": 5,
+   "old_y_range": [
+    -29.4,
+    71.4
+   ],
+   "only_old": 7,
+   "only_new": 1
+  }
+ }
+}
