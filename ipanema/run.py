@@ -7,6 +7,29 @@ _FIXED_CACHE = os.environ.get("IPANEMA_FIXED_CACHE", "1") == "1"            # N0
 _ALT_WASB_ONLY = os.environ.get("IPANEMA_ALT_WASB_ONLY", "1") == "1"         # N0-21c: the side-by-side 'WASB + YOLO' check only for WASB guesses (0 = old)
 _MOSAIC_COVER = os.environ.get("IPANEMA_MOSAIC_COVER", "1") == "1"         # N0-22b: mosaic calibration coverage = measured frames only (0 = old: every filled frame counted)
 _PLAY_STATE = os.environ.get("IPANEMA_PLAY_STATE", "1") == "1"               # N0-21d: frames outside match time are nobody's possession (0 = old: last team kept)
+_BALL_GRADE = os.environ.get("IPANEMA_BALL_GRADE", "checked")                 # N0-31a: ball grade from checked frames only (old = the near-a-player test too)
+
+
+def ball_grade(acc, near_frac, frames_pct, events_checked=False, mode=None):
+    """-> (possession_ok, events_ok). N0-31a (31 Oct, Metrica pro data, tools/n0_31a_ballgrade.py): 'ball within 4 m of
+    a visible player' is no quality test - a PERFECT ball scores 0.79-0.86 with all 22 players and ~0.60 with the players
+    our camera shows (our matches 0.47-0.62), a ball dot that flickers between players scores higher than a perfect one,
+    and a dot parked on a random player (team a coin flip) scores 1.0. So the old 'near >= 0.85' bar could never pass a
+    good ball on our footage and passed a bad one. New (default): possession only from the checked frames (accuracy >=
+    0.6 on >= 10 clicks; no clicks = not verified), events only when a by-eye event check of the match passed
+    (overrides/<match>_events_check.json {"passed": true}) on top of that. mode='old' = the 27 Sep rule."""
+    if (mode or _BALL_GRADE) == "old":
+        pos = (acc >= 0.6) if acc is not None else (near_frac >= 0.85 and frames_pct > 0.4)
+        return bool(pos), bool(acc is not None and acc >= 0.6 and near_frac >= 0.85)
+    pos = acc is not None and acc >= 0.6
+    return bool(pos), bool(pos and events_checked)
+
+
+def events_checked(root, match_id):
+    """N0-31a: a by-eye check of this match's events (passes / lost balls) passed -> overrides/<match>_events_check.json"""
+    f = os.path.join(root, "overrides", f"{match_id}_events_check.json")
+    try: return bool(json.load(open(f)).get("passed"))
+    except Exception: return False
 
 
 def prepare(video_src, match_id, S, log=print, train_ball=True, debug=True):
@@ -390,19 +413,19 @@ def analyse(ctx, S, log=print, export_kw=None, gt_path=None):
     acc = (ball_check["correct"] / ball_check["total"]) if (ball_check and ball_check.get("total", 0) >= 10) else None
     if acc is not None: ball_reliable = acc >= 0.6
     near_frac = len(near) / max(1, len(ballm))
-    ball_grade = {
+    _pos_ok, _ev_ok = ball_grade(acc, near_frac, len(ballm) / max(1, n_play), events_checked(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), match_id))   # N0-31a
+    ball_grade_ = {
         "accuracy": round(acc, 2) if acc is not None else None,
-        "near_player_pct": round(near_frac, 2),
+        "near_player_pct": round(near_frac, 2),                    # N0-31a: kept as information only, it is not a quality test
         "frames_pct": round(len(ballm) / max(1, n_play), 2),
-        # possession and territory tolerate a loose ball: the nearest player is usually still right
-        "possession_ok": bool((acc >= 0.6) if acc is not None else (near_frac >= 0.85 and len(ballm) > 0.4 * n_play)),   # 27 Sep: the checked accuracy decides when we have it (the app hides the ball layer otherwise)
-        # events need the ball in the right place at the right moment
-        "events_ok": bool(acc is not None and acc >= 0.6 and near_frac >= 0.85),
+        "possession_ok": _pos_ok,                                  # checked accuracy >= 0.6 (no clicks = not verified)
+        "events_ok": _ev_ok,                                       # + a passed by-eye event check (overrides/<match>_events_check.json)
+        "rule": _BALL_GRADE,
     }
-    log(f"ball grade: accuracy {ball_grade['accuracy']}, near-player {ball_grade['near_player_pct']}, possession {'OK' if ball_grade['possession_ok'] else 'withheld'}, events {'OK' if ball_grade['events_ok'] else 'withheld'}")
-    ball_reliable = bool(ball_grade["possession_ok"])      # one verdict everywhere: the old flag follows the stricter grade
+    log(f"ball grade: accuracy {ball_grade_['accuracy']}, near-player {ball_grade_['near_player_pct']}, possession {'OK' if ball_grade_['possession_ok'] else 'withheld'}, events {'OK' if ball_grade_['events_ok'] else 'withheld'}")
+    ball_reliable = bool(ball_grade_["possession_ok"])      # one verdict everywhere: the old flag follows the stricter grade
     log(f"ball reliability: {len(ballm)/n:.0%} frames, {len(near)/max(1,len(ballm)):.0%} near a player, {jumps} jumps -> {'OK' if ball_reliable else 'UNRELIABLE (stats withheld in app)'}")
-    summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
+    summary = {"match_id": match_id, "ball_reliable": ball_reliable, "ball_grade": ball_grade_, "duration_s": round(n / fps, 1), "calibration_coverage": round(cal["coverage"], 2), "calibration_frozen": cal["frozen"],
                "team_dark_share": tm.dark_share, "players_per_frame_median": {t: float(np.median([sum(1 for r in per[k] if r[1] == t) for k in play_ks] or [0])) for t in ("A", "B")},
                "ball_frames_pct": round(100 * len(ball) / max(1, n_play)), "match_seconds": round(n_play / fps, 1), "periods": ctx.get("periods"), "ball_check": ball_check, "possession_pct": {t: round(100 * int((state == i).sum()) / max(1, ctrl)) for i, t in enumerate(("A", "B"))},
                "loose_pct": round(100 * int(((state == 2) & _pm).sum()) / max(1, int(_pm.sum()))), "dead_pct": round(100 * int(((np.asarray(dstate) == 3) & _pm).sum()) / max(1, int(_pm.sum()))), "possession_model": pinfo["mode"], "attack_right": attack_right, "direction_confidence": conf,
