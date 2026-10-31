@@ -1,4 +1,5 @@
-tools/n0_30d_frames.py
+tools/n0_31c_sfk_periods.py
+# Sat Oct 31 08:26:40 UTC 2026 N0-31c: frames every 10 s around SFK-BP's half-time (3060 s), second-half kick-off (3733 s) and full time (5940 s) for a by-eye check of the periods file - free runner only, nothing on Modal
 # Fri Oct 30 20:57:32 UTC 2026 N0-30d: picture sheets of the Vallentuna won-the-ball events whose 5-s gain changes (ends at +5 s vs last ball on the pitch) - free runner only, nothing on Modal
 # Fri Oct 30 16:42:15 UTC 2026 N1c: re-read the AIK shirt colours with a shirt-vs-grass lightness check (far black shirts in hazy sun read like a white shirt in the shade) -> results/free/n1c3 - free runner only, nothing on Modal
 # Fri Oct 30 16:28:40 UTC 2026 N1c: re-read the AIK shirt colours with the player's height taken from the row's ground scale (the referee read 'dark' on his shorts before) -> results/free/n1c2 - free runner only, nothing on Modal
