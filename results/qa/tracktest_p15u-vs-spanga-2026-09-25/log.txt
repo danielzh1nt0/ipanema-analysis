@@ -171,3 +171,15 @@
 05:48:31 clean: players per frame median A 8 / B 7, max A 13 / B 11
 05:48:31 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 7.0}, 'shown_per_frame': {'dark': 8.0, 'light': 7.0}, 'tracks': 55, 'median_track_s': {'dark': 3.52, 'light': 4.8}, 'minutes': 11.9, 'filled_rows': 50}
 04:24:13 opencv 4.10.0
+04:24:16 clip streamed (3280 MB)
+04:24:16 clip 0c.r2.dev/p15u-vs-spanga-2026-09-25/video.mp4: 168597 frames @ 29.97
+04:24:25 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+04:25:21 kits: per-player classifier from 547 on-pitch people, 0 of 15 runs kept -> colour only
+04:25:22 kits: learned from 307 people (376 off the pitch left out), group sizes [106, 72, 67, 62], light frame (shade spread 1.8), default fit leaves out a group at 1.97 x the team gap, far pair moves a team by 37.3, reading far/mean (neither-share tried: {'default/default': 0.365, 'far/mean': 0.023})
+04:25:22 off-pitch people dropped by the pitch-edge test: yes
+04:25:25   tracking frame 0
+04:26:14   tracking frame 50 (1.0 frames/s)
+04:27:02   tracking frame 100 (1.0 frames/s)
+04:27:50   tracking frame 150 (1.0 frames/s)
+04:28:37   tracking frame 200 (1.0 frames/s)
+04:29:24   tracking frame 250 (1.0 frames/s)
