@@ -1,0 +1,139 @@
+{
+ "SFKBP1109": {
+  "broken": 7,
+  "by_check": {
+   "restart on the pitch": 3,
+   "ball won on the pitch": 3,
+   "entry on the pitch": 1
+  },
+  "examples": [
+   {
+    "check": "restart on the pitch",
+    "where": "t=782.62 throw-in",
+    "detail": "(29.2, -18.3) is 18.3 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "restart on the pitch",
+    "where": "t=833.2 throw-in",
+    "detail": "(92.4, 73.4) is 9.4 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "restart on the pitch",
+    "where": "t=2227.09 throw-in",
+    "detail": "(58.4, -5.7) is 5.7 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "ball won on the pitch",
+    "where": "t=1121.52 A",
+    "detail": "(-1.7, -4.9) is 4.9 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "ball won on the pitch",
+    "where": "t=1695.19 A",
+    "detail": "(38.5, -9.7) is 9.7 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "ball won on the pitch",
+    "where": "t=2509.31 A",
+    "detail": "(-4.7, 29.3) is 4.7 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "B t=1769.63",
+    "detail": "y -27.8 on a 64 m wide pitch"
+   }
+  ]
+ },
+ "SFKBP1109_s1200": {
+  "broken": 3,
+  "by_check": {
+   "restart on the pitch": 2,
+   "entry on the pitch": 1
+  },
+  "examples": [
+   {
+    "check": "restart on the pitch",
+    "where": "t=42.21 goal kick",
+    "detail": "(-4.1, 34.2) is 4.1 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "restart on the pitch",
+    "where": "t=228.86 throw-in",
+    "detail": "(22.1, -5.3) is 5.3 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "A t=15.42",
+    "detail": "y -17.8 on a 64 m wide pitch"
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "broken": 5,
+  "by_check": {
+   "entry on the pitch": 5
+  },
+  "examples": [
+   {
+    "check": "entry on the pitch",
+    "where": "A t=1862.93",
+    "detail": "y -8.6 on a 70 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "B t=895.56",
+    "detail": "y 116.1 on a 70 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "B t=1397.43",
+    "detail": "y 488.2 on a 70 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "B t=2093.56",
+    "detail": "y 146.1 on a 70 m wide pitch"
+   }
+  ]
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "broken": 12,
+  "by_check": {
+   "restart on the pitch": 1,
+   "shot on the pitch": 1,
+   "entry on the pitch": 10
+  },
+  "examples": [
+   {
+    "check": "restart on the pitch",
+    "where": "t=4824.72 goal kick",
+    "detail": "(113.5, 31.4) is 7.5 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "shot on the pitch",
+    "where": "shots_detected t=3714.34 A",
+    "detail": "(110.9, 36.9) is 4.9 m off a 106 x 64 pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "A t=863.3",
+    "detail": "y -6.4 on a 64 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "A t=1779.18",
+    "detail": "y -12.7 on a 64 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "A t=1997.06",
+    "detail": "y -5.6 on a 64 m wide pitch"
+   },
+   {
+    "check": "entry on the pitch",
+    "where": "B t=490.19",
+    "detail": "y -29.4 on a 64 m wide pitch"
+   }
+  ]
+ }
+}
