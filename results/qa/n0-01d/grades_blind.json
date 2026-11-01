@@ -1,0 +1,18 @@
+{"_note": "N0-01d, graded by eye on results/free/n0_01d/m*.jpg BEFORE reading moments_key.json flags (m00-m03 key lines were glimpsed while reading the job files, so those 4 are not fully blind). verdict: at = ball within ~3-5 m of the cross; near_line_pushed_out = real ball on the pitch by the line, cross behind it; air = ball in the air, cross far away; elsewhere = ball clearly away from the cross; cant_tell = ball not visible / dead ball; no_cross = no calibrated frame",
+ "m00": {"verdict": "at", "seen": "throw-in by #23 a few m along the line from the cross", "event_real": true},
+ "m01": {"verdict": "at", "seen": "duel in a crowd at the cross, edge of the far box", "event_real": true},
+ "m02": {"verdict": "near_line_pushed_out", "seen": "ball on the pitch 2-5 m inside the far touchline; cross on the bench behind the line", "event_real": true},
+ "m03": {"verdict": "no_cross", "seen": "no calibrated frame; keeper takes a goal kick from the 6-m line", "event_real": true},
+ "m04": {"verdict": "at", "seen": "contest at the far touchline at the cross, play on, no throw seen", "event_real": false},
+ "m05": {"verdict": "no_cross", "seen": "no calibrated frame; play on at the box edge", "event_real": null},
+ "m06": {"verdict": "cant_tell", "seen": "players standing in front of goal, play stopped, ball not seen; cross in the goal mouth", "event_real": null},
+ "m07": {"verdict": "elsewhere", "seen": "ball ~10-15 m further along the far touchline; cross on the line", "event_real": true},
+ "m08": {"verdict": "cant_tell", "seen": "players walking (stoppage), ball not seen; cross on the far touchline", "event_real": null},
+ "m09": {"verdict": "at", "seen": "long ball, then a player at the far line near the cross; plausible throw-in", "event_real": true},
+ "m10": {"verdict": "air", "seen": "long ball in the air over the far side, header in play; cross on the fence above the line; no restart", "event_real": false},
+ "m11": {"verdict": "at", "seen": "ball in play near the cross at the far touchline; no restart taken", "event_real": false},
+ "m12": {"verdict": "air", "seen": "camera points up into the trees following a high ball; cross in the trees; no restart", "event_real": false},
+ "m13": {"verdict": "cant_tell", "seen": "stoppage by the far goal line, players walking; ball not seen", "event_real": null},
+ "m14": {"verdict": "at", "seen": "shot from the box: ball ~2 m from the cross at the strike", "event_real": true},
+ "m15": {"verdict": "at", "seen": "goal kick: still ball ~2-3 m from the cross by the 6-m box", "event_real": true}
+}

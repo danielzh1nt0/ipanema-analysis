@@ -1,0 +1,95 @@
+{
+ "SFKBP1109": {
+  "moved": {
+   "restarts": 14,
+   "high_turnovers": 8,
+   "pressure_points": 0,
+   "shots_detected": 1,
+   "shots": 0
+  },
+  "of": {
+   "restarts": 66,
+   "high_turnovers": 118,
+   "pressure_points": 634,
+   "shots_detected": 8,
+   "shots": 7
+  },
+  "broken_before": {
+   "restart on the pitch": 3,
+   "ball won on the pitch": 3,
+   "entry on the pitch": 1
+  },
+  "broken_after": {
+   "entry on the pitch": 1
+  }
+ },
+ "SFKBP1109_s1200": {
+  "moved": {
+   "restarts": 7,
+   "high_turnovers": 1,
+   "pressure_points": 0,
+   "shots_detected": 0,
+   "shots": 0
+  },
+  "of": {
+   "restarts": 13,
+   "high_turnovers": 20,
+   "pressure_points": 63,
+   "shots_detected": 0,
+   "shots": 1
+  },
+  "broken_before": {
+   "restart on the pitch": 2,
+   "entry on the pitch": 1
+  },
+  "broken_after": {
+   "entry on the pitch": 1
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "moved": {
+   "restarts": 2,
+   "high_turnovers": 1,
+   "pressure_points": 0,
+   "shots_detected": 0,
+   "shots": 0
+  },
+  "of": {
+   "restarts": 42,
+   "high_turnovers": 133,
+   "pressure_points": 453,
+   "shots_detected": 4,
+   "shots": 16
+  },
+  "broken_before": {
+   "entry on the pitch": 5
+  },
+  "broken_after": {
+   "entry on the pitch": 5
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "moved": {
+   "restarts": 15,
+   "high_turnovers": 17,
+   "pressure_points": 0,
+   "shots_detected": 2,
+   "shots": 0
+  },
+  "of": {
+   "restarts": 118,
+   "high_turnovers": 270,
+   "pressure_points": 1293,
+   "shots_detected": 16,
+   "shots": 16
+  },
+  "broken_before": {
+   "restart on the pitch": 1,
+   "shot on the pitch": 1,
+   "entry on the pitch": 10
+  },
+  "broken_after": {
+   "entry on the pitch": 10
+  }
+ }
+}

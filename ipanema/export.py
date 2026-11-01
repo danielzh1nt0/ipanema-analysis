@@ -72,6 +72,40 @@ def sequence_subtitle(s):
     d, g = _num(s.get("duration_s")), _num(s.get("gain_m"))
     return _join([f"{d} s" if d is not None else None, f"gain {g} m" if g is not None else None])
 
+# N0-01d (1 Nov): a located restart / ball won / shot / pressure point more than a few metres off the pitch is not a real
+# place: blind by eye on the app copies the ball was on the pitch by the line (spot pushed out by far-side metres, 3/3 real
+# ones) or in the air (2 fake 'restarts'). The spot is now moved to the nearest point of the pitch for the map
+# (raw kept as x_raw_m / y_raw_m, spot_clamped: true) and a moved shot's distance is re-measured from the new spot.
+# IPANEMA_SPOT_CLAMP=0 = old (spots as computed).
+SPOT_CLAMP = os.environ.get("IPANEMA_SPOT_CLAMP", "1") != "0"
+
+
+def clamp_spots(rows, L, W, attack_right=None, dist=False):
+    """In place: x_m/y_m clamped into [0, L] x [0, W]. Returns how many rows moved."""
+    moved = 0
+    for r in rows or []:
+        x, y = r.get("x_m"), r.get("y_m")
+        if x is None or y is None: continue
+        cx, cy = round(min(max(float(x), 0.0), L), 1), round(min(max(float(y), 0.0), W), 1)
+        if abs(cx - x) < 0.05 and abs(cy - y) < 0.05: continue
+        r["x_raw_m"], r["y_raw_m"], r["x_m"], r["y_m"], r["spot_clamped"] = x, y, cx, cy, True; moved += 1
+        if "x" in r and r.get("x") == x: r["x"], r["y"] = cx, cy
+        if dist and attack_right and r.get("team") in attack_right and r.get("distance_m") is not None:
+            gx = L if attack_right[r["team"]] else 0.0
+            r["distance_m"] = round(float(np.hypot(gx - cx, W / 2 - cy)), 1)
+    return moved
+
+
+def clamp_all(restarts_, metrics, L, W, attack_right, on=None):
+    """N0-01d: clamp every located event spot the app draws on the pitch. Returns {kind: moved}."""
+    if not (SPOT_CLAMP if on is None else on): return {}
+    m = metrics or {}
+    return {"restarts": clamp_spots(restarts_, L, W), "high_turnovers": clamp_spots(m.get("high_turnovers"), L, W),
+            "pressure_points": clamp_spots(m.get("pressure_points"), L, W),
+            "shots_detected": clamp_spots(m.get("shots_detected"), L, W, attack_right, dist=True),
+            "shots": clamp_spots(m.get("shots"), L, W, attack_right, dist=True)}
+
+
 def events(turnovers_, passes_, restarts_, sequences_, fps):
     ev = []
     for t in turnovers_:
@@ -123,6 +157,8 @@ def write(out_dir, match_id, video, vinfo, per, frames_, ball, ballm, state, H, 
             "possession": STATES[state[k]] if state[k] < 2 else None, "phase": "control" if state[k] < 2 else STATES[state[k]],
             "carrier": f["carrier"], "pressure_m": f["pressure_m"], "pressed": (f["pressure_m"] is not None and f["pressure_m"] <= PRESS_R), "near_opps": f["near_opps"], "shape": sh, "lanes": lanes_.get(k),
             "pitch_lines": None if (hasattr(H[k], "to_m") or k in unsure) else [float(v) for v in H[k].ravel()], "cal_ok": k not in unsure})
+    clamped = clamp_all(restarts_, stats_.get("metrics"), L, W, attack_right)                       # N0-01d
+    if any(clamped.values()): log(f"  spots off the pitch moved onto it: {clamped}")
     ev = events(turnovers_, passes_, restarts_, sequences_, fps)
     if stats_.get('metrics'):
         from .metrics import extra_events

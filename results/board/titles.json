@@ -135,5 +135,6 @@
  "N0-31e": "Final-third entries: skip balls off the pitch (checked by eye)",
  "N0-01a": "Event subtitles in plain words (no 'None' or bare dashes)",
  "N0-01b": "Do the app numbers add up? Passes on the wrong player card",
- "N0-01c": "Passes from a player to himself are dribbles, not passes"
+ "N0-01c": "Passes from a player to himself are dribbles, not passes",
+ "N0-01d": "Event spots off the pitch: moved onto the pitch"
 }
