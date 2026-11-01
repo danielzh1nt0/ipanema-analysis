@@ -1,19 +1,2 @@
-clip downloaded whole (3589 MB)
-m08.jpg SFKBP1109 748.11 True
-m10.jpg SFKBP1109 782.62 True
-m12.jpg SFKBP1109 833.2 True
-m07.jpg SFKBP1109 982.82 True
-m13.jpg SFKBP1109 1121.52 True
-m01.jpg SFKBP1109 1386.52 True
-m11.jpg SFKBP1109 1396.39 True
-m02.jpg SFKBP1109 1695.19 True
-m09.jpg SFKBP1109 1760.19 True
-m04.jpg SFKBP1109 2227.09 True
-m06.jpg SFKBP1109 2509.31 True
-m00.jpg SFKBP1109 2994.76 True
-clip downloaded whole (3477 MB)
-m03.jpg p15u-vs-vallentuna-2026-10-03-6cce 662.09 True
-m14.jpg p15u-vs-vallentuna-2026-10-03-6cce 1047.91 True
-m05.jpg p15u-vs-vallentuna-2026-10-03-6cce 3714.34 True
-m15.jpg p15u-vs-vallentuna-2026-10-03-6cce 4824.72 True
-16 sheets
+clip downloaded whole (4018 MB)
+109/109 frames cut, fps 29.970030549265214, video 6898.8 s
