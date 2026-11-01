@@ -1,0 +1,46 @@
+{
+ "SFKBP1109": {
+  "old_rule_reproduces": true,
+  "self_loops_removed": {
+   "A": 6,
+   "B": 2
+  },
+  "edges_now": {
+   "A": 72,
+   "B": 58
+  }
+ },
+ "SFKBP1109_s1200": {
+  "old_rule_reproduces": true,
+  "self_loops_removed": {
+   "A": 2,
+   "B": 1
+  },
+  "edges_now": {
+   "A": 38,
+   "B": 20
+  }
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "old_rule_reproduces": true,
+  "self_loops_removed": {
+   "A": 4,
+   "B": 6
+  },
+  "edges_now": {
+   "A": 69,
+   "B": 102
+  }
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "old_rule_reproduces": true,
+  "self_loops_removed": {
+   "A": 13,
+   "B": 17
+  },
+  "edges_now": {
+   "A": 169,
+   "B": 202
+  }
+ }
+}

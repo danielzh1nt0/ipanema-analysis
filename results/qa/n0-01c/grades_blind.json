@@ -1,0 +1,6 @@
+{"_note": "graded by eye before opening moments_key.json (run 2 sheets, results/free/n0_01c). keep = P himself has it next (dribble / knock-on / runs onto it); mate = a different player of P's team; opp = the other team; official = the ringed P is a referee / bib, not a player; cant = can't tell (ring off the play, crop jumped, ball not seen)",
+ "s00": "cant", "s01": "cant", "s02": "keep", "s03": "cant", "s04": "cant", "s05": "keep", "s06": "cant", "s07": "cant",
+ "s08": "cant", "s09": "keep", "s10": "keep", "s11": "keep", "s12": "mate", "s13": "cant", "s14": "opp", "s15": "cant",
+ "s16": "keep", "s17": "mate", "s18": "cant", "s19": "cant", "s20": "official", "s21": "mate", "s22": "cant", "s23": "cant",
+ "s24": "keep", "s25": "opp", "s26": "keep", "s27": "keep", "s28": "official", "s29": "cant", "s30": "cant", "s31": "cant",
+ "s32": "mate", "s33": "keep", "s34": "cant", "s35": "keep", "s36": "cant", "s37": "cant"}

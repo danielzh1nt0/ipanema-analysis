@@ -1,0 +1,880 @@
+{
+ "summary": {
+  "clean": {
+   "self": {
+    "n": 18,
+    "real": 10,
+    "real_pct": 55.6,
+    "same_passer": 9,
+    "completed_pct": 100.0
+   },
+   "other": {
+    "n": 2190,
+    "real": 1773,
+    "real_pct": 81.0,
+    "same_passer": 1709,
+    "completed_pct": 89.9
+   },
+   "self_share_pct": 0.8
+  },
+  "noisy": {
+   "self": {
+    "n": 224,
+    "real": 62,
+    "real_pct": 27.7,
+    "same_passer": 53,
+    "completed_pct": 100.0
+   },
+   "other": {
+    "n": 8889,
+    "real": 6211,
+    "real_pct": 69.9,
+    "same_passer": 5901,
+    "completed_pct": 85.3
+   },
+   "self_share_pct": 2.5
+  }
+ },
+ "runs": [
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "truth_attempts": 496,
+   "ours": 504,
+   "ours_no_self": 496,
+   "found_pct": 78.2,
+   "found_pct_no_self": 77.6,
+   "real_pct": 77.0,
+   "real_pct_no_self": 77.6,
+   "tally": {
+    "self": {
+     "n": 8,
+     "real": 3,
+     "real_pct": 37.5,
+     "same_passer": 3,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 496,
+     "real": 385,
+     "real_pct": 77.6,
+     "same_passer": 367,
+     "completed_pct": 86.9
+    },
+    "self_share_pct": 1.6
+   },
+   "completion": {
+    "A": {
+     "truth": 73.9,
+     "ours": 88.6,
+     "ours_no_self": 88.4
+    },
+    "B": {
+     "truth": 74.9,
+     "ours": 85.7,
+     "ours_no_self": 85.4
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "truth_attempts": 496,
+   "ours": 472,
+   "ours_no_self": 449,
+   "found_pct": 65.1,
+   "found_pct_no_self": 63.5,
+   "real_pct": 68.4,
+   "real_pct_no_self": 70.2,
+   "tally": {
+    "self": {
+     "n": 23,
+     "real": 8,
+     "real_pct": 34.8,
+     "same_passer": 6,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 449,
+     "real": 315,
+     "real_pct": 70.2,
+     "same_passer": 296,
+     "completed_pct": 77.1
+    },
+    "self_share_pct": 4.9
+   },
+   "completion": {
+    "A": {
+     "truth": 73.9,
+     "ours": 78.3,
+     "ours_no_self": 76.9
+    },
+    "B": {
+     "truth": 74.9,
+     "ours": 78.1,
+     "ours_no_self": 77.3
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "truth_attempts": 496,
+   "ours": 495,
+   "ours_no_self": 470,
+   "found_pct": 67.7,
+   "found_pct_no_self": 66.9,
+   "real_pct": 67.9,
+   "real_pct_no_self": 70.6,
+   "tally": {
+    "self": {
+     "n": 25,
+     "real": 4,
+     "real_pct": 16.0,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 470,
+     "real": 332,
+     "real_pct": 70.6,
+     "same_passer": 317,
+     "completed_pct": 78.9
+    },
+    "self_share_pct": 5.1
+   },
+   "completion": {
+    "A": {
+     "truth": 73.9,
+     "ours": 80.0,
+     "ours_no_self": 78.4
+    },
+    "B": {
+     "truth": 74.9,
+     "ours": 80.0,
+     "ours_no_self": 79.4
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "truth_attempts": 496,
+   "ours": 569,
+   "ours_no_self": 567,
+   "found_pct": 70.6,
+   "found_pct_no_self": 70.4,
+   "real_pct": 61.5,
+   "real_pct_no_self": 61.6,
+   "tally": {
+    "self": {
+     "n": 2,
+     "real": 1,
+     "real_pct": 50.0,
+     "same_passer": 0,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 567,
+     "real": 349,
+     "real_pct": 61.6,
+     "same_passer": 323,
+     "completed_pct": 86.4
+    },
+    "self_share_pct": 0.4
+   },
+   "completion": {
+    "A": {
+     "truth": 73.9,
+     "ours": 85.3,
+     "ours_no_self": 85.2
+    },
+    "B": {
+     "truth": 74.9,
+     "ours": 87.5,
+     "ours_no_self": 87.5
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "truth_attempts": 496,
+   "ours": 575,
+   "ours_no_self": 569,
+   "found_pct": 70.2,
+   "found_pct_no_self": 69.4,
+   "real_pct": 60.5,
+   "real_pct_no_self": 60.5,
+   "tally": {
+    "self": {
+     "n": 6,
+     "real": 4,
+     "real_pct": 66.7,
+     "same_passer": 3,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 569,
+     "real": 344,
+     "real_pct": 60.5,
+     "same_passer": 318,
+     "completed_pct": 85.1
+    },
+    "self_share_pct": 1.0
+   },
+   "completion": {
+    "A": {
+     "truth": 73.9,
+     "ours": 85.6,
+     "ours_no_self": 85.5
+    },
+    "B": {
+     "truth": 74.9,
+     "ours": 84.8,
+     "ours_no_self": 84.6
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "truth_attempts": 532,
+   "ours": 558,
+   "ours_no_self": 555,
+   "found_pct": 85.0,
+   "found_pct_no_self": 84.6,
+   "real_pct": 81.0,
+   "real_pct_no_self": 81.1,
+   "tally": {
+    "self": {
+     "n": 3,
+     "real": 2,
+     "real_pct": 66.7,
+     "same_passer": 2,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 555,
+     "real": 450,
+     "real_pct": 81.1,
+     "same_passer": 436,
+     "completed_pct": 89.4
+    },
+    "self_share_pct": 0.5
+   },
+   "completion": {
+    "A": {
+     "truth": 83.6,
+     "ours": 90.2,
+     "ours_no_self": 90.1
+    },
+    "B": {
+     "truth": 77.3,
+     "ours": 88.4,
+     "ours_no_self": 88.3
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "truth_attempts": 532,
+   "ours": 556,
+   "ours_no_self": 529,
+   "found_pct": 73.7,
+   "found_pct_no_self": 72.9,
+   "real_pct": 70.5,
+   "real_pct_no_self": 73.3,
+   "tally": {
+    "self": {
+     "n": 27,
+     "real": 4,
+     "real_pct": 14.8,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 529,
+     "real": 388,
+     "real_pct": 73.3,
+     "same_passer": 375,
+     "completed_pct": 82.0
+    },
+    "self_share_pct": 4.9
+   },
+   "completion": {
+    "A": {
+     "truth": 83.6,
+     "ours": 84.8,
+     "ours_no_self": 83.9
+    },
+    "B": {
+     "truth": 77.3,
+     "ours": 80.7,
+     "ours_no_self": 79.9
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "truth_attempts": 532,
+   "ours": 539,
+   "ours_no_self": 518,
+   "found_pct": 72.4,
+   "found_pct_no_self": 71.6,
+   "real_pct": 71.4,
+   "real_pct_no_self": 73.6,
+   "tally": {
+    "self": {
+     "n": 21,
+     "real": 4,
+     "real_pct": 19.0,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 518,
+     "real": 381,
+     "real_pct": 73.6,
+     "same_passer": 366,
+     "completed_pct": 81.9
+    },
+    "self_share_pct": 3.9
+   },
+   "completion": {
+    "A": {
+     "truth": 83.6,
+     "ours": 84.9,
+     "ours_no_self": 84.1
+    },
+    "B": {
+     "truth": 77.3,
+     "ours": 79.6,
+     "ours_no_self": 78.9
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "truth_attempts": 532,
+   "ours": 613,
+   "ours_no_self": 608,
+   "found_pct": 80.5,
+   "found_pct_no_self": 79.9,
+   "real_pct": 69.8,
+   "real_pct_no_self": 69.9,
+   "tally": {
+    "self": {
+     "n": 5,
+     "real": 3,
+     "real_pct": 60.0,
+     "same_passer": 3,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 608,
+     "real": 425,
+     "real_pct": 69.9,
+     "same_passer": 411,
+     "completed_pct": 88.7
+    },
+    "self_share_pct": 0.8
+   },
+   "completion": {
+    "A": {
+     "truth": 83.6,
+     "ours": 90.2,
+     "ours_no_self": 90.1
+    },
+    "B": {
+     "truth": 77.3,
+     "ours": 86.8,
+     "ours_no_self": 86.7
+    }
+   }
+  },
+  {
+   "game": "1",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "truth_attempts": 532,
+   "ours": 633,
+   "ours_no_self": 629,
+   "found_pct": 80.3,
+   "found_pct_no_self": 79.9,
+   "real_pct": 67.5,
+   "real_pct_no_self": 67.6,
+   "tally": {
+    "self": {
+     "n": 4,
+     "real": 2,
+     "real_pct": 50.0,
+     "same_passer": 2,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 629,
+     "real": 425,
+     "real_pct": 67.6,
+     "same_passer": 410,
+     "completed_pct": 88.2
+    },
+    "self_share_pct": 0.6
+   },
+   "completion": {
+    "A": {
+     "truth": 83.6,
+     "ours": 90.6,
+     "ours_no_self": 90.6
+    },
+    "B": {
+     "truth": 77.3,
+     "ours": 85.6,
+     "ours_no_self": 85.5
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "False",
+   "seed": 0,
+   "truth_attempts": 640,
+   "ours": 640,
+   "ours_no_self": 636,
+   "found_pct": 83.1,
+   "found_pct_no_self": 82.7,
+   "real_pct": 83.1,
+   "real_pct_no_self": 83.2,
+   "tally": {
+    "self": {
+     "n": 4,
+     "real": 3,
+     "real_pct": 75.0,
+     "same_passer": 2,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 636,
+     "real": 529,
+     "real_pct": 83.2,
+     "same_passer": 511,
+     "completed_pct": 92.3
+    },
+    "self_share_pct": 0.6
+   },
+   "completion": {
+    "A": {
+     "truth": 84.0,
+     "ours": 93.0,
+     "ours_no_self": 92.9
+    },
+    "B": {
+     "truth": 84.1,
+     "ours": 91.7,
+     "ours_no_self": 91.6
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 0,
+   "truth_attempts": 640,
+   "ours": 607,
+   "ours_no_self": 591,
+   "found_pct": 70.6,
+   "found_pct_no_self": 69.7,
+   "real_pct": 74.5,
+   "real_pct_no_self": 75.5,
+   "tally": {
+    "self": {
+     "n": 16,
+     "real": 6,
+     "real_pct": 37.5,
+     "same_passer": 6,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 591,
+     "real": 446,
+     "real_pct": 75.5,
+     "same_passer": 431,
+     "completed_pct": 81.9
+    },
+    "self_share_pct": 2.6
+   },
+   "completion": {
+    "A": {
+     "truth": 84.0,
+     "ours": 83.1,
+     "ours_no_self": 82.7
+    },
+    "B": {
+     "truth": 84.1,
+     "ours": 81.5,
+     "ours_no_self": 80.9
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "streak",
+   "seed": 1,
+   "truth_attempts": 640,
+   "ours": 617,
+   "ours_no_self": 595,
+   "found_pct": 67.8,
+   "found_pct_no_self": 67.3,
+   "real_pct": 70.3,
+   "real_pct_no_self": 72.4,
+   "tally": {
+    "self": {
+     "n": 22,
+     "real": 3,
+     "real_pct": 13.6,
+     "same_passer": 3,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 595,
+     "real": 431,
+     "real_pct": 72.4,
+     "same_passer": 412,
+     "completed_pct": 85.5
+    },
+    "self_share_pct": 3.6
+   },
+   "completion": {
+    "A": {
+     "truth": 84.0,
+     "ours": 86.9,
+     "ours_no_self": 86.4
+    },
+    "B": {
+     "truth": 84.1,
+     "ours": 85.1,
+     "ours_no_self": 84.6
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 0,
+   "truth_attempts": 640,
+   "ours": 705,
+   "ours_no_self": 695,
+   "found_pct": 76.9,
+   "found_pct_no_self": 76.1,
+   "real_pct": 69.8,
+   "real_pct_no_self": 70.1,
+   "tally": {
+    "self": {
+     "n": 10,
+     "real": 5,
+     "real_pct": 50.0,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 695,
+     "real": 487,
+     "real_pct": 70.1,
+     "same_passer": 455,
+     "completed_pct": 90.4
+    },
+    "self_share_pct": 1.4
+   },
+   "completion": {
+    "A": {
+     "truth": 84.0,
+     "ours": 90.2,
+     "ours_no_self": 90.1
+    },
+    "B": {
+     "truth": 84.1,
+     "ours": 90.9,
+     "ours_no_self": 90.7
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 1,
+   "noise": "flicker",
+   "seed": 1,
+   "truth_attempts": 640,
+   "ours": 708,
+   "ours_no_self": 696,
+   "found_pct": 76.7,
+   "found_pct_no_self": 76.2,
+   "real_pct": 69.4,
+   "real_pct_no_self": 70.1,
+   "tally": {
+    "self": {
+     "n": 12,
+     "real": 3,
+     "real_pct": 25.0,
+     "same_passer": 1,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 696,
+     "real": 488,
+     "real_pct": 70.1,
+     "same_passer": 457,
+     "completed_pct": 88.9
+    },
+    "self_share_pct": 1.7
+   },
+   "completion": {
+    "A": {
+     "truth": 84.0,
+     "ours": 89.5,
+     "ours_no_self": 89.3
+    },
+    "B": {
+     "truth": 84.1,
+     "ours": 88.6,
+     "ours_no_self": 88.5
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "False",
+   "seed": 0,
+   "truth_attempts": 512,
+   "ours": 506,
+   "ours_no_self": 503,
+   "found_pct": 80.3,
+   "found_pct_no_self": 79.9,
+   "real_pct": 81.2,
+   "real_pct_no_self": 81.3,
+   "tally": {
+    "self": {
+     "n": 3,
+     "real": 2,
+     "real_pct": 66.7,
+     "same_passer": 2,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 503,
+     "real": 409,
+     "real_pct": 81.3,
+     "same_passer": 395,
+     "completed_pct": 90.3
+    },
+    "self_share_pct": 0.6
+   },
+   "completion": {
+    "A": {
+     "truth": 85.2,
+     "ours": 91.1,
+     "ours_no_self": 91.1
+    },
+    "B": {
+     "truth": 80.5,
+     "ours": 89.3,
+     "ours_no_self": 89.2
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 0,
+   "truth_attempts": 512,
+   "ours": 478,
+   "ours_no_self": 460,
+   "found_pct": 65.8,
+   "found_pct_no_self": 65.2,
+   "real_pct": 70.5,
+   "real_pct_no_self": 72.6,
+   "tally": {
+    "self": {
+     "n": 18,
+     "real": 3,
+     "real_pct": 16.7,
+     "same_passer": 2,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 460,
+     "real": 334,
+     "real_pct": 72.6,
+     "same_passer": 314,
+     "completed_pct": 82.8
+    },
+    "self_share_pct": 3.8
+   },
+   "completion": {
+    "A": {
+     "truth": 85.2,
+     "ours": 87.0,
+     "ours_no_self": 86.2
+    },
+    "B": {
+     "truth": 80.5,
+     "ours": 79.5,
+     "ours_no_self": 79.2
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "streak",
+   "seed": 1,
+   "truth_attempts": 512,
+   "ours": 451,
+   "ours_no_self": 437,
+   "found_pct": 63.1,
+   "found_pct_no_self": 62.3,
+   "real_pct": 71.6,
+   "real_pct_no_self": 73.0,
+   "tally": {
+    "self": {
+     "n": 14,
+     "real": 4,
+     "real_pct": 28.6,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 437,
+     "real": 319,
+     "real_pct": 73.0,
+     "same_passer": 303,
+     "completed_pct": 82.8
+    },
+    "self_share_pct": 3.1
+   },
+   "completion": {
+    "A": {
+     "truth": 85.2,
+     "ours": 86.1,
+     "ours_no_self": 85.7
+    },
+    "B": {
+     "truth": 80.5,
+     "ours": 79.9,
+     "ours_no_self": 79.3
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 0,
+   "truth_attempts": 512,
+   "ours": 539,
+   "ours_no_self": 531,
+   "found_pct": 74.2,
+   "found_pct_no_self": 73.6,
+   "real_pct": 70.5,
+   "real_pct_no_self": 71.0,
+   "tally": {
+    "self": {
+     "n": 8,
+     "real": 3,
+     "real_pct": 37.5,
+     "same_passer": 3,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 531,
+     "real": 377,
+     "real_pct": 71.0,
+     "same_passer": 357,
+     "completed_pct": 89.3
+    },
+    "self_share_pct": 1.5
+   },
+   "completion": {
+    "A": {
+     "truth": 85.2,
+     "ours": 91.1,
+     "ours_no_self": 90.9
+    },
+    "B": {
+     "truth": 80.5,
+     "ours": 87.4,
+     "ours_no_self": 87.3
+    }
+   }
+  },
+  {
+   "game": "2",
+   "half": 2,
+   "noise": "flicker",
+   "seed": 1,
+   "truth_attempts": 512,
+   "ours": 556,
+   "ours_no_self": 545,
+   "found_pct": 73.2,
+   "found_pct_no_self": 72.3,
+   "real_pct": 67.4,
+   "real_pct_no_self": 67.9,
+   "tally": {
+    "self": {
+     "n": 11,
+     "real": 5,
+     "real_pct": 45.5,
+     "same_passer": 4,
+     "completed_pct": 100.0
+    },
+    "other": {
+     "n": 545,
+     "real": 370,
+     "real_pct": 67.9,
+     "same_passer": 356,
+     "completed_pct": 88.3
+    },
+    "self_share_pct": 2.0
+   },
+   "completion": {
+    "A": {
+     "truth": 85.2,
+     "ours": 91.0,
+     "ours_no_self": 90.8
+    },
+    "B": {
+     "truth": 80.5,
+     "ours": 85.4,
+     "ours_no_self": 85.0
+    }
+   }
+  }
+ ]
+}

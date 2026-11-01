@@ -299,6 +299,13 @@ def best_option(rows, me_id, team, sgn, lanes_j, to):
 # spot where the ball was won (the same proxy as the Metrica check, tools/n0_27b_lanes.py); passes[].intended_to.
 # IPANEMA_LOST_LANE=old = old behaviour.
 LOST_LANE = os.environ.get("IPANEMA_LOST_LANE", "mate")
+# N0-01c (1 Nov): a 'pass' whose receiver is the passer's own track (the ball moved >= min_pass_m between two touches of one
+# id) is a dribble / knock-on, not a pass. App copies: 4-8% of passes (Vallentuna 37/487); blind by eye on 26 of them
+# (tools/n0_01c_*): of the 10 decidable the passer himself had the ball next 8 times, an opponent 1, a referee 1, a
+# team-mate 0. Metrica pro data (real ids): 0.8% of ours clean / 2.5% with our ball noise, only 28-56% of them at a real
+# pass (others 70-81%); dropping them: real share +0.1..+2.3 pts, found -0.4..-0.7 pts, completion % slightly closer.
+# Now dropped. IPANEMA_PASS_SELF=1 = old (kept).
+PASS_SELF = os.environ.get("IPANEMA_PASS_SELF", "0") == "1"
 
 
 def intended_mate(rows, lanes_j, won_at):
@@ -331,6 +338,7 @@ def passes(per, frames_, turnovers_, lanes_, attack_right, fps, prog_m=10.0, lan
         pa, pb = tracks[a[2]].get(a[1]), tracks[b[2]].get(b[0])
         if pa is None or pb is None: continue
         if min_pass_m and float(np.linalg.norm(pb - pa)) < min_pass_m: continue
+        if not PASS_SELF and a[2] == b[2]: continue                            # N0-01c: to himself = a dribble, not a pass
         sgn = 1 if attack_right[a[3]] else -1; gain = float((pb[0] - pa[0]) * sgn)
         kind = "forward" if gain > 3 else "backward" if gain < -3 else "sideways"
         p = {"t": round(a[1] / fps, 2), "from": int(a[2]), "to": int(b[2]), "team": a[3], "completed": b[3] == a[3], "from_m": [round(float(pa[0]), 1), round(float(pa[1]), 1)],

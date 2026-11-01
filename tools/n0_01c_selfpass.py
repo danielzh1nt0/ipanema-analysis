@@ -79,6 +79,8 @@ def dry():
 
 def main(d, out):
     import n0_24d_ppda as PP
+    from ipanema import analytics as AN
+    AN.PASS_SELF = True                                                        # measure the old rule (self passes kept)
     runs, allrows = [], {"clean": [], "noisy": []}
     for g in ("Sample_Game_1", "Sample_Game_2"):
         fr, ev = PP.load_game(d, g)

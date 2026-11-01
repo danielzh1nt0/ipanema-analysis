@@ -76,12 +76,18 @@ def shots(state, ballm, bspeed, fps, L, W, attack_right, restarts_, stops=None, 
 # shorter than the players' list cut-off had no node at all (2-12 edges per repo match pointed at nothing), and a track that
 # swapped team (ID slide, M2) put an A edge on a B player's average spot (4-37 edges per team per match). IPANEMA_NET_NODES=avg = old.
 NET_NODES = os.environ.get("IPANEMA_NET_NODES", "passes")
+# N0-01c (1 Nov): 4-8% of our passes go from a track to itself (the ball moves >= 5 m between two touches of one id: a
+# knock-on / dribble, or a team-mate's track sliding onto the passer). The network then drew a loop from a player to
+# himself (app copies: 30 of 401 Vallentuna edges). A pass to yourself is no link in a pass network: skipped.
+# IPANEMA_NET_SELF=1 = old (kept).
+NET_SELF = os.environ.get("IPANEMA_NET_SELF", "0") == "1"
 
 def pass_network(passes_, players_, nodes=None):
     nodes = NET_NODES if nodes is None else nodes
     pos = {p["id"]: (p["avg_x_m"], p["avg_y_m"]) for p in players_}; net = {"A": {}, "B": {}}; spots = {"A": {}, "B": {}}
     for p in passes_:
         if not p["completed"] or p.get("team") not in net: continue
+        if not NET_SELF and p.get("to") == p["from"]: continue
         key = f"{p['from']}->{p['to']}"; d = net[p["team"]].setdefault(key, {"from": p["from"], "to": p["to"], "count": 0, "forward": 0, "progressive": 0})
         d["count"] += 1; d["forward"] += p["kind"] == "forward"; d["progressive"] += bool(p.get("progressive"))
         if p.get("from_m") is not None: spots[p["team"]].setdefault(p["from"], []).append(p["from_m"])
