@@ -1,4 +1,5 @@
-tools/n0_01d_frames.py
+tools/n0_01e_aik_kickoffs.py
+# Sun Nov  1 20:26:41 UTC 2026 N0-01e: AIK frames every 5 s after each of the 7 Veo goals (kick-off line-ups: which half each team defends, who kicks off) + the 84' penalty - free runner only, nothing on Modal
 # Sun Nov  1 12:31:55 UTC 2026 N0-01d: blind sheets of the export's spots more than 4 m off the pitch (restarts, balls won, a shot) mixed with on-pitch controls, SFK-BP and Vallentuna - free runner only, nothing on Modal
 # Sun Nov  1 08:33:34 UTC 2026 N0-01c run 2: same strips with a box per frame centred on the exported ball (run 1's fixed box lost the play when the camera panned) - free runner only, nothing on Modal
 # Sun Nov  1 08:27:02 UTC 2026 N0-01c: blind film strips of 'passes to himself' (from == to) mixed with normal passes on SFK-BP and Vallentuna - free runner only, nothing on Modal
