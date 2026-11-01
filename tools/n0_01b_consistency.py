@@ -47,7 +47,7 @@ def check(stats, md=None):
             if sp != t["pressures_applied"]: fail("team pressures = sum of players", k, f"team {t['pressures_applied']}, players {sp}")
         if pl and t.get("better_option_count") is not None:
             sb = sum(p.get("better_option_count") or 0 for p in pl)
-            if sb != t["better_option_count"]: fail("team better-option = sum of players", k, f"team {t['better_option_count']}, players {sb}")
+            if sb > t["better_option_count"]: fail("players' better-option <= team", k, f"players {sb} > team {t['better_option_count']}")
         if pl and t.get("passes") is not None:
             sp = sum(p.get("passes") or 0 for p in pl)
             if sp > t["passes"]: fail("players' passes <= team passes", k, f"players {sp} > team {t['passes']}")

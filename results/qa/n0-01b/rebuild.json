@@ -1,0 +1,26 @@
+{
+ "SFKBP1109": {
+  "old_rule_reproduces": true,
+  "players_changed": 25,
+  "passes_off_cards": 12,
+  "passes": 167
+ },
+ "SFKBP1109_s1200": {
+  "old_rule_reproduces": true,
+  "players_changed": 10,
+  "passes_off_cards": 11,
+  "passes": 87
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "old_rule_reproduces": true,
+  "players_changed": 24,
+  "passes_off_cards": 20,
+  "passes": 225
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "old_rule_reproduces": true,
+  "players_changed": 78,
+  "passes_off_cards": 56,
+  "passes": 487
+ }
+}

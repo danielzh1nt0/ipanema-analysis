@@ -72,3 +72,37 @@ def test_blind_file_has_no_answers():
     if not os.path.exists(p): return
     for m in json.load(open(p)):
         assert set(m) == {"id", "match", "t", "passer_px", "ref1_px", "ref2_px"}
+
+
+def _an_setup():
+    """player 1 is in team A for the whole clip; one of his passes is read as team B's (an ID slide in the shirt read)"""
+    from ipanema import analytics as AN
+    n = 90; spots = {1: (10.0, 10.0), 2: (30.0, 10.0), 9: (50.0, 10.0)}
+    per = {k: [[t, "A" if t < 9 else "B", np.array(xy), None, None, False] for t, xy in spots.items()] for k in range(n)}
+    tracks = {t: {k: np.array(xy) for k in range(n)} for t, xy in spots.items()}
+    frames_ = [{"carrier": None, "team": None, "pressure_m": None, "near_opps": 0, "pos": None} for _ in range(n)]
+    base = {"to_m": [30, 10], "from_m": [10, 10], "gain_m": 20, "length_m": 20, "kind": "forward", "progressive": True, "quality": "good", "better_option": False}
+    ps = [dict(base, t=0.5, **{"from": 1, "to": 2, "team": "A", "completed": True}), dict(base, t=1.5, **{"from": 1, "to": 9, "team": "B", "completed": True})]
+    return AN, per, frames_, tracks, ps
+
+
+def test_player_card_counts_only_own_team_passes(monkeypatch):
+    AN, per, frames_, tracks, ps = _an_setup()
+    monkeypatch.setattr(AN, "PASS_OWN_TEAM", True)
+    st = AN.stats(per, frames_, [], ps, tracks, np.zeros(90, int), 30.0, 105.0, 68.0, {"A": True, "B": False})
+    p = {x["id"]: x for x in st["players"]}
+    assert p[1]["passes"] == 1 and p[2]["passes_received"] == 1 and p[9]["passes_received"] == 1   # B's pass, B's receiver
+    t = {x["team"]: x for x in st["teams"]}
+    assert t["A"]["passes"] == 1 and t["B"]["passes"] == 1                       # team totals unchanged
+    assert C.check(st) == [] or all(b["check"] != "players' passes <= team passes" for b in C.check(st))
+    monkeypatch.setattr(AN, "PASS_OWN_TEAM", False)                            # old: every pass of the track id
+    old = {x["id"]: x for x in AN.stats(per, frames_, [], ps, tracks, np.zeros(90, int), 30.0, 105.0, 68.0, {"A": True, "B": False})["players"]}
+    assert old[1]["passes"] == 2
+
+
+def test_rebuilt_copies_agree():
+    """after the N0-01b rebuild the repo copies' player cards add up under their team totals"""
+    for p in glob.glob("results/volume/runs/matches/*/stats.json"):
+        s = json.load(open(p))
+        names = {b["check"] for b in C.check(s)}
+        assert "players' passes <= team passes" not in names and "players' better-option <= team" not in names, (p, names)

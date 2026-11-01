@@ -1,0 +1,308 @@
+{
+ "mismatch": {
+  "pass team": 20,
+  "player-list team": 6,
+  "none": 1,
+  "cant": 3
+ },
+ "control": {
+  "both": 6,
+  "cant": 4,
+  "none": 1
+ },
+ "rows": [
+  {
+   "id": "p00",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p01",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "white",
+   "result": "player-list team"
+  },
+  {
+   "id": "p02",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p03",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "pass team"
+  },
+  {
+   "id": "p04",
+   "group": "control",
+   "match": "SFKBP1109",
+   "seen": "white",
+   "result": "both"
+  },
+  {
+   "id": "p05",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p06",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p07",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "pass team"
+  },
+  {
+   "id": "p08",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p09",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "none",
+   "result": "none"
+  },
+  {
+   "id": "p10",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "pass team"
+  },
+  {
+   "id": "p11",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p12",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p13",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "white",
+   "result": "pass team"
+  },
+  {
+   "id": "p14",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p15",
+   "group": "control",
+   "match": "SFKBP1109",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p16",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "white",
+   "result": "pass team"
+  },
+  {
+   "id": "p17",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p18",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "white",
+   "result": "pass team"
+  },
+  {
+   "id": "p19",
+   "group": "control",
+   "match": "SFKBP1109",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p20",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p21",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "both"
+  },
+  {
+   "id": "p22",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "pass team"
+  },
+  {
+   "id": "p23",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "player-list team"
+  },
+  {
+   "id": "p24",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "pass team"
+  },
+  {
+   "id": "p25",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p26",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "none",
+   "result": "none"
+  },
+  {
+   "id": "p27",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p28",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p29",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p30",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p31",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "player-list team"
+  },
+  {
+   "id": "p32",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "both"
+  },
+  {
+   "id": "p33",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "black",
+   "result": "player-list team"
+  },
+  {
+   "id": "p34",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "both"
+  },
+  {
+   "id": "p35",
+   "group": "control",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "both"
+  },
+  {
+   "id": "p36",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "player-list team"
+  },
+  {
+   "id": "p37",
+   "group": "control",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "both"
+  },
+  {
+   "id": "p38",
+   "group": "mismatch",
+   "match": "SFKBP1109",
+   "seen": "black",
+   "result": "pass team"
+  },
+  {
+   "id": "p39",
+   "group": "control",
+   "match": "SFKBP1109",
+   "seen": "cant",
+   "result": "cant"
+  },
+  {
+   "id": "p40",
+   "group": "mismatch",
+   "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+   "seen": "red",
+   "result": "player-list team"
+  }
+ ],
+ "colours": {
+  "p15u-vs-vallentuna-2026-10-03-6cce B": "red",
+  "SFKBP1109 A": "black",
+  "SFKBP1109 B": "white",
+  "p15u-vs-vallentuna-2026-10-03-6cce A": "black"
+ }
+}

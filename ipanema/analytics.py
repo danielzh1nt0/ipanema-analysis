@@ -408,6 +408,12 @@ TEAM_HEAT_HOLD_S = float(os.environ.get("IPANEMA_TEAM_HEAT_HOLD_S", "20"))
 # it is slightly worse (each piece is ~19 m from its player's average either way) and the app hides these fields, so it
 # is OFF until M2: IPANEMA_PLAYER_HOLD_S=10 switches it on.
 PLAYER_HOLD_S = float(os.environ.get("IPANEMA_PLAYER_HOLD_S", "0"))
+# N0-01b (1 Nov): a pass counts on a player's card only when it is his team's pass. 5-13% of passes come from a track
+# piece listed in the OTHER team (its whole-match team) than the shirt read at the touch (the pass team). Blind by eye on
+# 30 such passes (SFK-BP + Vallentuna): the passer wore the pass team's shirt 20 times, the list's team 6 (3 can't tell,
+# 1 not a player); 6 of 6 agreeing controls right. So those credits were mostly another player's pass (an ID slide).
+# Team totals unchanged. IPANEMA_PASS_OWN_TEAM=0 = old (every pass of the track id).
+PASS_OWN_TEAM = os.environ.get("IPANEMA_PASS_OWN_TEAM", "1") != "0"
 
 
 def held_track_points(per, fps, hold_s, L=None, W=None, edge_m=None):
@@ -512,6 +518,7 @@ def stats(per, frames_, turnovers_, passes_, tracks, state, fps, L, W, attack_ri
                 if f["carrier"] is not None and f["team"] != tm and f["carrier"] in tracks and k in tracks[f["carrier"]]:
                     if np.linalg.norm(tracks[tid][k] - tracks[f["carrier"]][k]) <= press_r and k - lastp > fps: pr += 1; lastp = k
         mp = pass_df[pass_df["from"] == tid] if len(pass_df) else pass_df; rc = pass_df[(pass_df["to"] == tid) & pass_df["completed"]] if len(pass_df) else pass_df
+        if PASS_OWN_TEAM and len(pass_df): mp = mp[mp["team"] == tm]; rc = rc[rc["team"] == tm]   # N0-01b: only his own team's passes
         g = np.zeros(GRID)
         for x, y in PP: g[min(GRID[0] - 1, max(0, int(x / L * GRID[0]))), min(GRID[1] - 1, max(0, int(y / W * GRID[1])))] += 1
         heat[str(tid)] = (g / max(1, g.sum())).round(4).tolist(); rx = react.get(tid)
