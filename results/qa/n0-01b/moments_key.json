@@ -1,0 +1,567 @@
+{
+ "p00": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 115,
+  "t": 1528.527,
+  "passer": 500072,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 247,
+   "A": 230
+  },
+  "one_is": "B"
+ },
+ "p01": {
+  "match": "SFKBP1109",
+  "i": 136,
+  "t": 2552.55,
+  "passer": 800301,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 407,
+   "A": 168
+  },
+  "one_is": "A"
+ },
+ "p02": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 392,
+  "t": 4678.374,
+  "passer": 1500435,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 311,
+   "A": 80
+  },
+  "one_is": "B"
+ },
+ "p03": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 438,
+  "t": 5248.843,
+  "passer": 1700283,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "A": 363,
+   "B": 170
+  },
+  "one_is": "B"
+ },
+ "p04": {
+  "match": "SFKBP1109",
+  "i": 0,
+  "t": 595.195,
+  "passer": 101684,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 793
+  },
+  "one_is": "A"
+ },
+ "p05": {
+  "match": "SFKBP1109",
+  "i": 62,
+  "t": 1489.088,
+  "passer": 400907,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 50,
+   "B": 93
+  },
+  "one_is": "A"
+ },
+ "p06": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 379,
+  "t": 4577.973,
+  "passer": 1500230,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 306,
+   "B": 365
+  },
+  "one_is": "A"
+ },
+ "p07": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 21,
+  "t": 634.133,
+  "passer": 200043,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 120,
+   "A": 218
+  },
+  "one_is": "B"
+ },
+ "p08": {
+  "match": "SFKBP1109",
+  "i": 155,
+  "t": 2826.924,
+  "passer": 900265,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 514
+  },
+  "one_is": "B"
+ },
+ "p09": {
+  "match": "SFKBP1109",
+  "i": 92,
+  "t": 2003.201,
+  "passer": 600560,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 72,
+   "B": 607
+  },
+  "one_is": "B"
+ },
+ "p10": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 308,
+  "t": 4011.908,
+  "passer": 1300284,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "A": 271,
+   "B": 79
+  },
+  "one_is": "B"
+ },
+ "p11": {
+  "match": "SFKBP1109",
+  "i": 41,
+  "t": 1227.726,
+  "passer": 400037,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 15,
+   "A": 162
+  },
+  "one_is": "A"
+ },
+ "p12": {
+  "match": "SFKBP1109",
+  "i": 76,
+  "t": 1705.404,
+  "passer": 500463,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 55,
+   "B": 97
+  },
+  "one_is": "A"
+ },
+ "p13": {
+  "match": "SFKBP1109",
+  "i": 94,
+  "t": 2012.41,
+  "passer": 600600,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 17,
+   "A": 28
+  },
+  "one_is": "A"
+ },
+ "p14": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 267,
+  "t": 3612.909,
+  "passer": 1100934,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 224,
+   "A": 144
+  },
+  "one_is": "A"
+ },
+ "p15": {
+  "match": "SFKBP1109",
+  "i": 112,
+  "t": 2291.589,
+  "passer": 700618,
+  "pass_team": "A",
+  "player_team": "A",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 549,
+   "B": 172
+  },
+  "one_is": "B"
+ },
+ "p16": {
+  "match": "SFKBP1109",
+  "i": 101,
+  "t": 2083.181,
+  "passer": 600931,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 77,
+   "A": 108
+  },
+  "one_is": "A"
+ },
+ "p17": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 86,
+  "t": 1256.655,
+  "passer": 400097,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 199,
+   "A": 83
+  },
+  "one_is": "B"
+ },
+ "p18": {
+  "match": "SFKBP1109",
+  "i": 139,
+  "t": 2579.877,
+  "passer": 800138,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "A": 1012,
+   "B": 135
+  },
+  "one_is": "A"
+ },
+ "p19": {
+  "match": "SFKBP1109",
+  "i": 130,
+  "t": 2477.075,
+  "passer": 800089,
+  "pass_team": "A",
+  "player_team": "A",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 204,
+   "A": 302
+  },
+  "one_is": "B"
+ },
+ "p20": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 113,
+  "t": 1515.614,
+  "passer": 500007,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 267,
+   "A": 48
+  },
+  "one_is": "B"
+ },
+ "p21": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 182,
+  "t": 2432.03,
+  "passer": 700871,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 407
+  },
+  "one_is": "B"
+ },
+ "p22": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 481,
+  "t": 5573.668,
+  "passer": 1800484,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 99,
+   "A": 105
+  },
+  "one_is": "A"
+ },
+ "p23": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 160,
+  "t": 2135.734,
+  "passer": 700053,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 219,
+   "A": 145
+  },
+  "one_is": "B"
+ },
+ "p24": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 279,
+  "t": 3851.748,
+  "passer": 1200963,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 107,
+   "A": 219
+  },
+  "one_is": "A"
+ },
+ "p25": {
+  "match": "SFKBP1109",
+  "i": 114,
+  "t": 2348.847,
+  "passer": 700611,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 425,
+   "A": 408
+  },
+  "one_is": "B"
+ },
+ "p26": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 409,
+  "t": 4966.962,
+  "passer": 1600499,
+  "pass_team": "A",
+  "player_team": "A",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 224
+  },
+  "one_is": "A"
+ },
+ "p27": {
+  "match": "SFKBP1109",
+  "i": 107,
+  "t": 2138.436,
+  "passer": 700178,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 128,
+   "B": 187
+  },
+  "one_is": "A"
+ },
+ "p28": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 401,
+  "t": 4857.953,
+  "passer": 1600173,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 105,
+   "A": 87
+  },
+  "one_is": "B"
+ },
+ "p29": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 85,
+  "t": 1228.227,
+  "passer": 400018,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 316,
+   "A": 50
+  },
+  "one_is": "A"
+ },
+ "p30": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 449,
+  "t": 5321.016,
+  "passer": 1700644,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 130,
+   "B": 237
+  },
+  "one_is": "A"
+ },
+ "p31": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 174,
+  "t": 2322.32,
+  "passer": 700667,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 35,
+   "B": 73
+  },
+  "one_is": "B"
+ },
+ "p32": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 354,
+  "t": 4285.481,
+  "passer": 1400315,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 886
+  },
+  "one_is": "A"
+ },
+ "p33": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 343,
+  "t": 4177.673,
+  "passer": 1300930,
+  "pass_team": "B",
+  "player_team": "A",
+  "frame_team": "B",
+  "track_teams": {
+   "A": 383,
+   "B": 19
+  },
+  "one_is": "B"
+ },
+ "p34": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 169,
+  "t": 2227.325,
+  "passer": 700362,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 243
+  },
+  "one_is": "A"
+ },
+ "p35": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 309,
+  "t": 4014.711,
+  "passer": 1300487,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 179
+  },
+  "one_is": "B"
+ },
+ "p36": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 271,
+  "t": 3705.101,
+  "passer": 1200416,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 401,
+   "A": 33
+  },
+  "one_is": "A"
+ },
+ "p37": {
+  "match": "SFKBP1109",
+  "i": 7,
+  "t": 707.507,
+  "passer": 200379,
+  "pass_team": "A",
+  "player_team": "A",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 265
+  },
+  "one_is": "A"
+ },
+ "p38": {
+  "match": "SFKBP1109",
+  "i": 68,
+  "t": 1597.796,
+  "passer": 500212,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "A": 92,
+   "B": 145
+  },
+  "one_is": "B"
+ },
+ "p39": {
+  "match": "SFKBP1109",
+  "i": 126,
+  "t": 2462.36,
+  "passer": 800148,
+  "pass_team": "B",
+  "player_team": "B",
+  "frame_team": "B",
+  "track_teams": {
+   "B": 196
+  },
+  "one_is": "B"
+ },
+ "p40": {
+  "match": "p15u-vs-vallentuna-2026-10-03-6cce",
+  "i": 204,
+  "t": 2664.061,
+  "passer": 800857,
+  "pass_team": "A",
+  "player_team": "B",
+  "frame_team": "A",
+  "track_teams": {
+   "B": 160,
+   "A": 112
+  },
+  "one_is": "B"
+ }
+}

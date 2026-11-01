@@ -1,0 +1,98 @@
+{
+ "SFKBP1109": {
+  "broken": 3,
+  "by_check": {
+   "team better-option = sum of players": 2,
+   "players' passes <= team passes": 1
+  },
+  "examples": [
+   {
+    "check": "team better-option = sum of players",
+    "where": "A",
+    "detail": "team 47, players 42"
+   },
+   {
+    "check": "team better-option = sum of players",
+    "where": "B",
+    "detail": "team 33, players 37"
+   },
+   {
+    "check": "players' passes <= team passes",
+    "where": "B",
+    "detail": "players 78 > team 75"
+   }
+  ]
+ },
+ "SFKBP1109_s1200": {
+  "broken": 4,
+  "by_check": {
+   "team sequences = sequences list": 2,
+   "players' passes <= team passes": 1,
+   "match_data restarts = stats restarts": 1
+  },
+  "examples": [
+   {
+    "check": "team sequences = sequences list",
+    "where": "A",
+    "detail": "team says 112, list has 40"
+   },
+   {
+    "check": "team sequences = sequences list",
+    "where": "B",
+    "detail": "team says 102, list has 41"
+   },
+   {
+    "check": "players' passes <= team passes",
+    "where": "B",
+    "detail": "players 32 > team 31"
+   },
+   {
+    "check": "match_data restarts = stats restarts",
+    "where": "",
+    "detail": "31 vs 13"
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "broken": 2,
+  "by_check": {
+   "team better-option = sum of players": 2
+  },
+  "examples": [
+   {
+    "check": "team better-option = sum of players",
+    "where": "A",
+    "detail": "team 31, players 32"
+   },
+   {
+    "check": "team better-option = sum of players",
+    "where": "B",
+    "detail": "team 58, players 54"
+   }
+  ]
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "broken": 3,
+  "by_check": {
+   "team better-option = sum of players": 2,
+   "players' passes <= team passes": 1
+  },
+  "examples": [
+   {
+    "check": "team better-option = sum of players",
+    "where": "A",
+    "detail": "team 117, players 110"
+   },
+   {
+    "check": "team better-option = sum of players",
+    "where": "B",
+    "detail": "team 129, players 132"
+   },
+   {
+    "check": "players' passes <= team passes",
+    "where": "B",
+    "detail": "players 260 > team 256"
+   }
+  ]
+ }
+}
