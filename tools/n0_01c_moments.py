@@ -45,6 +45,21 @@ def box(a, b, W=1920, H=1080, pad=160, min_w=560):
     return [x0, y0, int(w), int(h)]
 
 
+def centres(fr, ts, t0, t1, n=6, W=1920, H=1080, cw=720, ch=405):
+    """run 2: the camera pans, so one fixed box loses the play. Per strip frame a box centred on the exported ball
+    (nearest frame within 0.5 s with a ball pixel; else the last centre; else the passer) -> [x0, y0] top-left"""
+    out, last = [], None
+    for i in range(n):
+        t = t0 + (t1 - t0) * i / (n - 1); j = bisect.bisect_left(ts, t); best = None
+        for k in range(max(0, j - 13), min(len(fr), j + 13)):
+            b = fr[k].get("ball")
+            if b and b.get("px") and abs(fr[k]["t"] - t) <= 0.5 and (best is None or abs(fr[k]["t"] - t) < best[0]): best = (abs(fr[k]["t"] - t), b["px"])
+        c = best[1] if best else last
+        last = c; out.append(c)
+    first = next((c for c in out if c is not None), None)
+    return [[int(min(max((c or first)[0] - cw / 2, 0), W - cw)), int(min(max((c or first)[1] - ch * 0.55, 0), H - ch))] if (c or first) else None for c in out]
+
+
 def usable(st, fr, ts, want_self):
     out = []
     for i, p in enumerate(st["passes"]):
@@ -69,12 +84,13 @@ def build(seed=3):
         S, C = usable(st, fr, ts, True), usable(st, fr, ts, False)
         n_self = sum(p.get("to") is not None and p["from"] == p["to"] for p in st["passes"])
         print(mid, "self passes", n_self, "usable", len(S), "controls usable", len(C))
-        for r in rnd.sample(S, min(ns, len(S))) + rnd.sample(C, min(nc, len(C))): r["match"] = mid; out.append(r)
+        for r in rnd.sample(S, min(ns, len(S))) + rnd.sample(C, min(nc, len(C))):
+            r["match"] = mid; r["tl"] = centres(fr, ts, r["t"] - 0.4, r["t_arr"] + 0.8); out.append(r)
     rnd.shuffle(out); key = {}
     for n, r in enumerate(out):
         r["id"] = f"s{n:02d}"; key[r["id"]] = {k: r[k] for k in ("match", "i", "t", "t_arr", "self", "from", "to", "length_m", "completed")}
     blind = [{"id": r["id"], "match": r["match"], "t0": round(r["t"] - 0.4, 2), "t1": round(r["t_arr"] + 0.8, 2), "t_rel": r["t"],
-              "passer_px": r["passer_px"], "box": r["box"]} for r in out]
+              "passer_px": r["passer_px"], "box": r["box"], "tl": r["tl"]} for r in out]
     return blind, key
 
 

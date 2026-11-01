@@ -1,7 +1,8 @@
 """N0-01c (free runner, $0, nothing on Modal): blind film strips for 'who has the ball after P plays it?'
 (results/qa/n0-01c/moments.json from tools/n0_01c_moments.py; the key is in moments_key.json, not read here).
-Per moment one sheet: 6 frames evenly from t0 to t1 in the moment's crop box, each 640x360, 3 x 2; the passer is ringed
-'P' in the first frame only.
+Per moment one sheet: 6 frames evenly from t0 to t1, 3 x 2; the passer is ringed 'P' in the first frame only.
+Run 1: one fixed crop box (640x360 tiles) - the Veo camera pans, so the play slid out of it. Run 2 (moments with 'tl'):
+a 720x405 box per frame centred on the exported ball, shown 1:1.
 
     R2_PUBLIC_URL=... python tools/n0_01c_frames.py          # free runner
     SRC=some.mp4 python tools/n0_01c_frames.py              # dry run: one local video stands in for every match
@@ -11,6 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 IN = os.environ.get("IN", "results/qa/n0-01c/moments.json")
 OUT = os.environ.get("OUT", "results/free/n0_01c")
 TW, TH, N = 640, 360, 6
+CW, CH = 720, 405          # run 2: per-frame box of this size at m['tl'][i] (centred on the exported ball), shown 1:1
 
 
 def times(m, n=N):
@@ -19,7 +21,9 @@ def times(m, n=N):
 
 def tile(cv, f, m, i, dt):
     if f.shape[:2] != (1080, 1920): f = cv.resize(f, (1920, 1080))
-    x0, y0, w, h = m["box"]; im = cv.resize(f[y0:y0 + h, x0:x0 + w], (TW, TH), interpolation=cv.INTER_CUBIC); s = TW / w
+    if m.get("tl") and m["tl"][i]: (x0, y0), w, h = m["tl"][i], CW, CH
+    else: x0, y0, w, h = m["box"]
+    tw = CW if m.get("tl") else TW; im = cv.resize(f[y0:y0 + h, x0:x0 + w], (tw, int(tw * h / w)), interpolation=cv.INTER_CUBIC); s = tw / w
     if i == 0:
         p = (int((m["passer_px"][0] - x0) * s), int((m["passer_px"][1] - y0) * s))
         cv.circle(im, p, int(18 * s) + 6, (0, 0, 255), 2, cv.LINE_AA)

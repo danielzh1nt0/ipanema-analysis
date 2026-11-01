@@ -1,4 +1,5 @@
 tools/n0_01c_frames.py
+# Sun Nov  1 08:33:34 UTC 2026 N0-01c run 2: same strips with a box per frame centred on the exported ball (run 1's fixed box lost the play when the camera panned) - free runner only, nothing on Modal
 # Sun Nov  1 08:27:02 UTC 2026 N0-01c: blind film strips of 'passes to himself' (from == to) mixed with normal passes on SFK-BP and Vallentuna - free runner only, nothing on Modal
 # Sun Nov  1 04:28:13 UTC 2026 N0-01b: blind picture sheets of 41 passes (passer's team in the player list vs the pass's team) on SFK-BP and Vallentuna - free runner only, nothing on Modal
 # Sat Oct 31 16:48:10 UTC 2026 N0-31e run 2: same sheets at the right times (run 1 cut them at frame index / 10, not the frame's time) - free runner only, nothing on Modal
