@@ -19,3 +19,4 @@ manual Wed Oct 28 10:43:03 UTC 2026 - N0-28c: re-run after the stall-proof strea
 manual Thu Oct 29 04:22:13 UTC 2026 - N0-29b: backup nightly (no 29 Oct card by 04:20 UTC)
 manual Fri Oct 30 04:22:08 UTC 2026 - N0-30b: backup nightly (no 30 Oct card by 04:20 UTC)
 manual Sat Oct 31 04:21:50 UTC 2026 - N0-31b: backup nightly (no 31 Oct card by 04:20 UTC)
+manual Sun Nov  1 04:22:52 UTC 2026 - N0-01b: backup nightly (no 1 Nov card by 04:20 UTC)
