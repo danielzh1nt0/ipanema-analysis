@@ -37,27 +37,62 @@ def _dump(obj, path, **kw):
     """3 Oct: write JSON and close the file (the old one-liners left handles open until garbage collection)"""
     with open(path, "w") as fh: json.dump(obj, fh, default=_json_default, **kw)
 
+# N0-01a (1 Nov): event subtitles in plain words. The old f-strings printed Python's None ('0.87 s · gain None m' on 9 of
+# the SFK-BP clip's sequence ends) and '— s' / '— within 5 m' for a missing value (~60-90% of the lost / won balls in the
+# app copies: 'press — s'). Now a missing value drops its part or says what did not happen. Payloads are unchanged.
+def _num(v, nd=1):
+    if v is None: return None
+    try: x = float(v)
+    except (TypeError, ValueError): return None
+    if x != x or x in (float("inf"), float("-inf")): return None
+    x = round(x, nd); return str(int(x)) if x == int(x) else str(x)
+
+def _join(parts): return " · ".join(p for p in parts if p)
+
+def lost_subtitle(t):
+    ttp, near = _num(t.get("time_to_press"), 2), t.get("near_at_2s")
+    return _join([f"pressed after {ttp} s" if ttp is not None else "not pressed within 8 s",
+                  (f"{int(near)} opponent{'s' if int(near) != 1 else ''} within 5 m at 2 s" if near is not None else None),
+                  "won back within 5 s" if t.get("regained_within_5s") else "not won back"])
+
+def won_subtitle(t):
+    tf, g = _num(t.get("time_to_forward_pass"), 2), _num(t.get("gain_5s_m"))
+    return _join([f"forward pass after {tf} s" if tf is not None else "no forward pass within 8 s",
+                  (_gain5(float(g)) if g is not None else None)])
+
+def _gain5(g):
+    if abs(g) < 0.5: return "ball no further forward in 5 s"
+    return f"ball {_num(abs(g))} m {'forward' if g > 0 else 'back'} in 5 s"
+
+def pass_subtitle(p):
+    ln, g = _num(p.get("length_m")), _num(p.get("gain_m"))
+    return _join([f"{ln} m" if ln is not None else None, f"gain {g} m" if g is not None else None])
+
+def sequence_subtitle(s):
+    d, g = _num(s.get("duration_s")), _num(s.get("gain_m"))
+    return _join([f"{d} s" if d is not None else None, f"gain {g} m" if g is not None else None])
+
 def events(turnovers_, passes_, restarts_, sequences_, fps):
     ev = []
     for t in turnovers_:
         rx = t.get("reactions", {})
         ev.append({"id": f"lost_{t['frame']}", "t": t["t"], "type": "turnover_lost", "team": t["lost_by"], "title": f"{t['lost_by']} lost the ball",
-                   "subtitle": f"press {t['time_to_press'] if t['time_to_press'] is not None else '—'} s · {t['near_at_2s'] if t['near_at_2s'] is not None else '—'} within 5 m · {'regained' if t['regained_within_5s'] else 'not regained'}",
+                   "subtitle": lost_subtitle(t),
                    "payload": {k: t.get(k) for k in ("time_to_press", "near_at_2s", "regained_within_5s", "ball_m_before_press")} | {"reactions": rx, "press_r_m": 2.0, "near_r_m": 5.0,
                                "pressed_within_2s": bool(t["time_to_press"] is not None and t["time_to_press"] <= 2.0), "t_won": t.get("t_won"), "frame_won": t.get("frame")}})   # 3 Oct: per-event values the UI lists
         ev.append({"id": f"won_{t['frame']}", "t": t["t"], "type": "turnover_won", "team": t["won_by"], "title": f"{t['won_by']} won the ball",
-                   "subtitle": f"forward pass {t['time_to_forward_pass'] if t['time_to_forward_pass'] is not None else '—'} s · {t['gain_5s_m'] if t['gain_5s_m'] is not None else '—'} m in 5 s",
+                   "subtitle": won_subtitle(t),
                    "payload": {k: t.get(k) for k in ("time_to_forward_pass", "gain_5s_m", "lost_back_5s")} | {"forward_within_3s": bool(t["time_to_forward_pass"] is not None and t["time_to_forward_pass"] <= 3.0), "t_won": t.get("t_won")}})
     for p in passes_:
         if p["quality"] in ("bad_lost", "risky_completed") or p.get("better_option"):
             typ = "better_option" if p.get("better_option") else ("pass_bad" if p["quality"] == "bad_lost" else "pass_risky")
             ev.append({"id": f"pass_{p['t']}_{p['from']}", "t": p["t"], "type": typ, "team": p["team"], "title": f"pass {p['from']} → {p['to']} · {p['kind']} · {p['quality'].replace('_', ' ')}",
-                       "subtitle": (f"better option → {p['best_to']} (open, beats {p['best_bypassed']}, {p['best_space_m']} m space)" if p.get("better_option") else f"{p['length_m']} m, gain {p['gain_m']} m"), "payload": p})
+                       "subtitle": (f"better option → {p['best_to']} (open, beats {p['best_bypassed']}, {p['best_space_m']} m space)" if p.get("better_option") else pass_subtitle(p)), "payload": p})
     for r in restarts_:
-        ev.append({"id": f"restart_{r['t']}", "t": r["t"], "type": "set_piece", "team": r["team"], "title": f"{r['kind']} · {r['team'] or '—'}", "subtitle": "", "payload": r})
+        ev.append({"id": f"restart_{r['t']}", "t": r["t"], "type": "set_piece", "team": r["team"], "title": f"{r['kind']} · {r['team']}" if r.get("team") else f"{r['kind']}", "subtitle": "", "payload": r})
     for s in sequences_:
         if s["end_reason"] in ("pass intercepted", "dispossessed"):
-            ev.append({"id": f"seq_{s['start']}", "t": s["t_end"], "type": "sequence_end", "team": s["team"], "title": f"{s['team']} sequence ended · {s['end_reason']}", "subtitle": f"{s['duration_s']} s · gain {s['gain_m']} m", "payload": s})
+            ev.append({"id": f"seq_{s['start']}", "t": s["t_end"], "type": "sequence_end", "team": s["team"], "title": f"{s['team']} sequence ended · {s['end_reason']}", "subtitle": sequence_subtitle(s), "payload": s})
     seen = set(); ev = [e for e in ev if not (e["id"] in seen or seen.add(e["id"]))]
     return sorted(ev, key=lambda e: e["t"])
 

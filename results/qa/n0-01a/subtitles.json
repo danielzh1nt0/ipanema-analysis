@@ -1,0 +1,572 @@
+{
+ "SFKBP1109": {
+  "events": 751,
+  "by_type": {
+   "turnover_lost": {
+    "n": 146,
+    "old_bad": 123,
+    "new_bad": 0,
+    "changed": 146
+   },
+   "turnover_won": {
+    "n": 146,
+    "old_bad": 82,
+    "new_bad": 0,
+    "changed": 146
+   },
+   "set_piece": {
+    "n": 66,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 26
+   },
+   "sequence_end": {
+    "n": 133,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 111
+   },
+   "better_option": {
+    "n": 211,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "shot": {
+    "n": 6,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "high_turnover": {
+    "n": 37,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "pass_risky": {
+    "n": 5,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 5
+   },
+   "goal": {
+    "n": 1,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   }
+  },
+  "old_bad": 205,
+  "new_bad": 0,
+  "examples": [
+   {
+    "type": "turnover_lost",
+    "t": 591.96,
+    "old": "A lost the ball | press 2.87 s · 1 within 5 m · not regained",
+    "new": "A lost the ball | pressed after 2.87 s · 1 opponent within 5 m at 2 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 591.96,
+    "old": "B won the ball | forward pass — s · 23.7 m in 5 s",
+    "new": "B won the ball | no forward pass within 8 s · ball 23.7 m forward in 5 s"
+   },
+   {
+    "type": "sequence_end",
+    "t": 591.96,
+    "old": "A sequence ended · dispossessed | 37.0 s · gain 0.3 m",
+    "new": "A sequence ended · dispossessed | 37 s · gain 0.3 m"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 595.26,
+    "old": "B lost the ball | press 3.2 s · 0 within 5 m · not regained",
+    "new": "B lost the ball | pressed after 3.2 s · 0 opponents within 5 m at 2 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 595.26,
+    "old": "A won the ball | forward pass 3.07 s · 2.0 m in 5 s",
+    "new": "A won the ball | forward pass after 3.07 s · ball 2 m forward in 5 s"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 611.28,
+    "old": "A lost the ball | press 5.31 s · — within 5 m · not regained",
+    "new": "A lost the ball | pressed after 5.31 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 611.28,
+    "old": "B won the ball | forward pass — s · -3.1 m in 5 s",
+    "new": "B won the ball | no forward pass within 8 s · ball 3.1 m back in 5 s"
+   },
+   {
+    "type": "sequence_end",
+    "t": 611.28,
+    "old": "A sequence ended · pass intercepted | 12.45 s · gain 14.0 m",
+    "new": "A sequence ended · pass intercepted | 12.4 s · gain 14 m"
+   },
+   {
+    "type": "sequence_end",
+    "t": 638.04,
+    "old": "B sequence ended · pass intercepted | 1.03 s · gain -3.6 m",
+    "new": "B sequence ended · pass intercepted | 1 s · gain -3.6 m"
+   },
+   {
+    "type": "set_piece",
+    "t": 665.5,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "set_piece",
+    "t": 782.62,
+    "old": "throw-in · — | ",
+    "new": "throw-in | "
+   },
+   {
+    "type": "pass_risky",
+    "t": 814.75,
+    "old": "pass 200725 → 200786 · forward · risky completed | 7.5 m, gain 6.6 m",
+    "new": "pass 200725 → 200786 · forward · risky completed | 7.5 m · gain 6.6 m"
+   },
+   {
+    "type": "set_piece",
+    "t": 861.16,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "pass_risky",
+    "t": 1746.64,
+    "old": "pass 500658 → 500619 · forward · risky completed | 23.5 m, gain 23.3 m",
+    "new": "pass 500658 → 500619 · forward · risky completed | 23.5 m · gain 23.3 m"
+   },
+   {
+    "type": "pass_risky",
+    "t": 1926.29,
+    "old": "pass 600317 → 600342 · backward · risky completed | 13.8 m, gain -12.5 m",
+    "new": "pass 600317 → 600342 · backward · risky completed | 13.8 m · gain -12.5 m"
+   }
+  ]
+ },
+ "SFKBP1109_s1200": {
+  "events": 183,
+  "by_type": {
+   "set_piece": {
+    "n": 31,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 3
+   },
+   "sequence_end": {
+    "n": 14,
+    "old_bad": 9,
+    "new_bad": 0,
+    "changed": 12
+   },
+   "better_option": {
+    "n": 133,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "pass_risky": {
+    "n": 2,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 2
+   },
+   "shot": {
+    "n": 1,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "turnover_lost": {
+    "n": 1,
+    "old_bad": 1,
+    "new_bad": 0,
+    "changed": 1
+   },
+   "turnover_won": {
+    "n": 1,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 1
+   }
+  },
+  "old_bad": 10,
+  "new_bad": 0,
+  "examples": [
+   {
+    "type": "set_piece",
+    "t": 1.87,
+    "old": "throw-in · — | ",
+    "new": "throw-in | "
+   },
+   {
+    "type": "sequence_end",
+    "t": 7.51,
+    "old": "A sequence ended · pass intercepted | 0.87 s · gain None m",
+    "new": "A sequence ended · pass intercepted | 0.9 s"
+   },
+   {
+    "type": "pass_risky",
+    "t": 24.72,
+    "old": "pass 113 → 10 · forward · risky completed | 19.0 m, gain 16.6 m",
+    "new": "pass 113 → 10 · forward · risky completed | 19 m · gain 16.6 m"
+   },
+   {
+    "type": "sequence_end",
+    "t": 25.16,
+    "old": "B sequence ended · pass intercepted | 0.5 s · gain None m",
+    "new": "B sequence ended · pass intercepted | 0.5 s"
+   },
+   {
+    "type": "pass_risky",
+    "t": 70.77,
+    "old": "pass 1828 → 113 · forward · risky completed | 29.5 m, gain 29.4 m",
+    "new": "pass 1828 → 113 · forward · risky completed | 29.5 m · gain 29.4 m"
+   },
+   {
+    "type": "sequence_end",
+    "t": 107.44,
+    "old": "B sequence ended · pass intercepted | 3.64 s · gain 8.1 m",
+    "new": "B sequence ended · pass intercepted | 3.6 s · gain 8.1 m"
+   },
+   {
+    "type": "set_piece",
+    "t": 162.06,
+    "old": "corner · — | ",
+    "new": "corner | "
+   },
+   {
+    "type": "set_piece",
+    "t": 237.97,
+    "old": "throw-in · — | ",
+    "new": "throw-in | "
+   },
+   {
+    "type": "turnover_lost",
+    "t": 278.18,
+    "old": "B lost the ball | press 0.03 s · — within 5 m · not regained",
+    "new": "B lost the ball | pressed after 0.03 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 278.18,
+    "old": "A won the ball | forward pass 1.0 s · 6.3 m in 5 s",
+    "new": "A won the ball | forward pass after 1 s · ball 6.3 m forward in 5 s"
+   }
+  ]
+ },
+ "p15u-vs-aik-2026-09-21-bd09": {
+  "events": 838,
+  "by_type": {
+   "turnover_lost": {
+    "n": 162,
+    "old_bad": 145,
+    "new_bad": 0,
+    "changed": 162
+   },
+   "turnover_won": {
+    "n": 162,
+    "old_bad": 78,
+    "new_bad": 0,
+    "changed": 162
+   },
+   "sequence_end": {
+    "n": 133,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 112
+   },
+   "better_option": {
+    "n": 275,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "set_piece": {
+    "n": 42,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 16
+   },
+   "high_turnover": {
+    "n": 43,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "pass_risky": {
+    "n": 5,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 5
+   },
+   "shot": {
+    "n": 14,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "goal": {
+    "n": 2,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   }
+  },
+  "old_bad": 223,
+  "new_bad": 0,
+  "examples": [
+   {
+    "type": "turnover_lost",
+    "t": 368.94,
+    "old": "A lost the ball | press — s · 0 within 5 m · not regained",
+    "new": "A lost the ball | not pressed within 8 s · 0 opponents within 5 m at 2 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 368.94,
+    "old": "B won the ball | forward pass 3.0 s · 0.0 m in 5 s",
+    "new": "B won the ball | forward pass after 3 s · ball no further forward in 5 s"
+   },
+   {
+    "type": "sequence_end",
+    "t": 368.94,
+    "old": "A sequence ended · dispossessed | 2.97 s · gain -9.9 m",
+    "new": "A sequence ended · dispossessed | 3 s · gain -9.9 m"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 429.03,
+    "old": "B lost the ball | press — s · — within 5 m · not regained",
+    "new": "B lost the ball | not pressed within 8 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 429.03,
+    "old": "A won the ball | forward pass — s · 5.6 m in 5 s",
+    "new": "A won the ball | no forward pass within 8 s · ball 5.6 m forward in 5 s"
+   },
+   {
+    "type": "sequence_end",
+    "t": 429.03,
+    "old": "B sequence ended · pass intercepted | 60.09 s · gain 6.8 m",
+    "new": "B sequence ended · pass intercepted | 60.1 s · gain 6.8 m"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 435.13,
+    "old": "A lost the ball | press — s · — within 5 m · not regained",
+    "new": "A lost the ball | not pressed within 8 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 435.13,
+    "old": "B won the ball | forward pass — s · -1.7 m in 5 s",
+    "new": "B won the ball | no forward pass within 8 s · ball 1.7 m back in 5 s"
+   },
+   {
+    "type": "sequence_end",
+    "t": 435.13,
+    "old": "A sequence ended · dispossessed | 6.11 s · gain -0.5 m",
+    "new": "A sequence ended · dispossessed | 6.1 s · gain -0.5 m"
+   },
+   {
+    "type": "pass_risky",
+    "t": 539.11,
+    "old": "pass 101224 → 101191 · forward · risky completed | 42.2 m, gain 37.3 m",
+    "new": "pass 101224 → 101191 · forward · risky completed | 42.2 m · gain 37.3 m"
+   },
+   {
+    "type": "set_piece",
+    "t": 565.7,
+    "old": "throw-in · — | ",
+    "new": "throw-in | "
+   },
+   {
+    "type": "set_piece",
+    "t": 691.36,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "pass_risky",
+    "t": 797.33,
+    "old": "pass 200661 → 200616 · sideways · risky completed | 20.6 m, gain -2.0 m",
+    "new": "pass 200661 → 200616 · sideways · risky completed | 20.6 m · gain -2 m"
+   },
+   {
+    "type": "set_piece",
+    "t": 820.69,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "pass_risky",
+    "t": 975.47,
+    "old": "pass 300278 → 300255 · forward · risky completed | 23.9 m, gain 21.9 m",
+    "new": "pass 300278 → 300255 · forward · risky completed | 23.9 m · gain 21.9 m"
+   }
+  ]
+ },
+ "p15u-vs-vallentuna-2026-10-03-6cce": {
+  "events": 1294,
+  "by_type": {
+   "set_piece": {
+    "n": 118,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 36
+   },
+   "sequence_end": {
+    "n": 314,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 277
+   },
+   "turnover_lost": {
+    "n": 270,
+    "old_bad": 229,
+    "new_bad": 0,
+    "changed": 270
+   },
+   "turnover_won": {
+    "n": 270,
+    "old_bad": 96,
+    "new_bad": 0,
+    "changed": 270
+   },
+   "high_turnover": {
+    "n": 57,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "better_option": {
+    "n": 246,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "shot": {
+    "n": 11,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   },
+   "pass_risky": {
+    "n": 3,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 3
+   },
+   "goal": {
+    "n": 5,
+    "old_bad": 0,
+    "new_bad": 0,
+    "changed": 0
+   }
+  },
+  "old_bad": 325,
+  "new_bad": 0,
+  "examples": [
+   {
+    "type": "sequence_end",
+    "t": 479.35,
+    "old": "B sequence ended · dispossessed | 15.32 s · gain 1.6 m",
+    "new": "B sequence ended · dispossessed | 15.3 s · gain 1.6 m"
+   },
+   {
+    "type": "sequence_end",
+    "t": 497.2,
+    "old": "B sequence ended · dispossessed | 15.15 s · gain 52.1 m",
+    "new": "B sequence ended · dispossessed | 15.2 s · gain 52.1 m"
+   },
+   {
+    "type": "sequence_end",
+    "t": 499.93,
+    "old": "A sequence ended · pass intercepted | 2.74 s · gain -14.5 m",
+    "new": "A sequence ended · pass intercepted | 2.7 s · gain -14.5 m"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 506.31,
+    "old": "B lost the ball | press — s · — within 5 m · regained",
+    "new": "B lost the ball | not pressed within 8 s · won back within 5 s"
+   },
+   {
+    "type": "turnover_won",
+    "t": 506.31,
+    "old": "A won the ball | forward pass 2.44 s · -8.6 m in 5 s",
+    "new": "A won the ball | forward pass after 2.44 s · ball 8.6 m back in 5 s"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 510.08,
+    "old": "A lost the ball | press 4.14 s · — within 5 m · not regained",
+    "new": "A lost the ball | pressed after 4.14 s · not won back"
+   },
+   {
+    "type": "turnover_won",
+    "t": 510.08,
+    "old": "B won the ball | forward pass 4.04 s · 5.3 m in 5 s",
+    "new": "B won the ball | forward pass after 4.04 s · ball 5.3 m forward in 5 s"
+   },
+   {
+    "type": "turnover_lost",
+    "t": 550.68,
+    "old": "B lost the ball | press 7.71 s · — within 5 m · regained",
+    "new": "B lost the ball | pressed after 7.71 s · won back within 5 s"
+   },
+   {
+    "type": "turnover_won",
+    "t": 550.68,
+    "old": "A won the ball | forward pass 4.27 s · 25.2 m in 5 s",
+    "new": "A won the ball | forward pass after 4.27 s · ball 25.2 m forward in 5 s"
+   },
+   {
+    "type": "set_piece",
+    "t": 649.92,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "set_piece",
+    "t": 686.02,
+    "old": "stoppage · — | ",
+    "new": "stoppage | "
+   },
+   {
+    "type": "set_piece",
+    "t": 786.19,
+    "old": "throw-in · — | ",
+    "new": "throw-in | "
+   },
+   {
+    "type": "pass_risky",
+    "t": 1413.38,
+    "old": "pass 400493 → 400724 · forward · risky completed | 25.9 m, gain 25.5 m",
+    "new": "pass 400493 → 400724 · forward · risky completed | 25.9 m · gain 25.5 m"
+   },
+   {
+    "type": "pass_risky",
+    "t": 4095.72,
+    "old": "pass 1300681 → 1300740 · forward · risky completed | 18.8 m, gain 4.6 m",
+    "new": "pass 1300681 → 1300740 · forward · risky completed | 18.8 m · gain 4.6 m"
+   },
+   {
+    "type": "pass_risky",
+    "t": 4285.51,
+    "old": "pass 1400315 → 1400359 · forward · risky completed | 22.9 m, gain 19.4 m",
+    "new": "pass 1400315 → 1400359 · forward · risky completed | 22.9 m · gain 19.4 m"
+   }
+  ]
+ }
+}

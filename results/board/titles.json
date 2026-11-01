@@ -132,5 +132,6 @@
  "N0-31b": "Morning check + shot spots vs attack direction",
  "N0-31c": "Morning check + SFK-BP half-time / kick-off / full time by eye",
  "N0-31d": "Morning check + AIK match start / half-time / full time by eye",
- "N0-31e": "Final-third entries: skip balls off the pitch (checked by eye)"
+ "N0-31e": "Final-third entries: skip balls off the pitch (checked by eye)",
+ "N0-01a": "Event subtitles in plain words (no 'None' or bare dashes)"
 }
