@@ -1,7 +1,7 @@
 {
- "date": "2026-11-01",
+ "date": "2026-11-02",
  "tests": {
-  "total": 204,
+  "total": 208,
   "failed": []
  },
  "ball_34_moments": {
@@ -10,7 +10,7 @@
   "best_possible": 25
  },
  "stats_pro_data": {
-  "worst_pass_err_pct": 15,
+  "worst_pass_err_pct": 17,
   "worst_poss_err_pts": 8,
   "worst_poss_err_seen_pts": 4.1,
   "possession_model": "simple",
@@ -21,7 +21,7 @@
     "game": "1",
     "half": 1,
     "noise": "False",
-    "pass_err_pct": 15,
+    "pass_err_pct": 13,
     "poss_err_pts": 6,
     "poss_err_seen_pts": 3.9,
     "seq_truth": 200,
@@ -34,7 +34,7 @@
     "game": "1",
     "half": 1,
     "noise": "streak",
-    "pass_err_pct": 6,
+    "pass_err_pct": 12,
     "poss_err_pts": 8,
     "poss_err_seen_pts": 4.0,
     "seq_truth": 200,
@@ -47,7 +47,7 @@
     "game": "1",
     "half": 2,
     "noise": "False",
-    "pass_err_pct": 10,
+    "pass_err_pct": 9,
     "poss_err_pts": 5,
     "poss_err_seen_pts": 2.1,
     "seq_truth": 159,
@@ -60,7 +60,7 @@
     "game": "1",
     "half": 2,
     "noise": "streak",
-    "pass_err_pct": 9,
+    "pass_err_pct": 5,
     "poss_err_pts": 7,
     "poss_err_seen_pts": 2.0,
     "seq_truth": 159,
@@ -86,7 +86,7 @@
     "game": "2",
     "half": 1,
     "noise": "streak",
-    "pass_err_pct": 9,
+    "pass_err_pct": 14,
     "poss_err_pts": 5,
     "poss_err_seen_pts": 0.6,
     "seq_truth": 181,
@@ -112,7 +112,7 @@
     "game": "2",
     "half": 2,
     "noise": "streak",
-    "pass_err_pct": 11,
+    "pass_err_pct": 17,
     "poss_err_pts": 6,
     "poss_err_seen_pts": 3.5,
     "seq_truth": 154,
