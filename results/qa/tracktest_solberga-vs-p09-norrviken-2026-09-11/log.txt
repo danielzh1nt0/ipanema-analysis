@@ -1738,3 +1738,15 @@
 06:15:16 clean: players per frame median A 7 / B 8, max A 9 / B 10
 06:15:16 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.77, 'light': 3.4}, 'minutes': 15.4, 'filled_rows': 112}
 07:01:43 opencv 4.10.0
+07:01:45 clip streamed (4250 MB)
+07:01:46 clip olberga-vs-p09-norrviken-2026-09-11/video.mp4: 218203 frames @ 29.97
+07:01:55 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+07:02:58 kits: per-player classifier from 493 on-pitch people, 0 of 15 runs kept -> colour only
+07:02:58 kits: learned from 583 people (515 off the pitch left out), group sizes [244, 225, 79, 35], light frame (shade spread 1.3), default fit leaves out a group at 0.64 x the team gap, far pair moves a team by 0.0
+07:02:58 off-pitch people dropped by the pitch-edge test: yes
+07:03:02   tracking frame 0
+07:03:54   tracking frame 50 (1.0 frames/s)
+07:04:45   tracking frame 100 (1.0 frames/s)
+07:05:37   tracking frame 150 (1.0 frames/s)
+07:06:29   tracking frame 200 (1.0 frames/s)
+07:07:20   tracking frame 250 (1.0 frames/s)
