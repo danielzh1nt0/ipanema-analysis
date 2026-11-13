@@ -583,3 +583,13 @@
 07:14:51 clean: players per frame median A 8 / B 8, max A 10 / B 12
 07:14:51 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 8.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 40, 'median_track_s': {'dark': 13.41, 'light': 1.63}, 'minutes': 12.8, 'filled_rows': 179}
 06:28:20 opencv 4.10.0
+06:28:22 clip streamed (4086 MB)
+06:28:23 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
+06:28:31 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+06:29:54 kits: per-player classifier from 608 on-pitch people, 0 of 15 runs kept -> colour only
+06:29:54 kits: learned from 898 people (136 off the pitch left out), group sizes [306, 286, 275, 31], light frame (shade spread 1.4), default fit leaves out a group at 0.70 x the team gap, far pair moves a team by 0.0
+06:29:54 off-pitch people dropped by the pitch-edge test: yes
+06:29:59   tracking frame 0
+06:31:18   tracking frame 50 (0.6 frames/s)
+06:32:37   tracking frame 100 (0.6 frames/s)
+06:33:56   tracking frame 150 (0.6 frames/s)
