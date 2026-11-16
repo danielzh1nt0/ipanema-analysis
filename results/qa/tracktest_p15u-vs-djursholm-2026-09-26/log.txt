@@ -657,3 +657,28 @@
 06:30:42 clean: dropped 42 off-pitch, merged 330 duplicates, stitched 50 ids, keepers [] -> A defends left
 06:30:42 clean: players per frame median A 8 / B 8, max A 10 / B 12
 06:30:42 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 8.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 40, 'median_track_s': {'dark': 13.41, 'light': 1.63}, 'minutes': 15.6, 'filled_rows': 179}
+06:12:34 opencv 4.10.0
+06:12:37 clip streamed (4086 MB)
+06:12:38 clip r2.dev/p15u-vs-djursholm-2026-09-26/video.mp4: 214108 frames @ 29.97
+06:12:45 no calibration for this ground: positions are screen positions (checks detection, kits, tracking only)
+06:13:38 kits: per-player classifier from 608 on-pitch people, 0 of 15 runs kept -> colour only
+06:13:38 kits: learned from 898 people (136 off the pitch left out), group sizes [306, 286, 275, 31], light frame (shade spread 1.4), default fit leaves out a group at 0.70 x the team gap, far pair moves a team by 0.0
+06:13:38 off-pitch people dropped by the pitch-edge test: yes
+06:13:42   tracking frame 0
+06:14:25   tracking frame 50 (1.1 frames/s)
+06:15:08   tracking frame 100 (1.1 frames/s)
+06:15:52   tracking frame 150 (1.1 frames/s)
+06:16:36   tracking frame 200 (1.1 frames/s)
+06:17:20   tracking frame 250 (1.1 frames/s)
+06:18:04   tracking frame 300 (1.1 frames/s)
+06:18:48   tracking frame 350 (1.1 frames/s)
+06:19:32   tracking frame 400 (1.1 frames/s)
+06:20:15   tracking frame 450 (1.1 frames/s)
+06:20:59   tracking frame 500 (1.1 frames/s)
+06:21:44   tracking frame 550 (1.1 frames/s)
+06:22:26 no calibration: keeper-by-goalmouth rules off (screen edges are not goalmouths)
+06:22:26 clean: 1 people living on or by the lines dropped (bench, coaches, stand)
+06:22:26 clean: removed 4486 rows of non-team kits (referee / staff)
+06:22:26 clean: dropped 42 off-pitch, merged 330 duplicates, stitched 50 ids, keepers [] -> A defends left
+06:22:26 clean: players per frame median A 8 / B 8, max A 10 / B 12
+06:22:26 new, RF-DETR: {'observed_per_frame': {'dark': 8.0, 'light': 8.0}, 'shown_per_frame': {'dark': 8.0, 'light': 8.0}, 'tracks': 40, 'median_track_s': {'dark': 13.41, 'light': 1.63}, 'minutes': 9.7, 'filled_rows': 179}
