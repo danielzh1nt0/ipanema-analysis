@@ -1937,3 +1937,4 @@
 07:26:02 clean: dropped 77 off-pitch, merged 96 duplicates, stitched 13 ids, keepers [] -> A defends left
 07:26:02 clean: players per frame median A 7 / B 8, max A 9 / B 10
 07:26:02 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 8.0}, 'shown_per_frame': {'dark': 7.0, 'light': 8.0}, 'tracks': 44, 'median_track_s': {'dark': 2.77, 'light': 3.4}, 'minutes': 10.8, 'filled_rows': 112}
+07:02:15 opencv 4.10.0
