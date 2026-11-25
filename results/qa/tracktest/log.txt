@@ -911,3 +911,16 @@
 10:00:04 clean: players per frame median A 7 / B 7, max A 9 / B 9
 10:00:04 new, RF-DETR: {'observed_per_frame': {'dark': 7.0, 'light': 7.0}, 'shown_per_frame': {'dark': 8.0, 'light': 7.0}, 'tracks': 35, 'median_track_s': {'dark': 7.82, 'light': 9.38}, 'minutes': 15.1, 'filled_rows': 124}
 08:18:55 opencv 4.10.0
+08:19:04 clip downloaded whole (301 MB)
+08:19:04 clip /tmp/clip.mp4: 8992 frames @ 29.97
+08:19:10 calibration: from the line model, 100% of frames trusted (lines drawn); 0 frames bridged or borrowed, no drawn lines
+08:19:10 before: {'observed_per_frame': {'dark': 5.0, 'light': 9.0}, 'shown_per_frame': {'dark': 5.0, 'light': 9.0}, 'tracks': 91, 'median_track_s': {'dark': 0.48, 'light': 2.2}}
+08:20:05 kits: per-player classifier from 386 on-pitch people, 0 of 15 runs kept -> colour only
+08:20:05 kits: learned from 348 people (464 off the pitch left out), group sizes [136, 112, 84, 16], light frame (shade spread 1.2), default fit leaves out a group at 0.28 x the team gap, far pair moves a team by 8.7
+08:20:05 off-pitch people dropped by the pitch-edge test: no
+08:20:08   tracking frame 0
+08:21:05   tracking frame 50 (0.9 frames/s)
+08:22:00   tracking frame 100 (0.9 frames/s)
+08:22:56   tracking frame 150 (0.9 frames/s)
+08:23:52   tracking frame 200 (0.9 frames/s)
+08:24:48   tracking frame 250 (0.9 frames/s)
